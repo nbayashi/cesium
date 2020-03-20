@@ -11,7 +11,7 @@
     "dependencies": {
         "express": "~4.9.x",
         "compression": "1.0.8",
-        "request": "2.36.0",
+        "request": "2.88.2",
         "yargs": "1.2.6"
     },
     "engines": {
