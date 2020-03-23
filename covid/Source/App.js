@@ -1,7 +1,8 @@
 var viewer = new Cesium.Viewer('cesiumContainer');
-viewer.dataSources.add(Cesium.GeoJsonDataSource.load('pref_covid.geojson', {
-  stroke: Cesium.Color.HOTPINK,
-  fill: Cesium.Color.PINK,
-  strokeWidth: 3,
-  markerSymbol: '?'
-}));
+var dataSource = Cesium.GeoJsonDataSource.load('https://nbayashi.github.io/cesium/covid/Source/line.geojson',{
+  stroke:Cesium.Color.PINK,
+    strokeWidth:5
+});
+viewer.dataSources.add(dataSource);
+viewer.zoomTo(dataSource);
+
