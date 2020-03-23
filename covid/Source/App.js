@@ -1,5 +1,5 @@
 var viewer = new Cesium.Viewer('cesiumContainer');
-var dataSource = Cesium.GeoJsonDataSource.load('https://nbayashi.github.io/cesium/covid/Source/line.geojson',{
+var dataSource = Cesium.GeoJsonDataSource.load('https://nbayashi.github.io/cesium/covid/Source/buffer10.geojson',{
   stroke:Cesium.Color.PINK,
     strokeWidth:5
 });
