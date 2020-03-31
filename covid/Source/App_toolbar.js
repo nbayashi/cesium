@@ -1,5 +1,4 @@
-function startup(Cesium) {
-    'use strict';
+
 //Sandcastle_Begin
 var viewer = new Cesium.Viewer('cesiumContainer', {
     shouldAnimate : true
@@ -239,14 +238,6 @@ Sandcastle.addToolbarButton('うち死亡', function() {
 
 
 });
-
-Sandcastle.reset = function() {
-    viewer.dataSources.removeAll();
-};
-//Sandcastle_End
-    Sandcastle.finishedLoading();
-}
-
 
 //Reset the scene when switching demos.
 Sandcastle.reset = function() {
