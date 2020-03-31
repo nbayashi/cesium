@@ -1,4 +1,10 @@
-var viewer = new Cesium.Viewer('cesiumContainer');
+function startup(Cesium) {
+    'use strict';
+//Sandcastle_Begin
+var viewer = new Cesium.Viewer('cesiumContainer', {
+    shouldAnimate : true
+});
+
 
 var promise = Cesium.GeoJsonDataSource.load('https://nbayashi.github.io/cesium/covid/Source/buffer10.geojson');
   viewer.dataSources.add(promise);
@@ -233,6 +239,13 @@ Sandcastle.addToolbarButton('うち死亡', function() {
 
 
 });
+
+Sandcastle.reset = function() {
+    viewer.dataSources.removeAll();
+};
+//Sandcastle_End
+    Sandcastle.finishedLoading();
+}
 
 
 //Reset the scene when switching demos.
