@@ -29,7 +29,6 @@ var viewer = new Cesium.Viewer('cesiumContainer');
             var entity = entities[i];
             var name = entity.properties.name;
             var color = colorhash[name];
-            if (!color){
             if (entity.properties.累積3月19日の状況　== 0){
                 color = Cesium.Color.MAROON.withAlpha(0.5);
                 colorhash[name] = color;
@@ -37,7 +36,7 @@ var viewer = new Cesium.Viewer('cesiumContainer');
                   color =   Cesium.Color.CRIMSON;
               colorhash[name] = color;
             }
-        }
+        
             //Set the polygon material to our random color.
             entity.polygon.material = color;
             //Remove the outlines.
