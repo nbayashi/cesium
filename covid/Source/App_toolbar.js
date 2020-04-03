@@ -17,7 +17,7 @@ viewer.zoomTo(promise);
 
     promise.then(function(dataSource) {
         viewer.dataSources.add(dataSource);
- 
+        viewer.zoomTo(promise);
         //Get the array of entities
         var entities = dataSource.entities.values;
   
@@ -52,7 +52,7 @@ viewer.zoomTo(promise);
       window.alert(error);
   });
  //   viewer.dataSources.add(Cesium.GeoJsonDataSource.load('https://nbayashi.github.io/cesium/covid/Source/buffer10.geojson'));
- viewer.zoomTo(promise);
+
 });
 
 
