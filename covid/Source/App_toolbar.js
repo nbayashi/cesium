@@ -17,7 +17,7 @@ viewer.zoomTo(promise);
 
     promise.then(function(dataSource) {
         viewer.dataSources.add(dataSource);
-        viewer.zoomTo(promise);
+        viewer.zoomTo(dataSource);
         //Get the array of entities
         var entities = dataSource.entities.values;
   
