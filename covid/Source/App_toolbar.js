@@ -6,7 +6,7 @@ var viewer = new Cesium.Viewer('cesiumContainer');
 
   document.getElementById("累積").addEventListener("click",function () {
     //Cesium.Math.setRandomNumberSeed(0);
-   
+    viewer.dataSources.removeAll();
     
     var promise = Cesium.GeoJsonDataSource.load('https://nbayashi.github.io/cesium/covid/Source/buffer10.geojson');
     //viewer.dataSources.add(promise);
@@ -56,7 +56,7 @@ var viewer = new Cesium.Viewer('cesiumContainer');
 
 document.getElementById("対前日比").addEventListener("click",function () {
   //Cesium.Math.setRandomNumberSeed(0);
- 
+  viewer.dataSources.removeAll();
   
   var promise = Cesium.GeoJsonDataSource.load('https://nbayashi.github.io/cesium/covid/Source/buffer10.geojson');
   //viewer.dataSources.add(promise);
@@ -106,7 +106,7 @@ document.getElementById("対前日比").addEventListener("click",function () {
 
 document.getElementById("うち現在入院等").addEventListener("click",function () {
   //Cesium.Math.setRandomNumberSeed(0);
- 
+  viewer.dataSources.removeAll();
   
   var promise = Cesium.GeoJsonDataSource.load('https://nbayashi.github.io/cesium/covid/Source/buffer10.geojson');
   //viewer.dataSources.add(promise);
