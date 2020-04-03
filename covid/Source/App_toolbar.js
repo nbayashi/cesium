@@ -1,12 +1,6 @@
 var viewer = new Cesium.Viewer('cesiumContainer');
 
 
-
-var promise = Cesium.GeoJsonDataSource.load('https://nbayashi.github.io/cesium/covid/Source/buffer10.geojson');
-promise.then(function(dataSource) {
-  viewer.dataSources.add(dataSource);
-  viewer.zoomTo(dataSource);
-
 //Example 1: Apply custom graphics after load.
 
 
