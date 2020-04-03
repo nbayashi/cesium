@@ -47,7 +47,10 @@ var viewer = new Cesium.Viewer('cesiumContainer');
             //Since the population is a huge number, we divide by 50.
             entity.polygon.extrudedHeight = entity.properties.累積3月19日の状況 *1000  ;
         }
-    });
+    }).otherwise(function(error){
+      //Display any errrors encountered while loading.
+      window.alert(error);
+  });
  //   viewer.dataSources.add(Cesium.GeoJsonDataSource.load('https://nbayashi.github.io/cesium/covid/Source/buffer10.geojson'));
 });
 
