@@ -30,8 +30,10 @@ viewer.zoomTo(promise);
             var name = entity.properties.name;
             var color = colorhash[name];
             if (entity.properties.累積3月19日の状況　== 0){
-              color = Cesium.Color.MAROON.withAlpha(1.0);
-              colorhash[name] = color;
+              color = Cesium.Color.fromRandom({
+                alpha : 255.0
+            });
+              colorHash[name] = color;
           }else{
                   color = Cesium.Color.CRIMSON;
               colorhash[name] = color;
