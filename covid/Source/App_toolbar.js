@@ -2,8 +2,8 @@ var viewer = new Cesium.Viewer('cesiumContainer');
 
 
 
-
-
+var promise = Cesium.GeoJsonDataSource.load('https://nbayashi.github.io/cesium/covid/Source/buffer10.geojson');
+viewer.zoomTo(promise);
 
 //Example 1: Apply custom graphics after load.
 
@@ -30,7 +30,7 @@ var viewer = new Cesium.Viewer('cesiumContainer');
             var name = entity.properties.name;
             var color = colorhash[name];
             if (entity.properties.累積3月19日の状況　== 0){
-                color = Cesium.Color.MAROON.withAlpha(0.5);
+                color = Cesium.Color.MAROON.withAlpha(1);
                 colorhash[name] = color;
             }else{
                   color =   Cesium.Color.CRIMSON;
