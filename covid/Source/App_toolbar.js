@@ -63,7 +63,6 @@ document.getElementById("対前日比").addEventListener("click",function () {
 
   promise.then(function(dataSource) {
       viewer.dataSources.add(dataSource);
-      viewer.flyTo(dataSource);
       //Get the array of entities
       var entities = dataSource.entities.values;
 
@@ -113,7 +112,6 @@ document.getElementById("うち現在入院等").addEventListener("click",functi
 
   promise.then(function(dataSource) {
       viewer.dataSources.add(dataSource);
-      viewer.flyTo(dataSource);
       //Get the array of entities
       var entities = dataSource.entities.values;
 
@@ -163,7 +161,6 @@ document.getElementById("うち退院").addEventListener("click",function () {
 
   promise.then(function(dataSource) {
       viewer.dataSources.add(dataSource);
-      viewer.flyTo(dataSource);
       //Get the array of entities
       var entities = dataSource.entities.values;
 
@@ -214,7 +211,6 @@ document.getElementById("うち死亡").addEventListener("click",function () {
 
   promise.then(function(dataSource) {
       viewer.dataSources.add(dataSource);
-      viewer.flyTo(dataSource);
       //Get the array of entities
       var entities = dataSource.entities.values;
 
