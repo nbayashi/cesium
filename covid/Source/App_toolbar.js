@@ -4,7 +4,7 @@ var viewer = new Cesium.Viewer('cesiumContainer');
 //Example 1: Apply custom graphics after load.
 
 
-  document.getElementById("distance").addEventListener("click",function () {
+  document.getElementById("累積").addEventListener("click",function () {
     //Cesium.Math.setRandomNumberSeed(0);
    
     
