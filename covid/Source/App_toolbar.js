@@ -58,18 +58,6 @@ promise.then(function(dataSource) {
 
 
   
-document.getElementById("対前日比").addEventListener("click",function () {
-  //Cesium.Math.setRandomNumberSeed(0);   
-  var promise = Cesium.GeoJsonDataSource.load('https://nbayashi.github.io/cesium/covid/Source/buffer10.geojson');
-  //viewer.dataSources.add(promise);
-  promise.then(function(dataSource) {
-      viewer.dataSources.add(dataSource);
-      viewer.zoomTo(dataSource);
-  
-});
-//   viewer.dataSources.add(Cesium.GeoJsonDataSource.load('https://nbayashi.github.io/cesium/covid/Source/buffer10.geojson'));
-
-});
 
 
 //Reset the scene when switching demos.
