@@ -52,6 +52,7 @@ viewer.zoomTo(promise);
       window.alert(error);
   });
  //   viewer.dataSources.add(Cesium.GeoJsonDataSource.load('https://nbayashi.github.io/cesium/covid/Source/buffer10.geojson'));
+ viewer.zoomTo(promise);
 });
 
 
