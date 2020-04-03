@@ -21,22 +21,22 @@ viewer.zoomTo(promise);
         //Get the array of entities
         var entities = dataSource.entities.values;
   
-        var colorhash = {};
+        var colorHash = {};
         for (var i = 0; i < entities.length; i++) {
             //For each entity, create a random color based on the state name.
             //Some states have multiple entities, so we store the color in a
             //hash so that we use the same color for the entire state.
             var entity = entities[i];
-            var name = entity.properties.name;
-            var color = colorhash[name];
-            if (entity.properties.累積3月19日の状況　== 0){
-              color = Cesium.Color.fromRandom({
-                alpha : 0.0
-            });
+            var name = entity.name;
+            var color = colorHash[name];
+            if (entity.properties.累積3月19日の状況　== 0) {
+                color = Cesium.Color.fromRandom({
+                  alpha : 255.0
+              });
+                colorHash[name] = color;
+            }else{
+                  color =   Cesium.Color.CRIMSON;
               colorHash[name] = color;
-          }else{
-                  color = Cesium.Color.CRIMSON;
-              colorhash[name] = color;
             }
         
             //Set the polygon material to our random color.
