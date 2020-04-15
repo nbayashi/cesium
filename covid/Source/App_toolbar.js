@@ -1,21 +1,18 @@
-var viewer = new Cesium.Viewer('cesiumContainer');
-
+var viewer = new Cesium.Viewer('cesiumContainer', {
+  shouldAnimate : true
+});
 
 //Example 1: Apply custom graphics after load.
 
 
   document.getElementById("累積感染者数").addEventListener("click",function () {
    
+var czml =Cesium.CzmlDataSource.load('https://nbayashi.github.io/cesium/covid/Source/total.czml')
+viewer.dataSources.add(czml);
 
+viewer.zoomTo(czml);
 
-
-var viewer = new Cesium.Viewer('cesiumContainer', {
-  shouldAnimate : true
-});
-var dataSourcePromise = Cesium.CzmlDataSource.load("https://nbayashi.github.io/cesium/covid/Source/total.czml");
-viewer.dataSources.add(dataSourcePromise);
-viewer.zoomTo(dataSourcePromise);
-
+    
 });
 
 
