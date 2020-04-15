@@ -1,69 +1,35 @@
 var czml = [{
     "id" : "document",
-    "name" : "box",
+    "name" : "CZML",
     "version" : "1.0"
-}, {
+  },
+  {
     "id" : "shape1",
-    "name" : "Blue box",
+    "name" : "TOKYO",
     "position" : {
-        "cartographicDegrees" : [-114.0, 40.0, 300000.0]
+      "cartographicDegrees" : [139.77, 35.68, 20000.0]
     },
-    "box" : {
-        "dimensions" : {
-            "cartesian": [400000.0, 300000.0, 500000.0]
-        },
-        "material" : {
-            "solidColor" : {
-                "color" : {
-                    "rgba" : [0, 0, 255, 255]
-                }
-            }
+    "ellipse" : {
+      "semiMinorAxis" : 50000.0,
+      "semiMajorAxis" : 50000.0,
+      "extrudedHeight" : {
+        "number" : 20000.0
+      },
+      "rotation" : {
+        "number" : 0.8
+      },
+      "material" : {
+        "solidColor" : {
+          "color" : {
+            "rgba" : [0, 255, 0, 100]
+          }
         }
+      },
+      "outline" : true,
+      "outlineColor" : {
+        "rgba" : [255, 0, 0, 0]
+      }
     }
-}, {
-    "id" : "shape2",
-    "name" : "Red box with black outline",
-    "position" : {
-        "cartographicDegrees" : [-107.0, 40.0, 300000.0]
-    },
-    "box" : {
-        "dimensions" : {
-            "cartesian": [400000.0, 300000.0, 500000.0]
-        },
-        "material" : {
-            "solidColor" : {
-                "color" : {
-                    "rgba" : [255, 0, 0, 128]
-                }
-            }
-        },
-        "outline" : true,
-        "outlineColor" : {
-            "rgba" : [0, 0, 0, 255]
-        }
-    }
-}, {
-    "id" : "shape3",
-    "name" : "Yellow box outline",
-    "position" : {
-        "cartographicDegrees" : [-100.0, 40.0, 300000.0]
-    },
-    "box" : {
-        "dimensions" : {
-            "cartesian": [400000.0, 300000.0, 500000.0]
-        },
-        "fill" : false,
-        "outline" : true,
-        "outlineColor" : {
-            "rgba" : [255, 255, 0, 255]
-        }
-    }
-}];
-
-
-var viewer = new Cesium.Viewer('cesiumContainer');
-
-viewer.dataSources.add(Cesium.CzmlDataSource.load(czml));
-
-
-  viewer.zoomTo(czml);
+  }];
+ var viewer = new Cesium.Viewer('cesiumContainer');
+ viewer.dataSources.add(Cesium.CzmlDataSource.load(czml));
