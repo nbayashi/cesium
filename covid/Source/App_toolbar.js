@@ -6,14 +6,19 @@ var viewer = new Cesium.Viewer('cesiumContainer', {
 
 
   document.getElementById("累積感染者数").addEventListener("click",function () {
-   
-var czml =Cesium.CzmlDataSource.load('https://nbayashi.github.io/cesium/covid/Source/total.czml');
-viewer.dataSources.add(czml);
+    viewer.dataSources.removeAll();
+    var promise =Cesium.CzmlDataSource.load('https://nbayashi.github.io/cesium/covid/Source/total.czml');
+    promise.then(function(dataSource) {
+      viewer.dataSources.add(dataSource);}
 
-viewer.zoomTo(czml);
 
+      ).otherwise(function(error){
+        //Display any errrors encountered while loading.
+        window.alert(error);
+    });
+    //   viewer.dataSources.add(Cesium.GeoJsonDataSource.load('https://nbayashi.github.io/cesium/covid/Source/buffer10.geojson'));
     
-});
+    });
 
 
 document.getElementById("現在は入院等").addEventListener("click",function () {
