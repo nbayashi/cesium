@@ -1,6 +1,4 @@
-var viewer = new Cesium.Viewer('cesiumContainer', {
-  shouldAnimate : true
-});
+var viewer = new Cesium.Viewer('cesiumContainer');
 
 //Example 1: Apply custom graphics after load.
 
