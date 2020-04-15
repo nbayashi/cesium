@@ -7,7 +7,7 @@ var viewer = new Cesium.Viewer('cesiumContainer', {
 
   document.getElementById("累積感染者数").addEventListener("click",function () {
    
-var czml =Cesium.CzmlDataSource.load('https://nbayashi.github.io/cesium/covid/Source/total.czml')
+var czml =Cesium.CzmlDataSource.load('https://nbayashi.github.io/cesium/covid/Source/total.czml');
 viewer.dataSources.add(czml);
 
 viewer.zoomTo(czml);
