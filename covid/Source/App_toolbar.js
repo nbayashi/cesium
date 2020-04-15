@@ -9,12 +9,9 @@ var viewer = new Cesium.Viewer('cesiumContainer', {
     viewer.dataSources.removeAll();
     var promise =Cesium.CzmlDataSource.load('https://nbayashi.github.io/cesium/covid/Source/total.czml');
     promise.then(function(dataSource) {
-      viewer.dataSources.add(dataSource);}
+      viewer.dataSources.add(dataSource);
 
 
-      ).otherwise(function(error){
-        //Display any errrors encountered while loading.
-        window.alert(error);
     });
     //   viewer.dataSources.add(Cesium.GeoJsonDataSource.load('https://nbayashi.github.io/cesium/covid/Source/buffer10.geojson'));
     
