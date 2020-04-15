@@ -4569,9 +4569,7 @@ var czml = [{
     }}}}];
 
 
-var viewer = new Cesium.Viewer('cesiumContainer',{
-    shouldAnimate : true
-  });
+var viewer = new Cesium.Viewer('cesiumContainer');
 
 viewer.dataSources.add(Cesium.CzmlDataSource.load(czml));
 
