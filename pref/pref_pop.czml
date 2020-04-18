@@ -2,15 +2,15 @@
 "id": "document",
 "name": "polygon",
 "version": "1.0",
-"clock": {"interval": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"clock": {"interval": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "currentTime": "1920T00:00:00Z",
-"multiplier": 80000000,
+"multiplier": 200000000,
 "range": "CLAMPED",
 "step": "SYSTEM_CLOCK_MULTIPLIER",
 }},{
 "id": "北海道",
 "name": "北海道",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [141.347906353505,43.0639565759149,0]
 },
@@ -46,11 +46,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "青森県",
 "name": "青森県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [140.740087319995,40.8243527044193,0]
 },
@@ -86,11 +86,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "岩手県",
 "name": "岩手県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [141.152591812084,39.703661118793,0]
 },
@@ -126,11 +126,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "宮城県",
 "name": "宮城県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [140.871846157872,38.2688163975798,0]
 },
@@ -166,11 +166,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "秋田県",
 "name": "秋田県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [140.103251104161,39.7180721325449,0]
 },
@@ -206,11 +206,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "山形県",
 "name": "山形県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [140.36327878432,38.2404703867692,0]
 },
@@ -246,11 +246,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "福島県",
 "name": "福島県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [140.46773465574,37.7499701462535,0]
 },
@@ -286,11 +286,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "茨城県",
 "name": "茨城県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [140.446735681823,36.3414624765828,0]
 },
@@ -326,11 +326,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "栃木県",
 "name": "栃木県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [139.883529375565,36.5657015889695,0]
 },
@@ -366,11 +366,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "群馬県",
 "name": "群馬県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [139.0609493879,36.3912045271799,0]
 },
@@ -406,11 +406,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "埼玉県",
 "name": "埼玉県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [139.648855664764,35.8569192640035,0]
 },
@@ -446,11 +446,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "千葉県",
 "name": "千葉県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [140.12318508063,35.6046001398642,0]
 },
@@ -486,11 +486,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "東京都",
 "name": "東京都",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [139.69171861205,35.6895801862022,0]
 },
@@ -526,11 +526,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "神奈川県",
 "name": "神奈川県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [139.642537672695,35.4477220766792,0]
 },
@@ -566,11 +566,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "新潟県",
 "name": "新潟県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [139.023533433074,37.9022512493686,0]
 },
@@ -606,11 +606,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "富山県",
 "name": "富山県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [137.211345655204,36.695202753948,0]
 },
@@ -646,11 +646,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "石川県",
 "name": "石川県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [136.625730369612,36.5946647444123,0]
 },
@@ -686,11 +686,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "福井県",
 "name": "福井県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [136.221796861705,36.0652565258478,0]
 },
@@ -726,11 +726,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "山梨県",
 "name": "山梨県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [138.568381993651,35.6639472074934,0]
 },
@@ -766,11 +766,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "長野県",
 "name": "長野県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [138.180994468365,36.6513226824247,0]
 },
@@ -806,11 +806,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "岐阜県",
 "name": "岐阜県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [136.722173253537,35.3912111798275,0]
 },
@@ -846,11 +846,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "静岡県",
 "name": "静岡県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [138.383026221721,34.9769179025202,0]
 },
@@ -886,11 +886,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "愛知県",
 "name": "愛知県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [136.906744028698,35.1802100717262,0]
 },
@@ -926,11 +926,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "三重県",
 "name": "三重県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [136.50859951451,34.7302798952048,0]
 },
@@ -966,11 +966,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "滋賀県",
 "name": "滋賀県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [135.868298292322,35.004406066631,0]
 },
@@ -1006,11 +1006,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "京都府",
 "name": "京都府",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [135.75564142889,35.0212910833606,0]
 },
@@ -1046,11 +1046,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "大阪府",
 "name": "大阪府",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [135.520000714766,34.6864059518454,0]
 },
@@ -1086,11 +1086,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "兵庫県",
 "name": "兵庫県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [135.183002122118,34.6913159834925,0]
 },
@@ -1126,11 +1126,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "奈良県",
 "name": "奈良県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [135.832889335711,34.6852429255446,0]
 },
@@ -1166,11 +1166,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "和歌山県",
 "name": "和歌山県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [135.167457141616,34.2260057767362,0]
 },
@@ -1206,11 +1206,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "鳥取県",
 "name": "鳥取県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [134.238182257226,35.5037164453173,0]
 },
@@ -1246,11 +1246,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "島根県",
 "name": "島根県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [133.050539672736,35.4722245665522,0]
 },
@@ -1286,11 +1286,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "岡山県",
 "name": "岡山県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [133.934902621752,34.6617710942421,0]
 },
@@ -1326,11 +1326,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "広島県",
 "name": "広島県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [132.459379373681,34.3962831512249,0]
 },
@@ -1366,11 +1366,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "山口県",
 "name": "山口県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [131.471412531689,34.1858711924722,0]
 },
@@ -1406,11 +1406,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "徳島県",
 "name": "徳島県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [134.559491874229,34.0657397627627,0]
 },
@@ -1446,11 +1446,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "香川県",
 "name": "香川県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [134.043398492613,34.3401719380653,0]
 },
@@ -1486,11 +1486,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "愛媛県",
 "name": "愛媛県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [132.766113012951,33.8416578639507,0]
 },
@@ -1526,11 +1526,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "高知県",
 "name": "高知県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [133.531124105704,33.5597646481539,0]
 },
@@ -1566,11 +1566,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "福岡県",
 "name": "福岡県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [130.418126752112,33.6062730926064,0]
 },
@@ -1606,11 +1606,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "佐賀県",
 "name": "佐賀県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [130.298811890145,33.2493339528396,0]
 },
@@ -1646,11 +1646,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "長崎県",
 "name": "長崎県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [129.873527378194,32.7448477990963,0]
 },
@@ -1686,11 +1686,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "熊本県",
 "name": "熊本県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [130.741146382285,32.7903856816151,0]
 },
@@ -1726,11 +1726,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "大分県",
 "name": "大分県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [131.612616369445,33.2381397504688,0]
 },
@@ -1766,11 +1766,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "宮崎県",
 "name": "宮崎県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [131.42387459282,31.9109862006231,0]
 },
@@ -1806,11 +1806,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "鹿児島県",
 "name": "鹿児島県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [130.558153596658,31.5601961771682,0]
 },
@@ -1846,11 +1846,11 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}},{
 "id": "沖縄県",
 "name": "沖縄県",
-"availability": "1920-01-01T00:00:00Z/2014-12-31T23:59:59Z",
+"availability": "1920-01-01T00:00:00Z/2015-01-01T00:00:00Z",
 "position": {
 "cartographicDegrees": [127.680990859281,26.2123744400317,0]
 },
@@ -1886,5 +1886,5 @@
 "material":{ 
 "solidColor": {
 "color":{
-"rgba"  : [0, 0, 255, 255]
+"rgba"  : [200, 100, 0, 255]
 }}}}}];
