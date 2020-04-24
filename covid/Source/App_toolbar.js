@@ -58,7 +58,7 @@ document.getElementById("人口比率").addEventListener("click",function () {
   //Cesium.Math.setRandomNumberSeed(0);
   viewer.dataSources.removeAll();
   
-  var promise = Cesium.GeoJsonDataSource.load('https://nbayashi.github.io/cesium/covid/Source/buffer10_200425.geojson');
+  var promise = Cesium.GeoJsonDataSource.load('https://nbayashi.github.io/cesium/covid/Source/buffer10_200424.geojson');
   //viewer.dataSources.add(promise);
 
   promise.then(function(dataSource) {
