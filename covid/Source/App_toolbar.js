@@ -75,7 +75,7 @@ document.getElementById("人口比率").addEventListener("click",function () {
           var entity = entities[i];
           var name = entity.name;
           var color = colorHash[name];
-          if (entity.properties.人口比率== 0) {
+          if (entity.properties.人口比率 == 0) {
               color = Cesium.Color.fromRandom({
                 alpha : 255.0
             });
