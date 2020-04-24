@@ -93,7 +93,7 @@ document.getElementById("人口比率").addEventListener("click",function () {
           //Extrude the polygon based on the state's population.  Each entity
           //stores the properties for the GeoJSON feature it was created from
           //Since the population is a huge number, we divide by 50.
-          entity.polygon.extrudedHeight = entity.properties.人口比率 *1000  ;
+          entity.polygon.extrudedHeight = entity.properties.人口比率 *10000  ;
       }
   }).otherwise(function(error){
     //Display any errrors encountered while loading.
