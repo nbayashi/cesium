@@ -1,3 +1,8 @@
+var viewer = new Cesium.Viewer('cesiumContainer', {
+    shouldAnimate : true
+});
+
+
 var czml =[{
     "id": "document",
     "name": "polygon",
@@ -4945,12 +4950,13 @@ var czml =[{
     }}}}];
     
     
-    var viewer = new Cesium.Viewer('cesiumContainer', {
-        shouldAnimate : true
-    });
+    document.getElementById("累積").addEventListener("click",function () {
+        //Cesium.Math.setRandomNumberSeed(0);
+        viewer.dataSources.removeAll();
     
     var dataSourcePromise = Cesium.CzmlDataSource.load(czml);
     viewer.dataSources.add(dataSourcePromise);
     viewer.zoomTo(dataSourcePromise);
     
-      
+    
+});
