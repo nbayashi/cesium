@@ -9914,8 +9914,8 @@ var country = [{
     "cartographicDegrees": [28.3975,9.7746,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -10050,8 +10050,8 @@ var country = [{
     "cartographicDegrees": [65.9979,33.8179,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -10186,8 +10186,8 @@ var country = [{
     "cartographicDegrees": [79.1237,35.0111,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -10322,8 +10322,8 @@ var country = [{
     "cartographicDegrees": [20.0708,41.1389,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -10458,8 +10458,8 @@ var country = [{
     "cartographicDegrees": [2.6825,28.1467,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -10594,8 +10594,8 @@ var country = [{
     "cartographicDegrees": [-170.7284,-14.304,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -10730,8 +10730,8 @@ var country = [{
     "cartographicDegrees": [1.5914,42.5422,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -10866,8 +10866,8 @@ var country = [{
     "cartographicDegrees": [17.5818,-12.3604,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -11002,8 +11002,8 @@ var country = [{
     "cartographicDegrees": [-63.0376,18.2241,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -11138,8 +11138,8 @@ var country = [{
     "cartographicDegrees": [22.8986,-79.9284,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -11274,8 +11274,8 @@ var country = [{
     "cartographicDegrees": [-61.8097,17.0785,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -11410,8 +11410,8 @@ var country = [{
     "cartographicDegrees": [-63.5885,-31.5807,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -11546,8 +11546,8 @@ var country = [{
     "cartographicDegrees": [44.9184,40.3035,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -11682,8 +11682,8 @@ var country = [{
     "cartographicDegrees": [-69.9809,12.5249,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -11818,8 +11818,8 @@ var country = [{
     "cartographicDegrees": [94.4946,28.4402,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -11954,8 +11954,8 @@ var country = [{
     "cartographicDegrees": [134.3612,-25.5817,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -12090,8 +12090,8 @@ var country = [{
     "cartographicDegrees": [14.1373,47.5847,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -12226,8 +12226,8 @@ var country = [{
     "cartographicDegrees": [47.6875,40.3449,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -12362,8 +12362,8 @@ var country = [{
     "cartographicDegrees": [-76.6112,24.2543,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -12498,8 +12498,8 @@ var country = [{
     "cartographicDegrees": [50.5474,26.0546,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -12634,8 +12634,8 @@ var country = [{
     "cartographicDegrees": [90.2518,23.8479,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -12770,8 +12770,8 @@ var country = [{
     "cartographicDegrees": [-59.5555,13.167,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -12906,8 +12906,8 @@ var country = [{
     "cartographicDegrees": [40.3499,-22.361,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -13042,8 +13042,8 @@ var country = [{
     "cartographicDegrees": [28.0284,53.5308,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -13178,8 +13178,8 @@ var country = [{
     "cartographicDegrees": [4.6593,50.6429,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -13314,8 +13314,8 @@ var country = [{
     "cartographicDegrees": [-88.7141,17.1903,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -13450,8 +13450,8 @@ var country = [{
     "cartographicDegrees": [2.3384,9.6486,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -13586,8 +13586,8 @@ var country = [{
     "cartographicDegrees": [-64.7663,32.2994,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -13722,8 +13722,8 @@ var country = [{
     "cartographicDegrees": [90.4666,27.383,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -13858,8 +13858,8 @@ var country = [{
     "cartographicDegrees": [33.6915,21.8998,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -13994,8 +13994,8 @@ var country = [{
     "cartographicDegrees": [-64.6743,-16.7156,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -14130,8 +14130,8 @@ var country = [{
     "cartographicDegrees": [-68.3079,12.227,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -14266,8 +14266,8 @@ var country = [{
     "cartographicDegrees": [17.7899,44.1624,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -14402,8 +14402,8 @@ var country = [{
     "cartographicDegrees": [23.8028,-22.1802,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -14538,8 +14538,8 @@ var country = [{
     "cartographicDegrees": [3.3671,-54.4229,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -14674,8 +14674,8 @@ var country = [{
     "cartographicDegrees": [-53.0849,-10.7672,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -14810,8 +14810,8 @@ var country = [{
     "cartographicDegrees": [72.4196,-7.3149,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -14946,8 +14946,8 @@ var country = [{
     "cartographicDegrees": [-64.5158,18.5115,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -15082,8 +15082,8 @@ var country = [{
     "cartographicDegrees": [114.6023,4.5553,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -15218,8 +15218,8 @@ var country = [{
     "cartographicDegrees": [25.235,42.7546,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -15354,8 +15354,8 @@ var country = [{
     "cartographicDegrees": [-1.7352,12.2722,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -15490,8 +15490,8 @@ var country = [{
     "cartographicDegrees": [29.8912,-3.3741,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -15626,8 +15626,8 @@ var country = [{
     "cartographicDegrees": [-23.9802,15.9412,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -15762,8 +15762,8 @@ var country = [{
     "cartographicDegrees": [104.9152,12.7146,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -15898,8 +15898,8 @@ var country = [{
     "cartographicDegrees": [12.7363,5.6658,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -16034,8 +16034,8 @@ var country = [{
     "cartographicDegrees": [-101.8126,57.6978,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -16170,8 +16170,8 @@ var country = [{
     "cartographicDegrees": [-81.2119,19.323,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -16306,8 +16306,8 @@ var country = [{
     "cartographicDegrees": [20.9507,7.0012,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -16442,8 +16442,8 @@ var country = [{
     "cartographicDegrees": [18.6701,15.344,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -16578,8 +16578,8 @@ var country = [{
     "cartographicDegrees": [-69.1554,-22.9087,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -16714,8 +16714,8 @@ var country = [{
     "cartographicDegrees": [104.1494,32.3102,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -16850,8 +16850,8 @@ var country = [{
     "cartographicDegrees": [79.326,32.8821,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -16986,8 +16986,8 @@ var country = [{
     "cartographicDegrees": [105.6473,-10.4806,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -17122,8 +17122,8 @@ var country = [{
     "cartographicDegrees": [-109.2175,10.3037,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -17258,8 +17258,8 @@ var country = [{
     "cartographicDegrees": [96.8545,-12.1447,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -17394,8 +17394,8 @@ var country = [{
     "cartographicDegrees": [-73.0781,3.8983,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -17530,8 +17530,8 @@ var country = [{
     "cartographicDegrees": [43.3442,-11.6063,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -17666,8 +17666,8 @@ var country = [{
     "cartographicDegrees": [15.2674,-0.839,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -17802,8 +17802,8 @@ var country = [{
     "cartographicDegrees": [-158.9782,-19.2114,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -17938,8 +17938,8 @@ var country = [{
     "cartographicDegrees": [-84.1701,9.9959,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -18074,8 +18074,8 @@ var country = [{
     "cartographicDegrees": [-5.5466,7.6188,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -18210,8 +18210,8 @@ var country = [{
     "cartographicDegrees": [16.4894,43.756,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -18346,8 +18346,8 @@ var country = [{
     "cartographicDegrees": [-79.3227,21.9946,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -18482,8 +18482,8 @@ var country = [{
     "cartographicDegrees": [-68.875,12.1191,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -18618,8 +18618,8 @@ var country = [{
     "cartographicDegrees": [33.1739,35.0284,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -18754,8 +18754,8 @@ var country = [{
     "cartographicDegrees": [15.3276,49.7382,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -18890,8 +18890,8 @@ var country = [{
     "cartographicDegrees": [23.6559,-2.8703,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -19026,8 +19026,8 @@ var country = [{
     "cartographicDegrees": [9.3193,56.0271,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -19162,8 +19162,8 @@ var country = [{
     "cartographicDegrees": [42.2053,11.6033,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -19298,8 +19298,8 @@ var country = [{
     "cartographicDegrees": [-61.3474,15.4111,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -19434,8 +19434,8 @@ var country = [{
     "cartographicDegrees": [-70.5106,18.9012,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -19570,8 +19570,8 @@ var country = [{
     "cartographicDegrees": [-78.3577,-1.4201,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -19706,8 +19706,8 @@ var country = [{
     "cartographicDegrees": [29.759,26.5649,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -19842,8 +19842,8 @@ var country = [{
     "cartographicDegrees": [-88.887,13.7413,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -19978,8 +19978,8 @@ var country = [{
     "cartographicDegrees": [10.4688,1.5921,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -20114,8 +20114,8 @@ var country = [{
     "cartographicDegrees": [38.132,16.1236,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -20250,8 +20250,8 @@ var country = [{
     "cartographicDegrees": [25.8548,58.6709,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -20386,8 +20386,8 @@ var country = [{
     "cartographicDegrees": [31.5155,-26.5825,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -20522,8 +20522,8 @@ var country = [{
     "cartographicDegrees": [39.6403,8.6307,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -20658,8 +20658,8 @@ var country = [{
     "cartographicDegrees": [-58.7523,-51.7388,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -20794,8 +20794,8 @@ var country = [{
     "cartographicDegrees": [-6.9815,62.1202,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -20930,8 +20930,8 @@ var country = [{
     "cartographicDegrees": [177.9517,-17.8274,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -21066,8 +21066,8 @@ var country = [{
     "cartographicDegrees": [26.2795,64.4974,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -21202,8 +21202,8 @@ var country = [{
     "cartographicDegrees": [2.5059,46.6183,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -21338,8 +21338,8 @@ var country = [{
     "cartographicDegrees": [-53.07111641969,3.98305532623091,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -21474,8 +21474,8 @@ var country = [{
     "cartographicDegrees": [-145.2486,-15.4228,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -21610,8 +21610,8 @@ var country = [{
     "cartographicDegrees": [69.2169,-49.3089,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -21746,8 +21746,8 @@ var country = [{
     "cartographicDegrees": [11.7646,-0.6157,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -21882,8 +21882,8 @@ var country = [{
     "cartographicDegrees": [-16.0613,13.3811,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -22018,8 +22018,8 @@ var country = [{
     "cartographicDegrees": [43.2962,42.0572,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -22154,8 +22154,8 @@ var country = [{
     "cartographicDegrees": [10.3767,51.0771,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -22290,8 +22290,8 @@ var country = [{
     "cartographicDegrees": [-1.1985,7.9616,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -22426,8 +22426,8 @@ var country = [{
     "cartographicDegrees": [-5.3461,36.1432,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -22562,8 +22562,8 @@ var country = [{
     "cartographicDegrees": [22.5402,39.4982,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -22698,8 +22698,8 @@ var country = [{
     "cartographicDegrees": [-41.388,74.7663,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -22834,8 +22834,8 @@ var country = [{
     "cartographicDegrees": [-61.6809,12.1196,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -22970,8 +22970,8 @@ var country = [{
     "cartographicDegrees": [-61.5388309446836,16.2628497430175,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -23106,8 +23106,8 @@ var country = [{
     "cartographicDegrees": [144.717,13.3633,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -23242,8 +23242,8 @@ var country = [{
     "cartographicDegrees": [-91.2288,15.0125,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -23378,8 +23378,8 @@ var country = [{
     "cartographicDegrees": [-2.5794,49.456,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -23514,8 +23514,8 @@ var country = [{
     "cartographicDegrees": [-11.3051,11.0087,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -23650,8 +23650,8 @@ var country = [{
     "cartographicDegrees": [-14.4508,12.1029,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -23786,8 +23786,8 @@ var country = [{
     "cartographicDegrees": [-58.9618,4.803,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -23922,8 +23922,8 @@ var country = [{
     "cartographicDegrees": [-72.3646,18.3858,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -24058,8 +24058,8 @@ var country = [{
     "cartographicDegrees": [35.4819,22.3617,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -24194,8 +24194,8 @@ var country = [{
     "cartographicDegrees": [73.5251,-53.1095,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -24330,8 +24330,8 @@ var country = [{
     "cartographicDegrees": [12.4528,41.9035,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -24466,8 +24466,8 @@ var country = [{
     "cartographicDegrees": [-86.6222,14.8298,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -24602,8 +24602,8 @@ var country = [{
     "cartographicDegrees": [114.1142,22.4349,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -24738,8 +24738,8 @@ var country = [{
     "cartographicDegrees": [19.4066,47.1616,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -24874,8 +24874,8 @@ var country = [{
     "cartographicDegrees": [-18.8569,64.756,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -25010,8 +25010,8 @@ var country = [{
     "cartographicDegrees": [35.0029,4.7378,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -25146,8 +25146,8 @@ var country = [{
     "cartographicDegrees": [79.4676,22.349,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -25282,8 +25282,8 @@ var country = [{
     "cartographicDegrees": [117.2774,-2.2261,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -25418,8 +25418,8 @@ var country = [{
     "cartographicDegrees": [54.3046,32.5758,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -25554,8 +25554,8 @@ var country = [{
     "cartographicDegrees": [43.7557,33.0425,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -25690,8 +25690,8 @@ var country = [{
     "cartographicDegrees": [-8.0902,53.1794,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -25826,8 +25826,8 @@ var country = [{
     "cartographicDegrees": [-4.5444,54.2285,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -25962,8 +25962,8 @@ var country = [{
     "cartographicDegrees": [34.6195,31.0661,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -26098,8 +26098,8 @@ var country = [{
     "cartographicDegrees": [12.5322,42.837,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -26234,8 +26234,8 @@ var country = [{
     "cartographicDegrees": [-77.3447,18.1775,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -26370,8 +26370,8 @@ var country = [{
     "cartographicDegrees": [75.7996,34.5631,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -26506,8 +26506,8 @@ var country = [{
     "cartographicDegrees": [139.1928,36.6179,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -26642,8 +26642,8 @@ var country = [{
     "cartographicDegrees": [-2.1302,49.2236,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -26778,8 +26778,8 @@ var country = [{
     "cartographicDegrees": [37.079,30.6751,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -26914,8 +26914,8 @@ var country = [{
     "cartographicDegrees": [67.3115,48.1522,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -27050,8 +27050,8 @@ var country = [{
     "cartographicDegrees": [37.8606,0.5355,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -27186,8 +27186,8 @@ var country = [{
     "cartographicDegrees": [-157.4016,1.8716,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -27322,8 +27322,8 @@ var country = [{
     "cartographicDegrees": [20.9048572342494,42.5475225162448,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -27458,8 +27458,8 @@ var country = [{
     "cartographicDegrees": [147.9103,45.1573,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -27594,8 +27594,8 @@ var country = [{
     "cartographicDegrees": [47.4932,29.4908,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -27730,8 +27730,8 @@ var country = [{
     "cartographicDegrees": [74.5847,41.4529,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -27866,8 +27866,8 @@ var country = [{
     "cartographicDegrees": [101.9624,20.2365,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -28002,8 +28002,8 @@ var country = [{
     "cartographicDegrees": [26.382,56.6829,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -28138,8 +28138,8 @@ var country = [{
     "cartographicDegrees": [35.8942,33.9289,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -28274,8 +28274,8 @@ var country = [{
     "cartographicDegrees": [28.2551,-29.5776,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -28410,8 +28410,8 @@ var country = [{
     "cartographicDegrees": [-9.3276,6.4433,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -28546,8 +28546,8 @@ var country = [{
     "cartographicDegrees": [18.0429,27.0102,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -28682,8 +28682,8 @@ var country = [{
     "cartographicDegrees": [9.5534,47.1383,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -28818,8 +28818,8 @@ var country = [{
     "cartographicDegrees": [23.9197,55.3351,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -28954,8 +28954,8 @@ var country = [{
     "cartographicDegrees": [6.0943,49.771,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -29090,8 +29090,8 @@ var country = [{
     "cartographicDegrees": [113.5458,22.1975,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -29226,8 +29226,8 @@ var country = [{
     "cartographicDegrees": [46.6955,-19.408,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -29362,8 +29362,8 @@ var country = [{
     "cartographicDegrees": [35.1203,-15.2608,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -29498,8 +29498,8 @@ var country = [{
     "cartographicDegrees": [114.4128,2.8757,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -29634,8 +29634,8 @@ var country = [{
     "cartographicDegrees": [73.2207,3.8486,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -29770,8 +29770,8 @@ var country = [{
     "cartographicDegrees": [-3.5043,17.3709,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -29906,8 +29906,8 @@ var country = [{
     "cartographicDegrees": [14.4312,35.886,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -30042,8 +30042,8 @@ var country = [{
     "cartographicDegrees": [168.5277,6.7211,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -30178,8 +30178,8 @@ var country = [{
     "cartographicDegrees": [-61.0059596101283,14.6561987798208,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -30314,8 +30314,8 @@ var country = [{
     "cartographicDegrees": [-10.3164,20.2616,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -30450,8 +30450,8 @@ var country = [{
     "cartographicDegrees": [57.576,-20.2772,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -30586,8 +30586,8 @@ var country = [{
     "cartographicDegrees": [45.1540992319648,-12.8322251217581,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -30722,8 +30722,8 @@ var country = [{
     "cartographicDegrees": [-102.5173,23.9467,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -30858,8 +30858,8 @@ var country = [{
     "cartographicDegrees": [158.2287,6.8797,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -30994,8 +30994,8 @@ var country = [{
     "cartographicDegrees": [7.4188,43.7342,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -31130,8 +31130,8 @@ var country = [{
     "cartographicDegrees": [103.0489,46.8315,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -31266,8 +31266,8 @@ var country = [{
     "cartographicDegrees": [19.269,42.7721,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -31402,8 +31402,8 @@ var country = [{
     "cartographicDegrees": [-62.1883,16.7298,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -31538,8 +31538,8 @@ var country = [{
     "cartographicDegrees": [-6.2981,31.8381,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -31674,8 +31674,8 @@ var country = [{
     "cartographicDegrees": [38.1448,-14.313,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -31810,8 +31810,8 @@ var country = [{
     "cartographicDegrees": [96.501,21.2369,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -31946,8 +31946,8 @@ var country = [{
     "cartographicDegrees": [17.2178,-22.1429,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -32082,8 +32082,8 @@ var country = [{
     "cartographicDegrees": [166.9333,-0.5275,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -32218,8 +32218,8 @@ var country = [{
     "cartographicDegrees": [-75.0125,18.4019,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -32354,8 +32354,8 @@ var country = [{
     "cartographicDegrees": [83.9573,28.2613,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -32490,8 +32490,8 @@ var country = [{
     "cartographicDegrees": [5.646,52.2932,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -32626,8 +32626,8 @@ var country = [{
     "cartographicDegrees": [165.5312,-21.3948,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -32762,8 +32762,8 @@ var country = [{
     "cartographicDegrees": [170.4403,-44.0131,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -32898,8 +32898,8 @@ var country = [{
     "cartographicDegrees": [-85.0476,12.8404,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -33034,8 +33034,8 @@ var country = [{
     "cartographicDegrees": [9.413,17.4338,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -33170,8 +33170,8 @@ var country = [{
     "cartographicDegrees": [8.0851,9.5853,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -33306,8 +33306,8 @@ var country = [{
     "cartographicDegrees": [-169.8584,-19.0524,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -33442,8 +33442,8 @@ var country = [{
     "cartographicDegrees": [167.953,-29.034,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -33578,8 +33578,8 @@ var country = [{
     "cartographicDegrees": [127.1899,40.1298,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -33714,8 +33714,8 @@ var country = [{
     "cartographicDegrees": [21.6966,41.5981,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -33850,8 +33850,8 @@ var country = [{
     "cartographicDegrees": [145.6042,15.7746,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -33986,8 +33986,8 @@ var country = [{
     "cartographicDegrees": [11.4948,61.7103,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -34122,8 +34122,8 @@ var country = [{
     "cartographicDegrees": [35.2786,31.9693,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -34258,8 +34258,8 @@ var country = [{
     "cartographicDegrees": [57.8117,21.9143,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -34394,8 +34394,8 @@ var country = [{
     "cartographicDegrees": [68.8049,29.3982,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -34530,8 +34530,8 @@ var country = [{
     "cartographicDegrees": [134.5611,7.4841,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -34666,8 +34666,8 @@ var country = [{
     "cartographicDegrees": [-80.1223,8.8084,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -34802,8 +34802,8 @@ var country = [{
     "cartographicDegrees": [144.2141,-6.5913,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -34938,8 +34938,8 @@ var country = [{
     "cartographicDegrees": [111.8758,16.3681,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -35074,8 +35074,8 @@ var country = [{
     "cartographicDegrees": [-58.4232,-23.2139,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -35210,8 +35210,8 @@ var country = [{
     "cartographicDegrees": [-71.8526,-13.5597,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -35346,8 +35346,8 @@ var country = [{
     "cartographicDegrees": [122.8671,11.7347,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -35482,8 +35482,8 @@ var country = [{
     "cartographicDegrees": [-128.3241,-24.3755,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -35618,8 +35618,8 @@ var country = [{
     "cartographicDegrees": [19.4066,52.1309,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -35754,8 +35754,8 @@ var country = [{
     "cartographicDegrees": [-7.9703,39.6868,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -35890,8 +35890,8 @@ var country = [{
     "cartographicDegrees": [-66.4716,18.2326,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -36026,8 +36026,8 @@ var country = [{
     "cartographicDegrees": [51.1943,25.2708,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -36162,8 +36162,8 @@ var country = [{
     "cartographicDegrees": [127.879,36.467,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -36298,8 +36298,8 @@ var country = [{
     "cartographicDegrees": [28.4593,47.2109,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -36434,8 +36434,8 @@ var country = [{
     "cartographicDegrees": [55.5343619754123,-21.1289552505304,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -36570,8 +36570,8 @@ var country = [{
     "cartographicDegrees": [24.9778,45.8361,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -36706,8 +36706,8 @@ var country = [{
     "cartographicDegrees": [99.124,61.6334,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -36842,8 +36842,8 @@ var country = [{
     "cartographicDegrees": [29.9308,-1.9764,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -36978,8 +36978,8 @@ var country = [{
     "cartographicDegrees": [-62.822,17.8973,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -37114,8 +37114,8 @@ var country = [{
     "cartographicDegrees": [-10.4275,-25.4529,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -37250,8 +37250,8 @@ var country = [{
     "cartographicDegrees": [-62.7818,17.3517,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -37386,8 +37386,8 @@ var country = [{
     "cartographicDegrees": [-60.97,13.8898,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -37522,8 +37522,8 @@ var country = [{
     "cartographicDegrees": [-63.0510287171444,18.0790685576336,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -37658,8 +37658,8 @@ var country = [{
     "cartographicDegrees": [-56.3272,47.0362,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -37794,8 +37794,8 @@ var country = [{
     "cartographicDegrees": [-61.1881,13.2531,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -37930,8 +37930,8 @@ var country = [{
     "cartographicDegrees": [-172.4412,-13.621,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -38066,8 +38066,8 @@ var country = [{
     "cartographicDegrees": [12.471,43.9314,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -38202,8 +38202,8 @@ var country = [{
     "cartographicDegrees": [6.5977,0.2355,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -38338,8 +38338,8 @@ var country = [{
     "cartographicDegrees": [44.5537,24.1338,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -38474,8 +38474,8 @@ var country = [{
     "cartographicDegrees": [117.732,15.2128,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -38610,8 +38610,8 @@ var country = [{
     "cartographicDegrees": [-14.4462,14.367,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -38746,8 +38746,8 @@ var country = [{
     "cartographicDegrees": [123.5295,25.772,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -38882,8 +38882,8 @@ var country = [{
     "cartographicDegrees": [20.8129,44.0309,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -39018,8 +39018,8 @@ var country = [{
     "cartographicDegrees": [51.8358,-6.6938,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -39154,8 +39154,8 @@ var country = [{
     "cartographicDegrees": [-11.7847,8.5529,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -39290,8 +39290,8 @@ var country = [{
     "cartographicDegrees": [103.8394,1.3262,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -39426,8 +39426,8 @@ var country = [{
     "cartographicDegrees": [-63.0545,18.0363,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -39562,8 +39562,8 @@ var country = [{
     "cartographicDegrees": [19.4741,48.7042,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -39698,8 +39698,8 @@ var country = [{
     "cartographicDegrees": [14.8169,46.1277,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -39834,8 +39834,8 @@ var country = [{
     "cartographicDegrees": [159.6008,-8.8995,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -39970,8 +39970,8 @@ var country = [{
     "cartographicDegrees": [46.1155,4.3774,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -40106,8 +40106,8 @@ var country = [{
     "cartographicDegrees": [24.6736,-29.9966,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -40242,8 +40242,8 @@ var country = [{
     "cartographicDegrees": [-36.2044,-54.6015,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -40378,8 +40378,8 @@ var country = [{
     "cartographicDegrees": [30.3267,7.2866,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -40514,8 +40514,8 @@ var country = [{
     "cartographicDegrees": [-3.5521,40.3816,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -40650,8 +40650,8 @@ var country = [{
     "cartographicDegrees": [115.1302,10.6117,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -40786,8 +40786,8 @@ var country = [{
     "cartographicDegrees": [80.7079,7.6065,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -40922,8 +40922,8 @@ var country = [{
     "cartographicDegrees": [29.9584,16.0343,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -41058,8 +41058,8 @@ var country = [{
     "cartographicDegrees": [-55.9045,4.1428,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -41194,8 +41194,8 @@ var country = [{
     "cartographicDegrees": [13.4842,78.8376,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -41330,8 +41330,8 @@ var country = [{
     "cartographicDegrees": [14.4445,60.6418,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -41466,8 +41466,8 @@ var country = [{
     "cartographicDegrees": [8.2129,46.9548,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -41602,8 +41602,8 @@ var country = [{
     "cartographicDegrees": [38.4987,35.0077,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -41738,8 +41738,8 @@ var country = [{
     "cartographicDegrees": [69.4202,38.5046,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -41874,8 +41874,8 @@ var country = [{
     "cartographicDegrees": [101.0305,15.1496,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -42010,8 +42010,8 @@ var country = [{
     "cartographicDegrees": [-2.1086,53.2786,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -42146,8 +42146,8 @@ var country = [{
     "cartographicDegrees": [125.9334,-8.7999,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -42282,8 +42282,8 @@ var country = [{
     "cartographicDegrees": [0.9785,8.548,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -42418,8 +42418,8 @@ var country = [{
     "cartographicDegrees": [-171.8539,-9.193,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -42554,8 +42554,8 @@ var country = [{
     "cartographicDegrees": [-174.8472,-19.859,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -42690,8 +42690,8 @@ var country = [{
     "cartographicDegrees": [-61.267,10.4364,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -42826,8 +42826,8 @@ var country = [{
     "cartographicDegrees": [9.5549,33.7421,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -42962,8 +42962,8 @@ var country = [{
     "cartographicDegrees": [35.4709,38.9923,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -43098,8 +43098,8 @@ var country = [{
     "cartographicDegrees": [59.4192,39.1055,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -43234,8 +43234,8 @@ var country = [{
     "cartographicDegrees": [-71.8562,21.7501,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -43370,8 +43370,8 @@ var country = [{
     "cartographicDegrees": [178.6907,-7.477,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -43506,8 +43506,8 @@ var country = [{
     "cartographicDegrees": [32.389,1.2776,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -43642,8 +43642,8 @@ var country = [{
     "cartographicDegrees": [31.3628,49.0322,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -43778,8 +43778,8 @@ var country = [{
     "cartographicDegrees": [53.9824,23.4656,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -43914,8 +43914,8 @@ var country = [{
     "cartographicDegrees": [34.802,-6.2595,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -44050,8 +44050,8 @@ var country = [{
     "cartographicDegrees": [-162.4606,6.4102,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -44186,8 +44186,8 @@ var country = [{
     "cartographicDegrees": [-99.1943,39.537,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -44322,8 +44322,8 @@ var country = [{
     "cartographicDegrees": [-64.7971,17.7318,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -44458,8 +44458,8 @@ var country = [{
     "cartographicDegrees": [-56.0061,-32.8049,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -44594,8 +44594,8 @@ var country = [{
     "cartographicDegrees": [64.3964,41.2698,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -44730,8 +44730,8 @@ var country = [{
     "cartographicDegrees": [167.7031,-16.1959,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -44866,8 +44866,8 @@ var country = [{
     "cartographicDegrees": [-66.1542,7.1089,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -45002,8 +45002,8 @@ var country = [{
     "cartographicDegrees": [107.5701,11.5307,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -45138,8 +45138,8 @@ var country = [{
     "cartographicDegrees": [-177.1944,-13.8292,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -45274,8 +45274,8 @@ var country = [{
     "cartographicDegrees": [-13.1416,24.6678,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -45410,8 +45410,8 @@ var country = [{
     "cartographicDegrees": [45.2867,15.1859,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -45546,8 +45546,8 @@ var country = [{
     "cartographicDegrees": [27.8238,-14.6349,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
@@ -45682,8 +45682,8 @@ var country = [{
     "cartographicDegrees": [29.8678,-19.0019,0]
     },
     "ellipse": {
-    "semiMinorAxis": 10000,
-    "semiMajorAxis": 10000,
+    "semiMinorAxis": 50000,
+    "semiMajorAxis": 50000,
     
     "extrudedHeight": {
     "epoch":"2020-01-21T00:00:00Z",
