@@ -9906,29 +9906,6 @@ var country = [{
     "range": "CLAMPED",
     "step": "SYSTEM_CLOCK_MULTIPLIER",
     }},{
-    "id": "1",
-    "name": "Abyei",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [28.3975,9.7746,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
     "id": "2",
     "name": "Afghanistan",
     "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
@@ -10029,29 +10006,6 @@ var country = [{
     },{
     "interval":"2020-02-25T00:00:00Z/2020-05-09T00:00:00Z",
     "rgba":[255,0,0,255]
-    }]
-    }}}},{
-    "id": "3",
-    "name": "Aksai Chin",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [79.1237,35.0111,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
     }]
     }}}},{
     "id": "4",
@@ -10242,29 +10196,6 @@ var country = [{
     },{
     "interval":"2020-02-26T00:00:00Z/2020-05-09T00:00:00Z",
     "rgba":[255,0,0,255]
-    }]
-    }}}},{
-    "id": "6",
-    "name": "American Samoa",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [-170.7284,-14.304,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
     }]
     }}}},{
     "id": "7",
@@ -10507,29 +10438,6 @@ var country = [{
     },{
     "interval":"2020-03-27T00:00:00Z/2020-05-09T00:00:00Z",
     "rgba":[255,0,0,255]
-    }]
-    }}}},{
-    "id": "10",
-    "name": "Antarctica",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [22.8986,-79.9284,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
     }]
     }}}},{
     "id": "11",
@@ -10885,29 +10793,6 @@ var country = [{
     },{
     "interval":"2020-03-17T00:00:00Z/2020-05-09T00:00:00Z",
     "rgba":[255,0,0,255]
-    }]
-    }}}},{
-    "id": "15",
-    "name": "Arunachal Pradesh",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [94.4946,28.4402,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
     }]
     }}}},{
     "id": "16",
@@ -11592,29 +11477,6 @@ var country = [{
     "rgba":[255,0,0,255]
     }]
     }}}},{
-    "id": "23",
-    "name": "Bassas Da India",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [40.3499,-22.361,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
     "id": "24",
     "name": "Belarus",
     "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
@@ -12161,29 +12023,6 @@ var country = [{
     "rgba":[255,0,0,255]
     }]
     }}}},{
-    "id": "30",
-    "name": "Bir Tawil (Disputed Territory)",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [33.6915,21.8998,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
     "id": "31",
     "name": "Bolivia (Plurinational State of)",
     "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
@@ -12492,29 +12331,6 @@ var country = [{
     "rgba":[255,0,0,255]
     }]
     }}}},{
-    "id": "35",
-    "name": "Bouvet Island",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [3.3671,-54.4229,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
     "id": "36",
     "name": "Brazil",
     "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
@@ -12613,29 +12429,6 @@ var country = [{
     },{
     "interval":"2020-02-27T00:00:00Z/2020-05-09T00:00:00Z",
     "rgba":[255,0,0,255]
-    }]
-    }}}},{
-    "id": "37",
-    "name": "British Indian Ocean Territory",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [72.4196,-7.3149,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
     }]
     }}}},{
     "id": "38",
@@ -13945,98 +13738,6 @@ var country = [{
     "rgba":[255,0,0,255]
     }]
     }}}},{
-    "id": "52",
-    "name": "China/India",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [79.326,32.8821,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
-    "id": "53",
-    "name": "Christmas Island",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [105.6473,-10.4806,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
-    "id": "54",
-    "name": "Clipperton Island",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [-109.2175,10.3037,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
-    "id": "55",
-    "name": "Cocos (Keeling) Islands",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [96.8545,-12.1447,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
     "id": "56",
     "name": "Colombia",
     "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
@@ -14245,29 +13946,6 @@ var country = [{
     },{
     "interval":"2020-03-15T00:00:00Z/2020-05-09T00:00:00Z",
     "rgba":[255,0,0,255]
-    }]
-    }}}},{
-    "id": "59",
-    "name": "Cook Islands",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [-158.9782,-19.2114,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
     }]
     }}}},{
     "id": "60",
@@ -16702,29 +16380,6 @@ var country = [{
     "rgba":[255,0,0,255]
     }]
     }}}},{
-    "id": "87",
-    "name": "French Southern and Antarctic Lands",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [69.2169,-49.3089,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
     "id": "88",
     "name": "Gabon",
     "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
@@ -18202,52 +17857,6 @@ var country = [{
     "rgba":[255,0,0,255]
     }]
     }}}},{
-    "id": "105",
-    "name": "Hala'Ib Triangle",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [35.4819,22.3617,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
-    "id": "106",
-    "name": "Heard Island and Mcdonald Islands",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [73.5251,-53.1095,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
     "id": "107",
     "name": "Holy See",
     "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
@@ -18423,29 +18032,6 @@ var country = [{
     },{
     "interval":"2020-03-12T00:00:00Z/2020-05-09T00:00:00Z",
     "rgba":[255,0,0,255]
-    }]
-    }}}},{
-    "id": "109",
-    "name": "Hong Kong",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [114.1142,22.4349,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
     }]
     }}}},{
     "id": "110",
@@ -18635,29 +18221,6 @@ var country = [{
     },{
     "interval":"2020-03-02T00:00:00Z/2020-05-09T00:00:00Z",
     "rgba":[255,0,0,255]
-    }]
-    }}}},{
-    "id": "112",
-    "name": "Ilemi Triangle",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [35.0029,4.7378,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
     }]
     }}}},{
     "id": "113",
@@ -19584,29 +19147,6 @@ var country = [{
     "rgba":[255,0,0,255]
     }]
     }}}},{
-    "id": "122",
-    "name": "Jammu Kashmir",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [75.7996,34.5631,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
     "id": "123",
     "name": "Japan",
     "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
@@ -20090,29 +19630,6 @@ var country = [{
     "rgba":[255,0,0,255]
     }]
     }}}},{
-    "id": "128",
-    "name": "Kiribati",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [-157.4016,1.8716,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
     "id": "129",
     "name": "Kosovo",
     "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
@@ -20186,29 +19703,6 @@ var country = [{
     },{
     "interval":"2020-03-23T00:00:00Z/2020-05-09T00:00:00Z",
     "rgba":[255,0,0,255]
-    }]
-    }}}},{
-    "id": "130",
-    "name": "Kuril Islands",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [147.9103,45.1573,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
     }]
     }}}},{
     "id": "131",
@@ -20666,29 +20160,6 @@ var country = [{
     "rgba":[255,0,0,255]
     }]
     }}}},{
-    "id": "136",
-    "name": "Lesotho",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [28.2551,-29.5776,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
     "id": "137",
     "name": "Liberia",
     "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
@@ -21129,29 +20600,6 @@ var country = [{
     },{
     "interval":"2020-03-02T00:00:00Z/2020-05-09T00:00:00Z",
     "rgba":[255,0,0,255]
-    }]
-    }}}},{
-    "id": "142",
-    "name": "Macau",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [113.5458,22.1975,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
     }]
     }}}},{
     "id": "143",
@@ -21678,29 +21126,6 @@ var country = [{
     "rgba":[255,0,0,255]
     }]
     }}}},{
-    "id": "149",
-    "name": "Marshall Islands",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [168.5277,6.7211,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
     "id": "150",
     "name": "Martinique",
     "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
@@ -22132,29 +21557,6 @@ var country = [{
     },{
     "interval":"2020-02-29T00:00:00Z/2020-05-09T00:00:00Z",
     "rgba":[255,0,0,255]
-    }]
-    }}}},{
-    "id": "155",
-    "name": "Micronesia",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [158.2287,6.8797,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
     }]
     }}}},{
     "id": "156",
@@ -22828,52 +22230,6 @@ var country = [{
     "rgba":[255,0,0,255]
     }]
     }}}},{
-    "id": "164",
-    "name": "Nauru",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [166.9333,-0.5275,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
-    "id": "165",
-    "name": "Navassa Island",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [-75.0125,18.4019,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
     "id": "166",
     "name": "Nepal",
     "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
@@ -23537,75 +22893,6 @@ var country = [{
     "rgba":[255,0,0,255]
     }]
     }}}},{
-    "id": "173",
-    "name": "Niue",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [-169.8584,-19.0524,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
-    "id": "174",
-    "name": "Norfolk Island",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [167.953,-29.034,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
-    "id": "175",
-    "name": "North Korea",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [127.1899,40.1298,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
     "id": "176",
     "name": "North Macedonia",
     "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
@@ -24169,29 +23456,6 @@ var country = [{
     "rgba":[255,0,0,255]
     }]
     }}}},{
-    "id": "182",
-    "name": "Palau",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [134.5611,7.4841,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
     "id": "183",
     "name": "Panama",
     "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
@@ -24355,29 +23619,6 @@ var country = [{
     },{
     "interval":"2020-03-21T00:00:00Z/2020-05-09T00:00:00Z",
     "rgba":[255,0,0,255]
-    }]
-    }}}},{
-    "id": "185",
-    "name": "Paracel Islands",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [111.8758,16.3681,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
     }]
     }}}},{
     "id": "186",
@@ -24686,29 +23927,6 @@ var country = [{
     },{
     "interval":"2020-01-30T00:00:00Z/2020-05-09T00:00:00Z",
     "rgba":[255,0,0,255]
-    }]
-    }}}},{
-    "id": "189",
-    "name": "Pitcairn Islands",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [-128.3241,-24.3755,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
     }]
     }}}},{
     "id": "190",
@@ -25780,29 +24998,6 @@ var country = [{
     "rgba":[255,0,0,255]
     }]
     }}}},{
-    "id": "201",
-    "name": "Saint Helena, Ascension and Tristan Da Cunha",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [-10.4275,-25.4529,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
     "id": "202",
     "name": "Saint Kitts and Nevis",
     "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
@@ -26194,29 +25389,6 @@ var country = [{
     "rgba":[255,0,0,255]
     }]
     }}}},{
-    "id": "207",
-    "name": "Samoa",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [-172.4412,-13.621,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
     "id": "208",
     "name": "San Marino",
     "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
@@ -26470,29 +25642,6 @@ var country = [{
     "rgba":[255,0,0,255]
     }]
     }}}},{
-    "id": "211",
-    "name": "Scarborough Reef",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [117.732,15.2128,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
     "id": "212",
     "name": "Senegal",
     "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
@@ -26586,29 +25735,6 @@ var country = [{
     },{
     "interval":"2020-03-03T00:00:00Z/2020-05-09T00:00:00Z",
     "rgba":[255,0,0,255]
-    }]
-    }}}},{
-    "id": "213",
-    "name": "Senkaku Islands",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [123.5295,25.772,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
     }]
     }}}},{
     "id": "214",
@@ -27245,29 +26371,6 @@ var country = [{
     "rgba":[255,0,0,255]
     }]
     }}}},{
-    "id": "221",
-    "name": "Solomon Islands",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [159.6008,-8.8995,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
     "id": "222",
     "name": "Somalia",
     "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
@@ -27439,29 +26542,6 @@ var country = [{
     },{
     "interval":"2020-03-06T00:00:00Z/2020-05-09T00:00:00Z",
     "rgba":[255,0,0,255]
-    }]
-    }}}},{
-    "id": "224",
-    "name": "South Georgia and The South Sandwich Islands",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [-36.2044,-54.6015,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
     }]
     }}}},{
     "id": "225",
@@ -27648,29 +26728,6 @@ var country = [{
     },{
     "interval":"2020-02-02T00:00:00Z/2020-05-09T00:00:00Z",
     "rgba":[255,0,0,255]
-    }]
-    }}}},{
-    "id": "227",
-    "name": "Spratly Islands",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [115.1302,10.6117,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
     }]
     }}}},{
     "id": "228",
@@ -27967,29 +27024,6 @@ var country = [{
     },{
     "interval":"2020-03-16T00:00:00Z/2020-05-09T00:00:00Z",
     "rgba":[255,0,0,255]
-    }]
-    }}}},{
-    "id": "231",
-    "name": "Svalbard and Jan Mayen",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [13.4842,78.8376,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
     }]
     }}}},{
     "id": "232",
@@ -28750,52 +27784,6 @@ var country = [{
     "rgba":[255,0,0,255]
     }]
     }}}},{
-    "id": "240",
-    "name": "Tokelau",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [-171.8539,-9.193,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
-    "id": "241",
-    "name": "Tonga",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [-174.8472,-19.859,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
     "id": "242",
     "name": "Trinidad and Tobago",
     "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
@@ -29061,29 +28049,6 @@ var country = [{
     "rgba":[255,0,0,255]
     }]
     }}}},{
-    "id": "245",
-    "name": "Turkmenistan",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [59.4192,39.1055,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
     "id": "246",
     "name": "Turks and Caicos Islands",
     "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
@@ -29149,29 +28114,6 @@ var country = [{
     },{
     "interval":"2020-04-04T00:00:00Z/2020-05-09T00:00:00Z",
     "rgba":[255,0,0,255]
-    }]
-    }}}},{
-    "id": "247",
-    "name": "Tuvalu",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [178.6907,-7.477,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
     }]
     }}}},{
     "id": "248",
@@ -29547,29 +28489,6 @@ var country = [{
     "rgba":[255,0,0,255]
     }]
     }}}},{
-    "id": "252",
-    "name": "United States Minor Outlying Islands",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [-162.4606,6.4102,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
     "id": "253",
     "name": "United States of America",
     "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
@@ -29936,29 +28855,6 @@ var country = [{
     "rgba":[255,0,0,255]
     }]
     }}}},{
-    "id": "257",
-    "name": "Vanuatu",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [167.7031,-16.1959,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
     "id": "258",
     "name": "Venezuela (Bolivarian Republic of)",
     "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
@@ -30177,52 +29073,6 @@ var country = [{
     "rgba":[255,0,0,255]
     }]
     }}}},{
-    "id": "260",
-    "name": "Wallis and Futuna",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [-177.1944,-13.8292,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
-    "id": "261",
-    "name": "Western Sahara",
-    "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "description": "2020-05-09（累積）:0人",
-    "position": {
-    "cartographicDegrees": [-13.1416,24.6678,0]
-    },
-    "ellipse": {
-    "semiMinorAxis": 50000,
-    "semiMajorAxis": 50000,
-    
-    "extrudedHeight": {
-    "epoch":"2020-01-21T00:00:00Z",
-    "number":[
-    
-    ]},
-    "material":{ 
-    "solidColor": {
-    "color": [{
-    "interval":"2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
-    "rgba":[255,0,0,0]
-    }]
-    }}}},{
     "id": "262",
     "name": "Yemen",
     "availability": "2020-01-21T00:00:00Z/2020-05-09T00:00:00Z",
@@ -30438,7 +29288,6 @@ var country = [{
 
 
 
-
     document.getElementById("累積").addEventListener("click",function () {
         //Cesium.Math.setRandomNumberSeed(0);
         viewer.dataSources.removeAll();
@@ -30466,6 +29315,6 @@ document.getElementById("country").addEventListener("click",function () {
 var dataSourcePromise = Cesium.CzmlDataSource.load(country);
 viewer.dataSources.add(dataSourcePromise);
 var center = Cesium.Cartesian3.fromDegrees(-82.5, 135.3);
-viewer.camera.lookAt(center, new Cesium.Cartesian3(0.0, 0.0, 10000000.0));
+viewer.camera.lookAt(center, new Cesium.Cartesian3(0.0, 0.0, 40000000.0));
 
 });
