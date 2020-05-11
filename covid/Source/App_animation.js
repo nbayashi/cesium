@@ -1,7 +1,4 @@
-var viewer = new Cesium.Viewer('cesiumContainer', {
-    shouldAnimate : true
-});
-
+var viewer = new Cesium.Viewer('cesiumContainer', { sceneMode : Cesium.SceneMode.SCENE2D });
 
 var czml_cumulative =[{
     "id": "document",
@@ -29315,6 +29312,6 @@ document.getElementById("country").addEventListener("click",function () {
 var dataSourcePromise = Cesium.CzmlDataSource.load(country);
 viewer.dataSources.add(dataSourcePromise);
 var center = Cesium.Cartesian3.fromDegrees(-82.5, 135.3);
-viewer.camera.lookAt(center, new Cesium.Cartesian3(0.0, 0.0, 40000000.0));
+viewer.camera.lookAt(center, new Cesium.Cartesian3(0.0, 0.0, 20000000.0));
 
 });

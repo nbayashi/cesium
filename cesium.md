@@ -1,5 +1,11 @@
 ## viewer
 
+- 3D
+var viewer = new Cesium.Viewer('cesiumContainer', {
+    shouldAnimate : true
+});
+
+
 - 地図を２。５Dにする
 var viewer = new Cesium.Viewer('cesiumContainer', { sceneMode : Cesium.SceneMode.SCENE2D });
 
@@ -16,7 +22,7 @@ viewer.flyTo(dataSource);
 var center = Cesium.Cartesian3.fromDegrees(-82.5, 135.3);
 viewer.camera.lookAt(center, new Cesium.Cartesian3(0.0, 0.0, 42.0));
 
-
+----
     viewer.camera.setView({
         destination : Cesium.Cartesian3.fromDegrees(
             80,
@@ -24,7 +30,15 @@ viewer.camera.lookAt(center, new Cesium.Cartesian3(0.0, 0.0, 42.0));
             Cesium.Ellipsoid.WGS84.cartesianToCartographic(viewer.camera.position).height
         )
     });
+----
 
+var center = Cesium.Cartesian3.fromDegrees(137.825362273258, 31.2765107698755);
+var heading = Cesium.Math.toRadians(90);
+var pitch = Cesium.Math.toRadians(30);
+var range = 30000000;
+viewer.camera.lookAt(center,new Cesium.HeadingPitchRange(heading, pitch, range));
+
+----
 
 ## toolbar
 
