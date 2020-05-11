@@ -30465,6 +30465,7 @@ document.getElementById("country").addEventListener("click",function () {
 
 var dataSourcePromise = Cesium.CzmlDataSource.load(country);
 viewer.dataSources.add(dataSourcePromise);
-viewer.zoomTo(dataSourcePromise);
+var center = Cesium.Cartesian3.fromDegrees(-82.5, 135.3);
+viewer.camera.lookAt(center, new Cesium.Cartesian3(0.0, 0.0, 10000000.0));
 
 });
