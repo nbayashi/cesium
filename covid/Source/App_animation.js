@@ -1,4 +1,7 @@
-var viewer = new Cesium.Viewer('cesiumContainer', { sceneMode : Cesium.SceneMode.SCENE2D });
+var viewer = new Cesium.Viewer('cesiumContainer', {
+    shouldAnimate : true
+});
+
 
 var czml_cumulative =[{
     "id": "document",
