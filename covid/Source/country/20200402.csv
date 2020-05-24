@@ -1,0 +1,206 @@
+﻿country,confirmed,death,Transmission classification,Days since last reported case,date
+China,82724,3327,Local transmission,0,20200402
+Republic of Korea,9976,169,Local transmission,0,20200402
+Australia,4976,21,Local transmission,0,20200402
+Malaysia,2908,45,Local transmission,0,20200402
+Japan,2384,57,Local transmission,0,20200402
+Philippines,2311,96,Local transmission,0,20200402
+Singapore,1000,3,Local transmission,0,20200402
+New Zealand,723,1,Local transmission,0,20200402
+Viet Nam,218,0,Local transmission,0,20200402
+Brunei Darussalam,131,1,Local transmission,0,20200402
+Cambodia,109,0,Local transmission,1,20200402
+Mongolia,14,0,Imported cases only,0,20200402
+Lao People's Democratic Republic,10,0,Local transmission,0,20200402
+Fiji,5,0,Local transmission,7,20200402
+Papua New Guinea,1,0,Imported cases only,12,20200402
+Guam,77,3,Local transmission,0,20200402
+French Polynesia,37,0,Local transmission,1,20200402
+New Caledonia,16,0,Local transmission,1,20200402
+Northern Mariana Islands (Commonwealth of the),6,0,Local transmission,0,20200402
+Italy,110574,13157,Local transmission,0,20200402
+Spain,102136,9053,Local transmission,0,20200402
+Germany,73522,872,Local transmission,0,20200402
+France,56261,4019,Local transmission,0,20200402
+The United Kingdom,29478,2532,Local transmission,0,20200402
+Switzerland,17070,378,Local transmission,0,20200402
+Turkey,15679,277,Local transmission,0,20200402
+Belgium,13964,828,Local transmission,0,20200402
+Netherlands,13614,1173,Local transmission,0,20200402
+Austria,10711,146,Local transmission,0,20200402
+Portugal,8251,187,Local transmission,0,20200402
+Israel,5591,21,Local transmission,0,20200402
+Sweden,4947,239,Local transmission,0,20200402
+Norway,4665,32,Local transmission,0,20200402
+Czechia,3589,39,Local transmission,0,20200402
+Ireland,3447,85,Local transmission,0,20200402
+Denmark,3107,104,Local transmission,0,20200402
+Russian Federation,2777,24,Local transmission,0,20200402
+Poland,2554,43,Local transmission,0,20200402
+Romania,2460,85,Local transmission,0,20200402
+Luxembourg,2319,29,Local transmission,0,20200402
+Finland,1446,17,Local transmission,0,20200402
+Greece,1375,50,Local transmission,0,20200402
+Iceland,1220,2,Local transmission,0,20200402
+Serbia,1060,13,Local transmission,0,20200402
+Croatia,963,6,Local transmission,0,20200402
+Slovenia,841,15,Local transmission,0,20200402
+Ukraine,804,20,Local transmission,0,20200402
+Estonia,779,5,Local transmission,0,20200402
+Lithuania,581,8,Local transmission,0,20200402
+Armenia,571,3,Local transmission,0,20200402
+Hungary,525,20,Local transmission,0,20200402
+Bosnia and Herzegovina,464,13,Local transmission,0,20200402
+Latvia,446,0,Local transmission,0,20200402
+Republic of Moldova,423,5,Local transmission,0,20200402
+Bulgaria,422,10,Local transmission,0,20200402
+Slovakia,400,0,Local transmission,0,20200402
+Andorra,396,13,Local transmission,0,20200402
+Kazakhstan,386,3,Local transmission,0,20200402
+Azerbaijan,359,5,Local transmission,0,20200402
+North Macedonia,354,11,Local transmission,0,20200402
+Cyprus,320,9,Local transmission,0,20200402
+Albania,277,15,Local transmission,0,20200402
+San Marino,236,28,Local transmission,1,20200402
+Belarus,192,2,Local transmission,0,20200402
+Uzbekistan,190,2,Local transmission,0,20200402
+Malta,188,0,Local transmission,0,20200402
+Georgia,121,0,Local transmission,0,20200402
+Montenegro,120,2,Local transmission,0,20200402
+Kyrgyzstan,115,0,Local transmission,0,20200402
+Liechtenstein,72,0,Under investigation,0,20200402
+Monaco,37,0,Local transmission,1,20200402
+Holy See,6,0,Under investigation,3,20200402
+Faroe Islands,173,0,Local transmission,0,20200402
+Kosovo,125,1,Local transmission,0,20200402
+Gibraltar,69,0,Local transmission,2,20200402
+Jersey,81,2,Local transmission,0,20200402
+Guernsey,78,1,Local transmission,0,20200402
+Isle of Man,65,0,Local transmission,0,20200402
+Greenland,10,0,Under investigation,4,20200402
+Thailand,1771,12,Local transmission,1,20200402
+Indonesia,1677,157,Local transmission,0,20200402
+India,1636,38,Local transmission,1,20200402
+Sri Lanka,143,2,Local transmission,1,20200402
+Bangladesh,54,6,Local transmission,1,20200402
+Maldives,18,0,Local transmission,1,20200402
+Myanmar,15,1,Local transmission,1,20200402
+Nepal,5,0,Imported cases only,4,20200402
+Bhutan,4,0,Imported cases only,3,20200402
+Timor-Leste,1,0,Under investigation,12,20200402
+Iran (Islamic Republic of),47593,3036,Local transmission,0,20200402
+Pakistan,2291,31,Local transmission,0,20200402
+Saudi Arabia,1720,16,Local transmission,0,20200402
+Qatar,835,2,Local transmission,0,20200402
+United Arab Emirates,814,8,Local transmission,0,20200402
+Egypt,779,52,Local transmission,0,20200402
+Iraq,728,52,Local transmission,0,20200402
+Morocco,676,39,Local transmission,0,20200402
+Bahrain,569,4,Local transmission,0,20200402
+Lebanon,479,12,Local transmission,0,20200402
+Tunisia,423,12,Local transmission,0,20200402
+Kuwait,342,0,Local transmission,0,20200402
+Jordan,278,5,Local transmission,0,20200402
+Afghanistan,235,4,Local transmission,0,20200402
+Oman,231,1,Local transmission,0,20200402
+Djibouti,34,0,Local transmission,0,20200402
+Libya,10,0,Local transmission,1,20200402
+Syrian Arab Republic,10,2,Imported cases only,2,20200402
+Sudan,7,2,Imported cases only,1,20200402
+Somalia,5,0,Imported cases only,1,20200402
+occupied Palestinian territory,134,1,Local transmission,1,20200402
+United States of America,187302,3846,Local transmission,0,20200402
+Canada,9005,105,Local transmission,0,20200402
+Brazil,5717,201,Local transmission,0,20200402
+Chile,3031,16,Local transmission,0,20200402
+Ecuador,2372,146,Local transmission,0,20200402
+Peru,1323,24,Local transmission,0,20200402
+Dominican Republic,1284,57,Local transmission,0,20200402
+Mexico,1215,29,Local transmission,0,20200402
+Panama,1181,30,Local transmission,0,20200402
+Argentina,1054,27,Local transmission,0,20200402
+Colombia,906,16,Local transmission,0,20200402
+Costa Rica,347,2,Local transmission,0,20200402
+Uruguay,338,2,Local transmission,0,20200402
+Cuba,212,6,Local transmission,0,20200402
+Honduras,172,10,Local transmission,0,20200402
+Venezuela (Bolivarian Republic of),143,3,Local transmission,0,20200402
+Bolivia (Plurinational State of),115,7,Local transmission,0,20200402
+Trinidad and Tobago,89,5,Local transmission,0,20200402
+Paraguay,69,3,Local transmission,0,20200402
+Guatemala,39,1,Local transmission,0,20200402
+Jamaica,38,1,Local transmission,0,20200402
+Barbados,33,0,Local transmission,2,20200402
+El Salvador,32,1,Local transmission,0,20200402
+Guyana,19,2,Local transmission,0,20200402
+Haiti,16,0,Imported cases only,0,20200402
+Bahamas,15,0,Local transmission,0,20200402
+Saint Lucia,13,0,Local transmission,0,20200402
+Dominica,11,0,Local transmission,6,20200402
+Grenada,9,0,Local transmission,2,20200402
+Saint Kitts and Nevis,8,0,Imported cases only,1,20200402
+Suriname,8,0,Imported cases only,5,20200402
+Antigua and Barbuda,7,0,Imported cases only,5,20200402
+Nicaragua,5,1,Imported cases only,0,20200402
+Belize,3,0,Local transmission,2,20200402
+Saint Vincent and the Grenadines,1,0,Imported cases only,20,20200402
+Puerto Rico,286,11,Local transmission,0,20200402
+Martinique,128,3,Local transmission,0,20200402
+Guadeloupe,125,6,Local transmission,0,20200402
+Aruba,55,0,Local transmission,1,20200402
+French Guiana,51,0,Local transmission,0,20200402
+United States Virgin Islands,30,0,Local transmission,2,20200402
+Bermuda,32,0,Local transmission,0,20200402
+Sint Maarten,6,0,Imported cases only,2,20200402
+Cayman Islands,14,1,Local transmission,0,20200402
+Curaçao,11,1,Imported cases only,2,20200402
+Saint Barthélemy,6,0,Under investigation,2,20200402
+Saint Martin,21,2,Under investigation,0,20200402
+Montserrat,5,0,Imported cases only,5,20200402
+Turks and Caicos Islands,5,0,Local transmission,2,20200402
+British Virgin Islands,3,0,Imported cases only,1,20200402
+Anguilla,2,0,Local transmission,6,20200402
+South Africa,1380,5,Local transmission,0,20200402
+Algeria,847,58,Local transmission,0,20200402
+Burkina Faso,261,14,Local transmission,1,20200402
+Ghana,195,5,Local transmission,0,20200402
+Côte d’Ivoire,190,0,Local transmission,0,20200402
+Senegal,190,1,Local transmission,0,20200402
+Mauritius,154,5,Local transmission,0,20200402
+Cameroon,139,6,Local transmission,2,20200402
+Nigeria,139,2,Local transmission,0,20200402
+Democratic Republic of the Congo,123,11,Local transmission,0,20200402
+Rwanda,82,0,Local transmission,0,20200402
+Kenya,81,1,Local transmission,0,20200402
+Niger,74,5,Local transmission,0,20200402
+Madagascar,53,0,Local transmission,1,20200402
+Uganda,44,0,Local transmission,0,20200402
+Togo,36,2,Local transmission,0,20200402
+Zambia,36,0,Local transmission,0,20200402
+Guinea,30,0,Local transmission,0,20200402
+Mali,28,0,Local transmission,0,20200402
+Ethiopia,26,0,Local transmission,1,20200402
+Congo,22,2,Local transmission,0,20200402
+United Republic of Tanzania,20,1,Local transmission,0,20200402
+Eritrea,15,0,Imported cases only,0,20200402
+Equatorial Guinea,14,0,Local transmission,2,20200402
+Benin,13,0,Imported cases only,0,20200402
+Namibia,11,0,Imported cases only,3,20200402
+Mozambique,10,0,Local transmission,0,20200402
+Seychelles,10,0,Imported cases only,0,20200402
+Eswatini,9,0,Imported cases only,5,20200402
+Guinea-Bissau,9,0,Imported cases only,1,20200402
+Angola,8,2,Imported cases only,0,20200402
+Central African Republic,8,0,Imported cases only,0,20200402
+Zimbabwe,8,1,Local transmission,1,20200402
+Chad,7,0,Imported cases only,1,20200402
+Gabon,7,1,Imported cases only,5,20200402
+Liberia,6,0,Local transmission,0,20200402
+Cabo Verde,5,1,Imported cases only,5,20200402
+Mauritania,5,0,Imported cases only,4,20200402
+Botswana,3,1,Imported cases only,1,20200402
+Gambia,3,1,Imported cases only,4,20200402
+Burundi,2,0,Imported cases only,1,20200402
+Sierra Leone,2,0,Imported cases only,0,20200402
+Réunion,281,0,Local transmission,0,20200402
+Mayotte,116,2,Local transmission,0,20200402

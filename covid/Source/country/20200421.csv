@@ -1,0 +1,213 @@
+﻿country,confirmed,death,Transmission classification,Days since last reported case,date
+China,84250,4642,Clusters of cases,0,20200421
+Japan,11119,186,Clusters of cases,0,20200421
+Republic of Korea,10683,237,Clusters of cases,0,20200421
+Singapore,8014,11,Clusters of cases,0,20200421
+Australia,6625,71,Clusters of cases,0,20200421
+Philippines,6459,428,Clusters of cases,0,20200421
+Malaysia,5424,89,Clusters of cases,0,20200421
+New Zealand,1107,13,Clusters of cases,0,20200421
+Viet Nam,268,0,Clusters of cases,4,20200421
+Brunei Darussalam,138,1,Sporadic cases,1,20200421
+Cambodia,122,0,Sporadic cases,9,20200421
+Mongolia,33,0,Sporadic cases,0,20200421
+Lao People's Democratic Republic,19,0,Sporadic cases,8,20200421
+Fiji,18,0,Sporadic cases,0,20200421
+Papua New Guinea,7,0,Sporadic cases,4,20200421
+Guam,133,5,Clusters of cases,9,20200421
+French Polynesia,56,0,Sporadic cases,0,20200421
+New Caledonia,18,0,Sporadic cases,18,20200421
+Northern Mariana Islands (Commonwealth of the),14,2,Pending,3,20200421
+Spain,200210,20852,Pending,0,20200421
+Italy,181228,24114,Pending,0,20200421
+Germany,143457,4598,Pending,0,20200421
+The United Kingdom,124747,16509,Pending,0,20200421
+France,113513,20233,Pending,0,20200421
+Turkey,90980,2140,Community transmission,0,20200421
+Russian Federation,52763,456,Clusters of cases,0,20200421
+Belgium,39983,5828,Pending,0,20200421
+Netherlands,33405,3751,Pending,0,20200421
+Switzerland,27862,1141,Community transmission,0,20200421
+Portugal,20863,735,Pending,0,20200421
+Ireland,15652,687,Pending,0,20200421
+Austria,14783,470,Pending,0,20200421
+Sweden,14777,1580,Pending,0,20200421
+Israel,13883,181,Pending,0,20200421
+Poland,9593,380,Pending,0,20200421
+Romania,8936,451,Pending,0,20200421
+Denmark,7515,364,Pending,0,20200421
+Norway,7113,154,Pending,0,20200421
+Czechia,6914,196,Pending,0,20200421
+Serbia,6630,125,Pending,0,20200421
+Belarus,6264,51,Clusters of cases,0,20200421
+Ukraine,6125,161,Community transmission,0,20200421
+Finland,3868,98,Pending,0,20200421
+Luxembourg,3558,75,Pending,0,20200421
+Republic of Moldova,2548,70,Pending,0,20200421
+Greece,2245,116,Pending,0,20200421
+Hungary,2098,213,Pending,0,20200421
+Croatia,1881,47,Pending,0,20200421
+Kazakhstan,1852,19,Pending,0,20200421
+Iceland,1773,10,Pending,0,20200421
+Uzbekistan,1657,5,Clusters of cases,0,20200421
+Estonia,1535,40,Pending,0,20200421
+Azerbaijan,1436,19,Clusters of cases,0,20200421
+Lithuania,1350,37,Pending,0,20200421
+Armenia,1339,22,Clusters of cases,0,20200421
+Slovenia,1335,74,Pending,0,20200421
+Bosnia and Herzegovina,1300,49,Community transmission,0,20200421
+North Macedonia,1225,54,Clusters of cases,0,20200421
+Slovakia,1173,13,Pending,0,20200421
+Bulgaria,929,43,Pending,0,20200421
+Cyprus,772,17,Pending,0,20200421
+Latvia,739,5,Pending,0,20200421
+Andorra,718,36,Community transmission,0,20200421
+Albania,609,26,Clusters of cases,0,20200421
+Kyrgyzstan,590,7,Pending,0,20200421
+San Marino,462,39,Community transmission,0,20200421
+Malta,431,3,Pending,0,20200421
+Georgia,408,4,Clusters of cases,0,20200421
+Montenegro,312,5,Clusters of cases,0,20200421
+Liechtenstein,82,1,Pending,2,20200421
+Monaco,68,1,Sporadic cases,7,20200421
+Holy See,9,0,Sporadic cases,0,20200421
+Kosovo,572,12,Community transmission,0,20200421
+Isle of Man,297,4,Pending,1,20200421
+Jersey,249,12,Pending,0,20200421
+Guernsey,239,9,Pending,1,20200421
+Faroe Islands,185,0,Pending,1,20200421
+Gibraltar,133,0,Pending,3,20200421
+Greenland,11,0,Pending,15,20200421
+India,18601,590,Clusters of cases,0,20200421
+Indonesia,6760,590,Community transmission,0,20200421
+Bangladesh,2948,101,Pending,0,20200421
+Thailand,2811,48,Pending,0,20200421
+Sri Lanka,304,7,Clusters of cases,0,20200421
+Myanmar,119,5,Clusters of cases,0,20200421
+Maldives,67,0,Sporadic cases,0,20200421
+Nepal,31,0,Sporadic cases,2,20200421
+Timor-Leste,23,0,Clusters of cases,0,20200421
+Bhutan,6,0,Sporadic cases,0,20200421
+Iran (Islamic Republic of),83505,5209,Community transmission,0,20200421
+Saudi Arabia,10484,103,Clusters of cases,0,20200421
+Pakistan,9216,192,Clusters of cases,0,20200421
+United Arab Emirates,7265,43,Pending,0,20200421
+Qatar,6015,9,Pending,0,20200421
+Egypt,3333,250,Clusters of cases,0,20200421
+Morocco,3046,143,Clusters of cases,0,20200421
+Kuwait,1995,9,Clusters of cases,0,20200421
+Bahrain,1907,7,Clusters of cases,0,20200421
+Iraq,1574,82,Clusters of cases,0,20200421
+Oman,1508,8,Clusters of cases,0,20200421
+Afghanistan,1026,36,Clusters of cases,0,20200421
+Tunisia,884,38,Community transmission,0,20200421
+Djibouti,846,2,Clusters of cases,1,20200421
+Lebanon,677,21,Clusters of cases,0,20200421
+Jordan,425,7,Clusters of cases,0,20200421
+Somalia,237,8,Sporadic cases,0,20200421
+Sudan,107,12,Sporadic cases,0,20200421
+Libya,51,1,Clusters of cases,1,20200421
+Syrian Arab Republic,39,3,Community transmission,1,20200421
+Yemen,1,0,Pending,10,20200421
+occupied Palestinian territory,329,2,Clusters of cases,0,20200421
+United States of America,751273,35884,Community transmission,0,20200421
+Brazil,38654,2462,Community transmission,0,20200421
+Canada,35383,1611,Community transmission,0,20200421
+Peru,15628,400,Community transmission,0,20200421
+Chile,10507,139,Community transmission,1,20200421
+Ecuador,10128,507,Community transmission,0,20200421
+Mexico,8261,686,Community transmission,0,20200421
+Dominican Republic,4964,235,Community transmission,0,20200421
+Panama,4467,126,Community transmission,0,20200421
+Colombia,3792,179,Community transmission,0,20200421
+Argentina,2960,136,Community transmission,0,20200421
+Cuba,1087,36,Clusters of cases,0,20200421
+Costa Rica,660,5,Clusters of cases,0,20200421
+Bolivia (Plurinational State of),564,33,Clusters of cases,0,20200421
+Uruguay,528,10,Clusters of cases,0,20200421
+Honduras,477,46,Clusters of cases,0,20200421
+Guatemala,289,7,Clusters of cases,0,20200421
+Venezuela (Bolivarian Republic of),256,9,Clusters of cases,0,20200421
+El Salvador,218,7,Clusters of cases,0,20200421
+Paraguay,208,8,Community transmission,0,20200421
+Jamaica,196,5,Clusters of cases,0,20200421
+Trinidad and Tobago,114,8,Sporadic cases,5,20200421
+Barbados,75,5,Clusters of cases,4,20200421
+Guyana,65,7,Clusters of cases,0,20200421
+Bahamas,60,9,Clusters of cases,0,20200421
+Haiti,47,3,Clusters of cases,0,20200421
+Antigua and Barbuda,23,3,Clusters of cases,7,20200421
+Belize,18,2,Sporadic cases,6,20200421
+Dominica,16,0,Clusters of cases,10,20200421
+Saint Kitts and Nevis,15,0,Sporadic cases,0,20200421
+Saint Lucia,15,0,Sporadic cases,9,20200421
+Grenada,13,0,Clusters of cases,9,20200421
+Saint Vincent and the Grenadines,12,0,Sporadic cases,10,20200421
+Suriname,10,1,Sporadic cases,17,20200421
+Nicaragua,9,2,Pending,8,20200421
+Puerto Rico,1252,63,Clusters of cases,0,20200421
+Martinique,163,14,Clusters of cases,2,20200421
+Guadeloupe,148,11,Clusters of cases,1,20200421
+Aruba,97,2,Clusters of cases,1,20200421
+French Guiana,97,1,Clusters of cases,0,20200421
+Bermuda,86,5,Clusters of cases,1,20200421
+Sint Maarten,67,10,Clusters of cases,0,20200421
+Cayman Islands,61,1,Clusters of cases,3,20200421
+United States Virgin Islands,53,3,Clusters of cases,2,20200421
+Saint Martin,37,2,Sporadic cases,2,20200421
+Curaçao,14,1,Sporadic cases,12,20200421
+Falkland Islands (Malvinas),11,0,Clusters of cases,6,20200421
+Montserrat,11,0,Sporadic cases,7,20200421
+Turks and Caicos Islands,11,1,Sporadic cases,4,20200421
+Saint Barthélemy,6,0,Sporadic cases,21,20200421
+"Bonaire, Sint Eustatius and Saba",5,0,Sporadic cases,3,20200421
+British Virgin Islands,4,1,Sporadic cases,1,20200421
+Anguilla,3,0,Sporadic cases,17,20200421
+Saint Pierre and Miquelon,1,0,Sporadic cases,13,20200421
+South Africa,3300,58,Community transmission,0,20200421
+Algeria,2718,384,Community transmission,0,20200421
+Cameroon,1163,42,Clusters of cases,0,20200421
+Ghana,1042,9,Clusters of cases,1,20200421
+Côte d’Ivoire,879,10,Clusters of cases,0,20200421
+Niger,655,20,Clusters of cases,0,20200421
+Guinea,622,5,Community transmission,0,20200421
+Burkina Faso,576,36,Community transmission,0,20200421
+Nigeria,541,19,Community transmission,1,20200421
+Senegal,377,5,Clusters of cases,0,20200421
+Democratic Republic of the Congo,350,25,Clusters of cases,0,20200421
+Mauritius,328,9,Community transmission,1,20200421
+Kenya,281,14,Clusters of cases,0,20200421
+United Republic of Tanzania,255,10,Clusters of cases,0,20200421
+Mali,246,14,Clusters of cases,0,20200421
+Congo,160,6,Clusters of cases,0,20200421
+Rwanda,147,0,Clusters of cases,1,20200421
+Madagascar,121,0,Clusters of cases,1,20200421
+Gabon,120,1,Clusters of cases,0,20200421
+Ethiopia,111,3,Clusters of cases,0,20200421
+Liberia,99,8,Clusters of cases,0,20200421
+Togo,84,5,Clusters of cases,0,20200421
+Equatorial Guinea,79,0,Clusters of cases,2,20200421
+Zambia,65,3,Sporadic cases,0,20200421
+Cabo Verde,55,1,Sporadic cases,4,20200421
+Uganda,55,0,Sporadic cases,5,20200421
+Benin,54,1,Sporadic cases,0,20200421
+Guinea-Bissau,50,0,Sporadic cases,3,20200421
+Sierra Leone,43,0,Clusters of cases,0,20200421
+Eritrea,39,0,Sporadic cases,2,20200421
+Mozambique,35,0,Sporadic cases,1,20200421
+Chad,33,0,Sporadic cases,3,20200421
+Zimbabwe,25,3,Sporadic cases,2,20200421
+Angola,24,2,Sporadic cases,0,20200421
+Eswatini,24,1,Sporadic cases,0,20200421
+Botswana,20,1,Sporadic cases,1,20200421
+Malawi,17,2,Sporadic cases,3,20200421
+Namibia,16,0,Sporadic cases,15,20200421
+Central African Republic,12,0,Sporadic cases,4,20200421
+Seychelles,11,0,Sporadic cases,14,20200421
+Gambia,10,1,Sporadic cases,0,20200421
+Mauritania,7,1,Sporadic cases,10,20200421
+Burundi,6,1,Sporadic cases,1,20200421
+São Tomé and Príncipe,4,0,Sporadic cases,14,20200421
+South Sudan,4,0,Sporadic cases,9,20200421
+Réunion,408,0,Clusters of cases,1,20200421
+Mayotte,284,4,Clusters of cases,1,20200421

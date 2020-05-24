@@ -1,0 +1,54 @@
+var czml = [{
+"id": "document",
+"name": "polygon",
+"version": "1.0",
+"clock": {"interval": "2020-01-15T00:00:00Z/2020-01-15T00:05:00Z",
+"currentTime": "2020-01-15T00:00:00Z",
+"multiplier": 1,
+"range": "CLAMPED",
+"step": "SYSTEM_CLOCK_MULTIPLIER",
+}},{
+"id": "1-2020-01-15",
+"name": "北海道",
+"availability": "2020-01-15T00:00:00Z/2020-01-15T00:05:00Z",
+"description":"te",
+    
+"position": {
+"cartographicDegrees": [141.347906353505,43.0639565759149,0]
+},
+"ellipse": {
+    "semiMinorAxis": 10000,
+    "semiMajorAxis": 10000,
+    "extrudedHeight":   { 
+        "epoch" : "2020-01-15T00:01:00Z",
+        "number":[
+                    0, 0,
+                    100,1000000,
+                    300, 500
+                ]},
+"material":{ 
+"solidColor": {
+"color":  [{
+                    "interval" : "2020-01-15T00:00:00Z/2020-01-15T00:01:00Z",
+                    "rgba" : [255, 0, 0, 255]
+                }, {
+                    "interval" : "2020-01-15T00:01:00Z/2020-01-15T00:05:00Z",
+                    "rgba" : [255, 255, 0, 255]
+                }]
+
+}}}},];
+
+var col =  {"epoch" : "2020-01-15T00:00:00Z",
+        "number":[
+                    0, 255,
+                    100,0,
+                    300, 20
+                ]} ;
+
+var viewer = new Cesium.Viewer('cesiumContainer', {
+    shouldAnimate : true
+});
+
+viewer.dataSources.add(Cesium.CzmlDataSource.load(czml));
+
+  

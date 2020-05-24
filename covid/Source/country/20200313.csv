@@ -1,0 +1,123 @@
+﻿country,confirmed,death,Transmission classification,Days since last reported case,date
+China,80991,3180,,,
+Republic of Korea,7979,66,Local transmission,0,20200313
+Japan,675,19,Local transmission,0,20200313
+Singapore,187,0,Local transmission,0,20200313
+Australia,140,3,Local transmission,0,20200313
+Malaysia,129,0,Local transmission,2,20200313
+Philippines,52,2,Local transmission,1,20200313
+Viet Nam,39,0,Local transmission,1,20200313
+Brunei Darussalam,12,0,Imported cases only,1,20200313
+Cambodia,5,0,Local transmission,0,20200313
+New Zealand,5,0,Local transmission,6,20200313
+Mongolia,1,0,Imported cases only,3,20200313
+French Polynesia,1,0,Imported cases only,1,20200313
+Italy,15113,1016,Local transmission,0,20200313
+Spain,2965,84,Local transmission,0,20200313
+France,2860,61,Local transmission,0,20200313
+Germany,2369,6,Local transmission,0,20200313
+Switzerland,858,6,Local transmission,0,20200313
+Denmark,674,0,Local transmission,0,20200313
+Sweden,620,0,Local transmission,0,20200313
+Netherlands,614,5,Local transmission,0,20200313
+The United Kingdom,594,8,Local transmission,0,20200313
+Austria,361,1,Local transmission,0,20200313
+Belgium,314,0,Local transmission,1,20200313
+Norway,489,0,Local transmission,1,20200313
+Czechia,116,0,Local transmission,0,20200313
+Finland,109,0,Local transmission,0,20200313
+Greece,98,1,Local transmission,1,20200313
+Israel,75,0,Local transmission,2,20200313
+Ireland,70,1,Local transmission,0,20200313
+San Marino,63,2,Local transmission,2,20200313
+Iceland,61,0,Local transmission,3,20200313
+Slovenia,57,0,Local transmission,1,20200313
+Poland,49,1,Local transmission,0,20200313
+Romania,48,0,Local transmission,1,20200313
+Portugal,41,0,Local transmission,2,20200313
+Russian Federation,34,0,Imported cases only,0,20200313
+Georgia,25,0,Imported cases only,0,20200313
+Albania,23,0,Imported cases only,0,20200313
+Slovakia,21,0,Local transmission,0,20200313
+Serbia,19,0,Under investigation,1,20200313
+Luxembourg,17,0,Imported cases only,1,20200313
+Croatia,16,0,Local transmission,2,20200313
+Hungary,16,0,Local transmission,0,20200313
+Latvia,16,0,Imported cases only,1,20200313
+Estonia,13,0,Imported cases only,2,20200313
+Belarus,12,0,Local transmission,1,20200313
+Azerbaijan,11,0,Imported cases only,0,20200313
+Malta,9,0,Imported cases only,0,20200313
+Bulgaria,7,1,Local transmission,1,20200313
+North Macedonia,7,0,Local transmission,3,20200313
+Cyprus,6,0,Imported cases only,1,20200313
+Bosnia and Herzegovina,4,0,Local transmission,2,20200313
+Liechtenstein,4,0,Imported cases only,0,20200313
+Republic of Moldova,4,0,Imported cases only,1,20200313
+Lithuania,3,0,Imported cases only,1,20200313
+Ukraine,3,0,Imported cases only,0,20200313
+Andorra,1,0,Imported cases only,10,20200313
+Armenia,1,0,Imported cases only,11,20200313
+Holy See,1,0,Under investigation,7,20200313
+Monaco,1,0,Under investigation,12,20200313
+Turkey,1,0,Imported cases only,1,20200313
+Faroe Islands,2,0,Imported cases only,4,20200313
+Gibraltar,1,0,Under investigation,9,20200313
+Guernsey,1,0,Imported cases only,3,20200313
+Jersey,2,0,Imported cases only,0,20200313
+Thailand,75,1,Local transmission,0,20200313
+India,74,1,Local transmission,0,20200313
+Indonesia,34,1,Local transmission,1,20200313
+Maldives,8,0,Local transmission,2,20200313
+Bangladesh,3,0,Local transmission,4,20200313
+Sri Lanka,3,0,Imported cases only,0,20200313
+Bhutan,1,0,Imported cases only,7,20200313
+Nepal,1,0,Imported cases only,49,20200313
+Iran (Islamic Republic of),10075,429,Local transmission,0,20200313
+Qatar,262,0,Imported cases only,1,20200313
+Bahrain,195,0,Local transmission,0,20200313
+United Arab Emirates,85,0,Local transmission,0,20200313
+Kuwait,80,0,Imported cases only,1,20200313
+Iraq,70,7,Local transmission,1,20200313
+Egypt,67,1,Local transmission,1,20200313
+Lebanon,66,3,Local transmission,1,20200313
+Saudi Arabia,21,0,Imported cases only,1,20200313
+Pakistan,20,0,Local transmission,0,20200313
+Oman,18,0,Imported cases only,3,20200313
+Afghanistan,7,0,Imported cases only,1,20200313
+Tunisia,7,0,Imported cases only,0,20200313
+Morocco,6,1,Imported cases only,0,20200313
+Jordan,1,0,Imported cases only,10,20200313
+occupied Palestinian territory,31,0,Local transmission,0,20200313
+United States of America,1264,36,Local transmission,0,20200313
+Canada,138,1,Local transmission,0,20200313
+Brazil,77,0,Local transmission,0,20200313
+Chile,33,0,Local transmission,0,20200313
+Argentina,31,1,Imported cases only,0,20200313
+Costa Rica,22,0,Local transmission,0,20200313
+Peru,22,0,Local transmission,0,20200313
+Ecuador,17,0,Local transmission,1,20200313
+Panama,14,1,Imported cases only,0,20200313
+Mexico,12,0,Imported cases only,0,20200313
+Colombia,9,0,Imported cases only,1,20200313
+Dominican Republic,5,0,Imported cases only,3,20200313
+Paraguay,5,0,Imported cases only,2,20200313
+Bolivia (Plurinational State of),3,0,Imported cases only,0,20200313
+Cuba,3,0,Imported cases only,0,20200313
+Honduras,2,0,Imported cases only,1,20200313
+Guyana,1,1,Imported cases only,0,20200313
+Jamaica,1,0,Imported cases only,2,20200313
+Saint Vincent and the Grenadines,1,0,Imported cases only,0,20200313
+French Guiana,6,0,Imported cases only,0,20200313
+Martinique,4,0,Imported cases only,0,20200313
+Saint Martin,2,0,Under investigation,10,20200313
+Saint Barthelemy,1,0,Under investigation,10,20200313
+Algeria,25,1,Local transmission,1,20200313
+South Africa,17,0,Imported cases only,0,20200313
+Senegal,10,0,Imported cases only,0,20200313
+Burkina Faso,2,0,Imported cases only,2,20200313
+Cameroon,2,0,Local transmission,6,20200313
+Nigeria,2,0,Imported cases only,4,20200313
+Cote d Ivoire,1,0,Imported cases only,1,20200313
+Democratic Republic of the Congo,1,0,Imported cases only,2,20200313
+Togo,1,0,Imported cases only,6,20200313
