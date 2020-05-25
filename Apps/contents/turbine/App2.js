@@ -18,6 +18,7 @@ var viewer = new Cesium.Viewer("cesiumContainer", {
     viewer.scene.globe.enableLighting = true;
     viewer.shadows = true;
 
+    
 
 //  右クリックの設定
 viewer.canvas.addEventListener('contextmenu', function(e){
