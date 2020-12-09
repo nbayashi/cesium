@@ -78,6 +78,24 @@ Sandcastle.addToolbarMenu(
         );
 
 
+
+        var materialOptions = [
+          {
+            text: "風車",
+            onselect: function () {
+              var modelContents = "windturbine.glb";
+            },
+          },
+          {
+            text: "Textured Material",
+            onselect: function () {
+              var modelContents = "turbine.gltf";
+            },
+          },
+        ];
+
+        Sandcastle.addToolbarMenu(materialOptions);
+        
     Sandcastle.addToggleButton("Shadows", viewer.shadows, function (
   checked
 ) {
