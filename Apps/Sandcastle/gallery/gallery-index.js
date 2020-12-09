@@ -1,6 +1,6 @@
 // This file is automatically rebuilt by the Cesium build process.
-var hello_world_index = 91;
-var VERSION = '1.69';
+var hello_world_index = 96;
+var VERSION = '1.76';
 var gallery_demos = [{
   "name": "3D Models",
   "isNew": false,
@@ -190,6 +190,10 @@ var gallery_demos = [{
   "isNew": false,
   "img": "CZML Polyline.jpg"
 }, {
+  "name": "CZML Polyline Volume",
+  "isNew": false,
+  "img": "CZML Polyline Volume.jpg"
+}, {
   "name": "CZML Position Definitions",
   "isNew": false,
   "img": "CZML Position Definitions.jpg"
@@ -237,6 +241,10 @@ var gallery_demos = [{
   "name": "Cesium Inspector",
   "isNew": false,
   "img": "Cesium Inspector.jpg"
+}, {
+  "name": "Cesium OSM Buildings",
+  "isNew": false,
+  "img": "Cesium OSM Buildings.jpg"
 }, {
   "name": "Cesium Widget",
   "isNew": false,
@@ -330,6 +338,10 @@ var gallery_demos = [{
   "isNew": false,
   "img": "FXAA.jpg"
 }, {
+  "name": "Fog Post Process",
+  "isNew": false,
+  "img": "Fog Post Process.jpg"
+}, {
   "name": "GeoJSON and TopoJSON",
   "isNew": false,
   "img": "GeoJSON and TopoJSON.jpg"
@@ -346,9 +358,17 @@ var gallery_demos = [{
   "isNew": false,
   "img": "Geometry and Appearances.jpg"
 }, {
+  "name": "Globe Interior",
+  "isNew": false,
+  "img": "Globe Interior.jpg"
+}, {
   "name": "Globe Materials",
   "isNew": false,
   "img": "Globe Materials.jpg"
+}, {
+  "name": "Globe Translucency",
+  "isNew": false,
+  "img": "Globe Translucency.jpg"
 }, {
   "name": "Google Earth Enterprise",
   "isNew": false,
@@ -467,7 +487,7 @@ var gallery_demos = [{
   "img": "PAMAP Terrain.jpg"
 }, {
   "name": "Parallels and Meridians",
-  "isNew": true,
+  "isNew": false,
   "img": "Parallels and Meridians.jpg"
 }, {
   "name": "Partial Ellipsoids",
@@ -602,6 +622,10 @@ var gallery_demos = [{
   "isNew": false,
   "img": "Time Dynamic Wheels.jpg"
 }, {
+  "name": "Underground Color",
+  "isNew": false,
+  "img": "Underground Color.jpg"
+}, {
   "name": "Video",
   "isNew": false,
   "img": "Video.jpg"
@@ -626,4 +650,4 @@ var gallery_demos = [{
   "isNew": false,
   "img": "Z-Indexing Geometry.jpg"
 }];
-var has_new_gallery_demos = true;
+var has_new_gallery_demos = false;
