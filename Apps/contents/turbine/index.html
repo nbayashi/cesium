@@ -30,11 +30,11 @@
     function startup(Cesium) {
       "use strict";
       var clock = new Cesium.Clock({
-        startTime: Cesium.JulianDate.fromIso8601("2020-01-01T00:00:00Z"),
-        stopTime: Cesium.JulianDate.fromIso8601("2020-12-31T24:00:00Z"),
-        currentTime: Cesium.JulianDate.fromIso8601("2020-01-01T00:00:00Z"),
-        clockRange: Cesium.ClockRange.LOOP_STOP,
-        clockStep: Cesium.ClockStep.SYSTEM_CLOCK_MULTIPLIER,
+        //startTime: Cesium.JulianDate.fromIso8601("2020-01-01T00:00:00Z"),
+        //stopTime: Cesium.JulianDate.fromIso8601("2020-12-31T24:00:00Z"),
+        //currentTime: Cesium.JulianDate.fromIso8601("2020-01-01T00:00:00Z"),
+        //clockRange: Cesium.ClockRange.LOOP_STOP,
+        //clockStep: Cesium.ClockStep.SYSTEM_CLOCK_MULTIPLIER,
         multiplier: 1,
         shouldAnimate: true,
       });
@@ -43,6 +43,7 @@
         clockViewModel: new Cesium.ClockViewModel(clock),
         selectionIndicator: true,
         terrainProvider: new Cesium.EllipsoidTerrainProvider(),
+        vrButton: true, //VRボタン有効化
       });
 
       viewer.scene.globe.enableLighting = true;
@@ -74,15 +75,19 @@
 
       var materialOptions = [
         {
-          text: "風車",
+          text: "風車2MW",
           onselect: function () {
-            var modelContents = "windturbine.glb";
+            modelurl = "windturbine_2MW.glb";
+            viewer.canvas.removeEventListener('contextmenu', setModel, false);
+            viewer.canvas.addEventListener('contextmenu', setModel, false);
           },
         },
         {
-          text: "風車２",
+          text: "風車5MW",
           onselect: function () {
-            var modelContents = "turbine.gltf";
+            modelurl = "windturbine_5MW.glb";
+            viewer.canvas.removeEventListener('contextmenu', setModel, false);
+            viewer.canvas.addEventListener('contextmenu', setModel, false);
           },
         },
       ];
@@ -97,49 +102,65 @@
 
 
       //  右クリックの設定
-      viewer.canvas.addEventListener('contextmenu', function (e) {
+      var setModel = function (e) {
         var mousePosition = new Cesium.Cartesian2(e.clientX, e.clientY);
-
+        var modelContents = modelurl;
         var ellipsoid = viewer.scene.globe.ellipsoid;
         var cartesian = viewer.camera.pickEllipsoid(mousePosition, ellipsoid);
-        if (cartesian) {
-          var cartographic = ellipsoid.cartesianToCartographic(cartesian);
-          var longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(20);
-          var latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(20);
+        if (e.ctrlKey == false && e.shiftKey == false) {
+          if (cartesian) {
+            var cartographic = ellipsoid.cartesianToCartographic(cartesian);
+            var longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(20);
+            var latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(20);
 
-          //      alert(longitudeString + ', ' + latitudeString);
+            //      alert(longitudeString + ', ' + latitudeString);
 
-          // 右クリック時の処理　風車の設置    
-          var heading = Cesium.Math.toRadians(90);
-          var pitch = Cesium.Math.toRadians(0);
-          var roll = Cesium.Math.toRadians(0);
-          var hpr = new Cesium.HeadingPitchRoll(heading, pitch, roll);
-
-
-          var position = Cesium.Cartesian3.fromDegrees(parseFloat(longitudeString), parseFloat(latitudeString), 0);
-          var entity = viewer.entities.add({
-            //name: longitudeString + ', ' + latitudeString,
-            position: position,
-            orientation: Cesium.Transforms.headingPitchRollQuaternion(
-              position,
-              hpr
-            ),
-            model: {
-              uri: "https://nbayashi.github.io/cesium-3D/turbine/windturbine.glb",
-              heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
-              minimumPixelSize: 50,
-              maximumScale: 200,
-              scale: 0.3,
-              runAnimations: true,
-            },
-          });
+            // 右クリック時の処理　風車の設置    
+            var heading = Cesium.Math.toRadians(90);
+            var pitch = Cesium.Math.toRadians(0);
+            var roll = Cesium.Math.toRadians(0);
+            var hpr = new Cesium.HeadingPitchRoll(heading, pitch, roll);
 
 
-        } else {
-          alert('ここには建てられないよ');
+            var position = Cesium.Cartesian3.fromDegrees(parseFloat(longitudeString), parseFloat(latitudeString), 0);
+
+            var entity = viewer.entities.add({
+              //name: longitudeString + ', ' + latitudeString,
+              position: position,
+              orientation: Cesium.Transforms.headingPitchRollQuaternion(
+                position,
+                hpr
+              ),
+              model: {
+                uri: modelContents,
+                heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
+                minimumPixelSize: 50,
+                maximumScale: 200,
+                scale: 1,
+                runAnimations: true,
+              },
+            });
+
+          } else {
+            alert('ここには建てられないよ');
+          }
         }
+        if (e.shiftKey == true) {
+          var cartographic = ellipsoid.cartesianToCartographic(cartesian);
+          var longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(5);
+          var latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(5);
+          var position = Cesium.Cartesian3.fromDegrees(parseFloat(longitudeString), parseFloat(latitudeString), 0);
+          //console.log(latitudeString);
+          //console.log(entity.length);
 
-      }, false);
+          //viewer.entities.remove(polylineEntity);
+        }
+      };
+
+
+
+      var modelurl = "windturbine_2MW.glb";
+      viewer.canvas.addEventListener('contextmenu', setModel, false);
 
 
 
