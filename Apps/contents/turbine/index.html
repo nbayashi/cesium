@@ -24,15 +24,37 @@
     <h1>Loading...</h1>
   </div>
   <div id="toolbar">
-    <div id="terrainMenu"></div>
+    <table>
+      <tr>
+        <td>
+          <div id="terrainMenu"></div>
+        </td>
+        <td>
+          <div>Heading</div>
+          <input type="range" min="0.0" max="360.0" step="1" data-bind="value: height, valueUpdate: 'input'">
+          <input type="text" size="5" data-bind="value: height">
+        </td>
+      </tr>
+    </table>
+
+
   </div>
   <script id="cesium_sandcastle_script">
     function startup(Cesium) {
       "use strict";
+      const date = new Date()
+      var MM = ("0" + (date.getMonth() + 1)).slice(-2)
+      var DD = ("0" + date.getDate()).slice(-2)
+      var hh = ("0" + date.getHours()).slice(-2)
+      var mm = ("0" + date.getMinutes()).slice(-2)
+      var ss = ("0" + date.getSeconds()).slice(-2)
+      var setTime = date.getFullYear() + '-' + MM + '-' + DD + 'T' + hh + ':' + mm + ':' + ss + 'TAI';
+
+
       var clock = new Cesium.Clock({
         //startTime: Cesium.JulianDate.fromIso8601("2020-01-01T00:00:00Z"),
         //stopTime: Cesium.JulianDate.fromIso8601("2020-12-31T24:00:00Z"),
-        //currentTime: Cesium.JulianDate.fromIso8601("2020-01-01T00:00:00Z"),
+        //currentTime: Cesium.JulianDate.fromIso8601(setTime),
         //clockRange: Cesium.ClockRange.LOOP_STOP,
         //clockStep: Cesium.ClockStep.SYSTEM_CLOCK_MULTIPLIER,
         multiplier: 1,
@@ -49,6 +71,26 @@
       viewer.scene.globe.enableLighting = true;
 
 
+      // knockout
+      // set default value
+      var viewModel = {
+        height: 0,
+      };
+
+      Cesium.knockout.track(viewModel);
+      var toolbar = document.getElementById("toolbar");
+      Cesium.knockout.applyBindings(viewModel, toolbar);
+
+      Cesium.knockout
+        .getObservable(viewModel, "height")
+        .subscribe(function (height) {
+          height = Number(height);
+          if (isNaN(height)) {
+            return;
+          }
+          /// change heading realtime
+        });
+
 
 
 
@@ -56,13 +98,13 @@
       Sandcastle.addToolbarMenu(
         [
           {
-            text: "地形凹凸なし",
+            text: "地形表現なし",
             onselect: function () {
               viewer.terrainProvider = new Cesium.EllipsoidTerrainProvider();
             },
           },
           {
-            text: "地形凹凸あり",
+            text: "地形表現あり",
             onselect: function () {
               viewer.terrainProvider = Cesium.createWorldTerrain();
             },
@@ -77,6 +119,7 @@
         {
           text: "風車2MW",
           onselect: function () {
+            objName = "風車2MW"
             modelurl = "windturbine_2MW.glb";
             viewer.canvas.removeEventListener('contextmenu', setModel, false);
             viewer.canvas.addEventListener('contextmenu', setModel, false);
@@ -85,6 +128,7 @@
         {
           text: "風車5MW",
           onselect: function () {
+            objName = "風車5MW"
             modelurl = "windturbine_5MW.glb";
             viewer.canvas.removeEventListener('contextmenu', setModel, false);
             viewer.canvas.addEventListener('contextmenu', setModel, false);
@@ -94,7 +138,7 @@
 
       Sandcastle.addToolbarMenu(materialOptions);
 
-      Sandcastle.addToggleButton("Shadows", viewer.shadows, function (
+      Sandcastle.addToggleButton("Shadow", viewer.shadows, function (
         checked
       ) {
         viewer.shadows = checked;
@@ -116,7 +160,7 @@
             //      alert(longitudeString + ', ' + latitudeString);
 
             // 右クリック時の処理　風車の設置    
-            var heading = Cesium.Math.toRadians(90);
+            var heading = Cesium.Math.toRadians(Number(viewModel.height) - 90);
             var pitch = Cesium.Math.toRadians(0);
             var roll = Cesium.Math.toRadians(0);
             var hpr = new Cesium.HeadingPitchRoll(heading, pitch, roll);
@@ -126,6 +170,7 @@
 
             var entity = viewer.entities.add({
               //name: longitudeString + ', ' + latitudeString,
+              name: objName,
               position: position,
               orientation: Cesium.Transforms.headingPitchRollQuaternion(
                 position,
@@ -146,6 +191,7 @@
           }
         }
         if (e.shiftKey == true) {
+          //削除機能
           var cartographic = ellipsoid.cartesianToCartographic(cartesian);
           var longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(5);
           var latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(5);
@@ -158,21 +204,19 @@
       };
 
 
-
+      //初期オブジェクト
       var modelurl = "windturbine_2MW.glb";
+      var objName = "風車2MW"
       viewer.canvas.addEventListener('contextmenu', setModel, false);
-
-
-
 
       //　初期のカメラ
       var frontView = {
         destination: new Cesium.Cartesian3.fromDegrees(
-          135.5000, 34.500, 10000
+          135.5000, 34.00, 2000000
         ),
         orientation: {
           heading: Cesium.Math.toRadians(0),
-          pitch: Cesium.Math.toRadians(-30),
+          pitch: Cesium.Math.toRadians(-80),
           roll: Cesium.Math.toRadians(0),
         },
         maximumHeight: 100,
