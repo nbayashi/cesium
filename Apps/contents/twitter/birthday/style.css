@@ -50,6 +50,26 @@
     -webkit-transform: translateY(4px);
     transform: translateY(4px);/*下に動く*/
     border-bottom: none;/*線を消す*/
+    
 
 }
 
+
+@media screen and (max-width: 480px) {
+    .modal-contents{
+        margin:50px;
+        padding:50px 30px;
+        background-color: rgba(100,100,100,0.8);
+        font-size:15px;
+        color:#ffffff;
+    }
+    .close_btn{
+        display : inline-block;
+        background-color:rgb(238, 252, 52);
+        color:#000;
+        border-radius:20px;
+        border-bottom: solid 4px #364218;
+    }
+    
+
+}
