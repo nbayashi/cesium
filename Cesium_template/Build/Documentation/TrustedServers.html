@@ -41,13 +41,14 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TrustedServers.js#L5">Core/TrustedServers.js 5</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TrustedServers.js#L5">Core/TrustedServers.js 5</a>
 </div>
 
 
 
         
-            <div class="description">A singleton that contains all of the servers that are trusted. Credentials will be sent withany requests to these servers.</div>
+            <div class="description">A singleton that contains all of the servers that are trusted. Credentials will be sent with
+any requests to these servers.</div>
         
 
         
@@ -115,7 +116,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TrustedServers.js#L26">Core/TrustedServers.js 26</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TrustedServers.js#L26">Core/TrustedServers.js 26</a>
 </div>
 
 
@@ -244,7 +245,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Add a trusted serverTrustedServers.add('my.server.com', 80);</code></pre>
+    <pre><code class="language-javascript">// Add a trusted server
+TrustedServers.add('my.server.com', 80);</code></pre>
 
     
 
@@ -269,7 +271,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TrustedServers.js#L142">Core/TrustedServers.js 142</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TrustedServers.js#L142">Core/TrustedServers.js 142</a>
 </div>
 
 
@@ -330,7 +332,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Remove a trusted serverTrustedServers.clear();</code></pre>
+    <pre><code class="language-javascript">// Remove a trusted server
+TrustedServers.clear();</code></pre>
 
     
 
@@ -355,7 +358,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TrustedServers.js#L121">Core/TrustedServers.js 121</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TrustedServers.js#L121">Core/TrustedServers.js 121</a>
 </div>
 
 
@@ -470,7 +473,16 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Add serverTrustedServers.add('my.server.com', 81);// Check if server is trustedif (TrustedServers.contains('https://my.server.com:81/path/to/file.png')) {    // my.server.com:81 is trusted}if (TrustedServers.contains('https://my.server.com/path/to/file.png')) {    // my.server.com isn't trusted}</code></pre>
+    <pre><code class="language-javascript">// Add server
+TrustedServers.add('my.server.com', 81);
+
+// Check if server is trusted
+if (TrustedServers.contains('https://my.server.com:81/path/to/file.png')) {
+    // my.server.com:81 is trusted
+}
+if (TrustedServers.contains('https://my.server.com/path/to/file.png')) {
+    // my.server.com isn't trusted
+}</code></pre>
 
     
 
@@ -495,7 +507,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TrustedServers.js#L52">Core/TrustedServers.js 52</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TrustedServers.js#L52">Core/TrustedServers.js 52</a>
 </div>
 
 
@@ -624,7 +636,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Remove a trusted serverTrustedServers.remove('my.server.com', 80);</code></pre>
+    <pre><code class="language-javascript">// Remove a trusted server
+TrustedServers.remove('my.server.com', 80);</code></pre>
 
     
 

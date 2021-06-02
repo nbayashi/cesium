@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/DebugCameraPrimitive.js#L40">Scene/DebugCameraPrimitive.js 40</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/DebugCameraPrimitive.js#L40">Scene/DebugCameraPrimitive.js 40</a>
 </div>
 
 
@@ -384,7 +384,10 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">primitives.add(new Cesium.DebugCameraPrimitive({  camera : camera,  color : Cesium.Color.YELLOW}));</code></pre>
+    <pre><code class="language-javascript">primitives.add(new Cesium.DebugCameraPrimitive({
+  camera : camera,
+  color : Cesium.Color.YELLOW
+}));</code></pre>
 
     
 
@@ -425,7 +428,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/DebugCameraPrimitive.js#L70">Scene/DebugCameraPrimitive.js 70</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/DebugCameraPrimitive.js#L70">Scene/DebugCameraPrimitive.js 70</a>
 </div>
 
 
@@ -493,7 +496,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/DebugCameraPrimitive.js#L60">Scene/DebugCameraPrimitive.js 60</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/DebugCameraPrimitive.js#L60">Scene/DebugCameraPrimitive.js 60</a>
 </div>
 
 
@@ -562,7 +565,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/DebugCameraPrimitive.js#L247">Scene/DebugCameraPrimitive.js 247</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/DebugCameraPrimitive.js#L247">Scene/DebugCameraPrimitive.js 247</a>
 </div>
 
 
@@ -574,7 +577,13 @@
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<p>Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.</p>
+    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
+release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+<p>
+Once an object is destroyed, it should not be used; calling any function other than
+<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,
+assign the return value (<code>undefined</code>) to the object as done in the example.
+</p>
 </div>
 
 
@@ -667,7 +676,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/DebugCameraPrimitive.js#L227">Scene/DebugCameraPrimitive.js 227</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/DebugCameraPrimitive.js#L227">Scene/DebugCameraPrimitive.js 227</a>
 </div>
 
 
@@ -679,7 +688,11 @@
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.<p>If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.</p>
+    Returns true if this object was destroyed; otherwise, false.
+<p>
+If this object was destroyed, it should not be used; calling any function other than
+<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+</p>
 </div>
 
 

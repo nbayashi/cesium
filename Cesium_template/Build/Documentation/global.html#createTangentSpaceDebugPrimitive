@@ -41,13 +41,16 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/createTangentSpaceDebugPrimitive.js#L32">Scene/createTangentSpaceDebugPrimitive.js 32</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/createTangentSpaceDebugPrimitive.js#L32">Scene/createTangentSpaceDebugPrimitive.js 32</a>
 </div>
 
 
 
         
-            <div class="description">Creates a <a href="Primitive.html"><code>Primitive</code></a> to visualize well-known vector vertex attributes:<code>normal</code>, <code>tangent</code>, and <code>bitangent</code>.  Normalis red; tangent is green; and bitangent is blue.  If an attribute is notpresent, it is not drawn.</div>
+            <div class="description">Creates a <a href="Primitive.html"><code>Primitive</code></a> to visualize well-known vector vertex attributes:
+<code>normal</code>, <code>tangent</code>, and <code>bitangent</code>.  Normal
+is red; tangent is green; and bitangent is blue.  If an attribute is not
+present, it is not drawn.</div>
         
 
         
@@ -73,7 +76,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">scene.primitives.add(Cesium.createTangentSpaceDebugPrimitive({   geometry : instance.geometry,   length : 100000.0,   modelMatrix : instance.modelMatrix}));</code></pre>
+    <pre><code class="language-javascript">scene.primitives.add(Cesium.createTangentSpaceDebugPrimitive({
+   geometry : instance.geometry,
+   length : 100000.0,
+   modelMatrix : instance.modelMatrix
+}));</code></pre>
 
     
 

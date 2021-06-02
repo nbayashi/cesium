@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ModelMaterial.js#L19">Scene/ModelMaterial.js 19</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ModelMaterial.js#L19">Scene/ModelMaterial.js 19</a>
 </div>
 
 
@@ -58,7 +58,13 @@
 
 
 <div class="description">
-    A model's material with modifiable parameters.  A glTF materialcontains parameters defined by the material's technique with valuesdefined by the technique and potentially overridden by the material.This class allows changing these values at runtime.<p>Use <a href="Model.html#getMaterial"><code>Model#getMaterial</code></a> to create an instance.</p>
+    A model's material with modifiable parameters.  A glTF material
+contains parameters defined by the material's technique with values
+defined by the technique and potentially overridden by the material.
+This class allows changing these values at runtime.
+<p>
+Use <a href="Model.html#getMaterial"><code>Model#getMaterial</code></a> to create an instance.
+</p>
 </div>
 
 
@@ -148,7 +154,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ModelMaterial.js#L52">Scene/ModelMaterial.js 52</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ModelMaterial.js#L52">Scene/ModelMaterial.js 52</a>
 </div>
 
 
@@ -208,7 +214,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ModelMaterial.js#L38">Scene/ModelMaterial.js 38</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ModelMaterial.js#L38">Scene/ModelMaterial.js 38</a>
 </div>
 
 
@@ -274,7 +280,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ModelMaterial.js#L102">Scene/ModelMaterial.js 102</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ModelMaterial.js#L102">Scene/ModelMaterial.js 102</a>
 </div>
 
 
@@ -286,7 +292,9 @@
 
 
 <div class="description">
-    Returns the value of the parameter with the given <code>name</code>.  The type of thereturned object depends on the glTF type of the parameter.  It will be a floating-pointnumber, Cartesian, or matrix.
+    Returns the value of the parameter with the given <code>name</code>.  The type of the
+returned object depends on the glTF type of the parameter.  It will be a floating-point
+number, Cartesian, or matrix.
 </div>
 
 
@@ -409,7 +417,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ModelMaterial.js#L73">Scene/ModelMaterial.js 73</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ModelMaterial.js#L73">Scene/ModelMaterial.js 73</a>
 </div>
 
 
@@ -421,7 +429,9 @@
 
 
 <div class="description">
-    Assigns a value to a material parameter.  The type for <code>value</code>depends on the glTF type of the parameter.  It will be a floating-pointnumber, Cartesian, or matrix.
+    Assigns a value to a material parameter.  The type for <code>value</code>
+depends on the glTF type of the parameter.  It will be a floating-point
+number, Cartesian, or matrix.
 </div>
 
 
@@ -564,7 +574,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">material.setValue('diffuse', new Cesium.Cartesian4(1.0, 0.0, 0.0, 1.0));  // vec4material.setValue('shininess', 256.0); // scalar</code></pre>
+    <pre><code class="language-javascript">material.setValue('diffuse', new Cesium.Cartesian4(1.0, 0.0, 0.0, 1.0));  // vec4
+material.setValue('shininess', 256.0); // scalar</code></pre>
 
     
 

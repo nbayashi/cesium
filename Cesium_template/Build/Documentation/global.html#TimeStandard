@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TimeStandard.js#L8">Core/TimeStandard.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TimeStandard.js#L8">Core/TimeStandard.js 8</a>
 </div>
 
 
@@ -96,7 +96,11 @@
 
             
 
-            <td class="description last">Represents the coordinated Universal Time (UTC) time standard.UTC is related to TAI according to the relationship<code>UTC = TAI - deltaT</code> where <code>deltaT</code> is the number of leapseconds which have been introduced as of the time in TAI.</td>
+            <td class="description last">Represents the coordinated Universal Time (UTC) time standard.
+
+UTC is related to TAI according to the relationship
+<code>UTC = TAI - deltaT</code> where <code>deltaT</code> is the number of leap
+seconds which have been introduced as of the time in TAI.</td>
         </tr>
 
     
@@ -119,7 +123,8 @@
 
             
 
-            <td class="description last">Represents the International Atomic Time (TAI) time standard.TAI is the principal time standard to which the other time standards are related.</td>
+            <td class="description last">Represents the International Atomic Time (TAI) time standard.
+TAI is the principal time standard to which the other time standards are related.</td>
         </tr>
 
     
@@ -187,7 +192,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TimeStandard.js#L28">Core/TimeStandard.js 28</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TimeStandard.js#L28">Core/TimeStandard.js 28</a>
 </div>
 
 
@@ -198,7 +203,8 @@
 
 
 <div class="description">
-    Represents the International Atomic Time (TAI) time standard.TAI is the principal time standard to which the other time standards are related.
+    Represents the International Atomic Time (TAI) time standard.
+TAI is the principal time standard to which the other time standards are related.
 </div>
 
 
@@ -250,7 +256,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TimeStandard.js#L19">Core/TimeStandard.js 19</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TimeStandard.js#L19">Core/TimeStandard.js 19</a>
 </div>
 
 
@@ -261,7 +267,11 @@
 
 
 <div class="description">
-    Represents the coordinated Universal Time (UTC) time standard.UTC is related to TAI according to the relationship<code>UTC = TAI - deltaT</code> where <code>deltaT</code> is the number of leapseconds which have been introduced as of the time in TAI.
+    Represents the coordinated Universal Time (UTC) time standard.
+
+UTC is related to TAI according to the relationship
+<code>UTC = TAI - deltaT</code> where <code>deltaT</code> is the number of leap
+seconds which have been introduced as of the time in TAI.
 </div>
 
 

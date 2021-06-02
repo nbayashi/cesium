@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Expression.js#L37">Scene/Expression.js 37</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Expression.js#L37">Scene/Expression.js 37</a>
 </div>
 
 
@@ -58,7 +58,14 @@
 
 
 <div class="description">
-    An expression for a style applied to a <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a>.<p>Evaluates an expression defined using the<a href="https://github.com/CesiumGS/3d-tiles/tree/master/specification/Styling">3D Tiles Styling language</a>.</p><p>Implements the <a href="StyleExpression.html"><code>StyleExpression</code></a> interface.</p>
+    An expression for a style applied to a <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a>.
+<p>
+Evaluates an expression defined using the
+<a href="https://github.com/CesiumGS/3d-tiles/tree/master/specification/Styling">3D Tiles Styling language</a>.
+</p>
+<p>
+Implements the <a href="StyleExpression.html"><code>StyleExpression</code></a> interface.
+</p>
 </div>
 
 
@@ -189,9 +196,11 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">var expression = new Cesium.Expression('(regExp("^Chest").test(${County})) &amp;&amp; (${YearBuilt} >= 1970)');expression.evaluate(feature); // returns true or false depending on the feature's properties</code></pre>
+    <pre><code class="language-javascript">var expression = new Cesium.Expression('(regExp("^Chest").test(${County})) &amp;&amp; (${YearBuilt} >= 1970)');
+expression.evaluate(feature); // returns true or false depending on the feature's properties</code></pre>
 
-    <pre><code class="language-javascript">var expression = new Cesium.Expression('(${Temperature} > 90) ? color("red") : color("white")');expression.evaluateColor(feature, result); // returns a Cesium.Color object</code></pre>
+    <pre><code class="language-javascript">var expression = new Cesium.Expression('(${Temperature} > 90) ? color("red") : color("white")');
+expression.evaluateColor(feature, result); // returns a Cesium.Color object</code></pre>
 
     
 
@@ -232,7 +241,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Expression.js#L71">Scene/Expression.js 71</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Expression.js#L71">Scene/Expression.js 71</a>
 </div>
 
 
@@ -301,7 +310,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Expression.js#L137">Scene/Expression.js 137</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Expression.js#L137">Scene/Expression.js 137</a>
 </div>
 
 
@@ -313,7 +322,14 @@
 
 
 <div class="description">
-    Evaluates the result of an expression, optionally using the provided feature's properties. If the result ofthe expression in the<a href="https://github.com/CesiumGS/3d-tiles/tree/master/specification/Styling">3D Tiles Styling language</a>is of type <code>Boolean</code>, <code>Number</code>, or <code>String</code>, the corresponding JavaScriptprimitive type will be returned. If the result is a <code>RegExp</code>, a Javascript <code>RegExp</code>object will be returned. If the result is a <code>Cartesian2</code>, <code>Cartesian3</code>, or <code>Cartesian4</code>,a <a href="Cartesian2.html"><code>Cartesian2</code></a>, <a href="Cartesian3.html"><code>Cartesian3</code></a>, or <a href="Cartesian4.html"><code>Cartesian4</code></a> object will be returned. If the <code>result</code> argument isa <a href="Color.html"><code>Color</code></a>, the <a href="Cartesian4.html"><code>Cartesian4</code></a> value is converted to a <a href="Color.html"><code>Color</code></a> and then returned.
+    Evaluates the result of an expression, optionally using the provided feature's properties. If the result of
+the expression in the
+<a href="https://github.com/CesiumGS/3d-tiles/tree/master/specification/Styling">3D Tiles Styling language</a>
+is of type <code>Boolean</code>, <code>Number</code>, or <code>String</code>, the corresponding JavaScript
+primitive type will be returned. If the result is a <code>RegExp</code>, a Javascript <code>RegExp</code>
+object will be returned. If the result is a <code>Cartesian2</code>, <code>Cartesian3</code>, or <code>Cartesian4</code>,
+a <a href="Cartesian2.html"><code>Cartesian2</code></a>, <a href="Cartesian3.html"><code>Cartesian3</code></a>, or <a href="Cartesian4.html"><code>Cartesian4</code></a> object will be returned. If the <code>result</code> argument is
+a <a href="Color.html"><code>Color</code></a>, the <a href="Cartesian4.html"><code>Cartesian4</code></a> value is converted to a <a href="Color.html"><code>Color</code></a> and then returned.
 </div>
 
 
@@ -471,7 +487,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Expression.js#L163">Scene/Expression.js 163</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Expression.js#L163">Scene/Expression.js 163</a>
 </div>
 
 
@@ -483,7 +499,10 @@
 
 
 <div class="description">
-    Evaluates the result of a Color expression, optionally using the provided feature's properties.<p>This is equivalent to <a href="Expression.html#evaluate"><code>Expression#evaluate</code></a> but always returns a <a href="Color.html"><code>Color</code></a> object.</p>
+    Evaluates the result of a Color expression, optionally using the provided feature's properties.
+<p>
+This is equivalent to <a href="Expression.html#evaluate"><code>Expression#evaluate</code></a> but always returns a <a href="Color.html"><code>Color</code></a> object.
+</p>
 </div>
 
 

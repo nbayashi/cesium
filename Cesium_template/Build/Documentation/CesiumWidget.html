@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/CesiumWidget/CesiumWidget.js#L183">Widgets/CesiumWidget/CesiumWidget.js 183</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/CesiumWidget/CesiumWidget.js#L183">Widgets/CesiumWidget/CesiumWidget.js 183</a>
 </div>
 
 
@@ -746,7 +746,8 @@
 
                 
             
-                The DOM element or ID that will contain the <a href="CreditDisplay.html"><code>CreditDisplay</code></a>.  If not specified, the credits are added       to the bottom of the widget itself.</td>
+                The DOM element or ID that will contain the <a href="CreditDisplay.html"><code>CreditDisplay</code></a>.  If not specified, the credits are added
+       to the bottom of the widget itself.</td>
         </tr>
 
     
@@ -1062,7 +1063,30 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// For each example, include a link to CesiumWidget.css stylesheet in HTML head,// and in the body, include: &lt;div id="cesiumContainer">&lt;/div>//Widget with no terrain and default Bing Maps imagery provider.var widget = new Cesium.CesiumWidget('cesiumContainer');//Widget with ion imagery and Cesium World Terrain.var widget = new Cesium.CesiumWidget('cesiumContainer', {    imageryProvider : Cesium.createWorldImagery(),    terrainProvider : Cesium.createWorldTerrain(),    skyBox : new Cesium.SkyBox({        sources : {          positiveX : 'stars/TychoSkymapII.t3_08192x04096_80_px.jpg',          negativeX : 'stars/TychoSkymapII.t3_08192x04096_80_mx.jpg',          positiveY : 'stars/TychoSkymapII.t3_08192x04096_80_py.jpg',          negativeY : 'stars/TychoSkymapII.t3_08192x04096_80_my.jpg',          positiveZ : 'stars/TychoSkymapII.t3_08192x04096_80_pz.jpg',          negativeZ : 'stars/TychoSkymapII.t3_08192x04096_80_mz.jpg'        }    }),    // Show Columbus View map with Web Mercator projection    sceneMode : Cesium.SceneMode.COLUMBUS_VIEW,    mapProjection : new Cesium.WebMercatorProjection()});</code></pre>
+    <pre><code class="language-javascript">// For each example, include a link to CesiumWidget.css stylesheet in HTML head,
+// and in the body, include: &lt;div id="cesiumContainer">&lt;/div>
+
+//Widget with no terrain and default Bing Maps imagery provider.
+var widget = new Cesium.CesiumWidget('cesiumContainer');
+
+//Widget with ion imagery and Cesium World Terrain.
+var widget = new Cesium.CesiumWidget('cesiumContainer', {
+    imageryProvider : Cesium.createWorldImagery(),
+    terrainProvider : Cesium.createWorldTerrain(),
+    skyBox : new Cesium.SkyBox({
+        sources : {
+          positiveX : 'stars/TychoSkymapII.t3_08192x04096_80_px.jpg',
+          negativeX : 'stars/TychoSkymapII.t3_08192x04096_80_mx.jpg',
+          positiveY : 'stars/TychoSkymapII.t3_08192x04096_80_py.jpg',
+          negativeY : 'stars/TychoSkymapII.t3_08192x04096_80_my.jpg',
+          positiveZ : 'stars/TychoSkymapII.t3_08192x04096_80_pz.jpg',
+          negativeZ : 'stars/TychoSkymapII.t3_08192x04096_80_mz.jpg'
+        }
+    }),
+    // Show Columbus View map with Web Mercator projection
+    sceneMode : Cesium.SceneMode.COLUMBUS_VIEW,
+    mapProjection : new Cesium.WebMercatorProjection()
+});</code></pre>
 
     
 
@@ -1108,7 +1132,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/CesiumWidget/CesiumWidget.js#L491">Widgets/CesiumWidget/CesiumWidget.js 491</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/CesiumWidget/CesiumWidget.js#L491">Widgets/CesiumWidget/CesiumWidget.js 491</a>
 </div>
 
 
@@ -1168,7 +1192,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/CesiumWidget/CesiumWidget.js#L411">Widgets/CesiumWidget/CesiumWidget.js 411</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/CesiumWidget/CesiumWidget.js#L411">Widgets/CesiumWidget/CesiumWidget.js 411</a>
 </div>
 
 
@@ -1228,7 +1252,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/CesiumWidget/CesiumWidget.js#L504">Widgets/CesiumWidget/CesiumWidget.js 504</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/CesiumWidget/CesiumWidget.js#L504">Widgets/CesiumWidget/CesiumWidget.js 504</a>
 </div>
 
 
@@ -1288,7 +1312,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/CesiumWidget/CesiumWidget.js#L398">Widgets/CesiumWidget/CesiumWidget.js 398</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/CesiumWidget/CesiumWidget.js#L398">Widgets/CesiumWidget/CesiumWidget.js 398</a>
 </div>
 
 
@@ -1348,7 +1372,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/CesiumWidget/CesiumWidget.js#L424">Widgets/CesiumWidget/CesiumWidget.js 424</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/CesiumWidget/CesiumWidget.js#L424">Widgets/CesiumWidget/CesiumWidget.js 424</a>
 </div>
 
 
@@ -1408,7 +1432,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/CesiumWidget/CesiumWidget.js#L437">Widgets/CesiumWidget/CesiumWidget.js 437</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/CesiumWidget/CesiumWidget.js#L437">Widgets/CesiumWidget/CesiumWidget.js 437</a>
 </div>
 
 
@@ -1468,7 +1492,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/CesiumWidget/CesiumWidget.js#L463">Widgets/CesiumWidget/CesiumWidget.js 463</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/CesiumWidget/CesiumWidget.js#L463">Widgets/CesiumWidget/CesiumWidget.js 463</a>
 </div>
 
 
@@ -1528,7 +1552,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/CesiumWidget/CesiumWidget.js#L588">Widgets/CesiumWidget/CesiumWidget.js 588</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/CesiumWidget/CesiumWidget.js#L588">Widgets/CesiumWidget/CesiumWidget.js 588</a>
 </div>
 
 
@@ -1539,7 +1563,12 @@
 
 
 <div class="description">
-    Gets or sets a scaling factor for rendering resolution.  Values less than 1.0 can improveperformance on less powerful devices while values greater than 1.0 will render at a higherresolution and then scale down, resulting in improved visual fidelity.For example, if the widget is laid out at a size of 640x480, setting this value to 0.5will cause the scene to be rendered at 320x240 and then scaled up while settingit to 2.0 will cause the scene to be rendered at 1280x960 and then scaled down.
+    Gets or sets a scaling factor for rendering resolution.  Values less than 1.0 can improve
+performance on less powerful devices while values greater than 1.0 will render at a higher
+resolution and then scale down, resulting in improved visual fidelity.
+For example, if the widget is laid out at a size of 640x480, setting this value to 0.5
+will cause the scene to be rendered at 320x240 and then scaled up while setting
+it to 2.0 will cause the scene to be rendered at 1280x960 and then scaled down.
 </div>
 
 
@@ -1591,7 +1620,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/CesiumWidget/CesiumWidget.js#L450">Widgets/CesiumWidget/CesiumWidget.js 450</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/CesiumWidget/CesiumWidget.js#L450">Widgets/CesiumWidget/CesiumWidget.js 450</a>
 </div>
 
 
@@ -1651,7 +1680,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/CesiumWidget/CesiumWidget.js#L517">Widgets/CesiumWidget/CesiumWidget.js 517</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/CesiumWidget/CesiumWidget.js#L517">Widgets/CesiumWidget/CesiumWidget.js 517</a>
 </div>
 
 
@@ -1711,7 +1740,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/CesiumWidget/CesiumWidget.js#L532">Widgets/CesiumWidget/CesiumWidget.js 532</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/CesiumWidget/CesiumWidget.js#L532">Widgets/CesiumWidget/CesiumWidget.js 532</a>
 </div>
 
 
@@ -1722,7 +1751,10 @@
 
 
 <div class="description">
-    Gets or sets the target frame rate of the widget when <code>useDefaultRenderLoop</code>is true. If undefined, the browser's <a href="global.html#requestAnimationFrame"><code>requestAnimationFrame</code></a> implementationdetermines the frame rate.  If defined, this value must be greater than 0.  A value higherthan the underlying requestAnimationFrame implementation will have no effect.
+    Gets or sets the target frame rate of the widget when <code>useDefaultRenderLoop</code>
+is true. If undefined, the browser's <a href="global.html#requestAnimationFrame"><code>requestAnimationFrame</code></a> implementation
+determines the frame rate.  If defined, this value must be greater than 0.  A value higher
+than the underlying requestAnimationFrame implementation will have no effect.
 </div>
 
 
@@ -1771,7 +1803,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/CesiumWidget/CesiumWidget.js#L475">Widgets/CesiumWidget/CesiumWidget.js 475</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/CesiumWidget/CesiumWidget.js#L475">Widgets/CesiumWidget/CesiumWidget.js 475</a>
 </div>
 
 
@@ -1831,7 +1863,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/CesiumWidget/CesiumWidget.js#L617">Widgets/CesiumWidget/CesiumWidget.js 617</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/CesiumWidget/CesiumWidget.js#L617">Widgets/CesiumWidget/CesiumWidget.js 617</a>
 </div>
 
 
@@ -1842,7 +1874,12 @@
 
 
 <div class="description">
-    Boolean flag indicating if the browser's recommended resolution is used.If true, the browser's device pixel ratio is ignored and 1.0 is used instead,effectively rendering based on CSS pixels instead of device pixels. This can improveperformance on less powerful devices that have high pixel density. When false, renderingwill be in device pixels. <a href="CesiumWidget.html#resolutionScale"><code>CesiumWidget#resolutionScale</code></a> will still take effect whetherthis flag is true or false.
+    Boolean flag indicating if the browser's recommended resolution is used.
+If true, the browser's device pixel ratio is ignored and 1.0 is used instead,
+effectively rendering based on CSS pixels instead of device pixels. This can improve
+performance on less powerful devices that have high pixel density. When false, rendering
+will be in device pixels. <a href="CesiumWidget.html#resolutionScale"><code>CesiumWidget#resolutionScale</code></a> will still take effect whether
+this flag is true or false.
 </div>
 
 
@@ -1894,7 +1931,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/CesiumWidget/CesiumWidget.js#L562">Widgets/CesiumWidget/CesiumWidget.js 562</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/CesiumWidget/CesiumWidget.js#L562">Widgets/CesiumWidget/CesiumWidget.js 562</a>
 </div>
 
 
@@ -1905,7 +1942,15 @@
 
 
 <div class="description">
-    Gets or sets whether or not this widget should control the render loop.If set to true the widget will use <a href="global.html#requestAnimationFrame"><code>requestAnimationFrame</code></a> toperform rendering and resizing of the widget, as well as drive thesimulation clock. If set to false, you must manually call the<code>resize</code>, <code>render</code> methods as part of a customrender loop.  If an error occurs during rendering, <a href="Scene.html"><code>Scene</code></a>'s<code>renderError</code> event will be raised and this propertywill be set to false.  It must be set back to true to continue renderingafter the error.
+    Gets or sets whether or not this widget should control the render loop.
+If set to true the widget will use <a href="global.html#requestAnimationFrame"><code>requestAnimationFrame</code></a> to
+perform rendering and resizing of the widget, as well as drive the
+simulation clock. If set to false, you must manually call the
+<code>resize</code>, <code>render</code> methods as part of a custom
+render loop.  If an error occurs during rendering, <a href="Scene.html"><code>Scene</code></a>'s
+<code>renderError</code> event will be raised and this property
+will be set to false.  It must be set back to true to continue rendering
+after the error.
 </div>
 
 
@@ -1960,7 +2005,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/CesiumWidget/CesiumWidget.js#L748">Widgets/CesiumWidget/CesiumWidget.js 748</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/CesiumWidget/CesiumWidget.js#L748">Widgets/CesiumWidget/CesiumWidget.js 748</a>
 </div>
 
 
@@ -1972,7 +2017,8 @@
 
 
 <div class="description">
-    Destroys the widget.  Should be called if permanentlyremoving the widget from layout.
+    Destroys the widget.  Should be called if permanently
+removing the widget from layout.
 </div>
 
 
@@ -2041,7 +2087,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/CesiumWidget/CesiumWidget.js#L740">Widgets/CesiumWidget/CesiumWidget.js 740</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/CesiumWidget/CesiumWidget.js#L740">Widgets/CesiumWidget/CesiumWidget.js 740</a>
 </div>
 
 
@@ -2127,7 +2173,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/CesiumWidget/CesiumWidget.js#L785">Widgets/CesiumWidget/CesiumWidget.js 785</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/CesiumWidget/CesiumWidget.js#L785">Widgets/CesiumWidget/CesiumWidget.js 785</a>
 </div>
 
 
@@ -2139,7 +2185,8 @@
 
 
 <div class="description">
-    Renders the scene.  This function is called automaticallyunless <code>useDefaultRenderLoop</code> is set to false;
+    Renders the scene.  This function is called automatically
+unless <code>useDefaultRenderLoop</code> is set to false;
 </div>
 
 
@@ -2208,7 +2255,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/CesiumWidget/CesiumWidget.js#L763">Widgets/CesiumWidget/CesiumWidget.js 763</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/CesiumWidget/CesiumWidget.js#L763">Widgets/CesiumWidget/CesiumWidget.js 763</a>
 </div>
 
 
@@ -2220,7 +2267,9 @@
 
 
 <div class="description">
-    Updates the canvas size, camera aspect ratio, and viewport size.This function is called automatically as needed unless<code>useDefaultRenderLoop</code> is set to false.
+    Updates the canvas size, camera aspect ratio, and viewport size.
+This function is called automatically as needed unless
+<code>useDefaultRenderLoop</code> is set to false.
 </div>
 
 
@@ -2289,7 +2338,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/CesiumWidget/CesiumWidget.js#L640">Widgets/CesiumWidget/CesiumWidget.js 640</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/CesiumWidget/CesiumWidget.js#L640">Widgets/CesiumWidget/CesiumWidget.js 640</a>
 </div>
 
 
@@ -2301,7 +2350,10 @@
 
 
 <div class="description">
-    Show an error panel to the user containing a title and a longer error message,which can be dismissed using an OK button.  This panel is displayed automaticallywhen a render loop error occurs, if showRenderLoopErrors was not false when thewidget was constructed.
+    Show an error panel to the user containing a title and a longer error message,
+which can be dismissed using an OK button.  This panel is displayed automatically
+when a render loop error occurs, if showRenderLoopErrors was not false when the
+widget was constructed.
 </div>
 
 

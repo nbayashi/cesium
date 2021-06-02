@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Clock.js#L43">Core/Clock.js 43</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Clock.js#L43">Core/Clock.js 43</a>
 </div>
 
 
@@ -479,7 +479,14 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create a clock that loops on Christmas day 2013 and runs in real-time.var clock = new Cesium.Clock({   startTime : Cesium.JulianDate.fromIso8601("2013-12-25"),   currentTime : Cesium.JulianDate.fromIso8601("2013-12-25"),   stopTime : Cesium.JulianDate.fromIso8601("2013-12-26"),   clockRange : Cesium.ClockRange.LOOP_STOP,   clockStep : Cesium.ClockStep.SYSTEM_CLOCK_MULTIPLIER});</code></pre>
+    <pre><code class="language-javascript">// Create a clock that loops on Christmas day 2013 and runs in real-time.
+var clock = new Cesium.Clock({
+   startTime : Cesium.JulianDate.fromIso8601("2013-12-25"),
+   currentTime : Cesium.JulianDate.fromIso8601("2013-12-25"),
+   stopTime : Cesium.JulianDate.fromIso8601("2013-12-26"),
+   clockRange : Cesium.ClockRange.LOOP_STOP,
+   clockStep : Cesium.ClockStep.SYSTEM_CLOCK_MULTIPLIER
+});</code></pre>
 
     
 
@@ -529,7 +536,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Clock.js#L115">Core/Clock.js 115</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Clock.js#L115">Core/Clock.js 115</a>
 </div>
 
 
@@ -540,7 +547,9 @@
 
 
 <div class="description">
-    Indicates whether <a href="Clock.html#tick"><code>Clock#tick</code></a> can advance time.  This could be false if data is being buffered,for example.  The clock will only advance time when both<a href="Clock.html#canAnimate"><code>Clock#canAnimate</code></a> and <a href="Clock.html#shouldAnimate"><code>Clock#shouldAnimate</code></a> are true.
+    Indicates whether <a href="Clock.html#tick"><code>Clock#tick</code></a> can advance time.  This could be false if data is being buffered,
+for example.  The clock will only advance time when both
+<a href="Clock.html#canAnimate"><code>Clock#canAnimate</code></a> and <a href="Clock.html#shouldAnimate"><code>Clock#shouldAnimate</code></a> are true.
 </div>
 
 
@@ -592,7 +601,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Clock.js#L106">Core/Clock.js 106</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Clock.js#L106">Core/Clock.js 106</a>
 </div>
 
 
@@ -603,7 +612,9 @@
 
 
 <div class="description">
-    Determines how the clock should behave when<a href="Clock.html#startTime"><code>Clock#startTime</code></a> or <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a>is reached.
+    Determines how the clock should behave when
+<a href="Clock.html#startTime"><code>Clock#startTime</code></a> or <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a>
+is reached.
 </div>
 
 
@@ -655,7 +666,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Clock.js#L210">Core/Clock.js 210</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Clock.js#L210">Core/Clock.js 210</a>
 </div>
 
 
@@ -666,7 +677,10 @@
 
 
 <div class="description">
-    Determines if calls to <a href="Clock.html#tick"><code>Clock#tick</code></a> are frame dependent or system clock dependent.Changing this property to <a href="global.html#ClockStep#.SYSTEM_CLOCK"><code>ClockStep.SYSTEM_CLOCK</code></a> will set<a href="Clock.html#multiplier"><code>Clock#multiplier</code></a> to 1.0, <a href="Clock.html#shouldAnimate"><code>Clock#shouldAnimate</code></a> to true, and<a href="Clock.html#currentTime"><code>Clock#currentTime</code></a> to the current system clock time.
+    Determines if calls to <a href="Clock.html#tick"><code>Clock#tick</code></a> are frame dependent or system clock dependent.
+Changing this property to <a href="global.html#ClockStep#.SYSTEM_CLOCK"><code>ClockStep.SYSTEM_CLOCK</code></a> will set
+<a href="Clock.html#multiplier"><code>Clock#multiplier</code></a> to 1.0, <a href="Clock.html#shouldAnimate"><code>Clock#shouldAnimate</code></a> to true, and
+<a href="Clock.html#currentTime"><code>Clock#currentTime</code></a> to the current system clock time.
 </div>
 
 
@@ -718,7 +732,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Clock.js#L155">Core/Clock.js 155</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Clock.js#L155">Core/Clock.js 155</a>
 </div>
 
 
@@ -729,7 +743,10 @@
 
 
 <div class="description">
-    The current time.Changing this property will change<a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> from <a href="global.html#ClockStep#.SYSTEM_CLOCK"><code>ClockStep.SYSTEM_CLOCK</code></a> to<a href="global.html#ClockStep#.SYSTEM_CLOCK_MULTIPLIER"><code>ClockStep.SYSTEM_CLOCK_MULTIPLIER</code></a>.
+    The current time.
+Changing this property will change
+<a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> from <a href="global.html#ClockStep#.SYSTEM_CLOCK"><code>ClockStep.SYSTEM_CLOCK</code></a> to
+<a href="global.html#ClockStep#.SYSTEM_CLOCK_MULTIPLIER"><code>ClockStep.SYSTEM_CLOCK_MULTIPLIER</code></a>.
 </div>
 
 
@@ -778,7 +795,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Clock.js#L184">Core/Clock.js 184</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Clock.js#L184">Core/Clock.js 184</a>
 </div>
 
 
@@ -789,7 +806,13 @@
 
 
 <div class="description">
-    Gets or sets how much time advances when <a href="Clock.html#tick"><code>Clock#tick</code></a> is called. Negative values allow for advancing backwards.If <a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> is set to <a href="global.html#ClockStep#.TICK_DEPENDENT"><code>ClockStep.TICK_DEPENDENT</code></a>, this is the number of seconds to advance.If <a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> is set to <a href="global.html#ClockStep#.SYSTEM_CLOCK_MULTIPLIER"><code>ClockStep.SYSTEM_CLOCK_MULTIPLIER</code></a>, this value is multiplied by theelapsed system time since the last call to <a href="Clock.html#tick"><code>Clock#tick</code></a>.Changing this property will change<a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> from <a href="global.html#ClockStep#.SYSTEM_CLOCK"><code>ClockStep.SYSTEM_CLOCK</code></a> to<a href="global.html#ClockStep#.SYSTEM_CLOCK_MULTIPLIER"><code>ClockStep.SYSTEM_CLOCK_MULTIPLIER</code></a>.
+    Gets or sets how much time advances when <a href="Clock.html#tick"><code>Clock#tick</code></a> is called. Negative values allow for advancing backwards.
+If <a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> is set to <a href="global.html#ClockStep#.TICK_DEPENDENT"><code>ClockStep.TICK_DEPENDENT</code></a>, this is the number of seconds to advance.
+If <a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> is set to <a href="global.html#ClockStep#.SYSTEM_CLOCK_MULTIPLIER"><code>ClockStep.SYSTEM_CLOCK_MULTIPLIER</code></a>, this value is multiplied by the
+elapsed system time since the last call to <a href="Clock.html#tick"><code>Clock#tick</code></a>.
+Changing this property will change
+<a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> from <a href="global.html#ClockStep#.SYSTEM_CLOCK"><code>ClockStep.SYSTEM_CLOCK</code></a> to
+<a href="global.html#ClockStep#.SYSTEM_CLOCK_MULTIPLIER"><code>ClockStep.SYSTEM_CLOCK_MULTIPLIER</code></a>.
 </div>
 
 
@@ -841,7 +864,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Clock.js#L126">Core/Clock.js 126</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Clock.js#L126">Core/Clock.js 126</a>
 </div>
 
 
@@ -901,7 +924,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Clock.js#L121">Core/Clock.js 121</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Clock.js#L121">Core/Clock.js 121</a>
 </div>
 
 
@@ -961,7 +984,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Clock.js#L236">Core/Clock.js 236</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Clock.js#L236">Core/Clock.js 236</a>
 </div>
 
 
@@ -972,7 +995,12 @@
 
 
 <div class="description">
-    Indicates whether <a href="Clock.html#tick"><code>Clock#tick</code></a> should attempt to advance time.The clock will only advance time when both<a href="Clock.html#canAnimate"><code>Clock#canAnimate</code></a> and <a href="Clock.html#shouldAnimate"><code>Clock#shouldAnimate</code></a> are true.Changing this property will change<a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> from <a href="global.html#ClockStep#.SYSTEM_CLOCK"><code>ClockStep.SYSTEM_CLOCK</code></a> to<a href="global.html#ClockStep#.SYSTEM_CLOCK_MULTIPLIER"><code>ClockStep.SYSTEM_CLOCK_MULTIPLIER</code></a>.
+    Indicates whether <a href="Clock.html#tick"><code>Clock#tick</code></a> should attempt to advance time.
+The clock will only advance time when both
+<a href="Clock.html#canAnimate"><code>Clock#canAnimate</code></a> and <a href="Clock.html#shouldAnimate"><code>Clock#shouldAnimate</code></a> are true.
+Changing this property will change
+<a href="Clock.html#clockStep"><code>Clock#clockStep</code></a> from <a href="global.html#ClockStep#.SYSTEM_CLOCK"><code>ClockStep.SYSTEM_CLOCK</code></a> to
+<a href="global.html#ClockStep#.SYSTEM_CLOCK_MULTIPLIER"><code>ClockStep.SYSTEM_CLOCK_MULTIPLIER</code></a>.
 </div>
 
 
@@ -1024,7 +1052,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Clock.js#L91">Core/Clock.js 91</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Clock.js#L91">Core/Clock.js 91</a>
 </div>
 
 
@@ -1084,7 +1112,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Clock.js#L97">Core/Clock.js 97</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Clock.js#L97">Core/Clock.js 97</a>
 </div>
 
 
@@ -1150,7 +1178,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Clock.js#L261">Core/Clock.js 261</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Clock.js#L261">Core/Clock.js 261</a>
 </div>
 
 
@@ -1162,7 +1190,9 @@
 
 
 <div class="description">
-    Advances the clock from the current time based on the current configuration options.tick should be called every frame, regardless of whether animation is taking placeor not.  To control animation, use the <a href="Clock.html#shouldAnimate"><code>Clock#shouldAnimate</code></a> property.
+    Advances the clock from the current time based on the current configuration options.
+tick should be called every frame, regardless of whether animation is taking place
+or not.  To control animation, use the <a href="Clock.html#shouldAnimate"><code>Clock#shouldAnimate</code></a> property.
 </div>
 
 

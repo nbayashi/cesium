@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/PrimitiveType.js#L8">Core/PrimitiveType.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/PrimitiveType.js#L8">Core/PrimitiveType.js 8</a>
 </div>
 
 
@@ -142,7 +142,8 @@
 
             
 
-            <td class="description last">Line loop primitive where each vertex (or index) after the first connects a line tothe previous vertex, and the last vertex implicitly connects to the first.</td>
+            <td class="description last">Line loop primitive where each vertex (or index) after the first connects a line to
+the previous vertex, and the last vertex implicitly connects to the first.</td>
         </tr>
 
     
@@ -211,7 +212,8 @@
 
             
 
-            <td class="description last">Triangle strip primitive where each vertex (or index) after the first two connect tothe previous two vertices forming a triangle.  For example, this can be used to model a wall.</td>
+            <td class="description last">Triangle strip primitive where each vertex (or index) after the first two connect to
+the previous two vertices forming a triangle.  For example, this can be used to model a wall.</td>
         </tr>
 
     
@@ -234,7 +236,9 @@
 
             
 
-            <td class="description last">Triangle fan primitive where each vertex (or index) after the first two connect tothe previous vertex and the first vertex forming a triangle.  For example, this can be usedto model a cone or circle.</td>
+            <td class="description last">Triangle fan primitive where each vertex (or index) after the first two connect to
+the previous vertex and the first vertex forming a triangle.  For example, this can be used
+to model a cone or circle.</td>
         </tr>
 
     
@@ -297,7 +301,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/PrimitiveType.js#L32">Core/PrimitiveType.js 32</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/PrimitiveType.js#L32">Core/PrimitiveType.js 32</a>
 </div>
 
 
@@ -308,7 +312,8 @@
 
 
 <div class="description">
-    Line loop primitive where each vertex (or index) after the first connects a line tothe previous vertex, and the last vertex implicitly connects to the first.
+    Line loop primitive where each vertex (or index) after the first connects a line to
+the previous vertex, and the last vertex implicitly connects to the first.
 </div>
 
 
@@ -360,7 +365,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/PrimitiveType.js#L40">Core/PrimitiveType.js 40</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/PrimitiveType.js#L40">Core/PrimitiveType.js 40</a>
 </div>
 
 
@@ -423,7 +428,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/PrimitiveType.js#L23">Core/PrimitiveType.js 23</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/PrimitiveType.js#L23">Core/PrimitiveType.js 23</a>
 </div>
 
 
@@ -486,7 +491,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/PrimitiveType.js#L15">Core/PrimitiveType.js 15</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/PrimitiveType.js#L15">Core/PrimitiveType.js 15</a>
 </div>
 
 
@@ -549,7 +554,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/PrimitiveType.js#L67">Core/PrimitiveType.js 67</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/PrimitiveType.js#L67">Core/PrimitiveType.js 67</a>
 </div>
 
 
@@ -560,7 +565,9 @@
 
 
 <div class="description">
-    Triangle fan primitive where each vertex (or index) after the first two connect tothe previous vertex and the first vertex forming a triangle.  For example, this can be usedto model a cone or circle.
+    Triangle fan primitive where each vertex (or index) after the first two connect to
+the previous vertex and the first vertex forming a triangle.  For example, this can be used
+to model a cone or circle.
 </div>
 
 
@@ -612,7 +619,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/PrimitiveType.js#L57">Core/PrimitiveType.js 57</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/PrimitiveType.js#L57">Core/PrimitiveType.js 57</a>
 </div>
 
 
@@ -623,7 +630,8 @@
 
 
 <div class="description">
-    Triangle strip primitive where each vertex (or index) after the first two connect tothe previous two vertices forming a triangle.  For example, this can be used to model a wall.
+    Triangle strip primitive where each vertex (or index) after the first two connect to
+the previous two vertices forming a triangle.  For example, this can be used to model a wall.
 </div>
 
 
@@ -675,7 +683,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/PrimitiveType.js#L48">Core/PrimitiveType.js 48</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/PrimitiveType.js#L48">Core/PrimitiveType.js 48</a>
 </div>
 
 

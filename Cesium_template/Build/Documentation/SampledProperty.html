@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/SampledProperty.js#L159">DataSources/SampledProperty.js 159</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/SampledProperty.js#L159">DataSources/SampledProperty.js 159</a>
 </div>
 
 
@@ -58,7 +58,8 @@
 
 
 <div class="description">
-    A <a href="Property.html"><code>Property</code></a> whose value is interpolated for a given time from theprovided set of samples and specified interpolation algorithm and degree.
+    A <a href="Property.html"><code>Property</code></a> whose value is interpolated for a given time from the
+provided set of samples and specified interpolation algorithm and degree.
 </div>
 
 
@@ -190,9 +191,35 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">//Create a linearly interpolated Cartesian2var property = new Cesium.SampledProperty(Cesium.Cartesian2);//Populate it with dataproperty.addSample(Cesium.JulianDate.fromIso8601('2012-08-01T00:00:00.00Z'), new Cesium.Cartesian2(0, 0));property.addSample(Cesium.JulianDate.fromIso8601('2012-08-02T00:00:00.00Z'), new Cesium.Cartesian2(4, 7));//Retrieve an interpolated valuevar result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T12:00:00.00Z'));</code></pre>
+    <pre><code class="language-javascript">//Create a linearly interpolated Cartesian2
+var property = new Cesium.SampledProperty(Cesium.Cartesian2);
 
-    <pre><code class="language-javascript">//Create a simple numeric SampledProperty that uses third degree Hermite Polynomial Approximationvar property = new Cesium.SampledProperty(Number);property.setInterpolationOptions({    interpolationDegree : 3,    interpolationAlgorithm : Cesium.HermitePolynomialApproximation});//Populate it with dataproperty.addSample(Cesium.JulianDate.fromIso8601('2012-08-01T00:00:00.00Z'), 1.0);property.addSample(Cesium.JulianDate.fromIso8601('2012-08-01T00:01:00.00Z'), 6.0);property.addSample(Cesium.JulianDate.fromIso8601('2012-08-01T00:02:00.00Z'), 12.0);property.addSample(Cesium.JulianDate.fromIso8601('2012-08-01T00:03:30.00Z'), 5.0);property.addSample(Cesium.JulianDate.fromIso8601('2012-08-01T00:06:30.00Z'), 2.0);//Samples can be added in any order.property.addSample(Cesium.JulianDate.fromIso8601('2012-08-01T00:00:30.00Z'), 6.2);//Retrieve an interpolated valuevar result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02:34.00Z'));</code></pre>
+//Populate it with data
+property.addSample(Cesium.JulianDate.fromIso8601('2012-08-01T00:00:00.00Z'), new Cesium.Cartesian2(0, 0));
+property.addSample(Cesium.JulianDate.fromIso8601('2012-08-02T00:00:00.00Z'), new Cesium.Cartesian2(4, 7));
+
+//Retrieve an interpolated value
+var result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T12:00:00.00Z'));</code></pre>
+
+    <pre><code class="language-javascript">//Create a simple numeric SampledProperty that uses third degree Hermite Polynomial Approximation
+var property = new Cesium.SampledProperty(Number);
+property.setInterpolationOptions({
+    interpolationDegree : 3,
+    interpolationAlgorithm : Cesium.HermitePolynomialApproximation
+});
+
+//Populate it with data
+property.addSample(Cesium.JulianDate.fromIso8601('2012-08-01T00:00:00.00Z'), 1.0);
+property.addSample(Cesium.JulianDate.fromIso8601('2012-08-01T00:01:00.00Z'), 6.0);
+property.addSample(Cesium.JulianDate.fromIso8601('2012-08-01T00:02:00.00Z'), 12.0);
+property.addSample(Cesium.JulianDate.fromIso8601('2012-08-01T00:03:30.00Z'), 5.0);
+property.addSample(Cesium.JulianDate.fromIso8601('2012-08-01T00:06:30.00Z'), 2.0);
+
+//Samples can be added in any order.
+property.addSample(Cesium.JulianDate.fromIso8601('2012-08-01T00:00:30.00Z'), 6.2);
+
+//Retrieve an interpolated value
+var result = property.getValue(Cesium.JulianDate.fromIso8601('2012-08-01T00:02:34.00Z'));</code></pre>
 
     
 
@@ -238,7 +265,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/SampledProperty.js#L349">DataSources/SampledProperty.js 349</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/SampledProperty.js#L349">DataSources/SampledProperty.js 349</a>
 </div>
 
 
@@ -249,7 +276,8 @@
 
 
 <div class="description">
-    Gets or sets the amount of time to extrapolate backwardbefore the property becomes undefined.  A value of 0 will extrapolate forever.
+    Gets or sets the amount of time to extrapolate backward
+before the property becomes undefined.  A value of 0 will extrapolate forever.
 </div>
 
 
@@ -301,7 +329,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/SampledProperty.js#L331">DataSources/SampledProperty.js 331</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/SampledProperty.js#L331">DataSources/SampledProperty.js 331</a>
 </div>
 
 
@@ -312,7 +340,8 @@
 
 
 <div class="description">
-    Gets or sets the type of extrapolation to perform when a valueis requested at a time before any available samples.
+    Gets or sets the type of extrapolation to perform when a value
+is requested at a time before any available samples.
 </div>
 
 
@@ -364,7 +393,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/SampledProperty.js#L241">DataSources/SampledProperty.js 241</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/SampledProperty.js#L241">DataSources/SampledProperty.js 241</a>
 </div>
 
 
@@ -375,7 +404,9 @@
 
 
 <div class="description">
-    Gets the event that is raised whenever the definition of this property changes.The definition is considered to have changed if a call to getValue would returna different result for the same time.
+    Gets the event that is raised whenever the definition of this property changes.
+The definition is considered to have changed if a call to getValue would return
+a different result for the same time.
 </div>
 
 
@@ -424,7 +455,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/SampledProperty.js#L261">DataSources/SampledProperty.js 261</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/SampledProperty.js#L261">DataSources/SampledProperty.js 261</a>
 </div>
 
 
@@ -484,7 +515,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/SampledProperty.js#L313">DataSources/SampledProperty.js 313</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/SampledProperty.js#L313">DataSources/SampledProperty.js 313</a>
 </div>
 
 
@@ -495,7 +526,8 @@
 
 
 <div class="description">
-    Gets or sets the amount of time to extrapolate forward beforethe property becomes undefined.  A value of 0 will extrapolate forever.
+    Gets or sets the amount of time to extrapolate forward before
+the property becomes undefined.  A value of 0 will extrapolate forever.
 </div>
 
 
@@ -547,7 +579,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/SampledProperty.js#L295">DataSources/SampledProperty.js 295</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/SampledProperty.js#L295">DataSources/SampledProperty.js 295</a>
 </div>
 
 
@@ -558,7 +590,8 @@
 
 
 <div class="description">
-    Gets or sets the type of extrapolation to perform when a valueis requested at a time after any available samples.
+    Gets or sets the type of extrapolation to perform when a value
+is requested at a time after any available samples.
 </div>
 
 
@@ -610,7 +643,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/SampledProperty.js#L283">DataSources/SampledProperty.js 283</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/SampledProperty.js#L283">DataSources/SampledProperty.js 283</a>
 </div>
 
 
@@ -673,7 +706,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/SampledProperty.js#L272">DataSources/SampledProperty.js 272</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/SampledProperty.js#L272">DataSources/SampledProperty.js 272</a>
 </div>
 
 
@@ -736,7 +769,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/SampledProperty.js#L227">DataSources/SampledProperty.js 227</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/SampledProperty.js#L227">DataSources/SampledProperty.js 227</a>
 </div>
 
 
@@ -747,7 +780,8 @@
 
 
 <div class="description">
-    Gets a value indicating if this property is constant.  A property is consideredconstant if getValue always returns the same result for the current definition.
+    Gets a value indicating if this property is constant.  A property is considered
+constant if getValue always returns the same result for the current definition.
 </div>
 
 
@@ -796,7 +830,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/SampledProperty.js#L251">DataSources/SampledProperty.js 251</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/SampledProperty.js#L251">DataSources/SampledProperty.js 251</a>
 </div>
 
 
@@ -862,7 +896,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/SampledProperty.js#L581">DataSources/SampledProperty.js 581</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/SampledProperty.js#L581">DataSources/SampledProperty.js 581</a>
 </div>
 
 
@@ -1051,7 +1085,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/SampledProperty.js#L625">DataSources/SampledProperty.js 625</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/SampledProperty.js#L625">DataSources/SampledProperty.js 625</a>
 </div>
 
 
@@ -1265,7 +1299,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/SampledProperty.js#L682">DataSources/SampledProperty.js 682</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/SampledProperty.js#L682">DataSources/SampledProperty.js 682</a>
 </div>
 
 
@@ -1277,7 +1311,8 @@
 
 
 <div class="description">
-    Adds samples as a single packed array where each new sample is represented as a date,followed by the packed representation of the corresponding value and derivatives.
+    Adds samples as a single packed array where each new sample is represented as a date,
+followed by the packed representation of the corresponding value and derivatives.
 </div>
 
 
@@ -1426,7 +1461,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/SampledProperty.js#L765">DataSources/SampledProperty.js 765</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/SampledProperty.js#L765">DataSources/SampledProperty.js 765</a>
 </div>
 
 
@@ -1438,7 +1473,8 @@
 
 
 <div class="description">
-    Compares this property to the provided property and returns<code>true</code> if they are equal, <code>false</code> otherwise.
+    Compares this property to the provided property and returns
+<code>true</code> if they are equal, <code>false</code> otherwise.
 </div>
 
 
@@ -1568,7 +1604,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/SampledProperty.js#L369">DataSources/SampledProperty.js 369</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/SampledProperty.js#L369">DataSources/SampledProperty.js 369</a>
 </div>
 
 
@@ -1738,7 +1774,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/SampledProperty.js#L707">DataSources/SampledProperty.js 707</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/SampledProperty.js#L707">DataSources/SampledProperty.js 707</a>
 </div>
 
 
@@ -1873,7 +1909,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/SampledProperty.js#L736">DataSources/SampledProperty.js 736</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/SampledProperty.js#L736">DataSources/SampledProperty.js 736</a>
 </div>
 
 
@@ -1999,7 +2035,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/SampledProperty.js#L542">DataSources/SampledProperty.js 542</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/SampledProperty.js#L542">DataSources/SampledProperty.js 542</a>
 </div>
 
 

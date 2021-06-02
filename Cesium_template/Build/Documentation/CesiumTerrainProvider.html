@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/CesiumTerrainProvider.js#L67">Core/CesiumTerrainProvider.js 67</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/CesiumTerrainProvider.js#L67">Core/CesiumTerrainProvider.js 67</a>
 </div>
 
 
@@ -396,7 +396,13 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create Arctic DEM terrain with normals.var viewer = new Cesium.Viewer('cesiumContainer', {    terrainProvider : new Cesium.CesiumTerrainProvider({        url : Cesium.IonResource.fromAssetId(3956),        requestVertexNormals : true    })});</code></pre>
+    <pre><code class="language-javascript">// Create Arctic DEM terrain with normals.
+var viewer = new Cesium.Viewer('cesiumContainer', {
+    terrainProvider : new Cesium.CesiumTerrainProvider({
+        url : Cesium.IonResource.fromAssetId(3956),
+        requestVertexNormals : true
+    })
+});</code></pre>
 
     
 
@@ -444,7 +450,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/CesiumTerrainProvider.js#L1132">Core/CesiumTerrainProvider.js 1132</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/CesiumTerrainProvider.js#L1132">Core/CesiumTerrainProvider.js 1132</a>
 </div>
 
 
@@ -455,7 +461,13 @@
 
 
 <div class="description">
-    Gets an object that can be used to determine availability of terrain from this provider, such asat points and in rectangles.  This function should not be called before<a href="CesiumTerrainProvider.html#ready"><code>CesiumTerrainProvider#ready</code></a> returns true.  This property may be undefined if availabilityinformation is not available. Note that this reflects tiles that are known to be available currently.Additional tiles may be discovered to be available in the future, e.g. if availability informationexists deeper in the tree rather than it all being discoverable at the root. However, a tile thatis available now will not become unavailable in the future.
+    Gets an object that can be used to determine availability of terrain from this provider, such as
+at points and in rectangles.  This function should not be called before
+<a href="CesiumTerrainProvider.html#ready"><code>CesiumTerrainProvider#ready</code></a> returns true.  This property may be undefined if availability
+information is not available. Note that this reflects tiles that are known to be available currently.
+Additional tiles may be discovered to be available in the future, e.g. if availability information
+exists deeper in the tree rather than it all being discoverable at the root. However, a tile that
+is available now will not become unavailable in the future.
 </div>
 
 
@@ -504,7 +516,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/CesiumTerrainProvider.js#L958">Core/CesiumTerrainProvider.js 958</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/CesiumTerrainProvider.js#L958">Core/CesiumTerrainProvider.js 958</a>
 </div>
 
 
@@ -515,7 +527,8 @@
 
 
 <div class="description">
-    Gets the credit to display when this terrain provider is active.  Typically this is used to creditthe source of the terrain.  This function should not be called before <a href="CesiumTerrainProvider.html#ready"><code>CesiumTerrainProvider#ready</code></a> returns true.
+    Gets the credit to display when this terrain provider is active.  Typically this is used to credit
+the source of the terrain.  This function should not be called before <a href="CesiumTerrainProvider.html#ready"><code>CesiumTerrainProvider#ready</code></a> returns true.
 </div>
 
 
@@ -564,7 +577,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/CesiumTerrainProvider.js#L946">Core/CesiumTerrainProvider.js 946</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/CesiumTerrainProvider.js#L946">Core/CesiumTerrainProvider.js 946</a>
 </div>
 
 
@@ -575,7 +588,9 @@
 
 
 <div class="description">
-    Gets an event that is raised when the terrain provider encounters an asynchronous error.  By subscribingto the event, you will be notified of the error and can potentially recover from it.  Event listenersare passed an instance of <a href="TileProviderError.html"><code>TileProviderError</code></a>.
+    Gets an event that is raised when the terrain provider encounters an asynchronous error.  By subscribing
+to the event, you will be notified of the error and can potentially recover from it.  Event listeners
+are passed an instance of <a href="TileProviderError.html"><code>TileProviderError</code></a>.
 </div>
 
 
@@ -624,7 +639,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/CesiumTerrainProvider.js#L1067">Core/CesiumTerrainProvider.js 1067</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/CesiumTerrainProvider.js#L1067">Core/CesiumTerrainProvider.js 1067</a>
 </div>
 
 
@@ -635,7 +650,8 @@
 
 
 <div class="description">
-    Gets a value indicating whether or not the requested tiles include metadata.This function should not be called before <a href="CesiumTerrainProvider.html#ready"><code>CesiumTerrainProvider#ready</code></a> returns true.
+    Gets a value indicating whether or not the requested tiles include metadata.
+This function should not be called before <a href="CesiumTerrainProvider.html#ready"><code>CesiumTerrainProvider#ready</code></a> returns true.
 </div>
 
 
@@ -684,7 +700,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/CesiumTerrainProvider.js#L1045">Core/CesiumTerrainProvider.js 1045</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/CesiumTerrainProvider.js#L1045">Core/CesiumTerrainProvider.js 1045</a>
 </div>
 
 
@@ -695,7 +711,8 @@
 
 
 <div class="description">
-    Gets a value indicating whether or not the requested tiles include vertex normals.This function should not be called before <a href="CesiumTerrainProvider.html#ready"><code>CesiumTerrainProvider#ready</code></a> returns true.
+    Gets a value indicating whether or not the requested tiles include vertex normals.
+This function should not be called before <a href="CesiumTerrainProvider.html#ready"><code>CesiumTerrainProvider#ready</code></a> returns true.
 </div>
 
 
@@ -744,7 +761,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/CesiumTerrainProvider.js#L1024">Core/CesiumTerrainProvider.js 1024</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/CesiumTerrainProvider.js#L1024">Core/CesiumTerrainProvider.js 1024</a>
 </div>
 
 
@@ -755,7 +772,10 @@
 
 
 <div class="description">
-    Gets a value indicating whether or not the provider includes a water mask.  The water maskindicates which areas of the globe are water rather than land, so they can be renderedas a reflective surface with animated waves.  This function should not becalled before <a href="CesiumTerrainProvider.html#ready"><code>CesiumTerrainProvider#ready</code></a> returns true.
+    Gets a value indicating whether or not the provider includes a water mask.  The water mask
+indicates which areas of the globe are water rather than land, so they can be rendered
+as a reflective surface with animated waves.  This function should not be
+called before <a href="CesiumTerrainProvider.html#ready"><code>CesiumTerrainProvider#ready</code></a> returns true.
 </div>
 
 
@@ -804,7 +824,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/CesiumTerrainProvider.js#L997">Core/CesiumTerrainProvider.js 997</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/CesiumTerrainProvider.js#L997">Core/CesiumTerrainProvider.js 997</a>
 </div>
 
 
@@ -864,7 +884,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/CesiumTerrainProvider.js#L1009">Core/CesiumTerrainProvider.js 1009</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/CesiumTerrainProvider.js#L1009">Core/CesiumTerrainProvider.js 1009</a>
 </div>
 
 
@@ -924,7 +944,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/CesiumTerrainProvider.js#L1115">Core/CesiumTerrainProvider.js 1115</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/CesiumTerrainProvider.js#L1115">Core/CesiumTerrainProvider.js 1115</a>
 </div>
 
 
@@ -935,7 +955,9 @@
 
 
 <div class="description">
-    Boolean flag that indicates if the client should request metadata from the server.Metadata is appended to the standard tile mesh data only if the client requests the metadata andif the server provides a metadata.
+    Boolean flag that indicates if the client should request metadata from the server.
+Metadata is appended to the standard tile mesh data only if the client requests the metadata and
+if the server provides a metadata.
 </div>
 
 
@@ -984,7 +1006,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/CesiumTerrainProvider.js#L1089">Core/CesiumTerrainProvider.js 1089</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/CesiumTerrainProvider.js#L1089">Core/CesiumTerrainProvider.js 1089</a>
 </div>
 
 
@@ -995,7 +1017,9 @@
 
 
 <div class="description">
-    Boolean flag that indicates if the client should request vertex normals from the server.Vertex normals data is appended to the standard tile mesh data only if the client requests the vertex normals andif the server provides vertex normals.
+    Boolean flag that indicates if the client should request vertex normals from the server.
+Vertex normals data is appended to the standard tile mesh data only if the client requests the vertex normals and
+if the server provides vertex normals.
 </div>
 
 
@@ -1044,7 +1068,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/CesiumTerrainProvider.js#L1102">Core/CesiumTerrainProvider.js 1102</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/CesiumTerrainProvider.js#L1102">Core/CesiumTerrainProvider.js 1102</a>
 </div>
 
 
@@ -1055,7 +1079,9 @@
 
 
 <div class="description">
-    Boolean flag that indicates if the client should request a watermask from the server.Watermask data is appended to the standard tile mesh data only if the client requests the watermask andif the server provides a watermask.
+    Boolean flag that indicates if the client should request a watermask from the server.
+Watermask data is appended to the standard tile mesh data only if the client requests the watermask and
+if the server provides a watermask.
 </div>
 
 
@@ -1104,7 +1130,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/CesiumTerrainProvider.js#L978">Core/CesiumTerrainProvider.js 978</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/CesiumTerrainProvider.js#L978">Core/CesiumTerrainProvider.js 978</a>
 </div>
 
 
@@ -1115,7 +1141,8 @@
 
 
 <div class="description">
-    Gets the tiling scheme used by this provider.  This function shouldnot be called before <a href="CesiumTerrainProvider.html#ready"><code>CesiumTerrainProvider#ready</code></a> returns true.
+    Gets the tiling scheme used by this provider.  This function should
+not be called before <a href="CesiumTerrainProvider.html#ready"><code>CesiumTerrainProvider#ready</code></a> returns true.
 </div>
 
 
@@ -1170,7 +1197,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/CesiumTerrainProvider.js#L1152">Core/CesiumTerrainProvider.js 1152</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/CesiumTerrainProvider.js#L1152">Core/CesiumTerrainProvider.js 1152</a>
 </div>
 
 
@@ -1305,7 +1332,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/CesiumTerrainProvider.js#L1166">Core/CesiumTerrainProvider.js 1166</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/CesiumTerrainProvider.js#L1166">Core/CesiumTerrainProvider.js 1166</a>
 </div>
 
 
@@ -1486,7 +1513,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/CesiumTerrainProvider.js#L1204">Core/CesiumTerrainProvider.js 1204</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/CesiumTerrainProvider.js#L1204">Core/CesiumTerrainProvider.js 1204</a>
 </div>
 
 
@@ -1667,7 +1694,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/CesiumTerrainProvider.js#L814">Core/CesiumTerrainProvider.js 814</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/CesiumTerrainProvider.js#L814">Core/CesiumTerrainProvider.js 814</a>
 </div>
 
 
@@ -1679,7 +1706,9 @@
 
 
 <div class="description">
-    Requests the geometry for a given tile.  This function should not be called before<a href="CesiumTerrainProvider.html#ready"><code>CesiumTerrainProvider#ready</code></a> returns true.  The result must include terrain data andmay optionally include a water mask and an indication of which child tiles are available.
+    Requests the geometry for a given tile.  This function should not be called before
+<a href="CesiumTerrainProvider.html#ready"><code>CesiumTerrainProvider#ready</code></a> returns true.  The result must include terrain data and
+may optionally include a water mask and an indication of which child tiles are available.
 </div>
 
 
@@ -1842,7 +1871,9 @@
 
         
 <div class="param-desc">
-    A promise for the requested geometry.  If this method         returns undefined instead of a promise, it is an indication that too many requests are already         pending and the request will be retried later.
+    A promise for the requested geometry.  If this method
+         returns undefined instead of a promise, it is an indication that too many requests are already
+         pending and the request will be retried later.
 </div>
 
 
@@ -1857,7 +1888,8 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: This function must not be called before <a href="CesiumTerrainProvider.html#ready"><code>CesiumTerrainProvider#ready</code></a>           returns true.
+: This function must not be called before <a href="CesiumTerrainProvider.html#ready"><code>CesiumTerrainProvider#ready</code></a>
+           returns true.
     </div>
 
 </li>

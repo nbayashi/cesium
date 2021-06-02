@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Occluder.js#L29">Core/Occluder.js 29</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Occluder.js#L29">Core/Occluder.js 29</a>
 </div>
 
 
@@ -58,7 +58,9 @@
 
 
 <div class="description">
-    Creates an Occluder derived from an object's position and radius, as well as the camera position.The occluder can be used to determine whether or not other objects are visible or hidden behind thevisible horizon defined by the occluder and camera position.
+    Creates an Occluder derived from an object's position and radius, as well as the camera position.
+The occluder can be used to determine whether or not other objects are visible or hidden behind the
+visible horizon defined by the occluder and camera position.
 </div>
 
 
@@ -175,7 +177,10 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Construct an occluder one unit away from the origin with a radius of one.var cameraPosition = Cesium.Cartesian3.ZERO;var occluderBoundingSphere = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -1), 1);var occluder = new Cesium.Occluder(occluderBoundingSphere, cameraPosition);</code></pre>
+    <pre><code class="language-javascript">// Construct an occluder one unit away from the origin with a radius of one.
+var cameraPosition = Cesium.Cartesian3.ZERO;
+var occluderBoundingSphere = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -1), 1);
+var occluder = new Cesium.Occluder(occluderBoundingSphere, cameraPosition);</code></pre>
 
     
 
@@ -216,7 +221,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Occluder.js#L81">Core/Occluder.js 81</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Occluder.js#L81">Core/Occluder.js 81</a>
 </div>
 
 
@@ -276,7 +281,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Occluder.js#L59">Core/Occluder.js 59</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Occluder.js#L59">Core/Occluder.js 59</a>
 </div>
 
 
@@ -336,7 +341,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Occluder.js#L70">Core/Occluder.js 70</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Occluder.js#L70">Core/Occluder.js 70</a>
 </div>
 
 
@@ -402,7 +407,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Occluder.js#L407">Core/Occluder.js 407</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Occluder.js#L407">Core/Occluder.js 407</a>
 </div>
 
 
@@ -414,7 +419,13 @@
 
 
 <div class="description">
-    Computes a point that can be used as the occludee position to the visibility functions.Use a radius of zero for the occludee radius.  Typically, a user computes a bounding sphere aroundan object that is used for visibility; however it is also possible to compute a point that ifseen/not seen would also indicate if an object is visible/not visible.  This function is bettercalled for objects that do not move relative to the occluder and is large, such as a chunk ofterrain.  You are better off not calling this and using the object's bounding sphere for objectssuch as a satellite or ground vehicle.
+    Computes a point that can be used as the occludee position to the visibility functions.
+Use a radius of zero for the occludee radius.  Typically, a user computes a bounding sphere around
+an object that is used for visibility; however it is also possible to compute a point that if
+seen/not seen would also indicate if an object is visible/not visible.  This function is better
+called for objects that do not move relative to the occluder and is large, such as a chunk of
+terrain.  You are better off not calling this and using the object's bounding sphere for objects
+such as a satellite or ground vehicle.
 </div>
 
 
@@ -532,7 +543,8 @@
 
         
 <div class="param-desc">
-    An object containing two attributes: <code>occludeePoint</code> and <code>valid</code>which is a boolean value.
+    An object containing two attributes: <code>occludeePoint</code> and <code>valid</code>
+which is a boolean value.
 </div>
 
 
@@ -588,7 +600,13 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var cameraPosition = new Cesium.Cartesian3(0, 0, 0);var occluderBoundingSphere = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -8), 2);var occluder = new Cesium.Occluder(occluderBoundingSphere, cameraPosition);var positions = [new Cesium.Cartesian3(-0.25, 0, -5.3), new Cesium.Cartesian3(0.25, 0, -5.3)];var tileOccluderSphere = Cesium.BoundingSphere.fromPoints(positions);var occludeePosition = tileOccluderSphere.center;var occludeePt = Cesium.Occluder.computeOccludeePoint(occluderBoundingSphere, occludeePosition, positions);</code></pre>
+    <pre><code class="language-javascript">var cameraPosition = new Cesium.Cartesian3(0, 0, 0);
+var occluderBoundingSphere = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -8), 2);
+var occluder = new Cesium.Occluder(occluderBoundingSphere, cameraPosition);
+var positions = [new Cesium.Cartesian3(-0.25, 0, -5.3), new Cesium.Cartesian3(0.25, 0, -5.3)];
+var tileOccluderSphere = Cesium.BoundingSphere.fromPoints(positions);
+var occludeePosition = tileOccluderSphere.center;
+var occludeePt = Cesium.Occluder.computeOccludeePoint(occluderBoundingSphere, occludeePosition, positions);</code></pre>
 
     
 
@@ -613,7 +631,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Occluder.js#L505">Core/Occluder.js 505</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Occluder.js#L505">Core/Occluder.js 505</a>
 </div>
 
 
@@ -744,7 +762,8 @@
 
         
 <div class="param-desc">
-    An object containing two attributes: <code>occludeePoint</code> and <code>valid</code>which is a boolean value.
+    An object containing two attributes: <code>occludeePoint</code> and <code>valid</code>
+which is a boolean value.
 </div>
 
 
@@ -795,7 +814,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Occluder.js#L146">Core/Occluder.js 146</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Occluder.js#L146">Core/Occluder.js 146</a>
 </div>
 
 
@@ -993,7 +1012,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Occluder.js#L307">Core/Occluder.js 307</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Occluder.js#L307">Core/Occluder.js 307</a>
 </div>
 
 
@@ -1077,7 +1096,9 @@
 
         
 <div class="param-desc">
-    Visibility.NONE if the occludee is not visible,                      Visibility.PARTIAL if the occludee is partially visible, or                      Visibility.FULL if the occludee is fully visible.
+    Visibility.NONE if the occludee is not visible,
+                      Visibility.PARTIAL if the occludee is partially visible, or
+                      Visibility.FULL if the occludee is fully visible.
 </div>
 
 
@@ -1108,7 +1129,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var sphere1 = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -1.5), 0.5);var sphere2 = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -2.5), 0.5);var cameraPosition = new Cesium.Cartesian3(0, 0, 0);var occluder = new Cesium.Occluder(sphere1, cameraPosition);occluder.computeVisibility(sphere2); //returns Visibility.NONE</code></pre>
+    <pre><code class="language-javascript">var sphere1 = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -1.5), 0.5);
+var sphere2 = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -2.5), 0.5);
+var cameraPosition = new Cesium.Cartesian3(0, 0, 0);
+var occluder = new Cesium.Occluder(sphere1, cameraPosition);
+occluder.computeVisibility(sphere2); //returns Visibility.NONE</code></pre>
 
     
 
@@ -1138,7 +1163,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Occluder.js#L226">Core/Occluder.js 226</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Occluder.js#L226">Core/Occluder.js 226</a>
 </div>
 
 
@@ -1253,7 +1278,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var cameraPosition = new Cesium.Cartesian3(0, 0, 0);var littleSphere = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -1), 0.25);var occluder = new Cesium.Occluder(littleSphere, cameraPosition);var bigSphere = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -3), 1);occluder.isBoundingSphereVisible(bigSphere); //returns true</code></pre>
+    <pre><code class="language-javascript">var cameraPosition = new Cesium.Cartesian3(0, 0, 0);
+var littleSphere = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -1), 0.25);
+var occluder = new Cesium.Occluder(littleSphere, cameraPosition);
+var bigSphere = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -3), 1);
+occluder.isBoundingSphereVisible(bigSphere); //returns true</code></pre>
 
     
 
@@ -1283,7 +1312,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Occluder.js#L190">Core/Occluder.js 190</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Occluder.js#L190">Core/Occluder.js 190</a>
 </div>
 
 
@@ -1398,7 +1427,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var cameraPosition = new Cesium.Cartesian3(0, 0, 0);var littleSphere = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -1), 0.25);var occluder = new Cesium.Occluder(littleSphere, cameraPosition);var point = new Cesium.Cartesian3(0, 0, -3);occluder.isPointVisible(point); //returns true</code></pre>
+    <pre><code class="language-javascript">var cameraPosition = new Cesium.Cartesian3(0, 0, 0);
+var littleSphere = new Cesium.BoundingSphere(new Cesium.Cartesian3(0, 0, -1), 0.25);
+var occluder = new Cesium.Occluder(littleSphere, cameraPosition);
+var point = new Cesium.Cartesian3(0, 0, -3);
+occluder.isPointVisible(point); //returns true</code></pre>
 
     
 

@@ -41,13 +41,15 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/viewerPerformanceWatchdogMixin.js#L26">Widgets/Viewer/viewerPerformanceWatchdogMixin.js 26</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/viewerPerformanceWatchdogMixin.js#L26">Widgets/Viewer/viewerPerformanceWatchdogMixin.js 26</a>
 </div>
 
 
 
         
-            <div class="description">A mixin which adds the <a href="PerformanceWatchdog.html"><code>PerformanceWatchdog</code></a> widget to the <a href="Viewer.html"><code>Viewer</code></a> widget.Rather than being called directly, this function is normally passed asa parameter to <a href="Viewer.html#extend"><code>Viewer#extend</code></a>, as shown in the example below.</div>
+            <div class="description">A mixin which adds the <a href="PerformanceWatchdog.html"><code>PerformanceWatchdog</code></a> widget to the <a href="Viewer.html"><code>Viewer</code></a> widget.
+Rather than being called directly, this function is normally passed as
+a parameter to <a href="Viewer.html#extend"><code>Viewer#extend</code></a>, as shown in the example below.</div>
         
 
         
@@ -73,7 +75,10 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var viewer = new Cesium.Viewer('cesiumContainer');viewer.extend(Cesium.viewerPerformanceWatchdogMixin, {    lowFrameRateMessage : 'Why is this going so &lt;em>slowly&lt;/em>?'});</code></pre>
+    <pre><code class="language-javascript">var viewer = new Cesium.Viewer('cesiumContainer');
+viewer.extend(Cesium.viewerPerformanceWatchdogMixin, {
+    lowFrameRateMessage : 'Why is this going so &lt;em>slowly&lt;/em>?'
+});</code></pre>
 
     
 

@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L392">Widgets/Viewer/Viewer.js 392</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L392">Widgets/Viewer/Viewer.js 392</a>
 </div>
 
 
@@ -58,7 +58,8 @@
 
 
 <div class="description">
-    A base widget for building applications.  It composites all of the standard Cesium widgets into one reusable package.The widget can always be extended by using mixins, which add functionality useful for a variety of applications.
+    A base widget for building applications.  It composites all of the standard Cesium widgets into one reusable package.
+The widget can always be extended by using mixins, which add functionality useful for a variety of applications.
 </div>
 
 
@@ -226,7 +227,40 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">//Initialize the viewer widget with several custom options and mixins.var viewer = new Cesium.Viewer('cesiumContainer', {    //Start in Columbus Viewer    sceneMode : Cesium.SceneMode.COLUMBUS_VIEW,    //Use Cesium World Terrain    terrainProvider : Cesium.createWorldTerrain(),    //Hide the base layer picker    baseLayerPicker : false,    //Use OpenStreetMaps    imageryProvider : new Cesium.OpenStreetMapImageryProvider({        url : 'https://a.tile.openstreetmap.org/'    }),    skyBox : new Cesium.SkyBox({        sources : {          positiveX : 'stars/TychoSkymapII.t3_08192x04096_80_px.jpg',          negativeX : 'stars/TychoSkymapII.t3_08192x04096_80_mx.jpg',          positiveY : 'stars/TychoSkymapII.t3_08192x04096_80_py.jpg',          negativeY : 'stars/TychoSkymapII.t3_08192x04096_80_my.jpg',          positiveZ : 'stars/TychoSkymapII.t3_08192x04096_80_pz.jpg',          negativeZ : 'stars/TychoSkymapII.t3_08192x04096_80_mz.jpg'        }    }),    // Show Columbus View map with Web Mercator projection    mapProjection : new Cesium.WebMercatorProjection()});//Add basic drag and drop functionalityviewer.extend(Cesium.viewerDragDropMixin);//Show a pop-up alert if we encounter an error when processing a dropped fileviewer.dropError.addEventListener(function(dropHandler, name, error) {    console.log(error);    window.alert(error);});</code></pre>
+    <pre><code class="language-javascript">//Initialize the viewer widget with several custom options and mixins.
+var viewer = new Cesium.Viewer('cesiumContainer', {
+    //Start in Columbus Viewer
+    sceneMode : Cesium.SceneMode.COLUMBUS_VIEW,
+    //Use Cesium World Terrain
+    terrainProvider : Cesium.createWorldTerrain(),
+    //Hide the base layer picker
+    baseLayerPicker : false,
+    //Use OpenStreetMaps
+    imageryProvider : new Cesium.OpenStreetMapImageryProvider({
+        url : 'https://a.tile.openstreetmap.org/'
+    }),
+    skyBox : new Cesium.SkyBox({
+        sources : {
+          positiveX : 'stars/TychoSkymapII.t3_08192x04096_80_px.jpg',
+          negativeX : 'stars/TychoSkymapII.t3_08192x04096_80_mx.jpg',
+          positiveY : 'stars/TychoSkymapII.t3_08192x04096_80_py.jpg',
+          negativeY : 'stars/TychoSkymapII.t3_08192x04096_80_my.jpg',
+          positiveZ : 'stars/TychoSkymapII.t3_08192x04096_80_pz.jpg',
+          negativeZ : 'stars/TychoSkymapII.t3_08192x04096_80_mz.jpg'
+        }
+    }),
+    // Show Columbus View map with Web Mercator projection
+    mapProjection : new Cesium.WebMercatorProjection()
+});
+
+//Add basic drag and drop functionality
+viewer.extend(Cesium.viewerDragDropMixin);
+
+//Show a pop-up alert if we encounter an error when processing a dropped file
+viewer.dropError.addEventListener(function(dropHandler, name, error) {
+    console.log(error);
+    window.alert(error);
+});</code></pre>
 
     
 
@@ -291,7 +325,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1386">Widgets/Viewer/Viewer.js 1386</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1386">Widgets/Viewer/Viewer.js 1386</a>
 </div>
 
 
@@ -302,7 +336,10 @@
 
 
 <div class="description">
-    Gets or sets whether or not data sources can temporarily pauseanimation in order to avoid showing an incomplete picture to the user.For example, if asynchronous primitives are being processed in thebackground, the clock will not advance until the geometry is ready.
+    Gets or sets whether or not data sources can temporarily pause
+animation in order to avoid showing an incomplete picture to the user.
+For example, if asynchronous primitives are being processed in the
+background, the clock will not advance until the geometry is ready.
 </div>
 
 
@@ -351,7 +388,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1060">Widgets/Viewer/Viewer.js 1060</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1060">Widgets/Viewer/Viewer.js 1060</a>
 </div>
 
 
@@ -411,7 +448,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1036">Widgets/Viewer/Viewer.js 1036</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1036">Widgets/Viewer/Viewer.js 1036</a>
 </div>
 
 
@@ -471,7 +508,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L940">Widgets/Viewer/Viewer.js 940</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L940">Widgets/Viewer/Viewer.js 940</a>
 </div>
 
 
@@ -482,7 +519,8 @@
 
 
 <div class="description">
-    Gets the DOM element for the area at the bottom of the window containing the<a href="CreditDisplay.html"><code>CreditDisplay</code></a> and potentially other things.
+    Gets the DOM element for the area at the bottom of the window containing the
+<a href="CreditDisplay.html"><code>CreditDisplay</code></a> and potentially other things.
 </div>
 
 
@@ -531,7 +569,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1238">Widgets/Viewer/Viewer.js 1238</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1238">Widgets/Viewer/Viewer.js 1238</a>
 </div>
 
 
@@ -591,7 +629,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1145">Widgets/Viewer/Viewer.js 1145</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1145">Widgets/Viewer/Viewer.js 1145</a>
 </div>
 
 
@@ -651,7 +689,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L952">Widgets/Viewer/Viewer.js 952</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L952">Widgets/Viewer/Viewer.js 952</a>
 </div>
 
 
@@ -711,7 +749,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1263">Widgets/Viewer/Viewer.js 1263</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1263">Widgets/Viewer/Viewer.js 1263</a>
 </div>
 
 
@@ -771,7 +809,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1502">Widgets/Viewer/Viewer.js 1502</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1502">Widgets/Viewer/Viewer.js 1502</a>
 </div>
 
 
@@ -831,7 +869,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1275">Widgets/Viewer/Viewer.js 1275</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1275">Widgets/Viewer/Viewer.js 1275</a>
 </div>
 
 
@@ -891,7 +929,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L927">Widgets/Viewer/Viewer.js 927</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L927">Widgets/Viewer/Viewer.js 927</a>
 </div>
 
 
@@ -951,7 +989,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1108">Widgets/Viewer/Viewer.js 1108</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1108">Widgets/Viewer/Viewer.js 1108</a>
 </div>
 
 
@@ -1011,7 +1049,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1133">Widgets/Viewer/Viewer.js 1133</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1133">Widgets/Viewer/Viewer.js 1133</a>
 </div>
 
 
@@ -1071,7 +1109,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1121">Widgets/Viewer/Viewer.js 1121</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1121">Widgets/Viewer/Viewer.js 1121</a>
 </div>
 
 
@@ -1082,7 +1120,8 @@
 
 
 <div class="description">
-    Gets the collection of entities not tied to a particular data source.This is a shortcut to <a href="Viewer.html#dataSourceDisplay"><code>dataSourceDisplay.defaultDataSource.entities</code></a>.
+    Gets the collection of entities not tied to a particular data source.
+This is a shortcut to <a href="Viewer.html#dataSourceDisplay"><code>dataSourceDisplay.defaultDataSource.entities</code></a>.
 </div>
 
 
@@ -1131,7 +1170,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1084">Widgets/Viewer/Viewer.js 1084</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1084">Widgets/Viewer/Viewer.js 1084</a>
 </div>
 
 
@@ -1191,7 +1230,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L988">Widgets/Viewer/Viewer.js 988</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L988">Widgets/Viewer/Viewer.js 988</a>
 </div>
 
 
@@ -1251,7 +1290,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1000">Widgets/Viewer/Viewer.js 1000</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1000">Widgets/Viewer/Viewer.js 1000</a>
 </div>
 
 
@@ -1311,7 +1350,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1210">Widgets/Viewer/Viewer.js 1210</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1210">Widgets/Viewer/Viewer.js 1210</a>
 </div>
 
 
@@ -1371,7 +1410,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L976">Widgets/Viewer/Viewer.js 976</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L976">Widgets/Viewer/Viewer.js 976</a>
 </div>
 
 
@@ -1431,7 +1470,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1048">Widgets/Viewer/Viewer.js 1048</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1048">Widgets/Viewer/Viewer.js 1048</a>
 </div>
 
 
@@ -1491,7 +1530,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1251">Widgets/Viewer/Viewer.js 1251</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1251">Widgets/Viewer/Viewer.js 1251</a>
 </div>
 
 
@@ -1551,7 +1590,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1024">Widgets/Viewer/Viewer.js 1024</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1024">Widgets/Viewer/Viewer.js 1024</a>
 </div>
 
 
@@ -1611,7 +1650,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1346">Widgets/Viewer/Viewer.js 1346</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1346">Widgets/Viewer/Viewer.js 1346</a>
 </div>
 
 
@@ -1622,7 +1661,12 @@
 
 
 <div class="description">
-    Gets or sets a scaling factor for rendering resolution.  Values less than 1.0 can improveperformance on less powerful devices while values greater than 1.0 will render at a higherresolution and then scale down, resulting in improved visual fidelity.For example, if the widget is laid out at a size of 640x480, setting this value to 0.5will cause the scene to be rendered at 320x240 and then scaled up while settingit to 2.0 will cause the scene to be rendered at 1280x960 and then scaled down.
+    Gets or sets a scaling factor for rendering resolution.  Values less than 1.0 can improve
+performance on less powerful devices while values greater than 1.0 will render at a higher
+resolution and then scale down, resulting in improved visual fidelity.
+For example, if the widget is laid out at a size of 640x480, setting this value to 0.5
+will cause the scene to be rendered at 320x240 and then scaled up while setting
+it to 2.0 will cause the scene to be rendered at 1280x960 and then scaled down.
 </div>
 
 
@@ -1674,7 +1718,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1157">Widgets/Viewer/Viewer.js 1157</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1157">Widgets/Viewer/Viewer.js 1157</a>
 </div>
 
 
@@ -1734,7 +1778,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1012">Widgets/Viewer/Viewer.js 1012</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1012">Widgets/Viewer/Viewer.js 1012</a>
 </div>
 
 
@@ -1794,7 +1838,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1287">Widgets/Viewer/Viewer.js 1287</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1287">Widgets/Viewer/Viewer.js 1287</a>
 </div>
 
 
@@ -1854,7 +1898,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1453">Widgets/Viewer/Viewer.js 1453</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1453">Widgets/Viewer/Viewer.js 1453</a>
 </div>
 
 
@@ -1865,7 +1909,11 @@
 
 
 <div class="description">
-    Gets or sets the object instance for which to display a selection indicator.If a user interactively picks a Cesium3DTilesFeature instance, then this propertywill contain a transient Entity instance with a property named "feature" that isthe instance that was picked.
+    Gets or sets the object instance for which to display a selection indicator.
+
+If a user interactively picks a Cesium3DTilesFeature instance, then this property
+will contain a transient Entity instance with a property named "feature" that is
+the instance that was picked.
 </div>
 
 
@@ -1914,7 +1962,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1481">Widgets/Viewer/Viewer.js 1481</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1481">Widgets/Viewer/Viewer.js 1481</a>
 </div>
 
 
@@ -1974,7 +2022,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L964">Widgets/Viewer/Viewer.js 964</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L964">Widgets/Viewer/Viewer.js 964</a>
 </div>
 
 
@@ -2034,7 +2082,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1197">Widgets/Viewer/Viewer.js 1197</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1197">Widgets/Viewer/Viewer.js 1197</a>
 </div>
 
 
@@ -2094,7 +2142,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1168">Widgets/Viewer/Viewer.js 1168</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1168">Widgets/Viewer/Viewer.js 1168</a>
 </div>
 
 
@@ -2154,7 +2202,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1302">Widgets/Viewer/Viewer.js 1302</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1302">Widgets/Viewer/Viewer.js 1302</a>
 </div>
 
 
@@ -2165,7 +2213,10 @@
 
 
 <div class="description">
-    Gets or sets the target frame rate of the widget when <code>useDefaultRenderLoop</code>is true. If undefined, the browser's <a href="global.html#requestAnimationFrame"><code>requestAnimationFrame</code></a> implementationdetermines the frame rate.  If defined, this value must be greater than 0.  A value higherthan the underlying requestAnimationFrame implementation will have no effect.
+    Gets or sets the target frame rate of the widget when <code>useDefaultRenderLoop</code>
+is true. If undefined, the browser's <a href="global.html#requestAnimationFrame"><code>requestAnimationFrame</code></a> implementation
+determines the frame rate.  If defined, this value must be greater than 0.  A value higher
+than the underlying requestAnimationFrame implementation will have no effect.
 </div>
 
 
@@ -2214,7 +2265,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1222">Widgets/Viewer/Viewer.js 1222</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1222">Widgets/Viewer/Viewer.js 1222</a>
 </div>
 
 
@@ -2274,7 +2325,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1182">Widgets/Viewer/Viewer.js 1182</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1182">Widgets/Viewer/Viewer.js 1182</a>
 </div>
 
 
@@ -2334,7 +2385,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1072">Widgets/Viewer/Viewer.js 1072</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1072">Widgets/Viewer/Viewer.js 1072</a>
 </div>
 
 
@@ -2394,7 +2445,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1400">Widgets/Viewer/Viewer.js 1400</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1400">Widgets/Viewer/Viewer.js 1400</a>
 </div>
 
 
@@ -2454,7 +2505,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1492">Widgets/Viewer/Viewer.js 1492</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1492">Widgets/Viewer/Viewer.js 1492</a>
 </div>
 
 
@@ -2514,7 +2565,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1367">Widgets/Viewer/Viewer.js 1367</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1367">Widgets/Viewer/Viewer.js 1367</a>
 </div>
 
 
@@ -2525,7 +2576,12 @@
 
 
 <div class="description">
-    Boolean flag indicating if the browser's recommended resolution is used.If true, the browser's device pixel ratio is ignored and 1.0 is used instead,effectively rendering based on CSS pixels instead of device pixels. This can improveperformance on less powerful devices that have high pixel density. When false, renderingwill be in device pixels. <a href="Viewer.html#resolutionScale"><code>Viewer#resolutionScale</code></a> will still take effect whetherthis flag is true or false.
+    Boolean flag indicating if the browser's recommended resolution is used.
+If true, the browser's device pixel ratio is ignored and 1.0 is used instead,
+effectively rendering based on CSS pixels instead of device pixels. This can improve
+performance on less powerful devices that have high pixel density. When false, rendering
+will be in device pixels. <a href="Viewer.html#resolutionScale"><code>Viewer#resolutionScale</code></a> will still take effect whether
+this flag is true or false.
 </div>
 
 
@@ -2577,7 +2633,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1325">Widgets/Viewer/Viewer.js 1325</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1325">Widgets/Viewer/Viewer.js 1325</a>
 </div>
 
 
@@ -2588,7 +2644,15 @@
 
 
 <div class="description">
-    Gets or sets whether or not this widget should control the render loop.If set to true the widget will use <a href="global.html#requestAnimationFrame"><code>requestAnimationFrame</code></a> toperform rendering and resizing of the widget, as well as drive thesimulation clock. If set to false, you must manually call the<code>resize</code>, <code>render</code> methodsas part of a custom render loop.  If an error occurs during rendering, <a href="Scene.html"><code>Scene</code></a>'s<code>renderError</code> event will be raised and this propertywill be set to false.  It must be set back to true to continue renderingafter the error.
+    Gets or sets whether or not this widget should control the render loop.
+If set to true the widget will use <a href="global.html#requestAnimationFrame"><code>requestAnimationFrame</code></a> to
+perform rendering and resizing of the widget, as well as drive the
+simulation clock. If set to false, you must manually call the
+<code>resize</code>, <code>render</code> methods
+as part of a custom render loop.  If an error occurs during rendering, <a href="Scene.html"><code>Scene</code></a>'s
+<code>renderError</code> event will be raised and this property
+will be set to false.  It must be set back to true to continue rendering
+after the error.
 </div>
 
 
@@ -2637,7 +2701,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1096">Widgets/Viewer/Viewer.js 1096</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1096">Widgets/Viewer/Viewer.js 1096</a>
 </div>
 
 
@@ -2703,7 +2767,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1666">Widgets/Viewer/Viewer.js 1666</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1666">Widgets/Viewer/Viewer.js 1666</a>
 </div>
 
 
@@ -2715,7 +2779,8 @@
 
 
 <div class="description">
-    Destroys the widget.  Should be called if permanentlyremoving the widget from layout.
+    Destroys the widget.  Should be called if permanently
+removing the widget from layout.
 </div>
 
 
@@ -2784,7 +2849,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1525">Widgets/Viewer/Viewer.js 1525</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1525">Widgets/Viewer/Viewer.js 1525</a>
 </div>
 
 
@@ -2796,7 +2861,9 @@
 
 
 <div class="description">
-    Extends the base viewer functionality with the provided mixin.A mixin may add additional properties, functions, or other behaviorto the provided viewer instance.
+    Extends the base viewer functionality with the provided mixin.
+A mixin may add additional properties, functions, or other behavior
+to the provided viewer instance.
 </div>
 
 
@@ -2950,7 +3017,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L2050">Widgets/Viewer/Viewer.js 2050</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L2050">Widgets/Viewer/Viewer.js 2050</a>
 </div>
 
 
@@ -2962,7 +3029,19 @@
 
 
 <div class="description">
-    Flies the camera to the provided entity, entities, or data source.If the data source is still in the process of loading or the visualization is otherwise still loading,this method waits for the data to be ready before performing the flight.<p>The offset is heading/pitch/range in the local east-north-up reference frame centered at the center of the bounding sphere.The heading and the pitch angles are defined in the local east-north-up reference frame.The heading is the angle from y axis and increasing towards the x axis. Pitch is the rotation from the xy-plane. Positive pitchangles are above the plane. Negative pitch angles are below the plane. The range is the distance from the center. If the range iszero, a range will be computed such that the whole bounding sphere is visible.</p><p>In 2D, there must be a top down view. The camera will be placed above the target looking down. The height above thetarget will be the range. The heading will be determined from the offset. If the heading cannot bedetermined from the offset, the heading will be north.</p>
+    Flies the camera to the provided entity, entities, or data source.
+If the data source is still in the process of loading or the visualization is otherwise still loading,
+this method waits for the data to be ready before performing the flight.
+
+<p>The offset is heading/pitch/range in the local east-north-up reference frame centered at the center of the bounding sphere.
+The heading and the pitch angles are defined in the local east-north-up reference frame.
+The heading is the angle from y axis and increasing towards the x axis. Pitch is the rotation from the xy-plane. Positive pitch
+angles are above the plane. Negative pitch angles are below the plane. The range is the distance from the center. If the range is
+zero, a range will be computed such that the whole bounding sphere is visible.</p>
+
+<p>In 2D, there must be a top down view. The camera will be placed above the target looking down. The height above the
+target will be the range. The heading will be determined from the offset. If the heading cannot be
+determined from the offset, the heading will be north.</p>
 </div>
 
 
@@ -3269,7 +3348,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1642">Widgets/Viewer/Viewer.js 1642</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1642">Widgets/Viewer/Viewer.js 1642</a>
 </div>
 
 
@@ -3281,7 +3360,8 @@
 
 
 <div class="description">
-    This forces the widget to re-think its layout, includingwidget sizes and credit placement.
+    This forces the widget to re-think its layout, including
+widget sizes and credit placement.
 </div>
 
 
@@ -3350,7 +3430,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1658">Widgets/Viewer/Viewer.js 1658</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1658">Widgets/Viewer/Viewer.js 1658</a>
 </div>
 
 
@@ -3436,7 +3516,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1651">Widgets/Viewer/Viewer.js 1651</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1651">Widgets/Viewer/Viewer.js 1651</a>
 </div>
 
 
@@ -3448,7 +3528,8 @@
 
 
 <div class="description">
-    Renders the scene.  This function is called automaticallyunless <code>useDefaultRenderLoop</code> is set to false;
+    Renders the scene.  This function is called automatically
+unless <code>useDefaultRenderLoop</code> is set to false;
 </div>
 
 
@@ -3517,7 +3598,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L1540">Widgets/Viewer/Viewer.js 1540</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L1540">Widgets/Viewer/Viewer.js 1540</a>
 </div>
 
 
@@ -3529,7 +3610,9 @@
 
 
 <div class="description">
-    Resizes the widget to match the container size.This function is called automatically as needed unless<code>useDefaultRenderLoop</code> is set to false.
+    Resizes the widget to match the container size.
+This function is called automatically as needed unless
+<code>useDefaultRenderLoop</code> is set to false.
 </div>
 
 
@@ -3598,7 +3681,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L2021">Widgets/Viewer/Viewer.js 2021</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L2021">Widgets/Viewer/Viewer.js 2021</a>
 </div>
 
 
@@ -3610,7 +3693,19 @@
 
 
 <div class="description">
-    Asynchronously sets the camera to view the provided entity, entities, or data source.If the data source is still in the process of loading or the visualization is otherwise still loading,this method waits for the data to be ready before performing the zoom.<p>The offset is heading/pitch/range in the local east-north-up reference frame centered at the center of the bounding sphere.The heading and the pitch angles are defined in the local east-north-up reference frame.The heading is the angle from y axis and increasing towards the x axis. Pitch is the rotation from the xy-plane. Positive pitchangles are above the plane. Negative pitch angles are below the plane. The range is the distance from the center. If the range iszero, a range will be computed such that the whole bounding sphere is visible.</p><p>In 2D, there must be a top down view. The camera will be placed above the target looking down. The height above thetarget will be the range. The heading will be determined from the offset. If the heading cannot bedetermined from the offset, the heading will be north.</p>
+    Asynchronously sets the camera to view the provided entity, entities, or data source.
+If the data source is still in the process of loading or the visualization is otherwise still loading,
+this method waits for the data to be ready before performing the zoom.
+
+<p>The offset is heading/pitch/range in the local east-north-up reference frame centered at the center of the bounding sphere.
+The heading and the pitch angles are defined in the local east-north-up reference frame.
+The heading is the angle from y axis and increasing towards the x axis. Pitch is the rotation from the xy-plane. Positive pitch
+angles are above the plane. Negative pitch angles are below the plane. The range is the distance from the center. If the range is
+zero, a range will be computed such that the whole bounding sphere is visible.</p>
+
+<p>In 2D, there must be a top down view. The camera will be placed above the target looking down. The height above the
+target will be the range. The heading will be determined from the offset. If the heading cannot be
+determined from the offset, the heading will be north.</p>
 </div>
 
 
@@ -3795,7 +3890,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L279">Widgets/Viewer/Viewer.js 279</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L279">Widgets/Viewer/Viewer.js 279</a>
 </div>
 
 
@@ -5213,7 +5308,8 @@
                 </td>
             
 
-            <td class="description last">The collection of data sources visualized by the widget.  If this parameter is provided,                              the instance is assumed to be owned by the caller and will not be destroyed when the viewer is destroyed.</td>
+            <td class="description last">The collection of data sources visualized by the widget.  If this parameter is provided,
+                              the instance is assumed to be owned by the caller and will not be destroyed when the viewer is destroyed.</td>
         </tr>
 
     
@@ -5520,7 +5616,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/Viewer.js#L2390">Widgets/Viewer/Viewer.js 2390</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/Viewer.js#L2390">Widgets/Viewer/Viewer.js 2390</a>
 </div>
 
 

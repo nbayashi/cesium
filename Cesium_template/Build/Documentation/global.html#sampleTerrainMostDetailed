@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/sampleTerrainMostDetailed.js#L9">Core/sampleTerrainMostDetailed.js 9</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/sampleTerrainMostDetailed.js#L9">Core/sampleTerrainMostDetailed.js 9</a>
 </div>
 
 
@@ -73,7 +73,17 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Query the terrain height of two Cartographic positionsvar terrainProvider = Cesium.createWorldTerrain();var positions = [    Cesium.Cartographic.fromDegrees(86.925145, 27.988257),    Cesium.Cartographic.fromDegrees(87.0, 28.0)];var promise = Cesium.sampleTerrainMostDetailed(terrainProvider, positions);Cesium.when(promise, function(updatedPositions) {    // positions[0].height and positions[1].height have been updated.    // updatedPositions is just a reference to positions.});</code></pre>
+    <pre><code class="language-javascript">// Query the terrain height of two Cartographic positions
+var terrainProvider = Cesium.createWorldTerrain();
+var positions = [
+    Cesium.Cartographic.fromDegrees(86.925145, 27.988257),
+    Cesium.Cartographic.fromDegrees(87.0, 28.0)
+];
+var promise = Cesium.sampleTerrainMostDetailed(terrainProvider, positions);
+Cesium.when(promise, function(updatedPositions) {
+    // positions[0].height and positions[1].height have been updated.
+    // updatedPositions is just a reference to positions.
+});</code></pre>
 
     
 

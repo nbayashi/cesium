@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ArcGISTiledElevationTerrainProvider.js#L48">Core/ArcGISTiledElevationTerrainProvider.js 48</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ArcGISTiledElevationTerrainProvider.js#L48">Core/ArcGISTiledElevationTerrainProvider.js 48</a>
 </div>
 
 
@@ -58,7 +58,8 @@
 
 
 <div class="description">
-    A <a href="TerrainProvider.html"><code>TerrainProvider</code></a> that produces terrain geometry by tessellating height mapsretrieved from Elevation Tiles of an an ArcGIS ImageService.
+    A <a href="TerrainProvider.html"><code>TerrainProvider</code></a> that produces terrain geometry by tessellating height maps
+retrieved from Elevation Tiles of an an ArcGIS ImageService.
 </div>
 
 
@@ -222,7 +223,9 @@
 
                 
             
-                The ellipsoid.  If the tilingScheme is specified,                   this parameter is ignored and the tiling scheme's ellipsoid is used instead.                   If neither parameter is specified, the WGS84 ellipsoid is used.</td>
+                The ellipsoid.  If the tilingScheme is specified,
+                   this parameter is ignored and the tiling scheme's ellipsoid is used instead.
+                   If neither parameter is specified, the WGS84 ellipsoid is used.</td>
         </tr>
 
     
@@ -271,7 +274,13 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var terrainProvider = new Cesium.ArcGISTiledElevationTerrainProvider({  url : 'https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer',  token : 'KED1aF_I4UzXOHy3BnhwyBHU4l5oY6rO6walkmHoYqGp4XyIWUd5YZUC1ZrLAzvV40pR6gBXQayh0eFA8m6vPg..'});viewer.terrainProvider = terrainProvider; </code></pre>
+    <pre><code class="language-javascript">var terrainProvider = new Cesium.ArcGISTiledElevationTerrainProvider({
+  url : 'https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer',
+  token : 'KED1aF_I4UzXOHy3BnhwyBHU4l5oY6rO6walkmHoYqGp4XyIWUd5YZUC1ZrLAzvV40pR6gBXQayh0eFA8m6vPg..'
+});
+viewer.terrainProvider = terrainProvider;
+
+ </code></pre>
 
     
 
@@ -317,7 +326,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ArcGISTiledElevationTerrainProvider.js#L305">Core/ArcGISTiledElevationTerrainProvider.js 305</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ArcGISTiledElevationTerrainProvider.js#L305">Core/ArcGISTiledElevationTerrainProvider.js 305</a>
 </div>
 
 
@@ -328,7 +337,10 @@
 
 
 <div class="description">
-    Gets an object that can be used to determine availability of terrain from this provider, such asat points and in rectangles.  This function should not be called before<a href="TerrainProvider.html#ready"><code>TerrainProvider#ready</code></a> returns true.  This property may be undefined if availabilityinformation is not available.
+    Gets an object that can be used to determine availability of terrain from this provider, such as
+at points and in rectangles.  This function should not be called before
+<a href="TerrainProvider.html#ready"><code>TerrainProvider#ready</code></a> returns true.  This property may be undefined if availability
+information is not available.
 </div>
 
 
@@ -377,7 +389,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ArcGISTiledElevationTerrainProvider.js#L217">Core/ArcGISTiledElevationTerrainProvider.js 217</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ArcGISTiledElevationTerrainProvider.js#L217">Core/ArcGISTiledElevationTerrainProvider.js 217</a>
 </div>
 
 
@@ -388,7 +400,8 @@
 
 
 <div class="description">
-    Gets the credit to display when this terrain provider is active.  Typically this is used to creditthe source of the terrain.  This function should not be called before <a href="ArcGISTiledElevationTerrainProvider.html#ready"><code>ArcGISTiledElevationTerrainProvider#ready</code></a> returns true.
+    Gets the credit to display when this terrain provider is active.  Typically this is used to credit
+the source of the terrain.  This function should not be called before <a href="ArcGISTiledElevationTerrainProvider.html#ready"><code>ArcGISTiledElevationTerrainProvider#ready</code></a> returns true.
 </div>
 
 
@@ -437,7 +450,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ArcGISTiledElevationTerrainProvider.js#L205">Core/ArcGISTiledElevationTerrainProvider.js 205</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ArcGISTiledElevationTerrainProvider.js#L205">Core/ArcGISTiledElevationTerrainProvider.js 205</a>
 </div>
 
 
@@ -448,7 +461,9 @@
 
 
 <div class="description">
-    Gets an event that is raised when the terrain provider encounters an asynchronous error.  By subscribingto the event, you will be notified of the error and can potentially recover from it.  Event listenersare passed an instance of <a href="TileProviderError.html"><code>TileProviderError</code></a>.
+    Gets an event that is raised when the terrain provider encounters an asynchronous error.  By subscribing
+to the event, you will be notified of the error and can potentially recover from it.  Event listeners
+are passed an instance of <a href="TileProviderError.html"><code>TileProviderError</code></a>.
 </div>
 
 
@@ -497,7 +512,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ArcGISTiledElevationTerrainProvider.js#L292">Core/ArcGISTiledElevationTerrainProvider.js 292</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ArcGISTiledElevationTerrainProvider.js#L292">Core/ArcGISTiledElevationTerrainProvider.js 292</a>
 </div>
 
 
@@ -508,7 +523,8 @@
 
 
 <div class="description">
-    Gets a value indicating whether or not the requested tiles include vertex normals.This function should not be called before <a href="ArcGISTiledElevationTerrainProvider.html#ready"><code>ArcGISTiledElevationTerrainProvider#ready</code></a> returns true.
+    Gets a value indicating whether or not the requested tiles include vertex normals.
+This function should not be called before <a href="ArcGISTiledElevationTerrainProvider.html#ready"><code>ArcGISTiledElevationTerrainProvider#ready</code></a> returns true.
 </div>
 
 
@@ -557,7 +573,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ArcGISTiledElevationTerrainProvider.js#L280">Core/ArcGISTiledElevationTerrainProvider.js 280</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ArcGISTiledElevationTerrainProvider.js#L280">Core/ArcGISTiledElevationTerrainProvider.js 280</a>
 </div>
 
 
@@ -568,7 +584,10 @@
 
 
 <div class="description">
-    Gets a value indicating whether or not the provider includes a water mask.  The water maskindicates which areas of the globe are water rather than land, so they can be renderedas a reflective surface with animated waves.  This function should not becalled before <a href="ArcGISTiledElevationTerrainProvider.html#ready"><code>ArcGISTiledElevationTerrainProvider#ready</code></a> returns true.
+    Gets a value indicating whether or not the provider includes a water mask.  The water mask
+indicates which areas of the globe are water rather than land, so they can be rendered
+as a reflective surface with animated waves.  This function should not be
+called before <a href="ArcGISTiledElevationTerrainProvider.html#ready"><code>ArcGISTiledElevationTerrainProvider#ready</code></a> returns true.
 </div>
 
 
@@ -617,7 +636,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ArcGISTiledElevationTerrainProvider.js#L254">Core/ArcGISTiledElevationTerrainProvider.js 254</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ArcGISTiledElevationTerrainProvider.js#L254">Core/ArcGISTiledElevationTerrainProvider.js 254</a>
 </div>
 
 
@@ -677,7 +696,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ArcGISTiledElevationTerrainProvider.js#L266">Core/ArcGISTiledElevationTerrainProvider.js 266</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ArcGISTiledElevationTerrainProvider.js#L266">Core/ArcGISTiledElevationTerrainProvider.js 266</a>
 </div>
 
 
@@ -737,7 +756,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ArcGISTiledElevationTerrainProvider.js#L236">Core/ArcGISTiledElevationTerrainProvider.js 236</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ArcGISTiledElevationTerrainProvider.js#L236">Core/ArcGISTiledElevationTerrainProvider.js 236</a>
 </div>
 
 
@@ -748,7 +767,8 @@
 
 
 <div class="description">
-    Gets the tiling scheme used by this provider.  This function shouldnot be called before <a href="ArcGISTiledElevationTerrainProvider.html#ready"><code>ArcGISTiledElevationTerrainProvider#ready</code></a> returns true.
+    Gets the tiling scheme used by this provider.  This function should
+not be called before <a href="ArcGISTiledElevationTerrainProvider.html#ready"><code>ArcGISTiledElevationTerrainProvider#ready</code></a> returns true.
 </div>
 
 
@@ -803,7 +823,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ArcGISTiledElevationTerrainProvider.js#L435">Core/ArcGISTiledElevationTerrainProvider.js 435</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ArcGISTiledElevationTerrainProvider.js#L435">Core/ArcGISTiledElevationTerrainProvider.js 435</a>
 </div>
 
 
@@ -938,7 +958,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ArcGISTiledElevationTerrainProvider.js#L457">Core/ArcGISTiledElevationTerrainProvider.js 457</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ArcGISTiledElevationTerrainProvider.js#L457">Core/ArcGISTiledElevationTerrainProvider.js 457</a>
 </div>
 
 
@@ -1119,7 +1139,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ArcGISTiledElevationTerrainProvider.js#L484">Core/ArcGISTiledElevationTerrainProvider.js 484</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ArcGISTiledElevationTerrainProvider.js#L484">Core/ArcGISTiledElevationTerrainProvider.js 484</a>
 </div>
 
 
@@ -1300,7 +1320,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ArcGISTiledElevationTerrainProvider.js#L332">Core/ArcGISTiledElevationTerrainProvider.js 332</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ArcGISTiledElevationTerrainProvider.js#L332">Core/ArcGISTiledElevationTerrainProvider.js 332</a>
 </div>
 
 
@@ -1312,7 +1332,9 @@
 
 
 <div class="description">
-    Requests the geometry for a given tile.  This function should not be called before<a href="ArcGISTiledElevationTerrainProvider.html#ready"><code>ArcGISTiledElevationTerrainProvider#ready</code></a> returns true.  The result includes terraindata and indicates that all child tiles are available.
+    Requests the geometry for a given tile.  This function should not be called before
+<a href="ArcGISTiledElevationTerrainProvider.html#ready"><code>ArcGISTiledElevationTerrainProvider#ready</code></a> returns true.  The result includes terrain
+data and indicates that all child tiles are available.
 </div>
 
 
@@ -1475,7 +1497,9 @@
 
         
 <div class="param-desc">
-    A promise for the requested geometry.  If this method         returns undefined instead of a promise, it is an indication that too many requests are already         pending and the request will be retried later.
+    A promise for the requested geometry.  If this method
+         returns undefined instead of a promise, it is an indication that too many requests are already
+         pending and the request will be retried later.
 </div>
 
 

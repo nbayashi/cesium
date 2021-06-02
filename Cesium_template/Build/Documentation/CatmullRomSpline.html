@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/CatmullRomSpline.js#L148">Core/CatmullRomSpline.js 148</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/CatmullRomSpline.js#L148">Core/CatmullRomSpline.js 148</a>
 </div>
 
 
@@ -58,7 +58,9 @@
 
 
 <div class="description">
-    A Catmull-Rom spline is a cubic spline where the tangent at control points,except the first and last, are computed using the previous and next control points.Catmull-Rom splines are in the class C<sup>1</sup>.
+    A Catmull-Rom spline is a cubic spline where the tangent at control points,
+except the first and last, are computed using the previous and next control points.
+Catmull-Rom splines are in the class C<sup>1</sup>.
 </div>
 
 
@@ -153,7 +155,8 @@
 
                 
             
-                An array of strictly increasing, unit-less, floating-point times at each point.               The values are in no way connected to the clock time. They are the parameterization for the curve.</td>
+                An array of strictly increasing, unit-less, floating-point times at each point.
+               The values are in no way connected to the clock time. They are the parameterization for the curve.</td>
         </tr>
 
     
@@ -211,7 +214,8 @@
 
                 
             
-                The tangent of the curve at the first control point.                    If the tangent is not given, it will be estimated.</td>
+                The tangent of the curve at the first control point.
+                    If the tangent is not given, it will be estimated.</td>
         </tr>
 
     
@@ -241,7 +245,8 @@
 
                 
             
-                The tangent of the curve at the last control point.                    If the tangent is not given, it will be estimated.</td>
+                The tangent of the curve at the last control point.
+                    If the tangent is not given, it will be estimated.</td>
         </tr>
 
     
@@ -315,7 +320,20 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// spline above the earth from Philadelphia to Los Angelesvar spline = new Cesium.CatmullRomSpline({    times : [ 0.0, 1.5, 3.0, 4.5, 6.0 ],    points : [        new Cesium.Cartesian3(1235398.0, -4810983.0, 4146266.0),        new Cesium.Cartesian3(1372574.0, -5345182.0, 4606657.0),        new Cesium.Cartesian3(-757983.0, -5542796.0, 4514323.0),        new Cesium.Cartesian3(-2821260.0, -5248423.0, 4021290.0),        new Cesium.Cartesian3(-2539788.0, -4724797.0, 3620093.0)    ]});var p0 = spline.evaluate(times[i]);         // equal to positions[i]var p1 = spline.evaluate(times[i] + delta); // interpolated value when delta &lt; times[i + 1] - times[i]</code></pre>
+    <pre><code class="language-javascript">// spline above the earth from Philadelphia to Los Angeles
+var spline = new Cesium.CatmullRomSpline({
+    times : [ 0.0, 1.5, 3.0, 4.5, 6.0 ],
+    points : [
+        new Cesium.Cartesian3(1235398.0, -4810983.0, 4146266.0),
+        new Cesium.Cartesian3(1372574.0, -5345182.0, 4606657.0),
+        new Cesium.Cartesian3(-757983.0, -5542796.0, 4514323.0),
+        new Cesium.Cartesian3(-2821260.0, -5248423.0, 4021290.0),
+        new Cesium.Cartesian3(-2539788.0, -4724797.0, 3620093.0)
+    ]
+});
+
+var p0 = spline.evaluate(times[i]);         // equal to positions[i]
+var p1 = spline.evaluate(times[i] + delta); // interpolated value when delta &lt; times[i + 1] - times[i]</code></pre>
 
     
 
@@ -367,7 +385,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/CatmullRomSpline.js#L233">Core/CatmullRomSpline.js 233</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/CatmullRomSpline.js#L233">Core/CatmullRomSpline.js 233</a>
 </div>
 
 
@@ -427,7 +445,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/CatmullRomSpline.js#L247">Core/CatmullRomSpline.js 247</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/CatmullRomSpline.js#L247">Core/CatmullRomSpline.js 247</a>
 </div>
 
 
@@ -487,7 +505,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/CatmullRomSpline.js#L219">Core/CatmullRomSpline.js 219</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/CatmullRomSpline.js#L219">Core/CatmullRomSpline.js 219</a>
 </div>
 
 
@@ -547,7 +565,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/CatmullRomSpline.js#L205">Core/CatmullRomSpline.js 205</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/CatmullRomSpline.js#L205">Core/CatmullRomSpline.js 205</a>
 </div>
 
 
@@ -613,7 +631,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/CatmullRomSpline.js#L306">Core/CatmullRomSpline.js 306</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/CatmullRomSpline.js#L306">Core/CatmullRomSpline.js 306</a>
 </div>
 
 
@@ -748,7 +766,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/CatmullRomSpline.js#L319">Core/CatmullRomSpline.js 319</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/CatmullRomSpline.js#L319">Core/CatmullRomSpline.js 319</a>
 </div>
 
 
@@ -882,7 +900,9 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>                            is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element                            in the array <code>times</code>.
+: time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>
+                            is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element
+                            in the array <code>times</code>.
     </div>
 
 </li>
@@ -932,7 +952,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/CatmullRomSpline.js#L288">Core/CatmullRomSpline.js 288</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/CatmullRomSpline.js#L288">Core/CatmullRomSpline.js 288</a>
 </div>
 
 
@@ -944,7 +964,8 @@
 
 
 <div class="description">
-    Finds an index <code>i</code> in <code>times</code> such that the parameter<code>time</code> is in the interval <code>[times[i], times[i + 1]]</code>.
+    Finds an index <code>i</code> in <code>times</code> such that the parameter
+<code>time</code> is in the interval <code>[times[i], times[i + 1]]</code>.
 </div>
 
 
@@ -1031,7 +1052,9 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>                            is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element                            in the array <code>times</code>.
+: time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>
+                            is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element
+                            in the array <code>times</code>.
     </div>
 
 </li>
@@ -1081,7 +1104,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/CatmullRomSpline.js#L297">Core/CatmullRomSpline.js 297</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/CatmullRomSpline.js#L297">Core/CatmullRomSpline.js 297</a>
 </div>
 
 

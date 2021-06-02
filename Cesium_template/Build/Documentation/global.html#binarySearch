@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/binarySearch.js#L24">Core/binarySearch.js 24</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/binarySearch.js#L24">Core/binarySearch.js 24</a>
 </div>
 
 
@@ -73,7 +73,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create a comparator function to search through an array of numbers.function comparator(a, b) {    return a - b;};var numbers = [0, 2, 4, 6, 8];var index = Cesium.binarySearch(numbers, 6, comparator); // 3</code></pre>
+    <pre><code class="language-javascript">// Create a comparator function to search through an array of numbers.
+function comparator(a, b) {
+    return a - b;
+};
+var numbers = [0, 2, 4, 6, 8];
+var index = Cesium.binarySearch(numbers, 6, comparator); // 3</code></pre>
 
     
 

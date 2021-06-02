@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/WebMercatorProjection.js#L21">Core/WebMercatorProjection.js 21</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/WebMercatorProjection.js#L21">Core/WebMercatorProjection.js 21</a>
 </div>
 
 
@@ -58,7 +58,9 @@
 
 
 <div class="description">
-    The map projection used by Google Maps, Bing Maps, and most of ArcGIS Online, EPSG:3857.  Thisprojection use longitude and latitude expressed with the WGS84 and transforms them to Mercator usingthe spherical (rather than ellipsoidal) equations.
+    The map projection used by Google Maps, Bing Maps, and most of ArcGIS Online, EPSG:3857.  This
+projection use longitude and latitude expressed with the WGS84 and transforms them to Mercator using
+the spherical (rather than ellipsoidal) equations.
 </div>
 
 
@@ -208,7 +210,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/WebMercatorProjection.js#L88">Core/WebMercatorProjection.js 88</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/WebMercatorProjection.js#L88">Core/WebMercatorProjection.js 88</a>
 </div>
 
 
@@ -219,7 +221,16 @@
 
 
 <div class="description">
-    The maximum latitude (both North and South) supported by a Web Mercator(EPSG:3857) projection.  Technically, the Mercator projection is definedfor any latitude up to (but not including) 90 degrees, but it makes senseto cut it off sooner because it grows exponentially with increasing latitude.The logic behind this particular cutoff value, which is the one used byGoogle Maps, Bing Maps, and Esri, is that it makes the projectionsquare.  That is, the rectangle is equal in the X and Y directions.The constant value is computed by calling:   WebMercatorProjection.mercatorAngleToGeodeticLatitude(Math.PI)
+    The maximum latitude (both North and South) supported by a Web Mercator
+(EPSG:3857) projection.  Technically, the Mercator projection is defined
+for any latitude up to (but not including) 90 degrees, but it makes sense
+to cut it off sooner because it grows exponentially with increasing latitude.
+The logic behind this particular cutoff value, which is the one used by
+Google Maps, Bing Maps, and Esri, is that it makes the projection
+square.  That is, the rectangle is equal in the X and Y directions.
+
+The constant value is computed by calling:
+   WebMercatorProjection.mercatorAngleToGeodeticLatitude(Math.PI)
 </div>
 
 
@@ -268,7 +279,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/WebMercatorProjection.js#L36">Core/WebMercatorProjection.js 36</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/WebMercatorProjection.js#L36">Core/WebMercatorProjection.js 36</a>
 </div>
 
 
@@ -334,7 +345,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/WebMercatorProjection.js#L63">Core/WebMercatorProjection.js 63</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/WebMercatorProjection.js#L63">Core/WebMercatorProjection.js 63</a>
 </div>
 
 
@@ -346,7 +357,8 @@
 
 
 <div class="description">
-    Converts a geodetic latitude in radians, in the range -PI/2 to PI/2, to a Mercatorangle in the range -PI to PI.
+    Converts a geodetic latitude in radians, in the range -PI/2 to PI/2, to a Mercator
+angle in the range -PI to PI.
 </div>
 
 
@@ -469,7 +481,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/WebMercatorProjection.js#L50">Core/WebMercatorProjection.js 50</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/WebMercatorProjection.js#L50">Core/WebMercatorProjection.js 50</a>
 </div>
 
 
@@ -481,7 +493,8 @@
 
 
 <div class="description">
-    Converts a Mercator angle, in the range -PI to PI, to a geodetic latitudein the range -PI/2 to PI/2.
+    Converts a Mercator angle, in the range -PI to PI, to a geodetic latitude
+in the range -PI/2 to PI/2.
 </div>
 
 
@@ -604,7 +617,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/WebMercatorProjection.js#L102">Core/WebMercatorProjection.js 102</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/WebMercatorProjection.js#L102">Core/WebMercatorProjection.js 102</a>
 </div>
 
 
@@ -616,7 +629,9 @@
 
 
 <div class="description">
-    Converts geodetic ellipsoid coordinates, in radians, to the equivalent Web MercatorX, Y, Z coordinates expressed in meters and returned in a <a href="Cartesian3.html"><code>Cartesian3</code></a>.  The heightis copied unmodified to the Z coordinate.
+    Converts geodetic ellipsoid coordinates, in radians, to the equivalent Web Mercator
+X, Y, Z coordinates expressed in meters and returned in a <a href="Cartesian3.html"><code>Cartesian3</code></a>.  The height
+is copied unmodified to the Z coordinate.
 </div>
 
 
@@ -702,7 +717,8 @@
 
                 
             
-                The instance to which to copy the result, or undefined if a       new instance should be created.</td>
+                The instance to which to copy the result, or undefined if a
+       new instance should be created.</td>
         </tr>
 
     
@@ -774,7 +790,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/WebMercatorProjection.js#L131">Core/WebMercatorProjection.js 131</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/WebMercatorProjection.js#L131">Core/WebMercatorProjection.js 131</a>
 </div>
 
 
@@ -786,7 +802,9 @@
 
 
 <div class="description">
-    Converts Web Mercator X, Y coordinates, expressed in meters, to a <a href="Cartographic.html"><code>Cartographic</code></a>containing geodetic ellipsoid coordinates.  The Z coordinate is copied unmodified to theheight.
+    Converts Web Mercator X, Y coordinates, expressed in meters, to a <a href="Cartographic.html"><code>Cartographic</code></a>
+containing geodetic ellipsoid coordinates.  The Z coordinate is copied unmodified to the
+height.
 </div>
 
 
@@ -872,7 +890,8 @@
 
                 
             
-                The instance to which to copy the result, or undefined if a       new instance should be created.</td>
+                The instance to which to copy the result, or undefined if a
+       new instance should be created.</td>
         </tr>
 
     

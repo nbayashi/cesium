@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/createWorldTerrain.js#L33">Core/createWorldTerrain.js 33</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/createWorldTerrain.js#L33">Core/createWorldTerrain.js 33</a>
 </div>
 
 
@@ -73,9 +73,18 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Create Cesium World Terrain with default settingsvar viewer = new Cesium.Viewer('cesiumContainer', {    terrainProvider : Cesium.createWorldTerrain();});</code></pre>
+    <pre><code class="language-javascript">// Create Cesium World Terrain with default settings
+var viewer = new Cesium.Viewer('cesiumContainer', {
+    terrainProvider : Cesium.createWorldTerrain();
+});</code></pre>
 
-    <pre><code class="language-javascript">// Create Cesium World Terrain with water and normals.var viewer = new Cesium.Viewer('cesiumContainer', {    terrainProvider : Cesium.createWorldTerrain({        requestWaterMask : true,        requestVertexNormals : true    });});</code></pre>
+    <pre><code class="language-javascript">// Create Cesium World Terrain with water and normals.
+var viewer = new Cesium.Viewer('cesiumContainer', {
+    terrainProvider : Cesium.createWorldTerrain({
+        requestWaterMask : true,
+        requestVertexNormals : true
+    });
+});</code></pre>
 
     
 

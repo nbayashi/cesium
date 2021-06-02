@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/buildModuleUrl.js#L107">Core/buildModuleUrl.js 107</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/buildModuleUrl.js#L107">Core/buildModuleUrl.js 107</a>
 </div>
 
 
@@ -73,7 +73,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var viewer = new Cesium.Viewer("cesiumContainer", {  imageryProvider: new Cesium.TileMapServiceImageryProvider({  url: Cesium.buildModuleUrl("Assets/Textures/NaturalEarthII"),  }),  baseLayerPicker: false,});</code></pre>
+    <pre><code class="language-javascript">var viewer = new Cesium.Viewer("cesiumContainer", {
+  imageryProvider: new Cesium.TileMapServiceImageryProvider({
+  url: Cesium.buildModuleUrl("Assets/Textures/NaturalEarthII"),
+  }),
+  baseLayerPicker: false,
+});</code></pre>
 
     
 
@@ -113,7 +118,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/buildModuleUrl.js#L146">Core/buildModuleUrl.js 146</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/buildModuleUrl.js#L146">Core/buildModuleUrl.js 146</a>
 </div>
 
 
@@ -179,7 +184,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/buildModuleUrl.js#L137">Core/buildModuleUrl.js 137</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/buildModuleUrl.js#L137">Core/buildModuleUrl.js 137</a>
 </div>
 
 

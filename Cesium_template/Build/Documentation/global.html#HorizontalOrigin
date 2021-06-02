@@ -41,13 +41,20 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/HorizontalOrigin.js#L16">Scene/HorizontalOrigin.js 16</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/HorizontalOrigin.js#L16">Scene/HorizontalOrigin.js 16</a>
 </div>
 
 
 
         
-            <div class="description">The horizontal location of an origin relative to an object, e.g., a <a href="Billboard.html"><code>Billboard</code></a>or <a href="Label.html"><code>Label</code></a>.  For example, setting the horizontal origin to <code>LEFT</code>or <code>RIGHT</code> will display a billboard to the left or right (in screen space)of the anchor position.<br /><br /><div align='center'><img src='Images/Billboard.setHorizontalOrigin.png' width='648' height='196' /><br /></div></div>
+            <div class="description">The horizontal location of an origin relative to an object, e.g., a <a href="Billboard.html"><code>Billboard</code></a>
+or <a href="Label.html"><code>Label</code></a>.  For example, setting the horizontal origin to <code>LEFT</code>
+or <code>RIGHT</code> will display a billboard to the left or right (in screen space)
+of the anchor position.
+<br /><br />
+<div align='center'>
+<img src='Images/Billboard.setHorizontalOrigin.png' width='648' height='196' /><br />
+</div></div>
         
 
         
@@ -212,7 +219,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/HorizontalOrigin.js#L23">Scene/HorizontalOrigin.js 23</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/HorizontalOrigin.js#L23">Scene/HorizontalOrigin.js 23</a>
 </div>
 
 
@@ -272,7 +279,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/HorizontalOrigin.js#L31">Scene/HorizontalOrigin.js 31</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/HorizontalOrigin.js#L31">Scene/HorizontalOrigin.js 31</a>
 </div>
 
 
@@ -335,7 +342,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/HorizontalOrigin.js#L39">Scene/HorizontalOrigin.js 39</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/HorizontalOrigin.js#L39">Scene/HorizontalOrigin.js 39</a>
 </div>
 
 

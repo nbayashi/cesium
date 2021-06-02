@@ -1,5 +1,5 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['./AttributeCompression-953fe0fc', './Cartesian2-ea36f114', './IndexDatatype-d65a2d74', './Math-cf2f57e0', './createTaskProcessorWorker', './Check-c23b5bd5', './when-9f8cafad', './WebGLConstants-daaa9be0'], function (AttributeCompression, Cartesian2, IndexDatatype, _Math, createTaskProcessorWorker, Check, when, WebGLConstants) { 'use strict';
+define(['./AttributeCompression-e3a6496c', './Cartesian2-44e93af5', './IndexDatatype-e20e62f1', './Math-8c161f1c', './createTaskProcessorWorker', './Check-285f6bfc', './when-f31b6bd1', './WebGLConstants-34c08bc0'], function (AttributeCompression, Cartesian2, IndexDatatype, _Math, createTaskProcessorWorker, Check, when, WebGLConstants) { 'use strict';
 
   var MAX_SHORT = 32767;
   var MITER_BREAK = Math.cos(_Math.CesiumMath.toRadians(150.0));

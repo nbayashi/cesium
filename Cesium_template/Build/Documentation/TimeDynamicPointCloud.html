@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/TimeDynamicPointCloud.js#L43">Scene/TimeDynamicPointCloud.js 43</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/TimeDynamicPointCloud.js#L43">Scene/TimeDynamicPointCloud.js 43</a>
 </div>
 
 
@@ -58,7 +58,12 @@
 
 
 <div class="description">
-    Provides playback of time-dynamic point cloud data.<p>Point cloud frames are prefetched in intervals determined by the average frame load time and the current clock speed.If intermediate frames cannot be loaded in time to meet playback speed, they will be skipped. If frames are sufficientlysmall or the clock is sufficiently slow then no frames will be skipped.</p>
+    Provides playback of time-dynamic point cloud data.
+<p>
+Point cloud frames are prefetched in intervals determined by the average frame load time and the current clock speed.
+If intermediate frames cannot be loaded in time to meet playback speed, they will be skipped. If frames are sufficiently
+small or the clock is sufficiently slow then no frames will be skipped.
+</p>
 </div>
 
 
@@ -522,7 +527,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/TimeDynamicPointCloud.js#L237">Scene/TimeDynamicPointCloud.js 237</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/TimeDynamicPointCloud.js#L237">Scene/TimeDynamicPointCloud.js 237</a>
 </div>
 
 
@@ -582,7 +587,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/TimeDynamicPointCloud.js#L204">Scene/TimeDynamicPointCloud.js 204</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/TimeDynamicPointCloud.js#L204">Scene/TimeDynamicPointCloud.js 204</a>
 </div>
 
 
@@ -642,7 +647,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/TimeDynamicPointCloud.js#L169">Scene/TimeDynamicPointCloud.js 169</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/TimeDynamicPointCloud.js#L169">Scene/TimeDynamicPointCloud.js 169</a>
 </div>
 
 
@@ -653,7 +658,10 @@
 
 
 <div class="description">
-    The event fired to indicate that a new frame was rendered.<p>The time dynamic point cloud <a href="TimeDynamicPointCloud.html"><code>TimeDynamicPointCloud</code></a> is passed to the event listener.</p>
+    The event fired to indicate that a new frame was rendered.
+<p>
+The time dynamic point cloud <a href="TimeDynamicPointCloud.html"><code>TimeDynamicPointCloud</code></a> is passed to the event listener.
+</p>
 </div>
 
 
@@ -685,7 +693,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">pointCloud.frameChanged.addEventListener(function(timeDynamicPointCloud) {    viewer.camera.viewBoundingSphere(timeDynamicPointCloud.boundingSphere);});</code></pre>
+    <pre><code class="language-javascript">pointCloud.frameChanged.addEventListener(function(timeDynamicPointCloud) {
+    viewer.camera.viewBoundingSphere(timeDynamicPointCloud.boundingSphere);
+});</code></pre>
 
     
 
@@ -710,7 +720,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/TimeDynamicPointCloud.js#L154">Scene/TimeDynamicPointCloud.js 154</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/TimeDynamicPointCloud.js#L154">Scene/TimeDynamicPointCloud.js 154</a>
 </div>
 
 
@@ -721,7 +731,17 @@
 
 
 <div class="description">
-    The event fired to indicate that a frame failed to load. A frame may fail to load if therequest for its uri fails or processing fails due to invalid content.<p>If there are no event listeners, error messages will be logged to the console.</p><p>The error object passed to the listener contains two properties:<ul><li><code>uri</code>: the uri of the failed frame.</li><li><code>message</code>: the error message.</li></ul>
+    The event fired to indicate that a frame failed to load. A frame may fail to load if the
+request for its uri fails or processing fails due to invalid content.
+<p>
+If there are no event listeners, error messages will be logged to the console.
+</p>
+<p>
+The error object passed to the listener contains two properties:
+<ul>
+<li><code>uri</code>: the uri of the failed frame.</li>
+<li><code>message</code>: the error message.</li>
+</ul>
 </div>
 
 
@@ -753,7 +773,10 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">pointCloud.frameFailed.addEventListener(function(error) {    console.log('An error occurred loading frame: ' + error.uri);    console.log('Error: ' + error.message);});</code></pre>
+    <pre><code class="language-javascript">pointCloud.frameFailed.addEventListener(function(error) {
+    console.log('An error occurred loading frame: ' + error.uri);
+    console.log('Error: ' + error.message);
+});</code></pre>
 
     
 
@@ -778,7 +801,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/TimeDynamicPointCloud.js#L97">Scene/TimeDynamicPointCloud.js 97</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/TimeDynamicPointCloud.js#L97">Scene/TimeDynamicPointCloud.js 97</a>
 </div>
 
 
@@ -789,7 +812,13 @@
 
 
 <div class="description">
-    The maximum amount of GPU memory (in MB) that may be used to cache point cloud frames.<p>Frames that are not being loaded or rendered are unloaded to enforce this.</p><p>If decreasing this value results in unloading tiles, the tiles are unloaded the next frame.</p>
+    The maximum amount of GPU memory (in MB) that may be used to cache point cloud frames.
+<p>
+Frames that are not being loaded or rendered are unloaded to enforce this.
+</p>
+<p>
+If decreasing this value results in unloading tiles, the tiles are unloaded the next frame.
+</p>
 </div>
 
 
@@ -846,7 +875,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/TimeDynamicPointCloud.js#L65">Scene/TimeDynamicPointCloud.js 65</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/TimeDynamicPointCloud.js#L65">Scene/TimeDynamicPointCloud.js 65</a>
 </div>
 
 
@@ -909,7 +938,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/TimeDynamicPointCloud.js#L254">Scene/TimeDynamicPointCloud.js 254</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/TimeDynamicPointCloud.js#L254">Scene/TimeDynamicPointCloud.js 254</a>
 </div>
 
 
@@ -969,7 +998,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/TimeDynamicPointCloud.js#L103">Scene/TimeDynamicPointCloud.js 103</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/TimeDynamicPointCloud.js#L103">Scene/TimeDynamicPointCloud.js 103</a>
 </div>
 
 
@@ -1029,7 +1058,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/TimeDynamicPointCloud.js#L81">Scene/TimeDynamicPointCloud.js 81</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/TimeDynamicPointCloud.js#L81">Scene/TimeDynamicPointCloud.js 81</a>
 </div>
 
 
@@ -1040,7 +1069,13 @@
 
 
 <div class="description">
-    Determines whether the point cloud casts or receives shadows from light sources.<p>Enabling shadows has a performance impact. A point cloud that casts shadows must be rendered twice, once from the camera and again from the light's point of view.</p><p>Shadows are rendered only when <a href="Viewer.html#shadows"><code>Viewer#shadows</code></a> is <code>true</code>.</p>
+    Determines whether the point cloud casts or receives shadows from light sources.
+<p>
+Enabling shadows has a performance impact. A point cloud that casts shadows must be rendered twice, once from the camera and again from the light's point of view.
+</p>
+<p>
+Shadows are rendered only when <a href="Viewer.html#shadows"><code>Viewer#shadows</code></a> is <code>true</code>.
+</p>
 </div>
 
 
@@ -1092,7 +1127,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/TimeDynamicPointCloud.js#L57">Scene/TimeDynamicPointCloud.js 57</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/TimeDynamicPointCloud.js#L57">Scene/TimeDynamicPointCloud.js 57</a>
 </div>
 
 
@@ -1155,7 +1190,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/TimeDynamicPointCloud.js#L130">Scene/TimeDynamicPointCloud.js 130</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/TimeDynamicPointCloud.js#L130">Scene/TimeDynamicPointCloud.js 130</a>
 </div>
 
 
@@ -1166,7 +1201,13 @@
 
 
 <div class="description">
-    The style, defined using the<a href="https://github.com/CesiumGS/3d-tiles/tree/master/specification/Styling">3D Tiles Styling language</a>,applied to each point in the point cloud.<p>Assign <code>undefined</code> to remove the style, which will restore the visualappearance of the point cloud to its default when no style was applied.</p>
+    The style, defined using the
+<a href="https://github.com/CesiumGS/3d-tiles/tree/master/specification/Styling">3D Tiles Styling language</a>,
+applied to each point in the point cloud.
+<p>
+Assign <code>undefined</code> to remove the style, which will restore the visual
+appearance of the point cloud to its default when no style was applied.
+</p>
 </div>
 
 
@@ -1195,7 +1236,16 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">pointCloud.style = new Cesium.Cesium3DTileStyle({   color : {       conditions : [           ['${Classification} === 0', 'color("purple", 0.5)'],           ['${Classification} === 1', 'color("red")'],           ['true', '${COLOR}']       ]   },   show : '${Classification} !== 2'});</code></pre>
+    <pre><code class="language-javascript">pointCloud.style = new Cesium.Cesium3DTileStyle({
+   color : {
+       conditions : [
+           ['${Classification} === 0', 'color("purple", 0.5)'],
+           ['${Classification} === 1', 'color("red")'],
+           ['true', '${COLOR}']
+       ]
+   },
+   show : '${Classification} !== 2'
+});</code></pre>
 
     
 
@@ -1225,7 +1275,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/TimeDynamicPointCloud.js#L223">Scene/TimeDynamicPointCloud.js 223</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/TimeDynamicPointCloud.js#L223">Scene/TimeDynamicPointCloud.js 223</a>
 </div>
 
 
@@ -1296,7 +1346,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/TimeDynamicPointCloud.js#L809">Scene/TimeDynamicPointCloud.js 809</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/TimeDynamicPointCloud.js#L809">Scene/TimeDynamicPointCloud.js 809</a>
 </div>
 
 
@@ -1308,7 +1358,12 @@
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<br /><br />Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.
+    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
+release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+<br /><br />
+Once an object is destroyed, it should not be used; calling any function other than
+<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,
+assign the return value (<code>undefined</code>) to the object as done in the example.
 </div>
 
 
@@ -1401,7 +1456,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/TimeDynamicPointCloud.js#L790">Scene/TimeDynamicPointCloud.js 790</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/TimeDynamicPointCloud.js#L790">Scene/TimeDynamicPointCloud.js 790</a>
 </div>
 
 
@@ -1413,7 +1468,10 @@
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.<br /><br />If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+    Returns true if this object was destroyed; otherwise, false.
+<br /><br />
+If this object was destroyed, it should not be used; calling any function other than
+<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
 </div>
 
 
@@ -1496,7 +1554,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/TimeDynamicPointCloud.js#L283">Scene/TimeDynamicPointCloud.js 283</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/TimeDynamicPointCloud.js#L283">Scene/TimeDynamicPointCloud.js 283</a>
 </div>
 
 
@@ -1508,7 +1566,8 @@
 
 
 <div class="description">
-    Marks the point cloud's <a href="TimeDynamicPointCloud.html#style"><code>TimeDynamicPointCloud#style</code></a> as dirty, which forces allpoints to re-evaluate the style in the next frame.
+    Marks the point cloud's <a href="TimeDynamicPointCloud.html#style"><code>TimeDynamicPointCloud#style</code></a> as dirty, which forces all
+points to re-evaluate the style in the next frame.
 </div>
 
 

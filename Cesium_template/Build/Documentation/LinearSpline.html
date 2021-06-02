@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/LinearSpline.js#L42">Core/LinearSpline.js 42</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/LinearSpline.js#L42">Core/LinearSpline.js 42</a>
 </div>
 
 
@@ -148,7 +148,8 @@
 
             <td class="description last">
             
-                An array of strictly increasing, unit-less, floating-point times at each point.               The values are in no way connected to the clock time. They are the parameterization for the curve.</td>
+                An array of strictly increasing, unit-less, floating-point times at each point.
+               The values are in no way connected to the clock time. They are the parameterization for the curve.</td>
         </tr>
 
     
@@ -245,7 +246,19 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var times = [ 0.0, 1.5, 3.0, 4.5, 6.0 ];var spline = new Cesium.LinearSpline({    times : times,    points : [        new Cesium.Cartesian3(1235398.0, -4810983.0, 4146266.0),        new Cesium.Cartesian3(1372574.0, -5345182.0, 4606657.0),        new Cesium.Cartesian3(-757983.0, -5542796.0, 4514323.0),        new Cesium.Cartesian3(-2821260.0, -5248423.0, 4021290.0),        new Cesium.Cartesian3(-2539788.0, -4724797.0, 3620093.0)    ]});var p0 = spline.evaluate(times[0]);</code></pre>
+    <pre><code class="language-javascript">var times = [ 0.0, 1.5, 3.0, 4.5, 6.0 ];
+var spline = new Cesium.LinearSpline({
+    times : times,
+    points : [
+        new Cesium.Cartesian3(1235398.0, -4810983.0, 4146266.0),
+        new Cesium.Cartesian3(1372574.0, -5345182.0, 4606657.0),
+        new Cesium.Cartesian3(-757983.0, -5542796.0, 4514323.0),
+        new Cesium.Cartesian3(-2821260.0, -5248423.0, 4021290.0),
+        new Cesium.Cartesian3(-2539788.0, -4724797.0, 3620093.0)
+    ]
+});
+
+var p0 = spline.evaluate(times[0]);</code></pre>
 
     
 
@@ -297,7 +310,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/LinearSpline.js#L91">Core/LinearSpline.js 91</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/LinearSpline.js#L91">Core/LinearSpline.js 91</a>
 </div>
 
 
@@ -357,7 +370,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/LinearSpline.js#L77">Core/LinearSpline.js 77</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/LinearSpline.js#L77">Core/LinearSpline.js 77</a>
 </div>
 
 
@@ -423,7 +436,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/LinearSpline.js#L128">Core/LinearSpline.js 128</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/LinearSpline.js#L128">Core/LinearSpline.js 128</a>
 </div>
 
 
@@ -558,7 +571,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/LinearSpline.js#L141">Core/LinearSpline.js 141</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/LinearSpline.js#L141">Core/LinearSpline.js 141</a>
 </div>
 
 
@@ -692,7 +705,9 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>                            is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element                            in the array <code>times</code>.
+: time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>
+                            is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element
+                            in the array <code>times</code>.
     </div>
 
 </li>
@@ -742,7 +757,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/LinearSpline.js#L110">Core/LinearSpline.js 110</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/LinearSpline.js#L110">Core/LinearSpline.js 110</a>
 </div>
 
 
@@ -754,7 +769,8 @@
 
 
 <div class="description">
-    Finds an index <code>i</code> in <code>times</code> such that the parameter<code>time</code> is in the interval <code>[times[i], times[i + 1]]</code>.
+    Finds an index <code>i</code> in <code>times</code> such that the parameter
+<code>time</code> is in the interval <code>[times[i], times[i + 1]]</code>.
 </div>
 
 
@@ -841,7 +857,9 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>                            is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element                            in the array <code>times</code>.
+: time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>
+                            is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element
+                            in the array <code>times</code>.
     </div>
 
 </li>
@@ -891,7 +909,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/LinearSpline.js#L119">Core/LinearSpline.js 119</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/LinearSpline.js#L119">Core/LinearSpline.js 119</a>
 </div>
 
 

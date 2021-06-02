@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/SceneTransforms.js#L15">Scene/SceneTransforms.js 15</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/SceneTransforms.js#L15">Scene/SceneTransforms.js 15</a>
 </div>
 
 
@@ -110,7 +110,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/SceneTransforms.js#L283">Scene/SceneTransforms.js 283</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/SceneTransforms.js#L283">Scene/SceneTransforms.js 283</a>
 </div>
 
 
@@ -122,7 +122,8 @@
 
 
 <div class="description">
-    Transforms a position in WGS84 coordinates to drawing buffer coordinates.  This may produce differentresults from SceneTransforms.wgs84ToWindowCoordinates when the browser zoom is not 100%, or on high-DPI displays.
+    Transforms a position in WGS84 coordinates to drawing buffer coordinates.  This may produce different
+results from SceneTransforms.wgs84ToWindowCoordinates when the browser zoom is not 100%, or on high-DPI displays.
 </div>
 
 
@@ -288,7 +289,14 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Output the window position of longitude/latitude (0, 0) every time the mouse moves.var scene = widget.scene;var ellipsoid = scene.globe.ellipsoid;var position = Cesium.Cartesian3.fromDegrees(0.0, 0.0);var handler = new Cesium.ScreenSpaceEventHandler(scene.canvas);handler.setInputAction(function(movement) {    console.log(Cesium.SceneTransforms.wgs84ToWindowCoordinates(scene, position));}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
+    <pre><code class="language-javascript">// Output the window position of longitude/latitude (0, 0) every time the mouse moves.
+var scene = widget.scene;
+var ellipsoid = scene.globe.ellipsoid;
+var position = Cesium.Cartesian3.fromDegrees(0.0, 0.0);
+var handler = new Cesium.ScreenSpaceEventHandler(scene.canvas);
+handler.setInputAction(function(movement) {
+    console.log(Cesium.SceneTransforms.wgs84ToWindowCoordinates(scene, position));
+}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
 
     
 
@@ -313,7 +321,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/SceneTransforms.js#L48">Scene/SceneTransforms.js 48</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/SceneTransforms.js#L48">Scene/SceneTransforms.js 48</a>
 </div>
 
 
@@ -325,7 +333,8 @@
 
 
 <div class="description">
-    Transforms a position in WGS84 coordinates to window coordinates.  This is commonly used to place anHTML element at the same screen position as an object in the scene.
+    Transforms a position in WGS84 coordinates to window coordinates.  This is commonly used to place an
+HTML element at the same screen position as an object in the scene.
 </div>
 
 
@@ -491,7 +500,14 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Output the window position of longitude/latitude (0, 0) every time the mouse moves.var scene = widget.scene;var ellipsoid = scene.globe.ellipsoid;var position = Cesium.Cartesian3.fromDegrees(0.0, 0.0);var handler = new Cesium.ScreenSpaceEventHandler(scene.canvas);handler.setInputAction(function(movement) {    console.log(Cesium.SceneTransforms.wgs84ToWindowCoordinates(scene, position));}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
+    <pre><code class="language-javascript">// Output the window position of longitude/latitude (0, 0) every time the mouse moves.
+var scene = widget.scene;
+var ellipsoid = scene.globe.ellipsoid;
+var position = Cesium.Cartesian3.fromDegrees(0.0, 0.0);
+var handler = new Cesium.ScreenSpaceEventHandler(scene.canvas);
+handler.setInputAction(function(movement) {
+    console.log(Cesium.SceneTransforms.wgs84ToWindowCoordinates(scene, position));
+}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
 
     
 

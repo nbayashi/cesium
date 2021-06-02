@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L92">Scene/GoogleEarthEnterpriseMapsProvider.js 92</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L92">Scene/GoogleEarthEnterpriseMapsProvider.js 92</a>
 </div>
 
 
@@ -58,7 +58,19 @@
 
 
 <div class="description">
-    Provides tiled imagery using the Google Earth Imagery API.Notes: This imagery provider does not work with the public Google Earth servers. It works with the       Google Earth Enterprise Server.       By default the Google Earth Enterprise server does not set the       <a href="http://www.w3.org/TR/cors/">Cross-Origin Resource Sharing</a> headers. You can either       use a proxy server which adds these headers, or in the /opt/google/gehttpd/conf/gehttpd.conf       and add the 'Header set Access-Control-Allow-Origin "*"' option to the '&lt;Directory /&gt;' and       '&lt;Directory "/opt/google/gehttpd/htdocs"&gt;' directives.       This provider is for use with 2D Maps API as part of Google Earth Enterprise. For 3D Earth API uses, it       is necessary to use <a href="GoogleEarthEnterpriseImageryProvider.html"><code>GoogleEarthEnterpriseImageryProvider</code></a>
+    Provides tiled imagery using the Google Earth Imagery API.
+
+Notes: This imagery provider does not work with the public Google Earth servers. It works with the
+       Google Earth Enterprise Server.
+
+       By default the Google Earth Enterprise server does not set the
+       <a href="http://www.w3.org/TR/cors/">Cross-Origin Resource Sharing</a> headers. You can either
+       use a proxy server which adds these headers, or in the /opt/google/gehttpd/conf/gehttpd.conf
+       and add the 'Header set Access-Control-Allow-Origin "*"' option to the '&lt;Directory /&gt;' and
+       '&lt;Directory "/opt/google/gehttpd/htdocs"&gt;' directives.
+
+       This provider is for use with 2D Maps API as part of Google Earth Enterprise. For 3D Earth API uses, it
+       is necessary to use <a href="GoogleEarthEnterpriseImageryProvider.html"><code>GoogleEarthEnterpriseImageryProvider</code></a>
 </div>
 
 
@@ -188,7 +200,10 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var google = new Cesium.GoogleEarthEnterpriseMapsProvider({    url : 'https://earth.localdomain',    channel : 1008});</code></pre>
+    <pre><code class="language-javascript">var google = new Cesium.GoogleEarthEnterpriseMapsProvider({
+    url : 'https://earth.localdomain',
+    channel : 1008
+});</code></pre>
 
     
 
@@ -250,7 +265,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L753">Scene/GoogleEarthEnterpriseMapsProvider.js 753</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L753">Scene/GoogleEarthEnterpriseMapsProvider.js 753</a>
 </div>
 
 
@@ -310,7 +325,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L394">Scene/GoogleEarthEnterpriseMapsProvider.js 394</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L394">Scene/GoogleEarthEnterpriseMapsProvider.js 394</a>
 </div>
 
 
@@ -370,7 +385,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L635">Scene/GoogleEarthEnterpriseMapsProvider.js 635</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L635">Scene/GoogleEarthEnterpriseMapsProvider.js 635</a>
 </div>
 
 
@@ -381,7 +396,8 @@
 
 
 <div class="description">
-    Gets the credit to display when this imagery provider is active.  Typically this is used to creditthe source of the imagery.  This function should not be called before <a href="GoogleEarthEnterpriseMapsProvider.html#ready"><code>GoogleEarthEnterpriseMapsProvider#ready</code></a> returns true.
+    Gets the credit to display when this imagery provider is active.  Typically this is used to credit
+the source of the imagery.  This function should not be called before <a href="GoogleEarthEnterpriseMapsProvider.html#ready"><code>GoogleEarthEnterpriseMapsProvider#ready</code></a> returns true.
 </div>
 
 
@@ -430,7 +446,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L111">Scene/GoogleEarthEnterpriseMapsProvider.js 111</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L111">Scene/GoogleEarthEnterpriseMapsProvider.js 111</a>
 </div>
 
 
@@ -441,7 +457,8 @@
 
 
 <div class="description">
-    The default alpha blending value of this provider, with 0.0 representing fully transparent and1.0 representing fully opaque.
+    The default alpha blending value of this provider, with 0.0 representing fully transparent and
+1.0 representing fully opaque.
 </div>
 
 
@@ -493,7 +510,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L138">Scene/GoogleEarthEnterpriseMapsProvider.js 138</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L138">Scene/GoogleEarthEnterpriseMapsProvider.js 138</a>
 </div>
 
 
@@ -504,7 +521,8 @@
 
 
 <div class="description">
-    The default brightness of this provider.  1.0 uses the unmodified imagery color.  Less than 1.0makes the imagery darker while greater than 1.0 makes it brighter.
+    The default brightness of this provider.  1.0 uses the unmodified imagery color.  Less than 1.0
+makes the imagery darker while greater than 1.0 makes it brighter.
 </div>
 
 
@@ -556,7 +574,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L147">Scene/GoogleEarthEnterpriseMapsProvider.js 147</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L147">Scene/GoogleEarthEnterpriseMapsProvider.js 147</a>
 </div>
 
 
@@ -567,7 +585,8 @@
 
 
 <div class="description">
-    The default contrast of this provider.  1.0 uses the unmodified imagery color.  Less than 1.0 reducesthe contrast while greater than 1.0 increases it.
+    The default contrast of this provider.  1.0 uses the unmodified imagery color.  Less than 1.0 reduces
+the contrast while greater than 1.0 increases it.
 </div>
 
 
@@ -619,7 +638,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L129">Scene/GoogleEarthEnterpriseMapsProvider.js 129</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L129">Scene/GoogleEarthEnterpriseMapsProvider.js 129</a>
 </div>
 
 
@@ -630,7 +649,8 @@
 
 
 <div class="description">
-    The default alpha blending value on the day side of the globe of this provider, with 0.0 representing fully transparent and1.0 representing fully opaque.
+    The default alpha blending value on the day side of the globe of this provider, with 0.0 representing fully transparent and
+1.0 representing fully opaque.
 </div>
 
 
@@ -682,7 +702,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L172">Scene/GoogleEarthEnterpriseMapsProvider.js 172</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L172">Scene/GoogleEarthEnterpriseMapsProvider.js 172</a>
 </div>
 
 
@@ -745,7 +765,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L155">Scene/GoogleEarthEnterpriseMapsProvider.js 155</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L155">Scene/GoogleEarthEnterpriseMapsProvider.js 155</a>
 </div>
 
 
@@ -808,7 +828,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L188">Scene/GoogleEarthEnterpriseMapsProvider.js 188</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L188">Scene/GoogleEarthEnterpriseMapsProvider.js 188</a>
 </div>
 
 
@@ -871,7 +891,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L180">Scene/GoogleEarthEnterpriseMapsProvider.js 180</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L180">Scene/GoogleEarthEnterpriseMapsProvider.js 180</a>
 </div>
 
 
@@ -934,7 +954,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L120">Scene/GoogleEarthEnterpriseMapsProvider.js 120</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L120">Scene/GoogleEarthEnterpriseMapsProvider.js 120</a>
 </div>
 
 
@@ -945,7 +965,8 @@
 
 
 <div class="description">
-    The default alpha blending value on the night side of the globe of this provider, with 0.0 representing fully transparent and1.0 representing fully opaque.
+    The default alpha blending value on the night side of the globe of this provider, with 0.0 representing fully transparent and
+1.0 representing fully opaque.
 </div>
 
 
@@ -997,7 +1018,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L164">Scene/GoogleEarthEnterpriseMapsProvider.js 164</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L164">Scene/GoogleEarthEnterpriseMapsProvider.js 164</a>
 </div>
 
 
@@ -1008,7 +1029,8 @@
 
 
 <div class="description">
-    The default saturation of this provider. 1.0 uses the unmodified imagery color. Less than 1.0 reduces thesaturation while greater than 1.0 increases it.
+    The default saturation of this provider. 1.0 uses the unmodified imagery color. Less than 1.0 reduces the
+saturation while greater than 1.0 increases it.
 </div>
 
 
@@ -1060,7 +1082,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L598">Scene/GoogleEarthEnterpriseMapsProvider.js 598</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L598">Scene/GoogleEarthEnterpriseMapsProvider.js 598</a>
 </div>
 
 
@@ -1071,7 +1093,9 @@
 
 
 <div class="description">
-    Gets an event that is raised when the imagery provider encounters an asynchronous error.  By subscribingto the event, you will be notified of the error and can potentially recover from it.  Event listenersare passed an instance of <a href="TileProviderError.html"><code>TileProviderError</code></a>.
+    Gets an event that is raised when the imagery provider encounters an asynchronous error.  By subscribing
+to the event, you will be notified of the error and can potentially recover from it.  Event listeners
+are passed an instance of <a href="TileProviderError.html"><code>TileProviderError</code></a>.
 </div>
 
 
@@ -1120,7 +1144,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L651">Scene/GoogleEarthEnterpriseMapsProvider.js 651</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L651">Scene/GoogleEarthEnterpriseMapsProvider.js 651</a>
 </div>
 
 
@@ -1131,7 +1155,11 @@
 
 
 <div class="description">
-    Gets a value indicating whether or not the images provided by this imagery providerinclude an alpha channel.  If this property is false, an alpha channel, if present, willbe ignored.  If this property is true, any images without an alpha channel will be treatedas if their alpha is 1.0 everywhere.  When this property is false, memory usageand texture upload time are reduced.
+    Gets a value indicating whether or not the images provided by this imagery provider
+include an alpha channel.  If this property is false, an alpha channel, if present, will
+be ignored.  If this property is true, any images without an alpha channel will be treated
+as if their alpha is 1.0 everywhere.  When this property is false, memory usage
+and texture upload time are reduced.
 </div>
 
 
@@ -1180,7 +1208,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L449">Scene/GoogleEarthEnterpriseMapsProvider.js 449</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L449">Scene/GoogleEarthEnterpriseMapsProvider.js 449</a>
 </div>
 
 
@@ -1191,7 +1219,8 @@
 
 
 <div class="description">
-    Gets the maximum level-of-detail that can be requested.  This function shouldnot be called before <a href="GoogleEarthEnterpriseMapsProvider.html#ready"><code>GoogleEarthEnterpriseMapsProvider#ready</code></a> returns true.
+    Gets the maximum level-of-detail that can be requested.  This function should
+not be called before <a href="GoogleEarthEnterpriseMapsProvider.html#ready"><code>GoogleEarthEnterpriseMapsProvider#ready</code></a> returns true.
 </div>
 
 
@@ -1240,7 +1269,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L470">Scene/GoogleEarthEnterpriseMapsProvider.js 470</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L470">Scene/GoogleEarthEnterpriseMapsProvider.js 470</a>
 </div>
 
 
@@ -1251,7 +1280,8 @@
 
 
 <div class="description">
-    Gets the minimum level-of-detail that can be requested.  This function shouldnot be called before <a href="GoogleEarthEnterpriseMapsProvider.html#ready"><code>GoogleEarthEnterpriseMapsProvider#ready</code></a> returns true.
+    Gets the minimum level-of-detail that can be requested.  This function should
+not be called before <a href="GoogleEarthEnterpriseMapsProvider.html#ready"><code>GoogleEarthEnterpriseMapsProvider#ready</code></a> returns true.
 </div>
 
 
@@ -1300,7 +1330,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L370">Scene/GoogleEarthEnterpriseMapsProvider.js 370</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L370">Scene/GoogleEarthEnterpriseMapsProvider.js 370</a>
 </div>
 
 
@@ -1360,7 +1390,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L382">Scene/GoogleEarthEnterpriseMapsProvider.js 382</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L382">Scene/GoogleEarthEnterpriseMapsProvider.js 382</a>
 </div>
 
 
@@ -1420,7 +1450,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L610">Scene/GoogleEarthEnterpriseMapsProvider.js 610</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L610">Scene/GoogleEarthEnterpriseMapsProvider.js 610</a>
 </div>
 
 
@@ -1480,7 +1510,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L622">Scene/GoogleEarthEnterpriseMapsProvider.js 622</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L622">Scene/GoogleEarthEnterpriseMapsProvider.js 622</a>
 </div>
 
 
@@ -1540,7 +1570,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L553">Scene/GoogleEarthEnterpriseMapsProvider.js 553</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L553">Scene/GoogleEarthEnterpriseMapsProvider.js 553</a>
 </div>
 
 
@@ -1551,7 +1581,8 @@
 
 
 <div class="description">
-    Gets the rectangle, in radians, of the imagery provided by this instance.  This function shouldnot be called before <a href="GoogleEarthEnterpriseMapsProvider.html#ready"><code>GoogleEarthEnterpriseMapsProvider#ready</code></a> returns true.
+    Gets the rectangle, in radians, of the imagery provided by this instance.  This function should
+not be called before <a href="GoogleEarthEnterpriseMapsProvider.html#ready"><code>GoogleEarthEnterpriseMapsProvider#ready</code></a> returns true.
 </div>
 
 
@@ -1600,7 +1631,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L533">Scene/GoogleEarthEnterpriseMapsProvider.js 533</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L533">Scene/GoogleEarthEnterpriseMapsProvider.js 533</a>
 </div>
 
 
@@ -1611,7 +1642,8 @@
 
 
 <div class="description">
-    Gets the type of data that is being requested from the provider.  This function shouldnot be called before <a href="GoogleEarthEnterpriseMapsProvider.html#ready"><code>GoogleEarthEnterpriseMapsProvider#ready</code></a> returns true.
+    Gets the type of data that is being requested from the provider.  This function should
+not be called before <a href="GoogleEarthEnterpriseMapsProvider.html#ready"><code>GoogleEarthEnterpriseMapsProvider#ready</code></a> returns true.
 </div>
 
 
@@ -1660,7 +1692,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L576">Scene/GoogleEarthEnterpriseMapsProvider.js 576</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L576">Scene/GoogleEarthEnterpriseMapsProvider.js 576</a>
 </div>
 
 
@@ -1671,7 +1703,10 @@
 
 
 <div class="description">
-    Gets the tile discard policy.  If not undefined, the discard policy is responsiblefor filtering out "missing" tiles via its shouldDiscardImage function.  If this functionreturns undefined, no tiles are filtered.  This function shouldnot be called before <a href="GoogleEarthEnterpriseMapsProvider.html#ready"><code>GoogleEarthEnterpriseMapsProvider#ready</code></a> returns true.
+    Gets the tile discard policy.  If not undefined, the discard policy is responsible
+for filtering out "missing" tiles via its shouldDiscardImage function.  If this function
+returns undefined, no tiles are filtered.  This function should
+not be called before <a href="GoogleEarthEnterpriseMapsProvider.html#ready"><code>GoogleEarthEnterpriseMapsProvider#ready</code></a> returns true.
 </div>
 
 
@@ -1720,7 +1755,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L428">Scene/GoogleEarthEnterpriseMapsProvider.js 428</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L428">Scene/GoogleEarthEnterpriseMapsProvider.js 428</a>
 </div>
 
 
@@ -1731,7 +1766,8 @@
 
 
 <div class="description">
-    Gets the height of each tile, in pixels.  This function shouldnot be called before <a href="GoogleEarthEnterpriseMapsProvider.html#ready"><code>GoogleEarthEnterpriseMapsProvider#ready</code></a> returns true.
+    Gets the height of each tile, in pixels.  This function should
+not be called before <a href="GoogleEarthEnterpriseMapsProvider.html#ready"><code>GoogleEarthEnterpriseMapsProvider#ready</code></a> returns true.
 </div>
 
 
@@ -1780,7 +1816,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L407">Scene/GoogleEarthEnterpriseMapsProvider.js 407</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L407">Scene/GoogleEarthEnterpriseMapsProvider.js 407</a>
 </div>
 
 
@@ -1791,7 +1827,8 @@
 
 
 <div class="description">
-    Gets the width of each tile, in pixels. This function shouldnot be called before <a href="GoogleEarthEnterpriseMapsProvider.html#ready"><code>GoogleEarthEnterpriseMapsProvider#ready</code></a> returns true.
+    Gets the width of each tile, in pixels. This function should
+not be called before <a href="GoogleEarthEnterpriseMapsProvider.html#ready"><code>GoogleEarthEnterpriseMapsProvider#ready</code></a> returns true.
 </div>
 
 
@@ -1840,7 +1877,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L491">Scene/GoogleEarthEnterpriseMapsProvider.js 491</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L491">Scene/GoogleEarthEnterpriseMapsProvider.js 491</a>
 </div>
 
 
@@ -1851,7 +1888,8 @@
 
 
 <div class="description">
-    Gets the tiling scheme used by this provider.  This function shouldnot be called before <a href="GoogleEarthEnterpriseMapsProvider.html#ready"><code>GoogleEarthEnterpriseMapsProvider#ready</code></a> returns true.
+    Gets the tiling scheme used by this provider.  This function should
+not be called before <a href="GoogleEarthEnterpriseMapsProvider.html#ready"><code>GoogleEarthEnterpriseMapsProvider#ready</code></a> returns true.
 </div>
 
 
@@ -1900,7 +1938,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L358">Scene/GoogleEarthEnterpriseMapsProvider.js 358</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L358">Scene/GoogleEarthEnterpriseMapsProvider.js 358</a>
 </div>
 
 
@@ -1960,7 +1998,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L512">Scene/GoogleEarthEnterpriseMapsProvider.js 512</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L512">Scene/GoogleEarthEnterpriseMapsProvider.js 512</a>
 </div>
 
 
@@ -1971,7 +2009,8 @@
 
 
 <div class="description">
-    Gets the version of the data used by this provider.  This function shouldnot be called before <a href="GoogleEarthEnterpriseMapsProvider.html#ready"><code>GoogleEarthEnterpriseMapsProvider#ready</code></a> returns true.
+    Gets the version of the data used by this provider.  This function should
+not be called before <a href="GoogleEarthEnterpriseMapsProvider.html#ready"><code>GoogleEarthEnterpriseMapsProvider#ready</code></a> returns true.
 </div>
 
 
@@ -2026,7 +2065,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L668">Scene/GoogleEarthEnterpriseMapsProvider.js 668</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L668">Scene/GoogleEarthEnterpriseMapsProvider.js 668</a>
 </div>
 
 
@@ -2221,7 +2260,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L735">Scene/GoogleEarthEnterpriseMapsProvider.js 735</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L735">Scene/GoogleEarthEnterpriseMapsProvider.js 735</a>
 </div>
 
 
@@ -2233,7 +2272,8 @@
 
 
 <div class="description">
-    Picking features is not currently supported by this imagery provider, so this function simply returnsundefined.
+    Picking features is not currently supported by this imagery provider, so this function simply returns
+undefined.
 </div>
 
 
@@ -2397,7 +2437,10 @@
 
         
 <div class="param-desc">
-    A promise for the picked features that will resolve when the asynchronous                  picking completes.  The resolved value is an array of <a href="ImageryLayerFeatureInfo.html"><code>ImageryLayerFeatureInfo</code></a>                  instances.  The array may be empty if no features are found at the given location.                  It may also be undefined if picking is not supported.
+    A promise for the picked features that will resolve when the asynchronous
+                  picking completes.  The resolved value is an array of <a href="ImageryLayerFeatureInfo.html"><code>ImageryLayerFeatureInfo</code></a>
+                  instances.  The array may be empty if no features are found at the given location.
+                  It may also be undefined if picking is not supported.
 </div>
 
 
@@ -2448,7 +2491,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L691">Scene/GoogleEarthEnterpriseMapsProvider.js 691</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L691">Scene/GoogleEarthEnterpriseMapsProvider.js 691</a>
 </div>
 
 
@@ -2460,7 +2503,8 @@
 
 
 <div class="description">
-    Requests the image for a given tile.  This function shouldnot be called before <a href="GoogleEarthEnterpriseMapsProvider.html#ready"><code>GoogleEarthEnterpriseMapsProvider#ready</code></a> returns true.
+    Requests the image for a given tile.  This function should
+not be called before <a href="GoogleEarthEnterpriseMapsProvider.html#ready"><code>GoogleEarthEnterpriseMapsProvider#ready</code></a> returns true.
 </div>
 
 
@@ -2623,7 +2667,10 @@
 
         
 <div class="param-desc">
-    A promise for the image that will resolve when the image is available, or         undefined if there are too many active requests to the server, and the request         should be retried later.  The resolved image may be either an         Image or a Canvas DOM object.
+    A promise for the image that will resolve when the image is available, or
+         undefined if there are too many active requests to the server, and the request
+         should be retried later.  The resolved image may be either an
+         Image or a Canvas DOM object.
 </div>
 
 
@@ -2694,7 +2741,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L17">Scene/GoogleEarthEnterpriseMapsProvider.js 17</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/GoogleEarthEnterpriseMapsProvider.js#L17">Scene/GoogleEarthEnterpriseMapsProvider.js 17</a>
 </div>
 
 
@@ -2807,7 +2854,24 @@
                 </td>
             
 
-            <td class="description last">The channel (id) to be used when requesting data from the server.       The channel number can be found by looking at the json file located at:       earth.localdomain/default_map/query?request=Json&vars=geeServerDefs The /default_map path may       differ depending on your Google Earth Enterprise server configuration. Look for the "id" that       is associated with a "ImageryMaps" requestType. There may be more than one id available.       Example:       {         layers: [           {             id: 1002,             requestType: "ImageryMaps"           },           {             id: 1007,             requestType: "VectorMapsRaster"           }         ]       }</td>
+            <td class="description last">The channel (id) to be used when requesting data from the server.
+       The channel number can be found by looking at the json file located at:
+       earth.localdomain/default_map/query?request=Json&vars=geeServerDefs The /default_map path may
+       differ depending on your Google Earth Enterprise server configuration. Look for the "id" that
+       is associated with a "ImageryMaps" requestType. There may be more than one id available.
+       Example:
+       {
+         layers: [
+           {
+             id: 1002,
+             requestType: "ImageryMaps"
+           },
+           {
+             id: 1007,
+             requestType: "VectorMapsRaster"
+           }
+         ]
+       }</td>
         </tr>
 
     
@@ -2879,7 +2943,8 @@
                 </td>
             
 
-            <td class="description last">The maximum level-of-detail supported by the Google Earth       Enterprise server, or undefined if there is no limit.</td>
+            <td class="description last">The maximum level-of-detail supported by the Google Earth
+       Enterprise server, or undefined if there is no limit.</td>
         </tr>
 
     
@@ -2914,7 +2979,9 @@
                 </td>
             
 
-            <td class="description last">The policy that determines if a tile       is invalid and should be discarded. To ensure that no tiles are discarded, construct and pass       a <a href="NeverTileDiscardPolicy.html"><code>NeverTileDiscardPolicy</code></a> for this parameter.</td>
+            <td class="description last">The policy that determines if a tile
+       is invalid and should be discarded. To ensure that no tiles are discarded, construct and pass
+       a <a href="NeverTileDiscardPolicy.html"><code>NeverTileDiscardPolicy</code></a> for this parameter.</td>
         </tr>
 
     

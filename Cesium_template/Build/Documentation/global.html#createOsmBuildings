@@ -41,13 +41,15 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/createOsmBuildings.js#L48">Scene/createOsmBuildings.js 48</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/createOsmBuildings.js#L48">Scene/createOsmBuildings.js 48</a>
 </div>
 
 
 
         
-            <div class="description">Creates a <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a> instance for the<a href="https://cesium.com/content/cesium-osm-buildings/">Cesium OSM Buildings</a>tileset.</div>
+            <div class="description">Creates a <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a> instance for the
+<a href="https://cesium.com/content/cesium-osm-buildings/">Cesium OSM Buildings</a>
+tileset.</div>
         
 
         
@@ -73,9 +75,23 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Create Cesium OSM Buildings with default stylingvar viewer = new Cesium.Viewer('cesiumContainer');viewer.scene.primitives.add(Cesium.createOsmBuildings());</code></pre>
+    <pre><code class="language-javascript">// Create Cesium OSM Buildings with default styling
+var viewer = new Cesium.Viewer('cesiumContainer');
+viewer.scene.primitives.add(Cesium.createOsmBuildings());</code></pre>
 
-    <pre><code class="language-javascript">// Create Cesium OSM Buildings with a custom style highlighting// schools and hospitals.viewer.scene.primitives.add(Cesium.createOsmBuildings({  style: new Cesium.Cesium3DTileStyle({    color: {      conditions: [        ["${feature['building']} === 'hospital'", "color('#0000FF')"],        ["${feature['building']} === 'school'", "color('#00FF00')"],        [true, "color('#ffffff')"]      ]    }  })}));</code></pre>
+    <pre><code class="language-javascript">// Create Cesium OSM Buildings with a custom style highlighting
+// schools and hospitals.
+viewer.scene.primitives.add(Cesium.createOsmBuildings({
+  style: new Cesium.Cesium3DTileStyle({
+    color: {
+      conditions: [
+        ["${feature['building']} === 'hospital'", "color('#0000FF')"],
+        ["${feature['building']} === 'school'", "color('#00FF00')"],
+        [true, "color('#ffffff')"]
+      ]
+    }
+  })
+}));</code></pre>
 
     
 

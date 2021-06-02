@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/PolygonGeometry.js#L770">Core/PolygonGeometry.js 770</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/PolygonGeometry.js#L770">Core/PolygonGeometry.js 770</a>
 </div>
 
 
@@ -566,7 +566,71 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// 1. create a polygon from pointsvar polygon = new Cesium.PolygonGeometry({  polygonHierarchy : new Cesium.PolygonHierarchy(    Cesium.Cartesian3.fromDegreesArray([      -72.0, 40.0,      -70.0, 35.0,      -75.0, 30.0,      -70.0, 30.0,      -68.0, 40.0    ])  )});var geometry = Cesium.PolygonGeometry.createGeometry(polygon);// 2. create a nested polygon with holesvar polygonWithHole = new Cesium.PolygonGeometry({  polygonHierarchy : new Cesium.PolygonHierarchy(    Cesium.Cartesian3.fromDegreesArray([      -109.0, 30.0,      -95.0, 30.0,      -95.0, 40.0,      -109.0, 40.0    ]),    [new Cesium.PolygonHierarchy(      Cesium.Cartesian3.fromDegreesArray([        -107.0, 31.0,        -107.0, 39.0,        -97.0, 39.0,        -97.0, 31.0      ]),      [new Cesium.PolygonHierarchy(        Cesium.Cartesian3.fromDegreesArray([          -105.0, 33.0,          -99.0, 33.0,          -99.0, 37.0,          -105.0, 37.0        ]),        [new Cesium.PolygonHierarchy(          Cesium.Cartesian3.fromDegreesArray([            -103.0, 34.0,            -101.0, 34.0,            -101.0, 36.0,            -103.0, 36.0          ])        )]      )]    )]  )});var geometry = Cesium.PolygonGeometry.createGeometry(polygonWithHole);// 3. create extruded polygonvar extrudedPolygon = new Cesium.PolygonGeometry({  polygonHierarchy : new Cesium.PolygonHierarchy(    Cesium.Cartesian3.fromDegreesArray([      -72.0, 40.0,      -70.0, 35.0,      -75.0, 30.0,      -70.0, 30.0,      -68.0, 40.0    ])  ),  extrudedHeight: 300000});var geometry = Cesium.PolygonGeometry.createGeometry(extrudedPolygon);</code></pre>
+    <pre><code class="language-javascript">// 1. create a polygon from points
+var polygon = new Cesium.PolygonGeometry({
+  polygonHierarchy : new Cesium.PolygonHierarchy(
+    Cesium.Cartesian3.fromDegreesArray([
+      -72.0, 40.0,
+      -70.0, 35.0,
+      -75.0, 30.0,
+      -70.0, 30.0,
+      -68.0, 40.0
+    ])
+  )
+});
+var geometry = Cesium.PolygonGeometry.createGeometry(polygon);
+
+// 2. create a nested polygon with holes
+var polygonWithHole = new Cesium.PolygonGeometry({
+  polygonHierarchy : new Cesium.PolygonHierarchy(
+    Cesium.Cartesian3.fromDegreesArray([
+      -109.0, 30.0,
+      -95.0, 30.0,
+      -95.0, 40.0,
+      -109.0, 40.0
+    ]),
+    [new Cesium.PolygonHierarchy(
+      Cesium.Cartesian3.fromDegreesArray([
+        -107.0, 31.0,
+        -107.0, 39.0,
+        -97.0, 39.0,
+        -97.0, 31.0
+      ]),
+      [new Cesium.PolygonHierarchy(
+        Cesium.Cartesian3.fromDegreesArray([
+          -105.0, 33.0,
+          -99.0, 33.0,
+          -99.0, 37.0,
+          -105.0, 37.0
+        ]),
+        [new Cesium.PolygonHierarchy(
+          Cesium.Cartesian3.fromDegreesArray([
+            -103.0, 34.0,
+            -101.0, 34.0,
+            -101.0, 36.0,
+            -103.0, 36.0
+          ])
+        )]
+      )]
+    )]
+  )
+});
+var geometry = Cesium.PolygonGeometry.createGeometry(polygonWithHole);
+
+// 3. create extruded polygon
+var extrudedPolygon = new Cesium.PolygonGeometry({
+  polygonHierarchy : new Cesium.PolygonHierarchy(
+    Cesium.Cartesian3.fromDegreesArray([
+      -72.0, 40.0,
+      -70.0, 35.0,
+      -75.0, 30.0,
+      -70.0, 30.0,
+      -68.0, 40.0
+    ])
+  ),
+  extrudedHeight: 300000
+});
+var geometry = Cesium.PolygonGeometry.createGeometry(extrudedPolygon);</code></pre>
 
     
 
@@ -619,7 +683,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/PolygonGeometry.js#L837">Core/PolygonGeometry.js 837</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/PolygonGeometry.js#L837">Core/PolygonGeometry.js 837</a>
 </div>
 
 
@@ -685,7 +749,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/PolygonGeometry.js#L1035">Core/PolygonGeometry.js 1035</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/PolygonGeometry.js#L1035">Core/PolygonGeometry.js 1035</a>
 </div>
 
 
@@ -1019,7 +1083,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/PolygonGeometry.js#L1072">Core/PolygonGeometry.js 1072</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/PolygonGeometry.js#L1072">Core/PolygonGeometry.js 1072</a>
 </div>
 
 
@@ -1154,7 +1218,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/PolygonGeometry.js#L877">Core/PolygonGeometry.js 877</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/PolygonGeometry.js#L877">Core/PolygonGeometry.js 877</a>
 </div>
 
 
@@ -1679,7 +1743,17 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// create a polygon from pointsvar polygon = Cesium.PolygonGeometry.fromPositions({  positions : Cesium.Cartesian3.fromDegreesArray([    -72.0, 40.0,    -70.0, 35.0,    -75.0, 30.0,    -70.0, 30.0,    -68.0, 40.0  ])});var geometry = Cesium.PolygonGeometry.createGeometry(polygon);</code></pre>
+    <pre><code class="language-javascript">// create a polygon from points
+var polygon = Cesium.PolygonGeometry.fromPositions({
+  positions : Cesium.Cartesian3.fromDegreesArray([
+    -72.0, 40.0,
+    -70.0, 35.0,
+    -75.0, 30.0,
+    -70.0, 30.0,
+    -68.0, 40.0
+  ])
+});
+var geometry = Cesium.PolygonGeometry.createGeometry(polygon);</code></pre>
 
     
 
@@ -1709,7 +1783,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/PolygonGeometry.js#L912">Core/PolygonGeometry.js 912</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/PolygonGeometry.js#L912">Core/PolygonGeometry.js 912</a>
 </div>
 
 
@@ -1923,7 +1997,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/PolygonGeometry.js#L963">Core/PolygonGeometry.js 963</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/PolygonGeometry.js#L963">Core/PolygonGeometry.js 963</a>
 </div>
 
 

@@ -102,7 +102,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ArcType.js#L6">Core/ArcType.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ArcType.js#L6">Core/ArcType.js 6</a>
 </div>
 
 
@@ -259,7 +259,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Axis.js#L11">Scene/Axis.js 11</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Axis.js#L11">Scene/Axis.js 11</a>
 </div>
 
 
@@ -416,7 +416,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/BingMapsStyle.js#L8">Scene/BingMapsStyle.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/BingMapsStyle.js#L8">Scene/BingMapsStyle.js 8</a>
 </div>
 
 
@@ -739,7 +739,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/BlendEquation.js#L8">Scene/BlendEquation.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/BlendEquation.js#L8">Scene/BlendEquation.js 8</a>
 </div>
 
 
@@ -871,7 +871,9 @@
 
             
 
-            <td class="description last">Pixel values are given to the minimum function (min(source, destination)).This equation operates on each pixel color component.</td>
+            <td class="description last">Pixel values are given to the minimum function (min(source, destination)).
+
+This equation operates on each pixel color component.</td>
         </tr>
 
     
@@ -894,7 +896,9 @@
 
             
 
-            <td class="description last">Pixel values are given to the maximum function (max(source, destination)).This equation operates on each pixel color component.</td>
+            <td class="description last">Pixel values are given to the maximum function (max(source, destination)).
+
+This equation operates on each pixel color component.</td>
         </tr>
 
     
@@ -942,7 +946,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/BlendFunction.js#L8">Scene/BlendFunction.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/BlendFunction.js#L8">Scene/BlendFunction.js 8</a>
 </div>
 
 
@@ -1375,7 +1379,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/BlendOption.js#L6">Scene/BlendOption.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/BlendOption.js#L6">Scene/BlendOption.js 6</a>
 </div>
 
 
@@ -1532,7 +1536,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/CameraEventType.js#L6">Scene/CameraEventType.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/CameraEventType.js#L6">Scene/CameraEventType.js 6</a>
 </div>
 
 
@@ -1735,7 +1739,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileColorBlendMode.js#L27">Scene/Cesium3DTileColorBlendMode.js 27</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileColorBlendMode.js#L27">Scene/Cesium3DTileColorBlendMode.js 27</a>
 </div>
 
 
@@ -1746,7 +1750,28 @@
 
 
 <div class="description">
-    Defines how per-feature colors set from the Cesium API or declarative styling blend with the source colors fromthe original feature, e.g. glTF material or per-point color in the tile.<p>When <code>REPLACE</code> or <code>MIX</code> are used and the source color is a glTF material, the technique must assign the<code>_3DTILESDIFFUSE</code> semantic to the diffuse color parameter. Otherwise only <code>HIGHLIGHT</code> is supported.</p><p>A feature whose color evaluates to white (1.0, 1.0, 1.0) is always rendered without color blending, regardless of thetileset's color blend mode.</p><pre><code>"techniques": {  "technique0": {    "parameters": {      "diffuse": {        "semantic": "_3DTILESDIFFUSE",        "type": 35666      }    }  }}</code></pre>
+    Defines how per-feature colors set from the Cesium API or declarative styling blend with the source colors from
+the original feature, e.g. glTF material or per-point color in the tile.
+<p>
+When <code>REPLACE</code> or <code>MIX</code> are used and the source color is a glTF material, the technique must assign the
+<code>_3DTILESDIFFUSE</code> semantic to the diffuse color parameter. Otherwise only <code>HIGHLIGHT</code> is supported.
+</p>
+<p>
+A feature whose color evaluates to white (1.0, 1.0, 1.0) is always rendered without color blending, regardless of the
+tileset's color blend mode.
+</p>
+<pre><code>
+"techniques": {
+  "technique0": {
+    "parameters": {
+      "diffuse": {
+        "semantic": "_3DTILESDIFFUSE",
+        "type": 35666
+      }
+    }
+  }
+}
+</code></pre>
 </div>
 
 
@@ -1892,7 +1917,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ClassificationType.js#L6">Scene/ClassificationType.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ClassificationType.js#L6">Scene/ClassificationType.js 6</a>
 </div>
 
 
@@ -2049,7 +2074,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ClockRange.js#L10">Core/ClockRange.js 10</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ClockRange.js#L10">Core/ClockRange.js 10</a>
 </div>
 
 
@@ -2060,7 +2085,8 @@
 
 
 <div class="description">
-    Constants used by <a href="Clock.html#tick"><code>Clock#tick</code></a> to determine behaviorwhen <a href="Clock.html#startTime"><code>Clock#startTime</code></a> or <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> is reached.
+    Constants used by <a href="Clock.html#tick"><code>Clock#tick</code></a> to determine behavior
+when <a href="Clock.html#startTime"><code>Clock#startTime</code></a> or <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> is reached.
 </div>
 
 
@@ -2135,7 +2161,8 @@
 
             
 
-            <td class="description last">When <a href="Clock.html#startTime"><code>Clock#startTime</code></a> or <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> is reached,<a href="Clock.html#tick"><code>Clock#tick</code></a> will not advance <a href="Clock.html#currentTime"><code>Clock#currentTime</code></a> any further.</td>
+            <td class="description last">When <a href="Clock.html#startTime"><code>Clock#startTime</code></a> or <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> is reached,
+<a href="Clock.html#tick"><code>Clock#tick</code></a> will not advance <a href="Clock.html#currentTime"><code>Clock#currentTime</code></a> any further.</td>
         </tr>
 
     
@@ -2158,7 +2185,10 @@
 
             
 
-            <td class="description last">When <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> is reached, <a href="Clock.html#tick"><code>Clock#tick</code></a> will advance<a href="Clock.html#currentTime"><code>Clock#currentTime</code></a> to the opposite end of the interval.  Whentime is moving backwards, <a href="Clock.html#tick"><code>Clock#tick</code></a> will not advance past<a href="Clock.html#startTime"><code>Clock#startTime</code></a></td>
+            <td class="description last">When <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> is reached, <a href="Clock.html#tick"><code>Clock#tick</code></a> will advance
+<a href="Clock.html#currentTime"><code>Clock#currentTime</code></a> to the opposite end of the interval.  When
+time is moving backwards, <a href="Clock.html#tick"><code>Clock#tick</code></a> will not advance past
+<a href="Clock.html#startTime"><code>Clock#startTime</code></a></td>
         </tr>
 
     
@@ -2213,7 +2243,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ClockStep.js#L10">Core/ClockStep.js 10</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ClockStep.js#L10">Core/ClockStep.js 10</a>
 </div>
 
 
@@ -2224,7 +2254,8 @@
 
 
 <div class="description">
-    Constants to determine how much time advances with each callto <a href="Clock.html#tick"><code>Clock#tick</code></a>.
+    Constants to determine how much time advances with each call
+to <a href="Clock.html#tick"><code>Clock#tick</code></a>.
 </div>
 
 
@@ -2276,7 +2307,8 @@
 
             
 
-            <td class="description last"><a href="Clock.html#tick"><code>Clock#tick</code></a> advances the current time by a fixed step,which is the number of seconds specified by <a href="Clock.html#multiplier"><code>Clock#multiplier</code></a>.</td>
+            <td class="description last"><a href="Clock.html#tick"><code>Clock#tick</code></a> advances the current time by a fixed step,
+which is the number of seconds specified by <a href="Clock.html#multiplier"><code>Clock#multiplier</code></a>.</td>
         </tr>
 
     
@@ -2299,7 +2331,8 @@
 
             
 
-            <td class="description last"><a href="Clock.html#tick"><code>Clock#tick</code></a> advances the current time by the amount of systemtime elapsed since the previous call multiplied by <a href="Clock.html#multiplier"><code>Clock#multiplier</code></a>.</td>
+            <td class="description last"><a href="Clock.html#tick"><code>Clock#tick</code></a> advances the current time by the amount of system
+time elapsed since the previous call multiplied by <a href="Clock.html#multiplier"><code>Clock#multiplier</code></a>.</td>
         </tr>
 
     
@@ -2322,7 +2355,8 @@
 
             
 
-            <td class="description last"><a href="Clock.html#tick"><code>Clock#tick</code></a> sets the clock to the current system time;ignoring all other settings.</td>
+            <td class="description last"><a href="Clock.html#tick"><code>Clock#tick</code></a> sets the clock to the current system time;
+ignoring all other settings.</td>
         </tr>
 
     
@@ -2377,7 +2411,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ColorBlendMode.js#L14">Scene/ColorBlendMode.js 14</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ColorBlendMode.js#L14">Scene/ColorBlendMode.js 14</a>
 </div>
 
 
@@ -2388,7 +2422,11 @@
 
 
 <div class="description">
-    Defines different modes for blending between a target color and a primitive's source color.HIGHLIGHT multiplies the source color by the target colorREPLACE replaces the source color with the target colorMIX blends the source color and target color together
+    Defines different modes for blending between a target color and a primitive's source color.
+
+HIGHLIGHT multiplies the source color by the target color
+REPLACE replaces the source color with the target color
+MIX blends the source color and target color together
 </div>
 
 
@@ -2539,7 +2577,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ComponentDatatype.js#L12">Core/ComponentDatatype.js 12</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ComponentDatatype.js#L12">Core/ComponentDatatype.js 12</a>
 </div>
 
 
@@ -2550,7 +2588,8 @@
 
 
 <div class="description">
-    WebGL component datatypes.  Components are intrinsics,which form attributes, which form vertices.
+    WebGL component datatypes.  Components are intrinsics,
+which form attributes, which form vertices.
 </div>
 
 
@@ -2602,7 +2641,8 @@
 
             
 
-            <td class="description last">8-bit signed byte corresponding to <code>gl.BYTE</code> and the typeof an element in <code>Int8Array</code>.</td>
+            <td class="description last">8-bit signed byte corresponding to <code>gl.BYTE</code> and the type
+of an element in <code>Int8Array</code>.</td>
         </tr>
 
     
@@ -2625,7 +2665,8 @@
 
             
 
-            <td class="description last">8-bit unsigned byte corresponding to <code>UNSIGNED_BYTE</code> and the typeof an element in <code>Uint8Array</code>.</td>
+            <td class="description last">8-bit unsigned byte corresponding to <code>UNSIGNED_BYTE</code> and the type
+of an element in <code>Uint8Array</code>.</td>
         </tr>
 
     
@@ -2648,7 +2689,8 @@
 
             
 
-            <td class="description last">16-bit signed short corresponding to <code>SHORT</code> and the typeof an element in <code>Int16Array</code>.</td>
+            <td class="description last">16-bit signed short corresponding to <code>SHORT</code> and the type
+of an element in <code>Int16Array</code>.</td>
         </tr>
 
     
@@ -2671,7 +2713,8 @@
 
             
 
-            <td class="description last">16-bit unsigned short corresponding to <code>UNSIGNED_SHORT</code> and the typeof an element in <code>Uint16Array</code>.</td>
+            <td class="description last">16-bit unsigned short corresponding to <code>UNSIGNED_SHORT</code> and the type
+of an element in <code>Uint16Array</code>.</td>
         </tr>
 
     
@@ -2694,7 +2737,8 @@
 
             
 
-            <td class="description last">32-bit signed int corresponding to <code>INT</code> and the typeof an element in <code>Int32Array</code>.</td>
+            <td class="description last">32-bit signed int corresponding to <code>INT</code> and the type
+of an element in <code>Int32Array</code>.</td>
         </tr>
 
     
@@ -2717,7 +2761,8 @@
 
             
 
-            <td class="description last">32-bit unsigned int corresponding to <code>UNSIGNED_INT</code> and the typeof an element in <code>Uint32Array</code>.</td>
+            <td class="description last">32-bit unsigned int corresponding to <code>UNSIGNED_INT</code> and the type
+of an element in <code>Uint32Array</code>.</td>
         </tr>
 
     
@@ -2740,7 +2785,8 @@
 
             
 
-            <td class="description last">32-bit floating-point corresponding to <code>FLOAT</code> and the typeof an element in <code>Float32Array</code>.</td>
+            <td class="description last">32-bit floating-point corresponding to <code>FLOAT</code> and the type
+of an element in <code>Float32Array</code>.</td>
         </tr>
 
     
@@ -2763,7 +2809,9 @@
 
             
 
-            <td class="description last">64-bit floating-point corresponding to <code>gl.DOUBLE</code> (in Desktop OpenGL;this is not supported in WebGL, and is emulated in Cesium via <a href="GeometryPipeline.html#.encodeAttribute"><code>GeometryPipeline.encodeAttribute</code></a>)and the type of an element in <code>Float64Array</code>.</td>
+            <td class="description last">64-bit floating-point corresponding to <code>gl.DOUBLE</code> (in Desktop OpenGL;
+this is not supported in WebGL, and is emulated in Cesium via <a href="GeometryPipeline.html#.encodeAttribute"><code>GeometryPipeline.encodeAttribute</code></a>)
+and the type of an element in <code>Float64Array</code>.</td>
         </tr>
 
     
@@ -2811,7 +2859,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/CornerType.js#L9">Core/CornerType.js 9</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/CornerType.js#L9">Core/CornerType.js 9</a>
 </div>
 
 
@@ -2874,7 +2922,9 @@
 
             
 
-            <td class="description last"><img src="Images/CornerTypeRounded.png" style="vertical-align: middle;" width="186" height="189" />Corner has a smooth edge.</td>
+            <td class="description last"><img src="Images/CornerTypeRounded.png" style="vertical-align: middle;" width="186" height="189" />
+
+Corner has a smooth edge.</td>
         </tr>
 
     
@@ -2897,7 +2947,9 @@
 
             
 
-            <td class="description last"><img src="Images/CornerTypeMitered.png" style="vertical-align: middle;" width="186" height="189" />Corner point is the intersection of adjacent edges.</td>
+            <td class="description last"><img src="Images/CornerTypeMitered.png" style="vertical-align: middle;" width="186" height="189" />
+
+Corner point is the intersection of adjacent edges.</td>
         </tr>
 
     
@@ -2920,7 +2972,9 @@
 
             
 
-            <td class="description last"><img src="Images/CornerTypeBeveled.png" style="vertical-align: middle;" width="186" height="189" />Corner is clipped.</td>
+            <td class="description last"><img src="Images/CornerTypeBeveled.png" style="vertical-align: middle;" width="186" height="189" />
+
+Corner is clipped.</td>
         </tr>
 
     
@@ -2952,7 +3006,8 @@
     
     <h5>Demo:</h5>
     <ul class="see-list">
-        <li>The <a href="https://sandcastle.cesium.com/index.html?src=Corridor.html&label=Geometries">Corridor Demo</a>demonstrates the three corner types, as used by <a href="CorridorGraphics.html"><code>CorridorGraphics</code></a>.</li>
+        <li>The <a href="https://sandcastle.cesium.com/index.html?src=Corridor.html&label=Geometries">Corridor Demo</a>
+demonstrates the three corner types, as used by <a href="CorridorGraphics.html"><code>CorridorGraphics</code></a>.</li>
     </ul>
     
 
@@ -2973,7 +3028,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/CullFace.js#L8">Scene/CullFace.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/CullFace.js#L8">Scene/CullFace.js 8</a>
 </div>
 
 
@@ -3130,7 +3185,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/DepthFunction.js#L8">Scene/DepthFunction.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/DepthFunction.js#L8">Scene/DepthFunction.js 8</a>
 </div>
 
 
@@ -3402,7 +3457,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ExtrapolationType.js#L9">Core/ExtrapolationType.js 9</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ExtrapolationType.js#L9">Core/ExtrapolationType.js 9</a>
 </div>
 
 
@@ -3413,7 +3468,8 @@
 
 
 <div class="description">
-    Constants to determine how an interpolated value is extrapolatedwhen querying outside the bounds of available data.
+    Constants to determine how an interpolated value is extrapolated
+when querying outside the bounds of available data.
 </div>
 
 
@@ -3564,7 +3620,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/GeocodeType.js#L6">Core/GeocodeType.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/GeocodeType.js#L6">Core/GeocodeType.js 6</a>
 </div>
 
 
@@ -3650,7 +3706,8 @@
 
             
 
-            <td class="description last">Perform an auto-complete using partial input, typicallyreserved for providing possible results as a user is typing.</td>
+            <td class="description last">Perform an auto-complete using partial input, typically
+reserved for providing possible results as a user is typing.</td>
         </tr>
 
     
@@ -3703,7 +3760,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/HeightmapEncoding.js#L6">Core/HeightmapEncoding.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/HeightmapEncoding.js#L6">Core/HeightmapEncoding.js 6</a>
 </div>
 
 
@@ -3837,7 +3894,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/HeightReference.js#L6">Scene/HeightReference.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/HeightReference.js#L6">Scene/HeightReference.js 6</a>
 </div>
 
 
@@ -3994,7 +4051,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/HorizontalOrigin.js#L16">Scene/HorizontalOrigin.js 16</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/HorizontalOrigin.js#L16">Scene/HorizontalOrigin.js 16</a>
 </div>
 
 
@@ -4005,7 +4062,14 @@
 
 
 <div class="description">
-    The horizontal location of an origin relative to an object, e.g., a <a href="Billboard.html"><code>Billboard</code></a>or <a href="Label.html"><code>Label</code></a>.  For example, setting the horizontal origin to <code>LEFT</code>or <code>RIGHT</code> will display a billboard to the left or right (in screen space)of the anchor position.<br /><br /><div align='center'><img src='Images/Billboard.setHorizontalOrigin.png' width='648' height='196' /><br /></div>
+    The horizontal location of an origin relative to an object, e.g., a <a href="Billboard.html"><code>Billboard</code></a>
+or <a href="Label.html"><code>Label</code></a>.  For example, setting the horizontal origin to <code>LEFT</code>
+or <code>RIGHT</code> will display a billboard to the left or right (in screen space)
+of the anchor position.
+<br /><br />
+<div align='center'>
+<img src='Images/Billboard.setHorizontalOrigin.png' width='648' height='196' /><br />
+</div>
 </div>
 
 
@@ -4158,7 +4222,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ImagerySplitDirection.js#L8">Scene/ImagerySplitDirection.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ImagerySplitDirection.js#L8">Scene/ImagerySplitDirection.js 8</a>
 </div>
 
 
@@ -4320,7 +4384,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/IndexDatatype.js#L12">Core/IndexDatatype.js 12</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/IndexDatatype.js#L12">Core/IndexDatatype.js 12</a>
 </div>
 
 
@@ -4331,7 +4395,8 @@
 
 
 <div class="description">
-    Constants for WebGL index datatypes.  These corresponds to the<code>type</code> parameter of <a href="http://www.khronos.org/opengles/sdk/docs/man/xhtml/glDrawElements.xml">drawElements</a>.
+    Constants for WebGL index datatypes.  These corresponds to the
+<code>type</code> parameter of <a href="http://www.khronos.org/opengles/sdk/docs/man/xhtml/glDrawElements.xml">drawElements</a>.
 </div>
 
 
@@ -4383,7 +4448,8 @@
 
             
 
-            <td class="description last">8-bit unsigned byte corresponding to <code>UNSIGNED_BYTE</code> and the typeof an element in <code>Uint8Array</code>.</td>
+            <td class="description last">8-bit unsigned byte corresponding to <code>UNSIGNED_BYTE</code> and the type
+of an element in <code>Uint8Array</code>.</td>
         </tr>
 
     
@@ -4406,7 +4472,8 @@
 
             
 
-            <td class="description last">16-bit unsigned short corresponding to <code>UNSIGNED_SHORT</code> and the typeof an element in <code>Uint16Array</code>.</td>
+            <td class="description last">16-bit unsigned short corresponding to <code>UNSIGNED_SHORT</code> and the type
+of an element in <code>Uint16Array</code>.</td>
         </tr>
 
     
@@ -4429,7 +4496,8 @@
 
             
 
-            <td class="description last">32-bit unsigned int corresponding to <code>UNSIGNED_INT</code> and the typeof an element in <code>Uint32Array</code>.</td>
+            <td class="description last">32-bit unsigned int corresponding to <code>UNSIGNED_INT</code> and the type
+of an element in <code>Uint32Array</code>.</td>
         </tr>
 
     
@@ -4477,7 +4545,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Intersect.js#L9">Core/Intersect.js 9</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Intersect.js#L9">Core/Intersect.js 9</a>
 </div>
 
 
@@ -4488,7 +4556,10 @@
 
 
 <div class="description">
-    This enumerated type is used in determining where, relative to the frustum, anobject is located. The object can either be fully contained within the frustum (INSIDE),partially inside the frustum and partially outside (INTERSECTING), or somewhere entirelyoutside of the frustum's 6 planes (OUTSIDE).
+    This enumerated type is used in determining where, relative to the frustum, an
+object is located. The object can either be fully contained within the frustum (INSIDE),
+partially inside the frustum and partially outside (INTERSECTING), or somewhere entirely
+outside of the frustum's 6 planes (OUTSIDE).
 </div>
 
 
@@ -4634,7 +4705,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/IonWorldImageryStyle.js#L8">Scene/IonWorldImageryStyle.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/IonWorldImageryStyle.js#L8">Scene/IonWorldImageryStyle.js 8</a>
 </div>
 
 
@@ -4791,7 +4862,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/KeyboardEventModifier.js#L7">Core/KeyboardEventModifier.js 7</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/KeyboardEventModifier.js#L7">Core/KeyboardEventModifier.js 7</a>
 </div>
 
 
@@ -4802,7 +4873,8 @@
 
 
 <div class="description">
-    This enumerated type is for representing keyboard modifiers. These are keysthat are held down in addition to other event types.
+    This enumerated type is for representing keyboard modifiers. These are keys
+that are held down in addition to other event types.
 </div>
 
 
@@ -4948,7 +5020,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/LabelStyle.js#L8">Scene/LabelStyle.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/LabelStyle.js#L8">Scene/LabelStyle.js 8</a>
 </div>
 
 
@@ -5110,7 +5182,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/MapMode2D.js#L6">Scene/MapMode2D.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/MapMode2D.js#L6">Scene/MapMode2D.js 6</a>
 </div>
 
 
@@ -5244,7 +5316,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ModelAnimationLoop.js#L8">Scene/ModelAnimationLoop.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ModelAnimationLoop.js#L8">Scene/ModelAnimationLoop.js 8</a>
 </div>
 
 
@@ -5406,7 +5478,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Renderer/PixelDatatype.js#L9">Renderer/PixelDatatype.js 9</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Renderer/PixelDatatype.js#L9">Renderer/PixelDatatype.js 9</a>
 </div>
 
 
@@ -5706,7 +5778,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/PixelFormat.js#L9">Core/PixelFormat.js 9</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/PixelFormat.js#L9">Core/PixelFormat.js 9</a>
 </div>
 
 
@@ -6162,7 +6234,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PostProcessStageSampleMode.js#L6">Scene/PostProcessStageSampleMode.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PostProcessStageSampleMode.js#L6">Scene/PostProcessStageSampleMode.js 6</a>
 </div>
 
 
@@ -6296,7 +6368,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/PrimitiveType.js#L8">Core/PrimitiveType.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/PrimitiveType.js#L8">Core/PrimitiveType.js 8</a>
 </div>
 
 
@@ -6405,7 +6477,8 @@
 
             
 
-            <td class="description last">Line loop primitive where each vertex (or index) after the first connects a line tothe previous vertex, and the last vertex implicitly connects to the first.</td>
+            <td class="description last">Line loop primitive where each vertex (or index) after the first connects a line to
+the previous vertex, and the last vertex implicitly connects to the first.</td>
         </tr>
 
     
@@ -6474,7 +6547,8 @@
 
             
 
-            <td class="description last">Triangle strip primitive where each vertex (or index) after the first two connect tothe previous two vertices forming a triangle.  For example, this can be used to model a wall.</td>
+            <td class="description last">Triangle strip primitive where each vertex (or index) after the first two connect to
+the previous two vertices forming a triangle.  For example, this can be used to model a wall.</td>
         </tr>
 
     
@@ -6497,7 +6571,9 @@
 
             
 
-            <td class="description last">Triangle fan primitive where each vertex (or index) after the first two connect tothe previous vertex and the first vertex forming a triangle.  For example, this can be usedto model a cone or circle.</td>
+            <td class="description last">Triangle fan primitive where each vertex (or index) after the first two connect to
+the previous vertex and the first vertex forming a triangle.  For example, this can be used
+to model a cone or circle.</td>
         </tr>
 
     
@@ -6545,7 +6621,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ReferenceFrame.js#L6">Core/ReferenceFrame.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ReferenceFrame.js#L6">Core/ReferenceFrame.js 6</a>
 </div>
 
 
@@ -6679,7 +6755,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/RequestState.js#L6">Core/RequestState.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/RequestState.js#L6">Core/RequestState.js 6</a>
 </div>
 
 
@@ -6905,7 +6981,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/RequestType.js#L6">Core/RequestType.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/RequestType.js#L6">Core/RequestType.js 6</a>
 </div>
 
 
@@ -7085,7 +7161,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/SceneMode.js#L7">Scene/SceneMode.js 7</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/SceneMode.js#L7">Scene/SceneMode.js 7</a>
 </div>
 
 
@@ -7171,7 +7247,8 @@
 
             
 
-            <td class="description last">Columbus View mode.  A 2.5D perspective view where the map is laid outflat and objects with non-zero height are drawn above it.</td>
+            <td class="description last">Columbus View mode.  A 2.5D perspective view where the map is laid out
+flat and objects with non-zero height are drawn above it.</td>
         </tr>
 
     
@@ -7270,7 +7347,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ScreenSpaceEventType.js#L6">Core/ScreenSpaceEventType.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ScreenSpaceEventType.js#L6">Core/ScreenSpaceEventType.js 6</a>
 </div>
 
 
@@ -7703,7 +7780,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ShadowMode.js#L7">Scene/ShadowMode.js 7</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ShadowMode.js#L7">Scene/ShadowMode.js 7</a>
 </div>
 
 
@@ -7714,7 +7791,8 @@
 
 
 <div class="description">
-    Specifies whether the object casts or receives shadows from light sources whenshadows are enabled.
+    Specifies whether the object casts or receives shadows from light sources when
+shadows are enabled.
 </div>
 
 
@@ -7883,7 +7961,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/StencilFunction.js#L8">Scene/StencilFunction.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/StencilFunction.js#L8">Scene/StencilFunction.js 8</a>
 </div>
 
 
@@ -8155,7 +8233,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/StencilOperation.js#L8">Scene/StencilOperation.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/StencilOperation.js#L8">Scene/StencilOperation.js 8</a>
 </div>
 
 
@@ -8427,7 +8505,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/StripeOrientation.js#L6">DataSources/StripeOrientation.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/StripeOrientation.js#L6">DataSources/StripeOrientation.js 6</a>
 </div>
 
 
@@ -8561,7 +8639,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Renderer/TextureMagnificationFilter.js#L10">Renderer/TextureMagnificationFilter.js 10</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Renderer/TextureMagnificationFilter.js#L10">Renderer/TextureMagnificationFilter.js 10</a>
 </div>
 
 
@@ -8700,7 +8778,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Renderer/TextureMinificationFilter.js#L10">Renderer/TextureMinificationFilter.js 10</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Renderer/TextureMinificationFilter.js#L10">Renderer/TextureMinificationFilter.js 10</a>
 </div>
 
 
@@ -8809,7 +8887,10 @@
 
             
 
-            <td class="description last">Selects the nearest mip level and applies nearest sampling within that level.<p>Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.</p></td>
+            <td class="description last">Selects the nearest mip level and applies nearest sampling within that level.
+<p>
+Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.
+</p></td>
         </tr>
 
     
@@ -8832,7 +8913,10 @@
 
             
 
-            <td class="description last">Selects the nearest mip level and applies linear sampling within that level.<p>Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.</p></td>
+            <td class="description last">Selects the nearest mip level and applies linear sampling within that level.
+<p>
+Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.
+</p></td>
         </tr>
 
     
@@ -8855,7 +8939,13 @@
 
             
 
-            <td class="description last">Read texture values with nearest sampling from two adjacent mip levels and linearly interpolate the results.<p>This option provides a good balance of visual quality and speed when sampling from a mipmapped texture.</p><p>Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.</p></td>
+            <td class="description last">Read texture values with nearest sampling from two adjacent mip levels and linearly interpolate the results.
+<p>
+This option provides a good balance of visual quality and speed when sampling from a mipmapped texture.
+</p>
+<p>
+Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.
+</p></td>
         </tr>
 
     
@@ -8878,7 +8968,13 @@
 
             
 
-            <td class="description last">Read texture values with linear sampling from two adjacent mip levels and linearly interpolate the results.<p>This option provides a good balance of visual quality and speed when sampling from a mipmapped texture.</p><p>Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.</p></td>
+            <td class="description last">Read texture values with linear sampling from two adjacent mip levels and linearly interpolate the results.
+<p>
+This option provides a good balance of visual quality and speed when sampling from a mipmapped texture.
+</p>
+<p>
+Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.
+</p></td>
         </tr>
 
     
@@ -8931,7 +9027,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TimeStandard.js#L8">Core/TimeStandard.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TimeStandard.js#L8">Core/TimeStandard.js 8</a>
 </div>
 
 
@@ -8994,7 +9090,11 @@
 
             
 
-            <td class="description last">Represents the coordinated Universal Time (UTC) time standard.UTC is related to TAI according to the relationship<code>UTC = TAI - deltaT</code> where <code>deltaT</code> is the number of leapseconds which have been introduced as of the time in TAI.</td>
+            <td class="description last">Represents the coordinated Universal Time (UTC) time standard.
+
+UTC is related to TAI according to the relationship
+<code>UTC = TAI - deltaT</code> where <code>deltaT</code> is the number of leap
+seconds which have been introduced as of the time in TAI.</td>
         </tr>
 
     
@@ -9017,7 +9117,8 @@
 
             
 
-            <td class="description last">Represents the International Atomic Time (TAI) time standard.TAI is the principal time standard to which the other time standards are related.</td>
+            <td class="description last">Represents the International Atomic Time (TAI) time standard.
+TAI is the principal time standard to which the other time standards are related.</td>
         </tr>
 
     
@@ -9070,7 +9171,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/VerticalOrigin.js#L16">Scene/VerticalOrigin.js 16</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/VerticalOrigin.js#L16">Scene/VerticalOrigin.js 16</a>
 </div>
 
 
@@ -9081,7 +9182,14 @@
 
 
 <div class="description">
-    The vertical location of an origin relative to an object, e.g., a <a href="Billboard.html"><code>Billboard</code></a>or <a href="Label.html"><code>Label</code></a>.  For example, setting the vertical origin to <code>TOP</code>or <code>BOTTOM</code> will display a billboard above or below (in screen space)the anchor position.<br /><br /><div align='center'><img src='Images/Billboard.setVerticalOrigin.png' width='695' height='175' /><br /></div>
+    The vertical location of an origin relative to an object, e.g., a <a href="Billboard.html"><code>Billboard</code></a>
+or <a href="Label.html"><code>Label</code></a>.  For example, setting the vertical origin to <code>TOP</code>
+or <code>BOTTOM</code> will display a billboard above or below (in screen space)
+the anchor position.
+<br /><br />
+<div align='center'>
+<img src='Images/Billboard.setVerticalOrigin.png' width='695' height='175' /><br />
+</div>
 </div>
 
 
@@ -9257,7 +9365,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Visibility.js#L9">Core/Visibility.js 9</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Visibility.js#L9">Core/Visibility.js 9</a>
 </div>
 
 
@@ -9268,7 +9376,10 @@
 
 
 <div class="description">
-    This enumerated type is used in determining to what extent an object, the occludee,is visible during horizon culling. An occluder may fully block an occludee, in which caseit has no visibility, may partially block an occludee from view, or may not block it at all,leading to full visibility.
+    This enumerated type is used in determining to what extent an object, the occludee,
+is visible during horizon culling. An occluder may fully block an occludee, in which case
+it has no visibility, may partially block an occludee from view, or may not block it at all,
+leading to full visibility.
 </div>
 
 
@@ -9414,7 +9525,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/WebGLConstants.js#L12">Core/WebGLConstants.js 12</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/WebGLConstants.js#L12">Core/WebGLConstants.js 12</a>
 </div>
 
 
@@ -9425,7 +9536,13 @@
 
 
 <div class="description">
-    Enum containing WebGL Constant values by name.for use without an active WebGL context, or in cases where certain constants are unavailable using the WebGL context(For example, in <a href="https://github.com/CesiumGS/cesium/issues/2989">Safari 9</a>).These match the constants from the <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/">WebGL 1.0</a>and <a href="https://www.khronos.org/registry/webgl/specs/latest/2.0/">WebGL 2.0</a>specifications.
+    Enum containing WebGL Constant values by name.
+for use without an active WebGL context, or in cases where certain constants are unavailable using the WebGL context
+(For example, in <a href="https://github.com/CesiumGS/cesium/issues/2989">Safari 9</a>).
+
+These match the constants from the <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/">WebGL 1.0</a>
+and <a href="https://www.khronos.org/registry/webgl/specs/latest/2.0/">WebGL 2.0</a>
+specifications.
 </div>
 
 
@@ -22842,7 +22959,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/WindingOrder.js#L8">Core/WindingOrder.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/WindingOrder.js#L8">Core/WindingOrder.js 8</a>
 </div>
 
 
@@ -22982,7 +23099,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/barycentricCoordinates.js#L31">Core/barycentricCoordinates.js 31</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/barycentricCoordinates.js#L31">Core/barycentricCoordinates.js 31</a>
 </div>
 
 
@@ -23228,7 +23345,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Returns Cartesian3.UNIT_Xvar p = new Cesium.Cartesian3(-1.0, 0.0, 0.0);var b = Cesium.barycentricCoordinates(p,  new Cesium.Cartesian3(-1.0, 0.0, 0.0),  new Cesium.Cartesian3( 1.0, 0.0, 0.0),  new Cesium.Cartesian3( 0.0, 1.0, 1.0));</code></pre>
+    <pre><code class="language-javascript">// Returns Cartesian3.UNIT_X
+var p = new Cesium.Cartesian3(-1.0, 0.0, 0.0);
+var b = Cesium.barycentricCoordinates(p,
+  new Cesium.Cartesian3(-1.0, 0.0, 0.0),
+  new Cesium.Cartesian3( 1.0, 0.0, 0.0),
+  new Cesium.Cartesian3( 0.0, 1.0, 1.0));</code></pre>
 
     
 
@@ -23253,7 +23375,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/binarySearch.js#L24">Core/binarySearch.js 24</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/binarySearch.js#L24">Core/binarySearch.js 24</a>
 </div>
 
 
@@ -23362,7 +23484,8 @@
 
             <td class="description last">
             
-                The function to use to compare the item to       elements in the array.</td>
+                The function to use to compare the item to
+       elements in the array.</td>
         </tr>
 
     
@@ -23383,7 +23506,10 @@
 
         
 <div class="param-desc">
-    The index of <code>itemToFind</code> in the array, if it exists.  If <code>itemToFind</code>       does not exist, the return value is a negative number which is the bitwise complement (~)       of the index before which the itemToFind should be inserted in order to maintain the       sorted order of the array.
+    The index of <code>itemToFind</code> in the array, if it exists.  If <code>itemToFind</code>
+       does not exist, the return value is a negative number which is the bitwise complement (~)
+       of the index before which the itemToFind should be inserted in order to maintain the
+       sorted order of the array.
 </div>
 
 
@@ -23414,7 +23540,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create a comparator function to search through an array of numbers.function comparator(a, b) {    return a - b;};var numbers = [0, 2, 4, 6, 8];var index = Cesium.binarySearch(numbers, 6, comparator); // 3</code></pre>
+    <pre><code class="language-javascript">// Create a comparator function to search through an array of numbers.
+function comparator(a, b) {
+    return a - b;
+};
+var numbers = [0, 2, 4, 6, 8];
+var index = Cesium.binarySearch(numbers, 6, comparator); // 3</code></pre>
 
     
 
@@ -23439,7 +23570,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/buildModuleUrl.js#L107">Core/buildModuleUrl.js 107</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/buildModuleUrl.js#L107">Core/buildModuleUrl.js 107</a>
 </div>
 
 
@@ -23554,7 +23685,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var viewer = new Cesium.Viewer("cesiumContainer", {  imageryProvider: new Cesium.TileMapServiceImageryProvider({  url: Cesium.buildModuleUrl("Assets/Textures/NaturalEarthII"),  }),  baseLayerPicker: false,});</code></pre>
+    <pre><code class="language-javascript">var viewer = new Cesium.Viewer("cesiumContainer", {
+  imageryProvider: new Cesium.TileMapServiceImageryProvider({
+  url: Cesium.buildModuleUrl("Assets/Textures/NaturalEarthII"),
+  }),
+  baseLayerPicker: false,
+});</code></pre>
 
     
 
@@ -23579,7 +23715,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/cancelAnimationFrame.js#L29">Core/cancelAnimationFrame.js 29</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/cancelAnimationFrame.js#L29">Core/cancelAnimationFrame.js 29</a>
 </div>
 
 
@@ -23710,7 +23846,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/clone.js#L12">Core/clone.js 12</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/clone.js#L12">Core/clone.js 12</a>
 </div>
 
 
@@ -23892,7 +24028,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/combine.js#L35">Core/combine.js 35</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/combine.js#L35">Core/combine.js 35</a>
 </div>
 
 
@@ -23904,7 +24040,9 @@
 
 
 <div class="description">
-    Merges two objects, copying their properties onto a new combined object. When two objects have the sameproperty, the value of the property on the first object is used.  If either object is undefined,it will be treated as an empty object.
+    Merges two objects, copying their properties onto a new combined object. When two objects have the same
+property, the value of the property on the first object is used.  If either object is undefined,
+it will be treated as an empty object.
 </div>
 
 
@@ -24090,7 +24228,23 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var object1 = {    propOne : 1,    propTwo : {        value1 : 10    }}var object2 = {    propTwo : 2}var final = Cesium.combine(object1, object2);// final === {//     propOne : 1,//     propTwo : {//         value1 : 10//     }// }</code></pre>
+    <pre><code class="language-javascript">var object1 = {
+    propOne : 1,
+    propTwo : {
+        value1 : 10
+    }
+}
+var object2 = {
+    propTwo : 2
+}
+var final = Cesium.combine(object1, object2);
+
+// final === {
+//     propOne : 1,
+//     propTwo : {
+//         value1 : 10
+//     }
+// }</code></pre>
 
     
 
@@ -24115,7 +24269,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/createCommand.js#L20">Widgets/createCommand.js 20</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/createCommand.js#L20">Widgets/createCommand.js 20</a>
 </div>
 
 
@@ -24127,7 +24281,12 @@
 
 
 <div class="description">
-    Create a Command from a given function, for use with ViewModels.A Command is a function with an extra <code>canExecute</code> observable property to determinewhether the command can be executed.  When executed, a Command function will check thevalue of <code>canExecute</code> and throw if false.  It also provides events for whena command has been or is about to be executed.
+    Create a Command from a given function, for use with ViewModels.
+
+A Command is a function with an extra <code>canExecute</code> observable property to determine
+whether the command can be executed.  When executed, a Command function will check the
+value of <code>canExecute</code> and throw if false.  It also provides events for when
+a command has been or is about to be executed.
 </div>
 
 
@@ -24288,7 +24447,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/createElevationBandMaterial.js#L425">Scene/createElevationBandMaterial.js 425</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/createElevationBandMaterial.js#L425">Scene/createElevationBandMaterial.js 425</a>
 </div>
 
 
@@ -24300,7 +24459,10 @@
 
 
 <div class="description">
-    Creates a <a href="Material.html"><code>Material</code></a> that combines multiple layers of color/gradient bands and maps them to terrain heights.The shader does a binary search over all the heights to find out which colors are above and below a given height, andinterpolates between them for the final color. This material supports hundreds of entries relatively cheaply.
+    Creates a <a href="Material.html"><code>Material</code></a> that combines multiple layers of color/gradient bands and maps them to terrain heights.
+
+The shader does a binary search over all the heights to find out which colors are above and below a given height, and
+interpolates between them for the final color. This material supports hundreds of entries relatively cheaply.
 </div>
 
 
@@ -24471,7 +24633,28 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">scene.globe.material = Cesium.createElevationBandMaterial({    scene : scene,    layers : [{        entries : [{            height : 4200.0,            color : new Cesium.Color(0.0, 0.0, 0.0, 1.0)        }, {            height : 8848.0,            color : new Cesium.Color(1.0, 1.0, 1.0, 1.0)        }],        extendDownwards : true,        extendUpwards : true,    }, {        entries : [{            height : 7000.0,            color : new Cesium.Color(1.0, 0.0, 0.0, 0.5)        }, {            height : 7100.0,            color : new Cesium.Color(1.0, 0.0, 0.0, 0.5)        }]    }]});</code></pre>
+    <pre><code class="language-javascript">scene.globe.material = Cesium.createElevationBandMaterial({
+    scene : scene,
+    layers : [{
+        entries : [{
+            height : 4200.0,
+            color : new Cesium.Color(0.0, 0.0, 0.0, 1.0)
+        }, {
+            height : 8848.0,
+            color : new Cesium.Color(1.0, 1.0, 1.0, 1.0)
+        }],
+        extendDownwards : true,
+        extendUpwards : true,
+    }, {
+        entries : [{
+            height : 7000.0,
+            color : new Cesium.Color(1.0, 0.0, 0.0, 0.5)
+        }, {
+            height : 7100.0,
+            color : new Cesium.Color(1.0, 0.0, 0.0, 0.5)
+        }]
+    }]
+});</code></pre>
 
     
 
@@ -24501,7 +24684,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/createGuid.js#L14">Core/createGuid.js 14</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/createGuid.js#L14">Core/createGuid.js 14</a>
 </div>
 
 
@@ -24597,7 +24780,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/createOsmBuildings.js#L48">Scene/createOsmBuildings.js 48</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/createOsmBuildings.js#L48">Scene/createOsmBuildings.js 48</a>
 </div>
 
 
@@ -24609,7 +24792,9 @@
 
 
 <div class="description">
-    Creates a <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a> instance for the<a href="https://cesium.com/content/cesium-osm-buildings/">Cesium OSM Buildings</a>tileset.
+    Creates a <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a> instance for the
+<a href="https://cesium.com/content/cesium-osm-buildings/">Cesium OSM Buildings</a>
+tileset.
 </div>
 
 
@@ -24667,7 +24852,8 @@
 
                 
             
-                Construction options. Any options allowed by the <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a> constructor       may be specified here. In addition to those, the following properties are supported:
+                Construction options. Any options allowed by the <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a> constructor
+       may be specified here. In addition to those, the following properties are supported:
                 
 
 <table class="params">
@@ -24721,7 +24907,8 @@
 
                 
             
-                The default color to use for buildings       that do not have a color. This parameter is ignored if <code>options.style</code> is specified.</td>
+                The default color to use for buildings
+       that do not have a color. This parameter is ignored if <code>options.style</code> is specified.</td>
         </tr>
 
     
@@ -24755,7 +24942,10 @@
 
                 
             
-                The style to use with the tileset. If not       specified, a default style is used which gives each building or building part a       color inferred from its OpenStreetMap <code>tags</code>. If no color can be inferred,       <code>options.defaultColor</code> is used.</td>
+                The style to use with the tileset. If not
+       specified, a default style is used which gives each building or building part a
+       color inferred from its OpenStreetMap <code>tags</code>. If no color can be inferred,
+       <code>options.defaultColor</code> is used.</td>
         </tr>
 
     
@@ -24809,9 +24999,23 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Create Cesium OSM Buildings with default stylingvar viewer = new Cesium.Viewer('cesiumContainer');viewer.scene.primitives.add(Cesium.createOsmBuildings());</code></pre>
+    <pre><code class="language-javascript">// Create Cesium OSM Buildings with default styling
+var viewer = new Cesium.Viewer('cesiumContainer');
+viewer.scene.primitives.add(Cesium.createOsmBuildings());</code></pre>
 
-    <pre><code class="language-javascript">// Create Cesium OSM Buildings with a custom style highlighting// schools and hospitals.viewer.scene.primitives.add(Cesium.createOsmBuildings({  style: new Cesium.Cesium3DTileStyle({    color: {      conditions: [        ["${feature['building']} === 'hospital'", "color('#0000FF')"],        ["${feature['building']} === 'school'", "color('#00FF00')"],        [true, "color('#ffffff')"]      ]    }  })}));</code></pre>
+    <pre><code class="language-javascript">// Create Cesium OSM Buildings with a custom style highlighting
+// schools and hospitals.
+viewer.scene.primitives.add(Cesium.createOsmBuildings({
+  style: new Cesium.Cesium3DTileStyle({
+    color: {
+      conditions: [
+        ["${feature['building']} === 'hospital'", "color('#0000FF')"],
+        ["${feature['building']} === 'school'", "color('#00FF00')"],
+        [true, "color('#ffffff')"]
+      ]
+    }
+  })
+}));</code></pre>
 
     
 
@@ -24841,7 +25045,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/createTangentSpaceDebugPrimitive.js#L32">Scene/createTangentSpaceDebugPrimitive.js 32</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/createTangentSpaceDebugPrimitive.js#L32">Scene/createTangentSpaceDebugPrimitive.js 32</a>
 </div>
 
 
@@ -24853,7 +25057,10 @@
 
 
 <div class="description">
-    Creates a <a href="Primitive.html"><code>Primitive</code></a> to visualize well-known vector vertex attributes:<code>normal</code>, <code>tangent</code>, and <code>bitangent</code>.  Normalis red; tangent is green; and bitangent is blue.  If an attribute is notpresent, it is not drawn.
+    Creates a <a href="Primitive.html"><code>Primitive</code></a> to visualize well-known vector vertex attributes:
+<code>normal</code>, <code>tangent</code>, and <code>bitangent</code>.  Normal
+is red; tangent is green; and bitangent is blue.  If an attribute is not
+present, it is not drawn.
 </div>
 
 
@@ -25084,7 +25291,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">scene.primitives.add(Cesium.createTangentSpaceDebugPrimitive({   geometry : instance.geometry,   length : 100000.0,   modelMatrix : instance.modelMatrix}));</code></pre>
+    <pre><code class="language-javascript">scene.primitives.add(Cesium.createTangentSpaceDebugPrimitive({
+   geometry : instance.geometry,
+   length : 100000.0,
+   modelMatrix : instance.modelMatrix
+}));</code></pre>
 
     
 
@@ -25109,7 +25320,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/createWorldImagery.js#L31">Scene/createWorldImagery.js 31</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/createWorldImagery.js#L31">Scene/createWorldImagery.js 31</a>
 </div>
 
 
@@ -25287,9 +25498,17 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Create Cesium World Terrain with default settingsvar viewer = new Cesium.Viewer('cesiumContainer', {    imageryProvider : Cesium.createWorldImagery();});</code></pre>
+    <pre><code class="language-javascript">// Create Cesium World Terrain with default settings
+var viewer = new Cesium.Viewer('cesiumContainer', {
+    imageryProvider : Cesium.createWorldImagery();
+});</code></pre>
 
-    <pre><code class="language-javascript">// Create Cesium World Terrain with water and normals.var viewer = new Cesium.Viewer('cesiumContainer', {    imageryProvider : Cesium.createWorldImagery({        style: Cesium.IonWorldImageryStyle.AERIAL_WITH_LABELS    })});</code></pre>
+    <pre><code class="language-javascript">// Create Cesium World Terrain with water and normals.
+var viewer = new Cesium.Viewer('cesiumContainer', {
+    imageryProvider : Cesium.createWorldImagery({
+        style: Cesium.IonWorldImageryStyle.AERIAL_WITH_LABELS
+    })
+});</code></pre>
 
     
 
@@ -25319,7 +25538,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/createWorldTerrain.js#L33">Core/createWorldTerrain.js 33</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/createWorldTerrain.js#L33">Core/createWorldTerrain.js 33</a>
 </div>
 
 
@@ -25533,9 +25752,18 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Create Cesium World Terrain with default settingsvar viewer = new Cesium.Viewer('cesiumContainer', {    terrainProvider : Cesium.createWorldTerrain();});</code></pre>
+    <pre><code class="language-javascript">// Create Cesium World Terrain with default settings
+var viewer = new Cesium.Viewer('cesiumContainer', {
+    terrainProvider : Cesium.createWorldTerrain();
+});</code></pre>
 
-    <pre><code class="language-javascript">// Create Cesium World Terrain with water and normals.var viewer = new Cesium.Viewer('cesiumContainer', {    terrainProvider : Cesium.createWorldTerrain({        requestWaterMask : true,        requestVertexNormals : true    });});</code></pre>
+    <pre><code class="language-javascript">// Create Cesium World Terrain with water and normals.
+var viewer = new Cesium.Viewer('cesiumContainer', {
+    terrainProvider : Cesium.createWorldTerrain({
+        requestWaterMask : true,
+        requestVertexNormals : true
+    });
+});</code></pre>
 
     
 
@@ -25565,7 +25793,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/defaultValue.js#L14">Core/defaultValue.js 14</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/defaultValue.js#L14">Core/defaultValue.js 14</a>
 </div>
 
 
@@ -25577,7 +25805,8 @@
 
 
 <div class="description">
-    Returns the first parameter if not undefined, otherwise the second parameter.Useful for setting a default value for a parameter.
+    Returns the first parameter if not undefined, otherwise the second parameter.
+Useful for setting a default value for a parameter.
 </div>
 
 
@@ -25728,7 +25957,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/defined.js#L14">Core/defined.js 14</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/defined.js#L14">Core/defined.js 14</a>
 </div>
 
 
@@ -25839,7 +26068,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">if (Cesium.defined(positions)) {     doSomething();} else {     doSomethingElse();}</code></pre>
+    <pre><code class="language-javascript">if (Cesium.defined(positions)) {
+     doSomething();
+} else {
+     doSomethingElse();
+}</code></pre>
 
     
 
@@ -25864,7 +26097,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/destroyObject.js#L35">Core/destroyObject.js 35</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/destroyObject.js#L35">Core/destroyObject.js 35</a>
 </div>
 
 
@@ -25876,7 +26109,15 @@
 
 
 <div class="description">
-    Destroys an object.  Each of the object's functions, including functions in its prototype,is replaced with a function that throws a <a href="DeveloperError.html"><code>DeveloperError</code></a>, except for the object's<code>isDestroyed</code> function, which is set to a function that returns <code>true</code>.The object's properties are removed with <code>delete</code>.<br /><br />This function is used by objects that hold native resources, e.g., WebGL resources, whichneed to be explicitly released.  Client code calls an object's <code>destroy</code> function,which then releases the native resource and calls <code>destroyObject</code> to put itselfin a destroyed state.
+    Destroys an object.  Each of the object's functions, including functions in its prototype,
+is replaced with a function that throws a <a href="DeveloperError.html"><code>DeveloperError</code></a>, except for the object's
+<code>isDestroyed</code> function, which is set to a function that returns <code>true</code>.
+The object's properties are removed with <code>delete</code>.
+<br /><br />
+This function is used by objects that hold native resources, e.g., WebGL resources, which
+need to be explicitly released.  Client code calls an object's <code>destroy</code> function,
+which then releases the native resource and calls <code>destroyObject</code> to put itself
+in a destroyed state.
 </div>
 
 
@@ -25962,7 +26203,8 @@
 
                 
             
-                The message to include in the exception that is thrown if                          a destroyed object's function is called.</td>
+                The message to include in the exception that is thrown if
+                          a destroyed object's function is called.</td>
         </tr>
 
     
@@ -26005,7 +26247,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// How a texture would destroy itself.this.destroy = function () {    _gl.deleteTexture(_texture);    return Cesium.destroyObject(this);};</code></pre>
+    <pre><code class="language-javascript">// How a texture would destroy itself.
+this.destroy = function () {
+    _gl.deleteTexture(_texture);
+    return Cesium.destroyObject(this);
+};</code></pre>
 
     
 
@@ -26035,7 +26281,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/exportKml.js#L238">DataSources/exportKml.js 238</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/exportKml.js#L238">DataSources/exportKml.js 238</a>
 </div>
 
 
@@ -26047,7 +26293,14 @@
 
 
 <div class="description">
-    Exports an EntityCollection as a KML document. Only Point, Billboard, Model, Path, Polygon, Polyline geometrieswill be exported. Note that there is not a 1 to 1 mapping of Entity properties to KML Feature properties. Forexample, entity properties that are time dynamic but cannot be dynamic in KML are exported with their values atoptions.time or the beginning of the EntityCollection's time interval if not specified. For time-dynamic propertiesthat are supported in KML, we use the samples if it is a <a href="SampledProperty.html"><code>SampledProperty</code></a> otherwise we sample the value usingthe options.sampleDuration. Point, Billboard, Model and Path geometries with time-dynamic positions will be exportedas gx:Track Features. Not all Materials are representable in KML, so for more advanced Materials just the primarycolor is used. Canvas objects are exported as PNG images.
+    Exports an EntityCollection as a KML document. Only Point, Billboard, Model, Path, Polygon, Polyline geometries
+will be exported. Note that there is not a 1 to 1 mapping of Entity properties to KML Feature properties. For
+example, entity properties that are time dynamic but cannot be dynamic in KML are exported with their values at
+options.time or the beginning of the EntityCollection's time interval if not specified. For time-dynamic properties
+that are supported in KML, we use the samples if it is a <a href="SampledProperty.html"><code>SampledProperty</code></a> otherwise we sample the value using
+the options.sampleDuration. Point, Billboard, Model and Path geometries with time-dynamic positions will be exported
+as gx:Track Features. Not all Materials are representable in KML, so for more advanced Materials just the primary
+color is used. Canvas objects are exported as PNG images.
 </div>
 
 
@@ -26420,7 +26673,18 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">Cesium.exportKml({     entities: entityCollection })  .then(function(result) {    // The XML string is in result.kml    var externalFiles = result.externalFiles    for(var file in externalFiles) {      // file is the name of the file used in the KML document as the href      // externalFiles[file] is a blob with the contents of the file    }  });</code></pre>
+    <pre><code class="language-javascript">Cesium.exportKml({
+     entities: entityCollection
+ })
+  .then(function(result) {
+    // The XML string is in result.kml
+
+    var externalFiles = result.externalFiles
+    for(var file in externalFiles) {
+      // file is the name of the file used in the KML document as the href
+      // externalFiles[file] is a blob with the contents of the file
+    }
+  });</code></pre>
 
     
 
@@ -26450,7 +26714,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/formatError.js#L12">Core/formatError.js 12</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/formatError.js#L12">Core/formatError.js 12</a>
 </div>
 
 
@@ -26462,7 +26726,8 @@
 
 
 <div class="description">
-    Formats an error object into a String.  If available, uses name, message, and stackproperties, otherwise, falls back on toString().
+    Formats an error object into a String.  If available, uses name, message, and stack
+properties, otherwise, falls back on toString().
 </div>
 
 
@@ -26585,7 +26850,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/getAbsoluteUri.js#L18">Core/getAbsoluteUri.js 18</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/getAbsoluteUri.js#L18">Core/getAbsoluteUri.js 18</a>
 </div>
 
 
@@ -26735,7 +27000,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">//absolute Uri will be "https://test.com/awesome.png";var absoluteUri = Cesium.getAbsoluteUri('awesome.png', 'https://test.com');</code></pre>
+    <pre><code class="language-javascript">//absolute Uri will be "https://test.com/awesome.png";
+var absoluteUri = Cesium.getAbsoluteUri('awesome.png', 'https://test.com');</code></pre>
 
     
 
@@ -26760,7 +27026,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/getBaseUri.js#L20">Core/getBaseUri.js 20</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/getBaseUri.js#L20">Core/getBaseUri.js 20</a>
 </div>
 
 
@@ -26922,7 +27188,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// basePath will be "/Gallery/";var basePath = Cesium.getBaseUri('/Gallery/simple.czml?value=true&amp;example=false');// basePath will be "/Gallery/?value=true&amp;example=false";var basePath = Cesium.getBaseUri('/Gallery/simple.czml?value=true&amp;example=false', true);</code></pre>
+    <pre><code class="language-javascript">// basePath will be "/Gallery/";
+var basePath = Cesium.getBaseUri('/Gallery/simple.czml?value=true&amp;example=false');
+
+// basePath will be "/Gallery/?value=true&amp;example=false";
+var basePath = Cesium.getBaseUri('/Gallery/simple.czml?value=true&amp;example=false', true);</code></pre>
 
     
 
@@ -26947,7 +27217,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/getExtensionFromUri.js#L5">Core/getExtensionFromUri.js 5</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/getExtensionFromUri.js#L5">Core/getExtensionFromUri.js 5</a>
 </div>
 
 
@@ -27062,7 +27332,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">//extension will be "czml";var extension = Cesium.getExtensionFromUri('/Gallery/simple.czml?value=true&amp;example=false');</code></pre>
+    <pre><code class="language-javascript">//extension will be "czml";
+var extension = Cesium.getExtensionFromUri('/Gallery/simple.czml?value=true&amp;example=false');</code></pre>
 
     
 
@@ -27087,7 +27358,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/getFilenameFromUri.js#L5">Core/getFilenameFromUri.js 5</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/getFilenameFromUri.js#L5">Core/getFilenameFromUri.js 5</a>
 </div>
 
 
@@ -27202,7 +27473,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">//fileName will be"simple.czml";var fileName = Cesium.getFilenameFromUri('/Gallery/simple.czml?value=true&amp;example=false');</code></pre>
+    <pre><code class="language-javascript">//fileName will be"simple.czml";
+var fileName = Cesium.getFilenameFromUri('/Gallery/simple.czml?value=true&amp;example=false');</code></pre>
 
     
 
@@ -27227,7 +27499,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/getImagePixels.js#L5">Core/getImagePixels.js 5</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/getImagePixels.js#L5">Core/getImagePixels.js 5</a>
 </div>
 
 
@@ -27239,7 +27511,8 @@
 
 
 <div class="description">
-    Extract a pixel array from a loaded image.  Draws the imageinto a canvas so it can read the pixels back.
+    Extract a pixel array from a loaded image.  Draws the image
+into a canvas so it can read the pixels back.
 </div>
 
 
@@ -27408,7 +27681,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/getTimestamp.js#L1">Core/getTimestamp.js 1</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/getTimestamp.js#L1">Core/getTimestamp.js 1</a>
 </div>
 
 
@@ -27420,7 +27693,10 @@
 
 
 <div class="description">
-    Gets a timestamp that can be used in measuring the time between events.  Timestampsare expressed in milliseconds, but it is not specified what the milliseconds aremeasured from.  This function uses performance.now() if it is available, or Date.now()otherwise.
+    Gets a timestamp that can be used in measuring the time between events.  Timestamps
+are expressed in milliseconds, but it is not specified what the milliseconds are
+measured from.  This function uses performance.now() if it is available, or Date.now()
+otherwise.
 </div>
 
 
@@ -27498,7 +27774,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/isLeapYear.js#L3">Core/isLeapYear.js 3</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/isLeapYear.js#L3">Core/isLeapYear.js 3</a>
 </div>
 
 
@@ -27634,11 +27910,11 @@
     <div class="nameContainer">
     <h4 class="name" id="loadCRN">
         <a href="#loadCRN" class="doc-link"></a>
-        loadCRN<span class="signature">(resourceOrUrlOrBuffer)</span> &rarr; <span class="type-signature returnType">Promise.&lt;<a href="CompressedTextureBuffer.html">CompressedTextureBuffer</a>>|undefined</span>
+        <span class="type-signature attribute-deprecated">deprecated</span> loadCRN<span class="signature">(resourceOrUrlOrBuffer)</span> &rarr; <span class="type-signature returnType">Promise.&lt;<a href="CompressedTextureBuffer.html">CompressedTextureBuffer</a>>|undefined</span>
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/loadCRN.js#L10">Core/loadCRN.js 10</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/loadCRN.js#L11">Core/loadCRN.js 11</a>
 </div>
 
 
@@ -27650,7 +27926,11 @@
 
 
 <div class="description">
-    Asynchronously loads and parses the given URL to a CRN file or parses the raw binary data of a CRN file.Returns a promise that will resolve to an object containing the image buffer, width, height and format once loaded,or reject if the URL failed to load or failed to parse the data.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    Asynchronously loads and parses the given URL to a CRN file or parses the raw binary data of a CRN file.
+Returns a promise that will resolve to an object containing the image buffer, width, height and format once loaded,
+or reject if the URL failed to load or failed to parse the data.  The data is loaded
+using XMLHttpRequest, which means that in order to make requests to another origin,
+the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
 </div>
 
 
@@ -27761,6 +28041,11 @@
     
 
     
+    <p>
+        <span class="details-header important">Deprecated:</span>
+        <span>This function has been deprecated and will be removed in CesiumJS 1.82.</span>
+    </p>
+    
 
     
 
@@ -27773,7 +28058,16 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// load a single URL asynchronouslyCesium.loadCRN('some/url').then(function(textureData) {    var width = textureData.width;    var height = textureData.height;    var format = textureData.internalFormat;    var arrayBufferView = textureData.bufferView;    // use the data to create a texture}).otherwise(function(error) {    // an error occurred});</code></pre>
+    <pre><code class="language-javascript">// load a single URL asynchronously
+Cesium.loadCRN('some/url').then(function(textureData) {
+    var width = textureData.width;
+    var height = textureData.height;
+    var format = textureData.internalFormat;
+    var arrayBufferView = textureData.bufferView;
+    // use the data to create a texture
+}).otherwise(function(error) {
+    // an error occurred
+});</code></pre>
 
     
 
@@ -27803,11 +28097,11 @@
     <div class="nameContainer">
     <h4 class="name" id="loadKTX">
         <a href="#loadKTX" class="doc-link"></a>
-        loadKTX<span class="signature">(resourceOrUrlOrBuffer)</span> &rarr; <span class="type-signature returnType">Promise.&lt;<a href="CompressedTextureBuffer.html">CompressedTextureBuffer</a>>|undefined</span>
+        <span class="type-signature attribute-deprecated">deprecated</span> loadKTX<span class="signature">(resourceOrUrlOrBuffer)</span> &rarr; <span class="type-signature returnType">Promise.&lt;<a href="CompressedTextureBuffer.html">CompressedTextureBuffer</a>>|undefined</span>
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/loadKTX.js#L10">Core/loadKTX.js 10</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/loadKTX.js#L11">Core/loadKTX.js 11</a>
 </div>
 
 
@@ -27819,7 +28113,22 @@
 
 
 <div class="description">
-    Asynchronously loads and parses the given URL to a KTX file or parses the raw binary data of a KTX file.Returns a promise that will resolve to an object containing the image buffer, width, height and format once loaded,or reject if the URL failed to load or failed to parse the data.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.<p>The following are part of the KTX format specification but are not supported:<ul>    <li>Big-endian files</li>    <li>Metadata</li>    <li>3D textures</li>    <li>Texture Arrays</li>    <li>Cubemaps</li>    <li>Mipmaps</li></ul></p>
+    Asynchronously loads and parses the given URL to a KTX file or parses the raw binary data of a KTX file.
+Returns a promise that will resolve to an object containing the image buffer, width, height and format once loaded,
+or reject if the URL failed to load or failed to parse the data.  The data is loaded
+using XMLHttpRequest, which means that in order to make requests to another origin,
+the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+<p>
+The following are part of the KTX format specification but are not supported:
+<ul>
+    <li>Big-endian files</li>
+    <li>Metadata</li>
+    <li>3D textures</li>
+    <li>Texture Arrays</li>
+    <li>Cubemaps</li>
+    <li>Mipmaps</li>
+</ul>
+</p>
 </div>
 
 
@@ -28040,6 +28349,11 @@
     
 
     
+    <p>
+        <span class="details-header important">Deprecated:</span>
+        <span>This function has been deprecated and will be removed in CesiumJS 1.82.</span>
+    </p>
+    
 
     
 
@@ -28052,7 +28366,16 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// load a single URL asynchronouslyCesium.loadKTX('some/url').then(function(ktxData) {    var width = ktxData.width;    var height = ktxData.height;    var format = ktxData.internalFormat;    var arrayBufferView = ktxData.bufferView;    // use the data to create a texture}).otherwise(function(error) {    // an error occurred});</code></pre>
+    <pre><code class="language-javascript">// load a single URL asynchronously
+Cesium.loadKTX('some/url').then(function(ktxData) {
+    var width = ktxData.width;
+    var height = ktxData.height;
+    var format = ktxData.internalFormat;
+    var arrayBufferView = ktxData.bufferView;
+    // use the data to create a texture
+}).otherwise(function(error) {
+    // an error occurred
+});</code></pre>
 
     
 
@@ -28086,7 +28409,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/mergeSort.js#L55">Core/mergeSort.js 55</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/mergeSort.js#L55">Core/mergeSort.js 55</a>
 </div>
 
 
@@ -28255,7 +28578,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Assume array contains BoundingSpheres in world coordinates.// Sort them in ascending order of distance from the camera.var position = camera.positionWC;Cesium.mergeSort(array, function(a, b, position) {    return Cesium.BoundingSphere.distanceSquaredTo(b, position) - Cesium.BoundingSphere.distanceSquaredTo(a, position);}, position);</code></pre>
+    <pre><code class="language-javascript">// Assume array contains BoundingSpheres in world coordinates.
+// Sort them in ascending order of distance from the camera.
+var position = camera.positionWC;
+Cesium.mergeSort(array, function(a, b, position) {
+    return Cesium.BoundingSphere.distanceSquaredTo(b, position) - Cesium.BoundingSphere.distanceSquaredTo(a, position);
+}, position);</code></pre>
 
     
 
@@ -28280,7 +28608,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/objectToQuery.js#L4">Core/objectToQuery.js 4</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/objectToQuery.js#L4">Core/objectToQuery.js 4</a>
 </div>
 
 
@@ -28292,7 +28620,9 @@
 
 
 <div class="description">
-    Converts an object representing a set of name/value pairs into a query string,with names and values encoded properly for use in a URL.  Values that are arrayswill produce multiple values with the same name.
+    Converts an object representing a set of name/value pairs into a query string,
+with names and values encoded properly for use in a URL.  Values that are arrays
+will produce multiple values with the same name.
 </div>
 
 
@@ -28395,7 +28725,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var str = Cesium.objectToQuery({    key1 : 'some value',    key2 : 'a/b',    key3 : ['x', 'y']});</code></pre>
+    <pre><code class="language-javascript">var str = Cesium.objectToQuery({
+    key1 : 'some value',
+    key2 : 'a/b',
+    key3 : ['x', 'y']
+});</code></pre>
 
     
 
@@ -28408,7 +28742,9 @@
     
     <h5>See:</h5>
     <ul class="see-list">
-        <li>queryToObject// str will be:// 'key1=some%20value&key2=a%2Fb&key3=x&key3=y'</li>
+        <li>queryToObject
+// str will be:
+// 'key1=some%20value&key2=a%2Fb&key3=x&key3=y'</li>
     </ul>
     
 
@@ -28425,7 +28761,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/pointInsideTriangle.js#L6">Core/pointInsideTriangle.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/pointInsideTriangle.js#L6">Core/pointInsideTriangle.js 6</a>
 </div>
 
 
@@ -28621,7 +28957,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Returns truevar p = new Cesium.Cartesian2(0.25, 0.25);var b = Cesium.pointInsideTriangle(p,  new Cesium.Cartesian2(0.0, 0.0),  new Cesium.Cartesian2(1.0, 0.0),  new Cesium.Cartesian2(0.0, 1.0));</code></pre>
+    <pre><code class="language-javascript">// Returns true
+var p = new Cesium.Cartesian2(0.25, 0.25);
+var b = Cesium.pointInsideTriangle(p,
+  new Cesium.Cartesian2(0.0, 0.0),
+  new Cesium.Cartesian2(1.0, 0.0),
+  new Cesium.Cartesian2(0.0, 1.0));</code></pre>
 
     
 
@@ -28646,7 +28987,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/queryToObject.js#L4">Core/queryToObject.js 4</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/queryToObject.js#L4">Core/queryToObject.js 4</a>
 </div>
 
 
@@ -28658,7 +28999,9 @@
 
 
 <div class="description">
-    Parses a query string into an object, where the keys and values of the object are thename/value pairs from the query string, decoded. If a name appears multiple times,the value in the object will be an array of values.
+    Parses a query string into an object, where the keys and values of the object are the
+name/value pairs from the query string, decoded. If a name appears multiple times,
+the value in the object will be an array of values.
 </div>
 
 
@@ -28761,7 +29104,13 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var obj = Cesium.queryToObject('key1=some%20value&amp;key2=a%2Fb&amp;key3=x&amp;key3=y');// obj will be:// {//   key1 : 'some value',//   key2 : 'a/b',//   key3 : ['x', 'y']// }</code></pre>
+    <pre><code class="language-javascript">var obj = Cesium.queryToObject('key1=some%20value&amp;key2=a%2Fb&amp;key3=x&amp;key3=y');
+// obj will be:
+// {
+//   key1 : 'some value',
+//   key2 : 'a/b',
+//   key3 : ['x', 'y']
+// }</code></pre>
 
     
 
@@ -28791,7 +29140,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/requestAnimationFrame.js#L40">Core/requestAnimationFrame.js 40</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/requestAnimationFrame.js#L40">Core/requestAnimationFrame.js 40</a>
 </div>
 
 
@@ -28803,7 +29152,8 @@
 
 
 <div class="description">
-    A browser-independent function to request a new animation frame.  This is used to createan application's draw loop as shown in the example below.
+    A browser-independent function to request a new animation frame.  This is used to create
+an application's draw loop as shown in the example below.
 </div>
 
 
@@ -28906,7 +29256,13 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create a draw loop using requestAnimationFrame. The// tick callback function is called for every animation frame.function tick() {  scene.render();  Cesium.requestAnimationFrame(tick);}tick();</code></pre>
+    <pre><code class="language-javascript">// Create a draw loop using requestAnimationFrame. The
+// tick callback function is called for every animation frame.
+function tick() {
+  scene.render();
+  Cesium.requestAnimationFrame(tick);
+}
+tick();</code></pre>
 
     
 
@@ -28936,7 +29292,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/sampleTerrain.js#L4">Core/sampleTerrain.js 4</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/sampleTerrain.js#L4">Core/sampleTerrain.js 4</a>
 </div>
 
 
@@ -28948,7 +29304,18 @@
 
 
 <div class="description">
-    Initiates a terrain height query for an array of <a href="Cartographic.html"><code>Cartographic</code></a> positions byrequesting tiles from a terrain provider, sampling, and interpolating.  The interpolationmatches the triangles used to render the terrain at the specified level.  The queryhappens asynchronously, so this function returns a promise that is resolved whenthe query completes.  Each point height is modified in place.  If a height can not bedetermined because no terrain data is available for the specified level at that location,or another error occurs, the height is set to undefined.  As is typical of the<a href="Cartographic.html"><code>Cartographic</code></a> type, the supplied height is a height above the reference ellipsoid(such as <a href="Ellipsoid.html#.WGS84"><code>Ellipsoid.WGS84</code></a>) rather than an altitude above mean sea level.  In otherwords, it will not necessarily be 0.0 if sampled in the ocean. This function needs theterrain level of detail as input, if you need to get the altitude of the terrain as preciselyas possible (i.e. with maximum level of detail) use <a href="global.html#sampleTerrainMostDetailed"><code>sampleTerrainMostDetailed</code></a>.
+    Initiates a terrain height query for an array of <a href="Cartographic.html"><code>Cartographic</code></a> positions by
+requesting tiles from a terrain provider, sampling, and interpolating.  The interpolation
+matches the triangles used to render the terrain at the specified level.  The query
+happens asynchronously, so this function returns a promise that is resolved when
+the query completes.  Each point height is modified in place.  If a height can not be
+determined because no terrain data is available for the specified level at that location,
+or another error occurs, the height is set to undefined.  As is typical of the
+<a href="Cartographic.html"><code>Cartographic</code></a> type, the supplied height is a height above the reference ellipsoid
+(such as <a href="Ellipsoid.html#.WGS84"><code>Ellipsoid.WGS84</code></a>) rather than an altitude above mean sea level.  In other
+words, it will not necessarily be 0.0 if sampled in the ocean. This function needs the
+terrain level of detail as input, if you need to get the altitude of the terrain as precisely
+as possible (i.e. with maximum level of detail) use <a href="global.html#sampleTerrainMostDetailed"><code>sampleTerrainMostDetailed</code></a>.
 </div>
 
 
@@ -29097,7 +29464,17 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Query the terrain height of two Cartographic positionsvar terrainProvider = Cesium.createWorldTerrain();var positions = [    Cesium.Cartographic.fromDegrees(86.925145, 27.988257),    Cesium.Cartographic.fromDegrees(87.0, 28.0)];var promise = Cesium.sampleTerrain(terrainProvider, 11, positions);Cesium.when(promise, function(updatedPositions) {    // positions[0].height and positions[1].height have been updated.    // updatedPositions is just a reference to positions.});</code></pre>
+    <pre><code class="language-javascript">// Query the terrain height of two Cartographic positions
+var terrainProvider = Cesium.createWorldTerrain();
+var positions = [
+    Cesium.Cartographic.fromDegrees(86.925145, 27.988257),
+    Cesium.Cartographic.fromDegrees(87.0, 28.0)
+];
+var promise = Cesium.sampleTerrain(terrainProvider, 11, positions);
+Cesium.when(promise, function(updatedPositions) {
+    // positions[0].height and positions[1].height have been updated.
+    // updatedPositions is just a reference to positions.
+});</code></pre>
 
     
 
@@ -29127,7 +29504,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/sampleTerrainMostDetailed.js#L9">Core/sampleTerrainMostDetailed.js 9</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/sampleTerrainMostDetailed.js#L9">Core/sampleTerrainMostDetailed.js 9</a>
 </div>
 
 
@@ -29234,7 +29611,8 @@
 
         
 <div class="param-desc">
-    A promise that resolves to the provided list of positions when terrain the query has completed.  This                                    promise will reject if the terrain provider's `availability` property is undefined.
+    A promise that resolves to the provided list of positions when terrain the query has completed.  This
+                                    promise will reject if the terrain provider's `availability` property is undefined.
 </div>
 
 
@@ -29265,7 +29643,17 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Query the terrain height of two Cartographic positionsvar terrainProvider = Cesium.createWorldTerrain();var positions = [    Cesium.Cartographic.fromDegrees(86.925145, 27.988257),    Cesium.Cartographic.fromDegrees(87.0, 28.0)];var promise = Cesium.sampleTerrainMostDetailed(terrainProvider, positions);Cesium.when(promise, function(updatedPositions) {    // positions[0].height and positions[1].height have been updated.    // updatedPositions is just a reference to positions.});</code></pre>
+    <pre><code class="language-javascript">// Query the terrain height of two Cartographic positions
+var terrainProvider = Cesium.createWorldTerrain();
+var positions = [
+    Cesium.Cartographic.fromDegrees(86.925145, 27.988257),
+    Cesium.Cartographic.fromDegrees(87.0, 28.0)
+];
+var promise = Cesium.sampleTerrainMostDetailed(terrainProvider, positions);
+Cesium.when(promise, function(updatedPositions) {
+    // positions[0].height and positions[1].height have been updated.
+    // updatedPositions is just a reference to positions.
+});</code></pre>
 
     
 
@@ -29290,7 +29678,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/subdivideArray.js#L4">Core/subdivideArray.js 4</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/subdivideArray.js#L4">Core/subdivideArray.js 4</a>
 </div>
 
 
@@ -29453,7 +29841,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/viewerCesium3DTilesInspectorMixin.js#L16">Widgets/Viewer/viewerCesium3DTilesInspectorMixin.js 16</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/viewerCesium3DTilesInspectorMixin.js#L16">Widgets/Viewer/viewerCesium3DTilesInspectorMixin.js 16</a>
 </div>
 
 
@@ -29465,7 +29853,9 @@
 
 
 <div class="description">
-    A mixin which adds the <a href="Cesium3DTilesInspector.html"><code>Cesium3DTilesInspector</code></a> widget to the <a href="Viewer.html"><code>Viewer</code></a> widget.Rather than being called directly, this function is normally passed asa parameter to <a href="Viewer.html#extend"><code>Viewer#extend</code></a>, as shown in the example below.
+    A mixin which adds the <a href="Cesium3DTilesInspector.html"><code>Cesium3DTilesInspector</code></a> widget to the <a href="Viewer.html"><code>Viewer</code></a> widget.
+Rather than being called directly, this function is normally passed as
+a parameter to <a href="Viewer.html#extend"><code>Viewer#extend</code></a>, as shown in the example below.
 </div>
 
 
@@ -29559,7 +29949,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var viewer = new Cesium.Viewer('cesiumContainer');viewer.extend(Cesium.viewerCesium3DTilesInspectorMixin);</code></pre>
+    <pre><code class="language-javascript">var viewer = new Cesium.Viewer('cesiumContainer');
+viewer.extend(Cesium.viewerCesium3DTilesInspectorMixin);</code></pre>
 
     
 
@@ -29584,7 +29975,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/viewerCesiumInspectorMixin.js#L21">Widgets/Viewer/viewerCesiumInspectorMixin.js 21</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/viewerCesiumInspectorMixin.js#L21">Widgets/Viewer/viewerCesiumInspectorMixin.js 21</a>
 </div>
 
 
@@ -29596,7 +29987,9 @@
 
 
 <div class="description">
-    A mixin which adds the CesiumInspector widget to the Viewer widget.Rather than being called directly, this function is normally passed asa parameter to <a href="Viewer.html#extend"><code>Viewer#extend</code></a>, as shown in the example below.
+    A mixin which adds the CesiumInspector widget to the Viewer widget.
+Rather than being called directly, this function is normally passed as
+a parameter to <a href="Viewer.html#extend"><code>Viewer#extend</code></a>, as shown in the example below.
 </div>
 
 
@@ -29704,7 +30097,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var viewer = new Cesium.Viewer('cesiumContainer');viewer.extend(Cesium.viewerCesiumInspectorMixin);</code></pre>
+    <pre><code class="language-javascript">var viewer = new Cesium.Viewer('cesiumContainer');
+viewer.extend(Cesium.viewerCesiumInspectorMixin);</code></pre>
 
     
 
@@ -29734,7 +30128,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/viewerDragDropMixin.js#L11">Widgets/Viewer/viewerDragDropMixin.js 11</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/viewerDragDropMixin.js#L11">Widgets/Viewer/viewerDragDropMixin.js 11</a>
 </div>
 
 
@@ -29746,7 +30140,9 @@
 
 
 <div class="description">
-    A mixin which adds default drag and drop support for CZML files to the Viewer widget.Rather than being called directly, this function is normally passed asa parameter to <a href="Viewer.html#extend"><code>Viewer#extend</code></a>, as shown in the example below.
+    A mixin which adds default drag and drop support for CZML files to the Viewer widget.
+Rather than being called directly, this function is normally passed as
+a parameter to <a href="Viewer.html#extend"><code>Viewer#extend</code></a>, as shown in the example below.
 </div>
 
 
@@ -30138,7 +30534,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Add basic drag and drop support and pop up an alert window on error.var viewer = new Cesium.Viewer('cesiumContainer');viewer.extend(Cesium.viewerDragDropMixin);viewer.dropError.addEventListener(function(viewerArg, source, error) {    window.alert('Error processing ' + source + ':' + error);});</code></pre>
+    <pre><code class="language-javascript">// Add basic drag and drop support and pop up an alert window on error.
+var viewer = new Cesium.Viewer('cesiumContainer');
+viewer.extend(Cesium.viewerDragDropMixin);
+viewer.dropError.addEventListener(function(viewerArg, source, error) {
+    window.alert('Error processing ' + source + ':' + error);
+});</code></pre>
 
     
 
@@ -30163,7 +30564,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Viewer/viewerPerformanceWatchdogMixin.js#L26">Widgets/Viewer/viewerPerformanceWatchdogMixin.js 26</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Viewer/viewerPerformanceWatchdogMixin.js#L26">Widgets/Viewer/viewerPerformanceWatchdogMixin.js 26</a>
 </div>
 
 
@@ -30175,7 +30576,9 @@
 
 
 <div class="description">
-    A mixin which adds the <a href="PerformanceWatchdog.html"><code>PerformanceWatchdog</code></a> widget to the <a href="Viewer.html"><code>Viewer</code></a> widget.Rather than being called directly, this function is normally passed asa parameter to <a href="Viewer.html#extend"><code>Viewer#extend</code></a>, as shown in the example below.
+    A mixin which adds the <a href="PerformanceWatchdog.html"><code>PerformanceWatchdog</code></a> widget to the <a href="Viewer.html"><code>Viewer</code></a> widget.
+Rather than being called directly, this function is normally passed as
+a parameter to <a href="Viewer.html#extend"><code>Viewer#extend</code></a>, as shown in the example below.
 </div>
 
 
@@ -30315,7 +30718,9 @@
 
                 
             
-                The       message to display when a low frame rate is detected.  The message is interpeted as HTML, so make sure       it comes from a trusted source so that your application is not vulnerable to cross-site scripting attacks.</td>
+                The
+       message to display when a low frame rate is detected.  The message is interpeted as HTML, so make sure
+       it comes from a trusted source so that your application is not vulnerable to cross-site scripting attacks.</td>
         </tr>
 
     
@@ -30378,7 +30783,10 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var viewer = new Cesium.Viewer('cesiumContainer');viewer.extend(Cesium.viewerPerformanceWatchdogMixin, {    lowFrameRateMessage : 'Why is this going so &lt;em>slowly&lt;/em>?'});</code></pre>
+    <pre><code class="language-javascript">var viewer = new Cesium.Viewer('cesiumContainer');
+viewer.extend(Cesium.viewerPerformanceWatchdogMixin, {
+    lowFrameRateMessage : 'Why is this going so &lt;em>slowly&lt;/em>?'
+});</code></pre>
 
     
 
@@ -30403,7 +30811,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/writeTextToCanvas.js#L9">Core/writeTextToCanvas.js 9</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/writeTextToCanvas.js#L9">Core/writeTextToCanvas.js 9</a>
 </div>
 
 
@@ -30415,7 +30823,8 @@
 
 
 <div class="description">
-    Writes the given text into a new canvas.  The canvas will be sized to fit the text.If text is blank, returns undefined.
+    Writes the given text into a new canvas.  The canvas will be sized to fit the text.
+If text is blank, returns undefined.
 </div>
 
 
@@ -30870,7 +31279,9 @@
 
         
 <div class="param-desc">
-    A new canvas with the given text drawn into it.  The dimensions object                  from measureText will also be added to the returned canvas. If text is                  blank, returns undefined.
+    A new canvas with the given text drawn into it.  The dimensions object
+                  from measureText will also be added to the returned canvas. If text is
+                  blank, returns undefined.
 </div>
 
 
@@ -30927,7 +31338,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/binarySearch.js#L52">Core/binarySearch.js 52</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/binarySearch.js#L52">Core/binarySearch.js 52</a>
 </div>
 
 
@@ -31034,7 +31445,9 @@
 
         
 <div class="param-desc">
-    Returns a negative value if <code>a</code> is less than <code>b</code>,         a positive value if <code>a</code> is greater than <code>b</code>, or         0 if <code>a</code> is equal to <code>b</code>.
+    Returns a negative value if <code>a</code> is less than <code>b</code>,
+         a positive value if <code>a</code> is greater than <code>b</code>, or
+         0 if <code>a</code> is equal to <code>b</code>.
 </div>
 
 
@@ -31065,7 +31478,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">function compareNumbers(a, b) {    return a - b;}</code></pre>
+    <pre><code class="language-javascript">function compareNumbers(a, b) {
+    return a - b;
+}</code></pre>
 
     
 
@@ -31090,7 +31505,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/createElevationBandMaterial.js#L417">Scene/createElevationBandMaterial.js 417</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/createElevationBandMaterial.js#L417">Scene/createElevationBandMaterial.js 417</a>
 </div>
 
 
@@ -31285,7 +31700,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/createElevationBandMaterial.js#L411">Scene/createElevationBandMaterial.js 411</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/createElevationBandMaterial.js#L411">Scene/createElevationBandMaterial.js 411</a>
 </div>
 
 
@@ -31415,7 +31830,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/exportKml.js#L1514">DataSources/exportKml.js 1514</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/exportKml.js#L1514">DataSources/exportKml.js 1514</a>
 </div>
 
 
@@ -31427,7 +31842,9 @@
 
 
 <div class="description">
-    Since KML does not support glTF models, this callback is required to specify what URL to use for the model in the KML document.It can also be used to add additional files to the <code>externalFiles</code> object, which is the list of files embedded in the exported KMZ,or otherwise returned with the KML string when exporting.
+    Since KML does not support glTF models, this callback is required to specify what URL to use for the model in the KML document.
+It can also be used to add additional files to the <code>externalFiles</code> object, which is the list of files embedded in the exported KMZ,
+or otherwise returned with the KML string when exporting.
 </div>
 
 
@@ -31596,7 +32013,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/exportKml.js#L225">DataSources/exportKml.js 225</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/exportKml.js#L225">DataSources/exportKml.js 225</a>
 </div>
 
 
@@ -31726,7 +32143,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/exportKml.js#L232">DataSources/exportKml.js 232</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/exportKml.js#L232">DataSources/exportKml.js 232</a>
 </div>
 
 
@@ -31833,7 +32250,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/mergeSort.js#L95">Core/mergeSort.js 95</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/mergeSort.js#L95">Core/mergeSort.js 95</a>
 </div>
 
 
@@ -31980,7 +32397,9 @@
 
         
 <div class="param-desc">
-    Returns a negative value if <code>a</code> is less than <code>b</code>,         a positive value if <code>a</code> is greater than <code>b</code>, or         0 if <code>a</code> is equal to <code>b</code>.
+    Returns a negative value if <code>a</code> is less than <code>b</code>,
+         a positive value if <code>a</code> is greater than <code>b</code>, or
+         0 if <code>a</code> is equal to <code>b</code>.
 </div>
 
 
@@ -32011,7 +32430,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">function compareNumbers(a, b, userDefinedObject) {    return a - b;}</code></pre>
+    <pre><code class="language-javascript">function compareNumbers(a, b, userDefinedObject) {
+    return a - b;
+}</code></pre>
 
     
 
@@ -32036,7 +32457,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/requestAnimationFrame.js#L68">Core/requestAnimationFrame.js 68</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/requestAnimationFrame.js#L68">Core/requestAnimationFrame.js 68</a>
 </div>
 
 

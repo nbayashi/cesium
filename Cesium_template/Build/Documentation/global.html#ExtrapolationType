@@ -41,13 +41,14 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ExtrapolationType.js#L9">Core/ExtrapolationType.js 9</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ExtrapolationType.js#L9">Core/ExtrapolationType.js 9</a>
 </div>
 
 
 
         
-            <div class="description">Constants to determine how an interpolated value is extrapolatedwhen querying outside the bounds of available data.</div>
+            <div class="description">Constants to determine how an interpolated value is extrapolated
+when querying outside the bounds of available data.</div>
         
 
         
@@ -210,7 +211,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ExtrapolationType.js#L32">Core/ExtrapolationType.js 32</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ExtrapolationType.js#L32">Core/ExtrapolationType.js 32</a>
 </div>
 
 
@@ -273,7 +274,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ExtrapolationType.js#L24">Core/ExtrapolationType.js 24</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ExtrapolationType.js#L24">Core/ExtrapolationType.js 24</a>
 </div>
 
 
@@ -336,7 +337,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ExtrapolationType.js#L16">Core/ExtrapolationType.js 16</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ExtrapolationType.js#L16">Core/ExtrapolationType.js 16</a>
 </div>
 
 

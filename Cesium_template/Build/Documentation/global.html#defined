@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/defined.js#L14">Core/defined.js 14</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/defined.js#L14">Core/defined.js 14</a>
 </div>
 
 
@@ -71,7 +71,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">if (Cesium.defined(positions)) {     doSomething();} else {     doSomethingElse();}</code></pre>
+    <pre><code class="language-javascript">if (Cesium.defined(positions)) {
+     doSomething();
+} else {
+     doSomethingElse();
+}</code></pre>
 
     
 

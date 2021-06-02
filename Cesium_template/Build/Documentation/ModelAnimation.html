@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ModelAnimation.js#L23">Scene/ModelAnimation.js 23</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ModelAnimation.js#L23">Scene/ModelAnimation.js 23</a>
 </div>
 
 
@@ -58,7 +58,14 @@
 
 
 <div class="description">
-    An active glTF animation.  A glTF asset can contain animations.  An active animationis an animation that is currently playing or scheduled to be played because it wasadded to a model's <a href="ModelAnimationCollection.html"><code>ModelAnimationCollection</code></a>.  An active animation is aninstance of an animation; for example, there can be multiple active animationsfor the same glTF animation, each with a different start time.<p>Create this by calling <a href="ModelAnimationCollection.html#add"><code>ModelAnimationCollection#add</code></a>.</p>
+    An active glTF animation.  A glTF asset can contain animations.  An active animation
+is an animation that is currently playing or scheduled to be played because it was
+added to a model's <a href="ModelAnimationCollection.html"><code>ModelAnimationCollection</code></a>.  An active animation is an
+instance of an animation; for example, there can be multiple active animations
+for the same glTF animation, each with a different start time.
+<p>
+Create this by calling <a href="ModelAnimationCollection.html#add"><code>ModelAnimationCollection#add</code></a>.
+</p>
 </div>
 
 
@@ -148,7 +155,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ModelAnimation.js#L158">Scene/ModelAnimation.js 158</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ModelAnimation.js#L158">Scene/ModelAnimation.js 158</a>
 </div>
 
 
@@ -211,7 +218,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ModelAnimation.js#L227">Scene/ModelAnimation.js 227</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ModelAnimation.js#L227">Scene/ModelAnimation.js 227</a>
 </div>
 
 
@@ -274,7 +281,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ModelAnimation.js#L195">Scene/ModelAnimation.js 195</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ModelAnimation.js#L195">Scene/ModelAnimation.js 195</a>
 </div>
 
 
@@ -285,7 +292,11 @@
 
 
 <div class="description">
-    Values greater than <code>1.0</code> increase the speed that the animation is played relativeto the scene clock speed; values less than <code>1.0</code> decrease the speed.  A value of<code>1.0</code> plays the animation at the speed in the glTF animation mapped to the sceneclock speed.  For example, if the scene is played at 2x real-time, a two-second glTF animationwill play in one second even if <code>multiplier</code> is <code>1.0</code>.
+    Values greater than <code>1.0</code> increase the speed that the animation is played relative
+to the scene clock speed; values less than <code>1.0</code> decrease the speed.  A value of
+<code>1.0</code> plays the animation at the speed in the glTF animation mapped to the scene
+clock speed.  For example, if the scene is played at 2x real-time, a two-second glTF animation
+will play in one second even if <code>multiplier</code> is <code>1.0</code>.
 </div>
 
 
@@ -337,7 +348,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ModelAnimation.js#L125">Scene/ModelAnimation.js 125</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ModelAnimation.js#L125">Scene/ModelAnimation.js 125</a>
 </div>
 
 
@@ -397,7 +408,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ModelAnimation.js#L37">Scene/ModelAnimation.js 37</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ModelAnimation.js#L37">Scene/ModelAnimation.js 37</a>
 </div>
 
 
@@ -408,7 +419,9 @@
 
 
 <div class="description">
-    When <code>true</code>, the animation is removed after it stops playing.This is slightly more efficient that not removing it, but if, for example,time is reversed, the animation is not played again.
+    When <code>true</code>, the animation is removed after it stops playing.
+This is slightly more efficient that not removing it, but if, for example,
+time is reversed, the animation is not played again.
 </div>
 
 
@@ -460,7 +473,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ModelAnimation.js#L211">Scene/ModelAnimation.js 211</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ModelAnimation.js#L211">Scene/ModelAnimation.js 211</a>
 </div>
 
 
@@ -523,7 +536,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ModelAnimation.js#L57">Scene/ModelAnimation.js 57</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ModelAnimation.js#L57">Scene/ModelAnimation.js 57</a>
 </div>
 
 
@@ -534,7 +547,11 @@
 
 
 <div class="description">
-    The event fired when this animation is started.  This can be used, forexample, to play a sound or start a particle system, when the animation starts.<p>This event is fired at the end of the frame after the scene is rendered.</p>
+    The event fired when this animation is started.  This can be used, for
+example, to play a sound or start a particle system, when the animation starts.
+<p>
+This event is fired at the end of the frame after the scene is rendered.
+</p>
 </div>
 
 
@@ -566,7 +583,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">animation.start.addEventListener(function(model, animation) {  console.log('Animation started: ' + animation.name);});</code></pre>
+    <pre><code class="language-javascript">animation.start.addEventListener(function(model, animation) {
+  console.log('Animation started: ' + animation.name);
+});</code></pre>
 
     
 
@@ -591,7 +610,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ModelAnimation.js#L142">Scene/ModelAnimation.js 142</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ModelAnimation.js#L142">Scene/ModelAnimation.js 142</a>
 </div>
 
 
@@ -602,7 +621,8 @@
 
 
 <div class="description">
-    The scene time to start playing this animation.  When this is <code>undefined</code>,the animation starts at the next frame.
+    The scene time to start playing this animation.  When this is <code>undefined</code>,
+the animation starts at the next frame.
 </div>
 
 
@@ -654,7 +674,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ModelAnimation.js#L93">Scene/ModelAnimation.js 93</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ModelAnimation.js#L93">Scene/ModelAnimation.js 93</a>
 </div>
 
 
@@ -665,7 +685,11 @@
 
 
 <div class="description">
-    The event fired when this animation is stopped.  This can be used, forexample, to play a sound or start a particle system, when the animation stops.<p>This event is fired at the end of the frame after the scene is rendered.</p>
+    The event fired when this animation is stopped.  This can be used, for
+example, to play a sound or start a particle system, when the animation stops.
+<p>
+This event is fired at the end of the frame after the scene is rendered.
+</p>
 </div>
 
 
@@ -697,7 +721,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">animation.stop.addEventListener(function(model, animation) {  console.log('Animation stopped: ' + animation.name);});</code></pre>
+    <pre><code class="language-javascript">animation.stop.addEventListener(function(model, animation) {
+  console.log('Animation stopped: ' + animation.name);
+});</code></pre>
 
     
 
@@ -722,7 +748,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ModelAnimation.js#L176">Scene/ModelAnimation.js 176</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ModelAnimation.js#L176">Scene/ModelAnimation.js 176</a>
 </div>
 
 
@@ -733,7 +759,9 @@
 
 
 <div class="description">
-    The scene time to stop playing this animation.  When this is <code>undefined</code>,the animation is played for its full duration and perhaps repeated depending on<a href="ModelAnimation.html#loop"><code>ModelAnimation#loop</code></a>.
+    The scene time to stop playing this animation.  When this is <code>undefined</code>,
+the animation is played for its full duration and perhaps repeated depending on
+<a href="ModelAnimation.html#loop"><code>ModelAnimation#loop</code></a>.
 </div>
 
 
@@ -785,7 +813,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ModelAnimation.js#L76">Scene/ModelAnimation.js 76</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ModelAnimation.js#L76">Scene/ModelAnimation.js 76</a>
 </div>
 
 
@@ -796,7 +824,13 @@
 
 
 <div class="description">
-    The event fired when on each frame when this animation is updated.  Thecurrent time of the animation, relative to the glTF animation time span, ispassed to the event, which allows, for example, starting new animations at aspecific time relative to a playing animation.<p>This event is fired at the end of the frame after the scene is rendered.</p>
+    The event fired when on each frame when this animation is updated.  The
+current time of the animation, relative to the glTF animation time span, is
+passed to the event, which allows, for example, starting new animations at a
+specific time relative to a playing animation.
+<p>
+This event is fired at the end of the frame after the scene is rendered.
+</p>
 </div>
 
 
@@ -828,7 +862,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">animation.update.addEventListener(function(model, animation, time) {  console.log('Animation updated: ' + animation.name + '. glTF animation time: ' + time);});</code></pre>
+    <pre><code class="language-javascript">animation.update.addEventListener(function(model, animation, time) {
+  console.log('Animation updated: ' + animation.name + '. glTF animation time: ' + time);
+});</code></pre>
 
     
 

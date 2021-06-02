@@ -1,5 +1,5 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['./AttributeCompression-953fe0fc', './Cartesian2-ea36f114', './Math-cf2f57e0', './createTaskProcessorWorker', './Check-c23b5bd5', './when-9f8cafad'], function (AttributeCompression, Cartesian2, _Math, createTaskProcessorWorker, Check, when) { 'use strict';
+define(['./AttributeCompression-e3a6496c', './Cartesian2-44e93af5', './Math-8c161f1c', './createTaskProcessorWorker', './Check-285f6bfc', './when-f31b6bd1'], function (AttributeCompression, Cartesian2, _Math, createTaskProcessorWorker, Check, when) { 'use strict';
 
   var maxShort = 32767;
 

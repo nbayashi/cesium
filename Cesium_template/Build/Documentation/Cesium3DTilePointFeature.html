@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L43">Scene/Cesium3DTilePointFeature.js 43</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L43">Scene/Cesium3DTilePointFeature.js 43</a>
 </div>
 
 
@@ -58,7 +58,21 @@
 
 
 <div class="description">
-    A point feature of a <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a>.<p>Provides access to a feature's properties stored in the tile's batch table, as wellas the ability to show/hide a feature and change its point properties</p><p>Modifications to a <code>Cesium3DTilePointFeature</code> object have the lifetime of the tile'scontent.  If the tile's content is unloaded, e.g., due to it going out of view and needingto free space in the cache for visible tiles, listen to the <a href="Cesium3DTileset.html#tileUnload"><code>Cesium3DTileset#tileUnload</code></a> event to save anymodifications. Also listen to the <a href="Cesium3DTileset.html#tileVisible"><code>Cesium3DTileset#tileVisible</code></a> event to reapply any modifications.</p><p>Do not construct this directly.  Access it through <a href="Cesium3DTileContent.html#getFeature"><code>Cesium3DTileContent#getFeature</code></a>or picking using <a href="Scene.html#pick"><code>Scene#pick</code></a> and <a href="Scene.html#pickPosition"><code>Scene#pickPosition</code></a>.</p>
+    A point feature of a <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a>.
+<p>
+Provides access to a feature's properties stored in the tile's batch table, as well
+as the ability to show/hide a feature and change its point properties
+</p>
+<p>
+Modifications to a <code>Cesium3DTilePointFeature</code> object have the lifetime of the tile's
+content.  If the tile's content is unloaded, e.g., due to it going out of view and needing
+to free space in the cache for visible tiles, listen to the <a href="Cesium3DTileset.html#tileUnload"><code>Cesium3DTileset#tileUnload</code></a> event to save any
+modifications. Also listen to the <a href="Cesium3DTileset.html#tileVisible"><code>Cesium3DTileset#tileVisible</code></a> event to reapply any modifications.
+</p>
+<p>
+Do not construct this directly.  Access it through <a href="Cesium3DTileContent.html#getFeature"><code>Cesium3DTileContent#getFeature</code></a>
+or picking using <a href="Scene.html#pick"><code>Scene#pick</code></a> and <a href="Scene.html#pickPosition"><code>Scene#pickPosition</code></a>.
+</p>
 </div>
 
 
@@ -107,7 +121,18 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// On mouse over, display all the properties for a feature in the console log.handler.setInputAction(function(movement) {    var feature = scene.pick(movement.endPosition);    if (feature instanceof Cesium.Cesium3DTilePointFeature) {        var propertyNames = feature.getPropertyNames();        var length = propertyNames.length;        for (var i = 0; i &lt; length; ++i) {            var propertyName = propertyNames[i];            console.log(propertyName + ': ' + feature.getProperty(propertyName));        }    }}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
+    <pre><code class="language-javascript">// On mouse over, display all the properties for a feature in the console log.
+handler.setInputAction(function(movement) {
+    var feature = scene.pick(movement.endPosition);
+    if (feature instanceof Cesium.Cesium3DTilePointFeature) {
+        var propertyNames = feature.getPropertyNames();
+        var length = propertyNames.length;
+        for (var i = 0; i &lt; length; ++i) {
+            var propertyName = propertyNames[i];
+            console.log(propertyName + ': ' + feature.getProperty(propertyName));
+        }
+    }
+}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
 
     
 
@@ -155,7 +180,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L460">Scene/Cesium3DTilePointFeature.js 460</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L460">Scene/Cesium3DTilePointFeature.js 460</a>
 </div>
 
 
@@ -166,7 +191,10 @@
 
 
 <div class="description">
-    Gets or sets the color for the anchor line.<p>Only applied when <code>heightOffset</code> is defined.</p>
+    Gets or sets the color for the anchor line.
+<p>
+Only applied when <code>heightOffset</code> is defined.
+</p>
 </div>
 
 
@@ -215,7 +243,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L441">Scene/Cesium3DTilePointFeature.js 441</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L441">Scene/Cesium3DTilePointFeature.js 441</a>
 </div>
 
 
@@ -226,7 +254,10 @@
 
 
 <div class="description">
-    Gets or sets whether the anchor line is displayed.<p>Only applied when <code>heightOffset</code> is defined.</p>
+    Gets or sets whether the anchor line is displayed.
+<p>
+Only applied when <code>heightOffset</code> is defined.
+</p>
 </div>
 
 
@@ -275,7 +306,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L302">Scene/Cesium3DTilePointFeature.js 302</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L302">Scene/Cesium3DTilePointFeature.js 302</a>
 </div>
 
 
@@ -286,7 +317,10 @@
 
 
 <div class="description">
-    Gets or sets the background color of the text for this feature.<p>Only applied when <code>labelText</code> is defined.</p>
+    Gets or sets the background color of the text for this feature.
+<p>
+Only applied when <code>labelText</code> is defined.
+</p>
 </div>
 
 
@@ -335,7 +369,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L340">Scene/Cesium3DTilePointFeature.js 340</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L340">Scene/Cesium3DTilePointFeature.js 340</a>
 </div>
 
 
@@ -346,7 +380,10 @@
 
 
 <div class="description">
-    Gets or sets whether to display the background of the text for this feature.<p>Only applied when <code>labelText</code> is defined.</p>
+    Gets or sets whether to display the background of the text for this feature.
+<p>
+Only applied when <code>labelText</code> is defined.
+</p>
 </div>
 
 
@@ -395,7 +432,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L321">Scene/Cesium3DTilePointFeature.js 321</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L321">Scene/Cesium3DTilePointFeature.js 321</a>
 </div>
 
 
@@ -406,7 +443,10 @@
 
 
 <div class="description">
-    Gets or sets the background padding of the text for this feature.<p>Only applied when <code>labelText</code> is defined.</p>
+    Gets or sets the background padding of the text for this feature.
+<p>
+Only applied when <code>labelText</code> is defined.
+</p>
 </div>
 
 
@@ -455,7 +495,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L107">Scene/Cesium3DTilePointFeature.js 107</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L107">Scene/Cesium3DTilePointFeature.js 107</a>
 </div>
 
 
@@ -466,7 +506,10 @@
 
 
 <div class="description">
-    Gets or sets the color of the point of this feature.<p>Only applied when <code>image</code> is <code>undefined</code>.</p>
+    Gets or sets the color of the point of this feature.
+<p>
+Only applied when <code>image</code> is <code>undefined</code>.
+</p>
 </div>
 
 
@@ -515,7 +558,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L499">Scene/Cesium3DTilePointFeature.js 499</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L499">Scene/Cesium3DTilePointFeature.js 499</a>
 </div>
 
 
@@ -575,7 +618,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L390">Scene/Cesium3DTilePointFeature.js 390</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L390">Scene/Cesium3DTilePointFeature.js 390</a>
 </div>
 
 
@@ -635,7 +678,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L245">Scene/Cesium3DTilePointFeature.js 245</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L245">Scene/Cesium3DTilePointFeature.js 245</a>
 </div>
 
 
@@ -646,7 +689,10 @@
 
 
 <div class="description">
-    Gets or sets the font of this feature.<p>Only applied when the <code>labelText</code> is defined.</p>
+    Gets or sets the font of this feature.
+<p>
+Only applied when the <code>labelText</code> is defined.
+</p>
 </div>
 
 
@@ -695,7 +741,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L408">Scene/Cesium3DTilePointFeature.js 408</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L408">Scene/Cesium3DTilePointFeature.js 408</a>
 </div>
 
 
@@ -755,7 +801,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L517">Scene/Cesium3DTilePointFeature.js 517</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L517">Scene/Cesium3DTilePointFeature.js 517</a>
 </div>
 
 
@@ -766,7 +812,8 @@
 
 
 <div class="description">
-    Gets or sets the horizontal origin of this point, which determines if the point isto the left, center, or right of its anchor position.
+    Gets or sets the horizontal origin of this point, which determines if the point is
+to the left, center, or right of its anchor position.
 </div>
 
 
@@ -815,7 +862,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L479">Scene/Cesium3DTilePointFeature.js 479</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L479">Scene/Cesium3DTilePointFeature.js 479</a>
 </div>
 
 
@@ -875,7 +922,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L187">Scene/Cesium3DTilePointFeature.js 187</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L187">Scene/Cesium3DTilePointFeature.js 187</a>
 </div>
 
 
@@ -886,7 +933,10 @@
 
 
 <div class="description">
-    Gets or sets the label color of this feature.<p>The color will be applied to the label if <code>labelText</code> is defined.</p>
+    Gets or sets the label color of this feature.
+<p>
+The color will be applied to the label if <code>labelText</code> is defined.
+</p>
 </div>
 
 
@@ -935,7 +985,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L551">Scene/Cesium3DTilePointFeature.js 551</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L551">Scene/Cesium3DTilePointFeature.js 551</a>
 </div>
 
 
@@ -946,7 +996,8 @@
 
 
 <div class="description">
-    Gets or sets the horizontal origin of this point's text, which determines if the point's text isto the left, center, or right of its anchor position.
+    Gets or sets the horizontal origin of this point's text, which determines if the point's text is
+to the left, center, or right of its anchor position.
 </div>
 
 
@@ -995,7 +1046,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L207">Scene/Cesium3DTilePointFeature.js 207</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L207">Scene/Cesium3DTilePointFeature.js 207</a>
 </div>
 
 
@@ -1006,7 +1057,10 @@
 
 
 <div class="description">
-    Gets or sets the label outline color of this feature.<p>The outline color will be applied to the label if <code>labelText</code> is defined.</p>
+    Gets or sets the label outline color of this feature.
+<p>
+The outline color will be applied to the label if <code>labelText</code> is defined.
+</p>
 </div>
 
 
@@ -1055,7 +1109,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L226">Scene/Cesium3DTilePointFeature.js 226</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L226">Scene/Cesium3DTilePointFeature.js 226</a>
 </div>
 
 
@@ -1066,7 +1120,10 @@
 
 
 <div class="description">
-    Gets or sets the outline width in pixels of this feature.<p>The outline width will be applied to the point if <code>labelText</code> is defined.</p>
+    Gets or sets the outline width in pixels of this feature.
+<p>
+The outline width will be applied to the point if <code>labelText</code> is defined.
+</p>
 </div>
 
 
@@ -1115,7 +1172,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L264">Scene/Cesium3DTilePointFeature.js 264</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L264">Scene/Cesium3DTilePointFeature.js 264</a>
 </div>
 
 
@@ -1126,7 +1183,10 @@
 
 
 <div class="description">
-    Gets or sets the fill and outline style of this feature.<p>Only applied when <code>labelText</code> is defined.</p>
+    Gets or sets the fill and outline style of this feature.
+<p>
+Only applied when <code>labelText</code> is defined.
+</p>
 </div>
 
 
@@ -1175,7 +1235,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L280">Scene/Cesium3DTilePointFeature.js 280</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L280">Scene/Cesium3DTilePointFeature.js 280</a>
 </div>
 
 
@@ -1235,7 +1295,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L568">Scene/Cesium3DTilePointFeature.js 568</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L568">Scene/Cesium3DTilePointFeature.js 568</a>
 </div>
 
 
@@ -1246,7 +1306,8 @@
 
 
 <div class="description">
-    Get or sets the vertical origin of this point's text, which determines if the point's text isto the bottom, center, top, or baseline of it's anchor point.
+    Get or sets the vertical origin of this point's text, which determines if the point's text is
+to the bottom, center, top, or baseline of it's anchor point.
 </div>
 
 
@@ -1295,7 +1356,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L147">Scene/Cesium3DTilePointFeature.js 147</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L147">Scene/Cesium3DTilePointFeature.js 147</a>
 </div>
 
 
@@ -1306,7 +1367,10 @@
 
 
 <div class="description">
-    Gets or sets the point outline color of this feature.<p>Only applied when <code>image</code> is <code>undefined</code>.</p>
+    Gets or sets the point outline color of this feature.
+<p>
+Only applied when <code>image</code> is <code>undefined</code>.
+</p>
 </div>
 
 
@@ -1355,7 +1419,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L167">Scene/Cesium3DTilePointFeature.js 167</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L167">Scene/Cesium3DTilePointFeature.js 167</a>
 </div>
 
 
@@ -1366,7 +1430,10 @@
 
 
 <div class="description">
-    Gets or sets the point outline width in pixels of this feature.<p>Only applied when <code>image</code> is <code>undefined</code>.</p>
+    Gets or sets the point outline width in pixels of this feature.
+<p>
+Only applied when <code>image</code> is <code>undefined</code>.
+</p>
 </div>
 
 
@@ -1415,7 +1482,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L127">Scene/Cesium3DTilePointFeature.js 127</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L127">Scene/Cesium3DTilePointFeature.js 127</a>
 </div>
 
 
@@ -1426,7 +1493,10 @@
 
 
 <div class="description">
-    Gets or sets the point size of this feature.<p>Only applied when <code>image</code> is <code>undefined</code>.</p>
+    Gets or sets the point size of this feature.
+<p>
+Only applied when <code>image</code> is <code>undefined</code>.
+</p>
 </div>
 
 
@@ -1475,7 +1545,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L618">Scene/Cesium3DTilePointFeature.js 618</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L618">Scene/Cesium3DTilePointFeature.js 618</a>
 </div>
 
 
@@ -1486,7 +1556,8 @@
 
 
 <div class="description">
-    All objects returned by <a href="Scene.html#pick"><code>Scene#pick</code></a> have a <code>primitive</code> property. This returnsthe tileset containing the feature.
+    All objects returned by <a href="Scene.html#pick"><code>Scene#pick</code></a> have a <code>primitive</code> property. This returns
+the tileset containing the feature.
 </div>
 
 
@@ -1535,7 +1606,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L356">Scene/Cesium3DTilePointFeature.js 356</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L356">Scene/Cesium3DTilePointFeature.js 356</a>
 </div>
 
 
@@ -1595,7 +1666,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L86">Scene/Cesium3DTilePointFeature.js 86</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L86">Scene/Cesium3DTilePointFeature.js 86</a>
 </div>
 
 
@@ -1606,7 +1677,8 @@
 
 
 <div class="description">
-    Gets or sets if the feature will be shown. This is set for all featureswhen a style's show is evaluated.
+    Gets or sets if the feature will be shown. This is set for all features
+when a style's show is evaluated.
 </div>
 
 
@@ -1658,7 +1730,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L602">Scene/Cesium3DTilePointFeature.js 602</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L602">Scene/Cesium3DTilePointFeature.js 602</a>
 </div>
 
 
@@ -1718,7 +1790,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L373">Scene/Cesium3DTilePointFeature.js 373</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L373">Scene/Cesium3DTilePointFeature.js 373</a>
 </div>
 
 
@@ -1778,7 +1850,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L534">Scene/Cesium3DTilePointFeature.js 534</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L534">Scene/Cesium3DTilePointFeature.js 534</a>
 </div>
 
 
@@ -1789,7 +1861,8 @@
 
 
 <div class="description">
-    Gets or sets the vertical origin of this point, which determines if the point isto the bottom, center, or top of its anchor position.
+    Gets or sets the vertical origin of this point, which determines if the point is
+to the bottom, center, or top of its anchor position.
 </div>
 
 
@@ -1844,7 +1917,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L759">Scene/Cesium3DTilePointFeature.js 759</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L759">Scene/Cesium3DTilePointFeature.js 759</a>
 </div>
 
 
@@ -1856,7 +1929,8 @@
 
 
 <div class="description">
-    Returns a copy of the value of the feature's property with the given name. This includes properties from this feature'sclass and inherited classes when using a batch table hierarchy.
+    Returns a copy of the value of the feature's property with the given name. This includes properties from this feature's
+class and inherited classes when using a batch table hierarchy.
 </div>
 
 
@@ -1959,7 +2033,13 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Display all the properties for a feature in the console log.var propertyNames = feature.getPropertyNames();var length = propertyNames.length;for (var i = 0; i &lt; length; ++i) {    var propertyName = propertyNames[i];    console.log(propertyName + ': ' + feature.getProperty(propertyName));}</code></pre>
+    <pre><code class="language-javascript">// Display all the properties for a feature in the console log.
+var propertyNames = feature.getPropertyNames();
+var length = propertyNames.length;
+for (var i = 0; i &lt; length; ++i) {
+    var propertyName = propertyNames[i];
+    console.log(propertyName + ': ' + feature.getProperty(propertyName));
+}</code></pre>
 
     
 
@@ -1989,7 +2069,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L737">Scene/Cesium3DTilePointFeature.js 737</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L737">Scene/Cesium3DTilePointFeature.js 737</a>
 </div>
 
 
@@ -2001,7 +2081,8 @@
 
 
 <div class="description">
-    Returns an array of property names for the feature. This includes properties from this feature'sclass and inherited classes when using a batch table hierarchy.
+    Returns an array of property names for the feature. This includes properties from this feature's
+class and inherited classes when using a batch table hierarchy.
 </div>
 
 
@@ -2136,7 +2217,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L724">Scene/Cesium3DTilePointFeature.js 724</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L724">Scene/Cesium3DTilePointFeature.js 724</a>
 </div>
 
 
@@ -2148,7 +2229,8 @@
 
 
 <div class="description">
-    Returns whether the feature contains this property. This includes properties from this feature'sclass and inherited classes when using a batch table hierarchy.
+    Returns whether the feature contains this property. This includes properties from this feature's
+class and inherited classes when using a batch table hierarchy.
 </div>
 
 
@@ -2276,7 +2358,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTilePointFeature.js#L786">Scene/Cesium3DTilePointFeature.js 786</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTilePointFeature.js#L786">Scene/Cesium3DTilePointFeature.js 786</a>
 </div>
 
 
@@ -2288,7 +2370,10 @@
 
 
 <div class="description">
-    Sets the value of the feature's property with the given name.<p>If a property with the given name doesn't exist, it is created.</p>
+    Sets the value of the feature's property with the given name.
+<p>
+If a property with the given name doesn't exist, it is created.
+</p>
 </div>
 
 
@@ -2421,7 +2506,13 @@
         
     <pre><code class="language-javascript">var height = feature.getProperty('Height'); // e.g., the height of a building</code></pre>
 
-    <pre><code class="language-javascript">var name = 'clicked';if (feature.getProperty(name)) {    console.log('already clicked');} else {    feature.setProperty(name, true);    console.log('first click');}</code></pre>
+    <pre><code class="language-javascript">var name = 'clicked';
+if (feature.getProperty(name)) {
+    console.log('already clicked');
+} else {
+    feature.setProperty(name, true);
+    console.log('first click');
+}</code></pre>
 
     
 

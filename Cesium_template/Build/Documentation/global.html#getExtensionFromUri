@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/getExtensionFromUri.js#L5">Core/getExtensionFromUri.js 5</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/getExtensionFromUri.js#L5">Core/getExtensionFromUri.js 5</a>
 </div>
 
 
@@ -73,7 +73,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">//extension will be "czml";var extension = Cesium.getExtensionFromUri('/Gallery/simple.czml?value=true&amp;example=false');</code></pre>
+    <pre><code class="language-javascript">//extension will be "czml";
+var extension = Cesium.getExtensionFromUri('/Gallery/simple.czml?value=true&amp;example=false');</code></pre>
 
     
 

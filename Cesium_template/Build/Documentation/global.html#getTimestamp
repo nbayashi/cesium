@@ -41,13 +41,16 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/getTimestamp.js#L1">Core/getTimestamp.js 1</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/getTimestamp.js#L1">Core/getTimestamp.js 1</a>
 </div>
 
 
 
         
-            <div class="description">Gets a timestamp that can be used in measuring the time between events.  Timestampsare expressed in milliseconds, but it is not specified what the milliseconds aremeasured from.  This function uses performance.now() if it is available, or Date.now()otherwise.</div>
+            <div class="description">Gets a timestamp that can be used in measuring the time between events.  Timestamps
+are expressed in milliseconds, but it is not specified what the milliseconds are
+measured from.  This function uses performance.now() if it is available, or Date.now()
+otherwise.</div>
         
 
         

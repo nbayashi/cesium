@@ -41,13 +41,15 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/queryToObject.js#L4">Core/queryToObject.js 4</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/queryToObject.js#L4">Core/queryToObject.js 4</a>
 </div>
 
 
 
         
-            <div class="description">Parses a query string into an object, where the keys and values of the object are thename/value pairs from the query string, decoded. If a name appears multiple times,the value in the object will be an array of values.</div>
+            <div class="description">Parses a query string into an object, where the keys and values of the object are the
+name/value pairs from the query string, decoded. If a name appears multiple times,
+the value in the object will be an array of values.</div>
         
 
         
@@ -73,7 +75,13 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var obj = Cesium.queryToObject('key1=some%20value&amp;key2=a%2Fb&amp;key3=x&amp;key3=y');// obj will be:// {//   key1 : 'some value',//   key2 : 'a/b',//   key3 : ['x', 'y']// }</code></pre>
+    <pre><code class="language-javascript">var obj = Cesium.queryToObject('key1=some%20value&amp;key2=a%2Fb&amp;key3=x&amp;key3=y');
+// obj will be:
+// {
+//   key1 : 'some value',
+//   key2 : 'a/b',
+//   key3 : ['x', 'y']
+// }</code></pre>
 
     
 

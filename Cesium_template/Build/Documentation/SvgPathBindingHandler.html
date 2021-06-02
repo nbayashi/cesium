@@ -41,13 +41,25 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/SvgPathBindingHandler.js#L4">Widgets/SvgPathBindingHandler.js 4</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/SvgPathBindingHandler.js#L4">Widgets/SvgPathBindingHandler.js 4</a>
 </div>
 
 
 
         
-            <div class="description">A Knockout binding handler that creates a DOM element for a single SVG path.This binding handler will be registered as cesiumSvgPath.<p>The parameter to this binding is an object with the following properties:</p><ul><li>path: The SVG path as a string.</li><li>width: The width of the SVG path with no transformations applied.</li><li>height: The height of the SVG path with no transformations applied.</li><li>css: Optional. A string containing additional CSS classes to apply to the SVG. 'cesium-svgPath-svg' is always applied.</li></ul></div>
+            <div class="description">A Knockout binding handler that creates a DOM element for a single SVG path.
+This binding handler will be registered as cesiumSvgPath.
+
+<p>
+The parameter to this binding is an object with the following properties:
+</p>
+
+<ul>
+<li>path: The SVG path as a string.</li>
+<li>width: The width of the SVG path with no transformations applied.</li>
+<li>height: The height of the SVG path with no transformations applied.</li>
+<li>css: Optional. A string containing additional CSS classes to apply to the SVG. 'cesium-svgPath-svg' is always applied.</li>
+</ul></div>
         
 
         
@@ -73,7 +85,14 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create an SVG as a child of a div&lt;div data-bind="cesiumSvgPath: { path: 'M 100 100 L 300 100 L 200 300 z', width: 28, height: 28 }">&lt;/div>// parameters can be observable from the view model&lt;div data-bind="cesiumSvgPath: { path: currentPath, width: currentWidth, height: currentHeight }">&lt;/div>// or the whole object can be observable from the view model&lt;div data-bind="cesiumSvgPath: svgPathOptions">&lt;/div></code></pre>
+    <pre><code class="language-javascript">// Create an SVG as a child of a div
+&lt;div data-bind="cesiumSvgPath: { path: 'M 100 100 L 300 100 L 200 300 z', width: 28, height: 28 }">&lt;/div>
+
+// parameters can be observable from the view model
+&lt;div data-bind="cesiumSvgPath: { path: currentPath, width: currentWidth, height: currentHeight }">&lt;/div>
+
+// or the whole object can be observable from the view model
+&lt;div data-bind="cesiumSvgPath: svgPathOptions">&lt;/div></code></pre>
 
     
 
@@ -115,7 +134,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/SvgPathBindingHandler.js#L35">Widgets/SvgPathBindingHandler.js 35</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/SvgPathBindingHandler.js#L35">Widgets/SvgPathBindingHandler.js 35</a>
 </div>
 
 

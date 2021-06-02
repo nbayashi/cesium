@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/GeographicProjection.js#L21">Core/GeographicProjection.js 21</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/GeographicProjection.js#L21">Core/GeographicProjection.js 21</a>
 </div>
 
 
@@ -58,7 +58,10 @@
 
 
 <div class="description">
-    A simple map projection where longitude and latitude are linearly mapped to X and Y by multiplyingthem by the <a href="Ellipsoid.html#maximumRadius"><code>Ellipsoid#maximumRadius</code></a>.  This projectionis commonly known as geographic, equirectangular, equidistant cylindrical, or plate carrée.  Itis also known as EPSG:4326.
+    A simple map projection where longitude and latitude are linearly mapped to X and Y by multiplying
+them by the <a href="Ellipsoid.html#maximumRadius"><code>Ellipsoid#maximumRadius</code></a>.  This projection
+is commonly known as geographic, equirectangular, equidistant cylindrical, or plate carrée.  It
+is also known as EPSG:4326.
 </div>
 
 
@@ -208,7 +211,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/GeographicProjection.js#L36">Core/GeographicProjection.js 36</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/GeographicProjection.js#L36">Core/GeographicProjection.js 36</a>
 </div>
 
 
@@ -274,7 +277,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/GeographicProjection.js#L55">Core/GeographicProjection.js 55</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/GeographicProjection.js#L55">Core/GeographicProjection.js 55</a>
 </div>
 
 
@@ -286,7 +289,9 @@
 
 
 <div class="description">
-    Projects a set of <a href="Cartographic.html"><code>Cartographic</code></a> coordinates, in radians, to map coordinates, in meters.X and Y are the longitude and latitude, respectively, multiplied by the maximum radius of theellipsoid.  Z is the unmodified height.
+    Projects a set of <a href="Cartographic.html"><code>Cartographic</code></a> coordinates, in radians, to map coordinates, in meters.
+X and Y are the longitude and latitude, respectively, multiplied by the maximum radius of the
+ellipsoid.  Z is the unmodified height.
 </div>
 
 
@@ -372,7 +377,8 @@
 
                 
             
-                An instance into which to copy the result.  If this parameter is       undefined, a new instance is created and returned.</td>
+                An instance into which to copy the result.  If this parameter is
+       undefined, a new instance is created and returned.</td>
         </tr>
 
     
@@ -393,7 +399,9 @@
 
         
 <div class="param-desc">
-    The projected coordinates.  If the result parameter is not undefined, the         coordinates are copied there and that instance is returned.  Otherwise, a new instance is         created and returned.
+    The projected coordinates.  If the result parameter is not undefined, the
+         coordinates are copied there and that instance is returned.  Otherwise, a new instance is
+         created and returned.
 </div>
 
 
@@ -444,7 +452,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/GeographicProjection.js#L84">Core/GeographicProjection.js 84</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/GeographicProjection.js#L84">Core/GeographicProjection.js 84</a>
 </div>
 
 
@@ -456,7 +464,9 @@
 
 
 <div class="description">
-    Unprojects a set of projected <a href="Cartesian3.html"><code>Cartesian3</code></a> coordinates, in meters, to <a href="Cartographic.html"><code>Cartographic</code></a>coordinates, in radians.  Longitude and Latitude are the X and Y coordinates, respectively,divided by the maximum radius of the ellipsoid.  Height is the unmodified Z coordinate.
+    Unprojects a set of projected <a href="Cartesian3.html"><code>Cartesian3</code></a> coordinates, in meters, to <a href="Cartographic.html"><code>Cartographic</code></a>
+coordinates, in radians.  Longitude and Latitude are the X and Y coordinates, respectively,
+divided by the maximum radius of the ellipsoid.  Height is the unmodified Z coordinate.
 </div>
 
 
@@ -542,7 +552,8 @@
 
                 
             
-                An instance into which to copy the result.  If this parameter is       undefined, a new instance is created and returned.</td>
+                An instance into which to copy the result.  If this parameter is
+       undefined, a new instance is created and returned.</td>
         </tr>
 
     
@@ -563,7 +574,9 @@
 
         
 <div class="param-desc">
-    The unprojected coordinates.  If the result parameter is not undefined, the         coordinates are copied there and that instance is returned.  Otherwise, a new instance is         created and returned.
+    The unprojected coordinates.  If the result parameter is not undefined, the
+         coordinates are copied there and that instance is returned.  Otherwise, a new instance is
+         created and returned.
 </div>
 
 

@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ModelNode.js#L22">Scene/ModelNode.js 22</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ModelNode.js#L22">Scene/ModelNode.js 22</a>
 </div>
 
 
@@ -58,7 +58,13 @@
 
 
 <div class="description">
-    A model node with a transform for user-defined animations.  A glTF asset cancontain animations that target a node's transform.  This class allowschanging a node's transform externally so animation can be driven by anothersource, not just an animation in the glTF asset.<p>Use <a href="Model.html#getNode"><code>Model#getNode</code></a> to create an instance.</p>
+    A model node with a transform for user-defined animations.  A glTF asset can
+contain animations that target a node's transform.  This class allows
+changing a node's transform externally so animation can be driven by another
+source, not just an animation in the glTF asset.
+<p>
+Use <a href="Model.html#getNode"><code>Model#getNode</code></a> to create an instance.
+</p>
 </div>
 
 
@@ -107,7 +113,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var node = model.getNode('LOD3sp');node.matrix = Cesium.Matrix4.fromScale(new Cesium.Cartesian3(5.0, 1.0, 1.0), node.matrix);</code></pre>
+    <pre><code class="language-javascript">var node = model.getNode('LOD3sp');
+node.matrix = Cesium.Matrix4.fromScale(new Cesium.Cartesian3(5.0, 1.0, 1.0), node.matrix);</code></pre>
 
     
 
@@ -153,7 +160,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ModelNode.js#L61">Scene/ModelNode.js 61</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ModelNode.js#L61">Scene/ModelNode.js 61</a>
 </div>
 
 
@@ -213,7 +220,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ModelNode.js#L98">Scene/ModelNode.js 98</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ModelNode.js#L98">Scene/ModelNode.js 98</a>
 </div>
 
 
@@ -224,7 +231,12 @@
 
 
 <div class="description">
-    The node's 4x4 matrix transform from its local coordinates toits parent's.<p>For changes to take effect, this property must be assigned to;setting individual elements of the matrix will not work.</p>
+    The node's 4x4 matrix transform from its local coordinates to
+its parent's.
+<p>
+For changes to take effect, this property must be assigned to;
+setting individual elements of the matrix will not work.
+</p>
 </div>
 
 
@@ -273,7 +285,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ModelNode.js#L47">Scene/ModelNode.js 47</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ModelNode.js#L47">Scene/ModelNode.js 47</a>
 </div>
 
 
@@ -333,7 +345,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ModelNode.js#L119">Scene/ModelNode.js 119</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ModelNode.js#L119">Scene/ModelNode.js 119</a>
 </div>
 
 
@@ -344,7 +356,8 @@
 
 
 <div class="description">
-    Gets the node's original 4x4 matrix transform from its local coordinates toits parent's, without any node transformations or articulations applied.
+    Gets the node's original 4x4 matrix transform from its local coordinates to
+its parent's, without any node transformations or articulations applied.
 </div>
 
 
@@ -393,7 +406,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ModelNode.js#L75">Scene/ModelNode.js 75</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ModelNode.js#L75">Scene/ModelNode.js 75</a>
 </div>
 
 

@@ -41,13 +41,14 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/formatError.js#L12">Core/formatError.js 12</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/formatError.js#L12">Core/formatError.js 12</a>
 </div>
 
 
 
         
-            <div class="description">Formats an error object into a String.  If available, uses name, message, and stackproperties, otherwise, falls back on toString().</div>
+            <div class="description">Formats an error object into a String.  If available, uses name, message, and stack
+properties, otherwise, falls back on toString().</div>
         
 
         

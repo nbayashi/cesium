@@ -41,13 +41,24 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/sampleTerrain.js#L4">Core/sampleTerrain.js 4</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/sampleTerrain.js#L4">Core/sampleTerrain.js 4</a>
 </div>
 
 
 
         
-            <div class="description">Initiates a terrain height query for an array of <a href="Cartographic.html"><code>Cartographic</code></a> positions byrequesting tiles from a terrain provider, sampling, and interpolating.  The interpolationmatches the triangles used to render the terrain at the specified level.  The queryhappens asynchronously, so this function returns a promise that is resolved whenthe query completes.  Each point height is modified in place.  If a height can not bedetermined because no terrain data is available for the specified level at that location,or another error occurs, the height is set to undefined.  As is typical of the<a href="Cartographic.html"><code>Cartographic</code></a> type, the supplied height is a height above the reference ellipsoid(such as <a href="Ellipsoid.html#.WGS84"><code>Ellipsoid.WGS84</code></a>) rather than an altitude above mean sea level.  In otherwords, it will not necessarily be 0.0 if sampled in the ocean. This function needs theterrain level of detail as input, if you need to get the altitude of the terrain as preciselyas possible (i.e. with maximum level of detail) use <a href="global.html#sampleTerrainMostDetailed"><code>sampleTerrainMostDetailed</code></a>.</div>
+            <div class="description">Initiates a terrain height query for an array of <a href="Cartographic.html"><code>Cartographic</code></a> positions by
+requesting tiles from a terrain provider, sampling, and interpolating.  The interpolation
+matches the triangles used to render the terrain at the specified level.  The query
+happens asynchronously, so this function returns a promise that is resolved when
+the query completes.  Each point height is modified in place.  If a height can not be
+determined because no terrain data is available for the specified level at that location,
+or another error occurs, the height is set to undefined.  As is typical of the
+<a href="Cartographic.html"><code>Cartographic</code></a> type, the supplied height is a height above the reference ellipsoid
+(such as <a href="Ellipsoid.html#.WGS84"><code>Ellipsoid.WGS84</code></a>) rather than an altitude above mean sea level.  In other
+words, it will not necessarily be 0.0 if sampled in the ocean. This function needs the
+terrain level of detail as input, if you need to get the altitude of the terrain as precisely
+as possible (i.e. with maximum level of detail) use <a href="global.html#sampleTerrainMostDetailed"><code>sampleTerrainMostDetailed</code></a>.</div>
         
 
         
@@ -73,7 +84,17 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Query the terrain height of two Cartographic positionsvar terrainProvider = Cesium.createWorldTerrain();var positions = [    Cesium.Cartographic.fromDegrees(86.925145, 27.988257),    Cesium.Cartographic.fromDegrees(87.0, 28.0)];var promise = Cesium.sampleTerrain(terrainProvider, 11, positions);Cesium.when(promise, function(updatedPositions) {    // positions[0].height and positions[1].height have been updated.    // updatedPositions is just a reference to positions.});</code></pre>
+    <pre><code class="language-javascript">// Query the terrain height of two Cartographic positions
+var terrainProvider = Cesium.createWorldTerrain();
+var positions = [
+    Cesium.Cartographic.fromDegrees(86.925145, 27.988257),
+    Cesium.Cartographic.fromDegrees(87.0, 28.0)
+];
+var promise = Cesium.sampleTerrain(terrainProvider, 11, positions);
+Cesium.when(promise, function(updatedPositions) {
+    // positions[0].height and positions[1].height have been updated.
+    // updatedPositions is just a reference to positions.
+});</code></pre>
 
     
 

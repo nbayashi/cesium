@@ -41,13 +41,14 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/requestAnimationFrame.js#L40">Core/requestAnimationFrame.js 40</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/requestAnimationFrame.js#L40">Core/requestAnimationFrame.js 40</a>
 </div>
 
 
 
         
-            <div class="description">A browser-independent function to request a new animation frame.  This is used to createan application's draw loop as shown in the example below.</div>
+            <div class="description">A browser-independent function to request a new animation frame.  This is used to create
+an application's draw loop as shown in the example below.</div>
         
 
         
@@ -73,7 +74,13 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create a draw loop using requestAnimationFrame. The// tick callback function is called for every animation frame.function tick() {  scene.render();  Cesium.requestAnimationFrame(tick);}tick();</code></pre>
+    <pre><code class="language-javascript">// Create a draw loop using requestAnimationFrame. The
+// tick callback function is called for every animation frame.
+function tick() {
+  scene.render();
+  Cesium.requestAnimationFrame(tick);
+}
+tick();</code></pre>
 
     
 

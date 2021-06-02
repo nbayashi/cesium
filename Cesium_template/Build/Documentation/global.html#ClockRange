@@ -41,13 +41,14 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ClockRange.js#L10">Core/ClockRange.js 10</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ClockRange.js#L10">Core/ClockRange.js 10</a>
 </div>
 
 
 
         
-            <div class="description">Constants used by <a href="Clock.html#tick"><code>Clock#tick</code></a> to determine behaviorwhen <a href="Clock.html#startTime"><code>Clock#startTime</code></a> or <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> is reached.</div>
+            <div class="description">Constants used by <a href="Clock.html#tick"><code>Clock#tick</code></a> to determine behavior
+when <a href="Clock.html#startTime"><code>Clock#startTime</code></a> or <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> is reached.</div>
         
 
         
@@ -119,7 +120,8 @@
 
             
 
-            <td class="description last">When <a href="Clock.html#startTime"><code>Clock#startTime</code></a> or <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> is reached,<a href="Clock.html#tick"><code>Clock#tick</code></a> will not advance <a href="Clock.html#currentTime"><code>Clock#currentTime</code></a> any further.</td>
+            <td class="description last">When <a href="Clock.html#startTime"><code>Clock#startTime</code></a> or <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> is reached,
+<a href="Clock.html#tick"><code>Clock#tick</code></a> will not advance <a href="Clock.html#currentTime"><code>Clock#currentTime</code></a> any further.</td>
         </tr>
 
     
@@ -142,7 +144,10 @@
 
             
 
-            <td class="description last">When <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> is reached, <a href="Clock.html#tick"><code>Clock#tick</code></a> will advance<a href="Clock.html#currentTime"><code>Clock#currentTime</code></a> to the opposite end of the interval.  Whentime is moving backwards, <a href="Clock.html#tick"><code>Clock#tick</code></a> will not advance past<a href="Clock.html#startTime"><code>Clock#startTime</code></a></td>
+            <td class="description last">When <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> is reached, <a href="Clock.html#tick"><code>Clock#tick</code></a> will advance
+<a href="Clock.html#currentTime"><code>Clock#currentTime</code></a> to the opposite end of the interval.  When
+time is moving backwards, <a href="Clock.html#tick"><code>Clock#tick</code></a> will not advance past
+<a href="Clock.html#startTime"><code>Clock#startTime</code></a></td>
         </tr>
 
     
@@ -212,7 +217,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ClockRange.js#L26">Core/ClockRange.js 26</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ClockRange.js#L26">Core/ClockRange.js 26</a>
 </div>
 
 
@@ -223,7 +228,8 @@
 
 
 <div class="description">
-    When <a href="Clock.html#startTime"><code>Clock#startTime</code></a> or <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> is reached,<a href="Clock.html#tick"><code>Clock#tick</code></a> will not advance <a href="Clock.html#currentTime"><code>Clock#currentTime</code></a> any further.
+    When <a href="Clock.html#startTime"><code>Clock#startTime</code></a> or <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> is reached,
+<a href="Clock.html#tick"><code>Clock#tick</code></a> will not advance <a href="Clock.html#currentTime"><code>Clock#currentTime</code></a> any further.
 </div>
 
 
@@ -275,7 +281,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ClockRange.js#L37">Core/ClockRange.js 37</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ClockRange.js#L37">Core/ClockRange.js 37</a>
 </div>
 
 
@@ -286,7 +292,10 @@
 
 
 <div class="description">
-    When <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> is reached, <a href="Clock.html#tick"><code>Clock#tick</code></a> will advance<a href="Clock.html#currentTime"><code>Clock#currentTime</code></a> to the opposite end of the interval.  Whentime is moving backwards, <a href="Clock.html#tick"><code>Clock#tick</code></a> will not advance past<a href="Clock.html#startTime"><code>Clock#startTime</code></a>
+    When <a href="Clock.html#stopTime"><code>Clock#stopTime</code></a> is reached, <a href="Clock.html#tick"><code>Clock#tick</code></a> will advance
+<a href="Clock.html#currentTime"><code>Clock#currentTime</code></a> to the opposite end of the interval.  When
+time is moving backwards, <a href="Clock.html#tick"><code>Clock#tick</code></a> will not advance past
+<a href="Clock.html#startTime"><code>Clock#startTime</code></a>
 </div>
 
 
@@ -338,7 +347,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ClockRange.js#L17">Core/ClockRange.js 17</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ClockRange.js#L17">Core/ClockRange.js 17</a>
 </div>
 
 

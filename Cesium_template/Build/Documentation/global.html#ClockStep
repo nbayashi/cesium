@@ -41,13 +41,14 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ClockStep.js#L10">Core/ClockStep.js 10</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ClockStep.js#L10">Core/ClockStep.js 10</a>
 </div>
 
 
 
         
-            <div class="description">Constants to determine how much time advances with each callto <a href="Clock.html#tick"><code>Clock#tick</code></a>.</div>
+            <div class="description">Constants to determine how much time advances with each call
+to <a href="Clock.html#tick"><code>Clock#tick</code></a>.</div>
         
 
         
@@ -96,7 +97,8 @@
 
             
 
-            <td class="description last"><a href="Clock.html#tick"><code>Clock#tick</code></a> advances the current time by a fixed step,which is the number of seconds specified by <a href="Clock.html#multiplier"><code>Clock#multiplier</code></a>.</td>
+            <td class="description last"><a href="Clock.html#tick"><code>Clock#tick</code></a> advances the current time by a fixed step,
+which is the number of seconds specified by <a href="Clock.html#multiplier"><code>Clock#multiplier</code></a>.</td>
         </tr>
 
     
@@ -119,7 +121,8 @@
 
             
 
-            <td class="description last"><a href="Clock.html#tick"><code>Clock#tick</code></a> advances the current time by the amount of systemtime elapsed since the previous call multiplied by <a href="Clock.html#multiplier"><code>Clock#multiplier</code></a>.</td>
+            <td class="description last"><a href="Clock.html#tick"><code>Clock#tick</code></a> advances the current time by the amount of system
+time elapsed since the previous call multiplied by <a href="Clock.html#multiplier"><code>Clock#multiplier</code></a>.</td>
         </tr>
 
     
@@ -142,7 +145,8 @@
 
             
 
-            <td class="description last"><a href="Clock.html#tick"><code>Clock#tick</code></a> sets the clock to the current system time;ignoring all other settings.</td>
+            <td class="description last"><a href="Clock.html#tick"><code>Clock#tick</code></a> sets the clock to the current system time;
+ignoring all other settings.</td>
         </tr>
 
     
@@ -212,7 +216,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ClockStep.js#L36">Core/ClockStep.js 36</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ClockStep.js#L36">Core/ClockStep.js 36</a>
 </div>
 
 
@@ -223,7 +227,8 @@
 
 
 <div class="description">
-    <a href="Clock.html#tick"><code>Clock#tick</code></a> sets the clock to the current system time;ignoring all other settings.
+    <a href="Clock.html#tick"><code>Clock#tick</code></a> sets the clock to the current system time;
+ignoring all other settings.
 </div>
 
 
@@ -275,7 +280,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ClockStep.js#L27">Core/ClockStep.js 27</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ClockStep.js#L27">Core/ClockStep.js 27</a>
 </div>
 
 
@@ -286,7 +291,8 @@
 
 
 <div class="description">
-    <a href="Clock.html#tick"><code>Clock#tick</code></a> advances the current time by the amount of systemtime elapsed since the previous call multiplied by <a href="Clock.html#multiplier"><code>Clock#multiplier</code></a>.
+    <a href="Clock.html#tick"><code>Clock#tick</code></a> advances the current time by the amount of system
+time elapsed since the previous call multiplied by <a href="Clock.html#multiplier"><code>Clock#multiplier</code></a>.
 </div>
 
 
@@ -338,7 +344,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ClockStep.js#L18">Core/ClockStep.js 18</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ClockStep.js#L18">Core/ClockStep.js 18</a>
 </div>
 
 
@@ -349,7 +355,8 @@
 
 
 <div class="description">
-    <a href="Clock.html#tick"><code>Clock#tick</code></a> advances the current time by a fixed step,which is the number of seconds specified by <a href="Clock.html#multiplier"><code>Clock#multiplier</code></a>.
+    <a href="Clock.html#tick"><code>Clock#tick</code></a> advances the current time by a fixed step,
+which is the number of seconds specified by <a href="Clock.html#multiplier"><code>Clock#multiplier</code></a>.
 </div>
 
 

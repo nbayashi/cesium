@@ -1,5 +1,5 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['./when-9f8cafad', './Transforms-0a60c469', './Cartesian2-ea36f114', './Check-c23b5bd5', './ComponentDatatype-ec57da04', './FrustumGeometry-ed778330', './GeometryAttribute-abbafb10', './GeometryAttributes-fcb70320', './Math-cf2f57e0', './RuntimeError-40167735', './WebGLConstants-daaa9be0', './Plane-ed60195c', './VertexFormat-acf66ec0'], function (when, Transforms, Cartesian2, Check, ComponentDatatype, FrustumGeometry, GeometryAttribute, GeometryAttributes, _Math, RuntimeError, WebGLConstants, Plane, VertexFormat) { 'use strict';
+define(['./when-f31b6bd1', './Transforms-eb995198', './Cartesian2-44e93af5', './Check-285f6bfc', './ComponentDatatype-d4a0149c', './FrustumGeometry-230a3ea9', './GeometryAttribute-cc0565cd', './GeometryAttributes-e973821e', './Math-8c161f1c', './RuntimeError-c7c236f3', './WebGLConstants-34c08bc0', './Plane-16f95004', './VertexFormat-ab7dd48c'], function (when, Transforms, Cartesian2, Check, ComponentDatatype, FrustumGeometry, GeometryAttribute, GeometryAttributes, _Math, RuntimeError, WebGLConstants, Plane, VertexFormat) { 'use strict';
 
   var PERSPECTIVE = 0;
   var ORTHOGRAPHIC = 1;

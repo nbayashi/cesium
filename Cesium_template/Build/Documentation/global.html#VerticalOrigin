@@ -41,13 +41,20 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/VerticalOrigin.js#L16">Scene/VerticalOrigin.js 16</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/VerticalOrigin.js#L16">Scene/VerticalOrigin.js 16</a>
 </div>
 
 
 
         
-            <div class="description">The vertical location of an origin relative to an object, e.g., a <a href="Billboard.html"><code>Billboard</code></a>or <a href="Label.html"><code>Label</code></a>.  For example, setting the vertical origin to <code>TOP</code>or <code>BOTTOM</code> will display a billboard above or below (in screen space)the anchor position.<br /><br /><div align='center'><img src='Images/Billboard.setVerticalOrigin.png' width='695' height='175' /><br /></div></div>
+            <div class="description">The vertical location of an origin relative to an object, e.g., a <a href="Billboard.html"><code>Billboard</code></a>
+or <a href="Label.html"><code>Label</code></a>.  For example, setting the vertical origin to <code>TOP</code>
+or <code>BOTTOM</code> will display a billboard above or below (in screen space)
+the anchor position.
+<br /><br />
+<div align='center'>
+<img src='Images/Billboard.setVerticalOrigin.png' width='695' height='175' /><br />
+</div></div>
         
 
         
@@ -235,7 +242,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/VerticalOrigin.js#L39">Scene/VerticalOrigin.js 39</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/VerticalOrigin.js#L39">Scene/VerticalOrigin.js 39</a>
 </div>
 
 
@@ -298,7 +305,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/VerticalOrigin.js#L31">Scene/VerticalOrigin.js 31</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/VerticalOrigin.js#L31">Scene/VerticalOrigin.js 31</a>
 </div>
 
 
@@ -361,7 +368,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/VerticalOrigin.js#L23">Scene/VerticalOrigin.js 23</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/VerticalOrigin.js#L23">Scene/VerticalOrigin.js 23</a>
 </div>
 
 
@@ -421,7 +428,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/VerticalOrigin.js#L47">Scene/VerticalOrigin.js 47</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/VerticalOrigin.js#L47">Scene/VerticalOrigin.js 47</a>
 </div>
 
 

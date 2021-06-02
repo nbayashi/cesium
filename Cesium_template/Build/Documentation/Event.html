@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Event.js#L23">Core/Event.js 23</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Event.js#L23">Core/Event.js 23</a>
 </div>
 
 
@@ -58,7 +58,9 @@
 
 
 <div class="description">
-    A generic utility class for managing subscribers for a particular event.This class is usually instantiated inside of a container class andexposed as a property for others to subscribe to.
+    A generic utility class for managing subscribers for a particular event.
+This class is usually instantiated inside of a container class and
+exposed as a property for others to subscribe to.
 </div>
 
 
@@ -107,7 +109,16 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">MyObject.prototype.myListener = function(arg1, arg2) {    this.myArg1Copy = arg1;    this.myArg2Copy = arg2;}var myObjectInstance = new MyObject();var evt = new Cesium.Event();evt.addEventListener(MyObject.prototype.myListener, myObjectInstance);evt.raiseEvent('1', '2');evt.removeEventListener(MyObject.prototype.myListener);</code></pre>
+    <pre><code class="language-javascript">MyObject.prototype.myListener = function(arg1, arg2) {
+    this.myArg1Copy = arg1;
+    this.myArg2Copy = arg2;
+}
+
+var myObjectInstance = new MyObject();
+var evt = new Cesium.Event();
+evt.addEventListener(MyObject.prototype.myListener, myObjectInstance);
+evt.raiseEvent('1', '2');
+evt.removeEventListener(MyObject.prototype.myListener);</code></pre>
 
     
 
@@ -148,7 +159,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Event.js#L37">Core/Event.js 37</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Event.js#L37">Core/Event.js 37</a>
 </div>
 
 
@@ -214,7 +225,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Event.js#L57">Core/Event.js 57</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Event.js#L57">Core/Event.js 57</a>
 </div>
 
 
@@ -226,7 +237,9 @@
 
 
 <div class="description">
-    Registers a callback function to be executed whenever the event is raised.An optional scope can be provided to serve as the <code>this</code> pointerin which the function will execute.
+    Registers a callback function to be executed whenever the event is raised.
+An optional scope can be provided to serve as the <code>this</code> pointer
+in which the function will execute.
 </div>
 
 
@@ -312,7 +325,8 @@
 
                 
             
-                An optional object scope to serve as the <code>this</code>       pointer in which the listener function will execute.</td>
+                An optional object scope to serve as the <code>this</code>
+       pointer in which the listener function will execute.</td>
         </tr>
 
     
@@ -391,7 +405,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Event.js#L127">Core/Event.js 127</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Event.js#L127">Core/Event.js 127</a>
 </div>
 
 
@@ -531,7 +545,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Event.js#L81">Core/Event.js 81</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Event.js#L81">Core/Event.js 81</a>
 </div>
 
 
@@ -714,7 +728,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Event.js#L158">Core/Event.js 158</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Event.js#L158">Core/Event.js 158</a>
 </div>
 
 

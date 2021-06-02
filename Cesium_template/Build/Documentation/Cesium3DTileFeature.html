@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileFeature.js#L39">Scene/Cesium3DTileFeature.js 39</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileFeature.js#L39">Scene/Cesium3DTileFeature.js 39</a>
 </div>
 
 
@@ -58,7 +58,22 @@
 
 
 <div class="description">
-    A feature of a <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a>.<p>Provides access to a feature's properties stored in the tile's batch table, as wellas the ability to show/hide a feature and change its highlight color via<a href="Cesium3DTileFeature.html#show"><code>Cesium3DTileFeature#show</code></a> and <a href="Cesium3DTileFeature.html#color"><code>Cesium3DTileFeature#color</code></a>, respectively.</p><p>Modifications to a <code>Cesium3DTileFeature</code> object have the lifetime of the tile'scontent.  If the tile's content is unloaded, e.g., due to it going out of view and needingto free space in the cache for visible tiles, listen to the <a href="Cesium3DTileset.html#tileUnload"><code>Cesium3DTileset#tileUnload</code></a> event to save anymodifications. Also listen to the <a href="Cesium3DTileset.html#tileVisible"><code>Cesium3DTileset#tileVisible</code></a> event to reapply any modifications.</p><p>Do not construct this directly.  Access it through <a href="Cesium3DTileContent.html#getFeature"><code>Cesium3DTileContent#getFeature</code></a>or picking using <a href="Scene.html#pick"><code>Scene#pick</code></a> and <a href="Scene.html#pickPosition"><code>Scene#pickPosition</code></a>.</p>
+    A feature of a <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a>.
+<p>
+Provides access to a feature's properties stored in the tile's batch table, as well
+as the ability to show/hide a feature and change its highlight color via
+<a href="Cesium3DTileFeature.html#show"><code>Cesium3DTileFeature#show</code></a> and <a href="Cesium3DTileFeature.html#color"><code>Cesium3DTileFeature#color</code></a>, respectively.
+</p>
+<p>
+Modifications to a <code>Cesium3DTileFeature</code> object have the lifetime of the tile's
+content.  If the tile's content is unloaded, e.g., due to it going out of view and needing
+to free space in the cache for visible tiles, listen to the <a href="Cesium3DTileset.html#tileUnload"><code>Cesium3DTileset#tileUnload</code></a> event to save any
+modifications. Also listen to the <a href="Cesium3DTileset.html#tileVisible"><code>Cesium3DTileset#tileVisible</code></a> event to reapply any modifications.
+</p>
+<p>
+Do not construct this directly.  Access it through <a href="Cesium3DTileContent.html#getFeature"><code>Cesium3DTileContent#getFeature</code></a>
+or picking using <a href="Scene.html#pick"><code>Scene#pick</code></a> and <a href="Scene.html#pickPosition"><code>Scene#pickPosition</code></a>.
+</p>
 </div>
 
 
@@ -107,7 +122,18 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// On mouse over, display all the properties for a feature in the console log.handler.setInputAction(function(movement) {    var feature = scene.pick(movement.endPosition);    if (feature instanceof Cesium.Cesium3DTileFeature) {        var propertyNames = feature.getPropertyNames();        var length = propertyNames.length;        for (var i = 0; i &lt; length; ++i) {            var propertyName = propertyNames[i];            console.log(propertyName + ': ' + feature.getProperty(propertyName));        }    }}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
+    <pre><code class="language-javascript">// On mouse over, display all the properties for a feature in the console log.
+handler.setInputAction(function(movement) {
+    var feature = scene.pick(movement.endPosition);
+    if (feature instanceof Cesium.Cesium3DTileFeature) {
+        var propertyNames = feature.getPropertyNames();
+        var length = propertyNames.length;
+        for (var i = 0; i &lt; length; ++i) {
+            var propertyName = propertyNames[i];
+            console.log(propertyName + ': ' + feature.getProperty(propertyName));
+        }
+    }
+}, Cesium.ScreenSpaceEventType.MOUSE_MOVE);</code></pre>
 
     
 
@@ -148,7 +174,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileFeature.js#L76">Scene/Cesium3DTileFeature.js 76</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileFeature.js#L76">Scene/Cesium3DTileFeature.js 76</a>
 </div>
 
 
@@ -159,7 +185,9 @@
 
 
 <div class="description">
-    Gets or sets the highlight color multiplied with the feature's color.  Whenthis is white, the feature's color is not changed. This is set for all featureswhen a style's color is evaluated.
+    Gets or sets the highlight color multiplied with the feature's color.  When
+this is white, the feature's color is not changed. This is set for all features
+when a style's color is evaluated.
 </div>
 
 
@@ -211,7 +239,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileFeature.js#L129">Scene/Cesium3DTileFeature.js 129</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileFeature.js#L129">Scene/Cesium3DTileFeature.js 129</a>
 </div>
 
 
@@ -222,7 +250,8 @@
 
 
 <div class="description">
-    All objects returned by <a href="Scene.html#pick"><code>Scene#pick</code></a> have a <code>primitive</code> property. This returnsthe tileset containing the feature.
+    All objects returned by <a href="Scene.html#pick"><code>Scene#pick</code></a> have a <code>primitive</code> property. This returns
+the tileset containing the feature.
 </div>
 
 
@@ -271,7 +300,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileFeature.js#L56">Scene/Cesium3DTileFeature.js 56</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileFeature.js#L56">Scene/Cesium3DTileFeature.js 56</a>
 </div>
 
 
@@ -282,7 +311,8 @@
 
 
 <div class="description">
-    Gets or sets if the feature will be shown. This is set for all featureswhen a style's show is evaluated.
+    Gets or sets if the feature will be shown. This is set for all features
+when a style's show is evaluated.
 </div>
 
 
@@ -334,7 +364,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileFeature.js#L113">Scene/Cesium3DTileFeature.js 113</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileFeature.js#L113">Scene/Cesium3DTileFeature.js 113</a>
 </div>
 
 
@@ -400,7 +430,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileFeature.js#L189">Scene/Cesium3DTileFeature.js 189</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileFeature.js#L189">Scene/Cesium3DTileFeature.js 189</a>
 </div>
 
 
@@ -412,7 +442,8 @@
 
 
 <div class="description">
-    Returns a copy of the value of the feature's property with the given name. This includes properties from this feature'sclass and inherited classes when using a batch table hierarchy.
+    Returns a copy of the value of the feature's property with the given name. This includes properties from this feature's
+class and inherited classes when using a batch table hierarchy.
 </div>
 
 
@@ -515,7 +546,13 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Display all the properties for a feature in the console log.var propertyNames = feature.getPropertyNames();var length = propertyNames.length;for (var i = 0; i &lt; length; ++i) {    var propertyName = propertyNames[i];    console.log(propertyName + ': ' + feature.getProperty(propertyName));}</code></pre>
+    <pre><code class="language-javascript">// Display all the properties for a feature in the console log.
+var propertyNames = feature.getPropertyNames();
+var length = propertyNames.length;
+for (var i = 0; i &lt; length; ++i) {
+    var propertyName = propertyNames[i];
+    console.log(propertyName + ': ' + feature.getProperty(propertyName));
+}</code></pre>
 
     
 
@@ -545,7 +582,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileFeature.js#L167">Scene/Cesium3DTileFeature.js 167</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileFeature.js#L167">Scene/Cesium3DTileFeature.js 167</a>
 </div>
 
 
@@ -557,7 +594,8 @@
 
 
 <div class="description">
-    Returns an array of property names for the feature. This includes properties from this feature'sclass and inherited classes when using a batch table hierarchy.
+    Returns an array of property names for the feature. This includes properties from this feature's
+class and inherited classes when using a batch table hierarchy.
 </div>
 
 
@@ -692,7 +730,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileFeature.js#L154">Scene/Cesium3DTileFeature.js 154</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileFeature.js#L154">Scene/Cesium3DTileFeature.js 154</a>
 </div>
 
 
@@ -704,7 +742,8 @@
 
 
 <div class="description">
-    Returns whether the feature contains this property. This includes properties from this feature'sclass and inherited classes when using a batch table hierarchy.
+    Returns whether the feature contains this property. This includes properties from this feature's
+class and inherited classes when using a batch table hierarchy.
 </div>
 
 
@@ -832,7 +871,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileFeature.js#L216">Scene/Cesium3DTileFeature.js 216</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileFeature.js#L216">Scene/Cesium3DTileFeature.js 216</a>
 </div>
 
 
@@ -844,7 +883,10 @@
 
 
 <div class="description">
-    Sets the value of the feature's property with the given name.<p>If a property with the given name doesn't exist, it is created.</p>
+    Sets the value of the feature's property with the given name.
+<p>
+If a property with the given name doesn't exist, it is created.
+</p>
 </div>
 
 
@@ -977,7 +1019,13 @@
         
     <pre><code class="language-javascript">var height = feature.getProperty('Height'); // e.g., the height of a building</code></pre>
 
-    <pre><code class="language-javascript">var name = 'clicked';if (feature.getProperty(name)) {    console.log('already clicked');} else {    feature.setProperty(name, true);    console.log('first click');}</code></pre>
+    <pre><code class="language-javascript">var name = 'clicked';
+if (feature.getProperty(name)) {
+    console.log('already clicked');
+} else {
+    feature.setProperty(name, true);
+    console.log('first click');
+}</code></pre>
 
     
 

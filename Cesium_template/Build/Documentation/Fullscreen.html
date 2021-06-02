@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Fullscreen.js#L13">Core/Fullscreen.js 13</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Fullscreen.js#L13">Core/Fullscreen.js 13</a>
 </div>
 
 
@@ -113,7 +113,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Fullscreen.js#L49">Core/Fullscreen.js 49</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Fullscreen.js#L49">Core/Fullscreen.js 49</a>
 </div>
 
 
@@ -124,7 +124,10 @@
 
 
 <div class="description">
-    The name of the event on the document that is fired when fullscreen isentered or exited.  This event name is intended for use with addEventListener.In your event handler, to determine if the browser is in fullscreen mode or not,use <code>Fullscreen#fullscreen</code>.
+    The name of the event on the document that is fired when fullscreen is
+entered or exited.  This event name is intended for use with addEventListener.
+In your event handler, to determine if the browser is in fullscreen mode or not,
+use <code>Fullscreen#fullscreen</code>.
 </div>
 
 
@@ -173,7 +176,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Fullscreen.js#L30">Core/Fullscreen.js 30</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Fullscreen.js#L30">Core/Fullscreen.js 30</a>
 </div>
 
 
@@ -184,7 +187,8 @@
 
 
 <div class="description">
-    The element that is currently fullscreen, if any.  To simply check if thebrowser is in fullscreen mode or not, use <code>Fullscreen#fullscreen</code>.
+    The element that is currently fullscreen, if any.  To simply check if the
+browser is in fullscreen mode or not, use <code>Fullscreen#fullscreen</code>.
 </div>
 
 
@@ -233,7 +237,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Fullscreen.js#L84">Core/Fullscreen.js 84</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Fullscreen.js#L84">Core/Fullscreen.js 84</a>
 </div>
 
 
@@ -244,7 +248,9 @@
 
 
 <div class="description">
-    Determine whether the browser will allow an element to be made fullscreen, or not.For example, by default, iframes cannot go fullscreen unless the containing pageadds an "allowfullscreen" attribute (or prefixed equivalent).
+    Determine whether the browser will allow an element to be made fullscreen, or not.
+For example, by default, iframes cannot go fullscreen unless the containing page
+adds an "allowfullscreen" attribute (or prefixed equivalent).
 </div>
 
 
@@ -293,7 +299,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Fullscreen.js#L66">Core/Fullscreen.js 66</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Fullscreen.js#L66">Core/Fullscreen.js 66</a>
 </div>
 
 
@@ -304,7 +310,8 @@
 
 
 <div class="description">
-    The name of the event that is fired when a fullscreen erroroccurs.  This event name is intended for use with addEventListener.
+    The name of the event that is fired when a fullscreen error
+occurs.  This event name is intended for use with addEventListener.
 </div>
 
 
@@ -353,7 +360,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Fullscreen.js#L100">Core/Fullscreen.js 100</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Fullscreen.js#L100">Core/Fullscreen.js 100</a>
 </div>
 
 
@@ -419,7 +426,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Fullscreen.js#L239">Core/Fullscreen.js 239</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Fullscreen.js#L239">Core/Fullscreen.js 239</a>
 </div>
 
 
@@ -431,7 +438,8 @@
 
 
 <div class="description">
-    Asynchronously exits fullscreen mode.  If the browser is not currentlyin fullscreen, or if fullscreen mode is not supported by the browser, does nothing.
+    Asynchronously exits fullscreen mode.  If the browser is not currently
+in fullscreen, or if fullscreen mode is not supported by the browser, does nothing.
 </div>
 
 
@@ -500,7 +508,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Fullscreen.js#L227">Core/Fullscreen.js 227</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Fullscreen.js#L227">Core/Fullscreen.js 227</a>
 </div>
 
 
@@ -512,7 +520,8 @@
 
 
 <div class="description">
-    Asynchronously requests the browser to enter fullscreen mode on the given element.If fullscreen mode is not supported by the browser, does nothing.
+    Asynchronously requests the browser to enter fullscreen mode on the given element.
+If fullscreen mode is not supported by the browser, does nothing.
 </div>
 
 
@@ -641,7 +650,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Put the entire page into fullscreen.Cesium.Fullscreen.requestFullscreen(document.body)// Place only the Cesium canvas into fullscreen.Cesium.Fullscreen.requestFullscreen(scene.canvas)</code></pre>
+    <pre><code class="language-javascript">// Put the entire page into fullscreen.
+Cesium.Fullscreen.requestFullscreen(document.body)
+
+// Place only the Cesium canvas into fullscreen.
+Cesium.Fullscreen.requestFullscreen(scene.canvas)</code></pre>
 
     
 
@@ -666,7 +679,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Fullscreen.js#L117">Core/Fullscreen.js 117</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Fullscreen.js#L117">Core/Fullscreen.js 117</a>
 </div>
 
 
@@ -705,7 +718,8 @@
 
         
 <div class="param-desc">
-    <code>true</code> if the browser supports the standard fullscreen API,<code>false</code> otherwise.
+    <code>true</code> if the browser supports the standard fullscreen API,
+<code>false</code> otherwise.
 </div>
 
 

@@ -41,13 +41,15 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/combine.js#L35">Core/combine.js 35</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/combine.js#L35">Core/combine.js 35</a>
 </div>
 
 
 
         
-            <div class="description">Merges two objects, copying their properties onto a new combined object. When two objects have the sameproperty, the value of the property on the first object is used.  If either object is undefined,it will be treated as an empty object.</div>
+            <div class="description">Merges two objects, copying their properties onto a new combined object. When two objects have the same
+property, the value of the property on the first object is used.  If either object is undefined,
+it will be treated as an empty object.</div>
         
 
         
@@ -73,7 +75,23 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var object1 = {    propOne : 1,    propTwo : {        value1 : 10    }}var object2 = {    propTwo : 2}var final = Cesium.combine(object1, object2);// final === {//     propOne : 1,//     propTwo : {//         value1 : 10//     }// }</code></pre>
+    <pre><code class="language-javascript">var object1 = {
+    propOne : 1,
+    propTwo : {
+        value1 : 10
+    }
+}
+var object2 = {
+    propTwo : 2
+}
+var final = Cesium.combine(object1, object2);
+
+// final === {
+//     propOne : 1,
+//     propTwo : {
+//         value1 : 10
+//     }
+// }</code></pre>
 
     
 

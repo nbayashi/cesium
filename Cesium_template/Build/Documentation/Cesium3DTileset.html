@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L138">Scene/Cesium3DTileset.js 138</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L138">Scene/Cesium3DTileset.js 138</a>
 </div>
 
 
@@ -58,7 +58,8 @@
 
 
 <div class="description">
-    A <a href="https://github.com/CesiumGS/3d-tiles/tree/master/specification">3D Tiles tileset</a>,used for streaming massive heterogeneous 3D geospatial datasets.
+    A <a href="https://github.com/CesiumGS/3d-tiles/tree/master/specification">3D Tiles tileset</a>,
+used for streaming massive heterogeneous 3D geospatial datasets.
 </div>
 
 
@@ -1981,11 +1982,30 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">var tileset = scene.primitives.add(new Cesium.Cesium3DTileset({     url : 'http://localhost:8002/tilesets/Seattle/tileset.json'}));</code></pre>
+    <pre><code class="language-javascript">var tileset = scene.primitives.add(new Cesium.Cesium3DTileset({
+     url : 'http://localhost:8002/tilesets/Seattle/tileset.json'
+}));</code></pre>
 
-    <pre><code class="language-javascript">// Common setting for the skipLevelOfDetail optimizationvar tileset = scene.primitives.add(new Cesium.Cesium3DTileset({     url : 'http://localhost:8002/tilesets/Seattle/tileset.json',     skipLevelOfDetail : true,     baseScreenSpaceError : 1024,     skipScreenSpaceErrorFactor : 16,     skipLevels : 1,     immediatelyLoadDesiredLevelOfDetail : false,     loadSiblings : false,     cullWithChildrenBounds : true}));</code></pre>
+    <pre><code class="language-javascript">// Common setting for the skipLevelOfDetail optimization
+var tileset = scene.primitives.add(new Cesium.Cesium3DTileset({
+     url : 'http://localhost:8002/tilesets/Seattle/tileset.json',
+     skipLevelOfDetail : true,
+     baseScreenSpaceError : 1024,
+     skipScreenSpaceErrorFactor : 16,
+     skipLevels : 1,
+     immediatelyLoadDesiredLevelOfDetail : false,
+     loadSiblings : false,
+     cullWithChildrenBounds : true
+}));</code></pre>
 
-    <pre><code class="language-javascript">// Common settings for the dynamicScreenSpaceError optimizationvar tileset = scene.primitives.add(new Cesium.Cesium3DTileset({     url : 'http://localhost:8002/tilesets/Seattle/tileset.json',     dynamicScreenSpaceError : true,     dynamicScreenSpaceErrorDensity : 0.00278,     dynamicScreenSpaceErrorFactor : 4.0,     dynamicScreenSpaceErrorHeightFalloff : 0.25}));</code></pre>
+    <pre><code class="language-javascript">// Common settings for the dynamicScreenSpaceError optimization
+var tileset = scene.primitives.add(new Cesium.Cesium3DTileset({
+     url : 'http://localhost:8002/tilesets/Seattle/tileset.json',
+     dynamicScreenSpaceError : true,
+     dynamicScreenSpaceErrorDensity : 0.00278,
+     dynamicScreenSpaceErrorFactor : 4.0,
+     dynamicScreenSpaceErrorHeightFalloff : 0.25
+}));</code></pre>
 
     
 
@@ -2031,7 +2051,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L494">Scene/Cesium3DTileset.js 494</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L494">Scene/Cesium3DTileset.js 494</a>
 </div>
 
 
@@ -2042,7 +2062,11 @@
 
 
 <div class="description">
-    The event fired to indicate that all tiles that meet the screen space error this frame are loaded. The tilesetis completely loaded for this view.<p>This event is fired at the end of the frame after the scene is rendered.</p>
+    The event fired to indicate that all tiles that meet the screen space error this frame are loaded. The tileset
+is completely loaded for this view.
+<p>
+This event is fired at the end of the frame after the scene is rendered.
+</p>
 </div>
 
 
@@ -2074,7 +2098,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">tileset.allTilesLoaded.addEventListener(function() {    console.log('All tiles are loaded');});</code></pre>
+    <pre><code class="language-javascript">tileset.allTilesLoaded.addEventListener(function() {
+    console.log('All tiles are loaded');
+});</code></pre>
 
     
 
@@ -2104,7 +2130,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L1030">Scene/Cesium3DTileset.js 1030</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L1030">Scene/Cesium3DTileset.js 1030</a>
 </div>
 
 
@@ -2115,7 +2141,11 @@
 
 
 <div class="description">
-    Gets the tileset's asset object property, which contains metadata about the tileset.<p>See the <a href="https://github.com/CesiumGS/3d-tiles/tree/master/specification#reference-asset">asset schema reference</a>in the 3D Tiles spec for the full set of properties.</p>
+    Gets the tileset's asset object property, which contains metadata about the tileset.
+<p>
+See the <a href="https://github.com/CesiumGS/3d-tiles/tree/master/specification#reference-asset">asset schema reference</a>
+in the 3D Tiles spec for the full set of properties.
+</p>
 </div>
 
 
@@ -2164,7 +2194,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L768">Scene/Cesium3DTileset.js 768</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L768">Scene/Cesium3DTileset.js 768</a>
 </div>
 
 
@@ -2175,7 +2205,8 @@
 
 
 <div class="description">
-    Whether to cull back-facing geometry. When true, back face culling is determinedby the glTF material's doubleSided property; when false, back face culling is disabled.
+    Whether to cull back-facing geometry. When true, back face culling is determined
+by the glTF material's doubleSided property; when false, back face culling is disabled.
 </div>
 
 
@@ -2227,7 +2258,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L1206">Scene/Cesium3DTileset.js 1206</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L1206">Scene/Cesium3DTileset.js 1206</a>
 </div>
 
 
@@ -2292,7 +2323,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L645">Scene/Cesium3DTileset.js 645</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L645">Scene/Cesium3DTileset.js 645</a>
 </div>
 
 
@@ -2303,7 +2334,10 @@
 
 
 <div class="description">
-    The screen space error that must be reached before skipping levels of detail.<p>Only used when <a href="Cesium3DTileset.html#skipLevelOfDetail"><code>Cesium3DTileset#skipLevelOfDetail</code></a> is <code>true</code>.</p>
+    The screen space error that must be reached before skipping levels of detail.
+<p>
+Only used when <a href="Cesium3DTileset.html#skipLevelOfDetail"><code>Cesium3DTileset#skipLevelOfDetail</code></a> is <code>true</code>.
+</p>
 </div>
 
 
@@ -2355,7 +2389,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L1384">Scene/Cesium3DTileset.js 1384</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L1384">Scene/Cesium3DTileset.js 1384</a>
 </div>
 
 
@@ -2395,7 +2429,14 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var tileset = viewer.scene.primitives.add(new Cesium.Cesium3DTileset({    url : 'http://localhost:8002/tilesets/Seattle/tileset.json'}));tileset.readyPromise.then(function(tileset) {    // Set the camera to view the newly added tileset    viewer.camera.viewBoundingSphere(tileset.boundingSphere, new Cesium.HeadingPitchRange(0, -0.5, 0));});</code></pre>
+    <pre><code class="language-javascript">var tileset = viewer.scene.primitives.add(new Cesium.Cesium3DTileset({
+    url : 'http://localhost:8002/tilesets/Seattle/tileset.json'
+}));
+
+tileset.readyPromise.then(function(tileset) {
+    // Set the camera to view the newly added tileset
+    viewer.camera.viewBoundingSphere(tileset.boundingSphere, new Cesium.HeadingPitchRange(0, -0.5, 0));
+});</code></pre>
 
     
 
@@ -2420,7 +2461,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L1530">Scene/Cesium3DTileset.js 1530</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L1530">Scene/Cesium3DTileset.js 1530</a>
 </div>
 
 
@@ -2431,7 +2472,23 @@
 
 
 <div class="description">
-    Determines whether terrain, 3D Tiles or both will be classified by this tileset.<p>This option is only applied to tilesets containing batched 3D models, geometry data, or vector data. Even when undefined, vector data and geometry datamust render as classifications and will default to rendering on both terrain and other 3D Tiles tilesets.</p><p>When enabled for batched 3D model tilesets, there are a few requirements/limitations on the glTF:<ul>    <li>POSITION and _BATCHID semantics are required.</li>    <li>All indices with the same batch id must occupy contiguous sections of the index buffer.</li>    <li>All shaders and techniques are ignored. The generated shader simply multiplies the position by the model-view-projection matrix.</li>    <li>The only supported extensions are CESIUM_RTC and WEB3D_quantized_attributes.</li>    <li>Only one node is supported.</li>    <li>Only one mesh per node is supported.</li>    <li>Only one primitive per mesh is supported.</li></ul></p>
+    Determines whether terrain, 3D Tiles or both will be classified by this tileset.
+<p>
+This option is only applied to tilesets containing batched 3D models, geometry data, or vector data. Even when undefined, vector data and geometry data
+must render as classifications and will default to rendering on both terrain and other 3D Tiles tilesets.
+</p>
+<p>
+When enabled for batched 3D model tilesets, there are a few requirements/limitations on the glTF:
+<ul>
+    <li>POSITION and _BATCHID semantics are required.</li>
+    <li>All indices with the same batch id must occupy contiguous sections of the index buffer.</li>
+    <li>All shaders and techniques are ignored. The generated shader simply multiplies the position by the model-view-projection matrix.</li>
+    <li>The only supported extensions are CESIUM_RTC and WEB3D_quantized_attributes.</li>
+    <li>Only one node is supported.</li>
+    <li>Only one mesh per node is supported.</li>
+    <li>Only one primitive per mesh is supported.</li>
+</ul>
+</p>
 </div>
 
 
@@ -2490,7 +2547,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L1075">Scene/Cesium3DTileset.js 1075</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L1075">Scene/Cesium3DTileset.js 1075</a>
 </div>
 
 
@@ -2550,7 +2607,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L440">Scene/Cesium3DTileset.js 440</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L440">Scene/Cesium3DTileset.js 440</a>
 </div>
 
 
@@ -2561,7 +2618,9 @@
 
 
 <div class="description">
-    Defines the value used to linearly interpolate between the source color and feature color when the <a href="Cesium3DTileset.html#colorBlendMode"><code>Cesium3DTileset#colorBlendMode</code></a> is <code>MIX</code>.A value of 0.0 results in the source color while a value of 1.0 results in the feature color, with any value in-betweenresulting in a mix of the source color and feature color.
+    Defines the value used to linearly interpolate between the source color and feature color when the <a href="Cesium3DTileset.html#colorBlendMode"><code>Cesium3DTileset#colorBlendMode</code></a> is <code>MIX</code>.
+A value of 0.0 results in the source color while a value of 1.0 results in the feature color, with any value in-between
+resulting in a mix of the source color and feature color.
 </div>
 
 
@@ -2613,7 +2672,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L430">Scene/Cesium3DTileset.js 430</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L430">Scene/Cesium3DTileset.js 430</a>
 </div>
 
 
@@ -2624,7 +2683,8 @@
 
 
 <div class="description">
-    Defines how per-feature colors set from the Cesium API or declarative styling blend with the source colors fromthe original feature, e.g. glTF material or per-point color in the tile.
+    Defines how per-feature colors set from the Cesium API or declarative styling blend with the source colors from
+the original feature, e.g. glTF material or per-point color in the tile.
 </div>
 
 
@@ -2676,7 +2736,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L225">Scene/Cesium3DTileset.js 225</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L225">Scene/Cesium3DTileset.js 225</a>
 </div>
 
 
@@ -2739,7 +2799,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L237">Scene/Cesium3DTileset.js 237</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L237">Scene/Cesium3DTileset.js 237</a>
 </div>
 
 
@@ -2802,7 +2862,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L794">Scene/Cesium3DTileset.js 794</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L794">Scene/Cesium3DTileset.js 794</a>
 </div>
 
 
@@ -2813,7 +2873,12 @@
 
 
 <div class="description">
-    This property is for debugging only; it is not optimized for production use.<p>When true, assigns a random color to each tile.  This is useful for visualizingwhat features belong to what tiles, especially with additive refinement where featuresfrom parent tiles may be interleaved with features from child tiles.</p>
+    This property is for debugging only; it is not optimized for production use.
+<p>
+When true, assigns a random color to each tile.  This is useful for visualizing
+what features belong to what tiles, especially with additive refinement where features
+from parent tiles may be interleaved with features from child tiles.
+</p>
 </div>
 
 
@@ -2865,7 +2930,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L781">Scene/Cesium3DTileset.js 781</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L781">Scene/Cesium3DTileset.js 781</a>
 </div>
 
 
@@ -2876,7 +2941,12 @@
 
 
 <div class="description">
-    This property is for debugging only; it is not optimized for production use.<p>Determines if only the tiles from last frame should be used for rendering.  Thiseffectively "freezes" the tileset to the previous frame so it is possible to zoomout and see what was rendered.</p>
+    This property is for debugging only; it is not optimized for production use.
+<p>
+Determines if only the tiles from last frame should be used for rendering.  This
+effectively "freezes" the tileset to the previous frame so it is possible to zoom
+out and see what was rendered.
+</p>
 </div>
 
 
@@ -2928,7 +2998,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L818">Scene/Cesium3DTileset.js 818</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L818">Scene/Cesium3DTileset.js 818</a>
 </div>
 
 
@@ -2939,7 +3009,12 @@
 
 
 <div class="description">
-    This property is for debugging only; it is not optimized for production use.<p>When true, renders the bounding volume for each visible tile.  The bounding volume iswhite if the tile has a content bounding volume or is empty; otherwise, it is red.  Tiles that don't meet thescreen space error and are still refining to their descendants are yellow.</p>
+    This property is for debugging only; it is not optimized for production use.
+<p>
+When true, renders the bounding volume for each visible tile.  The bounding volume is
+white if the tile has a content bounding volume or is empty; otherwise, it is red.  Tiles that don't meet the
+screen space error and are still refining to their descendants are yellow.
+</p>
 </div>
 
 
@@ -2991,7 +3066,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L833">Scene/Cesium3DTileset.js 833</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L833">Scene/Cesium3DTileset.js 833</a>
 </div>
 
 
@@ -3002,7 +3077,11 @@
 
 
 <div class="description">
-    This property is for debugging only; it is not optimized for production use.<p>When true, renders the bounding volume for each visible tile's content. The bounding volume isblue if the tile has a content bounding volume; otherwise it is red.</p>
+    This property is for debugging only; it is not optimized for production use.
+<p>
+When true, renders the bounding volume for each visible tile's content. The bounding volume is
+blue if the tile has a content bounding volume; otherwise it is red.
+</p>
 </div>
 
 
@@ -3054,7 +3133,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L866">Scene/Cesium3DTileset.js 866</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L866">Scene/Cesium3DTileset.js 866</a>
 </div>
 
 
@@ -3065,7 +3144,10 @@
 
 
 <div class="description">
-    This property is for debugging only; it is not optimized for production use.<p>When true, draws labels to indicate the geometric error of each tile.</p>
+    This property is for debugging only; it is not optimized for production use.
+<p>
+When true, draws labels to indicate the geometric error of each tile.
+</p>
 </div>
 
 
@@ -3117,7 +3199,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L894">Scene/Cesium3DTileset.js 894</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L894">Scene/Cesium3DTileset.js 894</a>
 </div>
 
 
@@ -3128,7 +3210,10 @@
 
 
 <div class="description">
-    This property is for debugging only; it is not optimized for production use.<p>When true, draws labels to indicate the geometry and texture memory usage of each tile.</p>
+    This property is for debugging only; it is not optimized for production use.
+<p>
+When true, draws labels to indicate the geometry and texture memory usage of each tile.
+</p>
 </div>
 
 
@@ -3180,7 +3265,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L880">Scene/Cesium3DTileset.js 880</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L880">Scene/Cesium3DTileset.js 880</a>
 </div>
 
 
@@ -3191,7 +3276,10 @@
 
 
 <div class="description">
-    This property is for debugging only; it is not optimized for production use.<p>When true, draws labels to indicate the number of commands, points, triangles and features of each tile.</p>
+    This property is for debugging only; it is not optimized for production use.
+<p>
+When true, draws labels to indicate the number of commands, points, triangles and features of each tile.
+</p>
 </div>
 
 
@@ -3243,7 +3331,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L905">Scene/Cesium3DTileset.js 905</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L905">Scene/Cesium3DTileset.js 905</a>
 </div>
 
 
@@ -3254,7 +3342,10 @@
 
 
 <div class="description">
-    This property is for debugging only; it is not optimized for production use.<p>When true, draws labels to indicate the url of each tile.</p>
+    This property is for debugging only; it is not optimized for production use.
+<p>
+When true, draws labels to indicate the url of each tile.
+</p>
 </div>
 
 
@@ -3306,7 +3397,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L847">Scene/Cesium3DTileset.js 847</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L847">Scene/Cesium3DTileset.js 847</a>
 </div>
 
 
@@ -3317,7 +3408,10 @@
 
 
 <div class="description">
-    This property is for debugging only; it is not optimized for production use.<p>When true, renders the viewer request volume for each tile.</p>
+    This property is for debugging only; it is not optimized for production use.
+<p>
+When true, renders the viewer request volume for each tile.
+</p>
 </div>
 
 
@@ -3369,7 +3463,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L805">Scene/Cesium3DTileset.js 805</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L805">Scene/Cesium3DTileset.js 805</a>
 </div>
 
 
@@ -3380,7 +3474,10 @@
 
 
 <div class="description">
-    This property is for debugging only; it is not optimized for production use.<p>When true, renders each tile's content as a wireframe.</p>
+    This property is for debugging only; it is not optimized for production use.
+<p>
+When true, renders each tile's content as a wireframe.
+</p>
 </div>
 
 
@@ -3432,7 +3529,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L312">Scene/Cesium3DTileset.js 312</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L312">Scene/Cesium3DTileset.js 312</a>
 </div>
 
 
@@ -3443,7 +3540,11 @@
 
 
 <div class="description">
-    Optimization option. Whether the tileset should refine based on a dynamic screen space error. Tiles that are furtheraway will be rendered with lower detail than closer tiles. This improves performance by rendering fewertiles and making less requests, but may result in a slight drop in visual quality for tiles in the distance.The algorithm is biased towards "street views" where the camera is close to the ground plane of the tileset and lookingat the horizon. In addition results are more accurate for tightly fitting bounding volumes like box and region.
+    Optimization option. Whether the tileset should refine based on a dynamic screen space error. Tiles that are further
+away will be rendered with lower detail than closer tiles. This improves performance by rendering fewer
+tiles and making less requests, but may result in a slight drop in visual quality for tiles in the distance.
+The algorithm is biased towards "street views" where the camera is close to the ground plane of the tileset and looking
+at the horizon. In addition results are more accurate for tightly fitting bounding volumes like box and region.
 </div>
 
 
@@ -3495,7 +3596,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L375">Scene/Cesium3DTileset.js 375</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L375">Scene/Cesium3DTileset.js 375</a>
 </div>
 
 
@@ -3506,7 +3607,19 @@
 
 
 <div class="description">
-    A scalar that determines the density used to adjust the dynamic screen space error, similar to <a href="Fog.html"><code>Fog</code></a>. Increasing thisvalue has the effect of increasing the maximum screen space error for all tiles, but in a non-linear fashion.The error starts at 0.0 and increases exponentially until a midpoint is reached, and then approaches 1.0 asymptotically.This has the effect of keeping high detail in the closer tiles and lower detail in the further tiles, with all tilesbeyond a certain distance all roughly having an error of 1.0.<p>The dynamic error is in the range [0.0, 1.0) and is multiplied by <code>dynamicScreenSpaceErrorFactor</code> to produce thefinal dynamic error. This dynamic error is then subtracted from the tile's actual screen space error.</p><p>Increasing <code>dynamicScreenSpaceErrorDensity</code> has the effect of moving the error midpoint closer to the camera.It is analogous to moving fog closer to the camera.</p>
+    A scalar that determines the density used to adjust the dynamic screen space error, similar to <a href="Fog.html"><code>Fog</code></a>. Increasing this
+value has the effect of increasing the maximum screen space error for all tiles, but in a non-linear fashion.
+The error starts at 0.0 and increases exponentially until a midpoint is reached, and then approaches 1.0 asymptotically.
+This has the effect of keeping high detail in the closer tiles and lower detail in the further tiles, with all tiles
+beyond a certain distance all roughly having an error of 1.0.
+<p>
+The dynamic error is in the range [0.0, 1.0) and is multiplied by <code>dynamicScreenSpaceErrorFactor</code> to produce the
+final dynamic error. This dynamic error is then subtracted from the tile's actual screen space error.
+</p>
+<p>
+Increasing <code>dynamicScreenSpaceErrorDensity</code> has the effect of moving the error midpoint closer to the camera.
+It is analogous to moving fog closer to the camera.
+</p>
 </div>
 
 
@@ -3558,7 +3671,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L384">Scene/Cesium3DTileset.js 384</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L384">Scene/Cesium3DTileset.js 384</a>
 </div>
 
 
@@ -3569,7 +3682,8 @@
 
 
 <div class="description">
-    A factor used to increase the screen space error of tiles for dynamic screen space error. As this value increases less tilesare requested for rendering and tiles in the distance will have lower detail. If set to zero, the feature will be disabled.
+    A factor used to increase the screen space error of tiles for dynamic screen space error. As this value increases less tiles
+are requested for rendering and tiles in the distance will have lower detail. If set to zero, the feature will be disabled.
 </div>
 
 
@@ -3621,7 +3735,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L397">Scene/Cesium3DTileset.js 397</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L397">Scene/Cesium3DTileset.js 397</a>
 </div>
 
 
@@ -3632,7 +3746,12 @@
 
 
 <div class="description">
-    A ratio of the tileset's height at which the density starts to falloff. If the camera is below this height thefull computed density is applied, otherwise the density falls off. This has the effect of higher density atstreet level views.<p>Valid values are between 0.0 and 1.0.</p>
+    A ratio of the tileset's height at which the density starts to falloff. If the camera is below this height the
+full computed density is applied, otherwise the density falls off. This has the effect of higher density at
+street level views.
+<p>
+Valid values are between 0.0 and 1.0.
+</p>
 </div>
 
 
@@ -3684,7 +3803,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L1544">Scene/Cesium3DTileset.js 1544</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L1544">Scene/Cesium3DTileset.js 1544</a>
 </div>
 
 
@@ -3744,7 +3863,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L914">Scene/Cesium3DTileset.js 914</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L914">Scene/Cesium3DTileset.js 914</a>
 </div>
 
 
@@ -3811,7 +3930,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L1054">Scene/Cesium3DTileset.js 1054</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L1054">Scene/Cesium3DTileset.js 1054</a>
 </div>
 
 
@@ -3871,7 +3990,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L1618">Scene/Cesium3DTileset.js 1618</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L1618">Scene/Cesium3DTileset.js 1618</a>
 </div>
 
 
@@ -3882,7 +4001,8 @@
 
 
 <div class="description">
-    Returns the <code>extras</code> property at the top-level of the tileset JSON, which contains application specific metadata.Returns <code>undefined</code> if <code>extras</code> does not exist.
+    Returns the <code>extras</code> property at the top-level of the tileset JSON, which contains application specific metadata.
+Returns <code>undefined</code> if <code>extras</code> does not exist.
 </div>
 
 
@@ -3936,7 +4056,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L1560">Scene/Cesium3DTileset.js 1560</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L1560">Scene/Cesium3DTileset.js 1560</a>
 </div>
 
 
@@ -3947,7 +4067,9 @@
 
 
 <div class="description">
-    Optimization option. Used when <a href="Cesium3DTileset.html#foveatedScreenSpaceError"><code>Cesium3DTileset#foveatedScreenSpaceError</code></a> is true to control the cone size that determines which tiles are deferred.Tiles that are inside this cone are loaded immediately. Tiles outside the cone are potentially deferred based on how far outside the cone they are and <a href="Cesium3DTileset.html#foveatedInterpolationCallback"><code>Cesium3DTileset#foveatedInterpolationCallback</code></a> and <a href="Cesium3DTileset.html#foveatedMinimumScreenSpaceErrorRelaxation"><code>Cesium3DTileset#foveatedMinimumScreenSpaceErrorRelaxation</code></a>.Setting this to 0.0 means the cone will be the line formed by the camera position and its view direction. Setting this to 1.0 means the cone encompasses the entire field of view of the camera, essentially disabling the effect.
+    Optimization option. Used when <a href="Cesium3DTileset.html#foveatedScreenSpaceError"><code>Cesium3DTileset#foveatedScreenSpaceError</code></a> is true to control the cone size that determines which tiles are deferred.
+Tiles that are inside this cone are loaded immediately. Tiles outside the cone are potentially deferred based on how far outside the cone they are and <a href="Cesium3DTileset.html#foveatedInterpolationCallback"><code>Cesium3DTileset#foveatedInterpolationCallback</code></a> and <a href="Cesium3DTileset.html#foveatedMinimumScreenSpaceErrorRelaxation"><code>Cesium3DTileset#foveatedMinimumScreenSpaceErrorRelaxation</code></a>.
+Setting this to 0.0 means the cone will be the line formed by the camera position and its view direction. Setting this to 1.0 means the cone encompasses the entire field of view of the camera, essentially disabling the effect.
 </div>
 
 
@@ -3999,7 +4121,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L341">Scene/Cesium3DTileset.js 341</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L341">Scene/Cesium3DTileset.js 341</a>
 </div>
 
 
@@ -4010,7 +4132,8 @@
 
 
 <div class="description">
-    Gets or sets a callback to control how much to raise the screen space error for tiles outside the foveated cone,interpolating between <a href="Cesium3DTileset.html#foveatedMinimumScreenSpaceErrorRelaxation"><code>Cesium3DTileset#foveatedMinimumScreenSpaceErrorRelaxation</code></a> and <a href="Cesium3DTileset.html#maximumScreenSpaceError"><code>Cesium3DTileset#maximumScreenSpaceError</code></a>.
+    Gets or sets a callback to control how much to raise the screen space error for tiles outside the foveated cone,
+interpolating between <a href="Cesium3DTileset.html#foveatedMinimumScreenSpaceErrorRelaxation"><code>Cesium3DTileset#foveatedMinimumScreenSpaceErrorRelaxation</code></a> and <a href="Cesium3DTileset.html#maximumScreenSpaceError"><code>Cesium3DTileset#maximumScreenSpaceError</code></a>.
 </div>
 
 
@@ -4059,7 +4182,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L1583">Scene/Cesium3DTileset.js 1583</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L1583">Scene/Cesium3DTileset.js 1583</a>
 </div>
 
 
@@ -4070,7 +4193,8 @@
 
 
 <div class="description">
-    Optimization option. Used when <a href="Cesium3DTileset.html#foveatedScreenSpaceError"><code>Cesium3DTileset#foveatedScreenSpaceError</code></a> is true to control the starting screen space error relaxation for tiles outside the foveated cone.The screen space error will be raised starting with this value up to <a href="Cesium3DTileset.html#maximumScreenSpaceError"><code>Cesium3DTileset#maximumScreenSpaceError</code></a> based on the provided <a href="Cesium3DTileset.html#foveatedInterpolationCallback"><code>Cesium3DTileset#foveatedInterpolationCallback</code></a>.
+    Optimization option. Used when <a href="Cesium3DTileset.html#foveatedScreenSpaceError"><code>Cesium3DTileset#foveatedScreenSpaceError</code></a> is true to control the starting screen space error relaxation for tiles outside the foveated cone.
+The screen space error will be raised starting with this value up to <a href="Cesium3DTileset.html#maximumScreenSpaceError"><code>Cesium3DTileset#maximumScreenSpaceError</code></a> based on the provided <a href="Cesium3DTileset.html#foveatedInterpolationCallback"><code>Cesium3DTileset#foveatedInterpolationCallback</code></a>.
 </div>
 
 
@@ -4122,7 +4246,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L325">Scene/Cesium3DTileset.js 325</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L325">Scene/Cesium3DTileset.js 325</a>
 </div>
 
 
@@ -4133,7 +4257,9 @@
 
 
 <div class="description">
-    Optimization option. Prioritize loading tiles in the center of the screen by temporarily raising thescreen space error for tiles around the edge of the screen. Screen space error returns to normal once allthe tiles in the center of the screen as determined by the <a href="Cesium3DTileset.html#foveatedConeSize"><code>Cesium3DTileset#foveatedConeSize</code></a> are loaded.
+    Optimization option. Prioritize loading tiles in the center of the screen by temporarily raising the
+screen space error for tiles around the edge of the screen. Screen space error returns to normal once all
+the tiles in the center of the screen as determined by the <a href="Cesium3DTileset.html#foveatedConeSize"><code>Cesium3DTileset#foveatedConeSize</code></a> are loaded.
 </div>
 
 
@@ -4185,7 +4311,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L355">Scene/Cesium3DTileset.js 355</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L355">Scene/Cesium3DTileset.js 355</a>
 </div>
 
 
@@ -4196,7 +4322,10 @@
 
 
 <div class="description">
-    Optimization option. Used when <a href="Cesium3DTileset.html#foveatedScreenSpaceError"><code>Cesium3DTileset#foveatedScreenSpaceError</code></a> is true to controlhow long in seconds to wait after the camera stops moving before deferred tiles start loading in.This time delay prevents requesting tiles around the edges of the screen when the camera is moving.Setting this to 0.0 will immediately request all tiles in any given view.
+    Optimization option. Used when <a href="Cesium3DTileset.html#foveatedScreenSpaceError"><code>Cesium3DTileset#foveatedScreenSpaceError</code></a> is true to control
+how long in seconds to wait after the camera stops moving before deferred tiles start loading in.
+This time delay prevents requesting tiles around the edges of the screen when the camera is moving.
+Setting this to 0.0 will immediately request all tiles in any given view.
 </div>
 
 
@@ -4248,7 +4377,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L1641">Scene/Cesium3DTileset.js 1641</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L1641">Scene/Cesium3DTileset.js 1641</a>
 </div>
 
 
@@ -4259,7 +4388,8 @@
 
 
 <div class="description">
-    Cesium adds lighting from the earth, sky, atmosphere, and star skybox. This cartesian is used to scale the finaldiffuse and specular lighting contribution from those sources to the final color. A value of 0.0 will disable those light sources.
+    Cesium adds lighting from the earth, sky, atmosphere, and star skybox. This cartesian is used to scale the final
+diffuse and specular lighting contribution from those sources to the final color. A value of 0.0 will disable those light sources.
 </div>
 
 
@@ -4311,7 +4441,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L685">Scene/Cesium3DTileset.js 685</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L685">Scene/Cesium3DTileset.js 685</a>
 </div>
 
 
@@ -4322,7 +4452,11 @@
 
 
 <div class="description">
-    When true, only tiles that meet the maximum screen space error will ever be downloaded.Skipping factors are ignored and just the desired tiles are loaded.<p>Only used when <a href="Cesium3DTileset.html#skipLevelOfDetail"><code>Cesium3DTileset#skipLevelOfDetail</code></a> is <code>true</code>.</p>
+    When true, only tiles that meet the maximum screen space error will ever be downloaded.
+Skipping factors are ignored and just the desired tiles are loaded.
+<p>
+Only used when <a href="Cesium3DTileset.html#skipLevelOfDetail"><code>Cesium3DTileset#skipLevelOfDetail</code></a> is <code>true</code>.
+</p>
 </div>
 
 
@@ -4374,7 +4508,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L513">Scene/Cesium3DTileset.js 513</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L513">Scene/Cesium3DTileset.js 513</a>
 </div>
 
 
@@ -4385,7 +4519,11 @@
 
 
 <div class="description">
-    The event fired to indicate that all tiles that meet the screen space error this frame are loaded. This eventis fired once when all tiles in the initial view are loaded.<p>This event is fired at the end of the frame after the scene is rendered.</p>
+    The event fired to indicate that all tiles that meet the screen space error this frame are loaded. This event
+is fired once when all tiles in the initial view are loaded.
+<p>
+This event is fired at the end of the frame after the scene is rendered.
+</p>
 </div>
 
 
@@ -4417,7 +4555,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">tileset.initialTilesLoaded.addEventListener(function() {    console.log('Initial tiles are loaded');});</code></pre>
+    <pre><code class="language-javascript">tileset.initialTilesLoaded.addEventListener(function() {
+    console.log('Initial tiles are loaded');
+});</code></pre>
 
     
 
@@ -4447,7 +4587,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L721">Scene/Cesium3DTileset.js 721</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L721">Scene/Cesium3DTileset.js 721</a>
 </div>
 
 
@@ -4458,7 +4598,11 @@
 
 
 <div class="description">
-    The light color when shading models. When <code>undefined</code> the scene's light color is used instead.<p>For example, disabling additional light sources by setting <code>model.imageBasedLightingFactor = new Cartesian2(0.0, 0.0)</code> will make themodel much darker. Here, increasing the intensity of the light source will make the model brighter.</p>
+    The light color when shading models. When <code>undefined</code> the scene's light color is used instead.
+<p>
+For example, disabling additional light sources by setting <code>model.imageBasedLightingFactor = new Cartesian2(0.0, 0.0)</code> will make the
+model much darker. Here, increasing the intensity of the light source will make the model brighter.
+</p>
 </div>
 
 
@@ -4510,7 +4654,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L475">Scene/Cesium3DTileset.js 475</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L475">Scene/Cesium3DTileset.js 475</a>
 </div>
 
 
@@ -4521,7 +4665,16 @@
 
 
 <div class="description">
-    The event fired to indicate progress of loading new tiles.  This event is fired when a new tileis requested, when a requested tile is finished downloading, and when a downloaded tile has beenprocessed and is ready to render.<p>The number of pending tile requests, <code>numberOfPendingRequests</code>, and number of tilesprocessing, <code>numberOfTilesProcessing</code> are passed to the event listener.</p><p>This event is fired at the end of the frame after the scene is rendered.</p>
+    The event fired to indicate progress of loading new tiles.  This event is fired when a new tile
+is requested, when a requested tile is finished downloading, and when a downloaded tile has been
+processed and is ready to render.
+<p>
+The number of pending tile requests, <code>numberOfPendingRequests</code>, and number of tiles
+processing, <code>numberOfTilesProcessing</code> are passed to the event listener.
+</p>
+<p>
+This event is fired at the end of the frame after the scene is rendered.
+</p>
 </div>
 
 
@@ -4553,7 +4706,14 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">tileset.loadProgress.addEventListener(function(numberOfPendingRequests, numberOfTilesProcessing) {    if ((numberOfPendingRequests === 0) &amp;&amp; (numberOfTilesProcessing === 0)) {        console.log('Stopped loading');        return;    }    console.log('Loading: requests: ' + numberOfPendingRequests + ', processing: ' + numberOfTilesProcessing);});</code></pre>
+    <pre><code class="language-javascript">tileset.loadProgress.addEventListener(function(numberOfPendingRequests, numberOfTilesProcessing) {
+    if ((numberOfPendingRequests === 0) &amp;&amp; (numberOfTilesProcessing === 0)) {
+        console.log('Stopped loading');
+        return;
+    }
+
+    console.log('Loading: requests: ' + numberOfPendingRequests + ', processing: ' + numberOfTilesProcessing);
+});</code></pre>
 
     
 
@@ -4578,7 +4738,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L700">Scene/Cesium3DTileset.js 700</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L700">Scene/Cesium3DTileset.js 700</a>
 </div>
 
 
@@ -4589,7 +4749,11 @@
 
 
 <div class="description">
-    Determines whether siblings of visible tiles are always downloaded during traversal.This may be useful for ensuring that tiles are already available when the viewer turns left/right.<p>Only used when <a href="Cesium3DTileset.html#skipLevelOfDetail"><code>Cesium3DTileset#skipLevelOfDetail</code></a> is <code>true</code>.</p>
+    Determines whether siblings of visible tiles are always downloaded during traversal.
+This may be useful for ensuring that tiles are already available when the viewer turns left/right.
+<p>
+Only used when <a href="Cesium3DTileset.html#skipLevelOfDetail"><code>Cesium3DTileset#skipLevelOfDetail</code></a> is <code>true</code>.
+</p>
 </div>
 
 
@@ -4641,7 +4805,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L732">Scene/Cesium3DTileset.js 732</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L732">Scene/Cesium3DTileset.js 732</a>
 </div>
 
 
@@ -4652,7 +4816,8 @@
 
 
 <div class="description">
-    The sun's luminance at the zenith in kilo candela per meter squared to use for this model's procedural environment map.This is used when <a href="Cesium3DTileset.html#specularEnvironmentMaps"><code>Cesium3DTileset#specularEnvironmentMaps</code></a> and <a href="Cesium3DTileset.html#sphericalHarmonicCoefficients"><code>Cesium3DTileset#sphericalHarmonicCoefficients</code></a> are not defined.
+    The sun's luminance at the zenith in kilo candela per meter squared to use for this model's procedural environment map.
+This is used when <a href="Cesium3DTileset.html#specularEnvironmentMaps"><code>Cesium3DTileset#specularEnvironmentMaps</code></a> and <a href="Cesium3DTileset.html#sphericalHarmonicCoefficients"><code>Cesium3DTileset#sphericalHarmonicCoefficients</code></a> are not defined.
 </div>
 
 
@@ -4704,7 +4869,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L1327">Scene/Cesium3DTileset.js 1327</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L1327">Scene/Cesium3DTileset.js 1327</a>
 </div>
 
 
@@ -4715,7 +4880,23 @@
 
 
 <div class="description">
-    The maximum amount of GPU memory (in MB) that may be used to cache tiles. This value is estimated fromgeometry, textures, and batch table textures of loaded tiles. For point clouds, this value alsoincludes per-point metadata.<p>Tiles not in view are unloaded to enforce this.</p><p>If decreasing this value results in unloading tiles, the tiles are unloaded the next frame.</p><p>If tiles sized more than <code>maximumMemoryUsage</code> are neededto meet the desired screen space error, determined by <a href="Cesium3DTileset.html#maximumScreenSpaceError"><code>Cesium3DTileset#maximumScreenSpaceError</code></a>,for the current view, then the memory usage of the tiles loaded will exceed<code>maximumMemoryUsage</code>.  For example, if the maximum is 256 MB, but300 MB of tiles are needed to meet the screen space error, then 300 MB of tiles may be loaded.  Whenthese tiles go out of view, they will be unloaded.</p>
+    The maximum amount of GPU memory (in MB) that may be used to cache tiles. This value is estimated from
+geometry, textures, and batch table textures of loaded tiles. For point clouds, this value also
+includes per-point metadata.
+<p>
+Tiles not in view are unloaded to enforce this.
+</p>
+<p>
+If decreasing this value results in unloading tiles, the tiles are unloaded the next frame.
+</p>
+<p>
+If tiles sized more than <code>maximumMemoryUsage</code> are needed
+to meet the desired screen space error, determined by <a href="Cesium3DTileset.html#maximumScreenSpaceError"><code>Cesium3DTileset#maximumScreenSpaceError</code></a>,
+for the current view, then the memory usage of the tiles loaded will exceed
+<code>maximumMemoryUsage</code>.  For example, if the maximum is 256 MB, but
+300 MB of tiles are needed to meet the screen space error, then 300 MB of tiles may be loaded.  When
+these tiles go out of view, they will be unloaded.
+</p>
 </div>
 
 
@@ -4772,7 +4953,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L1283">Scene/Cesium3DTileset.js 1283</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L1283">Scene/Cesium3DTileset.js 1283</a>
 </div>
 
 
@@ -4783,7 +4964,17 @@
 
 
 <div class="description">
-    The maximum screen space error used to drive level of detail refinement.  This value helps determine when a tilerefines to its descendants, and therefore plays a major role in balancing performance with visual quality.<p>A tile's screen space error is roughly equivalent to the number of pixels wide that would be drawn if a sphere with aradius equal to the tile's <b>geometric error</b> were rendered at the tile's position. If this value exceeds<code>maximumScreenSpaceError</code> the tile refines to its descendants.</p><p>Depending on the tileset, <code>maximumScreenSpaceError</code> may need to be tweaked to achieve the right balance.Higher values provide better performance but lower visual quality.</p>
+    The maximum screen space error used to drive level of detail refinement.  This value helps determine when a tile
+refines to its descendants, and therefore plays a major role in balancing performance with visual quality.
+<p>
+A tile's screen space error is roughly equivalent to the number of pixels wide that would be drawn if a sphere with a
+radius equal to the tile's <b>geometric error</b> were rendered at the tile's position. If this value exceeds
+<code>maximumScreenSpaceError</code> the tile refines to its descendants.
+</p>
+<p>
+Depending on the tileset, <code>maximumScreenSpaceError</code> may need to be tweaked to achieve the right balance.
+Higher values provide better performance but lower visual quality.
+</p>
 </div>
 
 
@@ -4835,7 +5026,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L1417">Scene/Cesium3DTileset.js 1417</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L1417">Scene/Cesium3DTileset.js 1417</a>
 </div>
 
 
@@ -4878,7 +5069,14 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Adjust a tileset's height from the globe's surface.var heightOffset = 20.0;var boundingSphere = tileset.boundingSphere;var cartographic = Cesium.Cartographic.fromCartesian(boundingSphere.center);var surface = Cesium.Cartesian3.fromRadians(cartographic.longitude, cartographic.latitude, 0.0);var offset = Cesium.Cartesian3.fromRadians(cartographic.longitude, cartographic.latitude, heightOffset);var translation = Cesium.Cartesian3.subtract(offset, surface, new Cesium.Cartesian3());tileset.modelMatrix = Cesium.Matrix4.fromTranslation(translation);</code></pre>
+    <pre><code class="language-javascript">// Adjust a tileset's height from the globe's surface.
+var heightOffset = 20.0;
+var boundingSphere = tileset.boundingSphere;
+var cartographic = Cesium.Cartographic.fromCartesian(boundingSphere.center);
+var surface = Cesium.Cartesian3.fromRadians(cartographic.longitude, cartographic.latitude, 0.0);
+var offset = Cesium.Cartesian3.fromRadians(cartographic.longitude, cartographic.latitude, heightOffset);
+var translation = Cesium.Cartesian3.subtract(offset, surface, new Cesium.Cartesian3());
+tileset.modelMatrix = Cesium.Matrix4.fromTranslation(translation);</code></pre>
 
     
 
@@ -4903,7 +5101,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L446">Scene/Cesium3DTileset.js 446</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L446">Scene/Cesium3DTileset.js 446</a>
 </div>
 
 
@@ -4963,7 +5161,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L260">Scene/Cesium3DTileset.js 260</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L260">Scene/Cesium3DTileset.js 260</a>
 </div>
 
 
@@ -5026,7 +5224,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L296">Scene/Cesium3DTileset.js 296</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L296">Scene/Cesium3DTileset.js 296</a>
 </div>
 
 
@@ -5089,7 +5287,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L288">Scene/Cesium3DTileset.js 288</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L288">Scene/Cesium3DTileset.js 288</a>
 </div>
 
 
@@ -5152,7 +5350,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L248">Scene/Cesium3DTileset.js 248</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L248">Scene/Cesium3DTileset.js 248</a>
 </div>
 
 
@@ -5215,7 +5413,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L1105">Scene/Cesium3DTileset.js 1105</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L1105">Scene/Cesium3DTileset.js 1105</a>
 </div>
 
 
@@ -5226,7 +5424,11 @@
 
 
 <div class="description">
-    Gets the tileset's properties dictionary object, which contains metadata about per-feature properties.<p>See the <a href="https://github.com/CesiumGS/3d-tiles/tree/master/specification#reference-properties">properties schema reference</a>in the 3D Tiles spec for the full set of properties.</p>
+    Gets the tileset's properties dictionary object, which contains metadata about per-feature properties.
+<p>
+See the <a href="https://github.com/CesiumGS/3d-tiles/tree/master/specification#reference-properties">properties schema reference</a>
+in the 3D Tiles spec for the full set of properties.
+</p>
 </div>
 
 
@@ -5255,7 +5457,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">console.log('Maximum building height: ' + tileset.properties.height.maximum);console.log('Minimum building height: ' + tileset.properties.height.minimum);</code></pre>
+    <pre><code class="language-javascript">console.log('Maximum building height: ' + tileset.properties.height.maximum);
+console.log('Minimum building height: ' + tileset.properties.height.minimum);</code></pre>
 
     
 
@@ -5287,7 +5490,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L1130">Scene/Cesium3DTileset.js 1130</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L1130">Scene/Cesium3DTileset.js 1130</a>
 </div>
 
 
@@ -5298,7 +5501,8 @@
 
 
 <div class="description">
-    When <code>true</code>, the tileset's root tile is loaded and the tileset is ready to render.This is set to <code>true</code> right before <a href="Cesium3DTileset.html#readyPromise"><code>Cesium3DTileset#readyPromise</code></a> is resolved.
+    When <code>true</code>, the tileset's root tile is loaded and the tileset is ready to render.
+This is set to <code>true</code> right before <a href="Cesium3DTileset.html#readyPromise"><code>Cesium3DTileset#readyPromise</code></a> is resolved.
 </div>
 
 
@@ -5350,7 +5554,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L1158">Scene/Cesium3DTileset.js 1158</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L1158">Scene/Cesium3DTileset.js 1158</a>
 </div>
 
 
@@ -5361,7 +5565,10 @@
 
 
 <div class="description">
-    Gets the promise that will be resolved when the tileset's root tile is loaded and the tileset is ready to render.<p>This promise is resolved at the end of the frame before the first frame the tileset is rendered in.</p>
+    Gets the promise that will be resolved when the tileset's root tile is loaded and the tileset is ready to render.
+<p>
+This promise is resolved at the end of the frame before the first frame the tileset is rendered in.
+</p>
 </div>
 
 
@@ -5390,7 +5597,15 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">tileset.readyPromise.then(function(tileset) {    // tile.properties is not defined until readyPromise resolves.    var properties = tileset.properties;    if (Cesium.defined(properties)) {        for (var name in properties) {            console.log(properties[name]);        }    }});</code></pre>
+    <pre><code class="language-javascript">tileset.readyPromise.then(function(tileset) {
+    // tile.properties is not defined until readyPromise resolves.
+    var properties = tileset.properties;
+    if (Cesium.defined(properties)) {
+        for (var name in properties) {
+            console.log(properties[name]);
+        }
+    }
+});</code></pre>
 
     
 
@@ -5415,7 +5630,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L1191">Scene/Cesium3DTileset.js 1191</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L1191">Scene/Cesium3DTileset.js 1191</a>
 </div>
 
 
@@ -5475,7 +5690,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L1350">Scene/Cesium3DTileset.js 1350</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L1350">Scene/Cesium3DTileset.js 1350</a>
 </div>
 
 
@@ -5535,7 +5750,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L413">Scene/Cesium3DTileset.js 413</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L413">Scene/Cesium3DTileset.js 413</a>
 </div>
 
 
@@ -5546,7 +5761,13 @@
 
 
 <div class="description">
-    Determines whether the tileset casts or receives shadows from light sources.<p>Enabling shadows has a performance impact. A tileset that casts shadows must be rendered twice, once from the camera and again from the light's point of view.</p><p>Shadows are rendered only when <a href="Viewer.html#shadows"><code>Viewer#shadows</code></a> is <code>true</code>.</p>
+    Determines whether the tileset casts or receives shadows from light sources.
+<p>
+Enabling shadows has a performance impact. A tileset that casts shadows must be rendered twice, once from the camera and again from the light's point of view.
+</p>
+<p>
+Shadows are rendered only when <a href="Viewer.html#shadows"><code>Viewer#shadows</code></a> is <code>true</code>.
+</p>
 </div>
 
 
@@ -5598,7 +5819,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L421">Scene/Cesium3DTileset.js 421</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L421">Scene/Cesium3DTileset.js 421</a>
 </div>
 
 
@@ -5661,7 +5882,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L632">Scene/Cesium3DTileset.js 632</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L632">Scene/Cesium3DTileset.js 632</a>
 </div>
 
 
@@ -5672,7 +5893,13 @@
 
 
 <div class="description">
-    Optimization option. Determines if level of detail skipping should be applied during the traversal.<p>The common strategy for replacement-refinement traversal is to store all levels of the tree in memory and requireall children to be loaded before the parent can refine. With this optimization levels of the tree can be skippedentirely and children can be rendered alongside their parents. The tileset requires significantly less memory whenusing this optimization.</p>
+    Optimization option. Determines if level of detail skipping should be applied during the traversal.
+<p>
+The common strategy for replacement-refinement traversal is to store all levels of the tree in memory and require
+all children to be loaded before the parent can refine. With this optimization levels of the tree can be skipped
+entirely and children can be rendered alongside their parents. The tileset requires significantly less memory when
+using this optimization.
+</p>
 </div>
 
 
@@ -5724,7 +5951,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L673">Scene/Cesium3DTileset.js 673</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L673">Scene/Cesium3DTileset.js 673</a>
 </div>
 
 
@@ -5735,7 +5962,11 @@
 
 
 <div class="description">
-    Constant defining the minimum number of levels to skip when loading tiles. When it is 0, no levels are skipped.For example, if a tile is level 1, no tiles will be loaded unless they are at level greater than 2.<p>Only used when <a href="Cesium3DTileset.html#skipLevelOfDetail"><code>Cesium3DTileset#skipLevelOfDetail</code></a> is <code>true</code>.</p>
+    Constant defining the minimum number of levels to skip when loading tiles. When it is 0, no levels are skipped.
+For example, if a tile is level 1, no tiles will be loaded unless they are at level greater than 2.
+<p>
+Only used when <a href="Cesium3DTileset.html#skipLevelOfDetail"><code>Cesium3DTileset#skipLevelOfDetail</code></a> is <code>true</code>.
+</p>
 </div>
 
 
@@ -5787,7 +6018,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L658">Scene/Cesium3DTileset.js 658</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L658">Scene/Cesium3DTileset.js 658</a>
 </div>
 
 
@@ -5798,7 +6029,12 @@
 
 
 <div class="description">
-    Multiplier defining the minimum screen space error to skip.For example, if a tile has screen space error of 100, no tiles will be loaded unless theyare leaves or have a screen space error <code><= 100 / skipScreenSpaceErrorFactor</code>.<p>Only used when <a href="Cesium3DTileset.html#skipLevelOfDetail"><code>Cesium3DTileset#skipLevelOfDetail</code></a> is <code>true</code>.</p>
+    Multiplier defining the minimum screen space error to skip.
+For example, if a tile has screen space error of 100, no tiles will be loaded unless they
+are leaves or have a screen space error <code><= 100 / skipScreenSpaceErrorFactor</code>.
+<p>
+Only used when <a href="Cesium3DTileset.html#skipLevelOfDetail"><code>Cesium3DTileset#skipLevelOfDetail</code></a> is <code>true</code>.
+</p>
 </div>
 
 
@@ -5850,7 +6086,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L759">Scene/Cesium3DTileset.js 759</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L759">Scene/Cesium3DTileset.js 759</a>
 </div>
 
 
@@ -5920,7 +6156,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L750">Scene/Cesium3DTileset.js 750</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L750">Scene/Cesium3DTileset.js 750</a>
 </div>
 
 
@@ -5931,7 +6167,16 @@
 
 
 <div class="description">
-    The third order spherical harmonic coefficients used for the diffuse color of image-based lighting. When <code>undefined</code>, a diffuse irradiancecomputed from the atmosphere color is used.<p>There are nine <code>Cartesian3</code> coefficients.The order of the coefficients is: L<sub>00</sub>, L<sub>1-1</sub>, L<sub>10</sub>, L<sub>11</sub>, L<sub>2-2</sub>, L<sub>2-1</sub>, L<sub>20</sub>, L<sub>21</sub>, L<sub>22</sub></p>These values can be obtained by preprocessing the environment map using the <code>cmgen</code> tool of<a href="https://github.com/google/filament/releases">Google's Filament project</a>. This will also generate a KTX file that can besupplied to <a href="Cesium3DTileset.html#specularEnvironmentMaps"><code>Cesium3DTileset#specularEnvironmentMaps</code></a>.
+    The third order spherical harmonic coefficients used for the diffuse color of image-based lighting. When <code>undefined</code>, a diffuse irradiance
+computed from the atmosphere color is used.
+<p>
+There are nine <code>Cartesian3</code> coefficients.
+The order of the coefficients is: L<sub>00</sub>, L<sub>1-1</sub>, L<sub>10</sub>, L<sub>11</sub>, L<sub>2-2</sub>, L<sub>2-1</sub>, L<sub>20</sub>, L<sub>21</sub>, L<sub>22</sub>
+</p>
+
+These values can be obtained by preprocessing the environment map using the <code>cmgen</code> tool of
+<a href="https://github.com/google/filament/releases">Google's Filament project</a>. This will also generate a KTX file that can be
+supplied to <a href="Cesium3DTileset.html#specularEnvironmentMaps"><code>Cesium3DTileset#specularEnvironmentMaps</code></a>.
 </div>
 
 
@@ -5990,7 +6235,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L1254">Scene/Cesium3DTileset.js 1254</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L1254">Scene/Cesium3DTileset.js 1254</a>
 </div>
 
 
@@ -6001,7 +6246,19 @@
 
 
 <div class="description">
-    The style, defined using the<a href="https://github.com/CesiumGS/3d-tiles/tree/master/specification/Styling">3D Tiles Styling language</a>,applied to each feature in the tileset.<p>Assign <code>undefined</code> to remove the style, which will restore the visualappearance of the tileset to its default when no style was applied.</p><p>The style is applied to a tile before the <a href="Cesium3DTileset.html#tileVisible"><code>Cesium3DTileset#tileVisible</code></a>event is raised, so code in <code>tileVisible</code> can manually set a feature'sproperties (e.g. color and show) after the style is applied. Whena new style is assigned any manually set properties are overwritten.</p>
+    The style, defined using the
+<a href="https://github.com/CesiumGS/3d-tiles/tree/master/specification/Styling">3D Tiles Styling language</a>,
+applied to each feature in the tileset.
+<p>
+Assign <code>undefined</code> to remove the style, which will restore the visual
+appearance of the tileset to its default when no style was applied.
+</p>
+<p>
+The style is applied to a tile before the <a href="Cesium3DTileset.html#tileVisible"><code>Cesium3DTileset#tileVisible</code></a>
+event is raised, so code in <code>tileVisible</code> can manually set a feature's
+properties (e.g. color and show) after the style is applied. When
+a new style is assigned any manually set properties are overwritten.
+</p>
 </div>
 
 
@@ -6033,7 +6290,19 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">tileset.style = new Cesium.Cesium3DTileStyle({   color : {       conditions : [           ['${Height} >= 100', 'color("purple", 0.5)'],           ['${Height} >= 50', 'color("red")'],           ['true', 'color("blue")']       ]   },   show : '${Height} > 0',   meta : {       description : '"Building id ${id} has height ${Height}."'   }});</code></pre>
+    <pre><code class="language-javascript">tileset.style = new Cesium.Cesium3DTileStyle({
+   color : {
+       conditions : [
+           ['${Height} >= 100', 'color("purple", 0.5)'],
+           ['${Height} >= 50', 'color("red")'],
+           ['true', 'color("blue")']
+       ]
+   },
+   show : '${Height} > 0',
+   meta : {
+       description : '"Building id ${id} has height ${Height}."'
+   }
+});</code></pre>
 
     
 
@@ -6063,7 +6332,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L581">Scene/Cesium3DTileset.js 581</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L581">Scene/Cesium3DTileset.js 581</a>
 </div>
 
 
@@ -6074,7 +6343,16 @@
 
 
 <div class="description">
-    The event fired to indicate that a tile's content failed to load.<p>If there are no event listeners, error messages will be logged to the console.</p><p>The error object passed to the listener contains two properties:<ul><li><code>url</code>: the url of the failed tile.</li><li><code>message</code>: the error message.</li></ul>
+    The event fired to indicate that a tile's content failed to load.
+<p>
+If there are no event listeners, error messages will be logged to the console.
+</p>
+<p>
+The error object passed to the listener contains two properties:
+<ul>
+<li><code>url</code>: the url of the failed tile.</li>
+<li><code>message</code>: the error message.</li>
+</ul>
 </div>
 
 
@@ -6106,7 +6384,10 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">tileset.tileFailed.addEventListener(function(error) {    console.log('An error occurred loading tile: ' + error.url);    console.log('Error: ' + error.message);});</code></pre>
+    <pre><code class="language-javascript">tileset.tileFailed.addEventListener(function(error) {
+    console.log('An error occurred loading tile: ' + error.url);
+    console.log('Error: ' + error.message);
+});</code></pre>
 
     
 
@@ -6131,7 +6412,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L534">Scene/Cesium3DTileset.js 534</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L534">Scene/Cesium3DTileset.js 534</a>
 </div>
 
 
@@ -6142,7 +6423,15 @@
 
 
 <div class="description">
-    The event fired to indicate that a tile's content was loaded.<p>The loaded <a href="Cesium3DTile.html"><code>Cesium3DTile</code></a> is passed to the event listener.</p><p>This event is fired during the tileset traversal while the frame is being renderedso that updates to the tile take effect in the same frame.  Do not create or modifyCesium entities or primitives during the event listener.</p>
+    The event fired to indicate that a tile's content was loaded.
+<p>
+The loaded <a href="Cesium3DTile.html"><code>Cesium3DTile</code></a> is passed to the event listener.
+</p>
+<p>
+This event is fired during the tileset traversal while the frame is being rendered
+so that updates to the tile take effect in the same frame.  Do not create or modify
+Cesium entities or primitives during the event listener.
+</p>
 </div>
 
 
@@ -6174,7 +6463,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">tileset.tileLoad.addEventListener(function(tile) {    console.log('A tile was loaded.');});</code></pre>
+    <pre><code class="language-javascript">tileset.tileLoad.addEventListener(function(tile) {
+    console.log('A tile was loaded.');
+});</code></pre>
 
     
 
@@ -6199,7 +6490,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L1177">Scene/Cesium3DTileset.js 1177</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L1177">Scene/Cesium3DTileset.js 1177</a>
 </div>
 
 
@@ -6210,7 +6501,8 @@
 
 
 <div class="description">
-    When <code>true</code>, all tiles that meet the screen space error this frame are loaded. The tileset iscompletely loaded for this view.
+    When <code>true</code>, all tiles that meet the screen space error this frame are loaded. The tileset is
+completely loaded for this view.
 </div>
 
 
@@ -6267,7 +6559,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L558">Scene/Cesium3DTileset.js 558</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L558">Scene/Cesium3DTileset.js 558</a>
 </div>
 
 
@@ -6278,7 +6570,15 @@
 
 
 <div class="description">
-    The event fired to indicate that a tile's content was unloaded.<p>The unloaded <a href="Cesium3DTile.html"><code>Cesium3DTile</code></a> is passed to the event listener.</p><p>This event is fired immediately before the tile's content is unloaded while the frame is beingrendered so that the event listener has access to the tile's content.  Do not createor modify Cesium entities or primitives during the event listener.</p>
+    The event fired to indicate that a tile's content was unloaded.
+<p>
+The unloaded <a href="Cesium3DTile.html"><code>Cesium3DTile</code></a> is passed to the event listener.
+</p>
+<p>
+This event is fired immediately before the tile's content is unloaded while the frame is being
+rendered so that the event listener has access to the tile's content.  Do not create
+or modify Cesium entities or primitives during the event listener.
+</p>
 </div>
 
 
@@ -6310,7 +6610,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">tileset.tileUnload.addEventListener(function(tile) {    console.log('A tile was unloaded from the cache.');});</code></pre>
+    <pre><code class="language-javascript">tileset.tileUnload.addEventListener(function(tile) {
+    console.log('A tile was unloaded from the cache.');
+});</code></pre>
 
     
 
@@ -6342,7 +6644,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L618">Scene/Cesium3DTileset.js 618</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L618">Scene/Cesium3DTileset.js 618</a>
 </div>
 
 
@@ -6353,7 +6655,16 @@
 
 
 <div class="description">
-    This event fires once for each visible tile in a frame.  This can be used to manuallystyle a tileset.<p>The visible <a href="Cesium3DTile.html"><code>Cesium3DTile</code></a> is passed to the event listener.</p><p>This event is fired during the tileset traversal while the frame is being renderedso that updates to the tile take effect in the same frame.  Do not create or modifyCesium entities or primitives during the event listener.</p>
+    This event fires once for each visible tile in a frame.  This can be used to manually
+style a tileset.
+<p>
+The visible <a href="Cesium3DTile.html"><code>Cesium3DTile</code></a> is passed to the event listener.
+</p>
+<p>
+This event is fired during the tileset traversal while the frame is being rendered
+so that updates to the tile take effect in the same frame.  Do not create or modify
+Cesium entities or primitives during the event listener.
+</p>
 </div>
 
 
@@ -6385,9 +6696,23 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">tileset.tileVisible.addEventListener(function(tile) {    if (tile.content instanceof Cesium.Batched3DModel3DTileContent) {        console.log('A Batched 3D Model tile is visible.');    }});</code></pre>
+    <pre><code class="language-javascript">tileset.tileVisible.addEventListener(function(tile) {
+    if (tile.content instanceof Cesium.Batched3DModel3DTileContent) {
+        console.log('A Batched 3D Model tile is visible.');
+    }
+});</code></pre>
 
-    <pre><code class="language-javascript">// Apply a red style and then manually set random colors for every other feature when the tile becomes visible.tileset.style = new Cesium.Cesium3DTileStyle({    color : 'color("red")'});tileset.tileVisible.addEventListener(function(tile) {    var content = tile.content;    var featuresLength = content.featuresLength;    for (var i = 0; i &lt; featuresLength; i+=2) {        content.getFeature(i).color = Cesium.Color.fromRandom();    }});</code></pre>
+    <pre><code class="language-javascript">// Apply a red style and then manually set random colors for every other feature when the tile becomes visible.
+tileset.style = new Cesium.Cesium3DTileStyle({
+    color : 'color("red")'
+});
+tileset.tileVisible.addEventListener(function(tile) {
+    var content = tile.content;
+    var featuresLength = content.featuresLength;
+    for (var i = 0; i &lt; featuresLength; i+=2) {
+        content.getFeature(i).color = Cesium.Color.fromRandom();
+    }
+});</code></pre>
 
     
 
@@ -6412,7 +6737,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L1434">Scene/Cesium3DTileset.js 1434</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L1434">Scene/Cesium3DTileset.js 1434</a>
 </div>
 
 
@@ -6472,7 +6797,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L1452">Scene/Cesium3DTileset.js 1452</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L1452">Scene/Cesium3DTileset.js 1452</a>
 </div>
 
 
@@ -6483,7 +6808,9 @@
 
 
 <div class="description">
-    The total amount of GPU memory in bytes used by the tileset. This value is estimated fromgeometry, texture, and batch table textures of loaded tiles. For point clouds, this value alsoincludes per-point metadata.
+    The total amount of GPU memory in bytes used by the tileset. This value is estimated from
+geometry, texture, and batch table textures of loaded tiles. For point clouds, this value also
+includes per-point metadata.
 </div>
 
 
@@ -6537,7 +6864,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L1683">Scene/Cesium3DTileset.js 1683</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L1683">Scene/Cesium3DTileset.js 1683</a>
 </div>
 
 
@@ -6613,7 +6940,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L1696">Scene/Cesium3DTileset.js 1696</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L1696">Scene/Cesium3DTileset.js 1696</a>
 </div>
 
 
@@ -6625,7 +6952,8 @@
 
 
 <div class="description">
-    Provides a hook to override the method used to request the tileset jsonuseful when fetching tilesets from remote servers
+    Provides a hook to override the method used to request the tileset json
+useful when fetching tilesets from remote servers
 </div>
 
 
@@ -6751,7 +7079,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L2639">Scene/Cesium3DTileset.js 2639</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L2639">Scene/Cesium3DTileset.js 2639</a>
 </div>
 
 
@@ -6763,7 +7091,12 @@
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<br /><br />Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.
+    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
+release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+<br /><br />
+Once an object is destroyed, it should not be used; calling any function other than
+<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,
+assign the return value (<code>undefined</code>) to the object as done in the example.
 </div>
 
 
@@ -6856,7 +7189,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L2602">Scene/Cesium3DTileset.js 2602</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L2602">Scene/Cesium3DTileset.js 2602</a>
 </div>
 
 
@@ -6991,7 +7324,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L2620">Scene/Cesium3DTileset.js 2620</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L2620">Scene/Cesium3DTileset.js 2620</a>
 </div>
 
 
@@ -7003,7 +7336,10 @@
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.<br /><br />If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+    Returns true if this object was destroyed; otherwise, false.
+<br /><br />
+If this object was destroyed, it should not be used; calling any function other than
+<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
 </div>
 
 
@@ -7086,7 +7422,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L1705">Scene/Cesium3DTileset.js 1705</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L1705">Scene/Cesium3DTileset.js 1705</a>
 </div>
 
 
@@ -7098,7 +7434,8 @@
 
 
 <div class="description">
-    Marks the tileset's <a href="Cesium3DTileset.html#style"><code>Cesium3DTileset#style</code></a> as dirty, which forces allfeatures to re-evaluate the style in the next frame each is visible.
+    Marks the tileset's <a href="Cesium3DTileset.html#style"><code>Cesium3DTileset#style</code></a> as dirty, which forces all
+features to re-evaluate the style in the next frame each is visible.
 </div>
 
 
@@ -7167,7 +7504,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L2388">Scene/Cesium3DTileset.js 2388</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L2388">Scene/Cesium3DTileset.js 2388</a>
 </div>
 
 
@@ -7179,7 +7516,13 @@
 
 
 <div class="description">
-    Unloads all tiles that weren't selected the previous frame.  This can be used toexplicitly manage the tile cache and reduce the total number of tiles loaded below<a href="Cesium3DTileset.html#maximumMemoryUsage"><code>Cesium3DTileset#maximumMemoryUsage</code></a>.<p>Tile unloads occur at the next frame to keep all the WebGL delete callswithin the render loop.</p>
+    Unloads all tiles that weren't selected the previous frame.  This can be used to
+explicitly manage the tile cache and reduce the total number of tiles loaded below
+<a href="Cesium3DTileset.html#maximumMemoryUsage"><code>Cesium3DTileset#maximumMemoryUsage</code></a>.
+<p>
+Tile unloads occur at the next frame to keep all the WebGL delete calls
+within the render loop.
+</p>
 </div>
 
 
@@ -7254,7 +7597,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Cesium3DTileset.js#L2665">Scene/Cesium3DTileset.js 2665</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Cesium3DTileset.js#L2665">Scene/Cesium3DTileset.js 2665</a>
 </div>
 
 
@@ -7266,7 +7609,8 @@
 
 
 <div class="description">
-    Optimization option. Used as a callback when <a href="Cesium3DTileset.html#foveatedScreenSpaceError"><code>Cesium3DTileset#foveatedScreenSpaceError</code></a> is true to control how much to raise the screen space error for tiles outside the foveated cone,interpolating between <a href="Cesium3DTileset.html#foveatedMinimumScreenSpaceErrorRelaxation"><code>Cesium3DTileset#foveatedMinimumScreenSpaceErrorRelaxation</code></a> and <a href="Cesium3DTileset.html#maximumScreenSpaceError"><code>Cesium3DTileset#maximumScreenSpaceError</code></a>.
+    Optimization option. Used as a callback when <a href="Cesium3DTileset.html#foveatedScreenSpaceError"><code>Cesium3DTileset#foveatedScreenSpaceError</code></a> is true to control how much to raise the screen space error for tiles outside the foveated cone,
+interpolating between <a href="Cesium3DTileset.html#foveatedMinimumScreenSpaceErrorRelaxation"><code>Cesium3DTileset#foveatedMinimumScreenSpaceErrorRelaxation</code></a> and <a href="Cesium3DTileset.html#maximumScreenSpaceError"><code>Cesium3DTileset#maximumScreenSpaceError</code></a>.
 </div>
 
 

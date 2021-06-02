@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ViewportQuad.js#L26">Scene/ViewportQuad.js 26</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ViewportQuad.js#L26">Scene/ViewportQuad.js 26</a>
 </div>
 
 
@@ -189,7 +189,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var viewportQuad = new Cesium.ViewportQuad(new Cesium.BoundingRectangle(0, 0, 80, 40));viewportQuad.material.uniforms.color = new Cesium.Color(1.0, 0.0, 0.0, 1.0);</code></pre>
+    <pre><code class="language-javascript">var viewportQuad = new Cesium.ViewportQuad(new Cesium.BoundingRectangle(0, 0, 80, 40));
+viewportQuad.material.uniforms.color = new Cesium.Color(1.0, 0.0, 0.0, 1.0);</code></pre>
 
     
 
@@ -230,7 +231,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ViewportQuad.js#L73">Scene/ViewportQuad.js 73</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ViewportQuad.js#L73">Scene/ViewportQuad.js 73</a>
 </div>
 
 
@@ -241,7 +242,11 @@
 
 
 <div class="description">
-    The surface appearance of the viewport quad.  This can be one of several built-in <a href="Material.html"><code>Material</code></a> objects or a custom material, scripted with<a href="https://github.com/CesiumGS/cesium/wiki/Fabric">Fabric</a>.<p>The default material is <code>Material.ColorType</code>.</p>
+    The surface appearance of the viewport quad.  This can be one of several built-in <a href="Material.html"><code>Material</code></a> objects or a custom material, scripted with
+<a href="https://github.com/CesiumGS/cesium/wiki/Fabric">Fabric</a>.
+<p>
+The default material is <code>Material.ColorType</code>.
+</p>
 </div>
 
 
@@ -270,7 +275,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// 1. Change the color of the default material to yellowviewportQuad.material.uniforms.color = new Cesium.Color(1.0, 1.0, 0.0, 1.0);// 2. Change material to horizontal stripesviewportQuad.material = Cesium.Material.fromType(Cesium.Material.StripeType);</code></pre>
+    <pre><code class="language-javascript">// 1. Change the color of the default material to yellow
+viewportQuad.material.uniforms.color = new Cesium.Color(1.0, 1.0, 0.0, 1.0);
+
+// 2. Change material to horizontal stripes
+viewportQuad.material = Cesium.Material.fromType(Cesium.Material.StripeType);</code></pre>
 
     
 
@@ -300,7 +309,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ViewportQuad.js#L47">Scene/ViewportQuad.js 47</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ViewportQuad.js#L47">Scene/ViewportQuad.js 47</a>
 </div>
 
 
@@ -365,7 +374,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ViewportQuad.js#L33">Scene/ViewportQuad.js 33</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ViewportQuad.js#L33">Scene/ViewportQuad.js 33</a>
 </div>
 
 
@@ -434,7 +443,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ViewportQuad.js#L173">Scene/ViewportQuad.js 173</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ViewportQuad.js#L174">Scene/ViewportQuad.js 174</a>
 </div>
 
 
@@ -446,7 +455,12 @@
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<br /><br />Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.
+    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
+release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+<br /><br />
+Once an object is destroyed, it should not be used; calling any function other than
+<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,
+assign the return value (<code>undefined</code>) to the object as done in the example.
 </div>
 
 
@@ -539,7 +553,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ViewportQuad.js#L153">Scene/ViewportQuad.js 153</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ViewportQuad.js#L154">Scene/ViewportQuad.js 154</a>
 </div>
 
 
@@ -551,7 +565,10 @@
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.<br /><br />If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+    Returns true if this object was destroyed; otherwise, false.
+<br /><br />
+If this object was destroyed, it should not be used; calling any function other than
+<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
 </div>
 
 
@@ -634,7 +651,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ViewportQuad.js#L91">Scene/ViewportQuad.js 91</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ViewportQuad.js#L91">Scene/ViewportQuad.js 91</a>
 </div>
 
 
@@ -646,7 +663,12 @@
 
 
 <div class="description">
-    Called when <a href="Viewer.html"><code>Viewer</code></a> or <a href="CesiumWidget.html"><code>CesiumWidget</code></a> render the scene toget the draw commands needed to render this primitive.<p>Do not call this function directly.  This is documented just tolist the exceptions that may be propagated when the scene is rendered:</p>
+    Called when <a href="Viewer.html"><code>Viewer</code></a> or <a href="CesiumWidget.html"><code>CesiumWidget</code></a> render the scene to
+get the draw commands needed to render this primitive.
+<p>
+Do not call this function directly.  This is documented just to
+list the exceptions that may be propagated when the scene is rendered:
+</p>
 </div>
 
 

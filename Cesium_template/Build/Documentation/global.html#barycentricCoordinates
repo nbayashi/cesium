@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/barycentricCoordinates.js#L31">Core/barycentricCoordinates.js 31</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/barycentricCoordinates.js#L31">Core/barycentricCoordinates.js 31</a>
 </div>
 
 
@@ -73,7 +73,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Returns Cartesian3.UNIT_Xvar p = new Cesium.Cartesian3(-1.0, 0.0, 0.0);var b = Cesium.barycentricCoordinates(p,  new Cesium.Cartesian3(-1.0, 0.0, 0.0),  new Cesium.Cartesian3( 1.0, 0.0, 0.0),  new Cesium.Cartesian3( 0.0, 1.0, 1.0));</code></pre>
+    <pre><code class="language-javascript">// Returns Cartesian3.UNIT_X
+var p = new Cesium.Cartesian3(-1.0, 0.0, 0.0);
+var b = Cesium.barycentricCoordinates(p,
+  new Cesium.Cartesian3(-1.0, 0.0, 0.0),
+  new Cesium.Cartesian3( 1.0, 0.0, 0.0),
+  new Cesium.Cartesian3( 0.0, 1.0, 1.0));</code></pre>
 
     
 

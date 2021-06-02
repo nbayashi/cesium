@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PrimitiveCollection.js#L29">Scene/PrimitiveCollection.js 29</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PrimitiveCollection.js#L29">Scene/PrimitiveCollection.js 29</a>
 </div>
 
 
@@ -58,7 +58,9 @@
 
 
 <div class="description">
-    A collection of primitives.  This is most often used with <a href="Scene.html#primitives"><code>Scene#primitives</code></a>,but <code>PrimitiveCollection</code> is also a primitive itself so collections canbe added to collections forming a hierarchy.
+    A collection of primitives.  This is most often used with <a href="Scene.html#primitives"><code>Scene#primitives</code></a>,
+but <code>PrimitiveCollection</code> is also a primitive itself so collections can
+be added to collections forming a hierarchy.
 </div>
 
 
@@ -255,7 +257,14 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var billboards = new Cesium.BillboardCollection();var labels = new Cesium.LabelCollection();var collection = new Cesium.PrimitiveCollection();collection.add(billboards);scene.primitives.add(collection);  // Add collectionscene.primitives.add(labels);      // Add regular primitive</code></pre>
+    <pre><code class="language-javascript">var billboards = new Cesium.BillboardCollection();
+var labels = new Cesium.LabelCollection();
+
+var collection = new Cesium.PrimitiveCollection();
+collection.add(billboards);
+
+scene.primitives.add(collection);  // Add collection
+scene.primitives.add(labels);      // Add regular primitive</code></pre>
 
     
 
@@ -296,7 +305,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PrimitiveCollection.js#L70">Scene/PrimitiveCollection.js 70</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PrimitiveCollection.js#L70">Scene/PrimitiveCollection.js 70</a>
 </div>
 
 
@@ -307,7 +316,9 @@
 
 
 <div class="description">
-    Determines if primitives in the collection are destroyed when they are removed by<a href="PrimitiveCollection.html#destroy"><code>PrimitiveCollection#destroy</code></a> or  <a href="PrimitiveCollection.html#remove"><code>PrimitiveCollection#remove</code></a> or implicitlyby <a href="PrimitiveCollection.html#removeAll"><code>PrimitiveCollection#removeAll</code></a>.
+    Determines if primitives in the collection are destroyed when they are removed by
+<a href="PrimitiveCollection.html#destroy"><code>PrimitiveCollection#destroy</code></a> or  <a href="PrimitiveCollection.html#remove"><code>PrimitiveCollection#remove</code></a> or implicitly
+by <a href="PrimitiveCollection.html#removeAll"><code>PrimitiveCollection#removeAll</code></a>.
 </div>
 
 
@@ -339,9 +350,19 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Example 1. Primitives are destroyed by default.var primitives = new Cesium.PrimitiveCollection();var labels = primitives.add(new Cesium.LabelCollection());primitives = primitives.destroy();var b = labels.isDestroyed(); // true</code></pre>
+    <pre><code class="language-javascript">// Example 1. Primitives are destroyed by default.
+var primitives = new Cesium.PrimitiveCollection();
+var labels = primitives.add(new Cesium.LabelCollection());
+primitives = primitives.destroy();
+var b = labels.isDestroyed(); // true</code></pre>
 
-    <pre><code class="language-javascript">// Example 2. Do not destroy primitives in a collection.var primitives = new Cesium.PrimitiveCollection();primitives.destroyPrimitives = false;var labels = primitives.add(new Cesium.LabelCollection());primitives = primitives.destroy();var b = labels.isDestroyed(); // falselabels = labels.destroy();    // explicitly destroy</code></pre>
+    <pre><code class="language-javascript">// Example 2. Do not destroy primitives in a collection.
+var primitives = new Cesium.PrimitiveCollection();
+primitives.destroyPrimitives = false;
+var labels = primitives.add(new Cesium.LabelCollection());
+primitives = primitives.destroy();
+var b = labels.isDestroyed(); // false
+labels = labels.destroy();    // explicitly destroy</code></pre>
 
     
 
@@ -366,7 +387,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PrimitiveCollection.js#L82">Scene/PrimitiveCollection.js 82</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PrimitiveCollection.js#L82">Scene/PrimitiveCollection.js 82</a>
 </div>
 
 
@@ -426,7 +447,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PrimitiveCollection.js#L44">Scene/PrimitiveCollection.js 44</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PrimitiveCollection.js#L44">Scene/PrimitiveCollection.js 44</a>
 </div>
 
 
@@ -495,7 +516,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PrimitiveCollection.js#L101">Scene/PrimitiveCollection.js 101</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PrimitiveCollection.js#L101">Scene/PrimitiveCollection.js 101</a>
 </div>
 
 
@@ -684,7 +705,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PrimitiveCollection.js#L211">Scene/PrimitiveCollection.js 211</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PrimitiveCollection.js#L211">Scene/PrimitiveCollection.js 211</a>
 </div>
 
 
@@ -845,7 +866,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PrimitiveCollection.js#L463">Scene/PrimitiveCollection.js 463</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PrimitiveCollection.js#L463">Scene/PrimitiveCollection.js 463</a>
 </div>
 
 
@@ -857,7 +878,16 @@
 
 
 <div class="description">
-    Destroys the WebGL resources held by each primitive in this collection.  Explicitly destroying thiscollection allows for deterministic release of WebGL resources, instead of relying on the garbagecollector to destroy this collection.<br /><br />Since destroying a collection destroys all the contained primitives, only destroy a collectionwhen you are sure no other code is still using any of the contained primitives.<br /><br />Once this collection is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.
+    Destroys the WebGL resources held by each primitive in this collection.  Explicitly destroying this
+collection allows for deterministic release of WebGL resources, instead of relying on the garbage
+collector to destroy this collection.
+<br /><br />
+Since destroying a collection destroys all the contained primitives, only destroy a collection
+when you are sure no other code is still using any of the contained primitives.
+<br /><br />
+Once this collection is destroyed, it should not be used; calling any function other than
+<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,
+assign the return value (<code>undefined</code>) to the object as done in the example.
 </div>
 
 
@@ -950,7 +980,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PrimitiveCollection.js#L354">Scene/PrimitiveCollection.js 354</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PrimitiveCollection.js#L354">Scene/PrimitiveCollection.js 354</a>
 </div>
 
 
@@ -1079,7 +1109,13 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Toggle the show property of every primitive in the collection.var primitives = scene.primitives;var length = primitives.length;for (var i = 0; i &lt; length; ++i) {  var p = primitives.get(i);  p.show = !p.show;}</code></pre>
+    <pre><code class="language-javascript">// Toggle the show property of every primitive in the collection.
+var primitives = scene.primitives;
+var length = primitives.length;
+for (var i = 0; i &lt; length; ++i) {
+  var p = primitives.get(i);
+  p.show = !p.show;
+}</code></pre>
 
     
 
@@ -1109,7 +1145,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PrimitiveCollection.js#L439">Scene/PrimitiveCollection.js 439</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PrimitiveCollection.js#L439">Scene/PrimitiveCollection.js 439</a>
 </div>
 
 
@@ -1121,7 +1157,10 @@
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.<br /><br />If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+    Returns true if this object was destroyed; otherwise, false.
+<br /><br />
+If this object was destroyed, it should not be used; calling any function other than
+<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
 </div>
 
 
@@ -1204,7 +1243,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PrimitiveCollection.js#L295">Scene/PrimitiveCollection.js 295</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PrimitiveCollection.js#L295">Scene/PrimitiveCollection.js 295</a>
 </div>
 
 
@@ -1216,7 +1255,8 @@
 
 
 <div class="description">
-    Lowers a primitive "down one" in the collection.  If all primitives in the collection are drawnon the globe surface, this visually moves the primitive down one.
+    Lowers a primitive "down one" in the collection.  If all primitives in the collection are drawn
+on the globe surface, this visually moves the primitive down one.
 </div>
 
 
@@ -1371,7 +1411,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PrimitiveCollection.js#L321">Scene/PrimitiveCollection.js 321</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PrimitiveCollection.js#L321">Scene/PrimitiveCollection.js 321</a>
 </div>
 
 
@@ -1383,7 +1423,8 @@
 
 
 <div class="description">
-    Lowers a primitive to the "bottom" of the collection.  If all primitives in the collection are drawnon the globe surface, this visually moves the primitive to the bottom.
+    Lowers a primitive to the "bottom" of the collection.  If all primitives in the collection are drawn
+on the globe surface, this visually moves the primitive to the bottom.
 </div>
 
 
@@ -1538,7 +1579,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PrimitiveCollection.js#L243">Scene/PrimitiveCollection.js 243</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PrimitiveCollection.js#L243">Scene/PrimitiveCollection.js 243</a>
 </div>
 
 
@@ -1550,7 +1591,8 @@
 
 
 <div class="description">
-    Raises a primitive "up one" in the collection.  If all primitives in the collection are drawnon the globe surface, this visually moves the primitive up one.
+    Raises a primitive "up one" in the collection.  If all primitives in the collection are drawn
+on the globe surface, this visually moves the primitive up one.
 </div>
 
 
@@ -1705,7 +1747,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PrimitiveCollection.js#L269">Scene/PrimitiveCollection.js 269</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PrimitiveCollection.js#L269">Scene/PrimitiveCollection.js 269</a>
 </div>
 
 
@@ -1717,7 +1759,8 @@
 
 
 <div class="description">
-    Raises a primitive to the "top" of the collection.  If all primitives in the collection are drawnon the globe surface, this visually moves the primitive to the top.
+    Raises a primitive to the "top" of the collection.  If all primitives in the collection are drawn
+on the globe surface, this visually moves the primitive to the top.
 </div>
 
 
@@ -1872,7 +1915,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PrimitiveCollection.js#L149">Scene/PrimitiveCollection.js 149</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PrimitiveCollection.js#L149">Scene/PrimitiveCollection.js 149</a>
 </div>
 
 
@@ -2008,7 +2051,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var billboards = scene.primitives.add(new Cesium.BillboardCollection());scene.primitives.remove(billboards);  // Returns true</code></pre>
+    <pre><code class="language-javascript">var billboards = scene.primitives.add(new Cesium.BillboardCollection());
+scene.primitives.remove(billboards);  // Returns true</code></pre>
 
     
 
@@ -2038,7 +2082,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PrimitiveCollection.js#L189">Scene/PrimitiveCollection.js 189</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PrimitiveCollection.js#L189">Scene/PrimitiveCollection.js 189</a>
 </div>
 
 

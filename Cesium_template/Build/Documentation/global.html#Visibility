@@ -41,13 +41,16 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Visibility.js#L9">Core/Visibility.js 9</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Visibility.js#L9">Core/Visibility.js 9</a>
 </div>
 
 
 
         
-            <div class="description">This enumerated type is used in determining to what extent an object, the occludee,is visible during horizon culling. An occluder may fully block an occludee, in which caseit has no visibility, may partially block an occludee from view, or may not block it at all,leading to full visibility.</div>
+            <div class="description">This enumerated type is used in determining to what extent an object, the occludee,
+is visible during horizon culling. An occluder may fully block an occludee, in which case
+it has no visibility, may partially block an occludee from view, or may not block it at all,
+leading to full visibility.</div>
         
 
         
@@ -205,7 +208,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Visibility.js#L32">Core/Visibility.js 32</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Visibility.js#L32">Core/Visibility.js 32</a>
 </div>
 
 
@@ -268,7 +271,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Visibility.js#L16">Core/Visibility.js 16</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Visibility.js#L16">Core/Visibility.js 16</a>
 </div>
 
 
@@ -331,7 +334,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Visibility.js#L24">Core/Visibility.js 24</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Visibility.js#L24">Core/Visibility.js 24</a>
 </div>
 
 

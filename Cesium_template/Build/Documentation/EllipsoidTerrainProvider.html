@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/EllipsoidTerrainProvider.js#L27">Core/EllipsoidTerrainProvider.js 27</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/EllipsoidTerrainProvider.js#L27">Core/EllipsoidTerrainProvider.js 27</a>
 </div>
 
 
@@ -58,7 +58,8 @@
 
 
 <div class="description">
-    A very simple <a href="TerrainProvider.html"><code>TerrainProvider</code></a> that produces geometry by tessellating an ellipsoidalsurface.
+    A very simple <a href="TerrainProvider.html"><code>TerrainProvider</code></a> that produces geometry by tessellating an ellipsoidal
+surface.
 </div>
 
 
@@ -162,7 +163,9 @@
 
                 
             
-                The tiling scheme specifying how the ellipsoidalsurface is broken into tiles.  If this parameter is not provided, a <a href="GeographicTilingScheme.html"><code>GeographicTilingScheme</code></a>is used.</td>
+                The tiling scheme specifying how the ellipsoidal
+surface is broken into tiles.  If this parameter is not provided, a <a href="GeographicTilingScheme.html"><code>GeographicTilingScheme</code></a>
+is used.</td>
         </tr>
 
     
@@ -192,7 +195,9 @@
 
                 
             
-                The ellipsoid.  If the tilingScheme is specified,this parameter is ignored and the tiling scheme's ellipsoid is used instead. If neitherparameter is specified, the WGS84 ellipsoid is used.</td>
+                The ellipsoid.  If the tilingScheme is specified,
+this parameter is ignored and the tiling scheme's ellipsoid is used instead. If neither
+parameter is specified, the WGS84 ellipsoid is used.</td>
         </tr>
 
     
@@ -282,7 +287,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/EllipsoidTerrainProvider.js#L143">Core/EllipsoidTerrainProvider.js 143</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/EllipsoidTerrainProvider.js#L143">Core/EllipsoidTerrainProvider.js 143</a>
 </div>
 
 
@@ -293,7 +298,10 @@
 
 
 <div class="description">
-    Gets an object that can be used to determine availability of terrain from this provider, such asat points and in rectangles.  This function should not be called before<a href="TerrainProvider.html#ready"><code>TerrainProvider#ready</code></a> returns true.  This property may be undefined if availabilityinformation is not available.
+    Gets an object that can be used to determine availability of terrain from this provider, such as
+at points and in rectangles.  This function should not be called before
+<a href="TerrainProvider.html#ready"><code>TerrainProvider#ready</code></a> returns true.  This property may be undefined if availability
+information is not available.
 </div>
 
 
@@ -342,7 +350,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/EllipsoidTerrainProvider.js#L69">Core/EllipsoidTerrainProvider.js 69</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/EllipsoidTerrainProvider.js#L69">Core/EllipsoidTerrainProvider.js 69</a>
 </div>
 
 
@@ -353,7 +361,8 @@
 
 
 <div class="description">
-    Gets the credit to display when this terrain provider is active.  Typically this is used to creditthe source of the terrain.  This function should not be called before <a href="EllipsoidTerrainProvider.html#ready"><code>EllipsoidTerrainProvider#ready</code></a> returns true.
+    Gets the credit to display when this terrain provider is active.  Typically this is used to credit
+the source of the terrain.  This function should not be called before <a href="EllipsoidTerrainProvider.html#ready"><code>EllipsoidTerrainProvider#ready</code></a> returns true.
 </div>
 
 
@@ -402,7 +411,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/EllipsoidTerrainProvider.js#L57">Core/EllipsoidTerrainProvider.js 57</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/EllipsoidTerrainProvider.js#L57">Core/EllipsoidTerrainProvider.js 57</a>
 </div>
 
 
@@ -413,7 +422,9 @@
 
 
 <div class="description">
-    Gets an event that is raised when the terrain provider encounters an asynchronous error.  By subscribingto the event, you will be notified of the error and can potentially recover from it.  Event listenersare passed an instance of <a href="TileProviderError.html"><code>TileProviderError</code></a>.
+    Gets an event that is raised when the terrain provider encounters an asynchronous error.  By subscribing
+to the event, you will be notified of the error and can potentially recover from it.  Event listeners
+are passed an instance of <a href="TileProviderError.html"><code>TileProviderError</code></a>.
 </div>
 
 
@@ -462,7 +473,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/EllipsoidTerrainProvider.js#L130">Core/EllipsoidTerrainProvider.js 130</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/EllipsoidTerrainProvider.js#L130">Core/EllipsoidTerrainProvider.js 130</a>
 </div>
 
 
@@ -473,7 +484,8 @@
 
 
 <div class="description">
-    Gets a value indicating whether or not the requested tiles include vertex normals.This function should not be called before <a href="EllipsoidTerrainProvider.html#ready"><code>EllipsoidTerrainProvider#ready</code></a> returns true.
+    Gets a value indicating whether or not the requested tiles include vertex normals.
+This function should not be called before <a href="EllipsoidTerrainProvider.html#ready"><code>EllipsoidTerrainProvider#ready</code></a> returns true.
 </div>
 
 
@@ -522,7 +534,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/EllipsoidTerrainProvider.js#L118">Core/EllipsoidTerrainProvider.js 118</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/EllipsoidTerrainProvider.js#L118">Core/EllipsoidTerrainProvider.js 118</a>
 </div>
 
 
@@ -533,7 +545,10 @@
 
 
 <div class="description">
-    Gets a value indicating whether or not the provider includes a water mask.  The water maskindicates which areas of the globe are water rather than land, so they can be renderedas a reflective surface with animated waves.  This function should not becalled before <a href="EllipsoidTerrainProvider.html#ready"><code>EllipsoidTerrainProvider#ready</code></a> returns true.
+    Gets a value indicating whether or not the provider includes a water mask.  The water mask
+indicates which areas of the globe are water rather than land, so they can be rendered
+as a reflective surface with animated waves.  This function should not be
+called before <a href="EllipsoidTerrainProvider.html#ready"><code>EllipsoidTerrainProvider#ready</code></a> returns true.
 </div>
 
 
@@ -582,7 +597,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/EllipsoidTerrainProvider.js#L92">Core/EllipsoidTerrainProvider.js 92</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/EllipsoidTerrainProvider.js#L92">Core/EllipsoidTerrainProvider.js 92</a>
 </div>
 
 
@@ -642,7 +657,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/EllipsoidTerrainProvider.js#L104">Core/EllipsoidTerrainProvider.js 104</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/EllipsoidTerrainProvider.js#L104">Core/EllipsoidTerrainProvider.js 104</a>
 </div>
 
 
@@ -702,7 +717,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/EllipsoidTerrainProvider.js#L81">Core/EllipsoidTerrainProvider.js 81</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/EllipsoidTerrainProvider.js#L81">Core/EllipsoidTerrainProvider.js 81</a>
 </div>
 
 
@@ -713,7 +728,8 @@
 
 
 <div class="description">
-    Gets the tiling scheme used by this provider.  This function shouldnot be called before <a href="EllipsoidTerrainProvider.html#ready"><code>EllipsoidTerrainProvider#ready</code></a> returns true.
+    Gets the tiling scheme used by this provider.  This function should
+not be called before <a href="EllipsoidTerrainProvider.html#ready"><code>EllipsoidTerrainProvider#ready</code></a> returns true.
 </div>
 
 
@@ -768,7 +784,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/EllipsoidTerrainProvider.js#L187">Core/EllipsoidTerrainProvider.js 187</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/EllipsoidTerrainProvider.js#L187">Core/EllipsoidTerrainProvider.js 187</a>
 </div>
 
 
@@ -903,7 +919,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/EllipsoidTerrainProvider.js#L201">Core/EllipsoidTerrainProvider.js 201</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/EllipsoidTerrainProvider.js#L201">Core/EllipsoidTerrainProvider.js 201</a>
 </div>
 
 
@@ -1084,7 +1100,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/EllipsoidTerrainProvider.js#L217">Core/EllipsoidTerrainProvider.js 217</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/EllipsoidTerrainProvider.js#L217">Core/EllipsoidTerrainProvider.js 217</a>
 </div>
 
 
@@ -1265,7 +1281,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/EllipsoidTerrainProvider.js#L164">Core/EllipsoidTerrainProvider.js 164</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/EllipsoidTerrainProvider.js#L164">Core/EllipsoidTerrainProvider.js 164</a>
 </div>
 
 
@@ -1277,7 +1293,9 @@
 
 
 <div class="description">
-    Requests the geometry for a given tile.  This function should not be called before<a href="TerrainProvider.html#ready"><code>TerrainProvider#ready</code></a> returns true.  The result includes terraindata and indicates that all child tiles are available.
+    Requests the geometry for a given tile.  This function should not be called before
+<a href="TerrainProvider.html#ready"><code>TerrainProvider#ready</code></a> returns true.  The result includes terrain
+data and indicates that all child tiles are available.
 </div>
 
 
@@ -1440,7 +1458,9 @@
 
         
 <div class="param-desc">
-    A promise for the requested geometry.  If this method         returns undefined instead of a promise, it is an indication that too many requests are already         pending and the request will be retried later.
+    A promise for the requested geometry.  If this method
+         returns undefined instead of a promise, it is an indication that too many requests are already
+         pending and the request will be retried later.
 </div>
 
 

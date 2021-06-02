@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Primitive.js#L154">Scene/Primitive.js 154</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Primitive.js#L154">Scene/Primitive.js 154</a>
 </div>
 
 
@@ -58,7 +58,25 @@
 
 
 <div class="description">
-    A primitive represents geometry in the <a href="Scene.html"><code>Scene</code></a>.  The geometry can be from a single <a href="GeometryInstance.html"><code>GeometryInstance</code></a>as shown in example 1 below, or from an array of instances, even if the geometry is from differentgeometry types, e.g., an <a href="RectangleGeometry.html"><code>RectangleGeometry</code></a> and an <a href="EllipsoidGeometry.html"><code>EllipsoidGeometry</code></a> as shown in Code Example 2.<p>A primitive combines geometry instances with an <a href="Appearance.html"><code>Appearance</code></a> that describes the full shading, including<a href="Material.html"><code>Material</code></a> and <code>RenderState</code>.  Roughly, the geometry instance defines the structure and placement,and the appearance defines the visual characteristics.  Decoupling geometry and appearance allows us to mixand match most of them and add a new geometry or appearance independently of each other.</p><p>Combining multiple instances into one primitive is called batching, and significantly improves performance for static data.Instances can be individually picked; <a href="Scene.html#pick"><code>Scene#pick</code></a> returns their <a href="GeometryInstance.html#id"><code>GeometryInstance#id</code></a>.  Usingper-instance appearances like <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a>, each instance can also have a unique color.</p><p><a href="Geometry.html"><code>Geometry</code></a> can either be created and batched on a web worker or the main thread. The first two examplesshow geometry that will be created on a web worker by using the descriptions of the geometry. The third exampleshows how to create the geometry on the main thread by explicitly calling the <code>createGeometry</code> method.</p>
+    A primitive represents geometry in the <a href="Scene.html"><code>Scene</code></a>.  The geometry can be from a single <a href="GeometryInstance.html"><code>GeometryInstance</code></a>
+as shown in example 1 below, or from an array of instances, even if the geometry is from different
+geometry types, e.g., an <a href="RectangleGeometry.html"><code>RectangleGeometry</code></a> and an <a href="EllipsoidGeometry.html"><code>EllipsoidGeometry</code></a> as shown in Code Example 2.
+<p>
+A primitive combines geometry instances with an <a href="Appearance.html"><code>Appearance</code></a> that describes the full shading, including
+<a href="Material.html"><code>Material</code></a> and <code>RenderState</code>.  Roughly, the geometry instance defines the structure and placement,
+and the appearance defines the visual characteristics.  Decoupling geometry and appearance allows us to mix
+and match most of them and add a new geometry or appearance independently of each other.
+</p>
+<p>
+Combining multiple instances into one primitive is called batching, and significantly improves performance for static data.
+Instances can be individually picked; <a href="Scene.html#pick"><code>Scene#pick</code></a> returns their <a href="GeometryInstance.html#id"><code>GeometryInstance#id</code></a>.  Using
+per-instance appearances like <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a>, each instance can also have a unique color.
+</p>
+<p>
+<a href="Geometry.html"><code>Geometry</code></a> can either be created and batched on a web worker or the main thread. The first two examples
+show geometry that will be created on a web worker by using the descriptions of the geometry. The third example
+shows how to create the geometry on the main thread by explicitly calling the <code>createGeometry</code> method.
+</p>
 </div>
 
 
@@ -684,11 +702,68 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// 1. Draw a translucent ellipse on the surface with a checkerboard patternvar instance = new Cesium.GeometryInstance({  geometry : new Cesium.EllipseGeometry({      center : Cesium.Cartesian3.fromDegrees(-100.0, 20.0),      semiMinorAxis : 500000.0,      semiMajorAxis : 1000000.0,      rotation : Cesium.Math.PI_OVER_FOUR,      vertexFormat : Cesium.VertexFormat.POSITION_AND_ST  }),  id : 'object returned when this instance is picked and to get/set per-instance attributes'});scene.primitives.add(new Cesium.Primitive({  geometryInstances : instance,  appearance : new Cesium.EllipsoidSurfaceAppearance({    material : Cesium.Material.fromType('Checkerboard')  })}));</code></pre>
+    <pre><code class="language-javascript">// 1. Draw a translucent ellipse on the surface with a checkerboard pattern
+var instance = new Cesium.GeometryInstance({
+  geometry : new Cesium.EllipseGeometry({
+      center : Cesium.Cartesian3.fromDegrees(-100.0, 20.0),
+      semiMinorAxis : 500000.0,
+      semiMajorAxis : 1000000.0,
+      rotation : Cesium.Math.PI_OVER_FOUR,
+      vertexFormat : Cesium.VertexFormat.POSITION_AND_ST
+  }),
+  id : 'object returned when this instance is picked and to get/set per-instance attributes'
+});
+scene.primitives.add(new Cesium.Primitive({
+  geometryInstances : instance,
+  appearance : new Cesium.EllipsoidSurfaceAppearance({
+    material : Cesium.Material.fromType('Checkerboard')
+  })
+}));</code></pre>
 
-    <pre><code class="language-javascript">// 2. Draw different instances each with a unique colorvar rectangleInstance = new Cesium.GeometryInstance({  geometry : new Cesium.RectangleGeometry({    rectangle : Cesium.Rectangle.fromDegrees(-140.0, 30.0, -100.0, 40.0),    vertexFormat : Cesium.PerInstanceColorAppearance.VERTEX_FORMAT  }),  id : 'rectangle',  attributes : {    color : new Cesium.ColorGeometryInstanceAttribute(0.0, 1.0, 1.0, 0.5)  }});var ellipsoidInstance = new Cesium.GeometryInstance({  geometry : new Cesium.EllipsoidGeometry({    radii : new Cesium.Cartesian3(500000.0, 500000.0, 1000000.0),    vertexFormat : Cesium.VertexFormat.POSITION_AND_NORMAL  }),  modelMatrix : Cesium.Matrix4.multiplyByTranslation(Cesium.Transforms.eastNorthUpToFixedFrame(    Cesium.Cartesian3.fromDegrees(-95.59777, 40.03883)), new Cesium.Cartesian3(0.0, 0.0, 500000.0), new Cesium.Matrix4()),  id : 'ellipsoid',  attributes : {    color : Cesium.ColorGeometryInstanceAttribute.fromColor(Cesium.Color.AQUA)  }});scene.primitives.add(new Cesium.Primitive({  geometryInstances : [rectangleInstance, ellipsoidInstance],  appearance : new Cesium.PerInstanceColorAppearance()}));</code></pre>
+    <pre><code class="language-javascript">// 2. Draw different instances each with a unique color
+var rectangleInstance = new Cesium.GeometryInstance({
+  geometry : new Cesium.RectangleGeometry({
+    rectangle : Cesium.Rectangle.fromDegrees(-140.0, 30.0, -100.0, 40.0),
+    vertexFormat : Cesium.PerInstanceColorAppearance.VERTEX_FORMAT
+  }),
+  id : 'rectangle',
+  attributes : {
+    color : new Cesium.ColorGeometryInstanceAttribute(0.0, 1.0, 1.0, 0.5)
+  }
+});
+var ellipsoidInstance = new Cesium.GeometryInstance({
+  geometry : new Cesium.EllipsoidGeometry({
+    radii : new Cesium.Cartesian3(500000.0, 500000.0, 1000000.0),
+    vertexFormat : Cesium.VertexFormat.POSITION_AND_NORMAL
+  }),
+  modelMatrix : Cesium.Matrix4.multiplyByTranslation(Cesium.Transforms.eastNorthUpToFixedFrame(
+    Cesium.Cartesian3.fromDegrees(-95.59777, 40.03883)), new Cesium.Cartesian3(0.0, 0.0, 500000.0), new Cesium.Matrix4()),
+  id : 'ellipsoid',
+  attributes : {
+    color : Cesium.ColorGeometryInstanceAttribute.fromColor(Cesium.Color.AQUA)
+  }
+});
+scene.primitives.add(new Cesium.Primitive({
+  geometryInstances : [rectangleInstance, ellipsoidInstance],
+  appearance : new Cesium.PerInstanceColorAppearance()
+}));</code></pre>
 
-    <pre><code class="language-javascript">// 3. Create the geometry on the main thread.scene.primitives.add(new Cesium.Primitive({  geometryInstances : new Cesium.GeometryInstance({      geometry : Cesium.EllipsoidGeometry.createGeometry(new Cesium.EllipsoidGeometry({        radii : new Cesium.Cartesian3(500000.0, 500000.0, 1000000.0),        vertexFormat : Cesium.VertexFormat.POSITION_AND_NORMAL      })),      modelMatrix : Cesium.Matrix4.multiplyByTranslation(Cesium.Transforms.eastNorthUpToFixedFrame(        Cesium.Cartesian3.fromDegrees(-95.59777, 40.03883)), new Cesium.Cartesian3(0.0, 0.0, 500000.0), new Cesium.Matrix4()),      id : 'ellipsoid',      attributes : {        color : Cesium.ColorGeometryInstanceAttribute.fromColor(Cesium.Color.AQUA)      }  }),  appearance : new Cesium.PerInstanceColorAppearance()}));</code></pre>
+    <pre><code class="language-javascript">// 3. Create the geometry on the main thread.
+scene.primitives.add(new Cesium.Primitive({
+  geometryInstances : new Cesium.GeometryInstance({
+      geometry : Cesium.EllipsoidGeometry.createGeometry(new Cesium.EllipsoidGeometry({
+        radii : new Cesium.Cartesian3(500000.0, 500000.0, 1000000.0),
+        vertexFormat : Cesium.VertexFormat.POSITION_AND_NORMAL
+      })),
+      modelMatrix : Cesium.Matrix4.multiplyByTranslation(Cesium.Transforms.eastNorthUpToFixedFrame(
+        Cesium.Cartesian3.fromDegrees(-95.59777, 40.03883)), new Cesium.Cartesian3(0.0, 0.0, 500000.0), new Cesium.Matrix4()),
+      id : 'ellipsoid',
+      attributes : {
+        color : Cesium.ColorGeometryInstanceAttribute.fromColor(Cesium.Color.AQUA)
+      }
+  }),
+  appearance : new Cesium.PerInstanceColorAppearance()
+}));</code></pre>
 
     
 
@@ -740,7 +815,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Primitive.js#L425">Scene/Primitive.js 425</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Primitive.js#L425">Scene/Primitive.js 425</a>
 </div>
 
 
@@ -803,7 +878,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Primitive.js#L182">Scene/Primitive.js 182</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Primitive.js#L182">Scene/Primitive.js 182</a>
 </div>
 
 
@@ -814,7 +889,10 @@
 
 
 <div class="description">
-    The <a href="Appearance.html"><code>Appearance</code></a> used to shade this primitive. Each geometryinstance is shaded with the same appearance.  Some appearances, like<a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a> allow giving each instance uniqueproperties.
+    The <a href="Appearance.html"><code>Appearance</code></a> used to shade this primitive. Each geometry
+instance is shaded with the same appearance.  Some appearances, like
+<a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a> allow giving each instance unique
+properties.
 </div>
 
 
@@ -866,7 +944,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Primitive.js#L441">Scene/Primitive.js 441</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Primitive.js#L441">Scene/Primitive.js 441</a>
 </div>
 
 
@@ -929,7 +1007,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Primitive.js#L457">Scene/Primitive.js 457</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Primitive.js#L457">Scene/Primitive.js 457</a>
 </div>
 
 
@@ -992,7 +1070,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Primitive.js#L261">Scene/Primitive.js 261</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Primitive.js#L261">Scene/Primitive.js 261</a>
 </div>
 
 
@@ -1003,7 +1081,9 @@
 
 
 <div class="description">
-    When <code>true</code>, the renderer frustum culls and horizon culls the primitive's commandsbased on their bounding volume.  Set this to <code>false</code> for a small performance gainif you are manually culling the primitive.
+    When <code>true</code>, the renderer frustum culls and horizon culls the primitive's commands
+based on their bounding volume.  Set this to <code>false</code> for a small performance gain
+if you are manually culling the primitive.
 </div>
 
 
@@ -1055,7 +1135,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Primitive.js#L273">Scene/Primitive.js 273</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Primitive.js#L273">Scene/Primitive.js 273</a>
 </div>
 
 
@@ -1066,7 +1146,10 @@
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use nor is it optimized.<p>Draws the bounding sphere for each draw command in the primitive.</p>
+    This property is for debugging only; it is not for production use nor is it optimized.
+<p>
+Draws the bounding sphere for each draw command in the primitive.
+</p>
 </div>
 
 
@@ -1118,7 +1201,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Primitive.js#L205">Scene/Primitive.js 205</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Primitive.js#L205">Scene/Primitive.js 205</a>
 </div>
 
 
@@ -1129,7 +1212,20 @@
 
 
 <div class="description">
-    The <a href="Appearance.html"><code>Appearance</code></a> used to shade this primitive when it fails the depth test. Each geometryinstance is shaded with the same appearance.  Some appearances, like<a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a> allow giving each instance uniqueproperties.<p>When using an appearance that requires a color attribute, like PerInstanceColorAppearance,add a depthFailColor per-instance attribute instead.</p><p>Requires the EXT_frag_depth WebGL extension to render properly. If the extension is not supported,there may be artifacts.</p>
+    The <a href="Appearance.html"><code>Appearance</code></a> used to shade this primitive when it fails the depth test. Each geometry
+instance is shaded with the same appearance.  Some appearances, like
+<a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a> allow giving each instance unique
+properties.
+
+<p>
+When using an appearance that requires a color attribute, like PerInstanceColorAppearance,
+add a depthFailColor per-instance attribute instead.
+</p>
+
+<p>
+Requires the EXT_frag_depth WebGL extension to render properly. If the extension is not supported,
+there may be artifacts.
+</p>
 </div>
 
 
@@ -1181,7 +1277,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Primitive.js#L170">Scene/Primitive.js 170</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Primitive.js#L170">Scene/Primitive.js 170</a>
 </div>
 
 
@@ -1192,7 +1288,12 @@
 
 
 <div class="description">
-    The geometry instances rendered with this primitive.  This maybe <code>undefined</code> if <code>options.releaseGeometryInstances</code>is <code>true</code> when the primitive is constructed.<p>Changing this property after the primitive is rendered has no effect.</p>
+    The geometry instances rendered with this primitive.  This may
+be <code>undefined</code> if <code>options.releaseGeometryInstances</code>
+is <code>true</code> when the primitive is constructed.
+<p>
+Changing this property after the primitive is rendered has no effect.
+</p>
 </div>
 
 
@@ -1244,7 +1345,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Primitive.js#L393">Scene/Primitive.js 393</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Primitive.js#L393">Scene/Primitive.js 393</a>
 </div>
 
 
@@ -1307,7 +1408,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Primitive.js#L227">Scene/Primitive.js 227</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Primitive.js#L227">Scene/Primitive.js 227</a>
 </div>
 
 
@@ -1318,7 +1419,14 @@
 
 
 <div class="description">
-    The 4x4 transformation matrix that transforms the primitive (all geometry instances) from model to world coordinates.When this is the identity matrix, the primitive is drawn in world coordinates, i.e., Earth's WGS84 coordinates.Local reference frames can be used by providing a different transformation matrix, like that returnedby <a href="Transforms.html#.eastNorthUpToFixedFrame"><code>Transforms.eastNorthUpToFixedFrame</code></a>.<p>This property is only supported in 3D mode.</p>
+    The 4x4 transformation matrix that transforms the primitive (all geometry instances) from model to world coordinates.
+When this is the identity matrix, the primitive is drawn in world coordinates, i.e., Earth's WGS84 coordinates.
+Local reference frames can be used by providing a different transformation matrix, like that returned
+by <a href="Transforms.html#.eastNorthUpToFixedFrame"><code>Transforms.eastNorthUpToFixedFrame</code></a>.
+
+<p>
+This property is only supported in 3D mode.
+</p>
 </div>
 
 
@@ -1350,7 +1458,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var origin = Cesium.Cartesian3.fromDegrees(-95.0, 40.0, 200000.0);p.modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(origin);</code></pre>
+    <pre><code class="language-javascript">var origin = Cesium.Cartesian3.fromDegrees(-95.0, 40.0, 200000.0);
+p.modelMatrix = Cesium.Transforms.eastNorthUpToFixedFrame(origin);</code></pre>
 
     
 
@@ -1375,7 +1484,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Primitive.js#L473">Scene/Primitive.js 473</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Primitive.js#L473">Scene/Primitive.js 473</a>
 </div>
 
 
@@ -1386,7 +1495,9 @@
 
 
 <div class="description">
-    Determines if the primitive is complete and ready to render.  If this property istrue, the primitive will be rendered the next time that <a href="Primitive.html#update"><code>Primitive#update</code></a>is called.
+    Determines if the primitive is complete and ready to render.  If this property is
+true, the primitive will be rendered the next time that <a href="Primitive.html#update"><code>Primitive#update</code></a>
+is called.
 </div>
 
 
@@ -1435,7 +1546,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Primitive.js#L485">Scene/Primitive.js 485</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Primitive.js#L485">Scene/Primitive.js 485</a>
 </div>
 
 
@@ -1495,7 +1606,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Primitive.js#L409">Scene/Primitive.js 409</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Primitive.js#L409">Scene/Primitive.js 409</a>
 </div>
 
 
@@ -1558,7 +1669,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Primitive.js#L303">Scene/Primitive.js 303</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Primitive.js#L303">Scene/Primitive.js 303</a>
 </div>
 
 
@@ -1621,7 +1732,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Primitive.js#L240">Scene/Primitive.js 240</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Primitive.js#L240">Scene/Primitive.js 240</a>
 </div>
 
 
@@ -1632,7 +1743,8 @@
 
 
 <div class="description">
-    Determines if the primitive will be shown.  This affects all geometryinstances in the primitive.
+    Determines if the primitive will be shown.  This affects all geometry
+instances in the primitive.
 </div>
 
 
@@ -1684,7 +1796,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Primitive.js#L377">Scene/Primitive.js 377</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Primitive.js#L377">Scene/Primitive.js 377</a>
 </div>
 
 
@@ -1753,7 +1865,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Primitive.js#L2518">Scene/Primitive.js 2518</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Primitive.js#L2518">Scene/Primitive.js 2518</a>
 </div>
 
 
@@ -1765,7 +1877,13 @@
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<p>Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.</p>
+    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
+release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+<p>
+Once an object is destroyed, it should not be used; calling any function other than
+<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,
+assign the return value (<code>undefined</code>) to the object as done in the example.
+</p>
 </div>
 
 
@@ -1858,7 +1976,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Primitive.js#L2429">Scene/Primitive.js 2429</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Primitive.js#L2429">Scene/Primitive.js 2429</a>
 </div>
 
 
@@ -1987,7 +2105,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var attributes = primitive.getGeometryInstanceAttributes('an id');attributes.color = Cesium.ColorGeometryInstanceAttribute.toValue(Cesium.Color.AQUA);attributes.show = Cesium.ShowGeometryInstanceAttribute.toValue(true);attributes.distanceDisplayCondition = Cesium.DistanceDisplayConditionGeometryInstanceAttribute.toValue(100.0, 10000.0);attributes.offset = Cesium.OffsetGeometryInstanceAttribute.toValue(Cartesian3.IDENTITY);</code></pre>
+    <pre><code class="language-javascript">var attributes = primitive.getGeometryInstanceAttributes('an id');
+attributes.color = Cesium.ColorGeometryInstanceAttribute.toValue(Cesium.Color.AQUA);
+attributes.show = Cesium.ShowGeometryInstanceAttribute.toValue(true);
+attributes.distanceDisplayCondition = Cesium.DistanceDisplayConditionGeometryInstanceAttribute.toValue(100.0, 10000.0);
+attributes.offset = Cesium.OffsetGeometryInstanceAttribute.toValue(Cartesian3.IDENTITY);</code></pre>
 
     
 
@@ -2012,7 +2134,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Primitive.js#L2497">Scene/Primitive.js 2497</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Primitive.js#L2497">Scene/Primitive.js 2497</a>
 </div>
 
 
@@ -2024,7 +2146,11 @@
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.<p>If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.</p>
+    Returns true if this object was destroyed; otherwise, false.
+<p>
+If this object was destroyed, it should not be used; calling any function other than
+<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+</p>
 </div>
 
 
@@ -2107,7 +2233,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/Primitive.js#L2130">Scene/Primitive.js 2130</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/Primitive.js#L2130">Scene/Primitive.js 2130</a>
 </div>
 
 
@@ -2119,7 +2245,12 @@
 
 
 <div class="description">
-    Called when <a href="Viewer.html"><code>Viewer</code></a> or <a href="CesiumWidget.html"><code>CesiumWidget</code></a> render the scene toget the draw commands needed to render this primitive.<p>Do not call this function directly.  This is documented just tolist the exceptions that may be propagated when the scene is rendered:</p>
+    Called when <a href="Viewer.html"><code>Viewer</code></a> or <a href="CesiumWidget.html"><code>CesiumWidget</code></a> render the scene to
+get the draw commands needed to render this primitive.
+<p>
+Do not call this function directly.  This is documented just to
+list the exceptions that may be propagated when the scene is rendered:
+</p>
 </div>
 
 

@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/pointInsideTriangle.js#L6">Core/pointInsideTriangle.js 6</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/pointInsideTriangle.js#L6">Core/pointInsideTriangle.js 6</a>
 </div>
 
 
@@ -73,7 +73,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Returns truevar p = new Cesium.Cartesian2(0.25, 0.25);var b = Cesium.pointInsideTriangle(p,  new Cesium.Cartesian2(0.0, 0.0),  new Cesium.Cartesian2(1.0, 0.0),  new Cesium.Cartesian2(0.0, 1.0));</code></pre>
+    <pre><code class="language-javascript">// Returns true
+var p = new Cesium.Cartesian2(0.25, 0.25);
+var b = Cesium.pointInsideTriangle(p,
+  new Cesium.Cartesian2(0.0, 0.0),
+  new Cesium.Cartesian2(1.0, 0.0),
+  new Cesium.Cartesian2(0.0, 1.0));</code></pre>
 
     
 

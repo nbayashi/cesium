@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/VRTheWorldTerrainProvider.js#L44">Core/VRTheWorldTerrainProvider.js 44</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/VRTheWorldTerrainProvider.js#L44">Core/VRTheWorldTerrainProvider.js 44</a>
 </div>
 
 
@@ -58,7 +58,8 @@
 
 
 <div class="description">
-    A <a href="TerrainProvider.html"><code>TerrainProvider</code></a> that produces terrain geometry by tessellating height mapsretrieved from a <a href="http://vr-theworld.com/">VT MÄK VR-TheWorld server</a>.
+    A <a href="TerrainProvider.html"><code>TerrainProvider</code></a> that produces terrain geometry by tessellating height maps
+retrieved from a <a href="http://vr-theworld.com/">VT MÄK VR-TheWorld server</a>.
 </div>
 
 
@@ -198,7 +199,8 @@
 
                 
             
-                The ellipsoid.  If this parameter is not                   specified, the WGS84 ellipsoid is used.</td>
+                The ellipsoid.  If this parameter is not
+                   specified, the WGS84 ellipsoid is used.</td>
         </tr>
 
     
@@ -284,7 +286,10 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var terrainProvider = new Cesium.VRTheWorldTerrainProvider({  url : 'https://www.vr-theworld.com/vr-theworld/tiles1.0.0/73/'});viewer.terrainProvider = terrainProvider;</code></pre>
+    <pre><code class="language-javascript">var terrainProvider = new Cesium.VRTheWorldTerrainProvider({
+  url : 'https://www.vr-theworld.com/vr-theworld/tiles1.0.0/73/'
+});
+viewer.terrainProvider = terrainProvider;</code></pre>
 
     
 
@@ -330,7 +335,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/VRTheWorldTerrainProvider.js#L256">Core/VRTheWorldTerrainProvider.js 256</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/VRTheWorldTerrainProvider.js#L256">Core/VRTheWorldTerrainProvider.js 256</a>
 </div>
 
 
@@ -341,7 +346,10 @@
 
 
 <div class="description">
-    Gets an object that can be used to determine availability of terrain from this provider, such asat points and in rectangles.  This function should not be called before<a href="TerrainProvider.html#ready"><code>TerrainProvider#ready</code></a> returns true.  This property may be undefined if availabilityinformation is not available.
+    Gets an object that can be used to determine availability of terrain from this provider, such as
+at points and in rectangles.  This function should not be called before
+<a href="TerrainProvider.html#ready"><code>TerrainProvider#ready</code></a> returns true.  This property may be undefined if availability
+information is not available.
 </div>
 
 
@@ -390,7 +398,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/VRTheWorldTerrainProvider.js#L174">Core/VRTheWorldTerrainProvider.js 174</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/VRTheWorldTerrainProvider.js#L174">Core/VRTheWorldTerrainProvider.js 174</a>
 </div>
 
 
@@ -401,7 +409,8 @@
 
 
 <div class="description">
-    Gets the credit to display when this terrain provider is active.  Typically this is used to creditthe source of the terrain.  This function should not be called before <a href="VRTheWorldTerrainProvider.html#ready"><code>VRTheWorldTerrainProvider#ready</code></a> returns true.
+    Gets the credit to display when this terrain provider is active.  Typically this is used to credit
+the source of the terrain.  This function should not be called before <a href="VRTheWorldTerrainProvider.html#ready"><code>VRTheWorldTerrainProvider#ready</code></a> returns true.
 </div>
 
 
@@ -450,7 +459,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/VRTheWorldTerrainProvider.js#L162">Core/VRTheWorldTerrainProvider.js 162</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/VRTheWorldTerrainProvider.js#L162">Core/VRTheWorldTerrainProvider.js 162</a>
 </div>
 
 
@@ -461,7 +470,9 @@
 
 
 <div class="description">
-    Gets an event that is raised when the terrain provider encounters an asynchronous error.  By subscribingto the event, you will be notified of the error and can potentially recover from it.  Event listenersare passed an instance of <a href="TileProviderError.html"><code>TileProviderError</code></a>.
+    Gets an event that is raised when the terrain provider encounters an asynchronous error.  By subscribing
+to the event, you will be notified of the error and can potentially recover from it.  Event listeners
+are passed an instance of <a href="TileProviderError.html"><code>TileProviderError</code></a>.
 </div>
 
 
@@ -510,7 +521,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/VRTheWorldTerrainProvider.js#L243">Core/VRTheWorldTerrainProvider.js 243</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/VRTheWorldTerrainProvider.js#L243">Core/VRTheWorldTerrainProvider.js 243</a>
 </div>
 
 
@@ -521,7 +532,8 @@
 
 
 <div class="description">
-    Gets a value indicating whether or not the requested tiles include vertex normals.This function should not be called before <a href="VRTheWorldTerrainProvider.html#ready"><code>VRTheWorldTerrainProvider#ready</code></a> returns true.
+    Gets a value indicating whether or not the requested tiles include vertex normals.
+This function should not be called before <a href="VRTheWorldTerrainProvider.html#ready"><code>VRTheWorldTerrainProvider#ready</code></a> returns true.
 </div>
 
 
@@ -570,7 +582,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/VRTheWorldTerrainProvider.js#L231">Core/VRTheWorldTerrainProvider.js 231</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/VRTheWorldTerrainProvider.js#L231">Core/VRTheWorldTerrainProvider.js 231</a>
 </div>
 
 
@@ -581,7 +593,10 @@
 
 
 <div class="description">
-    Gets a value indicating whether or not the provider includes a water mask.  The water maskindicates which areas of the globe are water rather than land, so they can be renderedas a reflective surface with animated waves.  This function should not becalled before <a href="VRTheWorldTerrainProvider.html#ready"><code>VRTheWorldTerrainProvider#ready</code></a> returns true.
+    Gets a value indicating whether or not the provider includes a water mask.  The water mask
+indicates which areas of the globe are water rather than land, so they can be rendered
+as a reflective surface with animated waves.  This function should not be
+called before <a href="VRTheWorldTerrainProvider.html#ready"><code>VRTheWorldTerrainProvider#ready</code></a> returns true.
 </div>
 
 
@@ -630,7 +645,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/VRTheWorldTerrainProvider.js#L205">Core/VRTheWorldTerrainProvider.js 205</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/VRTheWorldTerrainProvider.js#L205">Core/VRTheWorldTerrainProvider.js 205</a>
 </div>
 
 
@@ -690,7 +705,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/VRTheWorldTerrainProvider.js#L217">Core/VRTheWorldTerrainProvider.js 217</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/VRTheWorldTerrainProvider.js#L217">Core/VRTheWorldTerrainProvider.js 217</a>
 </div>
 
 
@@ -750,7 +765,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/VRTheWorldTerrainProvider.js#L186">Core/VRTheWorldTerrainProvider.js 186</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/VRTheWorldTerrainProvider.js#L186">Core/VRTheWorldTerrainProvider.js 186</a>
 </div>
 
 
@@ -761,7 +776,8 @@
 
 
 <div class="description">
-    Gets the tiling scheme used by this provider.  This function shouldnot be called before <a href="VRTheWorldTerrainProvider.html#ready"><code>VRTheWorldTerrainProvider#ready</code></a> returns true.
+    Gets the tiling scheme used by this provider.  This function should
+not be called before <a href="VRTheWorldTerrainProvider.html#ready"><code>VRTheWorldTerrainProvider#ready</code></a> returns true.
 </div>
 
 
@@ -816,7 +832,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/VRTheWorldTerrainProvider.js#L323">Core/VRTheWorldTerrainProvider.js 323</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/VRTheWorldTerrainProvider.js#L323">Core/VRTheWorldTerrainProvider.js 323</a>
 </div>
 
 
@@ -951,7 +967,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/VRTheWorldTerrainProvider.js#L419">Core/VRTheWorldTerrainProvider.js 419</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/VRTheWorldTerrainProvider.js#L419">Core/VRTheWorldTerrainProvider.js 419</a>
 </div>
 
 
@@ -1132,7 +1148,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/VRTheWorldTerrainProvider.js#L435">Core/VRTheWorldTerrainProvider.js 435</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/VRTheWorldTerrainProvider.js#L435">Core/VRTheWorldTerrainProvider.js 435</a>
 </div>
 
 
@@ -1313,7 +1329,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/VRTheWorldTerrainProvider.js#L276">Core/VRTheWorldTerrainProvider.js 276</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/VRTheWorldTerrainProvider.js#L276">Core/VRTheWorldTerrainProvider.js 276</a>
 </div>
 
 
@@ -1325,7 +1341,9 @@
 
 
 <div class="description">
-    Requests the geometry for a given tile.  This function should not be called before<a href="VRTheWorldTerrainProvider.html#ready"><code>VRTheWorldTerrainProvider#ready</code></a> returns true.  The result includes terraindata and indicates that all child tiles are available.
+    Requests the geometry for a given tile.  This function should not be called before
+<a href="VRTheWorldTerrainProvider.html#ready"><code>VRTheWorldTerrainProvider#ready</code></a> returns true.  The result includes terrain
+data and indicates that all child tiles are available.
 </div>
 
 
@@ -1488,7 +1506,9 @@
 
         
 <div class="param-desc">
-    A promise for the requested geometry.  If this method         returns undefined instead of a promise, it is an indication that too many requests are already         pending and the request will be retried later.
+    A promise for the requested geometry.  If this method
+         returns undefined instead of a promise, it is an indication that too many requests are already
+         pending and the request will be retried later.
 </div>
 
 

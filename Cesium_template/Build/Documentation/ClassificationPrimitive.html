@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ClassificationPrimitive.js#L73">Scene/ClassificationPrimitive.js 73</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ClassificationPrimitive.js#L73">Scene/ClassificationPrimitive.js 73</a>
 </div>
 
 
@@ -58,7 +58,27 @@
 
 
 <div class="description">
-    A classification primitive represents a volume enclosing geometry in the <a href="Scene.html"><code>Scene</code></a> to be highlighted.<p>A primitive combines geometry instances with an <a href="Appearance.html"><code>Appearance</code></a> that describes the full shading, including<a href="Material.html"><code>Material</code></a> and <code>RenderState</code>.  Roughly, the geometry instance defines the structure and placement,and the appearance defines the visual characteristics.  Decoupling geometry and appearance allows us to mixand match most of them and add a new geometry or appearance independently of each other.Only <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a> with the same color across all instances is supported at this time when usingClassificationPrimitive directly.For full <a href="Appearance.html"><code>Appearance</code></a> support when classifying terrain or 3D Tiles use <a href="GroundPrimitive.html"><code>GroundPrimitive</code></a> instead.</p><p>For correct rendering, this feature requires the EXT_frag_depth WebGL extension. For hardware that do not support this extension, therewill be rendering artifacts for some viewing angles.</p><p>Valid geometries are <a href="BoxGeometry.html"><code>BoxGeometry</code></a>, <a href="CylinderGeometry.html"><code>CylinderGeometry</code></a>, <a href="EllipsoidGeometry.html"><code>EllipsoidGeometry</code></a>, <a href="PolylineVolumeGeometry.html"><code>PolylineVolumeGeometry</code></a>, and <a href="SphereGeometry.html"><code>SphereGeometry</code></a>.</p><p>Geometries that follow the surface of the ellipsoid, such as <a href="CircleGeometry.html"><code>CircleGeometry</code></a>, <a href="CorridorGeometry.html"><code>CorridorGeometry</code></a>, <a href="EllipseGeometry.html"><code>EllipseGeometry</code></a>, <a href="PolygonGeometry.html"><code>PolygonGeometry</code></a>, and <a href="RectangleGeometry.html"><code>RectangleGeometry</code></a>,are also valid if they are extruded volumes; otherwise, they will not be rendered.</p>
+    A classification primitive represents a volume enclosing geometry in the <a href="Scene.html"><code>Scene</code></a> to be highlighted.
+<p>
+A primitive combines geometry instances with an <a href="Appearance.html"><code>Appearance</code></a> that describes the full shading, including
+<a href="Material.html"><code>Material</code></a> and <code>RenderState</code>.  Roughly, the geometry instance defines the structure and placement,
+and the appearance defines the visual characteristics.  Decoupling geometry and appearance allows us to mix
+and match most of them and add a new geometry or appearance independently of each other.
+Only <a href="PerInstanceColorAppearance.html"><code>PerInstanceColorAppearance</code></a> with the same color across all instances is supported at this time when using
+ClassificationPrimitive directly.
+For full <a href="Appearance.html"><code>Appearance</code></a> support when classifying terrain or 3D Tiles use <a href="GroundPrimitive.html"><code>GroundPrimitive</code></a> instead.
+</p>
+<p>
+For correct rendering, this feature requires the EXT_frag_depth WebGL extension. For hardware that do not support this extension, there
+will be rendering artifacts for some viewing angles.
+</p>
+<p>
+Valid geometries are <a href="BoxGeometry.html"><code>BoxGeometry</code></a>, <a href="CylinderGeometry.html"><code>CylinderGeometry</code></a>, <a href="EllipsoidGeometry.html"><code>EllipsoidGeometry</code></a>, <a href="PolylineVolumeGeometry.html"><code>PolylineVolumeGeometry</code></a>, and <a href="SphereGeometry.html"><code>SphereGeometry</code></a>.
+</p>
+<p>
+Geometries that follow the surface of the ellipsoid, such as <a href="CircleGeometry.html"><code>CircleGeometry</code></a>, <a href="CorridorGeometry.html"><code>CorridorGeometry</code></a>, <a href="EllipseGeometry.html"><code>EllipseGeometry</code></a>, <a href="PolygonGeometry.html"><code>PolygonGeometry</code></a>, and <a href="RectangleGeometry.html"><code>RectangleGeometry</code></a>,
+are also valid if they are extruded volumes; otherwise, they will not be rendered.
+</p>
 </div>
 
 
@@ -565,7 +585,8 @@
 
                 
             
-                For debugging only. Determines if the shadow volume for each geometry in the primitive is drawn. Must be <code>true</code> on                 creation for the volumes to be created before the geometry is released or options.releaseGeometryInstance must be <code>false</code>.</td>
+                For debugging only. Determines if the shadow volume for each geometry in the primitive is drawn. Must be <code>true</code> on
+                 creation for the volumes to be created before the geometry is released or options.releaseGeometryInstance must be <code>false</code>.</td>
         </tr>
 
     
@@ -661,7 +682,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ClassificationPrimitive.js#L264">Scene/ClassificationPrimitive.js 264</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ClassificationPrimitive.js#L264">Scene/ClassificationPrimitive.js 264</a>
 </div>
 
 
@@ -724,7 +745,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ClassificationPrimitive.js#L280">Scene/ClassificationPrimitive.js 280</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ClassificationPrimitive.js#L280">Scene/ClassificationPrimitive.js 280</a>
 </div>
 
 
@@ -787,7 +808,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ClassificationPrimitive.js#L112">Scene/ClassificationPrimitive.js 112</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ClassificationPrimitive.js#L112">Scene/ClassificationPrimitive.js 112</a>
 </div>
 
 
@@ -850,7 +871,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ClassificationPrimitive.js#L296">Scene/ClassificationPrimitive.js 296</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ClassificationPrimitive.js#L296">Scene/ClassificationPrimitive.js 296</a>
 </div>
 
 
@@ -913,7 +934,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ClassificationPrimitive.js#L126">Scene/ClassificationPrimitive.js 126</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ClassificationPrimitive.js#L126">Scene/ClassificationPrimitive.js 126</a>
 </div>
 
 
@@ -924,7 +945,10 @@
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use nor is it optimized.<p>Draws the bounding sphere for each draw command in the primitive.</p>
+    This property is for debugging only; it is not for production use nor is it optimized.
+<p>
+Draws the bounding sphere for each draw command in the primitive.
+</p>
 </div>
 
 
@@ -976,7 +1000,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ClassificationPrimitive.js#L140">Scene/ClassificationPrimitive.js 140</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ClassificationPrimitive.js#L140">Scene/ClassificationPrimitive.js 140</a>
 </div>
 
 
@@ -987,7 +1011,10 @@
 
 
 <div class="description">
-    This property is for debugging only; it is not for production use nor is it optimized.<p>Draws the shadow volume for each geometry in the primitive.</p>
+    This property is for debugging only; it is not for production use nor is it optimized.
+<p>
+Draws the shadow volume for each geometry in the primitive.
+</p>
 </div>
 
 
@@ -1039,7 +1066,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ClassificationPrimitive.js#L95">Scene/ClassificationPrimitive.js 95</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ClassificationPrimitive.js#L95">Scene/ClassificationPrimitive.js 95</a>
 </div>
 
 
@@ -1050,7 +1077,17 @@
 
 
 <div class="description">
-    The geometry instance rendered with this primitive.  This maybe <code>undefined</code> if <code>options.releaseGeometryInstances</code>is <code>true</code> when the primitive is constructed.<p>Changing this property after the primitive is rendered has no effect.</p><p>Because of the rendering technique used, all geometry instances must be the same color.If there is an instance with a differing color, a <code>DeveloperError</code> will be thrownon the first attempt to render.</p>
+    The geometry instance rendered with this primitive.  This may
+be <code>undefined</code> if <code>options.releaseGeometryInstances</code>
+is <code>true</code> when the primitive is constructed.
+<p>
+Changing this property after the primitive is rendered has no effect.
+</p>
+<p>
+Because of the rendering technique used, all geometry instances must be the same color.
+If there is an instance with a differing color, a <code>DeveloperError</code> will be thrown
+on the first attempt to render.
+</p>
 </div>
 
 
@@ -1102,7 +1139,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ClassificationPrimitive.js#L232">Scene/ClassificationPrimitive.js 232</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ClassificationPrimitive.js#L232">Scene/ClassificationPrimitive.js 232</a>
 </div>
 
 
@@ -1165,7 +1202,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ClassificationPrimitive.js#L312">Scene/ClassificationPrimitive.js 312</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ClassificationPrimitive.js#L312">Scene/ClassificationPrimitive.js 312</a>
 </div>
 
 
@@ -1176,7 +1213,9 @@
 
 
 <div class="description">
-    Determines if the primitive is complete and ready to render.  If this property istrue, the primitive will be rendered the next time that <a href="ClassificationPrimitive.html#update"><code>ClassificationPrimitive#update</code></a>is called.
+    Determines if the primitive is complete and ready to render.  If this property is
+true, the primitive will be rendered the next time that <a href="ClassificationPrimitive.html#update"><code>ClassificationPrimitive#update</code></a>
+is called.
 </div>
 
 
@@ -1225,7 +1264,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ClassificationPrimitive.js#L324">Scene/ClassificationPrimitive.js 324</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ClassificationPrimitive.js#L324">Scene/ClassificationPrimitive.js 324</a>
 </div>
 
 
@@ -1285,7 +1324,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ClassificationPrimitive.js#L248">Scene/ClassificationPrimitive.js 248</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ClassificationPrimitive.js#L248">Scene/ClassificationPrimitive.js 248</a>
 </div>
 
 
@@ -1348,7 +1387,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ClassificationPrimitive.js#L104">Scene/ClassificationPrimitive.js 104</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ClassificationPrimitive.js#L104">Scene/ClassificationPrimitive.js 104</a>
 </div>
 
 
@@ -1359,7 +1398,8 @@
 
 
 <div class="description">
-    Determines if the primitive will be shown.  This affects all geometryinstances in the primitive.
+    Determines if the primitive will be shown.  This affects all geometry
+instances in the primitive.
 </div>
 
 
@@ -1411,7 +1451,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ClassificationPrimitive.js#L216">Scene/ClassificationPrimitive.js 216</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ClassificationPrimitive.js#L216">Scene/ClassificationPrimitive.js 216</a>
 </div>
 
 
@@ -1480,7 +1520,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ClassificationPrimitive.js#L354">Scene/ClassificationPrimitive.js 354</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ClassificationPrimitive.js#L354">Scene/ClassificationPrimitive.js 354</a>
 </div>
 
 
@@ -1615,7 +1655,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ClassificationPrimitive.js#L1413">Scene/ClassificationPrimitive.js 1413</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ClassificationPrimitive.js#L1413">Scene/ClassificationPrimitive.js 1413</a>
 </div>
 
 
@@ -1627,7 +1667,13 @@
 
 
 <div class="description">
-    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministicrelease of WebGL resources, instead of relying on the garbage collector to destroy this object.<p>Once an object is destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,assign the return value (<code>undefined</code>) to the object as done in the example.</p>
+    Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
+release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+<p>
+Once an object is destroyed, it should not be used; calling any function other than
+<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.  Therefore,
+assign the return value (<code>undefined</code>) to the object as done in the example.
+</p>
 </div>
 
 
@@ -1720,7 +1766,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ClassificationPrimitive.js#L1369">Scene/ClassificationPrimitive.js 1369</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ClassificationPrimitive.js#L1369">Scene/ClassificationPrimitive.js 1369</a>
 </div>
 
 
@@ -1849,7 +1895,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var attributes = primitive.getGeometryInstanceAttributes('an id');attributes.color = Cesium.ColorGeometryInstanceAttribute.toValue(Cesium.Color.AQUA);attributes.show = Cesium.ShowGeometryInstanceAttribute.toValue(true);</code></pre>
+    <pre><code class="language-javascript">var attributes = primitive.getGeometryInstanceAttributes('an id');
+attributes.color = Cesium.ColorGeometryInstanceAttribute.toValue(Cesium.Color.AQUA);
+attributes.show = Cesium.ShowGeometryInstanceAttribute.toValue(true);</code></pre>
 
     
 
@@ -1874,7 +1922,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ClassificationPrimitive.js#L1393">Scene/ClassificationPrimitive.js 1393</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ClassificationPrimitive.js#L1393">Scene/ClassificationPrimitive.js 1393</a>
 </div>
 
 
@@ -1886,7 +1934,11 @@
 
 
 <div class="description">
-    Returns true if this object was destroyed; otherwise, false.<p>If this object was destroyed, it should not be used; calling any function other than<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.</p>
+    Returns true if this object was destroyed; otherwise, false.
+<p>
+If this object was destroyed, it should not be used; calling any function other than
+<code>isDestroyed</code> will result in a <a href="DeveloperError.html"><code>DeveloperError</code></a> exception.
+</p>
 </div>
 
 
@@ -1969,7 +2021,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ClassificationPrimitive.js#L1073">Scene/ClassificationPrimitive.js 1073</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ClassificationPrimitive.js#L1073">Scene/ClassificationPrimitive.js 1073</a>
 </div>
 
 
@@ -1981,7 +2033,12 @@
 
 
 <div class="description">
-    Called when <a href="Viewer.html"><code>Viewer</code></a> or <a href="CesiumWidget.html"><code>CesiumWidget</code></a> render the scene toget the draw commands needed to render this primitive.<p>Do not call this function directly.  This is documented just tolist the exceptions that may be propagated when the scene is rendered:</p>
+    Called when <a href="Viewer.html"><code>Viewer</code></a> or <a href="CesiumWidget.html"><code>CesiumWidget</code></a> render the scene to
+get the draw commands needed to render this primitive.
+<p>
+Do not call this function directly.  This is documented just to
+list the exceptions that may be propagated when the scene is rendered:
+</p>
 </div>
 
 

@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ShowGeometryInstanceAttribute.js#L33">Core/ShowGeometryInstanceAttribute.js 33</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ShowGeometryInstanceAttribute.js#L33">Core/ShowGeometryInstanceAttribute.js 33</a>
 </div>
 
 
@@ -167,7 +167,19 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var instance = new Cesium.GeometryInstance({  geometry : new Cesium.BoxGeometry({    vertexFormat : Cesium.VertexFormat.POSITION_AND_NORMAL,    minimum : new Cesium.Cartesian3(-250000.0, -250000.0, -250000.0),    maximum : new Cesium.Cartesian3(250000.0, 250000.0, 250000.0)  }),  modelMatrix : Cesium.Matrix4.multiplyByTranslation(Cesium.Transforms.eastNorthUpToFixedFrame(    Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883)), new Cesium.Cartesian3(0.0, 0.0, 1000000.0), new Cesium.Matrix4()),  id : 'box',  attributes : {    show : new Cesium.ShowGeometryInstanceAttribute(false)  }});</code></pre>
+    <pre><code class="language-javascript">var instance = new Cesium.GeometryInstance({
+  geometry : new Cesium.BoxGeometry({
+    vertexFormat : Cesium.VertexFormat.POSITION_AND_NORMAL,
+    minimum : new Cesium.Cartesian3(-250000.0, -250000.0, -250000.0),
+    maximum : new Cesium.Cartesian3(250000.0, 250000.0, 250000.0)
+  }),
+  modelMatrix : Cesium.Matrix4.multiplyByTranslation(Cesium.Transforms.eastNorthUpToFixedFrame(
+    Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883)), new Cesium.Cartesian3(0.0, 0.0, 1000000.0), new Cesium.Matrix4()),
+  id : 'box',
+  attributes : {
+    show : new Cesium.ShowGeometryInstanceAttribute(false)
+  }
+});</code></pre>
 
     
 
@@ -215,7 +227,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ShowGeometryInstanceAttribute.js#L58">Core/ShowGeometryInstanceAttribute.js 58</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ShowGeometryInstanceAttribute.js#L58">Core/ShowGeometryInstanceAttribute.js 58</a>
 </div>
 
 
@@ -226,7 +238,8 @@
 
 
 <div class="description">
-    The datatype of each component in the attribute, e.g., individual elements in<a href="ColorGeometryInstanceAttribute.html#value"><code>ColorGeometryInstanceAttribute#value</code></a>.
+    The datatype of each component in the attribute, e.g., individual elements in
+<a href="ColorGeometryInstanceAttribute.html#value"><code>ColorGeometryInstanceAttribute#value</code></a>.
 </div>
 
 
@@ -278,7 +291,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ShowGeometryInstanceAttribute.js#L74">Core/ShowGeometryInstanceAttribute.js 74</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ShowGeometryInstanceAttribute.js#L74">Core/ShowGeometryInstanceAttribute.js 74</a>
 </div>
 
 
@@ -341,7 +354,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ShowGeometryInstanceAttribute.js#L92">Core/ShowGeometryInstanceAttribute.js 92</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ShowGeometryInstanceAttribute.js#L92">Core/ShowGeometryInstanceAttribute.js 92</a>
 </div>
 
 
@@ -352,7 +365,9 @@
 
 
 <div class="description">
-    When <code>true</code> and <code>componentDatatype</code> is an integer format,indicate that the components should be mapped to the range [0, 1] (unsigned)or [-1, 1] (signed) when they are accessed as floating-point for rendering.
+    When <code>true</code> and <code>componentDatatype</code> is an integer format,
+indicate that the components should be mapped to the range [0, 1] (unsigned)
+or [-1, 1] (signed) when they are accessed as floating-point for rendering.
 </div>
 
 
@@ -404,7 +419,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ShowGeometryInstanceAttribute.js#L43">Core/ShowGeometryInstanceAttribute.js 43</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ShowGeometryInstanceAttribute.js#L43">Core/ShowGeometryInstanceAttribute.js 43</a>
 </div>
 
 
@@ -473,7 +488,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ShowGeometryInstanceAttribute.js#L110">Core/ShowGeometryInstanceAttribute.js 110</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ShowGeometryInstanceAttribute.js#L110">Core/ShowGeometryInstanceAttribute.js 110</a>
 </div>
 
 
@@ -623,7 +638,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var attributes = primitive.getGeometryInstanceAttributes('an id');attributes.show = Cesium.ShowGeometryInstanceAttribute.toValue(true, attributes.show);</code></pre>
+    <pre><code class="language-javascript">var attributes = primitive.getGeometryInstanceAttributes('an id');
+attributes.show = Cesium.ShowGeometryInstanceAttribute.toValue(true, attributes.show);</code></pre>
 
     
 

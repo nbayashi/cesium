@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/getBaseUri.js#L20">Core/getBaseUri.js 20</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/getBaseUri.js#L20">Core/getBaseUri.js 20</a>
 </div>
 
 
@@ -73,7 +73,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// basePath will be "/Gallery/";var basePath = Cesium.getBaseUri('/Gallery/simple.czml?value=true&amp;example=false');// basePath will be "/Gallery/?value=true&amp;example=false";var basePath = Cesium.getBaseUri('/Gallery/simple.czml?value=true&amp;example=false', true);</code></pre>
+    <pre><code class="language-javascript">// basePath will be "/Gallery/";
+var basePath = Cesium.getBaseUri('/Gallery/simple.czml?value=true&amp;example=false');
+
+// basePath will be "/Gallery/?value=true&amp;example=false";
+var basePath = Cesium.getBaseUri('/Gallery/simple.czml?value=true&amp;example=false', true);</code></pre>
 
     
 

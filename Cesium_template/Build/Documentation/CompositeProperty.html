@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/CompositeProperty.js#L55">DataSources/CompositeProperty.js 55</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/CompositeProperty.js#L55">DataSources/CompositeProperty.js 55</a>
 </div>
 
 
@@ -58,7 +58,9 @@
 
 
 <div class="description">
-    A <a href="Property.html"><code>Property</code></a> which is defined by a <a href="TimeIntervalCollection.html"><code>TimeIntervalCollection</code></a>, where thedata property of each <a href="TimeInterval.html"><code>TimeInterval</code></a> is another Property instance which isevaluated at the provided time.
+    A <a href="Property.html"><code>Property</code></a> which is defined by a <a href="TimeIntervalCollection.html"><code>TimeIntervalCollection</code></a>, where the
+data property of each <a href="TimeInterval.html"><code>TimeInterval</code></a> is another Property instance which is
+evaluated at the provided time.
 </div>
 
 
@@ -107,7 +109,24 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var constantProperty = ...;var sampledProperty = ...;//Create a composite property from two previously defined properties//where the property is valid on August 1st, 2012 and uses a constant//property for the first half of the day and a sampled property for the//remaining half.var composite = new Cesium.CompositeProperty();composite.intervals.addInterval(Cesium.TimeInterval.fromIso8601({    iso8601 : '2012-08-01T00:00:00.00Z/2012-08-01T12:00:00.00Z',    data : constantProperty}));composite.intervals.addInterval(Cesium.TimeInterval.fromIso8601({    iso8601 : '2012-08-01T12:00:00.00Z/2012-08-02T00:00:00.00Z',    isStartIncluded : false,    isStopIncluded : false,    data : sampledProperty}));</code></pre>
+    <pre><code class="language-javascript">var constantProperty = ...;
+var sampledProperty = ...;
+
+//Create a composite property from two previously defined properties
+//where the property is valid on August 1st, 2012 and uses a constant
+//property for the first half of the day and a sampled property for the
+//remaining half.
+var composite = new Cesium.CompositeProperty();
+composite.intervals.addInterval(Cesium.TimeInterval.fromIso8601({
+    iso8601 : '2012-08-01T00:00:00.00Z/2012-08-01T12:00:00.00Z',
+    data : constantProperty
+}));
+composite.intervals.addInterval(Cesium.TimeInterval.fromIso8601({
+    iso8601 : '2012-08-01T12:00:00.00Z/2012-08-02T00:00:00.00Z',
+    isStartIncluded : false,
+    isStopIncluded : false,
+    data : sampledProperty
+}));</code></pre>
 
     
 
@@ -155,7 +174,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/CompositeProperty.js#L88">DataSources/CompositeProperty.js 88</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/CompositeProperty.js#L88">DataSources/CompositeProperty.js 88</a>
 </div>
 
 
@@ -166,7 +185,9 @@
 
 
 <div class="description">
-    Gets the event that is raised whenever the definition of this property changes.The definition is changed whenever setValue is called with data differentthan the current value.
+    Gets the event that is raised whenever the definition of this property changes.
+The definition is changed whenever setValue is called with data different
+than the current value.
 </div>
 
 
@@ -215,7 +236,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/CompositeProperty.js#L99">DataSources/CompositeProperty.js 99</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/CompositeProperty.js#L99">DataSources/CompositeProperty.js 99</a>
 </div>
 
 
@@ -275,7 +296,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/CompositeProperty.js#L74">DataSources/CompositeProperty.js 74</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/CompositeProperty.js#L74">DataSources/CompositeProperty.js 74</a>
 </div>
 
 
@@ -286,7 +307,8 @@
 
 
 <div class="description">
-    Gets a value indicating if this property is constant.  A property is consideredconstant if getValue always returns the same result for the current definition.
+    Gets a value indicating if this property is constant.  A property is considered
+constant if getValue always returns the same result for the current definition.
 </div>
 
 
@@ -341,7 +363,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/CompositeProperty.js#L134">DataSources/CompositeProperty.js 134</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/CompositeProperty.js#L134">DataSources/CompositeProperty.js 134</a>
 </div>
 
 
@@ -353,7 +375,8 @@
 
 
 <div class="description">
-    Compares this property to the provided property and returns<code>true</code> if they are equal, <code>false</code> otherwise.
+    Compares this property to the provided property and returns
+<code>true</code> if they are equal, <code>false</code> otherwise.
 </div>
 
 
@@ -483,7 +506,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/CompositeProperty.js#L113">DataSources/CompositeProperty.js 113</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/CompositeProperty.js#L113">DataSources/CompositeProperty.js 113</a>
 </div>
 
 

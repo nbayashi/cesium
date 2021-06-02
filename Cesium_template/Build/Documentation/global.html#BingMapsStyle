@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/BingMapsStyle.js#L8">Scene/BingMapsStyle.js 8</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/BingMapsStyle.js#L8">Scene/BingMapsStyle.js 8</a>
 </div>
 
 
@@ -371,7 +371,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/BingMapsStyle.js#L15">Scene/BingMapsStyle.js 15</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/BingMapsStyle.js#L15">Scene/BingMapsStyle.js 15</a>
 </div>
 
 
@@ -434,7 +434,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/BingMapsStyle.js#L25">Scene/BingMapsStyle.js 25</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/BingMapsStyle.js#L25">Scene/BingMapsStyle.js 25</a>
 </div>
 
 
@@ -464,7 +464,8 @@
     
     <p>
         <span class="details-header important">Deprecated:</span>
-        <span>See https://github.com/CesiumGS/cesium/issues/7128.Use `BingMapsStyle.AERIAL_WITH_LABELS_ON_DEMAND` instead</span>
+        <span>See https://github.com/CesiumGS/cesium/issues/7128.
+Use `BingMapsStyle.AERIAL_WITH_LABELS_ON_DEMAND` instead</span>
     </p>
     
 
@@ -502,7 +503,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/BingMapsStyle.js#L33">Scene/BingMapsStyle.js 33</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/BingMapsStyle.js#L33">Scene/BingMapsStyle.js 33</a>
 </div>
 
 
@@ -565,7 +566,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/BingMapsStyle.js#L59">Scene/BingMapsStyle.js 59</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/BingMapsStyle.js#L59">Scene/BingMapsStyle.js 59</a>
 </div>
 
 
@@ -628,7 +629,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/BingMapsStyle.js#L75">Scene/BingMapsStyle.js 75</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/BingMapsStyle.js#L75">Scene/BingMapsStyle.js 75</a>
 </div>
 
 
@@ -691,7 +692,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/BingMapsStyle.js#L67">Scene/BingMapsStyle.js 67</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/BingMapsStyle.js#L67">Scene/BingMapsStyle.js 67</a>
 </div>
 
 
@@ -754,7 +755,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/BingMapsStyle.js#L91">Scene/BingMapsStyle.js 91</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/BingMapsStyle.js#L91">Scene/BingMapsStyle.js 91</a>
 </div>
 
 
@@ -817,7 +818,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/BingMapsStyle.js#L83">Scene/BingMapsStyle.js 83</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/BingMapsStyle.js#L83">Scene/BingMapsStyle.js 83</a>
 </div>
 
 
@@ -880,7 +881,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/BingMapsStyle.js#L43">Scene/BingMapsStyle.js 43</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/BingMapsStyle.js#L43">Scene/BingMapsStyle.js 43</a>
 </div>
 
 
@@ -910,7 +911,8 @@
     
     <p>
         <span class="details-header important">Deprecated:</span>
-        <span>See https://github.com/CesiumGS/cesium/issues/7128.Use `BingMapsStyle.ROAD_ON_DEMAND` instead</span>
+        <span>See https://github.com/CesiumGS/cesium/issues/7128.
+Use `BingMapsStyle.ROAD_ON_DEMAND` instead</span>
     </p>
     
 
@@ -948,7 +950,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/BingMapsStyle.js#L51">Scene/BingMapsStyle.js 51</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/BingMapsStyle.js#L51">Scene/BingMapsStyle.js 51</a>
 </div>
 
 

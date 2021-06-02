@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PostProcessStageLibrary.js#L30">Scene/PostProcessStageLibrary.js 30</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PostProcessStageLibrary.js#L30">Scene/PostProcessStageLibrary.js 30</a>
 </div>
 
 
@@ -110,7 +110,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PostProcessStageLibrary.js#L766">Scene/PostProcessStageLibrary.js 766</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PostProcessStageLibrary.js#L766">Scene/PostProcessStageLibrary.js 766</a>
 </div>
 
 
@@ -122,7 +122,10 @@
 
 
 <div class="description">
-    Creates a post-process stage that renders the input texture with black and white gradations.<p>This stage has one uniform value, <code>gradations</code>, which scales the luminance of each pixel.</p>
+    Creates a post-process stage that renders the input texture with black and white gradations.
+<p>
+This stage has one uniform value, <code>gradations</code>, which scales the luminance of each pixel.
+</p>
 </div>
 
 
@@ -200,7 +203,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PostProcessStageLibrary.js#L118">Scene/PostProcessStageLibrary.js 118</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PostProcessStageLibrary.js#L118">Scene/PostProcessStageLibrary.js 118</a>
 </div>
 
 
@@ -212,7 +215,15 @@
 
 
 <div class="description">
-    Creates a post-process stage that applies a Gaussian blur to the input texture. This stage is usually applied in conjunction with another stage.<p>This stage has the following uniforms: <code>delta</code>, <code>sigma</code>, and <code>stepSize</code>.</p><p><code>delta</code> and <code>sigma</code> are used to compute the weights of a Gaussian filter. The equation is <code>exp((-0.5 * delta * delta) / (sigma * sigma))</code>.The default value for <code>delta</code> is <code>1.0</code>. The default value for <code>sigma</code> is <code>2.0</code>.<code>stepSize</code> is the distance to the next texel. The default is <code>1.0</code>.</p>
+    Creates a post-process stage that applies a Gaussian blur to the input texture. This stage is usually applied in conjunction with another stage.
+<p>
+This stage has the following uniforms: <code>delta</code>, <code>sigma</code>, and <code>stepSize</code>.
+</p>
+<p>
+<code>delta</code> and <code>sigma</code> are used to compute the weights of a Gaussian filter. The equation is <code>exp((-0.5 * delta * delta) / (sigma * sigma))</code>.
+The default value for <code>delta</code> is <code>1.0</code>. The default value for <code>sigma</code> is <code>2.0</code>.
+<code>stepSize</code> is the distance to the next texel. The default is <code>1.0</code>.
+</p>
 </div>
 
 
@@ -290,7 +301,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PostProcessStageLibrary.js#L783">Scene/PostProcessStageLibrary.js 783</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PostProcessStageLibrary.js#L783">Scene/PostProcessStageLibrary.js 783</a>
 </div>
 
 
@@ -302,7 +313,10 @@
 
 
 <div class="description">
-    Creates a post-process stage that saturates the input texture.<p>This stage has one uniform value, <code>brightness</code>, which scales the saturation of each pixel.</p>
+    Creates a post-process stage that saturates the input texture.
+<p>
+This stage has one uniform value, <code>brightness</code>, which scales the saturation of each pixel.
+</p>
 </div>
 
 
@@ -380,7 +394,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PostProcessStageLibrary.js#L140">Scene/PostProcessStageLibrary.js 140</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PostProcessStageLibrary.js#L140">Scene/PostProcessStageLibrary.js 140</a>
 </div>
 
 
@@ -392,7 +406,21 @@
 
 
 <div class="description">
-    Creates a post-process stage that applies a depth of field effect.<p>Depth of field simulates camera focus. Objects in the scene that are in focuswill be clear whereas objects not in focus will be blurred.</p><p>This stage has the following uniforms: <code>focalDistance</code>, <code>delta</code>, <code>sigma</code>, and <code>stepSize</code>.</p><p><code>focalDistance</code> is the distance in meters from the camera to set the camera focus.</p><p><code>delta</code>, <code>sigma</code>, and <code>stepSize</code> are the same properties as <code>PostProcessStageLibrary#createBlurStage</code>.The blur is applied to the areas out of focus.</p>
+    Creates a post-process stage that applies a depth of field effect.
+<p>
+Depth of field simulates camera focus. Objects in the scene that are in focus
+will be clear whereas objects not in focus will be blurred.
+</p>
+<p>
+This stage has the following uniforms: <code>focalDistance</code>, <code>delta</code>, <code>sigma</code>, and <code>stepSize</code>.
+</p>
+<p>
+<code>focalDistance</code> is the distance in meters from the camera to set the camera focus.
+</p>
+<p>
+<code>delta</code>, <code>sigma</code>, and <code>stepSize</code> are the same properties as <code>PostProcessStageLibrary#createBlurStage</code>.
+The blur is applied to the areas out of focus.
+</p>
 </div>
 
 
@@ -470,7 +498,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PostProcessStageLibrary.js#L240">Scene/PostProcessStageLibrary.js 240</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PostProcessStageLibrary.js#L240">Scene/PostProcessStageLibrary.js 240</a>
 </div>
 
 
@@ -482,7 +510,20 @@
 
 
 <div class="description">
-    Creates a post-process stage that detects edges.<p>Writes the color to the output texture with alpha set to 1.0 when it is on an edge.</p><p>This stage has the following uniforms: <code>color</code> and <code>length</code></p><ul><li><code>color</code> is the color of the highlighted edge. The default is <code>Color#BLACK</code>.</li><li><code>length</code> is the length of the edges in pixels. The default is <code>0.5</code>.</li></ul><p>This stage is not supported in 2D.</p>
+    Creates a post-process stage that detects edges.
+<p>
+Writes the color to the output texture with alpha set to 1.0 when it is on an edge.
+</p>
+<p>
+This stage has the following uniforms: <code>color</code> and <code>length</code>
+</p>
+<ul>
+<li><code>color</code> is the color of the highlighted edge. The default is <code>Color#BLACK</code>.</li>
+<li><code>length</code> is the length of the edges in pixels. The default is <code>0.5</code>.</li>
+</ul>
+<p>
+This stage is not supported in 2D.
+</p>
 </div>
 
 
@@ -540,7 +581,17 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// multiple silhouette effectsvar yellowEdge = Cesium.PostProcessLibrary.createEdgeDetectionStage();yellowEdge.uniforms.color = Cesium.Color.YELLOW;yellowEdge.selected = [feature0];var greenEdge = Cesium.PostProcessLibrary.createEdgeDetectionStage();greenEdge.uniforms.color = Cesium.Color.LIME;greenEdge.selected = [feature1];// draw edges around feature0 and feature1postProcessStages.add(Cesium.PostProcessLibrary.createSilhouetteStage([yellowEdge, greenEdge]);</code></pre>
+    <pre><code class="language-javascript">// multiple silhouette effects
+var yellowEdge = Cesium.PostProcessLibrary.createEdgeDetectionStage();
+yellowEdge.uniforms.color = Cesium.Color.YELLOW;
+yellowEdge.selected = [feature0];
+
+var greenEdge = Cesium.PostProcessLibrary.createEdgeDetectionStage();
+greenEdge.uniforms.color = Cesium.Color.LIME;
+greenEdge.selected = [feature1];
+
+// draw edges around feature0 and feature1
+postProcessStages.add(Cesium.PostProcessLibrary.createSilhouetteStage([yellowEdge, greenEdge]);</code></pre>
 
     
 
@@ -565,7 +616,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PostProcessStageLibrary.js#L835">Scene/PostProcessStageLibrary.js 835</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PostProcessStageLibrary.js#L835">Scene/PostProcessStageLibrary.js 835</a>
 </div>
 
 
@@ -577,7 +628,21 @@
 
 
 <div class="description">
-    Creates a post-process stage that applies an effect simulating light flaring a camera lens.<p>This stage has the following uniforms: <code>dirtTexture</code>, <code>starTexture</code>, <code>intensity</code>, <code>distortion</code>, <code>ghostDispersal</code>,<code>haloWidth</code>, <code>dirtAmount</code>, and <code>earthRadius</code>.<ul><li><code>dirtTexture</code> is a texture sampled to simulate dirt on the lens.</li><li><code>starTexture</code> is the texture sampled for the star pattern of the flare.</li><li><code>intensity</code> is a scalar multiplied by the result of the lens flare. The default value is <code>2.0</code>.</li><li><code>distortion</code> is a scalar value that affects the chromatic effect distortion. The default value is <code>10.0</code>.</li><li><code>ghostDispersal</code> is a scalar indicating how far the halo effect is from the center of the texture. The default value is <code>0.4</code>.</li><li><code>haloWidth</code> is a scalar representing the width of the halo  from the ghost dispersal. The default value is <code>0.4</code>.</li><li><code>dirtAmount</code> is a scalar representing the amount of dirt on the lens. The default value is <code>0.4</code>.</li><li><code>earthRadius</code> is the maximum radius of the earth. The default value is <code>Ellipsoid.WGS84.maximumRadius</code>.</li></ul></p>
+    Creates a post-process stage that applies an effect simulating light flaring a camera lens.
+<p>
+This stage has the following uniforms: <code>dirtTexture</code>, <code>starTexture</code>, <code>intensity</code>, <code>distortion</code>, <code>ghostDispersal</code>,
+<code>haloWidth</code>, <code>dirtAmount</code>, and <code>earthRadius</code>.
+<ul>
+<li><code>dirtTexture</code> is a texture sampled to simulate dirt on the lens.</li>
+<li><code>starTexture</code> is the texture sampled for the star pattern of the flare.</li>
+<li><code>intensity</code> is a scalar multiplied by the result of the lens flare. The default value is <code>2.0</code>.</li>
+<li><code>distortion</code> is a scalar value that affects the chromatic effect distortion. The default value is <code>10.0</code>.</li>
+<li><code>ghostDispersal</code> is a scalar indicating how far the halo effect is from the center of the texture. The default value is <code>0.4</code>.</li>
+<li><code>haloWidth</code> is a scalar representing the width of the halo  from the ghost dispersal. The default value is <code>0.4</code>.</li>
+<li><code>dirtAmount</code> is a scalar representing the amount of dirt on the lens. The default value is <code>0.4</code>.</li>
+<li><code>earthRadius</code> is the maximum radius of the earth. The default value is <code>Ellipsoid.WGS84.maximumRadius</code>.</li>
+</ul>
+</p>
 </div>
 
 
@@ -655,7 +720,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PostProcessStageLibrary.js#L797">Scene/PostProcessStageLibrary.js 797</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PostProcessStageLibrary.js#L797">Scene/PostProcessStageLibrary.js 797</a>
 </div>
 
 
@@ -745,7 +810,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PostProcessStageLibrary.js#L343">Scene/PostProcessStageLibrary.js 343</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PostProcessStageLibrary.js#L343">Scene/PostProcessStageLibrary.js 343</a>
 </div>
 
 
@@ -757,7 +822,17 @@
 
 
 <div class="description">
-    Creates a post-process stage that applies a silhouette effect.<p>A silhouette effect composites the color from the edge detection pass with input color texture.</p><p>This stage has the following uniforms when <code>edgeDetectionStages</code> is <code>undefined</code>: <code>color</code> and <code>length</code></p><p><code>color</code> is the color of the highlighted edge. The default is <code>Color#BLACK</code>.<code>length</code> is the length of the edges in pixels. The default is <code>0.5</code>.</p>
+    Creates a post-process stage that applies a silhouette effect.
+<p>
+A silhouette effect composites the color from the edge detection pass with input color texture.
+</p>
+<p>
+This stage has the following uniforms when <code>edgeDetectionStages</code> is <code>undefined</code>: <code>color</code> and <code>length</code>
+</p>
+<p>
+<code>color</code> is the color of the highlighted edge. The default is <code>Color#BLACK</code>.
+<code>length</code> is the length of the edges in pixels. The default is <code>0.5</code>.
+</p>
 </div>
 
 
@@ -887,7 +962,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PostProcessStageLibrary.js#L649">Scene/PostProcessStageLibrary.js 649</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PostProcessStageLibrary.js#L649">Scene/PostProcessStageLibrary.js 649</a>
 </div>
 
 
@@ -899,7 +974,10 @@
 
 
 <div class="description">
-    Whether or not an ambient occlusion stage is supported.<p>This stage requires the WEBGL_depth_texture extension.</p>
+    Whether or not an ambient occlusion stage is supported.
+<p>
+This stage requires the WEBGL_depth_texture extension.
+</p>
 </div>
 
 
@@ -1029,7 +1107,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PostProcessStageLibrary.js#L206">Scene/PostProcessStageLibrary.js 206</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PostProcessStageLibrary.js#L206">Scene/PostProcessStageLibrary.js 206</a>
 </div>
 
 
@@ -1041,7 +1119,10 @@
 
 
 <div class="description">
-    Whether or not a depth of field stage is supported.<p>This stage requires the WEBGL_depth_texture extension.</p>
+    Whether or not a depth of field stage is supported.
+<p>
+This stage requires the WEBGL_depth_texture extension.
+</p>
 </div>
 
 
@@ -1171,7 +1252,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PostProcessStageLibrary.js#L265">Scene/PostProcessStageLibrary.js 265</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PostProcessStageLibrary.js#L265">Scene/PostProcessStageLibrary.js 265</a>
 </div>
 
 
@@ -1183,7 +1264,10 @@
 
 
 <div class="description">
-    Whether or not an edge detection stage is supported.<p>This stage requires the WEBGL_depth_texture extension.</p>
+    Whether or not an edge detection stage is supported.
+<p>
+This stage requires the WEBGL_depth_texture extension.
+</p>
 </div>
 
 
@@ -1313,7 +1397,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PostProcessStageLibrary.js#L373">Scene/PostProcessStageLibrary.js 373</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PostProcessStageLibrary.js#L373">Scene/PostProcessStageLibrary.js 373</a>
 </div>
 
 
@@ -1325,7 +1409,10 @@
 
 
 <div class="description">
-    Whether or not a silhouette stage is supported.<p>This stage requires the WEBGL_depth_texture extension.</p>
+    Whether or not a silhouette stage is supported.
+<p>
+This stage requires the WEBGL_depth_texture extension.
+</p>
 </div>
 
 

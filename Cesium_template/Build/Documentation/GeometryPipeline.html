@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/GeometryPipeline.js#L27">Core/GeometryPipeline.js 27</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/GeometryPipeline.js#L27">Core/GeometryPipeline.js 27</a>
 </div>
 
 
@@ -115,7 +115,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/GeometryPipeline.js#L1489">Core/GeometryPipeline.js 1489</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/GeometryPipeline.js#L1489">Core/GeometryPipeline.js 1489</a>
 </div>
 
 
@@ -255,7 +255,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/GeometryPipeline.js#L1171">Core/GeometryPipeline.js 1171</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/GeometryPipeline.js#L1171">Core/GeometryPipeline.js 1171</a>
 </div>
 
 
@@ -267,7 +267,9 @@
 
 
 <div class="description">
-    Computes per-vertex normals for a geometry containing <code>TRIANGLES</code> by averaging the normals ofall triangles incident to the vertex.  The result is a new <code>normal</code> attribute added to the geometry.This assumes a counter-clockwise winding order.
+    Computes per-vertex normals for a geometry containing <code>TRIANGLES</code> by averaging the normals of
+all triangles incident to the vertex.  The result is a new <code>normal</code> attribute added to the geometry.
+This assumes a counter-clockwise winding order.
 </div>
 
 
@@ -420,7 +422,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/GeometryPipeline.js#L1342">Core/GeometryPipeline.js 1342</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/GeometryPipeline.js#L1342">Core/GeometryPipeline.js 1342</a>
 </div>
 
 
@@ -432,7 +434,13 @@
 
 
 <div class="description">
-    Computes per-vertex tangents and bitangents for a geometry containing <code>TRIANGLES</code>.The result is new <code>tangent</code> and <code>bitangent</code> attributes added to the geometry.This assumes a counter-clockwise winding order.<p>Based on <a href="http://www.terathon.com/code/tangent.html">Computing Tangent Space Basis Vectorsfor an Arbitrary Mesh</a> by Eric Lengyel.</p>
+    Computes per-vertex tangents and bitangents for a geometry containing <code>TRIANGLES</code>.
+The result is new <code>tangent</code> and <code>bitangent</code> attributes added to the geometry.
+This assumes a counter-clockwise winding order.
+<p>
+Based on <a href="http://www.terathon.com/code/tangent.html">Computing Tangent Space Basis Vectors
+for an Arbitrary Mesh</a> by Eric Lengyel.
+</p>
 </div>
 
 
@@ -585,7 +593,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/GeometryPipeline.js#L243">Core/GeometryPipeline.js 243</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/GeometryPipeline.js#L243">Core/GeometryPipeline.js 243</a>
 </div>
 
 
@@ -597,7 +605,8 @@
 
 
 <div class="description">
-    Creates an object that maps attribute names to unique locations (indices)for matching vertex attributes and shader programs.
+    Creates an object that maps attribute names to unique locations (indices)
+for matching vertex attributes and shader programs.
 </div>
 
 
@@ -700,7 +709,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var attributeLocations = Cesium.GeometryPipeline.createAttributeLocations(geometry);// Example output// {//   'position' : 0,//   'normal' : 1// }</code></pre>
+    <pre><code class="language-javascript">var attributeLocations = Cesium.GeometryPipeline.createAttributeLocations(geometry);
+// Example output
+// {
+//   'position' : 0,
+//   'normal' : 1
+// }</code></pre>
 
     
 
@@ -725,7 +739,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/GeometryPipeline.js#L167">Core/GeometryPipeline.js 167</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/GeometryPipeline.js#L167">Core/GeometryPipeline.js 167</a>
 </div>
 
 
@@ -737,7 +751,9 @@
 
 
 <div class="description">
-    Creates a new <a href="Geometry.html"><code>Geometry</code></a> with <code>LINES</code> representing the providedattribute (<code>attributeName</code>) for the provided geometry.  This is used tovisualize vector attributes like normals, tangents, and bitangents.
+    Creates a new <a href="Geometry.html"><code>Geometry</code></a> with <code>LINES</code> representing the provided
+attribute (<code>attributeName</code>) for the provided geometry.  This is used to
+visualize vector attributes like normals, tangents, and bitangents.
 </div>
 
 
@@ -962,7 +978,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/GeometryPipeline.js#L734">Core/GeometryPipeline.js 734</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/GeometryPipeline.js#L734">Core/GeometryPipeline.js 734</a>
 </div>
 
 
@@ -974,7 +990,11 @@
 
 
 <div class="description">
-    Encodes floating-point geometry attribute values as two separate attributes to improverendering precision.<p>This is commonly used to create high-precision position vertex attributes.</p>
+    Encodes floating-point geometry attribute values as two separate attributes to improve
+rendering precision.
+<p>
+This is commonly used to create high-precision position vertex attributes.
+</p>
 </div>
 
 
@@ -1196,7 +1216,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/GeometryPipeline.js#L498">Core/GeometryPipeline.js 498</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/GeometryPipeline.js#L498">Core/GeometryPipeline.js 498</a>
 </div>
 
 
@@ -1208,7 +1228,12 @@
 
 
 <div class="description">
-    Splits a geometry into multiple geometries, if necessary, to ensure that indices in the<code>indices</code> fit into unsigned shorts.  This is used to meet the WebGL requirementswhen unsigned int indices are not supported.<p>If the geometry does not have any <code>indices</code>, this function has no effect.</p>
+    Splits a geometry into multiple geometries, if necessary, to ensure that indices in the
+<code>indices</code> fit into unsigned shorts.  This is used to meet the WebGL requirements
+when unsigned int indices are not supported.
+<p>
+If the geometry does not have any <code>indices</code>, this function has no effect.
+</p>
 </div>
 
 
@@ -1361,7 +1386,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/GeometryPipeline.js#L619">Core/GeometryPipeline.js 619</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/GeometryPipeline.js#L619">Core/GeometryPipeline.js 619</a>
 </div>
 
 
@@ -1373,7 +1398,11 @@
 
 
 <div class="description">
-    Projects a geometry's 3D <code>position</code> attribute to 2D, replacing the <code>position</code>attribute with separate <code>position3D</code> and <code>position2D</code> attributes.<p>If the geometry does not have a <code>position</code>, this function has no effect.</p>
+    Projects a geometry's 3D <code>position</code> attribute to 2D, replacing the <code>position</code>
+attribute with separate <code>position3D</code> and <code>position2D</code> attributes.
+<p>
+If the geometry does not have a <code>position</code>, this function has no effect.
+</p>
 </div>
 
 
@@ -1680,7 +1709,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/GeometryPipeline.js#L412">Core/GeometryPipeline.js 412</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/GeometryPipeline.js#L412">Core/GeometryPipeline.js 412</a>
 </div>
 
 
@@ -1692,7 +1721,9 @@
 
 
 <div class="description">
-    Reorders a geometry's <code>indices</code> to achieve better performance from the GPU'spost vertex-shader cache by using the Tipsify algorithm.  If the geometry <code>primitiveType</code>is not <code>TRIANGLES</code> or the geometry does not have an <code>indices</code>, this function has no effect.
+    Reorders a geometry's <code>indices</code> to achieve better performance from the GPU's
+post vertex-shader cache by using the Tipsify algorithm.  If the geometry <code>primitiveType</code>
+is not <code>TRIANGLES</code> or the geometry does not have an <code>indices</code>, this function has no effect.
 </div>
 
 
@@ -1871,7 +1902,8 @@
     <ul class="see-list">
         <li><a href="GeometryPipeline.html#.reorderForPreVertexCache">GeometryPipeline.reorderForPreVertexCache</a></li>
     
-        <li><a href="http://gfx.cs.princ0eton.edu/pubs/Sander_2007_%253ETR/tipsy.pdf">Fast Triangle Reordering for Vertex Locality and Reduced Overdraw</a>by Sander, Nehab, and Barczak</li>
+        <li><a href="http://gfx.cs.princ0eton.edu/pubs/Sander_2007_%253ETR/tipsy.pdf">Fast Triangle Reordering for Vertex Locality and Reduced Overdraw</a>
+by Sander, Nehab, and Barczak</li>
     </ul>
     
 
@@ -1888,7 +1920,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/GeometryPipeline.js#L318">Core/GeometryPipeline.js 318</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/GeometryPipeline.js#L318">Core/GeometryPipeline.js 318</a>
 </div>
 
 
@@ -2047,7 +2079,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/GeometryPipeline.js#L119">Core/GeometryPipeline.js 119</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/GeometryPipeline.js#L119">Core/GeometryPipeline.js 119</a>
 </div>
 
 
@@ -2059,7 +2091,12 @@
 
 
 <div class="description">
-    Converts a geometry's triangle indices to line indices.  If the geometry has an <code>indices</code>and its <code>primitiveType</code> is <code>TRIANGLES</code>, <code>TRIANGLE_STRIP</code>,<code>TRIANGLE_FAN</code>, it is converted to <code>LINES</code>; otherwise, the geometry is not changed.<p>This is commonly used to create a wireframe geometry for visual debugging.</p>
+    Converts a geometry's triangle indices to line indices.  If the geometry has an <code>indices</code>
+and its <code>primitiveType</code> is <code>TRIANGLES</code>, <code>TRIANGLE_STRIP</code>,
+<code>TRIANGLE_FAN</code>, it is converted to <code>LINES</code>; otherwise, the geometry is not changed.
+<p>
+This is commonly used to create a wireframe geometry for visual debugging.
+</p>
 </div>
 
 
@@ -2201,7 +2238,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/GeometryPipeline.js#L844">Core/GeometryPipeline.js 844</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/GeometryPipeline.js#L844">Core/GeometryPipeline.js 844</a>
 </div>
 
 
@@ -2213,7 +2250,10 @@
 
 
 <div class="description">
-    Transforms a geometry instance to world coordinates.  This changesthe instance's <code>modelMatrix</code> to <a href="Matrix4.html#.IDENTITY"><code>Matrix4.IDENTITY</code></a> and transforms thefollowing attributes if they are present: <code>position</code>, <code>normal</code>,<code>tangent</code>, and <code>bitangent</code>.
+    Transforms a geometry instance to world coordinates.  This changes
+the instance's <code>modelMatrix</code> to <a href="Matrix4.html#.IDENTITY"><code>Matrix4.IDENTITY</code></a> and transforms the
+following attributes if they are present: <code>position</code>, <code>normal</code>,
+<code>tangent</code>, and <code>bitangent</code>.
 </div>
 
 

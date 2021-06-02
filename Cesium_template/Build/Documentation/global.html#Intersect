@@ -41,13 +41,16 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Intersect.js#L9">Core/Intersect.js 9</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Intersect.js#L9">Core/Intersect.js 9</a>
 </div>
 
 
 
         
-            <div class="description">This enumerated type is used in determining where, relative to the frustum, anobject is located. The object can either be fully contained within the frustum (INSIDE),partially inside the frustum and partially outside (INTERSECTING), or somewhere entirelyoutside of the frustum's 6 planes (OUTSIDE).</div>
+            <div class="description">This enumerated type is used in determining where, relative to the frustum, an
+object is located. The object can either be fully contained within the frustum (INSIDE),
+partially inside the frustum and partially outside (INTERSECTING), or somewhere entirely
+outside of the frustum's 6 planes (OUTSIDE).</div>
         
 
         
@@ -205,7 +208,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Intersect.js#L32">Core/Intersect.js 32</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Intersect.js#L32">Core/Intersect.js 32</a>
 </div>
 
 
@@ -268,7 +271,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Intersect.js#L24">Core/Intersect.js 24</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Intersect.js#L24">Core/Intersect.js 24</a>
 </div>
 
 
@@ -328,7 +331,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Intersect.js#L16">Core/Intersect.js 16</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Intersect.js#L16">Core/Intersect.js 16</a>
 </div>
 
 

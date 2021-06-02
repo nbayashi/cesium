@@ -41,13 +41,14 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ShadowMode.js#L7">Scene/ShadowMode.js 7</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ShadowMode.js#L7">Scene/ShadowMode.js 7</a>
 </div>
 
 
 
         
-            <div class="description">Specifies whether the object casts or receives shadows from light sources whenshadows are enabled.</div>
+            <div class="description">Specifies whether the object casts or receives shadows from light sources when
+shadows are enabled.</div>
         
 
         
@@ -228,7 +229,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ShadowMode.js#L30">Scene/ShadowMode.js 30</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ShadowMode.js#L30">Scene/ShadowMode.js 30</a>
 </div>
 
 
@@ -291,7 +292,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ShadowMode.js#L14">Scene/ShadowMode.js 14</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ShadowMode.js#L14">Scene/ShadowMode.js 14</a>
 </div>
 
 
@@ -351,7 +352,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ShadowMode.js#L22">Scene/ShadowMode.js 22</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ShadowMode.js#L22">Scene/ShadowMode.js 22</a>
 </div>
 
 
@@ -414,7 +415,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/ShadowMode.js#L38">Scene/ShadowMode.js 38</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/ShadowMode.js#L38">Scene/ShadowMode.js 38</a>
 </div>
 
 

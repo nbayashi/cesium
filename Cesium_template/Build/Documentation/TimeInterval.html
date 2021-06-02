@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TimeInterval.js#L60">Core/TimeInterval.js 60</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TimeInterval.js#L60">Core/TimeInterval.js 60</a>
 </div>
 
 
@@ -58,7 +58,8 @@
 
 
 <div class="description">
-    An interval defined by a start and a stop time; optionally including those times as part of the interval.Arbitrary data can optionally be associated with each instance for used with <a href="TimeIntervalCollection.html"><code>TimeIntervalCollection</code></a>.
+    An interval defined by a start and a stop time; optionally including those times as part of the interval.
+Arbitrary data can optionally be associated with each instance for used with <a href="TimeIntervalCollection.html"><code>TimeIntervalCollection</code></a>.
 </div>
 
 
@@ -361,11 +362,41 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Create an instance that spans August 1st, 1980 and is associated// with a Cartesian position.var timeInterval = new Cesium.TimeInterval({    start : Cesium.JulianDate.fromIso8601('1980-08-01T00:00:00Z'),    stop : Cesium.JulianDate.fromIso8601('1980-08-02T00:00:00Z'),    isStartIncluded : true,    isStopIncluded : false,    data : Cesium.Cartesian3.fromDegrees(39.921037, -75.170082)});</code></pre>
+    <pre><code class="language-javascript">// Create an instance that spans August 1st, 1980 and is associated
+// with a Cartesian position.
+var timeInterval = new Cesium.TimeInterval({
+    start : Cesium.JulianDate.fromIso8601('1980-08-01T00:00:00Z'),
+    stop : Cesium.JulianDate.fromIso8601('1980-08-02T00:00:00Z'),
+    isStartIncluded : true,
+    isStopIncluded : false,
+    data : Cesium.Cartesian3.fromDegrees(39.921037, -75.170082)
+});</code></pre>
 
-    <pre><code class="language-javascript">// Create two instances from ISO 8601 intervals with associated numeric data// then compute their intersection, summing the data they contain.var left = Cesium.TimeInterval.fromIso8601({    iso8601 : '2000/2010',    data : 2});var right = Cesium.TimeInterval.fromIso8601({    iso8601 : '1995/2005',    data : 3});//The result of the below intersection will be an interval equivalent to//var intersection = Cesium.TimeInterval.fromIso8601({//  iso8601 : '2000/2005',//  data : 5//});var intersection = new Cesium.TimeInterval();Cesium.TimeInterval.intersect(left, right, intersection, function(leftData, rightData) {    return leftData + rightData;});</code></pre>
+    <pre><code class="language-javascript">// Create two instances from ISO 8601 intervals with associated numeric data
+// then compute their intersection, summing the data they contain.
+var left = Cesium.TimeInterval.fromIso8601({
+    iso8601 : '2000/2010',
+    data : 2
+});
 
-    <pre><code class="language-javascript">// Check if an interval contains a specific time.var dateToCheck = Cesium.JulianDate.fromIso8601('1982-09-08T11:30:00Z');var containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</code></pre>
+var right = Cesium.TimeInterval.fromIso8601({
+    iso8601 : '1995/2005',
+    data : 3
+});
+
+//The result of the below intersection will be an interval equivalent to
+//var intersection = Cesium.TimeInterval.fromIso8601({
+//  iso8601 : '2000/2005',
+//  data : 5
+//});
+var intersection = new Cesium.TimeInterval();
+Cesium.TimeInterval.intersect(left, right, intersection, function(leftData, rightData) {
+    return leftData + rightData;
+});</code></pre>
+
+    <pre><code class="language-javascript">// Check if an interval contains a specific time.
+var dateToCheck = Cesium.JulianDate.fromIso8601('1982-09-08T11:30:00Z');
+var containsDate = Cesium.TimeInterval.contains(timeInterval, dateToCheck);</code></pre>
 
     
 
@@ -406,7 +437,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TimeInterval.js#L411">Core/TimeInterval.js 411</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TimeInterval.js#L411">Core/TimeInterval.js 411</a>
 </div>
 
 
@@ -466,7 +497,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TimeInterval.js#L82">Core/TimeInterval.js 82</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TimeInterval.js#L82">Core/TimeInterval.js 82</a>
 </div>
 
 
@@ -526,7 +557,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TimeInterval.js#L106">Core/TimeInterval.js 106</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TimeInterval.js#L106">Core/TimeInterval.js 106</a>
 </div>
 
 
@@ -586,7 +617,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TimeInterval.js#L89">Core/TimeInterval.js 89</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TimeInterval.js#L89">Core/TimeInterval.js 89</a>
 </div>
 
 
@@ -649,7 +680,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TimeInterval.js#L96">Core/TimeInterval.js 96</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TimeInterval.js#L96">Core/TimeInterval.js 96</a>
 </div>
 
 
@@ -712,7 +743,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TimeInterval.js#L66">Core/TimeInterval.js 66</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TimeInterval.js#L66">Core/TimeInterval.js 66</a>
 </div>
 
 
@@ -772,7 +803,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TimeInterval.js#L74">Core/TimeInterval.js 74</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TimeInterval.js#L74">Core/TimeInterval.js 74</a>
 </div>
 
 
@@ -838,7 +869,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TimeInterval.js#L200">Core/TimeInterval.js 200</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TimeInterval.js#L200">Core/TimeInterval.js 200</a>
 </div>
 
 
@@ -1010,7 +1041,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TimeInterval.js#L337">Core/TimeInterval.js 337</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TimeInterval.js#L337">Core/TimeInterval.js 337</a>
 </div>
 
 
@@ -1168,7 +1199,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TimeInterval.js#L223">Core/TimeInterval.js 223</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TimeInterval.js#L223">Core/TimeInterval.js 223</a>
 </div>
 
 
@@ -1370,7 +1401,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TimeInterval.js#L250">Core/TimeInterval.js 250</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TimeInterval.js#L250">Core/TimeInterval.js 250</a>
 </div>
 
 
@@ -1382,7 +1413,10 @@
 
 
 <div class="description">
-    Compares two instances and returns <code>true</code> if they are within <code>epsilon</code> seconds ofeach other.  That is, in order for the dates to be considered equal (and forthis function to return <code>true</code>), the absolute value of the difference between them, inseconds, must be less than <code>epsilon</code>.
+    Compares two instances and returns <code>true</code> if they are within <code>epsilon</code> seconds of
+each other.  That is, in order for the dates to be considered equal (and for
+this function to return <code>true</code>), the absolute value of the difference between them, in
+seconds, must be less than <code>epsilon</code>.
 </div>
 
 
@@ -1622,7 +1656,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TimeInterval.js#L139">Core/TimeInterval.js 139</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TimeInterval.js#L139">Core/TimeInterval.js 139</a>
 </div>
 
 
@@ -1967,7 +2001,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TimeInterval.js#L276">Core/TimeInterval.js 276</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TimeInterval.js#L276">Core/TimeInterval.js 276</a>
 </div>
 
 
@@ -2197,7 +2231,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TimeInterval.js#L181">Core/TimeInterval.js 181</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TimeInterval.js#L181">Core/TimeInterval.js 181</a>
 </div>
 
 
@@ -2367,7 +2401,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TimeInterval.js#L366">Core/TimeInterval.js 366</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TimeInterval.js#L366">Core/TimeInterval.js 366</a>
 </div>
 
 
@@ -2509,7 +2543,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TimeInterval.js#L378">Core/TimeInterval.js 378</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TimeInterval.js#L378">Core/TimeInterval.js 378</a>
 </div>
 
 
@@ -2521,7 +2555,8 @@
 
 
 <div class="description">
-    Compares this instance against the provided instance componentwise and returns<code>true</code> if they are equal, <code>false</code> otherwise.
+    Compares this instance against the provided instance componentwise and returns
+<code>true</code> if they are equal, <code>false</code> otherwise.
 </div>
 
 
@@ -2681,7 +2716,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TimeInterval.js#L392">Core/TimeInterval.js 392</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TimeInterval.js#L392">Core/TimeInterval.js 392</a>
 </div>
 
 
@@ -2693,7 +2728,9 @@
 
 
 <div class="description">
-    Compares this instance against the provided instance componentwise and returns<code>true</code> if they are within the provided epsilon,<code>false</code> otherwise.
+    Compares this instance against the provided instance componentwise and returns
+<code>true</code> if they are within the provided epsilon,
+<code>false</code> otherwise.
 </div>
 
 
@@ -2899,7 +2936,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TimeInterval.js#L401">Core/TimeInterval.js 401</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TimeInterval.js#L401">Core/TimeInterval.js 401</a>
 </div>
 
 
@@ -2995,7 +3032,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TimeInterval.js#L429">Core/TimeInterval.js 429</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TimeInterval.js#L429">Core/TimeInterval.js 429</a>
 </div>
 
 
@@ -3153,7 +3190,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TimeInterval.js#L420">Core/TimeInterval.js 420</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TimeInterval.js#L420">Core/TimeInterval.js 420</a>
 </div>
 
 

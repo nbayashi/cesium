@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/GeometryAttribute.js#L40">Core/GeometryAttribute.js 40</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/GeometryAttribute.js#L40">Core/GeometryAttribute.js 40</a>
 </div>
 
 
@@ -58,7 +58,9 @@
 
 
 <div class="description">
-    Values and type information for geometry attributes.  A <a href="Geometry.html"><code>Geometry</code></a>generally contains one or more attributes.  All attributes together formthe geometry's vertices.
+    Values and type information for geometry attributes.  A <a href="Geometry.html"><code>Geometry</code></a>
+generally contains one or more attributes.  All attributes together form
+the geometry's vertices.
 </div>
 
 
@@ -359,7 +361,20 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var geometry = new Cesium.Geometry({  attributes : {    position : new Cesium.GeometryAttribute({      componentDatatype : Cesium.ComponentDatatype.FLOAT,      componentsPerAttribute : 3,      values : new Float32Array([        0.0, 0.0, 0.0,        7500000.0, 0.0, 0.0,        0.0, 7500000.0, 0.0      ])    })  },  primitiveType : Cesium.PrimitiveType.LINE_LOOP});</code></pre>
+    <pre><code class="language-javascript">var geometry = new Cesium.Geometry({
+  attributes : {
+    position : new Cesium.GeometryAttribute({
+      componentDatatype : Cesium.ComponentDatatype.FLOAT,
+      componentsPerAttribute : 3,
+      values : new Float32Array([
+        0.0, 0.0, 0.0,
+        7500000.0, 0.0, 0.0,
+        0.0, 7500000.0, 0.0
+      ])
+    })
+  },
+  primitiveType : Cesium.PrimitiveType.LINE_LOOP
+});</code></pre>
 
     
 
@@ -405,7 +420,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/GeometryAttribute.js#L71">Core/GeometryAttribute.js 71</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/GeometryAttribute.js#L71">Core/GeometryAttribute.js 71</a>
 </div>
 
 
@@ -416,7 +431,8 @@
 
 
 <div class="description">
-    The datatype of each component in the attribute, e.g., individual elements in<a href="GeometryAttribute.html#values"><code>GeometryAttribute#values</code></a>.
+    The datatype of each component in the attribute, e.g., individual elements in
+<a href="GeometryAttribute.html#values"><code>GeometryAttribute#values</code></a>.
 </div>
 
 
@@ -468,7 +484,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/GeometryAttribute.js#L91">Core/GeometryAttribute.js 91</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/GeometryAttribute.js#L91">Core/GeometryAttribute.js 91</a>
 </div>
 
 
@@ -479,7 +495,9 @@
 
 
 <div class="description">
-    A number between 1 and 4 that defines the number of components in an attributes.For example, a position attribute with x, y, and z components would have 3 asshown in the code example.
+    A number between 1 and 4 that defines the number of components in an attributes.
+For example, a position attribute with x, y, and z components would have 3 as
+shown in the code example.
 </div>
 
 
@@ -511,7 +529,13 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">attribute.componentDatatype = Cesium.ComponentDatatype.FLOAT;attribute.componentsPerAttribute = 3;attribute.values = new Float32Array([  0.0, 0.0, 0.0,  7500000.0, 0.0, 0.0,  0.0, 7500000.0, 0.0]);</code></pre>
+    <pre><code class="language-javascript">attribute.componentDatatype = Cesium.ComponentDatatype.FLOAT;
+attribute.componentsPerAttribute = 3;
+attribute.values = new Float32Array([
+  0.0, 0.0, 0.0,
+  7500000.0, 0.0, 0.0,
+  0.0, 7500000.0, 0.0
+]);</code></pre>
 
     
 
@@ -536,7 +560,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/GeometryAttribute.js#L116">Core/GeometryAttribute.js 116</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/GeometryAttribute.js#L116">Core/GeometryAttribute.js 116</a>
 </div>
 
 
@@ -547,7 +571,12 @@
 
 
 <div class="description">
-    When <code>true</code> and <code>componentDatatype</code> is an integer format,indicate that the components should be mapped to the range [0, 1] (unsigned)or [-1, 1] (signed) when they are accessed as floating-point for rendering.<p>This is commonly used when storing colors using <a href="global.html#ComponentDatatype#.UNSIGNED_BYTE"><code>ComponentDatatype.UNSIGNED_BYTE</code></a>.</p>
+    When <code>true</code> and <code>componentDatatype</code> is an integer format,
+indicate that the components should be mapped to the range [0, 1] (unsigned)
+or [-1, 1] (signed) when they are accessed as floating-point for rendering.
+<p>
+This is commonly used when storing colors using <a href="global.html#ComponentDatatype#.UNSIGNED_BYTE"><code>ComponentDatatype.UNSIGNED_BYTE</code></a>.
+</p>
 </div>
 
 
@@ -579,7 +608,15 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">attribute.componentDatatype = Cesium.ComponentDatatype.UNSIGNED_BYTE;attribute.componentsPerAttribute = 4;attribute.normalize = true;attribute.values = new Uint8Array([  Cesium.Color.floatToByte(color.red),  Cesium.Color.floatToByte(color.green),  Cesium.Color.floatToByte(color.blue),  Cesium.Color.floatToByte(color.alpha)]);</code></pre>
+    <pre><code class="language-javascript">attribute.componentDatatype = Cesium.ComponentDatatype.UNSIGNED_BYTE;
+attribute.componentsPerAttribute = 4;
+attribute.normalize = true;
+attribute.values = new Uint8Array([
+  Cesium.Color.floatToByte(color.red),
+  Cesium.Color.floatToByte(color.green),
+  Cesium.Color.floatToByte(color.blue),
+  Cesium.Color.floatToByte(color.alpha)
+]);</code></pre>
 
     
 
@@ -604,7 +641,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/GeometryAttribute.js#L136">Core/GeometryAttribute.js 136</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/GeometryAttribute.js#L136">Core/GeometryAttribute.js 136</a>
 </div>
 
 
@@ -615,7 +652,9 @@
 
 
 <div class="description">
-    The values for the attributes stored in a typed array.  In the code example,every three elements in <code>values</code> defines one attributes since<code>componentsPerAttribute</code> is 3.
+    The values for the attributes stored in a typed array.  In the code example,
+every three elements in <code>values</code> defines one attributes since
+<code>componentsPerAttribute</code> is 3.
 </div>
 
 
@@ -647,7 +686,13 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">attribute.componentDatatype = Cesium.ComponentDatatype.FLOAT;attribute.componentsPerAttribute = 3;attribute.values = new Float32Array([  0.0, 0.0, 0.0,  7500000.0, 0.0, 0.0,  0.0, 7500000.0, 0.0]);</code></pre>
+    <pre><code class="language-javascript">attribute.componentDatatype = Cesium.ComponentDatatype.FLOAT;
+attribute.componentsPerAttribute = 3;
+attribute.values = new Float32Array([
+  0.0, 0.0, 0.0,
+  7500000.0, 0.0, 0.0,
+  0.0, 7500000.0, 0.0
+]);</code></pre>
 
     
 

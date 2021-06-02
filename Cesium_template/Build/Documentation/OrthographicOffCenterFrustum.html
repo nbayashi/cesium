@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrthographicOffCenterFrustum.js#L38">Core/OrthographicOffCenterFrustum.js 38</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrthographicOffCenterFrustum.js#L38">Core/OrthographicOffCenterFrustum.js 38</a>
 </div>
 
 
@@ -58,7 +58,10 @@
 
 
 <div class="description">
-    The viewing frustum is defined by 6 planes.Each plane is represented by a <a href="Cartesian4.html"><code>Cartesian4</code></a> object, where the x, y, and z componentsdefine the unit vector normal to the plane, and the w component is the distance of theplane from the origin/camera position.
+    The viewing frustum is defined by 6 planes.
+Each plane is represented by a <a href="Cartesian4.html"><code>Cartesian4</code></a> object, where the x, y, and z components
+define the unit vector normal to the plane, and the w component is the distance of the
+plane from the origin/camera position.
 </div>
 
 
@@ -391,7 +394,15 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var maxRadii = ellipsoid.maximumRadius;var frustum = new Cesium.OrthographicOffCenterFrustum();frustum.right = maxRadii * Cesium.Math.PI;frustum.left = -c.frustum.right;frustum.top = c.frustum.right * (canvas.clientHeight / canvas.clientWidth);frustum.bottom = -c.frustum.top;frustum.near = 0.01 * maxRadii;frustum.far = 50.0 * maxRadii;</code></pre>
+    <pre><code class="language-javascript">var maxRadii = ellipsoid.maximumRadius;
+
+var frustum = new Cesium.OrthographicOffCenterFrustum();
+frustum.right = maxRadii * Cesium.Math.PI;
+frustum.left = -c.frustum.right;
+frustum.top = c.frustum.right * (canvas.clientHeight / canvas.clientWidth);
+frustum.bottom = -c.frustum.top;
+frustum.near = 0.01 * maxRadii;
+frustum.far = 50.0 * maxRadii;</code></pre>
 
     
 
@@ -432,7 +443,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrthographicOffCenterFrustum.js#L70">Core/OrthographicOffCenterFrustum.js 70</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrthographicOffCenterFrustum.js#L70">Core/OrthographicOffCenterFrustum.js 70</a>
 </div>
 
 
@@ -495,7 +506,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrthographicOffCenterFrustum.js#L86">Core/OrthographicOffCenterFrustum.js 86</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrthographicOffCenterFrustum.js#L86">Core/OrthographicOffCenterFrustum.js 86</a>
 </div>
 
 
@@ -558,7 +569,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrthographicOffCenterFrustum.js#L46">Core/OrthographicOffCenterFrustum.js 46</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrthographicOffCenterFrustum.js#L46">Core/OrthographicOffCenterFrustum.js 46</a>
 </div>
 
 
@@ -621,7 +632,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrthographicOffCenterFrustum.js#L78">Core/OrthographicOffCenterFrustum.js 78</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrthographicOffCenterFrustum.js#L78">Core/OrthographicOffCenterFrustum.js 78</a>
 </div>
 
 
@@ -684,7 +695,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrthographicOffCenterFrustum.js#L156">Core/OrthographicOffCenterFrustum.js 156</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrthographicOffCenterFrustum.js#L156">Core/OrthographicOffCenterFrustum.js 156</a>
 </div>
 
 
@@ -744,7 +755,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrthographicOffCenterFrustum.js#L54">Core/OrthographicOffCenterFrustum.js 54</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrthographicOffCenterFrustum.js#L54">Core/OrthographicOffCenterFrustum.js 54</a>
 </div>
 
 
@@ -807,7 +818,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrthographicOffCenterFrustum.js#L62">Core/OrthographicOffCenterFrustum.js 62</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrthographicOffCenterFrustum.js#L62">Core/OrthographicOffCenterFrustum.js 62</a>
 </div>
 
 
@@ -876,7 +887,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrthographicOffCenterFrustum.js#L363">Core/OrthographicOffCenterFrustum.js 363</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrthographicOffCenterFrustum.js#L363">Core/OrthographicOffCenterFrustum.js 363</a>
 </div>
 
 
@@ -1018,7 +1029,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrthographicOffCenterFrustum.js#L182">Core/OrthographicOffCenterFrustum.js 182</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrthographicOffCenterFrustum.js#L182">Core/OrthographicOffCenterFrustum.js 182</a>
 </div>
 
 
@@ -1179,7 +1190,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Check if a bounding volume intersects the frustum.var cullingVolume = frustum.computeCullingVolume(cameraPosition, cameraDirection, cameraUp);var intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
+    <pre><code class="language-javascript">// Check if a bounding volume intersects the frustum.
+var cullingVolume = frustum.computeCullingVolume(cameraPosition, cameraDirection, cameraUp);
+var intersect = cullingVolume.computeVisibility(boundingVolume);</code></pre>
 
     
 
@@ -1204,7 +1217,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrthographicOffCenterFrustum.js#L393">Core/OrthographicOffCenterFrustum.js 393</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrthographicOffCenterFrustum.js#L393">Core/OrthographicOffCenterFrustum.js 393</a>
 </div>
 
 
@@ -1216,7 +1229,8 @@
 
 
 <div class="description">
-    Compares the provided OrthographicOffCenterFrustum componentwise and returns<code>true</code> if they are equal, <code>false</code> otherwise.
+    Compares the provided OrthographicOffCenterFrustum componentwise and returns
+<code>true</code> if they are equal, <code>false</code> otherwise.
 </div>
 
 
@@ -1346,7 +1360,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrthographicOffCenterFrustum.js#L416">Core/OrthographicOffCenterFrustum.js 416</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrthographicOffCenterFrustum.js#L416">Core/OrthographicOffCenterFrustum.js 416</a>
 </div>
 
 
@@ -1358,7 +1372,9 @@
 
 
 <div class="description">
-    Compares the provided OrthographicOffCenterFrustum componentwise and returns<code>true</code> if they pass an absolute or relative tolerance test,<code>false</code> otherwise.
+    Compares the provided OrthographicOffCenterFrustum componentwise and returns
+<code>true</code> if they pass an absolute or relative tolerance test,
+<code>false</code> otherwise.
 </div>
 
 
@@ -1560,7 +1576,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrthographicOffCenterFrustum.js#L312">Core/OrthographicOffCenterFrustum.js 312</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrthographicOffCenterFrustum.js#L312">Core/OrthographicOffCenterFrustum.js 312</a>
 </div>
 
 
@@ -1803,7 +1819,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Example 1// Get the width and height of a pixel.var pixelSize = camera.frustum.getPixelDimensions(scene.drawingBufferWidth, scene.drawingBufferHeight, 0.0, scene.pixelRatio, new Cesium.Cartesian2());</code></pre>
+    <pre><code class="language-javascript">// Example 1
+// Get the width and height of a pixel.
+var pixelSize = camera.frustum.getPixelDimensions(scene.drawingBufferWidth, scene.drawingBufferHeight, 0.0, scene.pixelRatio, new Cesium.Cartesian2());</code></pre>
 
     
 

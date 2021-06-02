@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/StyleExpression.js#L19">Scene/StyleExpression.js 19</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/StyleExpression.js#L19">Scene/StyleExpression.js 19</a>
 </div>
 
 
@@ -58,7 +58,14 @@
 
 
 <div class="description">
-    An expression for a style applied to a <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a>.<p>Derived classes of this interface evaluate expressions in the<a href="https://github.com/CesiumGS/3d-tiles/tree/master/specification/Styling">3D Tiles Styling language</a>.</p><p>This type describes an interface and is not intended to be instantiated directly.</p>
+    An expression for a style applied to a <a href="Cesium3DTileset.html"><code>Cesium3DTileset</code></a>.
+<p>
+Derived classes of this interface evaluate expressions in the
+<a href="https://github.com/CesiumGS/3d-tiles/tree/master/specification/Styling">3D Tiles Styling language</a>.
+</p>
+<p>
+This type describes an interface and is not intended to be instantiated directly.
+</p>
 </div>
 
 
@@ -152,7 +159,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/StyleExpression.js#L35">Scene/StyleExpression.js 35</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/StyleExpression.js#L35">Scene/StyleExpression.js 35</a>
 </div>
 
 
@@ -164,7 +171,14 @@
 
 
 <div class="description">
-    Evaluates the result of an expression, optionally using the provided feature's properties. If the result ofthe expression in the<a href="https://github.com/CesiumGS/3d-tiles/tree/master/specification/Styling">3D Tiles Styling language</a>is of type <code>Boolean</code>, <code>Number</code>, or <code>String</code>, the corresponding JavaScriptprimitive type will be returned. If the result is a <code>RegExp</code>, a Javascript <code>RegExp</code>object will be returned. If the result is a <code>Cartesian2</code>, <code>Cartesian3</code>, or <code>Cartesian4</code>,a <a href="Cartesian2.html"><code>Cartesian2</code></a>, <a href="Cartesian3.html"><code>Cartesian3</code></a>, or <a href="Cartesian4.html"><code>Cartesian4</code></a> object will be returned. If the <code>result</code> argument isa <a href="Color.html"><code>Color</code></a>, the <a href="Cartesian4.html"><code>Cartesian4</code></a> value is converted to a <a href="Color.html"><code>Color</code></a> and then returned.
+    Evaluates the result of an expression, optionally using the provided feature's properties. If the result of
+the expression in the
+<a href="https://github.com/CesiumGS/3d-tiles/tree/master/specification/Styling">3D Tiles Styling language</a>
+is of type <code>Boolean</code>, <code>Number</code>, or <code>String</code>, the corresponding JavaScript
+primitive type will be returned. If the result is a <code>RegExp</code>, a Javascript <code>RegExp</code>
+object will be returned. If the result is a <code>Cartesian2</code>, <code>Cartesian3</code>, or <code>Cartesian4</code>,
+a <a href="Cartesian2.html"><code>Cartesian2</code></a>, <a href="Cartesian3.html"><code>Cartesian3</code></a>, or <a href="Cartesian4.html"><code>Cartesian4</code></a> object will be returned. If the <code>result</code> argument is
+a <a href="Color.html"><code>Color</code></a>, the <a href="Cartesian4.html"><code>Cartesian4</code></a> value is converted to a <a href="Color.html"><code>Color</code></a> and then returned.
 </div>
 
 
@@ -322,7 +336,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/StyleExpression.js#L49">Scene/StyleExpression.js 49</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/StyleExpression.js#L49">Scene/StyleExpression.js 49</a>
 </div>
 
 
@@ -334,7 +348,10 @@
 
 
 <div class="description">
-    Evaluates the result of a Color expression, optionally using the provided feature's properties.<p>This is equivalent to <a href="StyleExpression.html#evaluate"><code>StyleExpression#evaluate</code></a> but always returns a <a href="Color.html"><code>Color</code></a> object.</p>
+    Evaluates the result of a Color expression, optionally using the provided feature's properties.
+<p>
+This is equivalent to <a href="StyleExpression.html#evaluate"><code>StyleExpression#evaluate</code></a> but always returns a <a href="Color.html"><code>Color</code></a> object.
+</p>
 </div>
 
 

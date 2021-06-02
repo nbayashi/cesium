@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Plane.js#L34">Core/Plane.js 34</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Plane.js#L34">Core/Plane.js 34</a>
 </div>
 
 
@@ -58,7 +58,13 @@
 
 
 <div class="description">
-    A plane in Hessian Normal Form defined by<pre>ax + by + cz + d = 0</pre>where (a, b, c) is the plane's <code>normal</code>, d is the signed<code>distance</code> to the plane, and (x, y, z) is any point onthe plane.
+    A plane in Hessian Normal Form defined by
+<pre>
+ax + by + cz + d = 0
+</pre>
+where (a, b, c) is the plane's <code>normal</code>, d is the signed
+<code>distance</code> to the plane, and (x, y, z) is any point on
+the plane.
 </div>
 
 
@@ -132,7 +138,11 @@
 
             <td class="description last">
             
-                The shortest distance from the origin to the plane.  The sign of<code>distance</code> determines which side of the plane the originis on.  If <code>distance</code> is positive, the origin is in the half-spacein the direction of the normal; if negative, the origin is in the half-spaceopposite to the normal; if zero, the plane passes through the origin.</td>
+                The shortest distance from the origin to the plane.  The sign of
+<code>distance</code> determines which side of the plane the origin
+is on.  If <code>distance</code> is positive, the origin is in the half-space
+in the direction of the normal; if negative, the origin is in the half-space
+opposite to the normal; if zero, the plane passes through the origin.</td>
         </tr>
 
     
@@ -189,7 +199,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// The plane x=0var plane = new Cesium.Plane(Cesium.Cartesian3.UNIT_X, 0.0);</code></pre>
+    <pre><code class="language-javascript">// The plane x=0
+var plane = new Cesium.Plane(Cesium.Cartesian3.UNIT_X, 0.0);</code></pre>
 
     
 
@@ -230,7 +241,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Plane.js#L295">Core/Plane.js 295</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Plane.js#L295">Core/Plane.js 295</a>
 </div>
 
 
@@ -290,7 +301,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Plane.js#L303">Core/Plane.js 303</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Plane.js#L303">Core/Plane.js 303</a>
 </div>
 
 
@@ -350,7 +361,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Plane.js#L311">Core/Plane.js 311</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Plane.js#L311">Core/Plane.js 311</a>
 </div>
 
 
@@ -410,7 +421,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Plane.js#L65">Core/Plane.js 65</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Plane.js#L65">Core/Plane.js 65</a>
 </div>
 
 
@@ -421,7 +432,11 @@
 
 
 <div class="description">
-    The shortest distance from the origin to the plane.  The sign of<code>distance</code> determines which side of the plane the originis on.  If <code>distance</code> is positive, the origin is in the half-spacein the direction of the normal; if negative, the origin is in the half-spaceopposite to the normal; if zero, the plane passes through the origin.
+    The shortest distance from the origin to the plane.  The sign of
+<code>distance</code> determines which side of the plane the origin
+is on.  If <code>distance</code> is positive, the origin is in the half-space
+in the direction of the normal; if negative, the origin is in the half-space
+opposite to the normal; if zero, the plane passes through the origin.
 </div>
 
 
@@ -470,7 +485,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Plane.js#L54">Core/Plane.js 54</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Plane.js#L54">Core/Plane.js 54</a>
 </div>
 
 
@@ -536,7 +551,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Plane.js#L254">Core/Plane.js 254</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Plane.js#L254">Core/Plane.js 254</a>
 </div>
 
 
@@ -706,7 +721,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Plane.js#L277">Core/Plane.js 277</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Plane.js#L277">Core/Plane.js 277</a>
 </div>
 
 
@@ -718,7 +733,8 @@
 
 
 <div class="description">
-    Compares the provided Planes by normal and distance and returns<code>true</code> if they are equal, <code>false</code> otherwise.
+    Compares the provided Planes by normal and distance and returns
+<code>true</code> if they are equal, <code>false</code> otherwise.
 </div>
 
 
@@ -864,7 +880,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Plane.js#L119">Core/Plane.js 119</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Plane.js#L119">Core/Plane.js 119</a>
 </div>
 
 
@@ -1048,7 +1064,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Plane.js#L83">Core/Plane.js 83</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Plane.js#L83">Core/Plane.js 83</a>
 </div>
 
 
@@ -1240,7 +1256,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var point = Cesium.Cartesian3.fromDegrees(-72.0, 40.0);var normal = ellipsoid.geodeticSurfaceNormal(point);var tangentPlane = Cesium.Plane.fromPointNormal(point, normal);</code></pre>
+    <pre><code class="language-javascript">var point = Cesium.Cartesian3.fromDegrees(-72.0, 40.0);
+var normal = ellipsoid.geodeticSurfaceNormal(point);
+var tangentPlane = Cesium.Plane.fromPointNormal(point, normal);</code></pre>
 
     
 
@@ -1265,7 +1283,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Plane.js#L158">Core/Plane.js 158</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Plane.js#L158">Core/Plane.js 158</a>
 </div>
 
 
@@ -1277,7 +1295,11 @@
 
 
 <div class="description">
-    Computes the signed shortest distance of a point to a plane.The sign of the distance determines which side of the plane the pointis on.  If the distance is positive, the point is in the half-spacein the direction of the normal; if negative, the point is in the half-spaceopposite to the normal; if zero, the plane passes through the point.
+    Computes the signed shortest distance of a point to a plane.
+The sign of the distance determines which side of the plane the point
+is on.  If the distance is positive, the point is in the half-space
+in the direction of the normal; if negative, the point is in the half-space
+opposite to the normal; if zero, the plane passes through the point.
 </div>
 
 
@@ -1423,7 +1445,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Plane.js#L175">Core/Plane.js 175</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Plane.js#L175">Core/Plane.js 175</a>
 </div>
 
 
@@ -1621,7 +1643,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Plane.js#L207">Core/Plane.js 207</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Plane.js#L207">Core/Plane.js 207</a>
 </div>
 
 

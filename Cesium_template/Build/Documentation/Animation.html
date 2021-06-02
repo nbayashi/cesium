@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Animation/Animation.js#L427">Widgets/Animation/Animation.js 427</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Animation/Animation.js#L427">Widgets/Animation/Animation.js 427</a>
 </div>
 
 
@@ -58,7 +58,26 @@
 
 
 <div class="description">
-    <span style="display: block; text-align: center;"><img src="Images/AnimationWidget.png" width="211" height="142" alt="" /><br />Animation widget</span><br /><br />The Animation widget provides buttons for play, pause, and reverse, along with thecurrent time and date, surrounded by a "shuttle ring" for controlling the speed of animation.<br /><br />The "shuttle ring" concept is borrowed from video editing, where typically a"jog wheel" can be rotated to move past individual animation frames very slowly, anda surrounding shuttle ring can be twisted to control direction and speed of fast playback.Cesium typically treats time as continuous (not broken into pre-defined animation frames),so this widget offers no jog wheel.  Instead, the shuttle ring is capable of both fast andvery slow playback.  Click and drag the shuttle ring pointer itself (shown above in green),or click in the rest of the ring area to nudge the pointer to the next preset speed in that direction.<br /><br />The Animation widget also provides a "realtime" button (in the upper-left) that keepsanimation time in sync with the end user's system clock, typically displaying"today" or "right now."  This mode is not available in <a href="global.html#ClockRange#.CLAMPED"><code>ClockRange.CLAMPED</code></a> or<a href="global.html#ClockRange#.LOOP_STOP"><code>ClockRange.LOOP_STOP</code></a> mode if the current time is outside of <a href="Clock.html"><code>Clock</code></a>'s startTime and endTime.
+    <span style="display: block; text-align: center;">
+<img src="Images/AnimationWidget.png" width="211" height="142" alt="" />
+<br />Animation widget
+</span>
+<br /><br />
+The Animation widget provides buttons for play, pause, and reverse, along with the
+current time and date, surrounded by a "shuttle ring" for controlling the speed of animation.
+<br /><br />
+The "shuttle ring" concept is borrowed from video editing, where typically a
+"jog wheel" can be rotated to move past individual animation frames very slowly, and
+a surrounding shuttle ring can be twisted to control direction and speed of fast playback.
+Cesium typically treats time as continuous (not broken into pre-defined animation frames),
+so this widget offers no jog wheel.  Instead, the shuttle ring is capable of both fast and
+very slow playback.  Click and drag the shuttle ring pointer itself (shown above in green),
+or click in the rest of the ring area to nudge the pointer to the next preset speed in that direction.
+<br /><br />
+The Animation widget also provides a "realtime" button (in the upper-left) that keeps
+animation time in sync with the end user's system clock, typically displaying
+"today" or "right now."  This mode is not available in <a href="global.html#ClockRange#.CLAMPED"><code>ClockRange.CLAMPED</code></a> or
+<a href="global.html#ClockRange#.LOOP_STOP"><code>ClockRange.LOOP_STOP</code></a> mode if the current time is outside of <a href="Clock.html"><code>Clock</code></a>'s startTime and endTime.
 </div>
 
 
@@ -192,7 +211,19 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// In HTML head, include a link to Animation.css stylesheet,// and in the body, include: &lt;div id="animationContainer">&lt;/div>var clock = new Cesium.Clock();var clockViewModel = new Cesium.ClockViewModel(clock);var viewModel = new Cesium.AnimationViewModel(clockViewModel);var widget = new Cesium.Animation('animationContainer', viewModel);function tick() {    clock.tick();    Cesium.requestAnimationFrame(tick);}Cesium.requestAnimationFrame(tick);</code></pre>
+    <pre><code class="language-javascript">// In HTML head, include a link to Animation.css stylesheet,
+// and in the body, include: &lt;div id="animationContainer">&lt;/div>
+
+var clock = new Cesium.Clock();
+var clockViewModel = new Cesium.ClockViewModel(clock);
+var viewModel = new Cesium.AnimationViewModel(clockViewModel);
+var widget = new Cesium.Animation('animationContainer', viewModel);
+
+function tick() {
+    clock.tick();
+    Cesium.requestAnimationFrame(tick);
+}
+Cesium.requestAnimationFrame(tick);</code></pre>
 
     
 
@@ -240,7 +271,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Animation/Animation.js#L709">Widgets/Animation/Animation.js 709</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Animation/Animation.js#L709">Widgets/Animation/Animation.js 709</a>
 </div>
 
 
@@ -300,7 +331,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Animation/Animation.js#L722">Widgets/Animation/Animation.js 722</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Animation/Animation.js#L722">Widgets/Animation/Animation.js 722</a>
 </div>
 
 
@@ -366,7 +397,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Animation/Animation.js#L863">Widgets/Animation/Animation.js 863</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Animation/Animation.js#L863">Widgets/Animation/Animation.js 863</a>
 </div>
 
 
@@ -427,7 +458,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">//Switch to the cesium-lighter theme.document.body.className = 'cesium-lighter';animation.applyThemeChanges();</code></pre>
+    <pre><code class="language-javascript">//Switch to the cesium-lighter theme.
+document.body.className = 'cesium-lighter';
+animation.applyThemeChanges();</code></pre>
 
     
 
@@ -452,7 +485,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Animation/Animation.js#L740">Widgets/Animation/Animation.js 740</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Animation/Animation.js#L740">Widgets/Animation/Animation.js 740</a>
 </div>
 
 
@@ -464,7 +497,8 @@
 
 
 <div class="description">
-    Destroys the animation widget.  Should be called if permanentlyremoving the widget from layout.
+    Destroys the animation widget.  Should be called if permanently
+removing the widget from layout.
 </div>
 
 
@@ -533,7 +567,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Animation/Animation.js#L732">Widgets/Animation/Animation.js 732</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Animation/Animation.js#L732">Widgets/Animation/Animation.js 732</a>
 </div>
 
 
@@ -619,7 +653,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/Animation/Animation.js#L806">Widgets/Animation/Animation.js 806</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/Animation/Animation.js#L806">Widgets/Animation/Animation.js 806</a>
 </div>
 
 
@@ -631,7 +665,8 @@
 
 
 <div class="description">
-    Resizes the widget to match the container size.This function should be called whenever the container size is changed.
+    Resizes the widget to match the container size.
+This function should be called whenever the container size is changed.
 </div>
 
 

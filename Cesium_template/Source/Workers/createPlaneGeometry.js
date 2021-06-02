@@ -1,5 +1,5 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['./when-9f8cafad', './Transforms-0a60c469', './Cartesian2-ea36f114', './Check-c23b5bd5', './ComponentDatatype-ec57da04', './GeometryAttribute-abbafb10', './GeometryAttributes-fcb70320', './VertexFormat-acf66ec0', './Math-cf2f57e0', './RuntimeError-40167735', './WebGLConstants-daaa9be0'], function (when, Transforms, Cartesian2, Check, ComponentDatatype, GeometryAttribute, GeometryAttributes, VertexFormat, _Math, RuntimeError, WebGLConstants) { 'use strict';
+define(['./when-f31b6bd1', './Transforms-eb995198', './Cartesian2-44e93af5', './Check-285f6bfc', './ComponentDatatype-d4a0149c', './GeometryAttribute-cc0565cd', './GeometryAttributes-e973821e', './VertexFormat-ab7dd48c', './Math-8c161f1c', './RuntimeError-c7c236f3', './WebGLConstants-34c08bc0'], function (when, Transforms, Cartesian2, Check, ComponentDatatype, GeometryAttribute, GeometryAttributes, VertexFormat, _Math, RuntimeError, WebGLConstants) { 'use strict';
 
   /**
    * Describes geometry representing a plane centered at the origin, with a unit width and length.

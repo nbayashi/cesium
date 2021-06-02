@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/VelocityVectorProperty.js#L31">DataSources/VelocityVectorProperty.js 31</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/VelocityVectorProperty.js#L31">DataSources/VelocityVectorProperty.js 31</a>
 </div>
 
 
@@ -58,7 +58,8 @@
 
 
 <div class="description">
-    A <a href="Property.html"><code>Property</code></a> which evaluates to a <a href="Cartesian3.html"><code>Cartesian3</code></a> vectorbased on the velocity of the provided <a href="PositionProperty.html"><code>PositionProperty</code></a>.
+    A <a href="Property.html"><code>Property</code></a> which evaluates to a <a href="Cartesian3.html"><code>Cartesian3</code></a> vector
+based on the velocity of the provided <a href="PositionProperty.html"><code>PositionProperty</code></a>.
 </div>
 
 
@@ -201,7 +202,16 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">//Create an entity with a billboard rotated to match its velocity.var position = new Cesium.SampledProperty();position.addSamples(...);var entity = viewer.entities.add({  position : position,  billboard : {    image : 'image.png',    alignedAxis : new Cesium.VelocityVectorProperty(position, true) // alignedAxis must be a unit vector  }}));</code></pre>
+    <pre><code class="language-javascript">//Create an entity with a billboard rotated to match its velocity.
+var position = new Cesium.SampledProperty();
+position.addSamples(...);
+var entity = viewer.entities.add({
+  position : position,
+  billboard : {
+    image : 'image.png',
+    alignedAxis : new Cesium.VelocityVectorProperty(position, true) // alignedAxis must be a unit vector
+  }
+}));</code></pre>
 
     
 
@@ -242,7 +252,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/VelocityVectorProperty.js#L60">DataSources/VelocityVectorProperty.js 60</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/VelocityVectorProperty.js#L60">DataSources/VelocityVectorProperty.js 60</a>
 </div>
 
 
@@ -302,7 +312,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/VelocityVectorProperty.js#L48">DataSources/VelocityVectorProperty.js 48</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/VelocityVectorProperty.js#L48">DataSources/VelocityVectorProperty.js 48</a>
 </div>
 
 
@@ -362,7 +372,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/VelocityVectorProperty.js#L104">DataSources/VelocityVectorProperty.js 104</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/VelocityVectorProperty.js#L104">DataSources/VelocityVectorProperty.js 104</a>
 </div>
 
 
@@ -373,7 +383,8 @@
 
 
 <div class="description">
-    Gets or sets whether the vector produced by this propertywill be normalized or not.
+    Gets or sets whether the vector produced by this property
+will be normalized or not.
 </div>
 
 
@@ -422,7 +433,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/VelocityVectorProperty.js#L71">DataSources/VelocityVectorProperty.js 71</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/VelocityVectorProperty.js#L71">DataSources/VelocityVectorProperty.js 71</a>
 </div>
 
 
@@ -488,7 +499,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/VelocityVectorProperty.js#L209">DataSources/VelocityVectorProperty.js 209</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/VelocityVectorProperty.js#L209">DataSources/VelocityVectorProperty.js 209</a>
 </div>
 
 
@@ -500,7 +511,8 @@
 
 
 <div class="description">
-    Compares this property to the provided property and returns<code>true</code> if they are equal, <code>false</code> otherwise.
+    Compares this property to the provided property and returns
+<code>true</code> if they are equal, <code>false</code> otherwise.
 </div>
 
 
@@ -630,7 +642,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/VelocityVectorProperty.js#L131">DataSources/VelocityVectorProperty.js 131</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/VelocityVectorProperty.js#L131">DataSources/VelocityVectorProperty.js 131</a>
 </div>
 
 

@@ -1,5 +1,5 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['./when-9f8cafad', './FrustumGeometry-ed778330', './Transforms-0a60c469', './Cartesian2-ea36f114', './Check-c23b5bd5', './Math-cf2f57e0', './RuntimeError-40167735', './ComponentDatatype-ec57da04', './WebGLConstants-daaa9be0', './GeometryAttribute-abbafb10', './GeometryAttributes-fcb70320', './Plane-ed60195c', './VertexFormat-acf66ec0'], function (when, FrustumGeometry, Transforms, Cartesian2, Check, _Math, RuntimeError, ComponentDatatype, WebGLConstants, GeometryAttribute, GeometryAttributes, Plane, VertexFormat) { 'use strict';
+define(['./when-f31b6bd1', './FrustumGeometry-230a3ea9', './Transforms-eb995198', './Cartesian2-44e93af5', './Check-285f6bfc', './Math-8c161f1c', './RuntimeError-c7c236f3', './ComponentDatatype-d4a0149c', './WebGLConstants-34c08bc0', './GeometryAttribute-cc0565cd', './GeometryAttributes-e973821e', './Plane-16f95004', './VertexFormat-ab7dd48c'], function (when, FrustumGeometry, Transforms, Cartesian2, Check, _Math, RuntimeError, ComponentDatatype, WebGLConstants, GeometryAttribute, GeometryAttributes, Plane, VertexFormat) { 'use strict';
 
   function createFrustumGeometry(frustumGeometry, offset) {
     if (when.defined(offset)) {

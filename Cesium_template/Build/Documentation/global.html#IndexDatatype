@@ -41,13 +41,14 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/IndexDatatype.js#L12">Core/IndexDatatype.js 12</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/IndexDatatype.js#L12">Core/IndexDatatype.js 12</a>
 </div>
 
 
 
         
-            <div class="description">Constants for WebGL index datatypes.  These corresponds to the<code>type</code> parameter of <a href="http://www.khronos.org/opengles/sdk/docs/man/xhtml/glDrawElements.xml">drawElements</a>.</div>
+            <div class="description">Constants for WebGL index datatypes.  These corresponds to the
+<code>type</code> parameter of <a href="http://www.khronos.org/opengles/sdk/docs/man/xhtml/glDrawElements.xml">drawElements</a>.</div>
         
 
         
@@ -96,7 +97,8 @@
 
             
 
-            <td class="description last">8-bit unsigned byte corresponding to <code>UNSIGNED_BYTE</code> and the typeof an element in <code>Uint8Array</code>.</td>
+            <td class="description last">8-bit unsigned byte corresponding to <code>UNSIGNED_BYTE</code> and the type
+of an element in <code>Uint8Array</code>.</td>
         </tr>
 
     
@@ -119,7 +121,8 @@
 
             
 
-            <td class="description last">16-bit unsigned short corresponding to <code>UNSIGNED_SHORT</code> and the typeof an element in <code>Uint16Array</code>.</td>
+            <td class="description last">16-bit unsigned short corresponding to <code>UNSIGNED_SHORT</code> and the type
+of an element in <code>Uint16Array</code>.</td>
         </tr>
 
     
@@ -142,7 +145,8 @@
 
             
 
-            <td class="description last">32-bit unsigned int corresponding to <code>UNSIGNED_INT</code> and the typeof an element in <code>Uint32Array</code>.</td>
+            <td class="description last">32-bit unsigned int corresponding to <code>UNSIGNED_INT</code> and the type
+of an element in <code>Uint32Array</code>.</td>
         </tr>
 
     
@@ -205,7 +209,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/IndexDatatype.js#L20">Core/IndexDatatype.js 20</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/IndexDatatype.js#L20">Core/IndexDatatype.js 20</a>
 </div>
 
 
@@ -216,7 +220,8 @@
 
 
 <div class="description">
-    8-bit unsigned byte corresponding to <code>UNSIGNED_BYTE</code> and the typeof an element in <code>Uint8Array</code>.
+    8-bit unsigned byte corresponding to <code>UNSIGNED_BYTE</code> and the type
+of an element in <code>Uint8Array</code>.
 </div>
 
 
@@ -268,7 +273,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/IndexDatatype.js#L38">Core/IndexDatatype.js 38</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/IndexDatatype.js#L38">Core/IndexDatatype.js 38</a>
 </div>
 
 
@@ -279,7 +284,8 @@
 
 
 <div class="description">
-    32-bit unsigned int corresponding to <code>UNSIGNED_INT</code> and the typeof an element in <code>Uint32Array</code>.
+    32-bit unsigned int corresponding to <code>UNSIGNED_INT</code> and the type
+of an element in <code>Uint32Array</code>.
 </div>
 
 
@@ -331,7 +337,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/IndexDatatype.js#L29">Core/IndexDatatype.js 29</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/IndexDatatype.js#L29">Core/IndexDatatype.js 29</a>
 </div>
 
 
@@ -342,7 +348,8 @@
 
 
 <div class="description">
-    16-bit unsigned short corresponding to <code>UNSIGNED_SHORT</code> and the typeof an element in <code>Uint16Array</code>.
+    16-bit unsigned short corresponding to <code>UNSIGNED_SHORT</code> and the type
+of an element in <code>Uint16Array</code>.
 </div>
 
 
@@ -400,7 +407,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/IndexDatatype.js#L122">Core/IndexDatatype.js 122</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/IndexDatatype.js#L122">Core/IndexDatatype.js 122</a>
 </div>
 
 
@@ -412,7 +419,8 @@
 
 
 <div class="description">
-    Creates a typed array that will store indices, using either <code><Uint16Array</code>or <code>Uint32Array</code> depending on the number of vertices.
+    Creates a typed array that will store indices, using either <code><Uint16Array</code>
+or <code>Uint32Array</code> depending on the number of vertices.
 </div>
 
 
@@ -566,7 +574,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/IndexDatatype.js#L150">Core/IndexDatatype.js 150</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/IndexDatatype.js#L150">Core/IndexDatatype.js 150</a>
 </div>
 
 
@@ -578,7 +586,8 @@
 
 
 <div class="description">
-    Creates a typed array from a source array buffer.  The resulting typed array will store indices, using either <code><Uint16Array</code>or <code>Uint32Array</code> depending on the number of vertices.
+    Creates a typed array from a source array buffer.  The resulting typed array will store indices, using either <code><Uint16Array</code>
+or <code>Uint32Array</code> depending on the number of vertices.
 </div>
 
 
@@ -770,7 +779,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/IndexDatatype.js#L74">Core/IndexDatatype.js 74</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/IndexDatatype.js#L74">Core/IndexDatatype.js 74</a>
 </div>
 
 
@@ -905,7 +914,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/IndexDatatype.js#L51">Core/IndexDatatype.js 51</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/IndexDatatype.js#L51">Core/IndexDatatype.js 51</a>
 </div>
 
 
@@ -1020,7 +1029,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Returns 2var size = Cesium.IndexDatatype.getSizeInBytes(Cesium.IndexDatatype.UNSIGNED_SHORT);</code></pre>
+    <pre><code class="language-javascript">// Returns 2
+var size = Cesium.IndexDatatype.getSizeInBytes(Cesium.IndexDatatype.UNSIGNED_SHORT);</code></pre>
 
     
 
@@ -1045,7 +1055,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/IndexDatatype.js#L102">Core/IndexDatatype.js 102</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/IndexDatatype.js#L102">Core/IndexDatatype.js 102</a>
 </div>
 
 
@@ -1160,7 +1170,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">if (!Cesium.IndexDatatype.validate(indexDatatype)) {  throw new Cesium.DeveloperError('indexDatatype must be a valid value.');}</code></pre>
+    <pre><code class="language-javascript">if (!Cesium.IndexDatatype.validate(indexDatatype)) {
+  throw new Cesium.DeveloperError('indexDatatype must be a valid value.');
+}</code></pre>
 
     
 

@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ColorGeometryInstanceAttribute.js#L35">Core/ColorGeometryInstanceAttribute.js 35</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ColorGeometryInstanceAttribute.js#L35">Core/ColorGeometryInstanceAttribute.js 35</a>
 </div>
 
 
@@ -275,7 +275,17 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var instance = new Cesium.GeometryInstance({  geometry : Cesium.BoxGeometry.fromDimensions({    dimensions : new Cesium.Cartesian3(1000000.0, 1000000.0, 500000.0)  }),  modelMatrix : Cesium.Matrix4.multiplyByTranslation(Cesium.Transforms.eastNorthUpToFixedFrame(    Cesium.Cartesian3.fromDegrees(0.0, 0.0)), new Cesium.Cartesian3(0.0, 0.0, 1000000.0), new Cesium.Matrix4()),  id : 'box',  attributes : {    color : new Cesium.ColorGeometryInstanceAttribute(red, green, blue, alpha)  }});</code></pre>
+    <pre><code class="language-javascript">var instance = new Cesium.GeometryInstance({
+  geometry : Cesium.BoxGeometry.fromDimensions({
+    dimensions : new Cesium.Cartesian3(1000000.0, 1000000.0, 500000.0)
+  }),
+  modelMatrix : Cesium.Matrix4.multiplyByTranslation(Cesium.Transforms.eastNorthUpToFixedFrame(
+    Cesium.Cartesian3.fromDegrees(0.0, 0.0)), new Cesium.Cartesian3(0.0, 0.0, 1000000.0), new Cesium.Matrix4()),
+  id : 'box',
+  attributes : {
+    color : new Cesium.ColorGeometryInstanceAttribute(red, green, blue, alpha)
+  }
+});</code></pre>
 
     
 
@@ -323,7 +333,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ColorGeometryInstanceAttribute.js#L68">Core/ColorGeometryInstanceAttribute.js 68</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ColorGeometryInstanceAttribute.js#L68">Core/ColorGeometryInstanceAttribute.js 68</a>
 </div>
 
 
@@ -334,7 +344,8 @@
 
 
 <div class="description">
-    The datatype of each component in the attribute, e.g., individual elements in<a href="ColorGeometryInstanceAttribute.html#value"><code>ColorGeometryInstanceAttribute#value</code></a>.
+    The datatype of each component in the attribute, e.g., individual elements in
+<a href="ColorGeometryInstanceAttribute.html#value"><code>ColorGeometryInstanceAttribute#value</code></a>.
 </div>
 
 
@@ -386,7 +397,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ColorGeometryInstanceAttribute.js#L84">Core/ColorGeometryInstanceAttribute.js 84</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ColorGeometryInstanceAttribute.js#L84">Core/ColorGeometryInstanceAttribute.js 84</a>
 </div>
 
 
@@ -449,7 +460,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ColorGeometryInstanceAttribute.js#L102">Core/ColorGeometryInstanceAttribute.js 102</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ColorGeometryInstanceAttribute.js#L102">Core/ColorGeometryInstanceAttribute.js 102</a>
 </div>
 
 
@@ -460,7 +471,9 @@
 
 
 <div class="description">
-    When <code>true</code> and <code>componentDatatype</code> is an integer format,indicate that the components should be mapped to the range [0, 1] (unsigned)or [-1, 1] (signed) when they are accessed as floating-point for rendering.
+    When <code>true</code> and <code>componentDatatype</code> is an integer format,
+indicate that the components should be mapped to the range [0, 1] (unsigned)
+or [-1, 1] (signed) when they are accessed as floating-point for rendering.
 </div>
 
 
@@ -512,7 +525,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ColorGeometryInstanceAttribute.js#L48">Core/ColorGeometryInstanceAttribute.js 48</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ColorGeometryInstanceAttribute.js#L48">Core/ColorGeometryInstanceAttribute.js 48</a>
 </div>
 
 
@@ -581,7 +594,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ColorGeometryInstanceAttribute.js#L171">Core/ColorGeometryInstanceAttribute.js 171</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ColorGeometryInstanceAttribute.js#L171">Core/ColorGeometryInstanceAttribute.js 171</a>
 </div>
 
 
@@ -593,7 +606,8 @@
 
 
 <div class="description">
-    Compares the provided ColorGeometryInstanceAttributes and returns<code>true</code> if they are equal, <code>false</code> otherwise.
+    Compares the provided ColorGeometryInstanceAttributes and returns
+<code>true</code> if they are equal, <code>false</code> otherwise.
 </div>
 
 
@@ -753,7 +767,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ColorGeometryInstanceAttribute.js#L123">Core/ColorGeometryInstanceAttribute.js 123</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ColorGeometryInstanceAttribute.js#L123">Core/ColorGeometryInstanceAttribute.js 123</a>
 </div>
 
 
@@ -868,7 +882,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var instance = new Cesium.GeometryInstance({  geometry : geometry,  attributes : {    color : Cesium.ColorGeometryInstanceAttribute.fromColor(Cesium.Color.CORNFLOWERBLUE),  }});</code></pre>
+    <pre><code class="language-javascript">var instance = new Cesium.GeometryInstance({
+  geometry : geometry,
+  attributes : {
+    color : Cesium.ColorGeometryInstanceAttribute.fromColor(Cesium.Color.CORNFLOWERBLUE),
+  }
+});</code></pre>
 
     
 
@@ -893,7 +912,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/ColorGeometryInstanceAttribute.js#L150">Core/ColorGeometryInstanceAttribute.js 150</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/ColorGeometryInstanceAttribute.js#L150">Core/ColorGeometryInstanceAttribute.js 150</a>
 </div>
 
 
@@ -1043,7 +1062,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var attributes = primitive.getGeometryInstanceAttributes('an id');attributes.color = Cesium.ColorGeometryInstanceAttribute.toValue(Cesium.Color.AQUA, attributes.color);</code></pre>
+    <pre><code class="language-javascript">var attributes = primitive.getGeometryInstanceAttributes('an id');
+attributes.color = Cesium.ColorGeometryInstanceAttribute.toValue(Cesium.Color.AQUA, attributes.color);</code></pre>
 
     
 

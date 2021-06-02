@@ -41,13 +41,15 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/objectToQuery.js#L4">Core/objectToQuery.js 4</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/objectToQuery.js#L4">Core/objectToQuery.js 4</a>
 </div>
 
 
 
         
-            <div class="description">Converts an object representing a set of name/value pairs into a query string,with names and values encoded properly for use in a URL.  Values that are arrayswill produce multiple values with the same name.</div>
+            <div class="description">Converts an object representing a set of name/value pairs into a query string,
+with names and values encoded properly for use in a URL.  Values that are arrays
+will produce multiple values with the same name.</div>
         
 
         
@@ -73,7 +75,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var str = Cesium.objectToQuery({    key1 : 'some value',    key2 : 'a/b',    key3 : ['x', 'y']});</code></pre>
+    <pre><code class="language-javascript">var str = Cesium.objectToQuery({
+    key1 : 'some value',
+    key2 : 'a/b',
+    key3 : ['x', 'y']
+});</code></pre>
 
     
 
@@ -86,7 +92,9 @@
     
     <h5>See:</h5>
     <ul class="see-list">
-        <li>queryToObject// str will be:// 'key1=some%20value&key2=a%2Fb&key3=x&key3=y'</li>
+        <li>queryToObject
+// str will be:
+// 'key1=some%20value&key2=a%2Fb&key3=x&key3=y'</li>
     </ul>
     
 

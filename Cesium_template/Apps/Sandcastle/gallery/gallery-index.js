@@ -1,6 +1,6 @@
 // This file is automatically rebuilt by the Cesium build process.
 const hello_world_index = 97;
-const VERSION = '1.80';
+const VERSION = '1.81';
 const gallery_demos = [{
   "name": "3D Models",
   "isNew": false,

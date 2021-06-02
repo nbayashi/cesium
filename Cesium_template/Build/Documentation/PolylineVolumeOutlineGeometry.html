@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/PolylineVolumeOutlineGeometry.js#L110">Core/PolylineVolumeOutlineGeometry.js 110</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/PolylineVolumeOutlineGeometry.js#L110">Core/PolylineVolumeOutlineGeometry.js 110</a>
 </div>
 
 
@@ -348,7 +348,22 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">function computeCircle(radius) {  var positions = [];  for (var i = 0; i &lt; 360; i++) {    var radians = Cesium.Math.toRadians(i);    positions.push(new Cesium.Cartesian2(radius * Math.cos(radians), radius * Math.sin(radians)));  }  return positions;}var volumeOutline = new Cesium.PolylineVolumeOutlineGeometry({  polylinePositions : Cesium.Cartesian3.fromDegreesArray([    -72.0, 40.0,    -70.0, 35.0  ]),  shapePositions : computeCircle(100000.0)});</code></pre>
+    <pre><code class="language-javascript">function computeCircle(radius) {
+  var positions = [];
+  for (var i = 0; i &lt; 360; i++) {
+    var radians = Cesium.Math.toRadians(i);
+    positions.push(new Cesium.Cartesian2(radius * Math.cos(radians), radius * Math.sin(radians)));
+  }
+  return positions;
+}
+
+var volumeOutline = new Cesium.PolylineVolumeOutlineGeometry({
+  polylinePositions : Cesium.Cartesian3.fromDegreesArray([
+    -72.0, 40.0,
+    -70.0, 35.0
+  ]),
+  shapePositions : computeCircle(100000.0)
+});</code></pre>
 
     
 
@@ -394,7 +409,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/PolylineVolumeOutlineGeometry.js#L143">Core/PolylineVolumeOutlineGeometry.js 143</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/PolylineVolumeOutlineGeometry.js#L143">Core/PolylineVolumeOutlineGeometry.js 143</a>
 </div>
 
 
@@ -460,7 +475,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/PolylineVolumeOutlineGeometry.js#L268">Core/PolylineVolumeOutlineGeometry.js 268</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/PolylineVolumeOutlineGeometry.js#L268">Core/PolylineVolumeOutlineGeometry.js 268</a>
 </div>
 
 
@@ -595,7 +610,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/PolylineVolumeOutlineGeometry.js#L155">Core/PolylineVolumeOutlineGeometry.js 155</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/PolylineVolumeOutlineGeometry.js#L155">Core/PolylineVolumeOutlineGeometry.js 155</a>
 </div>
 
 
@@ -809,7 +824,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/PolylineVolumeOutlineGeometry.js#L212">Core/PolylineVolumeOutlineGeometry.js 212</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/PolylineVolumeOutlineGeometry.js#L212">Core/PolylineVolumeOutlineGeometry.js 212</a>
 </div>
 
 

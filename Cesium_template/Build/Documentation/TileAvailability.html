@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TileAvailability.js#L15">Core/TileAvailability.js 15</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TileAvailability.js#L15">Core/TileAvailability.js 15</a>
 </div>
 
 
@@ -213,7 +213,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TileAvailability.js#L46">Core/TileAvailability.js 46</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TileAvailability.js#L46">Core/TileAvailability.js 46</a>
 </div>
 
 
@@ -225,7 +225,8 @@
 
 
 <div class="description">
-    Marks a rectangular range of tiles in a particular level as being available.  For best performance,add your ranges in order of increasing level.
+    Marks a rectangular range of tiles in a particular level as being available.  For best performance,
+add your ranges in order of increasing level.
 </div>
 
 
@@ -431,7 +432,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TileAvailability.js#L132">Core/TileAvailability.js 132</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TileAvailability.js#L132">Core/TileAvailability.js 132</a>
 </div>
 
 
@@ -443,7 +444,11 @@
 
 
 <div class="description">
-    Finds the most detailed level that is available _everywhere_ within a given rectangle.  More detailedtiles may be available in parts of the rectangle, but not the whole thing.  The return value of thisfunction may be safely passed to <a href="global.html#sampleTerrain"><code>sampleTerrain</code></a> for any position within the rectangle.  This functionusually completes in time logarithmic to the number of rectangles added with<a href="TileAvailability.html#addAvailableTileRange"><code>TileAvailability#addAvailableTileRange</code></a>.
+    Finds the most detailed level that is available _everywhere_ within a given rectangle.  More detailed
+tiles may be available in parts of the rectangle, but not the whole thing.  The return value of this
+function may be safely passed to <a href="global.html#sampleTerrain"><code>sampleTerrain</code></a> for any position within the rectangle.  This function
+usually completes in time logarithmic to the number of rectangles added with
+<a href="TileAvailability.html#addAvailableTileRange"><code>TileAvailability#addAvailableTileRange</code></a>.
 </div>
 
 
@@ -566,7 +571,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TileAvailability.js#L228">Core/TileAvailability.js 228</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TileAvailability.js#L228">Core/TileAvailability.js 228</a>
 </div>
 
 
@@ -578,7 +583,16 @@
 
 
 <div class="description">
-    Computes a bit mask indicating which of a tile's four children exist.If a child's bit is set, a tile is available for that child.  If it is cleared,the tile is not available.  The bit values are as follows:<table>    <tr><th>Bit Position</th><th>Bit Value</th><th>Child Tile</th></tr>    <tr><td>0</td><td>1</td><td>Southwest</td></tr>    <tr><td>1</td><td>2</td><td>Southeast</td></tr>    <tr><td>2</td><td>4</td><td>Northwest</td></tr>    <tr><td>3</td><td>8</td><td>Northeast</td></tr></table>
+    Computes a bit mask indicating which of a tile's four children exist.
+If a child's bit is set, a tile is available for that child.  If it is cleared,
+the tile is not available.  The bit values are as follows:
+<table>
+    <tr><th>Bit Position</th><th>Bit Value</th><th>Child Tile</th></tr>
+    <tr><td>0</td><td>1</td><td>Southwest</td></tr>
+    <tr><td>1</td><td>2</td><td>Southeast</td></tr>
+    <tr><td>2</td><td>4</td><td>Northwest</td></tr>
+    <tr><td>3</td><td>8</td><td>Northeast</td></tr>
+</table>
 </div>
 
 
@@ -747,7 +761,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TileAvailability.js#L99">Core/TileAvailability.js 99</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TileAvailability.js#L99">Core/TileAvailability.js 99</a>
 </div>
 
 
@@ -759,7 +773,9 @@
 
 
 <div class="description">
-    Determines the level of the most detailed tile covering the position.  This functionusually completes in time logarithmic to the number of rectangles added with<a href="TileAvailability.html#addAvailableTileRange"><code>TileAvailability#addAvailableTileRange</code></a>.
+    Determines the level of the most detailed tile covering the position.  This function
+usually completes in time logarithmic to the number of rectangles added with
+<a href="TileAvailability.html#addAvailableTileRange"><code>TileAvailability#addAvailableTileRange</code></a>.
 </div>
 
 
@@ -896,7 +912,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/TileAvailability.js#L195">Core/TileAvailability.js 195</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/TileAvailability.js#L195">Core/TileAvailability.js 195</a>
 </div>
 
 

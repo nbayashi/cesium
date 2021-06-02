@@ -41,13 +41,18 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Widgets/createCommand.js#L20">Widgets/createCommand.js 20</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Widgets/createCommand.js#L20">Widgets/createCommand.js 20</a>
 </div>
 
 
 
         
-            <div class="description">Create a Command from a given function, for use with ViewModels.A Command is a function with an extra <code>canExecute</code> observable property to determinewhether the command can be executed.  When executed, a Command function will check thevalue of <code>canExecute</code> and throw if false.  It also provides events for whena command has been or is about to be executed.</div>
+            <div class="description">Create a Command from a given function, for use with ViewModels.
+
+A Command is a function with an extra <code>canExecute</code> observable property to determine
+whether the command can be executed.  When executed, a Command function will check the
+value of <code>canExecute</code> and throw if false.  It also provides events for when
+a command has been or is about to be executed.</div>
         
 
         

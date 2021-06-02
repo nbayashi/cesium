@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Intersections2D.js#L7">Core/Intersections2D.js 7</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Intersections2D.js#L7">Core/Intersections2D.js 7</a>
 </div>
 
 
@@ -110,7 +110,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Intersections2D.js#L40">Core/Intersections2D.js 40</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Intersections2D.js#L40">Core/Intersections2D.js 40</a>
 </div>
 
 
@@ -122,7 +122,9 @@
 
 
 <div class="description">
-    Splits a 2D triangle at given axis-aligned threshold value and returns the resultingpolygon on a given side of the threshold.  The resulting polygon may have 0, 1, 2,3, or 4 vertices.
+    Splits a 2D triangle at given axis-aligned threshold value and returns the resulting
+polygon on a given side of the threshold.  The resulting polygon may have 0, 1, 2,
+3, or 4 vertices.
 </div>
 
 
@@ -206,7 +208,8 @@
 
                 
             
-                true to keep the portion of the triangle above the threshold, or false                           to keep the portion below.</td>
+                true to keep the portion of the triangle above the threshold, or false
+                           to keep the portion below.</td>
         </tr>
 
     
@@ -320,7 +323,8 @@
 
                 
             
-                The array into which to copy the result.  If this parameter is not supplied,                           a new array is constructed and returned.</td>
+                The array into which to copy the result.  If this parameter is not supplied,
+                           a new array is constructed and returned.</td>
         </tr>
 
     
@@ -341,7 +345,14 @@
 
         
 <div class="param-desc">
-    The polygon that results after the clip, specified as a list of                    vertices.  The vertices are specified in counter-clockwise order.                    Each vertex is either an index from the existing list (identified as                    a 0, 1, or 2) or -1 indicating a new vertex not in the original triangle.                    For new vertices, the -1 is followed by three additional numbers: the                    index of each of the two original vertices forming the line segment that                    the new vertex lies on, and the fraction of the distance from the first                    vertex to the second one.
+    The polygon that results after the clip, specified as a list of
+                    vertices.  The vertices are specified in counter-clockwise order.
+                    Each vertex is either an index from the existing list (identified as
+                    a 0, 1, or 2) or -1 indicating a new vertex not in the original triangle.
+                    For new vertices, the -1 is followed by three additional numbers: the
+                    index of each of the two original vertices forming the line segment that
+                    the new vertex lies on, and the fraction of the distance from the first
+                    vertex to the second one.
 </div>
 
 
@@ -372,7 +383,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var result = Cesium.Intersections2D.clipTriangleAtAxisAlignedThreshold(0.5, false, 0.2, 0.6, 0.4);// result === [2, 0, -1, 1, 0, 0.25, -1, 1, 2, 0.5]</code></pre>
+    <pre><code class="language-javascript">var result = Cesium.Intersections2D.clipTriangleAtAxisAlignedThreshold(0.5, false, 0.2, 0.6, 0.4);
+// result === [2, 0, -1, 1, 0, 0.25, -1, 1, 2, 0.5]</code></pre>
 
     
 
@@ -397,7 +409,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Intersections2D.js#L236">Core/Intersections2D.js 236</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Intersections2D.js#L236">Core/Intersections2D.js 236</a>
 </div>
 
 
@@ -691,7 +703,8 @@
 
                 
             
-                The instance into to which to copy the result.  If this parameter                    is undefined, a new instance is created and returned.</td>
+                The instance into to which to copy the result.  If this parameter
+                    is undefined, a new instance is created and returned.</td>
         </tr>
 
     
@@ -743,7 +756,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var result = Cesium.Intersections2D.computeBarycentricCoordinates(0.0, 0.0, 0.0, 1.0, -1, -0.5, 1, -0.5);// result === new Cesium.Cartesian3(1.0 / 3.0, 1.0 / 3.0, 1.0 / 3.0);</code></pre>
+    <pre><code class="language-javascript">var result = Cesium.Intersections2D.computeBarycentricCoordinates(0.0, 0.0, 0.0, 1.0, -1, -0.5, 1, -0.5);
+// result === new Cesium.Cartesian3(1.0 / 3.0, 1.0 / 3.0, 1.0 / 3.0);</code></pre>
 
     
 
@@ -768,7 +782,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Intersections2D.js#L313">Core/Intersections2D.js 313</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Intersections2D.js#L313">Core/Intersections2D.js 313</a>
 </div>
 
 
@@ -1062,7 +1076,8 @@
 
                 
             
-                The instance into to which to copy the result. If this parameter                    is undefined, a new instance is created and returned.</td>
+                The instance into to which to copy the result. If this parameter
+                    is undefined, a new instance is created and returned.</td>
         </tr>
 
     
@@ -1114,7 +1129,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var result = Cesium.Intersections2D.computeLineSegmentLineSegmentIntersection(0.0, 0.0, 0.0, 2.0, -1, 1, 1, 1);// result === new Cesium.Cartesian2(0.0, 1.0);</code></pre>
+    <pre><code class="language-javascript">var result = Cesium.Intersections2D.computeLineSegmentLineSegmentIntersection(0.0, 0.0, 0.0, 2.0, -1, 1, 1, 1);
+// result === new Cesium.Cartesian2(0.0, 1.0);</code></pre>
 
     
 

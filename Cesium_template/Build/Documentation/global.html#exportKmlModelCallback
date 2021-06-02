@@ -41,13 +41,15 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/exportKml.js#L1514">DataSources/exportKml.js 1514</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/exportKml.js#L1514">DataSources/exportKml.js 1514</a>
 </div>
 
 
 
         
-            <div class="description">Since KML does not support glTF models, this callback is required to specify what URL to use for the model in the KML document.It can also be used to add additional files to the <code>externalFiles</code> object, which is the list of files embedded in the exported KMZ,or otherwise returned with the KML string when exporting.</div>
+            <div class="description">Since KML does not support glTF models, this callback is required to specify what URL to use for the model in the KML document.
+It can also be used to add additional files to the <code>externalFiles</code> object, which is the list of files embedded in the exported KMZ,
+or otherwise returned with the KML string when exporting.</div>
         
 
         

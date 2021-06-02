@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/WeightSpline.js#L40">Core/WeightSpline.js 40</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/WeightSpline.js#L40">Core/WeightSpline.js 40</a>
 </div>
 
 
@@ -148,7 +148,8 @@
 
             <td class="description last">
             
-                An array of strictly increasing, unit-less, floating-point times at each point.               The values are in no way connected to the clock time. They are the parameterization for the curve.</td>
+                An array of strictly increasing, unit-less, floating-point times at each point.
+               The values are in no way connected to the clock time. They are the parameterization for the curve.</td>
         </tr>
 
     
@@ -171,7 +172,10 @@
 
             <td class="description last">
             
-                The array of floating-point control weights given. The weights are ordered such               that all weights for the targets are given in chronological order and order in which they appear in               the glTF from which the morph targets come. This means for 2 targets, weights = [w(0,0), w(0,1), w(1,0), w(1,1) ...]               where i and j in w(i,j) are the time indices and target indices, respectively.</td>
+                The array of floating-point control weights given. The weights are ordered such
+               that all weights for the targets are given in chronological order and order in which they appear in
+               the glTF from which the morph targets come. This means for 2 targets, weights = [w(0,0), w(0,1), w(1,0), w(1,1) ...]
+               where i and j in w(i,j) are the time indices and target indices, respectively.</td>
         </tr>
 
     
@@ -245,7 +249,14 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var times = [ 0.0, 1.5, 3.0, 4.5, 6.0 ];var weights = [0.0, 1.0, 0.25, 0.75, 0.5, 0.5, 0.75, 0.25, 1.0, 0.0]; //Two targetsvar spline = new Cesium.WeightSpline({    times : times,    weights : weights});var p0 = spline.evaluate(times[0]);</code></pre>
+    <pre><code class="language-javascript">var times = [ 0.0, 1.5, 3.0, 4.5, 6.0 ];
+var weights = [0.0, 1.0, 0.25, 0.75, 0.5, 0.5, 0.75, 0.25, 1.0, 0.0]; //Two targets
+var spline = new Cesium.WeightSpline({
+    times : times,
+    weights : weights
+});
+
+var p0 = spline.evaluate(times[0]);</code></pre>
 
     
 
@@ -297,7 +308,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/WeightSpline.js#L73">Core/WeightSpline.js 73</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/WeightSpline.js#L73">Core/WeightSpline.js 73</a>
 </div>
 
 
@@ -357,7 +368,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/WeightSpline.js#L87">Core/WeightSpline.js 87</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/WeightSpline.js#L87">Core/WeightSpline.js 87</a>
 </div>
 
 
@@ -423,7 +434,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/WeightSpline.js#L124">Core/WeightSpline.js 124</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/WeightSpline.js#L124">Core/WeightSpline.js 124</a>
 </div>
 
 
@@ -558,7 +569,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/WeightSpline.js#L137">Core/WeightSpline.js 137</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/WeightSpline.js#L137">Core/WeightSpline.js 137</a>
 </div>
 
 
@@ -692,7 +703,9 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>                            is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element                            in the array <code>times</code>.
+: time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>
+                            is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element
+                            in the array <code>times</code>.
     </div>
 
 </li>
@@ -742,7 +755,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/WeightSpline.js#L106">Core/WeightSpline.js 106</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/WeightSpline.js#L106">Core/WeightSpline.js 106</a>
 </div>
 
 
@@ -754,7 +767,8 @@
 
 
 <div class="description">
-    Finds an index <code>i</code> in <code>times</code> such that the parameter<code>time</code> is in the interval <code>[times[i], times[i + 1]]</code>.
+    Finds an index <code>i</code> in <code>times</code> such that the parameter
+<code>time</code> is in the interval <code>[times[i], times[i + 1]]</code>.
 </div>
 
 
@@ -841,7 +855,9 @@
         
 <span class="param-type"><a href="DeveloperError.html">DeveloperError</a></span>
 
-: time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>                            is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element                            in the array <code>times</code>.
+: time must be in the range <code>[t<sub>0</sub>, t<sub>n</sub>]</code>, where <code>t<sub>0</sub></code>
+                            is the first element in the array <code>times</code> and <code>t<sub>n</sub></code> is the last element
+                            in the array <code>times</code>.
     </div>
 
 </li>
@@ -891,7 +907,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/WeightSpline.js#L115">Core/WeightSpline.js 115</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/WeightSpline.js#L115">Core/WeightSpline.js 115</a>
 </div>
 
 

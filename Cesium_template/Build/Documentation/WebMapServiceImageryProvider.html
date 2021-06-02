@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L79">Scene/WebMapServiceImageryProvider.js 79</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L79">Scene/WebMapServiceImageryProvider.js 79</a>
 </div>
 
 
@@ -152,7 +152,13 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var provider = new Cesium.WebMapServiceImageryProvider({    url : 'https://sampleserver1.arcgisonline.com/ArcGIS/services/Specialty/ESRI_StatesCitiesRivers_USA/MapServer/WMSServer',    layers : '0',    proxy: new Cesium.DefaultProxy('/proxy/')});viewer.imageryLayers.addImageryProvider(provider);</code></pre>
+    <pre><code class="language-javascript">var provider = new Cesium.WebMapServiceImageryProvider({
+    url : 'https://sampleserver1.arcgisonline.com/ArcGIS/services/Specialty/ESRI_StatesCitiesRivers_USA/MapServer/WMSServer',
+    layers : '0',
+    proxy: new Cesium.DefaultProxy('/proxy/')
+});
+
+viewer.imageryLayers.addImageryProvider(provider);</code></pre>
 
     
 
@@ -216,7 +222,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L673">Scene/WebMapServiceImageryProvider.js 673</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L673">Scene/WebMapServiceImageryProvider.js 673</a>
 </div>
 
 
@@ -227,7 +233,12 @@
 
 
 <div class="description">
-    The default parameters to include in the WMS URL to obtain images.  The values are as follows:   service=WMS   version=1.1.1   request=GetMap   styles=   format=image/jpeg
+    The default parameters to include in the WMS URL to obtain images.  The values are as follows:
+   service=WMS
+   version=1.1.1
+   request=GetMap
+   styles=
+   format=image/jpeg
 </div>
 
 
@@ -276,7 +287,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L690">Scene/WebMapServiceImageryProvider.js 690</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L690">Scene/WebMapServiceImageryProvider.js 690</a>
 </div>
 
 
@@ -287,7 +298,10 @@
 
 
 <div class="description">
-    The default parameters to include in the WMS URL to get feature information.  The values are as follows:    service=WMS    version=1.1.1    request=GetFeatureInfo
+    The default parameters to include in the WMS URL to get feature information.  The values are as follows:
+    service=WMS
+    version=1.1.1
+    request=GetFeatureInfo
 </div>
 
 
@@ -336,7 +350,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L549">Scene/WebMapServiceImageryProvider.js 549</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L549">Scene/WebMapServiceImageryProvider.js 549</a>
 </div>
 
 
@@ -396,7 +410,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L503">Scene/WebMapServiceImageryProvider.js 503</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L503">Scene/WebMapServiceImageryProvider.js 503</a>
 </div>
 
 
@@ -407,7 +421,8 @@
 
 
 <div class="description">
-    Gets the credit to display when this imagery provider is active.  Typically this is used to creditthe source of the imagery.  This function should not be called before <a href="WebMapServiceImageryProvider.html#ready"><code>WebMapServiceImageryProvider#ready</code></a> returns true.
+    Gets the credit to display when this imagery provider is active.  Typically this is used to credit
+the source of the imagery.  This function should not be called before <a href="WebMapServiceImageryProvider.html#ready"><code>WebMapServiceImageryProvider#ready</code></a> returns true.
 </div>
 
 
@@ -456,7 +471,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L104">Scene/WebMapServiceImageryProvider.js 104</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L104">Scene/WebMapServiceImageryProvider.js 104</a>
 </div>
 
 
@@ -467,7 +482,8 @@
 
 
 <div class="description">
-    The default alpha blending value of this provider, with 0.0 representing fully transparent and1.0 representing fully opaque.
+    The default alpha blending value of this provider, with 0.0 representing fully transparent and
+1.0 representing fully opaque.
 </div>
 
 
@@ -519,7 +535,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L131">Scene/WebMapServiceImageryProvider.js 131</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L131">Scene/WebMapServiceImageryProvider.js 131</a>
 </div>
 
 
@@ -530,7 +546,8 @@
 
 
 <div class="description">
-    The default brightness of this provider.  1.0 uses the unmodified imagery color.  Less than 1.0makes the imagery darker while greater than 1.0 makes it brighter.
+    The default brightness of this provider.  1.0 uses the unmodified imagery color.  Less than 1.0
+makes the imagery darker while greater than 1.0 makes it brighter.
 </div>
 
 
@@ -582,7 +599,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L140">Scene/WebMapServiceImageryProvider.js 140</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L140">Scene/WebMapServiceImageryProvider.js 140</a>
 </div>
 
 
@@ -593,7 +610,8 @@
 
 
 <div class="description">
-    The default contrast of this provider.  1.0 uses the unmodified imagery color.  Less than 1.0 reducesthe contrast while greater than 1.0 increases it.
+    The default contrast of this provider.  1.0 uses the unmodified imagery color.  Less than 1.0 reduces
+the contrast while greater than 1.0 increases it.
 </div>
 
 
@@ -645,7 +663,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L122">Scene/WebMapServiceImageryProvider.js 122</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L122">Scene/WebMapServiceImageryProvider.js 122</a>
 </div>
 
 
@@ -656,7 +674,8 @@
 
 
 <div class="description">
-    The default alpha blending value on the day side of the globe of this provider, with 0.0 representing fully transparent and1.0 representing fully opaque.
+    The default alpha blending value on the day side of the globe of this provider, with 0.0 representing fully transparent and
+1.0 representing fully opaque.
 </div>
 
 
@@ -708,7 +727,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L165">Scene/WebMapServiceImageryProvider.js 165</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L165">Scene/WebMapServiceImageryProvider.js 165</a>
 </div>
 
 
@@ -771,7 +790,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L148">Scene/WebMapServiceImageryProvider.js 148</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L148">Scene/WebMapServiceImageryProvider.js 148</a>
 </div>
 
 
@@ -834,7 +853,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L181">Scene/WebMapServiceImageryProvider.js 181</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L181">Scene/WebMapServiceImageryProvider.js 181</a>
 </div>
 
 
@@ -897,7 +916,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L173">Scene/WebMapServiceImageryProvider.js 173</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L173">Scene/WebMapServiceImageryProvider.js 173</a>
 </div>
 
 
@@ -960,7 +979,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L113">Scene/WebMapServiceImageryProvider.js 113</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L113">Scene/WebMapServiceImageryProvider.js 113</a>
 </div>
 
 
@@ -971,7 +990,8 @@
 
 
 <div class="description">
-    The default alpha blending value on the night side of the globe of this provider, with 0.0 representing fully transparent and1.0 representing fully opaque.
+    The default alpha blending value on the night side of the globe of this provider, with 0.0 representing fully transparent and
+1.0 representing fully opaque.
 </div>
 
 
@@ -1023,7 +1043,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L157">Scene/WebMapServiceImageryProvider.js 157</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L157">Scene/WebMapServiceImageryProvider.js 157</a>
 </div>
 
 
@@ -1034,7 +1054,8 @@
 
 
 <div class="description">
-    The default saturation of this provider. 1.0 uses the unmodified imagery color. Less than 1.0 reduces thesaturation while greater than 1.0 increases it.
+    The default saturation of this provider. 1.0 uses the unmodified imagery color. Less than 1.0 reduces the
+saturation while greater than 1.0 increases it.
 </div>
 
 
@@ -1086,7 +1107,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L535">Scene/WebMapServiceImageryProvider.js 535</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L535">Scene/WebMapServiceImageryProvider.js 535</a>
 </div>
 
 
@@ -1097,7 +1118,11 @@
 
 
 <div class="description">
-    Gets or sets a value indicating whether feature picking is enabled.  If true, <a href="WebMapServiceImageryProvider.html#pickFeatures"><code>WebMapServiceImageryProvider#pickFeatures</code></a> willinvoke the <code>GetFeatureInfo</code> service on the WMS server and attempt to interpret the features included in the response.  If false,<a href="WebMapServiceImageryProvider.html#pickFeatures"><code>WebMapServiceImageryProvider#pickFeatures</code></a> will immediately return undefined (indicating no pickablefeatures) without communicating with the server.  Set this property to false if you know your datasource does not support picking features or if you don't want this provider's features to be pickable.
+    Gets or sets a value indicating whether feature picking is enabled.  If true, <a href="WebMapServiceImageryProvider.html#pickFeatures"><code>WebMapServiceImageryProvider#pickFeatures</code></a> will
+invoke the <code>GetFeatureInfo</code> service on the WMS server and attempt to interpret the features included in the response.  If false,
+<a href="WebMapServiceImageryProvider.html#pickFeatures"><code>WebMapServiceImageryProvider#pickFeatures</code></a> will immediately return undefined (indicating no pickable
+features) without communicating with the server.  Set this property to false if you know your data
+source does not support picking features or if you don't want this provider's features to be pickable.
 </div>
 
 
@@ -1149,7 +1174,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L466">Scene/WebMapServiceImageryProvider.js 466</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L466">Scene/WebMapServiceImageryProvider.js 466</a>
 </div>
 
 
@@ -1160,7 +1185,9 @@
 
 
 <div class="description">
-    Gets an event that is raised when the imagery provider encounters an asynchronous error.  By subscribingto the event, you will be notified of the error and can potentially recover from it.  Event listenersare passed an instance of <a href="TileProviderError.html"><code>TileProviderError</code></a>.
+    Gets an event that is raised when the imagery provider encounters an asynchronous error.  By subscribing
+to the event, you will be notified of the error and can potentially recover from it.  Event listeners
+are passed an instance of <a href="TileProviderError.html"><code>TileProviderError</code></a>.
 </div>
 
 
@@ -1209,7 +1236,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L519">Scene/WebMapServiceImageryProvider.js 519</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L519">Scene/WebMapServiceImageryProvider.js 519</a>
 </div>
 
 
@@ -1220,7 +1247,11 @@
 
 
 <div class="description">
-    Gets a value indicating whether or not the images provided by this imagery providerinclude an alpha channel.  If this property is false, an alpha channel, if present, willbe ignored.  If this property is true, any images without an alpha channel will be treatedas if their alpha is 1.0 everywhere.  When this property is false, memory usageand texture upload time are reduced.
+    Gets a value indicating whether or not the images provided by this imagery provider
+include an alpha channel.  If this property is false, an alpha channel, if present, will
+be ignored.  If this property is true, any images without an alpha channel will be treated
+as if their alpha is 1.0 everywhere.  When this property is false, memory usage
+and texture upload time are reduced.
 </div>
 
 
@@ -1269,7 +1300,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L359">Scene/WebMapServiceImageryProvider.js 359</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L359">Scene/WebMapServiceImageryProvider.js 359</a>
 </div>
 
 
@@ -1329,7 +1360,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L398">Scene/WebMapServiceImageryProvider.js 398</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L398">Scene/WebMapServiceImageryProvider.js 398</a>
 </div>
 
 
@@ -1340,7 +1371,8 @@
 
 
 <div class="description">
-    Gets the maximum level-of-detail that can be requested.  This function shouldnot be called before <a href="WebMapServiceImageryProvider.html#ready"><code>WebMapServiceImageryProvider#ready</code></a> returns true.
+    Gets the maximum level-of-detail that can be requested.  This function should
+not be called before <a href="WebMapServiceImageryProvider.html#ready"><code>WebMapServiceImageryProvider#ready</code></a> returns true.
 </div>
 
 
@@ -1389,7 +1421,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L411">Scene/WebMapServiceImageryProvider.js 411</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L411">Scene/WebMapServiceImageryProvider.js 411</a>
 </div>
 
 
@@ -1400,7 +1432,8 @@
 
 
 <div class="description">
-    Gets the minimum level-of-detail that can be requested.  This function shouldnot be called before <a href="WebMapServiceImageryProvider.html#ready"><code>WebMapServiceImageryProvider#ready</code></a> returns true.
+    Gets the minimum level-of-detail that can be requested.  This function should
+not be called before <a href="WebMapServiceImageryProvider.html#ready"><code>WebMapServiceImageryProvider#ready</code></a> returns true.
 </div>
 
 
@@ -1449,7 +1482,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L347">Scene/WebMapServiceImageryProvider.js 347</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L347">Scene/WebMapServiceImageryProvider.js 347</a>
 </div>
 
 
@@ -1509,7 +1542,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L478">Scene/WebMapServiceImageryProvider.js 478</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L478">Scene/WebMapServiceImageryProvider.js 478</a>
 </div>
 
 
@@ -1569,7 +1602,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L490">Scene/WebMapServiceImageryProvider.js 490</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L490">Scene/WebMapServiceImageryProvider.js 490</a>
 </div>
 
 
@@ -1629,7 +1662,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L437">Scene/WebMapServiceImageryProvider.js 437</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L437">Scene/WebMapServiceImageryProvider.js 437</a>
 </div>
 
 
@@ -1640,7 +1673,8 @@
 
 
 <div class="description">
-    Gets the rectangle, in radians, of the imagery provided by this instance.  This function shouldnot be called before <a href="WebMapServiceImageryProvider.html#ready"><code>WebMapServiceImageryProvider#ready</code></a> returns true.
+    Gets the rectangle, in radians, of the imagery provided by this instance.  This function should
+not be called before <a href="WebMapServiceImageryProvider.html#ready"><code>WebMapServiceImageryProvider#ready</code></a> returns true.
 </div>
 
 
@@ -1689,7 +1723,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L452">Scene/WebMapServiceImageryProvider.js 452</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L452">Scene/WebMapServiceImageryProvider.js 452</a>
 </div>
 
 
@@ -1700,7 +1734,10 @@
 
 
 <div class="description">
-    Gets the tile discard policy.  If not undefined, the discard policy is responsiblefor filtering out "missing" tiles via its shouldDiscardImage function.  If this functionreturns undefined, no tiles are filtered.  This function shouldnot be called before <a href="WebMapServiceImageryProvider.html#ready"><code>WebMapServiceImageryProvider#ready</code></a> returns true.
+    Gets the tile discard policy.  If not undefined, the discard policy is responsible
+for filtering out "missing" tiles via its shouldDiscardImage function.  If this function
+returns undefined, no tiles are filtered.  This function should
+not be called before <a href="WebMapServiceImageryProvider.html#ready"><code>WebMapServiceImageryProvider#ready</code></a> returns true.
 </div>
 
 
@@ -1749,7 +1786,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L385">Scene/WebMapServiceImageryProvider.js 385</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L385">Scene/WebMapServiceImageryProvider.js 385</a>
 </div>
 
 
@@ -1760,7 +1797,8 @@
 
 
 <div class="description">
-    Gets the height of each tile, in pixels.  This function shouldnot be called before <a href="WebMapServiceImageryProvider.html#ready"><code>WebMapServiceImageryProvider#ready</code></a> returns true.
+    Gets the height of each tile, in pixels.  This function should
+not be called before <a href="WebMapServiceImageryProvider.html#ready"><code>WebMapServiceImageryProvider#ready</code></a> returns true.
 </div>
 
 
@@ -1809,7 +1847,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L372">Scene/WebMapServiceImageryProvider.js 372</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L372">Scene/WebMapServiceImageryProvider.js 372</a>
 </div>
 
 
@@ -1820,7 +1858,8 @@
 
 
 <div class="description">
-    Gets the width of each tile, in pixels. This function shouldnot be called before <a href="WebMapServiceImageryProvider.html#ready"><code>WebMapServiceImageryProvider#ready</code></a> returns true.
+    Gets the width of each tile, in pixels. This function should
+not be called before <a href="WebMapServiceImageryProvider.html#ready"><code>WebMapServiceImageryProvider#ready</code></a> returns true.
 </div>
 
 
@@ -1869,7 +1908,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L424">Scene/WebMapServiceImageryProvider.js 424</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L424">Scene/WebMapServiceImageryProvider.js 424</a>
 </div>
 
 
@@ -1880,7 +1919,8 @@
 
 
 <div class="description">
-    Gets the tiling scheme used by this provider.  This function shouldnot be called before <a href="WebMapServiceImageryProvider.html#ready"><code>WebMapServiceImageryProvider#ready</code></a> returns true.
+    Gets the tiling scheme used by this provider.  This function should
+not be called before <a href="WebMapServiceImageryProvider.html#ready"><code>WebMapServiceImageryProvider#ready</code></a> returns true.
 </div>
 
 
@@ -1929,7 +1969,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L564">Scene/WebMapServiceImageryProvider.js 564</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L564">Scene/WebMapServiceImageryProvider.js 564</a>
 </div>
 
 
@@ -1940,7 +1980,9 @@
 
 
 <div class="description">
-    Gets or sets a time interval collection that is used to get time dynamic parameters. The data of eachTimeInterval is an object containing the keys and values of the properties that are used duringtile requests.
+    Gets or sets a time interval collection that is used to get time dynamic parameters. The data of each
+TimeInterval is an object containing the keys and values of the properties that are used during
+tile requests.
 </div>
 
 
@@ -1989,7 +2031,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L335">Scene/WebMapServiceImageryProvider.js 335</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L335">Scene/WebMapServiceImageryProvider.js 335</a>
 </div>
 
 
@@ -2055,7 +2097,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L584">Scene/WebMapServiceImageryProvider.js 584</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L584">Scene/WebMapServiceImageryProvider.js 584</a>
 </div>
 
 
@@ -2250,7 +2292,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L647">Scene/WebMapServiceImageryProvider.js 647</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L647">Scene/WebMapServiceImageryProvider.js 647</a>
 </div>
 
 
@@ -2262,7 +2304,8 @@
 
 
 <div class="description">
-    Asynchronously determines what features, if any, are located at a given longitude and latitude withina tile.  This function should not be called before <a href="ImageryProvider.html#ready"><code>ImageryProvider#ready</code></a> returns true.
+    Asynchronously determines what features, if any, are located at a given longitude and latitude within
+a tile.  This function should not be called before <a href="ImageryProvider.html#ready"><code>ImageryProvider#ready</code></a> returns true.
 </div>
 
 
@@ -2426,7 +2469,9 @@
 
         
 <div class="param-desc">
-    A promise for the picked features that will resolve when the asynchronous                  picking completes.  The resolved value is an array of <a href="ImageryLayerFeatureInfo.html"><code>ImageryLayerFeatureInfo</code></a>                  instances.  The array may be empty if no features are found at the given location.
+    A promise for the picked features that will resolve when the asynchronous
+                  picking completes.  The resolved value is an array of <a href="ImageryLayerFeatureInfo.html"><code>ImageryLayerFeatureInfo</code></a>
+                  instances.  The array may be empty if no features are found at the given location.
 </div>
 
 
@@ -2491,7 +2536,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L603">Scene/WebMapServiceImageryProvider.js 603</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L603">Scene/WebMapServiceImageryProvider.js 603</a>
 </div>
 
 
@@ -2503,7 +2548,8 @@
 
 
 <div class="description">
-    Requests the image for a given tile.  This function shouldnot be called before <a href="WebMapServiceImageryProvider.html#ready"><code>WebMapServiceImageryProvider#ready</code></a> returns true.
+    Requests the image for a given tile.  This function should
+not be called before <a href="WebMapServiceImageryProvider.html#ready"><code>WebMapServiceImageryProvider#ready</code></a> returns true.
 </div>
 
 
@@ -2666,7 +2712,10 @@
 
         
 <div class="param-desc">
-    A promise for the image that will resolve when the image is available, or         undefined if there are too many active requests to the server, and the request         should be retried later.  The resolved image may be either an         Image or a Canvas DOM object.
+    A promise for the image that will resolve when the image is available, or
+         undefined if there are too many active requests to the server, and the request
+         should be retried later.  The resolved image may be either an
+         Image or a Canvas DOM object.
 </div>
 
 
@@ -2737,7 +2786,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/WebMapServiceImageryProvider.js#L11">Scene/WebMapServiceImageryProvider.js 11</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/WebMapServiceImageryProvider.js#L11">Scene/WebMapServiceImageryProvider.js 11</a>
 </div>
 
 
@@ -2961,7 +3010,12 @@
                 </td>
             
 
-            <td class="description last">If true, <a href="WebMapServiceImageryProvider.html#pickFeatures"><code>WebMapServiceImageryProvider#pickFeatures</code></a> will invoke       the GetFeatureInfo operation on the WMS server and return the features included in the response.  If false,       <a href="WebMapServiceImageryProvider.html#pickFeatures"><code>WebMapServiceImageryProvider#pickFeatures</code></a> will immediately return undefined (indicating no pickable features)       without communicating with the server.  Set this property to false if you know your WMS server does not support       GetFeatureInfo or if you don't want this provider's features to be pickable. Note that this can be dynamically       overridden by modifying the WebMapServiceImageryProvider#enablePickFeatures property.</td>
+            <td class="description last">If true, <a href="WebMapServiceImageryProvider.html#pickFeatures"><code>WebMapServiceImageryProvider#pickFeatures</code></a> will invoke
+       the GetFeatureInfo operation on the WMS server and return the features included in the response.  If false,
+       <a href="WebMapServiceImageryProvider.html#pickFeatures"><code>WebMapServiceImageryProvider#pickFeatures</code></a> will immediately return undefined (indicating no pickable features)
+       without communicating with the server.  Set this property to false if you know your WMS server does not support
+       GetFeatureInfo or if you don't want this provider's features to be pickable. Note that this can be dynamically
+       overridden by modifying the WebMapServiceImageryProvider#enablePickFeatures property.</td>
         </tr>
 
     
@@ -2998,7 +3052,8 @@
                 </td>
             
 
-            <td class="description last">The formats       in which to try WMS GetFeatureInfo requests.</td>
+            <td class="description last">The formats
+       in which to try WMS GetFeatureInfo requests.</td>
         </tr>
 
     
@@ -3107,7 +3162,9 @@
                 </td>
             
 
-            <td class="description last">The ellipsoid.  If the tilingScheme is specified,       this parameter is ignored and the tiling scheme's ellipsoid is used instead. If neither       parameter is specified, the WGS84 ellipsoid is used.</td>
+            <td class="description last">The ellipsoid.  If the tilingScheme is specified,
+       this parameter is ignored and the tiling scheme's ellipsoid is used instead. If neither
+       parameter is specified, the WGS84 ellipsoid is used.</td>
         </tr>
 
     
@@ -3218,7 +3275,9 @@
                 </td>
             
 
-            <td class="description last">The minimum level-of-detail supported by the imagery provider.  Take care when       specifying this that the number of tiles at the minimum level is small, such as four or less.  A larger number is       likely to result in rendering problems.</td>
+            <td class="description last">The minimum level-of-detail supported by the imagery provider.  Take care when
+       specifying this that the number of tiles at the minimum level is small, such as four or less.  A larger number is
+       likely to result in rendering problems.</td>
         </tr>
 
     
@@ -3253,7 +3312,8 @@
                 </td>
             
 
-            <td class="description last">The maximum level-of-detail supported by the imagery provider, or undefined if there is no limit.       If not specified, there is no limit.</td>
+            <td class="description last">The maximum level-of-detail supported by the imagery provider, or undefined if there is no limit.
+       If not specified, there is no limit.</td>
         </tr>
 
     
@@ -3401,7 +3461,9 @@
                 </td>
             
 
-            <td class="description last">The subdomains to use for the <code>{s}</code> placeholder in the URL template.                         If this parameter is a single string, each character in the string is a subdomain.  If it is                         an array, each element in the array is a subdomain.</td>
+            <td class="description last">The subdomains to use for the <code>{s}</code> placeholder in the URL template.
+                         If this parameter is a single string, each character in the string is a subdomain.  If it is
+                         an array, each element in the array is a subdomain.</td>
         </tr>
 
     

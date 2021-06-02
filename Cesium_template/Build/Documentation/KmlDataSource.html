@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/KmlDataSource.js#L3392">DataSources/KmlDataSource.js 3392</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/KmlDataSource.js#L3392">DataSources/KmlDataSource.js 3392</a>
 </div>
 
 
@@ -58,7 +58,19 @@
 
 
 <div class="description">
-    A <a href="DataSource.html"><code>DataSource</code></a> which processes Keyhole Markup Language 2.2 (KML).<p>KML support in Cesium is incomplete, but a large amount of the standard,as well as Google's <code>gx</code> extension namespace, is supported. See Github issue<a href="https://github.com/CesiumGS/cesium/issues/873">#873</a> for adetailed list of what is and isn't support. Cesium will also write information to theconsole when it encounters most unsupported features.</p><p>Non visual feature data, such as <code>atom:author</code> and <code>ExtendedData</code>is exposed via an instance of <a href="KmlFeatureData.html"><code>KmlFeatureData</code></a>, which is added to each <a href="Entity.html"><code>Entity</code></a>under the <code>kml</code> property.</p>
+    A <a href="DataSource.html"><code>DataSource</code></a> which processes Keyhole Markup Language 2.2 (KML).
+<p>
+KML support in Cesium is incomplete, but a large amount of the standard,
+as well as Google's <code>gx</code> extension namespace, is supported. See Github issue
+<a href="https://github.com/CesiumGS/cesium/issues/873">#873</a> for a
+detailed list of what is and isn't support. Cesium will also write information to the
+console when it encounters most unsupported features.
+</p>
+<p>
+Non visual feature data, such as <code>atom:author</code> and <code>ExtendedData</code>
+is exposed via an instance of <a href="KmlFeatureData.html"><code>KmlFeatureData</code></a>, which is added to each <a href="Entity.html"><code>Entity</code></a>
+under the <code>kml</code> property.
+</p>
 </div>
 
 
@@ -313,7 +325,13 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var viewer = new Cesium.Viewer('cesiumContainer');viewer.dataSources.add(Cesium.KmlDataSource.load('../../SampleData/facilities.kmz',     {          camera: viewer.scene.camera,          canvas: viewer.scene.canvas     }));</code></pre>
+    <pre><code class="language-javascript">var viewer = new Cesium.Viewer('cesiumContainer');
+viewer.dataSources.add(Cesium.KmlDataSource.load('../../SampleData/facilities.kmz',
+     {
+          camera: viewer.scene.camera,
+          canvas: viewer.scene.canvas
+     })
+);</code></pre>
 
     
 
@@ -366,7 +384,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/KmlDataSource.js#L3515">DataSources/KmlDataSource.js 3515</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/KmlDataSource.js#L3515">DataSources/KmlDataSource.js 3515</a>
 </div>
 
 
@@ -426,7 +444,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/KmlDataSource.js#L3485">DataSources/KmlDataSource.js 3485</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/KmlDataSource.js#L3485">DataSources/KmlDataSource.js 3485</a>
 </div>
 
 
@@ -437,7 +455,9 @@
 
 
 <div class="description">
-    Gets the clock settings defined by the loaded KML. This represents the totalavailability interval for all time-dynamic data. If the KML does not containtime-dynamic data, this value is undefined.
+    Gets the clock settings defined by the loaded KML. This represents the total
+availability interval for all time-dynamic data. If the KML does not contain
+time-dynamic data, this value is undefined.
 </div>
 
 
@@ -486,7 +506,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/KmlDataSource.js#L3580">DataSources/KmlDataSource.js 3580</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/KmlDataSource.js#L3580">DataSources/KmlDataSource.js 3580</a>
 </div>
 
 
@@ -546,7 +566,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/KmlDataSource.js#L3598">DataSources/KmlDataSource.js 3598</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/KmlDataSource.js#L3598">DataSources/KmlDataSource.js 3598</a>
 </div>
 
 
@@ -606,7 +626,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/KmlDataSource.js#L3495">DataSources/KmlDataSource.js 3495</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/KmlDataSource.js#L3495">DataSources/KmlDataSource.js 3495</a>
 </div>
 
 
@@ -666,7 +686,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/KmlDataSource.js#L3525">DataSources/KmlDataSource.js 3525</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/KmlDataSource.js#L3525">DataSources/KmlDataSource.js 3525</a>
 </div>
 
 
@@ -726,7 +746,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/KmlDataSource.js#L3505">DataSources/KmlDataSource.js 3505</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/KmlDataSource.js#L3505">DataSources/KmlDataSource.js 3505</a>
 </div>
 
 
@@ -786,7 +806,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/KmlDataSource.js#L3535">DataSources/KmlDataSource.js 3535</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/KmlDataSource.js#L3535">DataSources/KmlDataSource.js 3535</a>
 </div>
 
 
@@ -846,7 +866,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/KmlDataSource.js#L3467">DataSources/KmlDataSource.js 3467</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/KmlDataSource.js#L3467">DataSources/KmlDataSource.js 3467</a>
 </div>
 
 
@@ -857,7 +877,8 @@
 
 
 <div class="description">
-    Gets or sets a human-readable name for this instance.This will be automatically be set to the KML document name on load.
+    Gets or sets a human-readable name for this instance.
+This will be automatically be set to the KML document name on load.
 </div>
 
 
@@ -906,7 +927,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/KmlDataSource.js#L3545">DataSources/KmlDataSource.js 3545</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/KmlDataSource.js#L3545">DataSources/KmlDataSource.js 3545</a>
 </div>
 
 
@@ -966,7 +987,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/KmlDataSource.js#L3565">DataSources/KmlDataSource.js 3565</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/KmlDataSource.js#L3565">DataSources/KmlDataSource.js 3565</a>
 </div>
 
 
@@ -1026,7 +1047,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/KmlDataSource.js#L3555">DataSources/KmlDataSource.js 3555</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/KmlDataSource.js#L3555">DataSources/KmlDataSource.js 3555</a>
 </div>
 
 
@@ -1092,7 +1113,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/KmlDataSource.js#L3454">DataSources/KmlDataSource.js 3454</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/KmlDataSource.js#L3454">DataSources/KmlDataSource.js 3454</a>
 </div>
 
 
@@ -1271,7 +1292,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/KmlDataSource.js#L3616">DataSources/KmlDataSource.js 3616</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/KmlDataSource.js#L3616">DataSources/KmlDataSource.js 3616</a>
 </div>
 
 
@@ -1583,7 +1604,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/KmlDataSource.js#L3880">DataSources/KmlDataSource.js 3880</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/KmlDataSource.js#L3880">DataSources/KmlDataSource.js 3880</a>
 </div>
 
 
@@ -1724,7 +1745,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/KmlDataSource.js#L3341">DataSources/KmlDataSource.js 3341</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/KmlDataSource.js#L3341">DataSources/KmlDataSource.js 3341</a>
 </div>
 
 

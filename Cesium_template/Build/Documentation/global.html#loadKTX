@@ -41,13 +41,28 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/loadKTX.js#L10">Core/loadKTX.js 10</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/loadKTX.js#L11">Core/loadKTX.js 11</a>
 </div>
 
 
 
         
-            <div class="description">Asynchronously loads and parses the given URL to a KTX file or parses the raw binary data of a KTX file.Returns a promise that will resolve to an object containing the image buffer, width, height and format once loaded,or reject if the URL failed to load or failed to parse the data.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.<p>The following are part of the KTX format specification but are not supported:<ul>    <li>Big-endian files</li>    <li>Metadata</li>    <li>3D textures</li>    <li>Texture Arrays</li>    <li>Cubemaps</li>    <li>Mipmaps</li></ul></p></div>
+            <div class="description">Asynchronously loads and parses the given URL to a KTX file or parses the raw binary data of a KTX file.
+Returns a promise that will resolve to an object containing the image buffer, width, height and format once loaded,
+or reject if the URL failed to load or failed to parse the data.  The data is loaded
+using XMLHttpRequest, which means that in order to make requests to another origin,
+the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+<p>
+The following are part of the KTX format specification but are not supported:
+<ul>
+    <li>Big-endian files</li>
+    <li>Metadata</li>
+    <li>3D textures</li>
+    <li>Texture Arrays</li>
+    <li>Cubemaps</li>
+    <li>Mipmaps</li>
+</ul>
+</p></div>
         
 
         
@@ -61,6 +76,11 @@
     
 
     
+    <p>
+        <span class="details-header important">Deprecated:</span>
+        <span>This function has been deprecated and will be removed in CesiumJS 1.82.</span>
+    </p>
+    
 
     
 
@@ -73,7 +93,16 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// load a single URL asynchronouslyCesium.loadKTX('some/url').then(function(ktxData) {    var width = ktxData.width;    var height = ktxData.height;    var format = ktxData.internalFormat;    var arrayBufferView = ktxData.bufferView;    // use the data to create a texture}).otherwise(function(error) {    // an error occurred});</code></pre>
+    <pre><code class="language-javascript">// load a single URL asynchronously
+Cesium.loadKTX('some/url').then(function(ktxData) {
+    var width = ktxData.width;
+    var height = ktxData.height;
+    var format = ktxData.internalFormat;
+    var arrayBufferView = ktxData.bufferView;
+    // use the data to create a texture
+}).otherwise(function(error) {
+    // an error occurred
+});</code></pre>
 
     
 

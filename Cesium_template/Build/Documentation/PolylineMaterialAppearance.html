@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PolylineMaterialAppearance.js#L52">Scene/PolylineMaterialAppearance.js 52</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PolylineMaterialAppearance.js#L52">Scene/PolylineMaterialAppearance.js 52</a>
 </div>
 
 
@@ -357,7 +357,21 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var primitive = new Cesium.Primitive({  geometryInstances : new Cesium.GeometryInstance({    geometry : new Cesium.PolylineGeometry({      positions : Cesium.Cartesian3.fromDegreesArray([        0.0, 0.0,        5.0, 0.0      ]),      width : 10.0,      vertexFormat : Cesium.PolylineMaterialAppearance.VERTEX_FORMAT    })  }),  appearance : new Cesium.PolylineMaterialAppearance({    material : Cesium.Material.fromType('Color')  })});</code></pre>
+    <pre><code class="language-javascript">var primitive = new Cesium.Primitive({
+  geometryInstances : new Cesium.GeometryInstance({
+    geometry : new Cesium.PolylineGeometry({
+      positions : Cesium.Cartesian3.fromDegreesArray([
+        0.0, 0.0,
+        5.0, 0.0
+      ]),
+      width : 10.0,
+      vertexFormat : Cesium.PolylineMaterialAppearance.VERTEX_FORMAT
+    })
+  }),
+  appearance : new Cesium.PolylineMaterialAppearance({
+    material : Cesium.Material.fromType('Color')
+  })
+});</code></pre>
 
     
 
@@ -403,7 +417,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PolylineMaterialAppearance.js#L204">Scene/PolylineMaterialAppearance.js 204</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PolylineMaterialAppearance.js#L204">Scene/PolylineMaterialAppearance.js 204</a>
 </div>
 
 
@@ -414,7 +428,8 @@
 
 
 <div class="description">
-    The <a href="VertexFormat.html"><code>VertexFormat</code></a> that all <a href="PolylineMaterialAppearance.html"><code>PolylineMaterialAppearance</code></a> instancesare compatible with. This requires <code>position</code> and <code>st</code> attributes.
+    The <a href="VertexFormat.html"><code>VertexFormat</code></a> that all <a href="PolylineMaterialAppearance.html"><code>PolylineMaterialAppearance</code></a> instances
+are compatible with. This requires <code>position</code> and <code>st</code> attributes.
 </div>
 
 
@@ -463,7 +478,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PolylineMaterialAppearance.js#L171">Scene/PolylineMaterialAppearance.js 171</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PolylineMaterialAppearance.js#L171">Scene/PolylineMaterialAppearance.js 171</a>
 </div>
 
 
@@ -474,7 +489,9 @@
 
 
 <div class="description">
-    When <code>true</code>, the geometry is expected to be closed so<a href="PolylineMaterialAppearance.html#renderState"><code>PolylineMaterialAppearance#renderState</code></a> has backface culling enabled.This is always <code>false</code> for <code>PolylineMaterialAppearance</code>.
+    When <code>true</code>, the geometry is expected to be closed so
+<a href="PolylineMaterialAppearance.html#renderState"><code>PolylineMaterialAppearance#renderState</code></a> has backface culling enabled.
+This is always <code>false</code> for <code>PolylineMaterialAppearance</code>.
 </div>
 
 
@@ -526,7 +543,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PolylineMaterialAppearance.js#L134">Scene/PolylineMaterialAppearance.js 134</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PolylineMaterialAppearance.js#L134">Scene/PolylineMaterialAppearance.js 134</a>
 </div>
 
 
@@ -586,7 +603,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PolylineMaterialAppearance.js#L69">Scene/PolylineMaterialAppearance.js 69</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PolylineMaterialAppearance.js#L69">Scene/PolylineMaterialAppearance.js 69</a>
 </div>
 
 
@@ -597,7 +614,8 @@
 
 
 <div class="description">
-    The material used to determine the fragment color.  Unlike other <a href="PolylineMaterialAppearance.html"><code>PolylineMaterialAppearance</code></a>properties, this is not read-only, so an appearance's material can change on the fly.
+    The material used to determine the fragment color.  Unlike other <a href="PolylineMaterialAppearance.html"><code>PolylineMaterialAppearance</code></a>
+properties, this is not read-only, so an appearance's material can change on the fly.
 </div>
 
 
@@ -654,7 +672,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PolylineMaterialAppearance.js#L153">Scene/PolylineMaterialAppearance.js 153</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PolylineMaterialAppearance.js#L153">Scene/PolylineMaterialAppearance.js 153</a>
 </div>
 
 
@@ -665,7 +683,12 @@
 
 
 <div class="description">
-    The WebGL fixed-function state to use when rendering the geometry.<p>The render state can be explicitly defined when constructing a <a href="PolylineMaterialAppearance.html"><code>PolylineMaterialAppearance</code></a>instance, or it is set implicitly via <a href="PolylineMaterialAppearance.html#translucent"><code>PolylineMaterialAppearance#translucent</code></a>and <a href="PolylineMaterialAppearance.html#closed"><code>PolylineMaterialAppearance#closed</code></a>.</p>
+    The WebGL fixed-function state to use when rendering the geometry.
+<p>
+The render state can be explicitly defined when constructing a <a href="PolylineMaterialAppearance.html"><code>PolylineMaterialAppearance</code></a>
+instance, or it is set implicitly via <a href="PolylineMaterialAppearance.html#translucent"><code>PolylineMaterialAppearance#translucent</code></a>
+and <a href="PolylineMaterialAppearance.html#closed"><code>PolylineMaterialAppearance#closed</code></a>.
+</p>
 </div>
 
 
@@ -714,7 +737,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PolylineMaterialAppearance.js#L81">Scene/PolylineMaterialAppearance.js 81</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PolylineMaterialAppearance.js#L81">Scene/PolylineMaterialAppearance.js 81</a>
 </div>
 
 
@@ -725,7 +748,8 @@
 
 
 <div class="description">
-    When <code>true</code>, the geometry is expected to appear translucent so<a href="PolylineMaterialAppearance.html#renderState"><code>PolylineMaterialAppearance#renderState</code></a> has alpha blending enabled.
+    When <code>true</code>, the geometry is expected to appear translucent so
+<a href="PolylineMaterialAppearance.html#renderState"><code>PolylineMaterialAppearance#renderState</code></a> has alpha blending enabled.
 </div>
 
 
@@ -777,7 +801,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PolylineMaterialAppearance.js#L189">Scene/PolylineMaterialAppearance.js 189</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PolylineMaterialAppearance.js#L189">Scene/PolylineMaterialAppearance.js 189</a>
 </div>
 
 
@@ -788,7 +812,9 @@
 
 
 <div class="description">
-    The <a href="VertexFormat.html"><code>VertexFormat</code></a> that this appearance instance is compatible with.A geometry can have more vertex attributes and still be compatible - at apotential performance cost - but it can't have less.
+    The <a href="VertexFormat.html"><code>VertexFormat</code></a> that this appearance instance is compatible with.
+A geometry can have more vertex attributes and still be compatible - at a
+potential performance cost - but it can't have less.
 </div>
 
 
@@ -840,7 +866,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PolylineMaterialAppearance.js#L112">Scene/PolylineMaterialAppearance.js 112</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PolylineMaterialAppearance.js#L112">Scene/PolylineMaterialAppearance.js 112</a>
 </div>
 
 
@@ -906,7 +932,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PolylineMaterialAppearance.js#L214">Scene/PolylineMaterialAppearance.js 214</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PolylineMaterialAppearance.js#L214">Scene/PolylineMaterialAppearance.js 214</a>
 </div>
 
 
@@ -918,7 +944,8 @@
 
 
 <div class="description">
-    Procedurally creates the full GLSL fragment shader source.  For <a href="PolylineMaterialAppearance.html"><code>PolylineMaterialAppearance</code></a>,this is derived from <a href="PolylineMaterialAppearance.html#fragmentShaderSource"><code>PolylineMaterialAppearance#fragmentShaderSource</code></a> and <a href="PolylineMaterialAppearance.html#material"><code>PolylineMaterialAppearance#material</code></a>.
+    Procedurally creates the full GLSL fragment shader source.  For <a href="PolylineMaterialAppearance.html"><code>PolylineMaterialAppearance</code></a>,
+this is derived from <a href="PolylineMaterialAppearance.html#fragmentShaderSource"><code>PolylineMaterialAppearance#fragmentShaderSource</code></a> and <a href="PolylineMaterialAppearance.html#material"><code>PolylineMaterialAppearance#material</code></a>.
 </div>
 
 
@@ -996,7 +1023,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PolylineMaterialAppearance.js#L236">Scene/PolylineMaterialAppearance.js 236</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PolylineMaterialAppearance.js#L236">Scene/PolylineMaterialAppearance.js 236</a>
 </div>
 
 
@@ -1008,7 +1035,9 @@
 
 
 <div class="description">
-    Creates a render state.  This is not the final render state instance; instead,it can contain a subset of render state properties identical to the render statecreated in the context.
+    Creates a render state.  This is not the final render state instance; instead,
+it can contain a subset of render state properties identical to the render state
+created in the context.
 </div>
 
 
@@ -1086,7 +1115,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/PolylineMaterialAppearance.js#L224">Scene/PolylineMaterialAppearance.js 224</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/PolylineMaterialAppearance.js#L224">Scene/PolylineMaterialAppearance.js 224</a>
 </div>
 
 

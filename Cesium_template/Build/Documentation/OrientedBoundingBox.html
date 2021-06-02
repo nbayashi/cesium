@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrientedBoundingBox.js#L40">Core/OrientedBoundingBox.js 40</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrientedBoundingBox.js#L40">Core/OrientedBoundingBox.js 40</a>
 </div>
 
 
@@ -58,7 +58,8 @@
 
 
 <div class="description">
-    Creates an instance of an OrientedBoundingBox.An OrientedBoundingBox of some object is a closed and convex cuboid. It can provide a tighter bounding volume than <a href="BoundingSphere.html"><code>BoundingSphere</code></a> or <a href="AxisAlignedBoundingBox.html"><code>AxisAlignedBoundingBox</code></a> in many cases.
+    Creates an instance of an OrientedBoundingBox.
+An OrientedBoundingBox of some object is a closed and convex cuboid. It can provide a tighter bounding volume than <a href="BoundingSphere.html"><code>BoundingSphere</code></a> or <a href="AxisAlignedBoundingBox.html"><code>AxisAlignedBoundingBox</code></a> in many cases.
 </div>
 
 
@@ -160,7 +161,9 @@
 
                 
             
-                The three orthogonal half-axes of the bounding box.                                         Equivalently, the transformation matrix, to rotate and scale a 0x0x0                                         cube centered at the origin.</td>
+                The three orthogonal half-axes of the bounding box.
+                                         Equivalently, the transformation matrix, to rotate and scale a 0x0x0
+                                         cube centered at the origin.</td>
         </tr>
 
     
@@ -203,7 +206,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Create an OrientedBoundingBox using a transformation matrix, a position where the box will be translated, and a scale.var center = new Cesium.Cartesian3(1.0, 0.0, 0.0);var halfAxes = Cesium.Matrix3.fromScale(new Cesium.Cartesian3(1.0, 3.0, 2.0), new Cesium.Matrix3());var obb = new Cesium.OrientedBoundingBox(center, halfAxes);</code></pre>
+    <pre><code class="language-javascript">// Create an OrientedBoundingBox using a transformation matrix, a position where the box will be translated, and a scale.
+var center = new Cesium.Cartesian3(1.0, 0.0, 0.0);
+var halfAxes = Cesium.Matrix3.fromScale(new Cesium.Cartesian3(1.0, 3.0, 2.0), new Cesium.Matrix3());
+
+var obb = new Cesium.OrientedBoundingBox(center, halfAxes);</code></pre>
 
     
 
@@ -251,7 +258,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrientedBoundingBox.js#L59">Core/OrientedBoundingBox.js 59</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrientedBoundingBox.js#L59">Core/OrientedBoundingBox.js 59</a>
 </div>
 
 
@@ -311,7 +318,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrientedBoundingBox.js#L46">Core/OrientedBoundingBox.js 46</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrientedBoundingBox.js#L46">Core/OrientedBoundingBox.js 46</a>
 </div>
 
 
@@ -374,7 +381,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrientedBoundingBox.js#L52">Core/OrientedBoundingBox.js 52</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrientedBoundingBox.js#L52">Core/OrientedBoundingBox.js 52</a>
 </div>
 
 
@@ -443,7 +450,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrientedBoundingBox.js#L613">Core/OrientedBoundingBox.js 613</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrientedBoundingBox.js#L613">Core/OrientedBoundingBox.js 613</a>
 </div>
 
 
@@ -613,7 +620,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrientedBoundingBox.js#L779">Core/OrientedBoundingBox.js 779</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrientedBoundingBox.js#L779">Core/OrientedBoundingBox.js 779</a>
 </div>
 
 
@@ -625,7 +632,10 @@
 
 
 <div class="description">
-    The distances calculated by the vector from the center of the bounding box to position projected onto direction.<br>If you imagine the infinite number of planes with normal direction, this computes the smallest distance to theclosest and farthest planes from position that intersect the bounding box.
+    The distances calculated by the vector from the center of the bounding box to position projected onto direction.
+<br>
+If you imagine the infinite number of planes with normal direction, this computes the smallest distance to the
+closest and farthest planes from position that intersect the bounding box.
 </div>
 
 
@@ -839,7 +849,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrientedBoundingBox.js#L702">Core/OrientedBoundingBox.js 702</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrientedBoundingBox.js#L702">Core/OrientedBoundingBox.js 702</a>
 </div>
 
 
@@ -977,7 +987,10 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Sort bounding boxes from back to frontboxes.sort(function(a, b) {    return Cesium.OrientedBoundingBox.distanceSquaredTo(b, camera.positionWC) - Cesium.OrientedBoundingBox.distanceSquaredTo(a, camera.positionWC);});</code></pre>
+    <pre><code class="language-javascript">// Sort bounding boxes from back to front
+boxes.sort(function(a, b) {
+    return Cesium.OrientedBoundingBox.distanceSquaredTo(b, camera.positionWC) - Cesium.OrientedBoundingBox.distanceSquaredTo(a, camera.positionWC);
+});</code></pre>
 
     
 
@@ -1002,7 +1015,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrientedBoundingBox.js#L1004">Core/OrientedBoundingBox.js 1004</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrientedBoundingBox.js#L1004">Core/OrientedBoundingBox.js 1004</a>
 </div>
 
 
@@ -1014,7 +1027,8 @@
 
 
 <div class="description">
-    Compares the provided OrientedBoundingBox componentwise and returns<code>true</code> if they are equal, <code>false</code> otherwise.
+    Compares the provided OrientedBoundingBox componentwise and returns
+<code>true</code> if they are equal, <code>false</code> otherwise.
 </div>
 
 
@@ -1160,7 +1174,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrientedBoundingBox.js#L138">Core/OrientedBoundingBox.js 138</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrientedBoundingBox.js#L138">Core/OrientedBoundingBox.js 138</a>
 </div>
 
 
@@ -1172,7 +1186,9 @@
 
 
 <div class="description">
-    Computes an instance of an OrientedBoundingBox of the given positions.This is an implementation of Stefan Gottschalk's Collision Queries using Oriented Bounding Boxes solution (PHD thesis).Reference: http://gamma.cs.unc.edu/users/gottschalk/main.pdf
+    Computes an instance of an OrientedBoundingBox of the given positions.
+This is an implementation of Stefan Gottschalk's Collision Queries using Oriented Bounding Boxes solution (PHD thesis).
+Reference: http://gamma.cs.unc.edu/users/gottschalk/main.pdf
 </div>
 
 
@@ -1312,7 +1328,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Compute an object oriented bounding box enclosing two points.var box = Cesium.OrientedBoundingBox.fromPoints([new Cesium.Cartesian3(2, 0, 0), new Cesium.Cartesian3(-2, 0, 0)]);</code></pre>
+    <pre><code class="language-javascript">// Compute an object oriented bounding box enclosing two points.
+var box = Cesium.OrientedBoundingBox.fromPoints([new Cesium.Cartesian3(2, 0, 0), new Cesium.Cartesian3(-2, 0, 0)]);</code></pre>
 
     
 
@@ -1337,7 +1354,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrientedBoundingBox.js#L340">Core/OrientedBoundingBox.js 340</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrientedBoundingBox.js#L340">Core/OrientedBoundingBox.js 340</a>
 </div>
 
 
@@ -1349,7 +1366,8 @@
 
 
 <div class="description">
-    Computes an OrientedBoundingBox that bounds a <a href="Rectangle.html"><code>Rectangle</code></a> on the surface of an <a href="Ellipsoid.html"><code>Ellipsoid</code></a>.There are no guarantees about the orientation of the bounding box.
+    Computes an OrientedBoundingBox that bounds a <a href="Rectangle.html"><code>Rectangle</code></a> on the surface of an <a href="Ellipsoid.html"><code>Ellipsoid</code></a>.
+There are no guarantees about the orientation of the bounding box.
 </div>
 
 
@@ -1661,7 +1679,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrientedBoundingBox.js#L638">Core/OrientedBoundingBox.js 638</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrientedBoundingBox.js#L638">Core/OrientedBoundingBox.js 638</a>
 </div>
 
 
@@ -1768,7 +1786,10 @@
 
         
 <div class="param-desc">
-    <a href="global.html#Intersect#.INSIDE"><code>Intersect.INSIDE</code></a> if the entire box is on the side of the plane                     the normal is pointing, <a href="global.html#Intersect#.OUTSIDE"><code>Intersect.OUTSIDE</code></a> if the entire box is                     on the opposite side, and <a href="global.html#Intersect#.INTERSECTING"><code>Intersect.INTERSECTING</code></a> if the box                     intersects the plane.
+    <a href="global.html#Intersect#.INSIDE"><code>Intersect.INSIDE</code></a> if the entire box is on the side of the plane
+                     the normal is pointing, <a href="global.html#Intersect#.OUTSIDE"><code>Intersect.OUTSIDE</code></a> if the entire box is
+                     on the opposite side, and <a href="global.html#Intersect#.INTERSECTING"><code>Intersect.INTERSECTING</code></a> if the box
+                     intersects the plane.
 </div>
 
 
@@ -1819,7 +1840,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrientedBoundingBox.js#L915">Core/OrientedBoundingBox.js 915</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrientedBoundingBox.js#L915">Core/OrientedBoundingBox.js 915</a>
 </div>
 
 
@@ -1977,7 +1998,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrientedBoundingBox.js#L71">Core/OrientedBoundingBox.js 71</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrientedBoundingBox.js#L71">Core/OrientedBoundingBox.js 71</a>
 </div>
 
 
@@ -2191,7 +2212,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrientedBoundingBox.js#L93">Core/OrientedBoundingBox.js 93</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrientedBoundingBox.js#L93">Core/OrientedBoundingBox.js 93</a>
 </div>
 
 
@@ -2407,7 +2428,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrientedBoundingBox.js#L1020">Core/OrientedBoundingBox.js 1020</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrientedBoundingBox.js#L1020">Core/OrientedBoundingBox.js 1020</a>
 </div>
 
 
@@ -2549,7 +2570,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrientedBoundingBox.js#L973">Core/OrientedBoundingBox.js 973</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrientedBoundingBox.js#L973">Core/OrientedBoundingBox.js 973</a>
 </div>
 
 
@@ -2561,7 +2582,10 @@
 
 
 <div class="description">
-    The distances calculated by the vector from the center of the bounding box to position projected onto direction.<br>If you imagine the infinite number of planes with normal direction, this computes the smallest distance to theclosest and farthest planes from position that intersect the bounding box.
+    The distances calculated by the vector from the center of the bounding box to position projected onto direction.
+<br>
+If you imagine the infinite number of planes with normal direction, this computes the smallest distance to the
+closest and farthest planes from position that intersect the bounding box.
 </div>
 
 
@@ -2747,7 +2771,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrientedBoundingBox.js#L958">Core/OrientedBoundingBox.js 958</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrientedBoundingBox.js#L958">Core/OrientedBoundingBox.js 958</a>
 </div>
 
 
@@ -2862,7 +2886,10 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// Sort bounding boxes from back to frontboxes.sort(function(a, b) {    return b.distanceSquaredTo(camera.positionWC) - a.distanceSquaredTo(camera.positionWC);});</code></pre>
+    <pre><code class="language-javascript">// Sort bounding boxes from back to front
+boxes.sort(function(a, b) {
+    return b.distanceSquaredTo(camera.positionWC) - a.distanceSquaredTo(camera.positionWC);
+});</code></pre>
 
     
 
@@ -2887,7 +2914,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrientedBoundingBox.js#L1031">Core/OrientedBoundingBox.js 1031</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrientedBoundingBox.js#L1031">Core/OrientedBoundingBox.js 1031</a>
 </div>
 
 
@@ -2899,7 +2926,8 @@
 
 
 <div class="description">
-    Compares this OrientedBoundingBox against the provided OrientedBoundingBox componentwise and returns<code>true</code> if they are equal, <code>false</code> otherwise.
+    Compares this OrientedBoundingBox against the provided OrientedBoundingBox componentwise and returns
+<code>true</code> if they are equal, <code>false</code> otherwise.
 </div>
 
 
@@ -3029,7 +3057,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrientedBoundingBox.js#L942">Core/OrientedBoundingBox.js 942</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrientedBoundingBox.js#L942">Core/OrientedBoundingBox.js 942</a>
 </div>
 
 
@@ -3113,7 +3141,10 @@
 
         
 <div class="param-desc">
-    <a href="global.html#Intersect#.INSIDE"><code>Intersect.INSIDE</code></a> if the entire box is on the side of the plane                     the normal is pointing, <a href="global.html#Intersect#.OUTSIDE"><code>Intersect.OUTSIDE</code></a> if the entire box is                     on the opposite side, and <a href="global.html#Intersect#.INTERSECTING"><code>Intersect.INTERSECTING</code></a> if the box                     intersects the plane.
+    <a href="global.html#Intersect#.INSIDE"><code>Intersect.INSIDE</code></a> if the entire box is on the side of the plane
+                     the normal is pointing, <a href="global.html#Intersect#.OUTSIDE"><code>Intersect.OUTSIDE</code></a> if the entire box is
+                     on the opposite side, and <a href="global.html#Intersect#.INTERSECTING"><code>Intersect.INTERSECTING</code></a> if the box
+                     intersects the plane.
 </div>
 
 
@@ -3164,7 +3195,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/OrientedBoundingBox.js#L992">Core/OrientedBoundingBox.js 992</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/OrientedBoundingBox.js#L992">Core/OrientedBoundingBox.js 992</a>
 </div>
 
 

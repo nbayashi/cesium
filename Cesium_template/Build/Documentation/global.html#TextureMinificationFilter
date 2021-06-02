@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Renderer/TextureMinificationFilter.js#L10">Renderer/TextureMinificationFilter.js 10</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Renderer/TextureMinificationFilter.js#L10">Renderer/TextureMinificationFilter.js 10</a>
 </div>
 
 
@@ -142,7 +142,10 @@
 
             
 
-            <td class="description last">Selects the nearest mip level and applies nearest sampling within that level.<p>Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.</p></td>
+            <td class="description last">Selects the nearest mip level and applies nearest sampling within that level.
+<p>
+Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.
+</p></td>
         </tr>
 
     
@@ -165,7 +168,10 @@
 
             
 
-            <td class="description last">Selects the nearest mip level and applies linear sampling within that level.<p>Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.</p></td>
+            <td class="description last">Selects the nearest mip level and applies linear sampling within that level.
+<p>
+Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.
+</p></td>
         </tr>
 
     
@@ -188,7 +194,13 @@
 
             
 
-            <td class="description last">Read texture values with nearest sampling from two adjacent mip levels and linearly interpolate the results.<p>This option provides a good balance of visual quality and speed when sampling from a mipmapped texture.</p><p>Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.</p></td>
+            <td class="description last">Read texture values with nearest sampling from two adjacent mip levels and linearly interpolate the results.
+<p>
+This option provides a good balance of visual quality and speed when sampling from a mipmapped texture.
+</p>
+<p>
+Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.
+</p></td>
         </tr>
 
     
@@ -211,7 +223,13 @@
 
             
 
-            <td class="description last">Read texture values with linear sampling from two adjacent mip levels and linearly interpolate the results.<p>This option provides a good balance of visual quality and speed when sampling from a mipmapped texture.</p><p>Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.</p></td>
+            <td class="description last">Read texture values with linear sampling from two adjacent mip levels and linearly interpolate the results.
+<p>
+This option provides a good balance of visual quality and speed when sampling from a mipmapped texture.
+</p>
+<p>
+Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.
+</p></td>
         </tr>
 
     
@@ -279,7 +297,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Renderer/TextureMinificationFilter.js#L24">Renderer/TextureMinificationFilter.js 24</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Renderer/TextureMinificationFilter.js#L24">Renderer/TextureMinificationFilter.js 24</a>
 </div>
 
 
@@ -342,7 +360,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Renderer/TextureMinificationFilter.js#L69">Renderer/TextureMinificationFilter.js 69</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Renderer/TextureMinificationFilter.js#L69">Renderer/TextureMinificationFilter.js 69</a>
 </div>
 
 
@@ -353,7 +371,13 @@
 
 
 <div class="description">
-    Read texture values with linear sampling from two adjacent mip levels and linearly interpolate the results.<p>This option provides a good balance of visual quality and speed when sampling from a mipmapped texture.</p><p>Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.</p>
+    Read texture values with linear sampling from two adjacent mip levels and linearly interpolate the results.
+<p>
+This option provides a good balance of visual quality and speed when sampling from a mipmapped texture.
+</p>
+<p>
+Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.
+</p>
 </div>
 
 
@@ -405,7 +429,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Renderer/TextureMinificationFilter.js#L44">Renderer/TextureMinificationFilter.js 44</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Renderer/TextureMinificationFilter.js#L44">Renderer/TextureMinificationFilter.js 44</a>
 </div>
 
 
@@ -416,7 +440,10 @@
 
 
 <div class="description">
-    Selects the nearest mip level and applies linear sampling within that level.<p>Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.</p>
+    Selects the nearest mip level and applies linear sampling within that level.
+<p>
+Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.
+</p>
 </div>
 
 
@@ -468,7 +495,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Renderer/TextureMinificationFilter.js#L17">Renderer/TextureMinificationFilter.js 17</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Renderer/TextureMinificationFilter.js#L17">Renderer/TextureMinificationFilter.js 17</a>
 </div>
 
 
@@ -531,7 +558,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Renderer/TextureMinificationFilter.js#L57">Renderer/TextureMinificationFilter.js 57</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Renderer/TextureMinificationFilter.js#L57">Renderer/TextureMinificationFilter.js 57</a>
 </div>
 
 
@@ -542,7 +569,13 @@
 
 
 <div class="description">
-    Read texture values with nearest sampling from two adjacent mip levels and linearly interpolate the results.<p>This option provides a good balance of visual quality and speed when sampling from a mipmapped texture.</p><p>Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.</p>
+    Read texture values with nearest sampling from two adjacent mip levels and linearly interpolate the results.
+<p>
+This option provides a good balance of visual quality and speed when sampling from a mipmapped texture.
+</p>
+<p>
+Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.
+</p>
 </div>
 
 
@@ -594,7 +627,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Renderer/TextureMinificationFilter.js#L34">Renderer/TextureMinificationFilter.js 34</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Renderer/TextureMinificationFilter.js#L34">Renderer/TextureMinificationFilter.js 34</a>
 </div>
 
 
@@ -605,7 +638,10 @@
 
 
 <div class="description">
-    Selects the nearest mip level and applies nearest sampling within that level.<p>Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.</p>
+    Selects the nearest mip level and applies nearest sampling within that level.
+<p>
+Requires that the texture has a mipmap. The mip level is chosen by the view angle and screen-space size of the texture.
+</p>
 </div>
 
 

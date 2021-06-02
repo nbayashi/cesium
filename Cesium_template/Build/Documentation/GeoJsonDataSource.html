@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/GeoJsonDataSource.js#L600">DataSources/GeoJsonDataSource.js 600</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/GeoJsonDataSource.js#L600">DataSources/GeoJsonDataSource.js 600</a>
 </div>
 
 
@@ -58,7 +58,10 @@
 
 
 <div class="description">
-    A <a href="DataSource.html"><code>DataSource</code></a> which processes both<a href="http://www.geojson.org/">GeoJSON</a> and <a href="https://github.com/mbostock/topojson">TopoJSON</a> data.<a href="https://github.com/mapbox/simplestyle-spec">simplestyle-spec</a> properties will also be used if theyare present.
+    A <a href="DataSource.html"><code>DataSource</code></a> which processes both
+<a href="http://www.geojson.org/">GeoJSON</a> and <a href="https://github.com/mbostock/topojson">TopoJSON</a> data.
+<a href="https://github.com/mapbox/simplestyle-spec">simplestyle-spec</a> properties will also be used if they
+are present.
 </div>
 
 
@@ -116,7 +119,8 @@
 
                 
             
-                The name of this data source.  If undefined, a name will be taken from                       the name of the GeoJSON file.</td>
+                The name of this data source.  If undefined, a name will be taken from
+                       the name of the GeoJSON file.</td>
         </tr>
 
     
@@ -159,7 +163,13 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var viewer = new Cesium.Viewer('cesiumContainer');viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us_states.topojson', {  stroke: Cesium.Color.HOTPINK,  fill: Cesium.Color.PINK,  strokeWidth: 3,  markerSymbol: '?'}));</code></pre>
+    <pre><code class="language-javascript">var viewer = new Cesium.Viewer('cesiumContainer');
+viewer.dataSources.add(Cesium.GeoJsonDataSource.load('../../SampleData/ne_10m_us_states.topojson', {
+  stroke: Cesium.Color.HOTPINK,
+  fill: Cesium.Color.PINK,
+  strokeWidth: 3,
+  markerSymbol: '?'
+}));</code></pre>
 
     
 
@@ -207,7 +217,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/GeoJsonDataSource.js#L718">DataSources/GeoJsonDataSource.js 718</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/GeoJsonDataSource.js#L718">DataSources/GeoJsonDataSource.js 718</a>
 </div>
 
 
@@ -270,7 +280,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/GeoJsonDataSource.js#L750">DataSources/GeoJsonDataSource.js 750</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/GeoJsonDataSource.js#L750">DataSources/GeoJsonDataSource.js 750</a>
 </div>
 
 
@@ -281,7 +291,11 @@
 
 
 <div class="description">
-    Gets an object that maps the href property of a crs link to a callback functionwhich takes the crs properties object and returns a Promise that resolvesto a function that takes a GeoJSON coordinate and transforms it into a WGS84 Earth-fixed Cartesian.Items in this object take precedence over those defined in <code>crsLinkHrefs</code>, assumingthe link has a type specified.
+    Gets an object that maps the href property of a crs link to a callback function
+which takes the crs properties object and returns a Promise that resolves
+to a function that takes a GeoJSON coordinate and transforms it into a WGS84 Earth-fixed Cartesian.
+Items in this object take precedence over those defined in <code>crsLinkHrefs</code>, assuming
+the link has a type specified.
 </div>
 
 
@@ -330,7 +344,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/GeoJsonDataSource.js#L764">DataSources/GeoJsonDataSource.js 764</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/GeoJsonDataSource.js#L764">DataSources/GeoJsonDataSource.js 764</a>
 </div>
 
 
@@ -341,7 +355,10 @@
 
 
 <div class="description">
-    Gets an object that maps the type property of a crs link to a callback functionwhich takes the crs properties object and returns a Promise that resolvesto a function that takes a GeoJSON coordinate and transforms it into a WGS84 Earth-fixed Cartesian.Items in <code>crsLinkHrefs</code> take precedence over this object.
+    Gets an object that maps the type property of a crs link to a callback function
+which takes the crs properties object and returns a Promise that resolves
+to a function that takes a GeoJSON coordinate and transforms it into a WGS84 Earth-fixed Cartesian.
+Items in <code>crsLinkHrefs</code> take precedence over this object.
 </div>
 
 
@@ -390,7 +407,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/GeoJsonDataSource.js#L735">DataSources/GeoJsonDataSource.js 735</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/GeoJsonDataSource.js#L735">DataSources/GeoJsonDataSource.js 735</a>
 </div>
 
 
@@ -401,7 +418,10 @@
 
 
 <div class="description">
-    Gets an object that maps the name of a crs to a callback function which takes a GeoJSON coordinateand transforms it into a WGS84 Earth-fixed Cartesian.  Older versions of GeoJSON whichsupported the EPSG type can be added to this list as well, by specifying the complete EPSG name,for example 'EPSG:4326'.
+    Gets an object that maps the name of a crs to a callback function which takes a GeoJSON coordinate
+and transforms it into a WGS84 Earth-fixed Cartesian.  Older versions of GeoJSON which
+supported the EPSG type can be added to this list as well, by specifying the complete EPSG name,
+for example 'EPSG:4326'.
 </div>
 
 
@@ -450,7 +470,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/GeoJsonDataSource.js#L704">DataSources/GeoJsonDataSource.js 704</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/GeoJsonDataSource.js#L704">DataSources/GeoJsonDataSource.js 704</a>
 </div>
 
 
@@ -513,7 +533,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/GeoJsonDataSource.js#L662">DataSources/GeoJsonDataSource.js 662</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/GeoJsonDataSource.js#L662">DataSources/GeoJsonDataSource.js 662</a>
 </div>
 
 
@@ -576,7 +596,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/GeoJsonDataSource.js#L633">DataSources/GeoJsonDataSource.js 633</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/GeoJsonDataSource.js#L633">DataSources/GeoJsonDataSource.js 633</a>
 </div>
 
 
@@ -639,7 +659,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/GeoJsonDataSource.js#L648">DataSources/GeoJsonDataSource.js 648</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/GeoJsonDataSource.js#L648">DataSources/GeoJsonDataSource.js 648</a>
 </div>
 
 
@@ -650,7 +670,9 @@
 
 
 <div class="description">
-    Gets or sets the default symbol of the map pin created for each point.This can be any valid <a href="http://mapbox.com/maki/">Maki</a> identifier, any single character,or blank if no symbol is to be used.
+    Gets or sets the default symbol of the map pin created for each point.
+This can be any valid <a href="http://mapbox.com/maki/">Maki</a> identifier, any single character,
+or blank if no symbol is to be used.
 </div>
 
 
@@ -699,7 +721,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/GeoJsonDataSource.js#L676">DataSources/GeoJsonDataSource.js 676</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/GeoJsonDataSource.js#L676">DataSources/GeoJsonDataSource.js 676</a>
 </div>
 
 
@@ -762,7 +784,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/GeoJsonDataSource.js#L690">DataSources/GeoJsonDataSource.js 690</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/GeoJsonDataSource.js#L690">DataSources/GeoJsonDataSource.js 690</a>
 </div>
 
 
@@ -825,7 +847,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/GeoJsonDataSource.js#L822">DataSources/GeoJsonDataSource.js 822</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/GeoJsonDataSource.js#L822">DataSources/GeoJsonDataSource.js 822</a>
 </div>
 
 
@@ -885,7 +907,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/GeoJsonDataSource.js#L793">DataSources/GeoJsonDataSource.js 793</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/GeoJsonDataSource.js#L793">DataSources/GeoJsonDataSource.js 793</a>
 </div>
 
 
@@ -945,7 +967,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/GeoJsonDataSource.js#L867">DataSources/GeoJsonDataSource.js 867</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/GeoJsonDataSource.js#L867">DataSources/GeoJsonDataSource.js 867</a>
 </div>
 
 
@@ -1005,7 +1027,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/GeoJsonDataSource.js#L885">DataSources/GeoJsonDataSource.js 885</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/GeoJsonDataSource.js#L885">DataSources/GeoJsonDataSource.js 885</a>
 </div>
 
 
@@ -1065,7 +1087,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/GeoJsonDataSource.js#L802">DataSources/GeoJsonDataSource.js 802</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/GeoJsonDataSource.js#L802">DataSources/GeoJsonDataSource.js 802</a>
 </div>
 
 
@@ -1125,7 +1147,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/GeoJsonDataSource.js#L832">DataSources/GeoJsonDataSource.js 832</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/GeoJsonDataSource.js#L832">DataSources/GeoJsonDataSource.js 832</a>
 </div>
 
 
@@ -1185,7 +1207,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/GeoJsonDataSource.js#L812">DataSources/GeoJsonDataSource.js 812</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/GeoJsonDataSource.js#L812">DataSources/GeoJsonDataSource.js 812</a>
 </div>
 
 
@@ -1245,7 +1267,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/GeoJsonDataSource.js#L842">DataSources/GeoJsonDataSource.js 842</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/GeoJsonDataSource.js#L842">DataSources/GeoJsonDataSource.js 842</a>
 </div>
 
 
@@ -1305,7 +1327,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/GeoJsonDataSource.js#L777">DataSources/GeoJsonDataSource.js 777</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/GeoJsonDataSource.js#L777">DataSources/GeoJsonDataSource.js 777</a>
 </div>
 
 
@@ -1365,7 +1387,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/GeoJsonDataSource.js#L852">DataSources/GeoJsonDataSource.js 852</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/GeoJsonDataSource.js#L852">DataSources/GeoJsonDataSource.js 852</a>
 </div>
 
 
@@ -1431,7 +1453,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/GeoJsonDataSource.js#L622">DataSources/GeoJsonDataSource.js 622</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/GeoJsonDataSource.js#L622">DataSources/GeoJsonDataSource.js 622</a>
 </div>
 
 
@@ -1607,7 +1629,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/GeoJsonDataSource.js#L911">DataSources/GeoJsonDataSource.js 911</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/GeoJsonDataSource.js#L911">DataSources/GeoJsonDataSource.js 911</a>
 </div>
 
 
@@ -1799,7 +1821,8 @@
 
                 
             
-                A function which returns a Property object (or just a string),                                                                               which converts the properties into an html description.</td>
+                A function which returns a Property object (or just a string),
+                                                                               which converts the properties into an html description.</td>
         </tr>
 
     
@@ -2166,7 +2189,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/GeoJsonDataSource.js#L983">DataSources/GeoJsonDataSource.js 983</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/GeoJsonDataSource.js#L983">DataSources/GeoJsonDataSource.js 983</a>
 </div>
 
 
@@ -2178,7 +2201,10 @@
 
 
 <div class="description">
-    Updates the data source to the provided time.  This function is optional andis not required to be implemented.  It is provided for data sources whichretrieve data based on the current animation time or scene state.If implemented, update will be called by <a href="DataSourceDisplay.html"><code>DataSourceDisplay</code></a> once a frame.
+    Updates the data source to the provided time.  This function is optional and
+is not required to be implemented.  It is provided for data sources which
+retrieve data based on the current animation time or scene state.
+If implemented, update will be called by <a href="DataSourceDisplay.html"><code>DataSourceDisplay</code></a> once a frame.
 </div>
 
 
@@ -2307,7 +2333,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/GeoJsonDataSource.js#L1058">DataSources/GeoJsonDataSource.js 1058</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/GeoJsonDataSource.js#L1058">DataSources/GeoJsonDataSource.js 1058</a>
 </div>
 
 
@@ -2456,7 +2482,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/DataSources/GeoJsonDataSource.js#L560">DataSources/GeoJsonDataSource.js 560</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/DataSources/GeoJsonDataSource.js#L560">DataSources/GeoJsonDataSource.js 560</a>
 </div>
 
 

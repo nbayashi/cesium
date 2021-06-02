@@ -46,7 +46,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L261">Core/Resource.js 261</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L261">Core/Resource.js 261</a>
 </div>
 
 
@@ -453,7 +453,34 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">function refreshTokenRetryCallback(resource, error) {  if (error.statusCode === 403) {    // 403 status code means a new token should be generated    return getNewAccessToken()      .then(function(token) {        resource.queryParameters.access_token = token;        return true;      })      .otherwise(function() {        return false;      });  }  return false;}var resource = new Resource({   url: 'http://server.com/path/to/resource.json',   proxy: new DefaultProxy('/proxy/'),   headers: {     'X-My-Header': 'valueOfHeader'   },   queryParameters: {     'access_token': '123-435-456-000'   },   retryCallback: refreshTokenRetryCallback,   retryAttempts: 1});</code></pre>
+    <pre><code class="language-javascript">function refreshTokenRetryCallback(resource, error) {
+  if (error.statusCode === 403) {
+    // 403 status code means a new token should be generated
+    return getNewAccessToken()
+      .then(function(token) {
+        resource.queryParameters.access_token = token;
+        return true;
+      })
+      .otherwise(function() {
+        return false;
+      });
+  }
+
+  return false;
+}
+
+var resource = new Resource({
+   url: 'http://server.com/path/to/resource.json',
+   proxy: new DefaultProxy('/proxy/'),
+   headers: {
+     'X-My-Header': 'valueOfHeader'
+   },
+   queryParameters: {
+     'access_token': '123-435-456-000'
+   },
+   retryCallback: refreshTokenRetryCallback,
+   retryAttempts: 1
+});</code></pre>
 
     
 
@@ -494,7 +521,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L2207">Core/Resource.js 2207</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L2207">Core/Resource.js 2207</a>
 </div>
 
 
@@ -554,7 +581,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L403">Core/Resource.js 403</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L403">Core/Resource.js 403</a>
 </div>
 
 
@@ -614,7 +641,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L469">Core/Resource.js 469</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L469">Core/Resource.js 469</a>
 </div>
 
 
@@ -674,7 +701,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L517">Core/Resource.js 517</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L517">Core/Resource.js 517</a>
 </div>
 
 
@@ -734,7 +761,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L282">Core/Resource.js 282</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L282">Core/Resource.js 282</a>
 </div>
 
 
@@ -794,7 +821,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L493">Core/Resource.js 493</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L493">Core/Resource.js 493</a>
 </div>
 
 
@@ -854,7 +881,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L505">Core/Resource.js 505</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L505">Core/Resource.js 505</a>
 </div>
 
 
@@ -914,7 +941,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L481">Core/Resource.js 481</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L481">Core/Resource.js 481</a>
 </div>
 
 
@@ -974,7 +1001,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L296">Core/Resource.js 296</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L296">Core/Resource.js 296</a>
 </div>
 
 
@@ -1034,7 +1061,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L419">Core/Resource.js 419</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L419">Core/Resource.js 419</a>
 </div>
 
 
@@ -1094,7 +1121,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L289">Core/Resource.js 289</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L289">Core/Resource.js 289</a>
 </div>
 
 
@@ -1154,7 +1181,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L310">Core/Resource.js 310</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L310">Core/Resource.js 310</a>
 </div>
 
 
@@ -1214,7 +1241,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L303">Core/Resource.js 303</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L303">Core/Resource.js 303</a>
 </div>
 
 
@@ -1274,7 +1301,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L433">Core/Resource.js 433</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L433">Core/Resource.js 433</a>
 </div>
 
 
@@ -1334,7 +1361,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L445">Core/Resource.js 445</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L445">Core/Resource.js 445</a>
 </div>
 
 
@@ -1400,7 +1427,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L1551">Core/Resource.js 1551</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L1551">Core/Resource.js 1551</a>
 </div>
 
 
@@ -1938,7 +1965,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L1494">Core/Resource.js 1494</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L1494">Core/Resource.js 1494</a>
 </div>
 
 
@@ -2442,7 +2469,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L801">Core/Resource.js 801</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L801">Core/Resource.js 801</a>
 </div>
 
 
@@ -2878,7 +2905,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L845">Core/Resource.js 845</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L845">Core/Resource.js 845</a>
 </div>
 
 
@@ -3314,7 +3341,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L1055">Core/Resource.js 1055</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L1055">Core/Resource.js 1055</a>
 </div>
 
 
@@ -3858,7 +3885,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L1171">Core/Resource.js 1171</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L1171">Core/Resource.js 1171</a>
 </div>
 
 
@@ -4294,7 +4321,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L1324">Core/Resource.js 1324</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L1324">Core/Resource.js 1324</a>
 </div>
 
 
@@ -4766,7 +4793,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L1110">Core/Resource.js 1110</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L1110">Core/Resource.js 1110</a>
 </div>
 
 
@@ -5202,7 +5229,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L1220">Core/Resource.js 1220</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L1220">Core/Resource.js 1220</a>
 </div>
 
 
@@ -5638,7 +5665,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L1608">Core/Resource.js 1608</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L1608">Core/Resource.js 1608</a>
 </div>
 
 
@@ -6142,7 +6169,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L1664">Core/Resource.js 1664</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L1664">Core/Resource.js 1664</a>
 </div>
 
 
@@ -6646,7 +6673,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L1848">Core/Resource.js 1848</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L1848">Core/Resource.js 1848</a>
 </div>
 
 
@@ -7179,7 +7206,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L1726">Core/Resource.js 1726</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L1726">Core/Resource.js 1726</a>
 </div>
 
 
@@ -7712,7 +7739,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L1787">Core/Resource.js 1787</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L1787">Core/Resource.js 1787</a>
 </div>
 
 
@@ -8245,7 +8272,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L758">Core/Resource.js 758</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L758">Core/Resource.js 758</a>
 </div>
 
 
@@ -8326,7 +8353,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L602">Core/Resource.js 602</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L602">Core/Resource.js 602</a>
 </div>
 
 
@@ -8338,7 +8365,8 @@
 
 
 <div class="description">
-    Combines the specified object and the existing query parameters. This allows you to add many parameters at once, as opposed to adding them one at a time to the queryParameters property.
+    Combines the specified object and the existing query parameters. This allows you to add many parameters at once,
+ as opposed to adding them one at a time to the queryParameters property.
 </div>
 
 
@@ -8452,7 +8480,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L724">Core/Resource.js 724</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L724">Core/Resource.js 724</a>
 </div>
 
 
@@ -8594,7 +8622,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L1527">Core/Resource.js 1527</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L1527">Core/Resource.js 1527</a>
 </div>
 
 
@@ -8606,7 +8634,10 @@
 
 
 <div class="description">
-    Asynchronously deletes the given resource.  Returns a promise that will resolve tothe result once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    Asynchronously deletes the given resource.  Returns a promise that will resolve to
+the result once loaded, or reject if the resource failed to load.  The data is loaded
+using XMLHttpRequest, which means that in order to make requests to another origin,
+the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
 </div>
 
 
@@ -8828,7 +8859,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.delete()  .then(function(body) {      // use the data  }).otherwise(function(error) {      // an error occurred  });</code></pre>
+    <pre><code class="language-javascript">resource.delete()
+  .then(function(body) {
+      // use the data
+  }).otherwise(function(error) {
+      // an error occurred
+  });</code></pre>
 
     
 
@@ -8860,7 +8896,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L1471">Core/Resource.js 1471</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L1471">Core/Resource.js 1471</a>
 </div>
 
 
@@ -8872,7 +8908,11 @@
 
 
 <div class="description">
-    Asynchronously loads the given resource.  Returns a promise that will resolve tothe result once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled. It's recommended that you usethe more specific functions eg. fetchJson, fetchBlob, etc.
+    Asynchronously loads the given resource.  Returns a promise that will resolve to
+the result once loaded, or reject if the resource failed to load.  The data is loaded
+using XMLHttpRequest, which means that in order to make requests to another origin,
+the server must have Cross-Origin Resource Sharing (CORS) headers enabled. It's recommended that you use
+the more specific functions eg. fetchJson, fetchBlob, etc.
 </div>
 
 
@@ -9094,7 +9134,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.fetch()  .then(function(body) {      // use the data  }).otherwise(function(error) {      // an error occurred  });</code></pre>
+    <pre><code class="language-javascript">resource.fetch()
+  .then(function(body) {
+      // use the data
+  }).otherwise(function(error) {
+      // an error occurred
+  });</code></pre>
 
     
 
@@ -9126,7 +9171,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L781">Core/Resource.js 781</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L781">Core/Resource.js 781</a>
 </div>
 
 
@@ -9138,7 +9183,10 @@
 
 
 <div class="description">
-    Asynchronously loads the resource as raw binary data.  Returns a promise that will resolve toan ArrayBuffer once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    Asynchronously loads the resource as raw binary data.  Returns a promise that will resolve to
+an ArrayBuffer once loaded, or reject if the resource failed to load.  The data is loaded
+using XMLHttpRequest, which means that in order to make requests to another origin,
+the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
 </div>
 
 
@@ -9196,7 +9244,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// load a single URL asynchronouslyresource.fetchArrayBuffer().then(function(arrayBuffer) {    // use the data}).otherwise(function(error) {    // an error occurred});</code></pre>
+    <pre><code class="language-javascript">// load a single URL asynchronously
+resource.fetchArrayBuffer().then(function(arrayBuffer) {
+    // use the data
+}).otherwise(function(error) {
+    // an error occurred
+});</code></pre>
 
     
 
@@ -9228,7 +9281,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L825">Core/Resource.js 825</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L825">Core/Resource.js 825</a>
 </div>
 
 
@@ -9240,7 +9293,10 @@
 
 
 <div class="description">
-    Asynchronously loads the given resource as a blob.  Returns a promise that will resolve toa Blob once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    Asynchronously loads the given resource as a blob.  Returns a promise that will resolve to
+a Blob once loaded, or reject if the resource failed to load.  The data is loaded
+using XMLHttpRequest, which means that in order to make requests to another origin,
+the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
 </div>
 
 
@@ -9298,7 +9354,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// load a single URL asynchronouslyresource.fetchBlob().then(function(blob) {    // use the data}).otherwise(function(error) {    // an error occurred});</code></pre>
+    <pre><code class="language-javascript">// load a single URL asynchronously
+resource.fetchBlob().then(function(blob) {
+    // use the data
+}).otherwise(function(error) {
+    // an error occurred
+});</code></pre>
 
     
 
@@ -9330,7 +9391,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L878">Core/Resource.js 878</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L878">Core/Resource.js 878</a>
 </div>
 
 
@@ -9342,7 +9403,9 @@
 
 
 <div class="description">
-    Asynchronously loads the given image resource.  Returns a promise that will resolve toan <a href="https://developer.mozilla.org/en-US/docs/Web/API/ImageBitmap">ImageBitmap</a> if <code>preferImageBitmap</code> is true and the browser supports <code>createImageBitmap</code> or otherwise an<a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement">Image</a> once loaded, or reject if the image failed to load.
+    Asynchronously loads the given image resource.  Returns a promise that will resolve to
+an <a href="https://developer.mozilla.org/en-US/docs/Web/API/ImageBitmap">ImageBitmap</a> if <code>preferImageBitmap</code> is true and the browser supports <code>createImageBitmap</code> or otherwise an
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement">Image</a> once loaded, or reject if the image failed to load.
 </div>
 
 
@@ -9584,7 +9647,17 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// load a single image asynchronouslyresource.fetchImage().then(function(image) {    // use the loaded image}).otherwise(function(error) {    // an error occurred});// load several images in parallelwhen.all([resource1.fetchImage(), resource2.fetchImage()]).then(function(images) {    // images is an array containing all the loaded images});</code></pre>
+    <pre><code class="language-javascript">// load a single image asynchronously
+resource.fetchImage().then(function(image) {
+    // use the loaded image
+}).otherwise(function(error) {
+    // an error occurred
+});
+
+// load several images in parallel
+when.all([resource1.fetchImage(), resource2.fetchImage()]).then(function(images) {
+    // images is an array containing all the loaded images
+});</code></pre>
 
     
 
@@ -9616,7 +9689,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L1137">Core/Resource.js 1137</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L1137">Core/Resource.js 1137</a>
 </div>
 
 
@@ -9628,7 +9701,12 @@
 
 
 <div class="description">
-    Asynchronously loads the given resource as JSON.  Returns a promise that will resolve toa JSON object once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled. This functionadds 'Accept: application/json,&#42;&#47;&#42;;q=0.01' to the request headers, if notalready specified.
+    Asynchronously loads the given resource as JSON.  Returns a promise that will resolve to
+a JSON object once loaded, or reject if the resource failed to load.  The data is loaded
+using XMLHttpRequest, which means that in order to make requests to another origin,
+the server must have Cross-Origin Resource Sharing (CORS) headers enabled. This function
+adds 'Accept: application/json,&#42;&#47;&#42;;q=0.01' to the request headers, if not
+already specified.
 </div>
 
 
@@ -9686,7 +9764,11 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.fetchJson().then(function(jsonData) {    // Do something with the JSON object}).otherwise(function(error) {    // an error occurred});</code></pre>
+    <pre><code class="language-javascript">resource.fetchJson().then(function(jsonData) {
+    // Do something with the JSON object
+}).otherwise(function(error) {
+    // an error occurred
+});</code></pre>
 
     
 
@@ -9718,7 +9800,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L1242">Core/Resource.js 1242</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L1242">Core/Resource.js 1242</a>
 </div>
 
 
@@ -9848,7 +9930,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// load a data asynchronouslyresource.fetchJsonp().then(function(data) {    // use the loaded data}).otherwise(function(error) {    // an error occurred});</code></pre>
+    <pre><code class="language-javascript">// load a data asynchronously
+resource.fetchJsonp().then(function(data) {
+    // use the loaded data
+}).otherwise(function(error) {
+    // an error occurred
+});</code></pre>
 
     
 
@@ -9878,7 +9965,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L1090">Core/Resource.js 1090</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L1090">Core/Resource.js 1090</a>
 </div>
 
 
@@ -9890,7 +9977,10 @@
 
 
 <div class="description">
-    Asynchronously loads the given resource as text.  Returns a promise that will resolve toa String once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    Asynchronously loads the given resource as text.  Returns a promise that will resolve to
+a String once loaded, or reject if the resource failed to load.  The data is loaded
+using XMLHttpRequest, which means that in order to make requests to another origin,
+the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
 </div>
 
 
@@ -9948,7 +10038,18 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// load text from a URL, setting a custom headervar resource = new Resource({  url: 'http://someUrl.com/someJson.txt',  headers: {    'X-Custom-Header' : 'some value'  }});resource.fetchText().then(function(text) {    // Do something with the text}).otherwise(function(error) {    // an error occurred});</code></pre>
+    <pre><code class="language-javascript">// load text from a URL, setting a custom header
+var resource = new Resource({
+  url: 'http://someUrl.com/someJson.txt',
+  headers: {
+    'X-Custom-Header' : 'some value'
+  }
+});
+resource.fetchText().then(function(text) {
+    // Do something with the text
+}).otherwise(function(error) {
+    // an error occurred
+});</code></pre>
 
     
 
@@ -9982,7 +10083,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L1199">Core/Resource.js 1199</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L1199">Core/Resource.js 1199</a>
 </div>
 
 
@@ -9994,7 +10095,10 @@
 
 
 <div class="description">
-    Asynchronously loads the given resource as XML.  Returns a promise that will resolve toan XML Document once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    Asynchronously loads the given resource as XML.  Returns a promise that will resolve to
+an XML Document once loaded, or reject if the resource failed to load.  The data is loaded
+using XMLHttpRequest, which means that in order to make requests to another origin,
+the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
 </div>
 
 
@@ -10052,7 +10156,14 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// load XML from a URL, setting a custom headerCesium.loadXML('http://someUrl.com/someXML.xml', {  'X-Custom-Header' : 'some value'}).then(function(document) {    // Do something with the document}).otherwise(function(error) {    // an error occurred});</code></pre>
+    <pre><code class="language-javascript">// load XML from a URL, setting a custom header
+Cesium.loadXML('http://someUrl.com/someXML.xml', {
+  'X-Custom-Header' : 'some value'
+}).then(function(document) {
+    // Do something with the document
+}).otherwise(function(error) {
+    // an error occurred
+});</code></pre>
 
     
 
@@ -10086,7 +10197,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L751">Core/Resource.js 751</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L751">Core/Resource.js 751</a>
 </div>
 
 
@@ -10236,7 +10347,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L641">Core/Resource.js 641</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L641">Core/Resource.js 641</a>
 </div>
 
 
@@ -10705,7 +10816,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L542">Core/Resource.js 542</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L542">Core/Resource.js 542</a>
 </div>
 
 
@@ -10891,7 +11002,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L1585">Core/Resource.js 1585</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L1585">Core/Resource.js 1585</a>
 </div>
 
 
@@ -10903,7 +11014,10 @@
 
 
 <div class="description">
-    Asynchronously gets headers the given resource.  Returns a promise that will resolve tothe result once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    Asynchronously gets headers the given resource.  Returns a promise that will resolve to
+the result once loaded, or reject if the resource failed to load.  The data is loaded
+using XMLHttpRequest, which means that in order to make requests to another origin,
+the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
 </div>
 
 
@@ -11125,7 +11239,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.head()  .then(function(headers) {      // use the data  }).otherwise(function(error) {      // an error occurred  });</code></pre>
+    <pre><code class="language-javascript">resource.head()
+  .then(function(headers) {
+      // use the data
+  }).otherwise(function(error) {
+      // an error occurred
+  });</code></pre>
 
     
 
@@ -11157,7 +11276,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L1641">Core/Resource.js 1641</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L1641">Core/Resource.js 1641</a>
 </div>
 
 
@@ -11169,7 +11288,10 @@
 
 
 <div class="description">
-    Asynchronously gets options the given resource.  Returns a promise that will resolve tothe result once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    Asynchronously gets options the given resource.  Returns a promise that will resolve to
+the result once loaded, or reject if the resource failed to load.  The data is loaded
+using XMLHttpRequest, which means that in order to make requests to another origin,
+the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
 </div>
 
 
@@ -11391,7 +11513,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.options()  .then(function(headers) {      // use the data  }).otherwise(function(error) {      // an error occurred  });</code></pre>
+    <pre><code class="language-javascript">resource.options()
+  .then(function(headers) {
+      // use the data
+  }).otherwise(function(error) {
+      // an error occurred
+  });</code></pre>
 
     
 
@@ -11423,7 +11550,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L1821">Core/Resource.js 1821</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L1821">Core/Resource.js 1821</a>
 </div>
 
 
@@ -11435,7 +11562,10 @@
 
 
 <div class="description">
-    Asynchronously patches data to the given resource.  Returns a promise that will resolve tothe result once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    Asynchronously patches data to the given resource.  Returns a promise that will resolve to
+the result once loaded, or reject if the resource failed to load.  The data is loaded
+using XMLHttpRequest, which means that in order to make requests to another origin,
+the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
 </div>
 
 
@@ -11685,7 +11815,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.patch(data)  .then(function(result) {      // use the result  }).otherwise(function(error) {      // an error occurred  });</code></pre>
+    <pre><code class="language-javascript">resource.patch(data)
+  .then(function(result) {
+      // use the result
+  }).otherwise(function(error) {
+      // an error occurred
+  });</code></pre>
 
     
 
@@ -11717,7 +11852,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L1699">Core/Resource.js 1699</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L1699">Core/Resource.js 1699</a>
 </div>
 
 
@@ -11729,7 +11864,10 @@
 
 
 <div class="description">
-    Asynchronously posts data to the given resource.  Returns a promise that will resolve tothe result once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    Asynchronously posts data to the given resource.  Returns a promise that will resolve to
+the result once loaded, or reject if the resource failed to load.  The data is loaded
+using XMLHttpRequest, which means that in order to make requests to another origin,
+the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
 </div>
 
 
@@ -12009,7 +12147,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.post(data)  .then(function(result) {      // use the result  }).otherwise(function(error) {      // an error occurred  });</code></pre>
+    <pre><code class="language-javascript">resource.post(data)
+  .then(function(result) {
+      // use the result
+  }).otherwise(function(error) {
+      // an error occurred
+  });</code></pre>
 
     
 
@@ -12041,7 +12184,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L1760">Core/Resource.js 1760</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L1760">Core/Resource.js 1760</a>
 </div>
 
 
@@ -12053,7 +12196,10 @@
 
 
 <div class="description">
-    Asynchronously puts data to the given resource.  Returns a promise that will resolve tothe result once loaded, or reject if the resource failed to load.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
+    Asynchronously puts data to the given resource.  Returns a promise that will resolve to
+the result once loaded, or reject if the resource failed to load.  The data is loaded
+using XMLHttpRequest, which means that in order to make requests to another origin,
+the server must have Cross-Origin Resource Sharing (CORS) headers enabled.
 </div>
 
 
@@ -12303,7 +12449,12 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">resource.put(data)  .then(function(result) {      // use the result  }).otherwise(function(error) {      // an error occurred  });</code></pre>
+    <pre><code class="language-javascript">resource.put(data)
+  .then(function(result) {
+      // use the result
+  }).otherwise(function(error) {
+      // an error occurred
+  });</code></pre>
 
     
 
@@ -12335,7 +12486,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L580">Core/Resource.js 580</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L580">Core/Resource.js 580</a>
 </div>
 
 
@@ -12347,7 +12498,8 @@
 
 
 <div class="description">
-    Combines the specified object and the existing query parameters. This allows you to add many parameters at once, as opposed to adding them one at a time to the queryParameters property. If a value is already set, it will be replaced with the new value.
+    Combines the specified object and the existing query parameters. This allows you to add many parameters at once,
+ as opposed to adding them one at a time to the queryParameters property. If a value is already set, it will be replaced with the new value.
 </div>
 
 
@@ -12508,7 +12660,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L617">Core/Resource.js 617</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L617">Core/Resource.js 617</a>
 </div>
 
 
@@ -12520,7 +12672,8 @@
 
 
 <div class="description">
-    Combines the specified object and the existing template values. This allows you to add many values at once, as opposed to adding them one at a time to the templateValues property. If a value is already set, it will become an array and the new value will be appended.
+    Combines the specified object and the existing template values. This allows you to add many values at once,
+ as opposed to adding them one at a time to the templateValues property. If a value is already set, it will become an array and the new value will be appended.
 </div>
 
 
@@ -12681,7 +12834,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L530">Core/Resource.js 530</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L530">Core/Resource.js 530</a>
 </div>
 
 
@@ -12693,7 +12846,8 @@
 
 
 <div class="description">
-    Override Object#toString so that implicit string conversion gives thecomplete URL represented by this Resource.
+    Override Object#toString so that implicit string conversion gives the
+complete URL represented by this Resource.
 </div>
 
 
@@ -12777,7 +12931,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/Resource.js#L2216">Core/Resource.js 2216</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/Resource.js#L2216">Core/Resource.js 2216</a>
 </div>
 
 

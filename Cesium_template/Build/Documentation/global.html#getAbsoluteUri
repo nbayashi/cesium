@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/getAbsoluteUri.js#L18">Core/getAbsoluteUri.js 18</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/getAbsoluteUri.js#L18">Core/getAbsoluteUri.js 18</a>
 </div>
 
 
@@ -73,7 +73,8 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">//absolute Uri will be "https://test.com/awesome.png";var absoluteUri = Cesium.getAbsoluteUri('awesome.png', 'https://test.com');</code></pre>
+    <pre><code class="language-javascript">//absolute Uri will be "https://test.com/awesome.png";
+var absoluteUri = Cesium.getAbsoluteUri('awesome.png', 'https://test.com');</code></pre>
 
     
 

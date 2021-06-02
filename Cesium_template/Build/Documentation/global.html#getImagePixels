@@ -41,13 +41,14 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/getImagePixels.js#L5">Core/getImagePixels.js 5</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/getImagePixels.js#L5">Core/getImagePixels.js 5</a>
 </div>
 
 
 
         
-            <div class="description">Extract a pixel array from a loaded image.  Draws the imageinto a canvas so it can read the pixels back.</div>
+            <div class="description">Extract a pixel array from a loaded image.  Draws the image
+into a canvas so it can read the pixels back.</div>
         
 
         

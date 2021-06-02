@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/mergeSort.js#L95">Core/mergeSort.js 95</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/mergeSort.js#L95">Core/mergeSort.js 95</a>
 </div>
 
 
@@ -73,7 +73,9 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">function compareNumbers(a, b, userDefinedObject) {    return a - b;}</code></pre>
+    <pre><code class="language-javascript">function compareNumbers(a, b, userDefinedObject) {
+    return a - b;
+}</code></pre>
 
     
 

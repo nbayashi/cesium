@@ -41,13 +41,14 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/KeyboardEventModifier.js#L7">Core/KeyboardEventModifier.js 7</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/KeyboardEventModifier.js#L7">Core/KeyboardEventModifier.js 7</a>
 </div>
 
 
 
         
-            <div class="description">This enumerated type is for representing keyboard modifiers. These are keysthat are held down in addition to other event types.</div>
+            <div class="description">This enumerated type is for representing keyboard modifiers. These are keys
+that are held down in addition to other event types.</div>
         
 
         
@@ -205,7 +206,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/KeyboardEventModifier.js#L30">Core/KeyboardEventModifier.js 30</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/KeyboardEventModifier.js#L30">Core/KeyboardEventModifier.js 30</a>
 </div>
 
 
@@ -268,7 +269,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/KeyboardEventModifier.js#L22">Core/KeyboardEventModifier.js 22</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/KeyboardEventModifier.js#L22">Core/KeyboardEventModifier.js 22</a>
 </div>
 
 
@@ -331,7 +332,7 @@
     
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/KeyboardEventModifier.js#L14">Core/KeyboardEventModifier.js 14</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/KeyboardEventModifier.js#L14">Core/KeyboardEventModifier.js 14</a>
 </div>
 
 

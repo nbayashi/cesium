@@ -41,13 +41,17 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/loadCRN.js#L10">Core/loadCRN.js 10</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/loadCRN.js#L11">Core/loadCRN.js 11</a>
 </div>
 
 
 
         
-            <div class="description">Asynchronously loads and parses the given URL to a CRN file or parses the raw binary data of a CRN file.Returns a promise that will resolve to an object containing the image buffer, width, height and format once loaded,or reject if the URL failed to load or failed to parse the data.  The data is loadedusing XMLHttpRequest, which means that in order to make requests to another origin,the server must have Cross-Origin Resource Sharing (CORS) headers enabled.</div>
+            <div class="description">Asynchronously loads and parses the given URL to a CRN file or parses the raw binary data of a CRN file.
+Returns a promise that will resolve to an object containing the image buffer, width, height and format once loaded,
+or reject if the URL failed to load or failed to parse the data.  The data is loaded
+using XMLHttpRequest, which means that in order to make requests to another origin,
+the server must have Cross-Origin Resource Sharing (CORS) headers enabled.</div>
         
 
         
@@ -61,6 +65,11 @@
     
 
     
+    <p>
+        <span class="details-header important">Deprecated:</span>
+        <span>This function has been deprecated and will be removed in CesiumJS 1.82.</span>
+    </p>
+    
 
     
 
@@ -73,7 +82,16 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">// load a single URL asynchronouslyCesium.loadCRN('some/url').then(function(textureData) {    var width = textureData.width;    var height = textureData.height;    var format = textureData.internalFormat;    var arrayBufferView = textureData.bufferView;    // use the data to create a texture}).otherwise(function(error) {    // an error occurred});</code></pre>
+    <pre><code class="language-javascript">// load a single URL asynchronously
+Cesium.loadCRN('some/url').then(function(textureData) {
+    var width = textureData.width;
+    var height = textureData.height;
+    var format = textureData.internalFormat;
+    var arrayBufferView = textureData.bufferView;
+    // use the data to create a texture
+}).otherwise(function(error) {
+    // an error occurred
+});</code></pre>
 
     
 

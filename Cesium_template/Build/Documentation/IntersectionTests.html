@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/IntersectionTests.js#L13">Core/IntersectionTests.js 13</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/IntersectionTests.js#L13">Core/IntersectionTests.js 13</a>
 </div>
 
 
@@ -110,7 +110,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/IntersectionTests.js#L654">Core/IntersectionTests.js 654</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/IntersectionTests.js#L654">Core/IntersectionTests.js 654</a>
 </div>
 
 
@@ -268,7 +268,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/IntersectionTests.js#L800">Core/IntersectionTests.js 800</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/IntersectionTests.js#L800">Core/IntersectionTests.js 800</a>
 </div>
 
 
@@ -474,7 +474,15 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var origin = Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883);var normal = ellipsoid.geodeticSurfaceNormal(origin);var plane = Cesium.Plane.fromPointNormal(origin, normal);var p0 = new Cesium.Cartesian3(...);var p1 = new Cesium.Cartesian3(...);// find the intersection of the line segment from p0 to p1 and the tangent plane at origin.var intersection = Cesium.IntersectionTests.lineSegmentPlane(p0, p1, plane);</code></pre>
+    <pre><code class="language-javascript">var origin = Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883);
+var normal = ellipsoid.geodeticSurfaceNormal(origin);
+var plane = Cesium.Plane.fromPointNormal(origin, normal);
+
+var p0 = new Cesium.Cartesian3(...);
+var p1 = new Cesium.Cartesian3(...);
+
+// find the intersection of the line segment from p0 to p1 and the tangent plane at origin.
+var intersection = Cesium.IntersectionTests.lineSegmentPlane(p0, p1, plane);</code></pre>
 
     
 
@@ -499,7 +507,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/IntersectionTests.js#L381">Core/IntersectionTests.js 381</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/IntersectionTests.js#L381">Core/IntersectionTests.js 381</a>
 </div>
 
 
@@ -725,7 +733,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/IntersectionTests.js#L228">Core/IntersectionTests.js 228</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/IntersectionTests.js#L228">Core/IntersectionTests.js 228</a>
 </div>
 
 
@@ -963,7 +971,8 @@
 
                 
             
-                If <code>true</code>, will only compute an intersection with the front face of the triangle                 and return undefined for intersections with the back face.</td>
+                If <code>true</code>, will only compute an intersection with the front face of the triangle
+                 and return undefined for intersections with the back face.</td>
         </tr>
 
     
@@ -1069,7 +1078,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/IntersectionTests.js#L421">Core/IntersectionTests.js 421</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/IntersectionTests.js#L421">Core/IntersectionTests.js 421</a>
 </div>
 
 
@@ -1227,7 +1236,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/IntersectionTests.js#L28">Core/IntersectionTests.js 28</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/IntersectionTests.js#L28">Core/IntersectionTests.js 28</a>
 </div>
 
 
@@ -1425,7 +1434,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/IntersectionTests.js#L350">Core/IntersectionTests.js 350</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/IntersectionTests.js#L350">Core/IntersectionTests.js 350</a>
 </div>
 
 
@@ -1623,7 +1632,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/IntersectionTests.js#L185">Core/IntersectionTests.js 185</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/IntersectionTests.js#L185">Core/IntersectionTests.js 185</a>
 </div>
 
 
@@ -1635,7 +1644,9 @@
 
 
 <div class="description">
-    Computes the intersection of a ray and a triangle as a Cartesian3 coordinate.Implements {@link https://cadxfem.org/inf/Fast%20MinimumStorage%20RayTriangle%20Intersection.pdf|Fast Minimum Storage Ray/Triangle Intersection} by Tomas Moller and Ben Trumbore.
+    Computes the intersection of a ray and a triangle as a Cartesian3 coordinate.
+
+Implements <a href="https://cadxfem.org/inf/Fast%2520MinimumStorage%2520RayTriangle%2520Intersection.pdf"> Fast Minimum Storage Ray/Triangle Intersection</a> by Tomas Moller and Ben Trumbore.
 </div>
 
 
@@ -1829,7 +1840,8 @@
 
                 
             
-                If <code>true</code>, will only compute an intersection with the front face of the triangle                 and return undefined for intersections with the back face.</td>
+                If <code>true</code>, will only compute an intersection with the front face of the triangle
+                 and return undefined for intersections with the back face.</td>
         </tr>
 
     
@@ -1935,7 +1947,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/IntersectionTests.js#L84">Core/IntersectionTests.js 84</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/IntersectionTests.js#L84">Core/IntersectionTests.js 84</a>
 </div>
 
 
@@ -1947,7 +1959,9 @@
 
 
 <div class="description">
-    Computes the intersection of a ray and a triangle as a parametric distance along the input ray. The result is negative when the triangle is behind the ray.Implements {@link https://cadxfem.org/inf/Fast%20MinimumStorage%20RayTriangle%20Intersection.pdf|Fast Minimum Storage Ray/Triangle Intersection} by Tomas Moller and Ben Trumbore.
+    Computes the intersection of a ray and a triangle as a parametric distance along the input ray. The result is negative when the triangle is behind the ray.
+
+Implements <a href="https://cadxfem.org/inf/Fast%2520MinimumStorage%2520RayTriangle%2520Intersection.pdf"> Fast Minimum Storage Ray/Triangle Intersection</a> by Tomas Moller and Ben Trumbore.
 </div>
 
 
@@ -2141,7 +2155,8 @@
 
                 
             
-                If <code>true</code>, will only compute an intersection with the front face of the triangle                 and return undefined for intersections with the back face.</td>
+                If <code>true</code>, will only compute an intersection with the front face of the triangle
+                 and return undefined for intersections with the back face.</td>
         </tr>
 
     
@@ -2213,7 +2228,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Core/IntersectionTests.js#L870">Core/IntersectionTests.js 870</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Core/IntersectionTests.js#L870">Core/IntersectionTests.js 870</a>
 </div>
 
 
@@ -2397,7 +2412,16 @@
     
         <h5>Example:</h5>
         
-    <pre><code class="language-javascript">var origin = Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883);var normal = ellipsoid.geodeticSurfaceNormal(origin);var plane = Cesium.Plane.fromPointNormal(origin, normal);var p0 = new Cesium.Cartesian3(...);var p1 = new Cesium.Cartesian3(...);var p2 = new Cesium.Cartesian3(...);// convert the triangle composed of points (p0, p1, p2) to three triangles that don't cross the planevar triangles = Cesium.IntersectionTests.trianglePlaneIntersection(p0, p1, p2, plane);</code></pre>
+    <pre><code class="language-javascript">var origin = Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883);
+var normal = ellipsoid.geodeticSurfaceNormal(origin);
+var plane = Cesium.Plane.fromPointNormal(origin, normal);
+
+var p0 = new Cesium.Cartesian3(...);
+var p1 = new Cesium.Cartesian3(...);
+var p2 = new Cesium.Cartesian3(...);
+
+// convert the triangle composed of points (p0, p1, p2) to three triangles that don't cross the plane
+var triangles = Cesium.IntersectionTests.trianglePlaneIntersection(p0, p1, p2, plane);</code></pre>
 
     
 

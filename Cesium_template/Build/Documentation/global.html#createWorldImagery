@@ -41,7 +41,7 @@
         
 
 <div class="source-link rightLinks">
-    <a href="https://github.com/CesiumGS/cesium/blob/1.80/Source/Scene/createWorldImagery.js#L31">Scene/createWorldImagery.js 31</a>
+    <a href="https://github.com/CesiumGS/cesium/blob/1.81/Source/Scene/createWorldImagery.js#L31">Scene/createWorldImagery.js 31</a>
 </div>
 
 
@@ -73,9 +73,17 @@
     
         <h5>Examples:</h5>
         
-    <pre><code class="language-javascript">// Create Cesium World Terrain with default settingsvar viewer = new Cesium.Viewer('cesiumContainer', {    imageryProvider : Cesium.createWorldImagery();});</code></pre>
+    <pre><code class="language-javascript">// Create Cesium World Terrain with default settings
+var viewer = new Cesium.Viewer('cesiumContainer', {
+    imageryProvider : Cesium.createWorldImagery();
+});</code></pre>
 
-    <pre><code class="language-javascript">// Create Cesium World Terrain with water and normals.var viewer = new Cesium.Viewer('cesiumContainer', {    imageryProvider : Cesium.createWorldImagery({        style: Cesium.IonWorldImageryStyle.AERIAL_WITH_LABELS    })});</code></pre>
+    <pre><code class="language-javascript">// Create Cesium World Terrain with water and normals.
+var viewer = new Cesium.Viewer('cesiumContainer', {
+    imageryProvider : Cesium.createWorldImagery({
+        style: Cesium.IonWorldImageryStyle.AERIAL_WITH_LABELS
+    })
+});</code></pre>
 
     
 
