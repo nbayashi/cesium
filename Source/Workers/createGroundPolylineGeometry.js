@@ -1,5 +1,5 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['./when-ef0df1c5', './Check-eef37841', './Math-9bc506ad', './Cartesian2-e248b6a8', './Transforms-f7ab23c1', './RuntimeError-0a1a187a', './WebGLConstants-50edbdfc', './ComponentDatatype-5633ad88', './GeometryAttribute-aed2cdaf', './EncodedCartesian3-eda74fa8', './IntersectionTests-86344c58', './Plane-a866d2d6', './WebMercatorProjection-3125aebd', './arrayRemoveDuplicates-c75a814c', './ArcType-a66bba9f', './EllipsoidRhumbLine-3f1131e9', './EllipsoidGeodesic-81a4cf59'], function (when, Check, _Math, Cartesian2, Transforms, RuntimeError, WebGLConstants, ComponentDatatype, GeometryAttribute, EncodedCartesian3, IntersectionTests, Plane, WebMercatorProjection, arrayRemoveDuplicates, ArcType, EllipsoidRhumbLine, EllipsoidGeodesic) { 'use strict';
+define(['./Transforms-eb995198', './Cartesian2-44e93af5', './Check-285f6bfc', './when-f31b6bd1', './Math-8c161f1c', './ArcType-13a53523', './arrayRemoveDuplicates-618d22a8', './ComponentDatatype-d4a0149c', './EllipsoidGeodesic-fb20d8d5', './EllipsoidRhumbLine-b65d3f48', './EncodedCartesian3-58bad53b', './GeometryAttribute-cc0565cd', './IntersectionTests-db497aaf', './Plane-16f95004', './WebMercatorProjection-f857ca58', './RuntimeError-c7c236f3', './WebGLConstants-34c08bc0'], function (Transforms, Cartesian2, Check, when, _Math, ArcType, arrayRemoveDuplicates, ComponentDatatype, EllipsoidGeodesic, EllipsoidRhumbLine, EncodedCartesian3, GeometryAttribute, IntersectionTests, Plane, WebMercatorProjection, RuntimeError, WebGLConstants) { 'use strict';
 
   /**
    * A tiling scheme for geometry referenced to a simple {@link GeographicProjection} where
@@ -267,7 +267,7 @@ define(['./when-ef0df1c5', './Check-eef37841', './Math-9bc506ad', './Cartesian2-
 
   /**
    * Initializes the minimum and maximum terrain heights
-   * @return {Promise}
+   * @return {Promise<void>}
    */
   ApproximateTerrainHeights.initialize = function () {
     var initPromise = ApproximateTerrainHeights._initPromise;
@@ -1772,7 +1772,7 @@ define(['./when-ef0df1c5', './Check-eef37841', './Math-9bc506ad', './Cartesian2-
        * - encoded texture coordinate offsets
        ****************************************/
 
-      /** 3D **/
+      /* 3D */
       var segmentLength3D = Cartesian2.Cartesian3.distance(startTop, endTop);
 
       var encodedStart = EncodedCartesian3.EncodedCartesian3.fromCartesian(
@@ -1810,7 +1810,7 @@ define(['./when-ef0df1c5', './Check-eef37841', './Math-9bc506ad', './Cartesian2-
       var texcoordNormalization3DX = segmentLength3D / length3D;
       var texcoordNormalization3DY = lengthSoFar3D / length3D;
 
-      /** 2D **/
+      /* 2D */
       var segmentLength2D = 0.0;
       var encodedStart2D;
       var forwardOffset2D;

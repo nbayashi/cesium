@@ -21,7 +21,7 @@
  * See https://github.com/CesiumGS/cesium/blob/master/LICENSE.md for full licensing details.
  */
 
-define(['./when-b43ff45e', './Check-d404a0fe', './Math-ff83510d', './Cartesian2-d59b2dc1', './Transforms-80c667c2', './RuntimeError-bf10f3d5', './WebGLConstants-56de22c0', './ComponentDatatype-560e725a', './AttributeCompression-43e9d5b6', './IndexDatatype-f0ba7ec6', './IntersectionTests-3c24f322', './Plane-d2fbaf25', './WebMercatorProjection-eb6b2471', './createTaskProcessorWorker', './EllipsoidTangentPlane-db8f747d', './OrientedBoundingBox-50aabd84', './TerrainEncoding-b39bc8bf'], function (when, Check, _Math, Cartesian2, Transforms, RuntimeError, WebGLConstants, ComponentDatatype, AttributeCompression, IndexDatatype, IntersectionTests, Plane, WebMercatorProjection, createTaskProcessorWorker, EllipsoidTangentPlane, OrientedBoundingBox, TerrainEncoding) { 'use strict';
+define(['./AttributeCompression-69c5b20c', './EllipsoidTangentPlane-8e486e83', './Transforms-f1816abc', './Cartesian2-716c2715', './when-208fe5b0', './TerrainEncoding-54905cbb', './IndexDatatype-d9b71b2b', './Math-3ba16bed', './OrientedBoundingBox-45cb4e24', './Check-d18af7c4', './WebMercatorProjection-3b6236c8', './createTaskProcessorWorker', './IntersectionTests-680c4e46', './Plane-f5dfabcd', './RuntimeError-7f634f5d', './ComponentDatatype-549ec0d3', './WebGLConstants-76bb35d1'], function (AttributeCompression, EllipsoidTangentPlane, Transforms, Cartesian2, when, TerrainEncoding, IndexDatatype, _Math, OrientedBoundingBox, Check, WebMercatorProjection, createTaskProcessorWorker, IntersectionTests, Plane, RuntimeError, ComponentDatatype, WebGLConstants) { 'use strict';
 
   /**
    * Provides terrain or other geometry for the surface of an ellipsoid.  The surface geometry is
@@ -459,7 +459,7 @@ define(['./when-b43ff45e', './Check-d404a0fe', './Math-ff83510d', './Cartesian2-
    * @param {Number} x The X coordinate of the tile for which to request geometry.
    * @param {Number} y The Y coordinate of the tile for which to request geometry.
    * @param {Number} level The level of the tile for which to request geometry.
-   * @returns {undefined|Promise} Undefined if nothing need to be loaded or a Promise that resolves when all required tiles are loaded
+   * @returns {undefined|Promise<void>} Undefined if nothing need to be loaded or a Promise that resolves when all required tiles are loaded
    */
   TerrainProvider.prototype.loadTileDataAvailability =
     Check.DeveloperError.throwInstantiationError;

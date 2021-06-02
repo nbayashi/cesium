@@ -1,5 +1,5 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['./when-ef0df1c5', './Check-eef37841', './Math-9bc506ad', './Cartesian2-e248b6a8', './Transforms-f7ab23c1', './RuntimeError-0a1a187a', './WebGLConstants-50edbdfc', './ComponentDatatype-5633ad88', './GeometryAttribute-aed2cdaf', './GeometryAttributes-cb2382b3', './IndexDatatype-1715c2a7', './GeometryOffsetAttribute-5a168f5d', './EllipsoidOutlineGeometry-baa88535'], function (when, Check, _Math, Cartesian2, Transforms, RuntimeError, WebGLConstants, ComponentDatatype, GeometryAttribute, GeometryAttributes, IndexDatatype, GeometryOffsetAttribute, EllipsoidOutlineGeometry) { 'use strict';
+define(['./when-f31b6bd1', './Cartesian2-44e93af5', './Check-285f6bfc', './EllipsoidOutlineGeometry-faecd780', './Math-8c161f1c', './GeometryOffsetAttribute-4b098ee5', './Transforms-eb995198', './RuntimeError-c7c236f3', './ComponentDatatype-d4a0149c', './WebGLConstants-34c08bc0', './GeometryAttribute-cc0565cd', './GeometryAttributes-e973821e', './IndexDatatype-e20e62f1'], function (when, Cartesian2, Check, EllipsoidOutlineGeometry, _Math, GeometryOffsetAttribute, Transforms, RuntimeError, ComponentDatatype, WebGLConstants, GeometryAttribute, GeometryAttributes, IndexDatatype) { 'use strict';
 
   /**
    * A description of the outline of a sphere.
@@ -107,7 +107,7 @@ define(['./when-ef0df1c5', './Check-eef37841', './Math-9bc506ad', './Cartesian2-
    * Computes the geometric representation of an outline of a sphere, including its vertices, indices, and a bounding sphere.
    *
    * @param {SphereOutlineGeometry} sphereGeometry A description of the sphere outline.
-   * @returns {Geometry} The computed vertices and indices.
+   * @returns {Geometry|undefined} The computed vertices and indices.
    */
   SphereOutlineGeometry.createGeometry = function (sphereGeometry) {
     return EllipsoidOutlineGeometry.EllipsoidOutlineGeometry.createGeometry(

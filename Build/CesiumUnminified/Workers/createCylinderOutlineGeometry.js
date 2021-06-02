@@ -21,7 +21,7 @@
  * See https://github.com/CesiumGS/cesium/blob/master/LICENSE.md for full licensing details.
  */
 
-define(['./when-b43ff45e', './Check-d404a0fe', './Math-ff83510d', './Cartesian2-d59b2dc1', './Transforms-80c667c2', './RuntimeError-bf10f3d5', './WebGLConstants-56de22c0', './ComponentDatatype-560e725a', './GeometryAttribute-ea3e1579', './GeometryAttributes-fbf888b4', './IndexDatatype-f0ba7ec6', './GeometryOffsetAttribute-48d2619e', './CylinderGeometryLibrary-f8427124'], function (when, Check, _Math, Cartesian2, Transforms, RuntimeError, WebGLConstants, ComponentDatatype, GeometryAttribute, GeometryAttributes, IndexDatatype, GeometryOffsetAttribute, CylinderGeometryLibrary) { 'use strict';
+define(['./GeometryOffsetAttribute-d63c288d', './Transforms-f1816abc', './Cartesian2-716c2715', './Check-d18af7c4', './ComponentDatatype-549ec0d3', './CylinderGeometryLibrary-dc335e31', './when-208fe5b0', './GeometryAttribute-0ee94cf1', './GeometryAttributes-b0b294d8', './IndexDatatype-d9b71b2b', './Math-3ba16bed', './RuntimeError-7f634f5d', './WebGLConstants-76bb35d1'], function (GeometryOffsetAttribute, Transforms, Cartesian2, Check, ComponentDatatype, CylinderGeometryLibrary, when, GeometryAttribute, GeometryAttributes, IndexDatatype, _Math, RuntimeError, WebGLConstants) { 'use strict';
 
   var radiusScratch = new Cartesian2.Cartesian2();
 

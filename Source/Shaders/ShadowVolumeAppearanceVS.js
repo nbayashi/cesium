@@ -98,6 +98,6 @@ void main()\n\
     v_color = czm_batchTable_color(batchId);\n\
 #endif\n\
 \n\
-    gl_Position = czm_depthClampFarPlane(czm_modelViewProjectionRelativeToEye * position);\n\
+    gl_Position = czm_depthClamp(czm_modelViewProjectionRelativeToEye * position);\n\
 }\n\
 ";

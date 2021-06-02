@@ -79,11 +79,12 @@ Object.defineProperties(SampledPositionProperty.prototype, {
     },
   },
   /**
-   * Gets the degree of interpolation to perform when retrieving a value.
+   * Gets the degree of interpolation to perform when retrieving a value. Call <code>setInterpolationOptions</code> to set this.
    * @memberof SampledPositionProperty.prototype
    *
    * @type {Number}
    * @default 1
+   * @readonly
    */
   interpolationDegree: {
     get: function () {
@@ -91,11 +92,12 @@ Object.defineProperties(SampledPositionProperty.prototype, {
     },
   },
   /**
-   * Gets the interpolation algorithm to use when retrieving a value.
+   * Gets the interpolation algorithm to use when retrieving a value. Call <code>setInterpolationOptions</code> to set this.
    * @memberof SampledPositionProperty.prototype
    *
    * @type {InterpolationAlgorithm}
    * @default LinearApproximation
+   * @readonly
    */
   interpolationAlgorithm: {
     get: function () {
@@ -106,8 +108,8 @@ Object.defineProperties(SampledPositionProperty.prototype, {
    * The number of derivatives contained by this property; i.e. 0 for just position, 1 for velocity, etc.
    * @memberof SampledPositionProperty.prototype
    *
-   * @type {Boolean}
-   * @default false
+   * @type {Number}
+   * @default 0
    */
   numberOfDerivatives: {
     get: function () {
@@ -293,7 +295,7 @@ SampledPositionProperty.prototype.addSamplesPackedArray = function (
  * @returns {Boolean} <code>true</code> if a sample at time was removed, <code>false</code> otherwise.
  */
 SampledPositionProperty.prototype.removeSample = function (time) {
-  this._property.removeSample(time);
+  return this._property.removeSample(time);
 };
 
 /**
@@ -316,7 +318,7 @@ SampledPositionProperty.prototype.equals = function (other) {
   return (
     this === other || //
     (other instanceof SampledPositionProperty &&
-    Property.equals(this._property, other._property) && //
+      Property.equals(this._property, other._property) && //
       this._referenceFrame === other._referenceFrame)
   );
 };

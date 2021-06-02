@@ -21,12 +21,12 @@
  * See https://github.com/CesiumGS/cesium/blob/master/LICENSE.md for full licensing details.
  */
 
-define(['./when-b43ff45e', './Check-d404a0fe', './Math-ff83510d', './Cartesian2-d59b2dc1', './Transforms-80c667c2', './RuntimeError-bf10f3d5', './WebGLConstants-56de22c0', './ComponentDatatype-560e725a', './AttributeCompression-43e9d5b6', './IntersectionTests-3c24f322', './Plane-d2fbaf25', './WebMercatorProjection-eb6b2471', './createTaskProcessorWorker', './EllipsoidTangentPlane-db8f747d', './OrientedBoundingBox-50aabd84', './TerrainEncoding-b39bc8bf'], function (when, Check, _Math, Cartesian2, Transforms, RuntimeError, WebGLConstants, ComponentDatatype, AttributeCompression, IntersectionTests, Plane, WebMercatorProjection, createTaskProcessorWorker, EllipsoidTangentPlane, OrientedBoundingBox, TerrainEncoding) { 'use strict';
+define(['./Cartesian2-716c2715', './EllipsoidTangentPlane-8e486e83', './Transforms-f1816abc', './when-208fe5b0', './Check-d18af7c4', './TerrainEncoding-54905cbb', './Math-3ba16bed', './OrientedBoundingBox-45cb4e24', './WebMercatorProjection-3b6236c8', './RuntimeError-7f634f5d', './createTaskProcessorWorker', './IntersectionTests-680c4e46', './Plane-f5dfabcd', './AttributeCompression-69c5b20c', './ComponentDatatype-549ec0d3', './WebGLConstants-76bb35d1'], function (Cartesian2, EllipsoidTangentPlane, Transforms, when, Check, TerrainEncoding, _Math, OrientedBoundingBox, WebMercatorProjection, RuntimeError, createTaskProcessorWorker, IntersectionTests, Plane, AttributeCompression, ComponentDatatype, WebGLConstants) { 'use strict';
 
   /**
    * The encoding that is used for a heightmap
    *
-   * @exports HeightmapEncoding
+   * @enum {Number}
    */
   var HeightmapEncoding = {
     /**
@@ -52,7 +52,7 @@ define(['./when-b43ff45e', './Check-d404a0fe', './Math-ff83510d', './Cartesian2-
   /**
    * Contains functions to create a mesh from a heightmap image.
    *
-   * @exports HeightmapTessellator
+   * @namespace HeightmapTessellator
    *
    * @private
    */
@@ -81,7 +81,7 @@ define(['./when-b43ff45e', './Check-d404a0fe', './Math-ff83510d', './Cartesian2-
    * Fills an array of vertices from a heightmap image.
    *
    * @param {Object} options Object with the following properties:
-   * @param {TypedArray} options.heightmap The heightmap to tessellate.
+   * @param {Int8Array|Uint8Array|Int16Array|Uint16Array|Int32Array|Uint32Array|Float32Array|Float64Array} options.heightmap The heightmap to tessellate.
    * @param {Number} options.width The width of the heightmap, in height samples.
    * @param {Number} options.height The height of the heightmap, in height samples.
    * @param {Number} options.skirtHeight The height of skirts to drape at the edges of the heightmap.

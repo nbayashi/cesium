@@ -21,7 +21,7 @@
  * See https://github.com/CesiumGS/cesium/blob/master/LICENSE.md for full licensing details.
  */
 
-define(['./when-b43ff45e', './Check-d404a0fe', './Math-ff83510d', './Cartesian2-d59b2dc1', './Transforms-80c667c2', './RuntimeError-bf10f3d5', './WebGLConstants-56de22c0', './ComponentDatatype-560e725a', './GeometryAttribute-ea3e1579', './GeometryAttributes-fbf888b4', './VertexFormat-0205f272'], function (when, Check, _Math, Cartesian2, Transforms, RuntimeError, WebGLConstants, ComponentDatatype, GeometryAttribute, GeometryAttributes, VertexFormat) { 'use strict';
+define(['./when-208fe5b0', './Transforms-f1816abc', './Cartesian2-716c2715', './Check-d18af7c4', './ComponentDatatype-549ec0d3', './GeometryAttribute-0ee94cf1', './GeometryAttributes-b0b294d8', './VertexFormat-24041ad5', './Math-3ba16bed', './RuntimeError-7f634f5d', './WebGLConstants-76bb35d1'], function (when, Transforms, Cartesian2, Check, ComponentDatatype, GeometryAttribute, GeometryAttributes, VertexFormat, _Math, RuntimeError, WebGLConstants) { 'use strict';
 
   /**
    * Describes geometry representing a plane centered at the origin, with a unit width and length.
@@ -29,7 +29,7 @@ define(['./when-b43ff45e', './Check-d404a0fe', './Math-ff83510d', './Cartesian2-
    * @alias PlaneGeometry
    * @constructor
    *
-   * @param {Object} options Object with the following properties:
+   * @param {Object} [options] Object with the following properties:
    * @param {VertexFormat} [options.vertexFormat=VertexFormat.DEFAULT] The vertex attributes to be computed.
    *
    * @example

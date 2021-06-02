@@ -71,9 +71,13 @@ void main(void)
 
 #ifdef PICK
 #ifdef CULL_FRAGMENTS
-    if (0.0 <= uv.x && uv.x <= 1.0 && 0.0 <= uv.y && uv.y <= 1.0) {
+    // When classifying translucent geometry, logDepthOrDepth == 0.0
+    // indicates a region that should not be classified, possibly due to there
+    // being opaque pixels there in another buffer.
+    // Check for logDepthOrDepth != 0.0 to make sure this should be classified.
+    if (0.0 <= uv.x && uv.x <= 1.0 && 0.0 <= uv.y && uv.y <= 1.0 || logDepthOrDepth != 0.0) {
         gl_FragColor.a = 1.0; // 0.0 alpha leads to discard from ShaderSource.createPickFragmentShaderSource
-        czm_writeDepthClampedToFarPlane();
+        czm_writeDepthClamp();
     }
 #else // CULL_FRAGMENTS
         gl_FragColor.a = 1.0;
@@ -81,7 +85,10 @@ void main(void)
 #else // PICK
 
 #ifdef CULL_FRAGMENTS
-    if (uv.x <= 0.0 || 1.0 <= uv.x || uv.y <= 0.0 || 1.0 <= uv.y) {
+    // When classifying translucent geometry, logDepthOrDepth == 0.0
+    // indicates a region that should not be classified, possibly due to there
+    // being opaque pixels there in another buffer.
+    if (uv.x <= 0.0 || 1.0 <= uv.x || uv.y <= 0.0 || 1.0 <= uv.y || logDepthOrDepth == 0.0) {
         discard;
     }
 #endif
@@ -109,6 +116,9 @@ void main(void)
 
     gl_FragColor = czm_phong(normalize(-eyeCoordinate.xyz), material, czm_lightDirectionEC);
 #endif // FLAT
+
+    // Premultiply alpha. Required for classification primitives on translucent globe.
+    gl_FragColor.rgb *= gl_FragColor.a;
 
 #else // PER_INSTANCE_COLOR
 
@@ -146,7 +156,10 @@ void main(void)
     gl_FragColor = czm_phong(normalize(-eyeCoordinate.xyz), material, czm_lightDirectionEC);
 #endif // FLAT
 
+    // Premultiply alpha. Required for classification primitives on translucent globe.
+    gl_FragColor.rgb *= gl_FragColor.a;
+
 #endif // PER_INSTANCE_COLOR
-    czm_writeDepthClampedToFarPlane();
+    czm_writeDepthClamp();
 #endif // PICK
 }

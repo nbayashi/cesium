@@ -1,7 +1,7 @@
 // This file is automatically rebuilt by the Cesium build process.
-var hello_world_index = 96;
-var VERSION = '1.76';
-var gallery_demos = [{
+const hello_world_index = 97;
+const VERSION = '1.81';
+const gallery_demos = [{
   "name": "3D Models",
   "isNew": false,
   "img": "3D Models.jpg"
@@ -330,6 +330,10 @@ var gallery_demos = [{
   "isNew": false,
   "img": "Earth at Night.jpg"
 }, {
+  "name": "Elevation Band Material",
+  "isNew": false,
+  "img": "Elevation Band Material.jpg"
+}, {
   "name": "Export KML",
   "isNew": false,
   "img": "Export KML.jpg"
@@ -650,4 +654,4 @@ var gallery_demos = [{
   "isNew": false,
   "img": "Z-Indexing Geometry.jpg"
 }];
-var has_new_gallery_demos = false;
+const has_new_gallery_demos = true;

@@ -1,8 +1,8 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['./when-ef0df1c5', './Check-eef37841', './RuntimeError-0a1a187a', './createTaskProcessorWorker'], function (when, Check, RuntimeError, createTaskProcessorWorker) { 'use strict';
+define(['./Check-285f6bfc', './RuntimeError-c7c236f3', './when-f31b6bd1', './createTaskProcessorWorker'], function (Check, RuntimeError, when, createTaskProcessorWorker) { 'use strict';
 
-  var compressedMagic = 0x7468dead;
-  var compressedMagicSwap = 0xadde6874;
+  var compressedMagic$1 = 0x7468dead;
+  var compressedMagicSwap$1 = 0xadde6874;
 
   /**
    * Decodes data that is received from the Google Earth Enterprise server.
@@ -31,7 +31,7 @@ define(['./when-ef0df1c5', './Check-eef37841', './RuntimeError-0a1a187a', './cre
 
     var dataView = new DataView(data);
     var magic = dataView.getUint32(0, true);
-    if (magic === compressedMagic || magic === compressedMagicSwap) {
+    if (magic === compressedMagic$1 || magic === compressedMagicSwap$1) {
       // Occasionally packets don't come back encoded, so just return
       return data;
     }
@@ -3560,8 +3560,8 @@ define(['./when-ef0df1c5', './Check-eef37841', './RuntimeError-0a1a187a', './cre
     return terrainTiles;
   }
 
-  var compressedMagic$1 = 0x7468dead;
-  var compressedMagicSwap$1 = 0xadde6874;
+  var compressedMagic = 0x7468dead;
+  var compressedMagicSwap = 0xadde6874;
 
   function uncompressPacket(data) {
     // The layout of this decoded data is
@@ -3574,12 +3574,12 @@ define(['./when-ef0df1c5', './Check-eef37841', './RuntimeError-0a1a187a', './cre
     var offset = 0;
     var magic = dv.getUint32(offset, true);
     offset += sizeOfUint32;
-    if (magic !== compressedMagic$1 && magic !== compressedMagicSwap$1) {
+    if (magic !== compressedMagic && magic !== compressedMagicSwap) {
       throw new RuntimeError.RuntimeError("Invalid magic");
     }
 
     // Get the size of the compressed buffer - the endianness depends on which magic was used
-    var size = dv.getUint32(offset, magic === compressedMagic$1);
+    var size = dv.getUint32(offset, magic === compressedMagic);
     offset += sizeOfUint32;
 
     var compressedPacket = new Uint8Array(data, offset);

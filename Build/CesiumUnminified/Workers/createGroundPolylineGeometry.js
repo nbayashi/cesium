@@ -21,7 +21,7 @@
  * See https://github.com/CesiumGS/cesium/blob/master/LICENSE.md for full licensing details.
  */
 
-define(['./when-b43ff45e', './Check-d404a0fe', './Math-ff83510d', './Cartesian2-d59b2dc1', './Transforms-80c667c2', './RuntimeError-bf10f3d5', './WebGLConstants-56de22c0', './ComponentDatatype-560e725a', './GeometryAttribute-ea3e1579', './EncodedCartesian3-b3206de4', './IntersectionTests-3c24f322', './Plane-d2fbaf25', './WebMercatorProjection-eb6b2471', './arrayRemoveDuplicates-f33bd433', './ArcType-46047bc6', './EllipsoidRhumbLine-cf4aaf05', './EllipsoidGeodesic-f611122a'], function (when, Check, _Math, Cartesian2, Transforms, RuntimeError, WebGLConstants, ComponentDatatype, GeometryAttribute, EncodedCartesian3, IntersectionTests, Plane, WebMercatorProjection, arrayRemoveDuplicates, ArcType, EllipsoidRhumbLine, EllipsoidGeodesic) { 'use strict';
+define(['./Transforms-f1816abc', './Cartesian2-716c2715', './Check-d18af7c4', './when-208fe5b0', './Math-3ba16bed', './ArcType-dc1c5aee', './arrayRemoveDuplicates-28d5a12e', './ComponentDatatype-549ec0d3', './EllipsoidGeodesic-4bc5cec5', './EllipsoidRhumbLine-4543b386', './EncodedCartesian3-7a9c1496', './GeometryAttribute-0ee94cf1', './IntersectionTests-680c4e46', './Plane-f5dfabcd', './WebMercatorProjection-3b6236c8', './RuntimeError-7f634f5d', './WebGLConstants-76bb35d1'], function (Transforms, Cartesian2, Check, when, _Math, ArcType, arrayRemoveDuplicates, ComponentDatatype, EllipsoidGeodesic, EllipsoidRhumbLine, EncodedCartesian3, GeometryAttribute, IntersectionTests, Plane, WebMercatorProjection, RuntimeError, WebGLConstants) { 'use strict';
 
   /**
    * A tiling scheme for geometry referenced to a simple {@link GeographicProjection} where
@@ -289,7 +289,7 @@ define(['./when-b43ff45e', './Check-d404a0fe', './Math-ff83510d', './Cartesian2-
 
   /**
    * Initializes the minimum and maximum terrain heights
-   * @return {Promise}
+   * @return {Promise<void>}
    */
   ApproximateTerrainHeights.initialize = function () {
     var initPromise = ApproximateTerrainHeights._initPromise;
@@ -1794,7 +1794,7 @@ define(['./when-b43ff45e', './Check-d404a0fe', './Math-ff83510d', './Cartesian2-
        * - encoded texture coordinate offsets
        ****************************************/
 
-      /** 3D **/
+      /* 3D */
       var segmentLength3D = Cartesian2.Cartesian3.distance(startTop, endTop);
 
       var encodedStart = EncodedCartesian3.EncodedCartesian3.fromCartesian(
@@ -1832,7 +1832,7 @@ define(['./when-b43ff45e', './Check-d404a0fe', './Math-ff83510d', './Cartesian2-
       var texcoordNormalization3DX = segmentLength3D / length3D;
       var texcoordNormalization3DY = lengthSoFar3D / length3D;
 
-      /** 2D **/
+      /* 2D */
       var segmentLength2D = 0.0;
       var encodedStart2D;
       var forwardOffset2D;

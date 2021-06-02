@@ -1,12 +1,12 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['./when-ef0df1c5', './Check-eef37841', './Math-9bc506ad', './Cartesian2-e248b6a8', './WebGLConstants-50edbdfc', './AttributeCompression-7fe95165', './IndexDatatype-1715c2a7', './createTaskProcessorWorker'], function (when, Check, _Math, Cartesian2, WebGLConstants, AttributeCompression, IndexDatatype, createTaskProcessorWorker) { 'use strict';
+define(['./Cartesian2-44e93af5', './AttributeCompression-e3a6496c', './Math-8c161f1c', './IndexDatatype-e20e62f1', './createTaskProcessorWorker', './Check-285f6bfc', './when-f31b6bd1', './WebGLConstants-34c08bc0'], function (Cartesian2, AttributeCompression, _Math, IndexDatatype, createTaskProcessorWorker, Check, when, WebGLConstants) { 'use strict';
 
   var maxShort = 32767;
 
   var scratchBVCartographic = new Cartesian2.Cartographic();
   var scratchEncodedPosition = new Cartesian2.Cartesian3();
 
-  function decodePositions(
+  function decodeVectorPolylinePositions(
     positions,
     rectangle,
     minimumHeight,
@@ -90,7 +90,7 @@ define(['./when-ef0df1c5', './Check-eef37841', './Math-9bc506ad', './Cartesian2-
     var minimumHeight = scratchMinMaxHeights.min;
     var maximumHeight = scratchMinMaxHeights.max;
 
-    var positions = decodePositions(
+    var positions = decodeVectorPolylinePositions(
       encodedPositions,
       rectangle,
       minimumHeight,

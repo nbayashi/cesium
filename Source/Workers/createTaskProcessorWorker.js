@@ -1,11 +1,11 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['./when-ef0df1c5'], function (when) { 'use strict';
+define(['./when-f31b6bd1'], function (when) { 'use strict';
 
   /**
    * Formats an error object into a String.  If available, uses name, message, and stack
    * properties, otherwise, falls back on toString().
    *
-   * @exports formatError
+   * @function
    *
    * @param {*} object The item to find in the array.
    * @returns {String} A string containing the formatted error.
@@ -47,11 +47,11 @@ define(['./when-ef0df1c5'], function (when) { 'use strict';
    * Creates an adapter function to allow a calculation function to operate as a Web Worker,
    * paired with TaskProcessor, to receive tasks and return results.
    *
-   * @exports createTaskProcessorWorker
+   * @function createTaskProcessorWorker
    *
-   * @param {createTaskProcessorWorker~WorkerFunction} workerFunction The calculation function,
+   * @param {createTaskProcessorWorker.WorkerFunction} workerFunction The calculation function,
    *        which takes parameters and returns a result.
-   * @returns {createTaskProcessorWorker~TaskProcessorWorkerFunction} A function that adapts the
+   * @returns {createTaskProcessorWorker.TaskProcessorWorkerFunction} A function that adapts the
    *          calculation function to work as a Web Worker onmessage listener with TaskProcessor.
    *
    *

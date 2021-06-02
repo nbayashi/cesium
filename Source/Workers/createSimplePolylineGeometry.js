@@ -1,5 +1,5 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['./when-ef0df1c5', './Check-eef37841', './Math-9bc506ad', './Cartesian2-e248b6a8', './Transforms-f7ab23c1', './RuntimeError-0a1a187a', './WebGLConstants-50edbdfc', './ComponentDatatype-5633ad88', './GeometryAttribute-aed2cdaf', './GeometryAttributes-cb2382b3', './IndexDatatype-1715c2a7', './IntersectionTests-86344c58', './Plane-a866d2d6', './ArcType-a66bba9f', './EllipsoidRhumbLine-3f1131e9', './EllipsoidGeodesic-81a4cf59', './PolylinePipeline-b9c8f88b', './Color-c4a355ad'], function (when, Check, _Math, Cartesian2, Transforms, RuntimeError, WebGLConstants, ComponentDatatype, GeometryAttribute, GeometryAttributes, IndexDatatype, IntersectionTests, Plane, ArcType, EllipsoidRhumbLine, EllipsoidGeodesic, PolylinePipeline, Color) { 'use strict';
+define(['./when-f31b6bd1', './Cartesian2-44e93af5', './ArcType-13a53523', './Transforms-eb995198', './Color-a6bbb86a', './ComponentDatatype-d4a0149c', './Check-285f6bfc', './GeometryAttribute-cc0565cd', './GeometryAttributes-e973821e', './IndexDatatype-e20e62f1', './Math-8c161f1c', './PolylinePipeline-9442b9a9', './RuntimeError-c7c236f3', './WebGLConstants-34c08bc0', './EllipsoidGeodesic-fb20d8d5', './EllipsoidRhumbLine-b65d3f48', './IntersectionTests-db497aaf', './Plane-16f95004'], function (when, Cartesian2, ArcType, Transforms, Color, ComponentDatatype, Check, GeometryAttribute, GeometryAttributes, IndexDatatype, _Math, PolylinePipeline, RuntimeError, WebGLConstants, EllipsoidGeodesic, EllipsoidRhumbLine, IntersectionTests, Plane) { 'use strict';
 
   function interpolateColors(p0, p1, color0, color1, minDistance, array, offset) {
     var numPoints = PolylinePipeline.PolylinePipeline.numberOfPoints(p0, p1, minDistance);
@@ -237,7 +237,7 @@ define(['./when-ef0df1c5', './Check-eef37841', './Math-9bc506ad', './Cartesian2-
    * Computes the geometric representation of a simple polyline, including its vertices, indices, and a bounding sphere.
    *
    * @param {SimplePolylineGeometry} simplePolylineGeometry A description of the polyline.
-   * @returns {Geometry} The computed vertices and indices.
+   * @returns {Geometry|undefined} The computed vertices and indices.
    */
   SimplePolylineGeometry.createGeometry = function (simplePolylineGeometry) {
     var positions = simplePolylineGeometry._positions;

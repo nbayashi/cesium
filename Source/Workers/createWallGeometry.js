@@ -1,9 +1,8 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['./when-ef0df1c5', './Check-eef37841', './Math-9bc506ad', './Cartesian2-e248b6a8', './Transforms-f7ab23c1', './RuntimeError-0a1a187a', './WebGLConstants-50edbdfc', './ComponentDatatype-5633ad88', './GeometryAttribute-aed2cdaf', './GeometryAttributes-cb2382b3', './IndexDatatype-1715c2a7', './IntersectionTests-86344c58', './Plane-a866d2d6', './VertexFormat-ab7523e7', './EllipsoidTangentPlane-48f30934', './EllipsoidRhumbLine-3f1131e9', './PolygonPipeline-11409718', './EllipsoidGeodesic-81a4cf59', './PolylinePipeline-b9c8f88b', './WallGeometryLibrary-810c9844'], function (when, Check, _Math, Cartesian2, Transforms, RuntimeError, WebGLConstants, ComponentDatatype, GeometryAttribute, GeometryAttributes, IndexDatatype, IntersectionTests, Plane, VertexFormat, EllipsoidTangentPlane, EllipsoidRhumbLine, PolygonPipeline, EllipsoidGeodesic, PolylinePipeline, WallGeometryLibrary) { 'use strict';
+define(['./when-f31b6bd1', './Cartesian2-44e93af5', './Transforms-eb995198', './ComponentDatatype-d4a0149c', './Check-285f6bfc', './GeometryAttribute-cc0565cd', './GeometryAttributes-e973821e', './IndexDatatype-e20e62f1', './Math-8c161f1c', './VertexFormat-ab7dd48c', './WallGeometryLibrary-0418504b', './RuntimeError-c7c236f3', './WebGLConstants-34c08bc0', './arrayRemoveDuplicates-618d22a8', './PolylinePipeline-9442b9a9', './EllipsoidGeodesic-fb20d8d5', './EllipsoidRhumbLine-b65d3f48', './IntersectionTests-db497aaf', './Plane-16f95004'], function (when, Cartesian2, Transforms, ComponentDatatype, Check, GeometryAttribute, GeometryAttributes, IndexDatatype, _Math, VertexFormat, WallGeometryLibrary, RuntimeError, WebGLConstants, arrayRemoveDuplicates, PolylinePipeline, EllipsoidGeodesic, EllipsoidRhumbLine, IntersectionTests, Plane) { 'use strict';
 
   var scratchCartesian3Position1 = new Cartesian2.Cartesian3();
   var scratchCartesian3Position2 = new Cartesian2.Cartesian3();
-  var scratchCartesian3Position3 = new Cartesian2.Cartesian3();
   var scratchCartesian3Position4 = new Cartesian2.Cartesian3();
   var scratchCartesian3Position5 = new Cartesian2.Cartesian3();
   var scratchBitangent = new Cartesian2.Cartesian3();
@@ -390,7 +389,7 @@ define(['./when-ef0df1c5', './Check-eef37841', './Math-9bc506ad', './Cartesian2-
     length /= 3;
     var i;
     var s = 0;
-    var ds = 1 / (length - wallPositions.length + 1);
+    var ds = 1 / (length - numCorners - 1);
     for (i = 0; i < length; ++i) {
       var i3 = i * 3;
       var topPosition = Cartesian2.Cartesian3.fromArray(
@@ -424,24 +423,19 @@ define(['./when-ef0df1c5', './Check-eef37841', './Math-9bc506ad', './Cartesian2-
       }
 
       if (vertexFormat.normal || vertexFormat.tangent || vertexFormat.bitangent) {
-        var nextPosition;
         var nextTop = Cartesian2.Cartesian3.clone(
           Cartesian2.Cartesian3.ZERO,
           scratchCartesian3Position5
         );
-        var groundPosition = ellipsoid.scaleToGeodeticSurface(
-          Cartesian2.Cartesian3.fromArray(topPositions, i3, scratchCartesian3Position2),
+        var groundPosition = Cartesian2.Cartesian3.subtract(
+          topPosition,
+          ellipsoid.geodeticSurfaceNormal(
+            topPosition,
+            scratchCartesian3Position2
+          ),
           scratchCartesian3Position2
         );
         if (i + 1 < length) {
-          nextPosition = ellipsoid.scaleToGeodeticSurface(
-            Cartesian2.Cartesian3.fromArray(
-              topPositions,
-              i3 + 3,
-              scratchCartesian3Position3
-            ),
-            scratchCartesian3Position3
-          );
           nextTop = Cartesian2.Cartesian3.fromArray(
             topPositions,
             i3 + 3,
@@ -468,18 +462,14 @@ define(['./when-ef0df1c5', './Check-eef37841', './Math-9bc506ad', './Cartesian2-
         }
 
         if (
-          Cartesian2.Cartesian3.equalsEpsilon(
-            nextPosition,
-            groundPosition,
-            _Math.CesiumMath.EPSILON10
-          )
+          Cartesian2.Cartesian3.equalsEpsilon(topPosition, nextTop, _Math.CesiumMath.EPSILON10)
         ) {
           recomputeNormal = true;
         } else {
           s += ds;
           if (vertexFormat.tangent) {
             tangent = Cartesian2.Cartesian3.normalize(
-              Cartesian2.Cartesian3.subtract(nextPosition, groundPosition, tangent),
+              Cartesian2.Cartesian3.subtract(nextTop, topPosition, tangent),
               tangent
             );
           }

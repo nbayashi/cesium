@@ -72,9 +72,13 @@ void main(void)\n\
 \n\
 #ifdef PICK\n\
 #ifdef CULL_FRAGMENTS\n\
-    if (0.0 <= uv.x && uv.x <= 1.0 && 0.0 <= uv.y && uv.y <= 1.0) {\n\
+    // When classifying translucent geometry, logDepthOrDepth == 0.0\n\
+    // indicates a region that should not be classified, possibly due to there\n\
+    // being opaque pixels there in another buffer.\n\
+    // Check for logDepthOrDepth != 0.0 to make sure this should be classified.\n\
+    if (0.0 <= uv.x && uv.x <= 1.0 && 0.0 <= uv.y && uv.y <= 1.0 || logDepthOrDepth != 0.0) {\n\
         gl_FragColor.a = 1.0; // 0.0 alpha leads to discard from ShaderSource.createPickFragmentShaderSource\n\
-        czm_writeDepthClampedToFarPlane();\n\
+        czm_writeDepthClamp();\n\
     }\n\
 #else // CULL_FRAGMENTS\n\
         gl_FragColor.a = 1.0;\n\
@@ -82,7 +86,10 @@ void main(void)\n\
 #else // PICK\n\
 \n\
 #ifdef CULL_FRAGMENTS\n\
-    if (uv.x <= 0.0 || 1.0 <= uv.x || uv.y <= 0.0 || 1.0 <= uv.y) {\n\
+    // When classifying translucent geometry, logDepthOrDepth == 0.0\n\
+    // indicates a region that should not be classified, possibly due to there\n\
+    // being opaque pixels there in another buffer.\n\
+    if (uv.x <= 0.0 || 1.0 <= uv.x || uv.y <= 0.0 || 1.0 <= uv.y || logDepthOrDepth == 0.0) {\n\
         discard;\n\
     }\n\
 #endif\n\
@@ -110,6 +117,9 @@ void main(void)\n\
 \n\
     gl_FragColor = czm_phong(normalize(-eyeCoordinate.xyz), material, czm_lightDirectionEC);\n\
 #endif // FLAT\n\
+\n\
+    // Premultiply alpha. Required for classification primitives on translucent globe.\n\
+    gl_FragColor.rgb *= gl_FragColor.a;\n\
 \n\
 #else // PER_INSTANCE_COLOR\n\
 \n\
@@ -147,8 +157,11 @@ void main(void)\n\
     gl_FragColor = czm_phong(normalize(-eyeCoordinate.xyz), material, czm_lightDirectionEC);\n\
 #endif // FLAT\n\
 \n\
+    // Premultiply alpha. Required for classification primitives on translucent globe.\n\
+    gl_FragColor.rgb *= gl_FragColor.a;\n\
+\n\
 #endif // PER_INSTANCE_COLOR\n\
-    czm_writeDepthClampedToFarPlane();\n\
+    czm_writeDepthClamp();\n\
 #endif // PICK\n\
 }\n\
 ";

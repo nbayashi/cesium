@@ -21,7 +21,7 @@
  * See https://github.com/CesiumGS/cesium/blob/master/LICENSE.md for full licensing details.
  */
 
-define(['./when-b43ff45e', './Check-d404a0fe', './Math-ff83510d', './Cartesian2-d59b2dc1', './Transforms-80c667c2', './RuntimeError-bf10f3d5', './WebGLConstants-56de22c0', './ComponentDatatype-560e725a', './GeometryAttribute-ea3e1579', './GeometryAttributes-fbf888b4', './AttributeCompression-43e9d5b6', './GeometryPipeline-43cf88e7', './EncodedCartesian3-b3206de4', './IndexDatatype-f0ba7ec6', './IntersectionTests-3c24f322', './Plane-d2fbaf25', './VertexFormat-0205f272', './GeometryInstance-bd03ec3e', './arrayRemoveDuplicates-f33bd433', './BoundingRectangle-2fc07f87', './EllipsoidTangentPlane-db8f747d', './OrientedBoundingBox-50aabd84', './CoplanarPolygonGeometryLibrary-b967d2ea', './ArcType-46047bc6', './EllipsoidRhumbLine-cf4aaf05', './PolygonPipeline-30566ee8', './PolygonGeometryLibrary-84c97659'], function (when, Check, _Math, Cartesian2, Transforms, RuntimeError, WebGLConstants, ComponentDatatype, GeometryAttribute, GeometryAttributes, AttributeCompression, GeometryPipeline, EncodedCartesian3, IndexDatatype, IntersectionTests, Plane, VertexFormat, GeometryInstance, arrayRemoveDuplicates, BoundingRectangle, EllipsoidTangentPlane, OrientedBoundingBox, CoplanarPolygonGeometryLibrary, ArcType, EllipsoidRhumbLine, PolygonPipeline, PolygonGeometryLibrary) { 'use strict';
+define(['./arrayRemoveDuplicates-28d5a12e', './BoundingRectangle-307ba31b', './Transforms-f1816abc', './Cartesian2-716c2715', './Check-d18af7c4', './ComponentDatatype-549ec0d3', './CoplanarPolygonGeometryLibrary-dea2b0bb', './when-208fe5b0', './GeometryAttribute-0ee94cf1', './GeometryAttributes-b0b294d8', './GeometryInstance-73b5b8d6', './GeometryPipeline-df743242', './IndexDatatype-d9b71b2b', './Math-3ba16bed', './PolygonGeometryLibrary-93623d5c', './PolygonPipeline-39ada67a', './VertexFormat-24041ad5', './RuntimeError-7f634f5d', './WebGLConstants-76bb35d1', './OrientedBoundingBox-45cb4e24', './EllipsoidTangentPlane-8e486e83', './IntersectionTests-680c4e46', './Plane-f5dfabcd', './AttributeCompression-69c5b20c', './EncodedCartesian3-7a9c1496', './ArcType-dc1c5aee', './EllipsoidRhumbLine-4543b386'], function (arrayRemoveDuplicates, BoundingRectangle, Transforms, Cartesian2, Check, ComponentDatatype, CoplanarPolygonGeometryLibrary, when, GeometryAttribute, GeometryAttributes, GeometryInstance, GeometryPipeline, IndexDatatype, _Math, PolygonGeometryLibrary, PolygonPipeline, VertexFormat, RuntimeError, WebGLConstants, OrientedBoundingBox, EllipsoidTangentPlane, IntersectionTests, Plane, AttributeCompression, EncodedCartesian3, ArcType, EllipsoidRhumbLine) { 'use strict';
 
   var scratchPosition = new Cartesian2.Cartesian3();
   var scratchBR = new BoundingRectangle.BoundingRectangle();
@@ -221,17 +221,16 @@ define(['./when-b43ff45e', './Check-d404a0fe', './Math-ff83510d', './Cartesian2-
    * @param {Ellipsoid} [options.ellipsoid=Ellipsoid.WGS84] The ellipsoid to be used as a reference.
    *
    * @example
-   * var polygon = new Cesium.CoplanarPolygonGeometry({
-   *   positions : Cesium.Cartesian3.fromDegreesArrayHeights([
+   * var polygonGeometry = new Cesium.CoplanarPolygonGeometry({
+   *  polygonHierarchy: new Cesium.PolygonHierarchy(
+   *     Cesium.Cartesian3.fromDegreesArrayHeights([
    *      -90.0, 30.0, 0.0,
-   *      -90.0, 30.0, 1000.0,
-   *      -80.0, 30.0, 1000.0,
+   *      -90.0, 30.0, 300000.0,
+   *      -80.0, 30.0, 300000.0,
    *      -80.0, 30.0, 0.0
-   *   ])
+   *   ]))
    * });
-   * var geometry = Cesium.CoplanarPolygonGeometry.createGeometry(polygon);
    *
-   * @see CoplanarPolygonGeometry.createGeometry
    */
   function CoplanarPolygonGeometry(options) {
     options = when.defaultValue(options, when.defaultValue.EMPTY_OBJECT);
