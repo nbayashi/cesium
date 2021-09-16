@@ -1,5 +1,5 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['./when-f31b6bd1', './Cartesian2-44e93af5', './Check-285f6bfc', './EllipsoidGeometry-3ad0d151', './VertexFormat-ab7dd48c', './Math-8c161f1c', './GeometryOffsetAttribute-4b098ee5', './Transforms-eb995198', './RuntimeError-c7c236f3', './ComponentDatatype-d4a0149c', './WebGLConstants-34c08bc0', './GeometryAttribute-cc0565cd', './GeometryAttributes-e973821e', './IndexDatatype-e20e62f1'], function (when, Cartesian2, Check, EllipsoidGeometry, VertexFormat, _Math, GeometryOffsetAttribute, Transforms, RuntimeError, ComponentDatatype, WebGLConstants, GeometryAttribute, GeometryAttributes, IndexDatatype) { 'use strict';
+define(['./when-8166c7dd', './Matrix2-92b7fb9d', './RuntimeError-4fdc4459', './EllipsoidGeometry-59867814', './VertexFormat-c0801687', './ComponentDatatype-9ed50558', './WebGLConstants-0664004c', './GeometryOffsetAttribute-e8e698d7', './Transforms-62a339c3', './combine-a5c4cc47', './GeometryAttribute-6f4c3b93', './GeometryAttributes-50becc99', './IndexDatatype-797210ca'], function (when, Matrix2, RuntimeError, EllipsoidGeometry, VertexFormat, ComponentDatatype, WebGLConstants, GeometryOffsetAttribute, Transforms, combine, GeometryAttribute, GeometryAttributes, IndexDatatype) { 'use strict';
 
   /**
    * A description of a sphere centered at the origin.
@@ -27,7 +27,7 @@ define(['./when-f31b6bd1', './Cartesian2-44e93af5', './Check-285f6bfc', './Ellip
    */
   function SphereGeometry(options) {
     var radius = when.defaultValue(options.radius, 1.0);
-    var radii = new Cartesian2.Cartesian3(radius, radius, radius);
+    var radii = new Matrix2.Cartesian3(radius, radius, radius);
     var ellipsoidOptions = {
       radii: radii,
       stackPartitions: options.stackPartitions,
@@ -56,7 +56,7 @@ define(['./when-f31b6bd1', './Cartesian2-44e93af5', './Check-285f6bfc', './Ellip
    */
   SphereGeometry.pack = function (value, array, startingIndex) {
     //>>includeStart('debug', pragmas.debug);
-    Check.Check.typeOf.object("value", value);
+    RuntimeError.Check.typeOf.object("value", value);
     //>>includeEnd('debug');
 
     return EllipsoidGeometry.EllipsoidGeometry.pack(value._ellipsoidGeometry, array, startingIndex);
@@ -65,7 +65,7 @@ define(['./when-f31b6bd1', './Cartesian2-44e93af5', './Check-285f6bfc', './Ellip
   var scratchEllipsoidGeometry = new EllipsoidGeometry.EllipsoidGeometry();
   var scratchOptions = {
     radius: undefined,
-    radii: new Cartesian2.Cartesian3(),
+    radii: new Matrix2.Cartesian3(),
     vertexFormat: new VertexFormat.VertexFormat(),
     stackPartitions: undefined,
     slicePartitions: undefined,
@@ -97,7 +97,7 @@ define(['./when-f31b6bd1', './Cartesian2-44e93af5', './Check-285f6bfc', './Ellip
       return new SphereGeometry(scratchOptions);
     }
 
-    Cartesian2.Cartesian3.clone(ellipsoidGeometry._radii, scratchOptions.radii);
+    Matrix2.Cartesian3.clone(ellipsoidGeometry._radii, scratchOptions.radii);
     result._ellipsoidGeometry = new EllipsoidGeometry.EllipsoidGeometry(scratchOptions);
     return result;
   };

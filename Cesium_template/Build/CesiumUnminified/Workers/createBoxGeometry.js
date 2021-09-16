@@ -18,10 +18,10 @@
  * Columbus View (Pat. Pend.)
  *
  * Portions licensed separately.
- * See https://github.com/CesiumGS/cesium/blob/master/LICENSE.md for full licensing details.
+ * See https://github.com/CesiumGS/cesium/blob/main/LICENSE.md for full licensing details.
  */
 
-define(['./BoxGeometry-e13849f7', './when-208fe5b0', './GeometryOffsetAttribute-d63c288d', './Check-d18af7c4', './Transforms-f1816abc', './Cartesian2-716c2715', './Math-3ba16bed', './RuntimeError-7f634f5d', './ComponentDatatype-549ec0d3', './WebGLConstants-76bb35d1', './GeometryAttribute-0ee94cf1', './GeometryAttributes-b0b294d8', './VertexFormat-24041ad5'], function (BoxGeometry, when, GeometryOffsetAttribute, Check, Transforms, Cartesian2, _Math, RuntimeError, ComponentDatatype, WebGLConstants, GeometryAttribute, GeometryAttributes, VertexFormat) { 'use strict';
+define(['./BoxGeometry-c43b3330', './when-4bbc8319', './GeometryOffsetAttribute-6a692b56', './RuntimeError-346a3079', './Transforms-b4151f9c', './Matrix2-32d4a9a0', './ComponentDatatype-f194c48b', './WebGLConstants-1c8239cc', './combine-83860057', './GeometryAttribute-900e07ee', './GeometryAttributes-7827a6c2', './VertexFormat-f9c1a155'], function (BoxGeometry, when, GeometryOffsetAttribute, RuntimeError, Transforms, Matrix2, ComponentDatatype, WebGLConstants, combine, GeometryAttribute, GeometryAttributes, VertexFormat) { 'use strict';
 
   function createBoxGeometry(boxGeometry, offset) {
     if (when.defined(offset)) {

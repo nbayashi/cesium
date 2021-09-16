@@ -1,9 +1,9 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['./GeometryOffsetAttribute-4b098ee5', './arrayRemoveDuplicates-618d22a8', './Transforms-eb995198', './Cartesian2-44e93af5', './Check-285f6bfc', './ComponentDatatype-d4a0149c', './PolylineVolumeGeometryLibrary-326ddd63', './CorridorGeometryLibrary-14c2ee87', './when-f31b6bd1', './GeometryAttribute-cc0565cd', './GeometryAttributes-e973821e', './IndexDatatype-e20e62f1', './Math-8c161f1c', './PolygonPipeline-0ced7860', './RuntimeError-c7c236f3', './WebGLConstants-34c08bc0', './EllipsoidTangentPlane-ffd45139', './IntersectionTests-db497aaf', './Plane-16f95004', './PolylinePipeline-9442b9a9', './EllipsoidGeodesic-fb20d8d5', './EllipsoidRhumbLine-b65d3f48'], function (GeometryOffsetAttribute, arrayRemoveDuplicates, Transforms, Cartesian2, Check, ComponentDatatype, PolylineVolumeGeometryLibrary, CorridorGeometryLibrary, when, GeometryAttribute, GeometryAttributes, IndexDatatype, _Math, PolygonPipeline, RuntimeError, WebGLConstants, EllipsoidTangentPlane, IntersectionTests, Plane, PolylinePipeline, EllipsoidGeodesic, EllipsoidRhumbLine) { 'use strict';
+define(['./GeometryOffsetAttribute-e8e698d7', './arrayRemoveDuplicates-198208a4', './Transforms-62a339c3', './Matrix2-92b7fb9d', './RuntimeError-4fdc4459', './ComponentDatatype-9ed50558', './PolylineVolumeGeometryLibrary-b9fa2b05', './CorridorGeometryLibrary-143e6a2e', './when-8166c7dd', './GeometryAttribute-6f4c3b93', './GeometryAttributes-50becc99', './IndexDatatype-797210ca', './PolygonPipeline-7fb6627c', './combine-a5c4cc47', './WebGLConstants-0664004c', './EllipsoidTangentPlane-5d8b4bd3', './AxisAlignedBoundingBox-b0cd1e39', './IntersectionTests-4f28a69c', './Plane-049255eb', './PolylinePipeline-fd9260c9', './EllipsoidGeodesic-133bd147', './EllipsoidRhumbLine-51654311'], function (GeometryOffsetAttribute, arrayRemoveDuplicates, Transforms, Matrix2, RuntimeError, ComponentDatatype, PolylineVolumeGeometryLibrary, CorridorGeometryLibrary, when, GeometryAttribute, GeometryAttributes, IndexDatatype, PolygonPipeline, combine$1, WebGLConstants, EllipsoidTangentPlane, AxisAlignedBoundingBox, IntersectionTests, Plane, PolylinePipeline, EllipsoidGeodesic, EllipsoidRhumbLine) { 'use strict';
 
-  var cartesian1 = new Cartesian2.Cartesian3();
-  var cartesian2 = new Cartesian2.Cartesian3();
-  var cartesian3 = new Cartesian2.Cartesian3();
+  var cartesian1 = new Matrix2.Cartesian3();
+  var cartesian2 = new Matrix2.Cartesian3();
+  var cartesian3 = new Matrix2.Cartesian3();
 
   function scaleToSurface(positions, ellipsoid) {
     for (var i = 0; i < positions.length; i++) {
@@ -75,12 +75,12 @@ define(['./GeometryOffsetAttribute-4b098ee5', './arrayRemoveDuplicates-618d22a8'
       rightPos = cartesian2;
       var firstEndPositions = endPositions[0];
       for (i = 0; i < halfLength; i++) {
-        leftPos = Cartesian2.Cartesian3.fromArray(
+        leftPos = Matrix2.Cartesian3.fromArray(
           firstEndPositions,
           (halfLength - 1 - i) * 3,
           leftPos
         );
-        rightPos = Cartesian2.Cartesian3.fromArray(
+        rightPos = Matrix2.Cartesian3.fromArray(
           firstEndPositions,
           (halfLength + i) * 3,
           rightPos
@@ -141,7 +141,7 @@ define(['./GeometryOffsetAttribute-4b098ee5', './arrayRemoveDuplicates-618d22a8'
         start = UR;
         wallIndices.push(LR);
         for (j = 0; j < l.length / 3; j++) {
-          outsidePoint = Cartesian2.Cartesian3.fromArray(l, j * 3, outsidePoint);
+          outsidePoint = Matrix2.Cartesian3.fromArray(l, j * 3, outsidePoint);
           indices[index++] = start - j - 1;
           indices[index++] = start - j;
           CorridorGeometryLibrary.CorridorGeometryLibrary.addAttribute(
@@ -162,7 +162,7 @@ define(['./GeometryOffsetAttribute-4b098ee5', './arrayRemoveDuplicates-618d22a8'
         start = LR;
         wallIndices.push(UR);
         for (j = 0; j < r.length / 3; j++) {
-          outsidePoint = Cartesian2.Cartesian3.fromArray(r, j * 3, outsidePoint);
+          outsidePoint = Matrix2.Cartesian3.fromArray(r, j * 3, outsidePoint);
           indices[index++] = start + j;
           indices[index++] = start + j + 1;
           CorridorGeometryLibrary.CorridorGeometryLibrary.addAttribute(
@@ -211,12 +211,12 @@ define(['./GeometryOffsetAttribute-4b098ee5', './arrayRemoveDuplicates-618d22a8'
       rightPos = cartesian2;
       var lastEndPositions = endPositions[1];
       for (i = 0; i < halfLength; i++) {
-        leftPos = Cartesian2.Cartesian3.fromArray(
+        leftPos = Matrix2.Cartesian3.fromArray(
           lastEndPositions,
           (endPositionLength - i - 1) * 3,
           leftPos
         );
-        rightPos = Cartesian2.Cartesian3.fromArray(lastEndPositions, i * 3, rightPos);
+        rightPos = Matrix2.Cartesian3.fromArray(lastEndPositions, i * 3, rightPos);
         CorridorGeometryLibrary.CorridorGeometryLibrary.addAttribute(
           finalPositions,
           leftPos,
@@ -365,16 +365,16 @@ define(['./GeometryOffsetAttribute-4b098ee5', './arrayRemoveDuplicates-618d22a8'
     var width = options.width;
 
     //>>includeStart('debug', pragmas.debug);
-    Check.Check.typeOf.object("options.positions", positions);
-    Check.Check.typeOf.number("options.width", width);
+    RuntimeError.Check.typeOf.object("options.positions", positions);
+    RuntimeError.Check.typeOf.number("options.width", width);
     //>>includeEnd('debug');
 
     var height = when.defaultValue(options.height, 0.0);
     var extrudedHeight = when.defaultValue(options.extrudedHeight, height);
 
     this._positions = positions;
-    this._ellipsoid = Cartesian2.Ellipsoid.clone(
-      when.defaultValue(options.ellipsoid, Cartesian2.Ellipsoid.WGS84)
+    this._ellipsoid = Matrix2.Ellipsoid.clone(
+      when.defaultValue(options.ellipsoid, Matrix2.Ellipsoid.WGS84)
     );
     this._width = width;
     this._height = Math.max(height, extrudedHeight);
@@ -382,7 +382,7 @@ define(['./GeometryOffsetAttribute-4b098ee5', './arrayRemoveDuplicates-618d22a8'
     this._cornerType = when.defaultValue(options.cornerType, PolylineVolumeGeometryLibrary.CornerType.ROUNDED);
     this._granularity = when.defaultValue(
       options.granularity,
-      _Math.CesiumMath.RADIANS_PER_DEGREE
+      ComponentDatatype.CesiumMath.RADIANS_PER_DEGREE
     );
     this._offsetAttribute = options.offsetAttribute;
     this._workerName = "createCorridorOutlineGeometry";
@@ -392,7 +392,7 @@ define(['./GeometryOffsetAttribute-4b098ee5', './arrayRemoveDuplicates-618d22a8'
      * @type {Number}
      */
     this.packedLength =
-      1 + positions.length * Cartesian2.Cartesian3.packedLength + Cartesian2.Ellipsoid.packedLength + 6;
+      1 + positions.length * Matrix2.Cartesian3.packedLength + Matrix2.Ellipsoid.packedLength + 6;
   }
 
   /**
@@ -406,8 +406,8 @@ define(['./GeometryOffsetAttribute-4b098ee5', './arrayRemoveDuplicates-618d22a8'
    */
   CorridorOutlineGeometry.pack = function (value, array, startingIndex) {
     //>>includeStart('debug', pragmas.debug);
-    Check.Check.typeOf.object("value", value);
-    Check.Check.typeOf.object("array", array);
+    RuntimeError.Check.typeOf.object("value", value);
+    RuntimeError.Check.typeOf.object("array", array);
     //>>includeEnd('debug');
 
     startingIndex = when.defaultValue(startingIndex, 0);
@@ -416,12 +416,12 @@ define(['./GeometryOffsetAttribute-4b098ee5', './arrayRemoveDuplicates-618d22a8'
     var length = positions.length;
     array[startingIndex++] = length;
 
-    for (var i = 0; i < length; ++i, startingIndex += Cartesian2.Cartesian3.packedLength) {
-      Cartesian2.Cartesian3.pack(positions[i], array, startingIndex);
+    for (var i = 0; i < length; ++i, startingIndex += Matrix2.Cartesian3.packedLength) {
+      Matrix2.Cartesian3.pack(positions[i], array, startingIndex);
     }
 
-    Cartesian2.Ellipsoid.pack(value._ellipsoid, array, startingIndex);
-    startingIndex += Cartesian2.Ellipsoid.packedLength;
+    Matrix2.Ellipsoid.pack(value._ellipsoid, array, startingIndex);
+    startingIndex += Matrix2.Ellipsoid.packedLength;
 
     array[startingIndex++] = value._width;
     array[startingIndex++] = value._height;
@@ -433,7 +433,7 @@ define(['./GeometryOffsetAttribute-4b098ee5', './arrayRemoveDuplicates-618d22a8'
     return array;
   };
 
-  var scratchEllipsoid = Cartesian2.Ellipsoid.clone(Cartesian2.Ellipsoid.UNIT_SPHERE);
+  var scratchEllipsoid = Matrix2.Ellipsoid.clone(Matrix2.Ellipsoid.UNIT_SPHERE);
   var scratchOptions = {
     positions: undefined,
     ellipsoid: scratchEllipsoid,
@@ -455,7 +455,7 @@ define(['./GeometryOffsetAttribute-4b098ee5', './arrayRemoveDuplicates-618d22a8'
    */
   CorridorOutlineGeometry.unpack = function (array, startingIndex, result) {
     //>>includeStart('debug', pragmas.debug);
-    Check.Check.typeOf.object("array", array);
+    RuntimeError.Check.typeOf.object("array", array);
     //>>includeEnd('debug');
 
     startingIndex = when.defaultValue(startingIndex, 0);
@@ -463,12 +463,12 @@ define(['./GeometryOffsetAttribute-4b098ee5', './arrayRemoveDuplicates-618d22a8'
     var length = array[startingIndex++];
     var positions = new Array(length);
 
-    for (var i = 0; i < length; ++i, startingIndex += Cartesian2.Cartesian3.packedLength) {
-      positions[i] = Cartesian2.Cartesian3.unpack(array, startingIndex);
+    for (var i = 0; i < length; ++i, startingIndex += Matrix2.Cartesian3.packedLength) {
+      positions[i] = Matrix2.Cartesian3.unpack(array, startingIndex);
     }
 
-    var ellipsoid = Cartesian2.Ellipsoid.unpack(array, startingIndex, scratchEllipsoid);
-    startingIndex += Cartesian2.Ellipsoid.packedLength;
+    var ellipsoid = Matrix2.Ellipsoid.unpack(array, startingIndex, scratchEllipsoid);
+    startingIndex += Matrix2.Ellipsoid.packedLength;
 
     var width = array[startingIndex++];
     var height = array[startingIndex++];
@@ -490,7 +490,7 @@ define(['./GeometryOffsetAttribute-4b098ee5', './arrayRemoveDuplicates-618d22a8'
     }
 
     result._positions = positions;
-    result._ellipsoid = Cartesian2.Ellipsoid.clone(ellipsoid, result._ellipsoid);
+    result._ellipsoid = Matrix2.Ellipsoid.clone(ellipsoid, result._ellipsoid);
     result._width = width;
     result._height = height;
     result._extrudedHeight = extrudedHeight;
@@ -516,7 +516,7 @@ define(['./GeometryOffsetAttribute-4b098ee5', './arrayRemoveDuplicates-618d22a8'
     positions = scaleToSurface(positions, ellipsoid);
     var cleanPositions = arrayRemoveDuplicates.arrayRemoveDuplicates(
       positions,
-      Cartesian2.Cartesian3.equalsEpsilon
+      Matrix2.Cartesian3.equalsEpsilon
     );
 
     if (cleanPositions.length < 2 || width <= 0) {
@@ -525,11 +525,11 @@ define(['./GeometryOffsetAttribute-4b098ee5', './arrayRemoveDuplicates-618d22a8'
 
     var height = corridorOutlineGeometry._height;
     var extrudedHeight = corridorOutlineGeometry._extrudedHeight;
-    var extrude = !_Math.CesiumMath.equalsEpsilon(
+    var extrude = !ComponentDatatype.CesiumMath.equalsEpsilon(
       height,
       extrudedHeight,
       0,
-      _Math.CesiumMath.EPSILON2
+      ComponentDatatype.CesiumMath.EPSILON2
     );
 
     var params = {
@@ -594,7 +594,7 @@ define(['./GeometryOffsetAttribute-4b098ee5', './arrayRemoveDuplicates-618d22a8'
         offset
       );
     }
-    corridorOutlineGeometry._ellipsoid = Cartesian2.Ellipsoid.clone(
+    corridorOutlineGeometry._ellipsoid = Matrix2.Ellipsoid.clone(
       corridorOutlineGeometry._ellipsoid
     );
     return CorridorOutlineGeometry.createGeometry(corridorOutlineGeometry);
