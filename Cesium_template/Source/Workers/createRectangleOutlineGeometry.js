@@ -1,10 +1,10 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['./when-f31b6bd1', './Cartesian2-44e93af5', './GeometryOffsetAttribute-4b098ee5', './Transforms-eb995198', './ComponentDatatype-d4a0149c', './Check-285f6bfc', './GeometryAttribute-cc0565cd', './GeometryAttributes-e973821e', './IndexDatatype-e20e62f1', './Math-8c161f1c', './PolygonPipeline-0ced7860', './RectangleGeometryLibrary-8af25e2c', './RuntimeError-c7c236f3', './WebGLConstants-34c08bc0', './EllipsoidRhumbLine-b65d3f48'], function (when, Cartesian2, GeometryOffsetAttribute, Transforms, ComponentDatatype, Check, GeometryAttribute, GeometryAttributes, IndexDatatype, _Math, PolygonPipeline, RectangleGeometryLibrary, RuntimeError, WebGLConstants, EllipsoidRhumbLine) { 'use strict';
+define(['./when-8166c7dd', './Matrix2-92b7fb9d', './GeometryOffsetAttribute-e8e698d7', './Transforms-62a339c3', './ComponentDatatype-9ed50558', './RuntimeError-4fdc4459', './GeometryAttribute-6f4c3b93', './GeometryAttributes-50becc99', './IndexDatatype-797210ca', './PolygonPipeline-7fb6627c', './RectangleGeometryLibrary-fdac9734', './combine-a5c4cc47', './WebGLConstants-0664004c', './EllipsoidRhumbLine-51654311'], function (when, Matrix2, GeometryOffsetAttribute, Transforms, ComponentDatatype, RuntimeError, GeometryAttribute, GeometryAttributes, IndexDatatype, PolygonPipeline, RectangleGeometryLibrary, combine, WebGLConstants, EllipsoidRhumbLine) { 'use strict';
 
   var bottomBoundingSphere = new Transforms.BoundingSphere();
   var topBoundingSphere = new Transforms.BoundingSphere();
-  var positionScratch = new Cartesian2.Cartesian3();
-  var rectangleScratch = new Cartesian2.Rectangle();
+  var positionScratch = new Matrix2.Cartesian3();
+  var rectangleScratch = new Matrix2.Rectangle();
 
   function constructRectangle(geometry, computedOptions) {
     var ellipsoid = geometry._ellipsoid;
@@ -261,18 +261,18 @@ define(['./when-f31b6bd1', './Cartesian2-44e93af5', './GeometryOffsetAttribute-4
     var rectangle = options.rectangle;
     var granularity = when.defaultValue(
       options.granularity,
-      _Math.CesiumMath.RADIANS_PER_DEGREE
+      ComponentDatatype.CesiumMath.RADIANS_PER_DEGREE
     );
-    var ellipsoid = when.defaultValue(options.ellipsoid, Cartesian2.Ellipsoid.WGS84);
+    var ellipsoid = when.defaultValue(options.ellipsoid, Matrix2.Ellipsoid.WGS84);
     var rotation = when.defaultValue(options.rotation, 0.0);
 
     //>>includeStart('debug', pragmas.debug);
     if (!when.defined(rectangle)) {
-      throw new Check.DeveloperError("rectangle is required.");
+      throw new RuntimeError.DeveloperError("rectangle is required.");
     }
-    Cartesian2.Rectangle.validate(rectangle);
+    Matrix2.Rectangle.validate(rectangle);
     if (rectangle.north < rectangle.south) {
-      throw new Check.DeveloperError(
+      throw new RuntimeError.DeveloperError(
         "options.rectangle.north must be greater than options.rectangle.south"
       );
     }
@@ -281,7 +281,7 @@ define(['./when-f31b6bd1', './Cartesian2-44e93af5', './GeometryOffsetAttribute-4
     var height = when.defaultValue(options.height, 0.0);
     var extrudedHeight = when.defaultValue(options.extrudedHeight, height);
 
-    this._rectangle = Cartesian2.Rectangle.clone(rectangle);
+    this._rectangle = Matrix2.Rectangle.clone(rectangle);
     this._granularity = granularity;
     this._ellipsoid = ellipsoid;
     this._surfaceHeight = Math.max(height, extrudedHeight);
@@ -296,7 +296,7 @@ define(['./when-f31b6bd1', './Cartesian2-44e93af5', './GeometryOffsetAttribute-4
    * @type {Number}
    */
   RectangleOutlineGeometry.packedLength =
-    Cartesian2.Rectangle.packedLength + Cartesian2.Ellipsoid.packedLength + 5;
+    Matrix2.Rectangle.packedLength + Matrix2.Ellipsoid.packedLength + 5;
 
   /**
    * Stores the provided instance into the provided array.
@@ -310,21 +310,21 @@ define(['./when-f31b6bd1', './Cartesian2-44e93af5', './GeometryOffsetAttribute-4
   RectangleOutlineGeometry.pack = function (value, array, startingIndex) {
     //>>includeStart('debug', pragmas.debug);
     if (!when.defined(value)) {
-      throw new Check.DeveloperError("value is required");
+      throw new RuntimeError.DeveloperError("value is required");
     }
 
     if (!when.defined(array)) {
-      throw new Check.DeveloperError("array is required");
+      throw new RuntimeError.DeveloperError("array is required");
     }
     //>>includeEnd('debug');
 
     startingIndex = when.defaultValue(startingIndex, 0);
 
-    Cartesian2.Rectangle.pack(value._rectangle, array, startingIndex);
-    startingIndex += Cartesian2.Rectangle.packedLength;
+    Matrix2.Rectangle.pack(value._rectangle, array, startingIndex);
+    startingIndex += Matrix2.Rectangle.packedLength;
 
-    Cartesian2.Ellipsoid.pack(value._ellipsoid, array, startingIndex);
-    startingIndex += Cartesian2.Ellipsoid.packedLength;
+    Matrix2.Ellipsoid.pack(value._ellipsoid, array, startingIndex);
+    startingIndex += Matrix2.Ellipsoid.packedLength;
 
     array[startingIndex++] = value._granularity;
     array[startingIndex++] = value._surfaceHeight;
@@ -335,8 +335,8 @@ define(['./when-f31b6bd1', './Cartesian2-44e93af5', './GeometryOffsetAttribute-4
     return array;
   };
 
-  var scratchRectangle = new Cartesian2.Rectangle();
-  var scratchEllipsoid = Cartesian2.Ellipsoid.clone(Cartesian2.Ellipsoid.UNIT_SPHERE);
+  var scratchRectangle = new Matrix2.Rectangle();
+  var scratchEllipsoid = Matrix2.Ellipsoid.clone(Matrix2.Ellipsoid.UNIT_SPHERE);
   var scratchOptions = {
     rectangle: scratchRectangle,
     ellipsoid: scratchEllipsoid,
@@ -358,17 +358,17 @@ define(['./when-f31b6bd1', './Cartesian2-44e93af5', './GeometryOffsetAttribute-4
   RectangleOutlineGeometry.unpack = function (array, startingIndex, result) {
     //>>includeStart('debug', pragmas.debug);
     if (!when.defined(array)) {
-      throw new Check.DeveloperError("array is required");
+      throw new RuntimeError.DeveloperError("array is required");
     }
     //>>includeEnd('debug');
 
     startingIndex = when.defaultValue(startingIndex, 0);
 
-    var rectangle = Cartesian2.Rectangle.unpack(array, startingIndex, scratchRectangle);
-    startingIndex += Cartesian2.Rectangle.packedLength;
+    var rectangle = Matrix2.Rectangle.unpack(array, startingIndex, scratchRectangle);
+    startingIndex += Matrix2.Rectangle.packedLength;
 
-    var ellipsoid = Cartesian2.Ellipsoid.unpack(array, startingIndex, scratchEllipsoid);
-    startingIndex += Cartesian2.Ellipsoid.packedLength;
+    var ellipsoid = Matrix2.Ellipsoid.unpack(array, startingIndex, scratchEllipsoid);
+    startingIndex += Matrix2.Ellipsoid.packedLength;
 
     var granularity = array[startingIndex++];
     var height = array[startingIndex++];
@@ -387,8 +387,8 @@ define(['./when-f31b6bd1', './Cartesian2-44e93af5', './GeometryOffsetAttribute-4
       return new RectangleOutlineGeometry(scratchOptions);
     }
 
-    result._rectangle = Cartesian2.Rectangle.clone(rectangle, result._rectangle);
-    result._ellipsoid = Cartesian2.Ellipsoid.clone(ellipsoid, result._ellipsoid);
+    result._rectangle = Matrix2.Rectangle.clone(rectangle, result._rectangle);
+    result._ellipsoid = Matrix2.Ellipsoid.clone(ellipsoid, result._ellipsoid);
     result._surfaceHeight = height;
     result._rotation = rotation;
     result._extrudedHeight = extrudedHeight;
@@ -398,7 +398,7 @@ define(['./when-f31b6bd1', './Cartesian2-44e93af5', './GeometryOffsetAttribute-4
     return result;
   };
 
-  var nwScratch = new Cartesian2.Cartographic();
+  var nwScratch = new Matrix2.Cartographic();
   /**
    * Computes the geometric representation of an outline of a rectangle, including its vertices, indices, and a bounding sphere.
    *
@@ -423,15 +423,15 @@ define(['./when-f31b6bd1', './Cartesian2-44e93af5', './GeometryOffsetAttribute-4
     var boundingSphere;
 
     if (
-      _Math.CesiumMath.equalsEpsilon(
+      ComponentDatatype.CesiumMath.equalsEpsilon(
         rectangle.north,
         rectangle.south,
-        _Math.CesiumMath.EPSILON10
+        ComponentDatatype.CesiumMath.EPSILON10
       ) ||
-      _Math.CesiumMath.equalsEpsilon(
+      ComponentDatatype.CesiumMath.equalsEpsilon(
         rectangle.east,
         rectangle.west,
-        _Math.CesiumMath.EPSILON10
+        ComponentDatatype.CesiumMath.EPSILON10
       )
     ) {
       return undefined;
@@ -439,11 +439,11 @@ define(['./when-f31b6bd1', './Cartesian2-44e93af5', './GeometryOffsetAttribute-4
 
     var surfaceHeight = rectangleGeometry._surfaceHeight;
     var extrudedHeight = rectangleGeometry._extrudedHeight;
-    var extrude = !_Math.CesiumMath.equalsEpsilon(
+    var extrude = !ComponentDatatype.CesiumMath.equalsEpsilon(
       surfaceHeight,
       extrudedHeight,
       0,
-      _Math.CesiumMath.EPSILON2
+      ComponentDatatype.CesiumMath.EPSILON2
     );
     var offsetValue;
     if (extrude) {
@@ -527,8 +527,8 @@ define(['./when-f31b6bd1', './Cartesian2-44e93af5', './GeometryOffsetAttribute-4
         offset
       );
     }
-    rectangleGeometry._ellipsoid = Cartesian2.Ellipsoid.clone(rectangleGeometry._ellipsoid);
-    rectangleGeometry._rectangle = Cartesian2.Rectangle.clone(rectangleGeometry._rectangle);
+    rectangleGeometry._ellipsoid = Matrix2.Ellipsoid.clone(rectangleGeometry._ellipsoid);
+    rectangleGeometry._rectangle = Matrix2.Rectangle.clone(rectangleGeometry._rectangle);
     return RectangleOutlineGeometry.createGeometry(rectangleGeometry);
   }
 

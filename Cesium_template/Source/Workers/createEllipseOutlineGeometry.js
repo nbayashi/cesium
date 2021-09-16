@@ -1,12 +1,12 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['./Cartesian2-44e93af5', './when-f31b6bd1', './EllipseOutlineGeometry-048fc81b', './Check-285f6bfc', './Math-8c161f1c', './GeometryOffsetAttribute-4b098ee5', './Transforms-eb995198', './RuntimeError-c7c236f3', './ComponentDatatype-d4a0149c', './WebGLConstants-34c08bc0', './EllipseGeometryLibrary-03b88f80', './GeometryAttribute-cc0565cd', './GeometryAttributes-e973821e', './IndexDatatype-e20e62f1'], function (Cartesian2, when, EllipseOutlineGeometry, Check, _Math, GeometryOffsetAttribute, Transforms, RuntimeError, ComponentDatatype, WebGLConstants, EllipseGeometryLibrary, GeometryAttribute, GeometryAttributes, IndexDatatype) { 'use strict';
+define(['./Matrix2-92b7fb9d', './when-8166c7dd', './EllipseOutlineGeometry-5a16619f', './RuntimeError-4fdc4459', './ComponentDatatype-9ed50558', './WebGLConstants-0664004c', './GeometryOffsetAttribute-e8e698d7', './Transforms-62a339c3', './combine-a5c4cc47', './EllipseGeometryLibrary-64f7a7c9', './GeometryAttribute-6f4c3b93', './GeometryAttributes-50becc99', './IndexDatatype-797210ca'], function (Matrix2, when, EllipseOutlineGeometry, RuntimeError, ComponentDatatype, WebGLConstants, GeometryOffsetAttribute, Transforms, combine, EllipseGeometryLibrary, GeometryAttribute, GeometryAttributes, IndexDatatype) { 'use strict';
 
   function createEllipseOutlineGeometry(ellipseGeometry, offset) {
     if (when.defined(offset)) {
       ellipseGeometry = EllipseOutlineGeometry.EllipseOutlineGeometry.unpack(ellipseGeometry, offset);
     }
-    ellipseGeometry._center = Cartesian2.Cartesian3.clone(ellipseGeometry._center);
-    ellipseGeometry._ellipsoid = Cartesian2.Ellipsoid.clone(ellipseGeometry._ellipsoid);
+    ellipseGeometry._center = Matrix2.Cartesian3.clone(ellipseGeometry._center);
+    ellipseGeometry._ellipsoid = Matrix2.Ellipsoid.clone(ellipseGeometry._ellipsoid);
     return EllipseOutlineGeometry.EllipseOutlineGeometry.createGeometry(ellipseGeometry);
   }
 

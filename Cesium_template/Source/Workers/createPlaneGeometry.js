@@ -1,5 +1,5 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['./when-f31b6bd1', './Transforms-eb995198', './Cartesian2-44e93af5', './Check-285f6bfc', './ComponentDatatype-d4a0149c', './GeometryAttribute-cc0565cd', './GeometryAttributes-e973821e', './VertexFormat-ab7dd48c', './Math-8c161f1c', './RuntimeError-c7c236f3', './WebGLConstants-34c08bc0'], function (when, Transforms, Cartesian2, Check, ComponentDatatype, GeometryAttribute, GeometryAttributes, VertexFormat, _Math, RuntimeError, WebGLConstants) { 'use strict';
+define(['./when-8166c7dd', './Transforms-62a339c3', './Matrix2-92b7fb9d', './RuntimeError-4fdc4459', './ComponentDatatype-9ed50558', './GeometryAttribute-6f4c3b93', './GeometryAttributes-50becc99', './VertexFormat-c0801687', './combine-a5c4cc47', './WebGLConstants-0664004c'], function (when, Transforms, Matrix2, RuntimeError, ComponentDatatype, GeometryAttribute, GeometryAttributes, VertexFormat, combine, WebGLConstants) { 'use strict';
 
   /**
    * Describes geometry representing a plane centered at the origin, with a unit width and length.
@@ -41,8 +41,8 @@ define(['./when-f31b6bd1', './Transforms-eb995198', './Cartesian2-44e93af5', './
    */
   PlaneGeometry.pack = function (value, array, startingIndex) {
     //>>includeStart('debug', pragmas.debug);
-    Check.Check.typeOf.object("value", value);
-    Check.Check.defined("array", array);
+    RuntimeError.Check.typeOf.object("value", value);
+    RuntimeError.Check.defined("array", array);
     //>>includeEnd('debug');
 
     startingIndex = when.defaultValue(startingIndex, 0);
@@ -67,7 +67,7 @@ define(['./when-f31b6bd1', './Transforms-eb995198', './Cartesian2-44e93af5', './
    */
   PlaneGeometry.unpack = function (array, startingIndex, result) {
     //>>includeStart('debug', pragmas.debug);
-    Check.Check.defined("array", array);
+    RuntimeError.Check.defined("array", array);
     //>>includeEnd('debug');
 
     startingIndex = when.defaultValue(startingIndex, 0);
@@ -87,8 +87,8 @@ define(['./when-f31b6bd1', './Transforms-eb995198', './Cartesian2-44e93af5', './
     return result;
   };
 
-  var min = new Cartesian2.Cartesian3(-0.5, -0.5, 0.0);
-  var max = new Cartesian2.Cartesian3(0.5, 0.5, 0.0);
+  var min = new Matrix2.Cartesian3(-0.5, -0.5, 0.0);
+  var max = new Matrix2.Cartesian3(0.5, 0.5, 0.0);
 
   /**
    * Computes the geometric representation of a plane, including its vertices, indices, and a bounding sphere.
@@ -235,7 +235,7 @@ define(['./when-f31b6bd1', './Transforms-eb995198', './Cartesian2-44e93af5', './
       attributes: attributes,
       indices: indices,
       primitiveType: GeometryAttribute.PrimitiveType.TRIANGLES,
-      boundingSphere: new Transforms.BoundingSphere(Cartesian2.Cartesian3.ZERO, Math.sqrt(2.0)),
+      boundingSphere: new Transforms.BoundingSphere(Matrix2.Cartesian3.ZERO, Math.sqrt(2.0)),
     });
   };
 

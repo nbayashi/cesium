@@ -18,17 +18,17 @@
  * Columbus View (Pat. Pend.)
  *
  * Portions licensed separately.
- * See https://github.com/CesiumGS/cesium/blob/master/LICENSE.md for full licensing details.
+ * See https://github.com/CesiumGS/cesium/blob/main/LICENSE.md for full licensing details.
  */
 
-define(['./Cartesian2-716c2715', './when-208fe5b0', './EllipseGeometry-92ab0b3a', './Check-d18af7c4', './Math-3ba16bed', './GeometryOffsetAttribute-d63c288d', './Transforms-f1816abc', './RuntimeError-7f634f5d', './ComponentDatatype-549ec0d3', './WebGLConstants-76bb35d1', './EllipseGeometryLibrary-54fe1659', './GeometryAttribute-0ee94cf1', './GeometryAttributes-b0b294d8', './GeometryInstance-73b5b8d6', './GeometryPipeline-df743242', './AttributeCompression-69c5b20c', './EncodedCartesian3-7a9c1496', './IndexDatatype-d9b71b2b', './IntersectionTests-680c4e46', './Plane-f5dfabcd', './VertexFormat-24041ad5'], function (Cartesian2, when, EllipseGeometry, Check, _Math, GeometryOffsetAttribute, Transforms, RuntimeError, ComponentDatatype, WebGLConstants, EllipseGeometryLibrary, GeometryAttribute, GeometryAttributes, GeometryInstance, GeometryPipeline, AttributeCompression, EncodedCartesian3, IndexDatatype, IntersectionTests, Plane, VertexFormat) { 'use strict';
+define(['./Matrix2-32d4a9a0', './when-4bbc8319', './EllipseGeometry-e89c21ae', './RuntimeError-346a3079', './ComponentDatatype-f194c48b', './WebGLConstants-1c8239cc', './GeometryOffsetAttribute-6a692b56', './Transforms-b4151f9c', './combine-83860057', './EllipseGeometryLibrary-20e51de1', './GeometryAttribute-900e07ee', './GeometryAttributes-7827a6c2', './GeometryInstance-33236890', './GeometryPipeline-2b535815', './AttributeCompression-0091b79f', './EncodedCartesian3-2c726105', './IndexDatatype-ee69f1fd', './IntersectionTests-4c2a8ace', './Plane-87991fdc', './VertexFormat-f9c1a155'], function (Matrix2, when, EllipseGeometry, RuntimeError, ComponentDatatype, WebGLConstants, GeometryOffsetAttribute, Transforms, combine, EllipseGeometryLibrary, GeometryAttribute, GeometryAttributes, GeometryInstance, GeometryPipeline, AttributeCompression, EncodedCartesian3, IndexDatatype, IntersectionTests, Plane, VertexFormat) { 'use strict';
 
   function createEllipseGeometry(ellipseGeometry, offset) {
     if (when.defined(offset)) {
       ellipseGeometry = EllipseGeometry.EllipseGeometry.unpack(ellipseGeometry, offset);
     }
-    ellipseGeometry._center = Cartesian2.Cartesian3.clone(ellipseGeometry._center);
-    ellipseGeometry._ellipsoid = Cartesian2.Ellipsoid.clone(ellipseGeometry._ellipsoid);
+    ellipseGeometry._center = Matrix2.Cartesian3.clone(ellipseGeometry._center);
+    ellipseGeometry._ellipsoid = Matrix2.Ellipsoid.clone(ellipseGeometry._ellipsoid);
     return EllipseGeometry.EllipseGeometry.createGeometry(ellipseGeometry);
   }
 

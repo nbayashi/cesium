@@ -382,6 +382,8 @@ void main()\n\
     czm_materialInput materialInput;\n\
     materialInput.st = v_textureCoordinates.st;\n\
     materialInput.normalEC = normalize(v_normalEC);\n\
+    materialInput.positionToEyeEC = -v_positionEC;\n\
+    materialInput.tangentToEyeMatrix = czm_eastNorthUpToEyeCoordinates(v_positionMC, normalize(v_normalEC));     \n\
     materialInput.slope = v_slope;\n\
     materialInput.height = v_height;\n\
     materialInput.aspect = v_aspect;\n\
