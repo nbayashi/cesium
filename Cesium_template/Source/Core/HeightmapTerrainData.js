@@ -202,7 +202,6 @@ var createMeshTaskProcessorThrottle = new TaskProcessor(
  * @param {Number} options.y The Y coordinate of the tile for which to create the terrain data.
  * @param {Number} options.level The level of the tile for which to create the terrain data.
  * @param {Number} [options.exaggeration=1.0] The scale used to exaggerate the terrain.
- * @param {Number} [options.exaggerationRelativeHeight=0.0] The height relative to which terrain is exaggerated.
  * @param {Boolean} [options.throttle=true] If true, indicates that this operation will need to be retried if too many asynchronous mesh creations are already in progress.
  * @returns {Promise.<TerrainMesh>|undefined} A promise for the terrain mesh, or undefined if too many
  *          asynchronous mesh creations are already in progress and the operation should
@@ -223,10 +222,6 @@ HeightmapTerrainData.prototype.createMesh = function (options) {
   var y = options.y;
   var level = options.level;
   var exaggeration = defaultValue(options.exaggeration, 1.0);
-  var exaggerationRelativeHeight = defaultValue(
-    options.exaggerationRelativeHeight,
-    0.0
-  );
   var throttle = defaultValue(options.throttle, true);
 
   var ellipsoid = tilingScheme.ellipsoid;
@@ -263,7 +258,6 @@ HeightmapTerrainData.prototype.createMesh = function (options) {
     skirtHeight: this._skirtHeight,
     isGeographic: tilingScheme.projection instanceof GeographicProjection,
     exaggeration: exaggeration,
-    exaggerationRelativeHeight: exaggerationRelativeHeight,
     encoding: this._encoding,
   });
 
@@ -304,6 +298,7 @@ HeightmapTerrainData.prototype.createMesh = function (options) {
       result.numberOfAttributes,
       OrientedBoundingBox.clone(result.orientedBoundingBox),
       TerrainEncoding.clone(result.encoding),
+      exaggeration,
       indicesAndEdges.westIndicesSouthToNorth,
       indicesAndEdges.southIndicesEastToWest,
       indicesAndEdges.eastIndicesNorthToSouth,
@@ -323,7 +318,6 @@ HeightmapTerrainData.prototype.createMesh = function (options) {
  * @param {Number} options.y The Y coordinate of the tile for which to create the terrain data.
  * @param {Number} options.level The level of the tile for which to create the terrain data.
  * @param {Number} [options.exaggeration=1.0] The scale used to exaggerate the terrain.
- * @param {Number} [options.exaggerationRelativeHeight=0.0] The height relative to which terrain is exaggerated.
  *
  * @private
  */
@@ -340,10 +334,6 @@ HeightmapTerrainData.prototype._createMeshSync = function (options) {
   var y = options.y;
   var level = options.level;
   var exaggeration = defaultValue(options.exaggeration, 1.0);
-  var exaggerationRelativeHeight = defaultValue(
-    options.exaggerationRelativeHeight,
-    0.0
-  );
 
   var ellipsoid = tilingScheme.ellipsoid;
   var nativeRectangle = tilingScheme.tileXYToNativeRectangle(x, y, level);
@@ -375,7 +365,6 @@ HeightmapTerrainData.prototype._createMeshSync = function (options) {
     skirtHeight: this._skirtHeight,
     isGeographic: tilingScheme.projection instanceof GeographicProjection,
     exaggeration: exaggeration,
-    exaggerationRelativeHeight: exaggerationRelativeHeight,
   });
 
   // Free memory received from server after mesh is created.
@@ -398,7 +387,7 @@ HeightmapTerrainData.prototype._createMeshSync = function (options) {
 
   // No need to clone here (as we do in the async version) because the result
   // is not coming from a web worker.
-  this._mesh = new TerrainMesh(
+  return new TerrainMesh(
     center,
     result.vertices,
     indicesAndEdges.indices,
@@ -408,16 +397,15 @@ HeightmapTerrainData.prototype._createMeshSync = function (options) {
     result.maximumHeight,
     result.boundingSphere3D,
     result.occludeePointInScaledSpace,
-    result.encoding.stride,
+    result.encoding.getStride(),
     result.orientedBoundingBox,
     result.encoding,
+    exaggeration,
     indicesAndEdges.westIndicesSouthToNorth,
     indicesAndEdges.southIndicesEastToWest,
     indicesAndEdges.eastIndicesNorthToSouth,
     indicesAndEdges.northIndicesWestToEast
   );
-
-  return this._mesh;
 };
 
 /**
@@ -460,6 +448,7 @@ HeightmapTerrainData.prototype.interpolateHeight = function (
   if (isMeshCreated) {
     var buffer = this._mesh.vertices;
     var encoding = this._mesh.encoding;
+    var exaggeration = this._mesh.exaggeration;
     heightSample = interpolateMeshHeight(
       buffer,
       encoding,
@@ -469,7 +458,8 @@ HeightmapTerrainData.prototype.interpolateHeight = function (
       width,
       height,
       longitude,
-      latitude
+      latitude,
+      exaggeration
     );
   } else {
     heightSample = interpolateHeight(
@@ -569,6 +559,7 @@ HeightmapTerrainData.prototype.upsample = function (
 
   var heightOffset = structure.heightOffset;
   var heightScale = structure.heightScale;
+  var exaggeration = meshData.exaggeration;
 
   var elementsPerHeight = structure.elementsPerHeight;
   var elementMultiplier = structure.elementMultiplier;
@@ -597,7 +588,8 @@ HeightmapTerrainData.prototype.upsample = function (
         width,
         height,
         longitude,
-        latitude
+        latitude,
+        exaggeration
       );
 
       // Use conditionals here instead of Math.min and Math.max so that an undefined
@@ -781,7 +773,8 @@ function interpolateMeshHeight(
   width,
   height,
   longitude,
-  latitude
+  latitude,
+  exaggeration
 ) {
   // returns a height encoded according to the structure's heightScale and heightOffset.
   var fromWest =
@@ -812,19 +805,23 @@ function interpolateMeshHeight(
   northInteger = height - 1 - northInteger;
 
   var southwestHeight =
-    (encoding.decodeHeight(buffer, southInteger * width + westInteger) -
+    (encoding.decodeHeight(buffer, southInteger * width + westInteger) /
+      exaggeration -
       heightOffset) /
     heightScale;
   var southeastHeight =
-    (encoding.decodeHeight(buffer, southInteger * width + eastInteger) -
+    (encoding.decodeHeight(buffer, southInteger * width + eastInteger) /
+      exaggeration -
       heightOffset) /
     heightScale;
   var northwestHeight =
-    (encoding.decodeHeight(buffer, northInteger * width + westInteger) -
+    (encoding.decodeHeight(buffer, northInteger * width + westInteger) /
+      exaggeration -
       heightOffset) /
     heightScale;
   var northeastHeight =
-    (encoding.decodeHeight(buffer, northInteger * width + eastInteger) -
+    (encoding.decodeHeight(buffer, northInteger * width + eastInteger) /
+      exaggeration -
       heightOffset) /
     heightScale;
 

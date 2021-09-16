@@ -39,8 +39,6 @@ import czm_webMercatorMaxLatitude from './Constants/webMercatorMaxLatitude.js'
 import czm_depthRangeStruct from './Structs/depthRangeStruct.js'
 import czm_material from './Structs/material.js'
 import czm_materialInput from './Structs/materialInput.js'
-import czm_modelMaterial from './Structs/modelMaterial.js'
-import czm_pbrParameters from './Structs/pbrParameters.js'
 import czm_ray from './Structs/ray.js'
 import czm_raySegment from './Structs/raySegment.js'
 import czm_shadowParameters from './Structs/shadowParameters.js'
@@ -64,7 +62,6 @@ import czm_columbusViewMorph from './Functions/columbusViewMorph.js'
 import czm_computePosition from './Functions/computePosition.js'
 import czm_cosineAndSine from './Functions/cosineAndSine.js'
 import czm_decompressTextureCoordinates from './Functions/decompressTextureCoordinates.js'
-import czm_defaultPbrMaterial from './Functions/defaultPbrMaterial.js'
 import czm_depthClamp from './Functions/depthClamp.js'
 import czm_eastNorthUpToEyeCoordinates from './Functions/eastNorthUpToEyeCoordinates.js'
 import czm_ellipsoidContainsPoint from './Functions/ellipsoidContainsPoint.js'
@@ -93,9 +90,6 @@ import czm_multiplyWithColorBalance from './Functions/multiplyWithColorBalance.j
 import czm_nearFarScalar from './Functions/nearFarScalar.js'
 import czm_octDecode from './Functions/octDecode.js'
 import czm_packDepth from './Functions/packDepth.js'
-import czm_pbrLighting from './Functions/pbrLighting.js'
-import czm_pbrMetallicRoughnessMaterial from './Functions/pbrMetallicRoughnessMaterial.js'
-import czm_pbrSpecularGlossinessMaterial from './Functions/pbrSpecularGlossinessMaterial.js'
 import czm_phong from './Functions/phong.js'
 import czm_planeDistance from './Functions/planeDistance.js'
 import czm_pointAlongRay from './Functions/pointAlongRay.js'
@@ -163,8 +157,6 @@ export default {
     czm_depthRangeStruct : czm_depthRangeStruct,
     czm_material : czm_material,
     czm_materialInput : czm_materialInput,
-    czm_modelMaterial : czm_modelMaterial,
-    czm_pbrParameters : czm_pbrParameters,
     czm_ray : czm_ray,
     czm_raySegment : czm_raySegment,
     czm_shadowParameters : czm_shadowParameters,
@@ -188,7 +180,6 @@ export default {
     czm_computePosition : czm_computePosition,
     czm_cosineAndSine : czm_cosineAndSine,
     czm_decompressTextureCoordinates : czm_decompressTextureCoordinates,
-    czm_defaultPbrMaterial : czm_defaultPbrMaterial,
     czm_depthClamp : czm_depthClamp,
     czm_eastNorthUpToEyeCoordinates : czm_eastNorthUpToEyeCoordinates,
     czm_ellipsoidContainsPoint : czm_ellipsoidContainsPoint,
@@ -217,9 +208,6 @@ export default {
     czm_nearFarScalar : czm_nearFarScalar,
     czm_octDecode : czm_octDecode,
     czm_packDepth : czm_packDepth,
-    czm_pbrLighting : czm_pbrLighting,
-    czm_pbrMetallicRoughnessMaterial : czm_pbrMetallicRoughnessMaterial,
-    czm_pbrSpecularGlossinessMaterial : czm_pbrSpecularGlossinessMaterial,
     czm_phong : czm_phong,
     czm_planeDistance : czm_planeDistance,
     czm_pointAlongRay : czm_pointAlongRay,

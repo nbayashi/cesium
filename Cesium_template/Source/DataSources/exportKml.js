@@ -323,31 +323,52 @@ function exportKml(options) {
 }
 
 function createKmz(kmlString, externalFiles) {
-  var blobWriter = new zip.BlobWriter();
-  var writer = new zip.ZipWriter(blobWriter);
-  // We need to only write one file at a time so the zip doesn't get corrupted
-  return when(writer.add("doc.kml", new zip.TextReader(kmlString)))
-    .then(function () {
-      var keys = Object.keys(externalFiles);
-      return addExternalFilesToZip(writer, keys, externalFiles, 0);
-    })
-    .then(function () {
-      return when(writer.close()).then(function (blob) {
-        return {
-          kmz: blob,
-        };
+  var deferred = when.defer();
+  zip.createWriter(new zip.BlobWriter(), function (writer) {
+    // We need to only write one file at a time so the zip doesn't get corrupted
+    addKmlToZip(writer, kmlString)
+      .then(function () {
+        var keys = Object.keys(externalFiles);
+        return addExternalFilesToZip(writer, keys, externalFiles, 0);
+      })
+      .then(function () {
+        writer.close(function (blob) {
+          deferred.resolve({
+            kmz: blob,
+          });
+        });
       });
-    });
+  });
+
+  return deferred.promise;
+}
+
+function addKmlToZip(writer, kmlString) {
+  var deferred = when.defer();
+  writer.add("doc.kml", new zip.TextReader(kmlString), function () {
+    deferred.resolve();
+  });
+
+  return deferred.promise;
 }
 
 function addExternalFilesToZip(writer, keys, externalFiles, index) {
   if (keys.length === index) {
     return;
   }
+
   var filename = keys[index];
-  return when(
-    writer.add(filename, new zip.BlobReader(externalFiles[filename]))
-  ).then(function () {
+
+  var deferred = when.defer();
+  writer.add(
+    filename,
+    new zip.BlobReader(externalFiles[filename]),
+    function () {
+      deferred.resolve();
+    }
+  );
+
+  return deferred.promise.then(function () {
     return addExternalFilesToZip(writer, keys, externalFiles, index + 1);
   });
 }

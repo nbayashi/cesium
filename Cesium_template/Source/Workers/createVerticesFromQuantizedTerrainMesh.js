@@ -1,5 +1,5 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c7dd', './TerrainEncoding-315b224c', './IndexDatatype-797210ca', './ComponentDatatype-9ed50558', './RuntimeError-4fdc4459', './Transforms-62a339c3', './WebMercatorProjection-6ac42c0a', './createTaskProcessorWorker', './AttributeCompression-212262a3', './WebGLConstants-0664004c', './combine-a5c4cc47'], function (AxisAlignedBoundingBox, Matrix2, when, TerrainEncoding, IndexDatatype, ComponentDatatype, RuntimeError, Transforms, WebMercatorProjection, createTaskProcessorWorker, AttributeCompression, WebGLConstants, combine) { 'use strict';
+define(['./AttributeCompression-e3a6496c', './EllipsoidTangentPlane-ffd45139', './Transforms-eb995198', './Cartesian2-44e93af5', './when-f31b6bd1', './TerrainEncoding-83dc5cb1', './IndexDatatype-e20e62f1', './Math-8c161f1c', './OrientedBoundingBox-8f3c3305', './Check-285f6bfc', './WebMercatorProjection-f857ca58', './createTaskProcessorWorker', './IntersectionTests-db497aaf', './Plane-16f95004', './RuntimeError-c7c236f3', './ComponentDatatype-d4a0149c', './WebGLConstants-34c08bc0'], function (AttributeCompression, EllipsoidTangentPlane, Transforms, Cartesian2, when, TerrainEncoding, IndexDatatype, _Math, OrientedBoundingBox, Check, WebMercatorProjection, createTaskProcessorWorker, IntersectionTests, Plane, RuntimeError, ComponentDatatype, WebGLConstants) { 'use strict';
 
   /**
    * Provides terrain or other geometry for the surface of an ellipsoid.  The surface geometry is
@@ -15,7 +15,7 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
    * @see GoogleEarthEnterpriseTerrainProvider
    */
   function TerrainProvider() {
-    RuntimeError.DeveloperError.throwInstantiationError();
+    Check.DeveloperError.throwInstantiationError();
   }
 
   Object.defineProperties(TerrainProvider.prototype, {
@@ -25,10 +25,9 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
      * are passed an instance of {@link TileProviderError}.
      * @memberof TerrainProvider.prototype
      * @type {Event}
-     * @readonly
      */
     errorEvent: {
-      get: RuntimeError.DeveloperError.throwInstantiationError,
+      get: Check.DeveloperError.throwInstantiationError,
     },
 
     /**
@@ -37,10 +36,9 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
      * not be called before {@link TerrainProvider#ready} returns true.
      * @memberof TerrainProvider.prototype
      * @type {Credit}
-     * @readonly
      */
     credit: {
-      get: RuntimeError.DeveloperError.throwInstantiationError,
+      get: Check.DeveloperError.throwInstantiationError,
     },
 
     /**
@@ -48,20 +46,18 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
      * not be called before {@link TerrainProvider#ready} returns true.
      * @memberof TerrainProvider.prototype
      * @type {TilingScheme}
-     * @readonly
      */
     tilingScheme: {
-      get: RuntimeError.DeveloperError.throwInstantiationError,
+      get: Check.DeveloperError.throwInstantiationError,
     },
 
     /**
      * Gets a value indicating whether or not the provider is ready for use.
      * @memberof TerrainProvider.prototype
      * @type {Boolean}
-     * @readonly
      */
     ready: {
-      get: RuntimeError.DeveloperError.throwInstantiationError,
+      get: Check.DeveloperError.throwInstantiationError,
     },
 
     /**
@@ -71,7 +67,7 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
      * @readonly
      */
     readyPromise: {
-      get: RuntimeError.DeveloperError.throwInstantiationError,
+      get: Check.DeveloperError.throwInstantiationError,
     },
 
     /**
@@ -81,10 +77,9 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
      * called before {@link TerrainProvider#ready} returns true.
      * @memberof TerrainProvider.prototype
      * @type {Boolean}
-     * @readonly
      */
     hasWaterMask: {
-      get: RuntimeError.DeveloperError.throwInstantiationError,
+      get: Check.DeveloperError.throwInstantiationError,
     },
 
     /**
@@ -92,10 +87,9 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
      * This function should not be called before {@link TerrainProvider#ready} returns true.
      * @memberof TerrainProvider.prototype
      * @type {Boolean}
-     * @readonly
      */
     hasVertexNormals: {
-      get: RuntimeError.DeveloperError.throwInstantiationError,
+      get: Check.DeveloperError.throwInstantiationError,
     },
 
     /**
@@ -105,10 +99,9 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
      * information is not available.
      * @memberof TerrainProvider.prototype
      * @type {TileAvailability}
-     * @readonly
      */
     availability: {
-      get: RuntimeError.DeveloperError.throwInstantiationError,
+      get: Check.DeveloperError.throwInstantiationError,
     },
   });
 
@@ -126,8 +119,8 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
    */
   TerrainProvider.getRegularGridIndices = function (width, height) {
     //>>includeStart('debug', pragmas.debug);
-    if (width * height >= ComponentDatatype.CesiumMath.FOUR_GIGABYTES) {
-      throw new RuntimeError.DeveloperError(
+    if (width * height >= _Math.CesiumMath.FOUR_GIGABYTES) {
+      throw new Check.DeveloperError(
         "The total number of vertices (width * height) must be less than 4,294,967,296."
       );
     }
@@ -140,7 +133,7 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
 
     var indices = byWidth[height];
     if (!when.defined(indices)) {
-      if (width * height < ComponentDatatype.CesiumMath.SIXTY_FOUR_KILOBYTES) {
+      if (width * height < _Math.CesiumMath.SIXTY_FOUR_KILOBYTES) {
         indices = byWidth[height] = new Uint16Array(
           (width - 1) * (height - 1) * 6
         );
@@ -162,8 +155,8 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
    */
   TerrainProvider.getRegularGridIndicesAndEdgeIndices = function (width, height) {
     //>>includeStart('debug', pragmas.debug);
-    if (width * height >= ComponentDatatype.CesiumMath.FOUR_GIGABYTES) {
-      throw new RuntimeError.DeveloperError(
+    if (width * height >= _Math.CesiumMath.FOUR_GIGABYTES) {
+      throw new Check.DeveloperError(
         "The total number of vertices (width * height) must be less than 4,294,967,296."
       );
     }
@@ -206,8 +199,8 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
     height
   ) {
     //>>includeStart('debug', pragmas.debug);
-    if (width * height >= ComponentDatatype.CesiumMath.FOUR_GIGABYTES) {
-      throw new RuntimeError.DeveloperError(
+    if (width * height >= _Math.CesiumMath.FOUR_GIGABYTES) {
+      throw new Check.DeveloperError(
         "The total number of vertices (width * height) must be less than 4,294,967,296."
       );
     }
@@ -412,7 +405,7 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
    *          pending and the request will be retried later.
    */
   TerrainProvider.prototype.requestTileGeometry =
-    RuntimeError.DeveloperError.throwInstantiationError;
+    Check.DeveloperError.throwInstantiationError;
 
   /**
    * Gets the maximum geometric error allowed in a tile at a given level.  This function should not be
@@ -423,7 +416,7 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
    * @returns {Number} The maximum geometric error.
    */
   TerrainProvider.prototype.getLevelMaximumGeometricError =
-    RuntimeError.DeveloperError.throwInstantiationError;
+    Check.DeveloperError.throwInstantiationError;
 
   /**
    * Determines whether data for a tile is available to be loaded.
@@ -432,10 +425,10 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
    * @param {Number} x The X coordinate of the tile for which to request geometry.
    * @param {Number} y The Y coordinate of the tile for which to request geometry.
    * @param {Number} level The level of the tile for which to request geometry.
-   * @returns {Boolean|undefined} Undefined if not supported by the terrain provider, otherwise true or false.
+   * @returns {Boolean} Undefined if not supported by the terrain provider, otherwise true or false.
    */
   TerrainProvider.prototype.getTileDataAvailable =
-    RuntimeError.DeveloperError.throwInstantiationError;
+    Check.DeveloperError.throwInstantiationError;
 
   /**
    * Makes sure we load availability data for a tile
@@ -447,15 +440,18 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
    * @returns {undefined|Promise<void>} Undefined if nothing need to be loaded or a Promise that resolves when all required tiles are loaded
    */
   TerrainProvider.prototype.loadTileDataAvailability =
-    RuntimeError.DeveloperError.throwInstantiationError;
+    Check.DeveloperError.throwInstantiationError;
 
   var maxShort = 32767;
 
-  var cartesian3Scratch = new Matrix2.Cartesian3();
-  var scratchMinimum = new Matrix2.Cartesian3();
-  var scratchMaximum = new Matrix2.Cartesian3();
-  var cartographicScratch = new Matrix2.Cartographic();
-  var toPack = new Matrix2.Cartesian2();
+  var cartesian3Scratch = new Cartesian2.Cartesian3();
+  var scratchMinimum = new Cartesian2.Cartesian3();
+  var scratchMaximum = new Cartesian2.Cartesian3();
+  var cartographicScratch = new Cartesian2.Cartographic();
+  var toPack = new Cartesian2.Cartesian2();
+  var scratchNormal = new Cartesian2.Cartesian3();
+  var scratchToENU = new Transforms.Matrix4();
+  var scratchFromENU = new Transforms.Matrix4();
 
   function createVerticesFromQuantizedTerrainMesh(
     parameters,
@@ -471,25 +467,21 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
       parameters.northIndices.length;
     var includeWebMercatorT = parameters.includeWebMercatorT;
 
-    var exaggeration = parameters.exaggeration;
-    var exaggerationRelativeHeight = parameters.exaggerationRelativeHeight;
-    var hasExaggeration = exaggeration !== 1.0;
-    var includeGeodeticSurfaceNormals = hasExaggeration;
-
-    var rectangle = Matrix2.Rectangle.clone(parameters.rectangle);
+    var rectangle = Cartesian2.Rectangle.clone(parameters.rectangle);
     var west = rectangle.west;
     var south = rectangle.south;
     var east = rectangle.east;
     var north = rectangle.north;
 
-    var ellipsoid = Matrix2.Ellipsoid.clone(parameters.ellipsoid);
+    var ellipsoid = Cartesian2.Ellipsoid.clone(parameters.ellipsoid);
 
-    var minimumHeight = parameters.minimumHeight;
-    var maximumHeight = parameters.maximumHeight;
+    var exaggeration = parameters.exaggeration;
+    var minimumHeight = parameters.minimumHeight * exaggeration;
+    var maximumHeight = parameters.maximumHeight * exaggeration;
 
     var center = parameters.relativeToCenter;
     var fromENU = Transforms.Transforms.eastNorthUpToFixedFrame(center, ellipsoid);
-    var toENU = Matrix2.Matrix4.inverseTransformation(fromENU, new Matrix2.Matrix4());
+    var toENU = Transforms.Matrix4.inverseTransformation(fromENU, new Transforms.Matrix4());
 
     var southMercatorY;
     var oneOverMercatorHeight;
@@ -520,9 +512,6 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
     var webMercatorTs = includeWebMercatorT
       ? new Array(quantizedVertexCount)
       : [];
-    var geodeticSurfaceNormals = includeGeodeticSurfaceNormals
-      ? new Array(quantizedVertexCount)
-      : [];
 
     var minimum = scratchMinimum;
     minimum.x = Number.POSITIVE_INFINITY;
@@ -545,14 +534,14 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
 
       var u = rawU / maxShort;
       var v = rawV / maxShort;
-      var height = ComponentDatatype.CesiumMath.lerp(
+      var height = _Math.CesiumMath.lerp(
         minimumHeight,
         maximumHeight,
         heightBuffer[i] / maxShort
       );
 
-      cartographicScratch.longitude = ComponentDatatype.CesiumMath.lerp(west, east, u);
-      cartographicScratch.latitude = ComponentDatatype.CesiumMath.lerp(south, north, v);
+      cartographicScratch.longitude = _Math.CesiumMath.lerp(west, east, u);
+      cartographicScratch.latitude = _Math.CesiumMath.lerp(south, north, v);
       cartographicScratch.height = height;
 
       minLongitude = Math.min(cartographicScratch.longitude, minLongitude);
@@ -562,7 +551,7 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
 
       var position = ellipsoid.cartographicToCartesian(cartographicScratch);
 
-      uvs[i] = new Matrix2.Cartesian2(u, v);
+      uvs[i] = new Cartesian2.Cartesian2(u, v);
       heights[i] = height;
       positions[i] = position;
 
@@ -575,14 +564,10 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
           oneOverMercatorHeight;
       }
 
-      if (includeGeodeticSurfaceNormals) {
-        geodeticSurfaceNormals[i] = ellipsoid.geodeticSurfaceNormal(position);
-      }
+      Transforms.Matrix4.multiplyByPoint(toENU, position, cartesian3Scratch);
 
-      Matrix2.Matrix4.multiplyByPoint(toENU, position, cartesian3Scratch);
-
-      Matrix2.Cartesian3.minimumByComponent(cartesian3Scratch, minimum, minimum);
-      Matrix2.Cartesian3.maximumByComponent(cartesian3Scratch, maximum, maximum);
+      Cartesian2.Cartesian3.minimumByComponent(cartesian3Scratch, minimum, minimum);
+      Cartesian2.Cartesian3.maximumByComponent(cartesian3Scratch, maximum, maximum);
     }
 
     var westIndicesSouthToNorth = copyAndSort(parameters.westIndices, function (
@@ -610,9 +595,23 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
       return uvs[a].x - uvs[b].x;
     });
 
+    var orientedBoundingBox;
+    var boundingSphere;
+
+    if (exaggeration !== 1.0) {
+      // Bounding volumes need to be recomputed since the tile payload assumes no exaggeration.
+      boundingSphere = Transforms.BoundingSphere.fromPoints(positions);
+      orientedBoundingBox = OrientedBoundingBox.OrientedBoundingBox.fromRectangle(
+        rectangle,
+        minimumHeight,
+        maximumHeight,
+        ellipsoid
+      );
+    }
+
     var occludeePointInScaledSpace;
-    if (minimumHeight < 0.0) {
-      // Horizon culling point needs to be recomputed since the tile is at least partly under the ellipsoid.
+    if (exaggeration !== 1.0 || minimumHeight < 0.0) {
+      // Horizon culling point needs to be recomputed since the tile payload assumes no exaggeration.
       var occluder = new TerrainEncoding.EllipsoidalOccluder(ellipsoid);
       occludeePointInScaledSpace = occluder.computeHorizonCullingPointPossiblyUnderEllipsoid(
         center,
@@ -679,20 +678,16 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
       )
     );
 
-    var aaBox = new AxisAlignedBoundingBox.AxisAlignedBoundingBox(minimum, maximum, center);
+    var aaBox = new EllipsoidTangentPlane.AxisAlignedBoundingBox(minimum, maximum, center);
     var encoding = new TerrainEncoding.TerrainEncoding(
-      center,
       aaBox,
       hMin,
       maximumHeight,
       fromENU,
       hasVertexNormals,
-      includeWebMercatorT,
-      includeGeodeticSurfaceNormals,
-      exaggeration,
-      exaggerationRelativeHeight
+      includeWebMercatorT
     );
-    var vertexStride = encoding.stride;
+    var vertexStride = encoding.getStride();
     var size =
       quantizedVertexCount * vertexStride + edgeVertexCount * vertexStride;
     var vertexBuffer = new Float32Array(size);
@@ -703,6 +698,32 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
         var n = j * 2.0;
         toPack.x = octEncodedNormals[n];
         toPack.y = octEncodedNormals[n + 1];
+
+        if (exaggeration !== 1.0) {
+          var normal = AttributeCompression.AttributeCompression.octDecode(
+            toPack.x,
+            toPack.y,
+            scratchNormal
+          );
+          var fromENUNormal = Transforms.Transforms.eastNorthUpToFixedFrame(
+            positions[j],
+            ellipsoid,
+            scratchFromENU
+          );
+          var toENUNormal = Transforms.Matrix4.inverseTransformation(
+            fromENUNormal,
+            scratchToENU
+          );
+
+          Transforms.Matrix4.multiplyByPointAsVector(toENUNormal, normal, normal);
+          normal.z *= exaggeration;
+          Cartesian2.Cartesian3.normalize(normal, normal);
+
+          Transforms.Matrix4.multiplyByPointAsVector(fromENUNormal, normal, normal);
+          Cartesian2.Cartesian3.normalize(normal, normal);
+
+          AttributeCompression.AttributeCompression.octEncode(normal, toPack);
+        }
       }
 
       bufferIndex = encoding.encode(
@@ -712,8 +733,7 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
         uvs[j],
         heights[j],
         toPack,
-        webMercatorTs[j],
-        geodeticSurfaceNormals[j]
+        webMercatorTs[j]
       );
     }
 
@@ -750,6 +770,7 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
       ellipsoid,
       rectangle,
       parameters.westSkirtHeight,
+      exaggeration,
       southMercatorY,
       oneOverMercatorHeight,
       westLongitudeOffset,
@@ -767,6 +788,7 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
       ellipsoid,
       rectangle,
       parameters.southSkirtHeight,
+      exaggeration,
       southMercatorY,
       oneOverMercatorHeight,
       southLongitudeOffset,
@@ -784,6 +806,7 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
       ellipsoid,
       rectangle,
       parameters.eastSkirtHeight,
+      exaggeration,
       southMercatorY,
       oneOverMercatorHeight,
       eastLongitudeOffset,
@@ -801,6 +824,7 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
       ellipsoid,
       rectangle,
       parameters.northSkirtHeight,
+      exaggeration,
       southMercatorY,
       oneOverMercatorHeight,
       northLongitudeOffset,
@@ -830,6 +854,8 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
       center: center,
       minimumHeight: minimumHeight,
       maximumHeight: maximumHeight,
+      boundingSphere: boundingSphere,
+      orientedBoundingBox: orientedBoundingBox,
       occludeePointInScaledSpace: occludeePointInScaledSpace,
       encoding: encoding,
       indexCountWithoutSkirts: parameters.indices.length,
@@ -855,7 +881,7 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
     var west = rectangle.west;
 
     if (east < west) {
-      east += ComponentDatatype.CesiumMath.TWO_PI;
+      east += _Math.CesiumMath.TWO_PI;
     }
 
     var length = edgeIndices.length;
@@ -864,18 +890,18 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
       var h = heights[index];
       var uv = uvs[index];
 
-      cartographicScratch.longitude = ComponentDatatype.CesiumMath.lerp(west, east, uv.x);
-      cartographicScratch.latitude = ComponentDatatype.CesiumMath.lerp(south, north, uv.y);
+      cartographicScratch.longitude = _Math.CesiumMath.lerp(west, east, uv.x);
+      cartographicScratch.latitude = _Math.CesiumMath.lerp(south, north, uv.y);
       cartographicScratch.height = h - edgeHeight;
 
       var position = ellipsoid.cartographicToCartesian(
         cartographicScratch,
         cartesian3Scratch
       );
-      Matrix2.Matrix4.multiplyByPoint(toENU, position, position);
+      Transforms.Matrix4.multiplyByPoint(toENU, position, position);
 
-      Matrix2.Cartesian3.minimumByComponent(position, minimum, minimum);
-      Matrix2.Cartesian3.maximumByComponent(position, maximum, maximum);
+      Cartesian2.Cartesian3.minimumByComponent(position, minimum, minimum);
+      Cartesian2.Cartesian3.maximumByComponent(position, maximum, maximum);
 
       hMin = Math.min(hMin, cartographicScratch.height);
     }
@@ -893,6 +919,7 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
     ellipsoid,
     rectangle,
     skirtLength,
+    exaggeration,
     southMercatorY,
     oneOverMercatorHeight,
     longitudeOffset,
@@ -906,7 +933,7 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
     var west = rectangle.west;
 
     if (east < west) {
-      east += ComponentDatatype.CesiumMath.TWO_PI;
+      east += _Math.CesiumMath.TWO_PI;
     }
 
     var length = edgeVertices.length;
@@ -916,9 +943,9 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
       var uv = uvs[index];
 
       cartographicScratch.longitude =
-        ComponentDatatype.CesiumMath.lerp(west, east, uv.x) + longitudeOffset;
+        _Math.CesiumMath.lerp(west, east, uv.x) + longitudeOffset;
       cartographicScratch.latitude =
-        ComponentDatatype.CesiumMath.lerp(south, north, uv.y) + latitudeOffset;
+        _Math.CesiumMath.lerp(south, north, uv.y) + latitudeOffset;
       cartographicScratch.height = h - skirtLength;
 
       var position = ellipsoid.cartographicToCartesian(
@@ -930,6 +957,32 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
         var n = index * 2.0;
         toPack.x = octEncodedNormals[n];
         toPack.y = octEncodedNormals[n + 1];
+
+        if (exaggeration !== 1.0) {
+          var normal = AttributeCompression.AttributeCompression.octDecode(
+            toPack.x,
+            toPack.y,
+            scratchNormal
+          );
+          var fromENUNormal = Transforms.Transforms.eastNorthUpToFixedFrame(
+            cartesian3Scratch,
+            ellipsoid,
+            scratchFromENU
+          );
+          var toENUNormal = Transforms.Matrix4.inverseTransformation(
+            fromENUNormal,
+            scratchToENU
+          );
+
+          Transforms.Matrix4.multiplyByPointAsVector(toENUNormal, normal, normal);
+          normal.z *= exaggeration;
+          Cartesian2.Cartesian3.normalize(normal, normal);
+
+          Transforms.Matrix4.multiplyByPointAsVector(fromENUNormal, normal, normal);
+          Cartesian2.Cartesian3.normalize(normal, normal);
+
+          AttributeCompression.AttributeCompression.octEncode(normal, toPack);
+        }
       }
 
       var webMercatorT;
@@ -942,11 +995,6 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
           oneOverMercatorHeight;
       }
 
-      var geodeticSurfaceNormal;
-      if (encoding.hasGeodeticSurfaceNormals) {
-        geodeticSurfaceNormal = ellipsoid.geodeticSurfaceNormal(position);
-      }
-
       vertexBufferIndex = encoding.encode(
         vertexBuffer,
         vertexBufferIndex,
@@ -954,8 +1002,7 @@ define(['./AxisAlignedBoundingBox-b0cd1e39', './Matrix2-92b7fb9d', './when-8166c
         uv,
         cartographicScratch.height,
         toPack,
-        webMercatorT,
-        geodeticSurfaceNormal
+        webMercatorT
       );
     }
   }

@@ -1,5 +1,4 @@
 import { Cartesian3 } from "../../Source/Cesium.js";
-import { Cesium3DTileStyle } from "../../Source/Cesium.js";
 import { HeadingPitchRange } from "../../Source/Cesium.js";
 import { Math as CesiumMath } from "../../Source/Cesium.js";
 import { PerspectiveFrustum } from "../../Source/Cesium.js";
@@ -46,12 +45,14 @@ describe(
     });
 
     it("adds a clear command and a post-processing draw call", function () {
-      if (!PointCloudEyeDomeLighting.isSupported(scene.frameState.context)) {
-        return;
-      }
-
       return Cesium3DTilesTester.loadTileset(scene, pointCloudNoColorUrl).then(
         function (tileset) {
+          if (
+            !PointCloudEyeDomeLighting.isSupported(scene.frameState.context)
+          ) {
+            return;
+          }
+
           tileset.pointCloudShading.eyeDomeLighting = true;
 
           scene.renderForSpecs();
@@ -66,10 +67,6 @@ describe(
     });
 
     it("does not change commands for pick calls", function () {
-      if (!PointCloudEyeDomeLighting.isSupported(scene.frameState.context)) {
-        return;
-      }
-
       return Cesium3DTilesTester.loadTileset(scene, pointCloudNoColorUrl).then(
         function (tileset) {
           tileset.pointCloudShading.eyeDomeLighting = true;
@@ -81,40 +78,6 @@ describe(
           scene.pickForSpecs();
           var newLength = scene.frameState.commandList.length;
           expect(newLength).toEqual(originalLength);
-        }
-      );
-    });
-
-    it("works when point cloud shader changes", function () {
-      if (!PointCloudEyeDomeLighting.isSupported(scene.frameState.context)) {
-        return;
-      }
-
-      return Cesium3DTilesTester.loadTileset(scene, pointCloudNoColorUrl).then(
-        function (tileset) {
-          tileset.pointCloudShading.attenuation = true;
-          tileset.pointCloudShading.eyeDomeLighting = true;
-
-          scene.renderForSpecs();
-
-          tileset.pointCloudShading.eyeDomeLighting = false;
-
-          scene.renderForSpecs();
-
-          tileset.style = new Cesium3DTileStyle({
-            color: "color('red')",
-          });
-
-          scene.renderForSpecs();
-
-          // Forces destroyed shaders to be released
-          scene.context.shaderCache.destroyReleasedShaderPrograms();
-
-          tileset.pointCloudShading.eyeDomeLighting = true;
-
-          scene.renderForSpecs();
-
-          expect(scene.frameState.commandList.length).toBe(3);
         }
       );
     });

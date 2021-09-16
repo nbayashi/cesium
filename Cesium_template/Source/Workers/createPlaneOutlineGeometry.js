@@ -1,5 +1,5 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['./when-8166c7dd', './Transforms-62a339c3', './Matrix2-92b7fb9d', './RuntimeError-4fdc4459', './ComponentDatatype-9ed50558', './GeometryAttribute-6f4c3b93', './GeometryAttributes-50becc99', './combine-a5c4cc47', './WebGLConstants-0664004c'], function (when, Transforms, Matrix2, RuntimeError, ComponentDatatype, GeometryAttribute, GeometryAttributes, combine, WebGLConstants) { 'use strict';
+define(['./when-f31b6bd1', './Transforms-eb995198', './Cartesian2-44e93af5', './Check-285f6bfc', './ComponentDatatype-d4a0149c', './GeometryAttribute-cc0565cd', './GeometryAttributes-e973821e', './Math-8c161f1c', './RuntimeError-c7c236f3', './WebGLConstants-34c08bc0'], function (when, Transforms, Cartesian2, Check, ComponentDatatype, GeometryAttribute, GeometryAttributes, _Math, RuntimeError, WebGLConstants) { 'use strict';
 
   /**
    * Describes geometry representing the outline of a plane centered at the origin, with a unit width and length.
@@ -28,8 +28,8 @@ define(['./when-8166c7dd', './Transforms-62a339c3', './Matrix2-92b7fb9d', './Run
    */
   PlaneOutlineGeometry.pack = function (value, array) {
     //>>includeStart('debug', pragmas.debug);
-    RuntimeError.Check.defined("value", value);
-    RuntimeError.Check.defined("array", array);
+    Check.Check.defined("value", value);
+    Check.Check.defined("array", array);
     //>>includeEnd('debug');
 
     return array;
@@ -45,7 +45,7 @@ define(['./when-8166c7dd', './Transforms-62a339c3', './Matrix2-92b7fb9d', './Run
    */
   PlaneOutlineGeometry.unpack = function (array, startingIndex, result) {
     //>>includeStart('debug', pragmas.debug);
-    RuntimeError.Check.defined("array", array);
+    Check.Check.defined("array", array);
     //>>includeEnd('debug');
 
     if (!when.defined(result)) {
@@ -55,8 +55,8 @@ define(['./when-8166c7dd', './Transforms-62a339c3', './Matrix2-92b7fb9d', './Run
     return result;
   };
 
-  var min = new Matrix2.Cartesian3(-0.5, -0.5, 0.0);
-  var max = new Matrix2.Cartesian3(0.5, 0.5, 0.0);
+  var min = new Cartesian2.Cartesian3(-0.5, -0.5, 0.0);
+  var max = new Cartesian2.Cartesian3(0.5, 0.5, 0.0);
 
   /**
    * Computes the geometric representation of an outline of a plane, including its vertices, indices, and a bounding sphere.
@@ -100,7 +100,7 @@ define(['./when-8166c7dd', './Transforms-62a339c3', './Matrix2-92b7fb9d', './Run
       attributes: attributes,
       indices: indices,
       primitiveType: GeometryAttribute.PrimitiveType.LINES,
-      boundingSphere: new Transforms.BoundingSphere(Matrix2.Cartesian3.ZERO, Math.sqrt(2.0)),
+      boundingSphere: new Transforms.BoundingSphere(Cartesian2.Cartesian3.ZERO, Math.sqrt(2.0)),
     });
   };
 

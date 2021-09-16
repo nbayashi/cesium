@@ -1,9 +1,12 @@
+import defaultValue from "../Core/defaultValue.js";
 import destroyObject from "../Core/destroyObject.js";
+import getJsonFromTypedArray from "../Core/getJsonFromTypedArray.js";
+import RuntimeError from "../Core/RuntimeError.js";
 import when from "../ThirdParty/when.js";
 
 /**
  * Represents content for a tile in a
- * {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification|3D Tiles} tileset whose
+ * {@link https://github.com/CesiumGS/3d-tiles/tree/master/specification|3D Tiles} tileset whose
  * content points to another 3D Tiles tileset.
  * <p>
  * Implements the {@link Cesium3DTileContent} interface.
@@ -14,16 +17,21 @@ import when from "../ThirdParty/when.js";
  *
  * @private
  */
-function Tileset3DTileContent(tileset, tile, resource, json) {
+function Tileset3DTileContent(
+  tileset,
+  tile,
+  resource,
+  arrayBuffer,
+  byteOffset
+) {
   this._tileset = tileset;
   this._tile = tile;
   this._resource = resource;
   this._readyPromise = when.defer();
 
   this.featurePropertiesDirty = false;
-  this._groupMetadata = undefined;
 
-  initialize(this, json);
+  initialize(this, arrayBuffer, byteOffset);
 }
 
 Object.defineProperties(Tileset3DTileContent.prototype, {
@@ -98,19 +106,21 @@ Object.defineProperties(Tileset3DTileContent.prototype, {
       return undefined;
     },
   },
-
-  groupMetadata: {
-    get: function () {
-      return this._groupMetadata;
-    },
-    set: function (value) {
-      this._groupMetadata = value;
-    },
-  },
 });
 
-function initialize(content, json) {
-  content._tileset.loadTileset(content._resource, json, content._tile);
+function initialize(content, arrayBuffer, byteOffset) {
+  byteOffset = defaultValue(byteOffset, 0);
+  var uint8Array = new Uint8Array(arrayBuffer);
+  var tilesetJson;
+
+  try {
+    tilesetJson = getJsonFromTypedArray(uint8Array, byteOffset);
+  } catch (error) {
+    content._readyPromise.reject(new RuntimeError("Invalid tile content."));
+    return;
+  }
+
+  content._tileset.loadTileset(content._resource, tilesetJson, content._tile);
   content._readyPromise.resolve(content);
 }
 

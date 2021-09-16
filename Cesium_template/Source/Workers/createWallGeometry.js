@@ -1,13 +1,13 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['./when-8166c7dd', './Matrix2-92b7fb9d', './Transforms-62a339c3', './ComponentDatatype-9ed50558', './RuntimeError-4fdc4459', './GeometryAttribute-6f4c3b93', './GeometryAttributes-50becc99', './IndexDatatype-797210ca', './VertexFormat-c0801687', './WallGeometryLibrary-ace2cc0d', './combine-a5c4cc47', './WebGLConstants-0664004c', './arrayRemoveDuplicates-198208a4', './PolylinePipeline-fd9260c9', './EllipsoidGeodesic-133bd147', './EllipsoidRhumbLine-51654311', './IntersectionTests-4f28a69c', './Plane-049255eb'], function (when, Matrix2, Transforms, ComponentDatatype, RuntimeError, GeometryAttribute, GeometryAttributes, IndexDatatype, VertexFormat, WallGeometryLibrary, combine, WebGLConstants, arrayRemoveDuplicates, PolylinePipeline, EllipsoidGeodesic, EllipsoidRhumbLine, IntersectionTests, Plane) { 'use strict';
+define(['./when-f31b6bd1', './Cartesian2-44e93af5', './Transforms-eb995198', './ComponentDatatype-d4a0149c', './Check-285f6bfc', './GeometryAttribute-cc0565cd', './GeometryAttributes-e973821e', './IndexDatatype-e20e62f1', './Math-8c161f1c', './VertexFormat-ab7dd48c', './WallGeometryLibrary-0418504b', './RuntimeError-c7c236f3', './WebGLConstants-34c08bc0', './arrayRemoveDuplicates-618d22a8', './PolylinePipeline-9442b9a9', './EllipsoidGeodesic-fb20d8d5', './EllipsoidRhumbLine-b65d3f48', './IntersectionTests-db497aaf', './Plane-16f95004'], function (when, Cartesian2, Transforms, ComponentDatatype, Check, GeometryAttribute, GeometryAttributes, IndexDatatype, _Math, VertexFormat, WallGeometryLibrary, RuntimeError, WebGLConstants, arrayRemoveDuplicates, PolylinePipeline, EllipsoidGeodesic, EllipsoidRhumbLine, IntersectionTests, Plane) { 'use strict';
 
-  var scratchCartesian3Position1 = new Matrix2.Cartesian3();
-  var scratchCartesian3Position2 = new Matrix2.Cartesian3();
-  var scratchCartesian3Position4 = new Matrix2.Cartesian3();
-  var scratchCartesian3Position5 = new Matrix2.Cartesian3();
-  var scratchBitangent = new Matrix2.Cartesian3();
-  var scratchTangent = new Matrix2.Cartesian3();
-  var scratchNormal = new Matrix2.Cartesian3();
+  var scratchCartesian3Position1 = new Cartesian2.Cartesian3();
+  var scratchCartesian3Position2 = new Cartesian2.Cartesian3();
+  var scratchCartesian3Position4 = new Cartesian2.Cartesian3();
+  var scratchCartesian3Position5 = new Cartesian2.Cartesian3();
+  var scratchBitangent = new Cartesian2.Cartesian3();
+  var scratchTangent = new Cartesian2.Cartesian3();
+  var scratchNormal = new Cartesian2.Cartesian3();
 
   /**
    * A description of a wall, which is similar to a KML line string. A wall is defined by a series of points,
@@ -57,13 +57,13 @@ define(['./when-8166c7dd', './Matrix2-92b7fb9d', './Transforms-62a339c3', './Com
 
     //>>includeStart('debug', pragmas.debug);
     if (!when.defined(wallPositions)) {
-      throw new RuntimeError.DeveloperError("options.positions is required.");
+      throw new Check.DeveloperError("options.positions is required.");
     }
     if (
       when.defined(maximumHeights) &&
       maximumHeights.length !== wallPositions.length
     ) {
-      throw new RuntimeError.DeveloperError(
+      throw new Check.DeveloperError(
         "options.positions and options.maximumHeights must have the same length."
       );
     }
@@ -71,7 +71,7 @@ define(['./when-8166c7dd', './Matrix2-92b7fb9d', './Transforms-62a339c3', './Com
       when.defined(minimumHeights) &&
       minimumHeights.length !== wallPositions.length
     ) {
-      throw new RuntimeError.DeveloperError(
+      throw new Check.DeveloperError(
         "options.positions and options.minimumHeights must have the same length."
       );
     }
@@ -80,19 +80,19 @@ define(['./when-8166c7dd', './Matrix2-92b7fb9d', './Transforms-62a339c3', './Com
     var vertexFormat = when.defaultValue(options.vertexFormat, VertexFormat.VertexFormat.DEFAULT);
     var granularity = when.defaultValue(
       options.granularity,
-      ComponentDatatype.CesiumMath.RADIANS_PER_DEGREE
+      _Math.CesiumMath.RADIANS_PER_DEGREE
     );
-    var ellipsoid = when.defaultValue(options.ellipsoid, Matrix2.Ellipsoid.WGS84);
+    var ellipsoid = when.defaultValue(options.ellipsoid, Cartesian2.Ellipsoid.WGS84);
 
     this._positions = wallPositions;
     this._minimumHeights = minimumHeights;
     this._maximumHeights = maximumHeights;
     this._vertexFormat = VertexFormat.VertexFormat.clone(vertexFormat);
     this._granularity = granularity;
-    this._ellipsoid = Matrix2.Ellipsoid.clone(ellipsoid);
+    this._ellipsoid = Cartesian2.Ellipsoid.clone(ellipsoid);
     this._workerName = "createWallGeometry";
 
-    var numComponents = 1 + wallPositions.length * Matrix2.Cartesian3.packedLength + 2;
+    var numComponents = 1 + wallPositions.length * Cartesian2.Cartesian3.packedLength + 2;
     if (when.defined(minimumHeights)) {
       numComponents += minimumHeights.length;
     }
@@ -105,7 +105,7 @@ define(['./when-8166c7dd', './Matrix2-92b7fb9d', './Transforms-62a339c3', './Com
      * @type {Number}
      */
     this.packedLength =
-      numComponents + Matrix2.Ellipsoid.packedLength + VertexFormat.VertexFormat.packedLength + 1;
+      numComponents + Cartesian2.Ellipsoid.packedLength + VertexFormat.VertexFormat.packedLength + 1;
   }
 
   /**
@@ -120,10 +120,10 @@ define(['./when-8166c7dd', './Matrix2-92b7fb9d', './Transforms-62a339c3', './Com
   WallGeometry.pack = function (value, array, startingIndex) {
     //>>includeStart('debug', pragmas.debug);
     if (!when.defined(value)) {
-      throw new RuntimeError.DeveloperError("value is required");
+      throw new Check.DeveloperError("value is required");
     }
     if (!when.defined(array)) {
-      throw new RuntimeError.DeveloperError("array is required");
+      throw new Check.DeveloperError("array is required");
     }
     //>>includeEnd('debug');
 
@@ -135,8 +135,8 @@ define(['./when-8166c7dd', './Matrix2-92b7fb9d', './Transforms-62a339c3', './Com
     var length = positions.length;
     array[startingIndex++] = length;
 
-    for (i = 0; i < length; ++i, startingIndex += Matrix2.Cartesian3.packedLength) {
-      Matrix2.Cartesian3.pack(positions[i], array, startingIndex);
+    for (i = 0; i < length; ++i, startingIndex += Cartesian2.Cartesian3.packedLength) {
+      Cartesian2.Cartesian3.pack(positions[i], array, startingIndex);
     }
 
     var minimumHeights = value._minimumHeights;
@@ -159,8 +159,8 @@ define(['./when-8166c7dd', './Matrix2-92b7fb9d', './Transforms-62a339c3', './Com
       }
     }
 
-    Matrix2.Ellipsoid.pack(value._ellipsoid, array, startingIndex);
-    startingIndex += Matrix2.Ellipsoid.packedLength;
+    Cartesian2.Ellipsoid.pack(value._ellipsoid, array, startingIndex);
+    startingIndex += Cartesian2.Ellipsoid.packedLength;
 
     VertexFormat.VertexFormat.pack(value._vertexFormat, array, startingIndex);
     startingIndex += VertexFormat.VertexFormat.packedLength;
@@ -170,7 +170,7 @@ define(['./when-8166c7dd', './Matrix2-92b7fb9d', './Transforms-62a339c3', './Com
     return array;
   };
 
-  var scratchEllipsoid = Matrix2.Ellipsoid.clone(Matrix2.Ellipsoid.UNIT_SPHERE);
+  var scratchEllipsoid = Cartesian2.Ellipsoid.clone(Cartesian2.Ellipsoid.UNIT_SPHERE);
   var scratchVertexFormat = new VertexFormat.VertexFormat();
   var scratchOptions = {
     positions: undefined,
@@ -192,7 +192,7 @@ define(['./when-8166c7dd', './Matrix2-92b7fb9d', './Transforms-62a339c3', './Com
   WallGeometry.unpack = function (array, startingIndex, result) {
     //>>includeStart('debug', pragmas.debug);
     if (!when.defined(array)) {
-      throw new RuntimeError.DeveloperError("array is required");
+      throw new Check.DeveloperError("array is required");
     }
     //>>includeEnd('debug');
 
@@ -203,8 +203,8 @@ define(['./when-8166c7dd', './Matrix2-92b7fb9d', './Transforms-62a339c3', './Com
     var length = array[startingIndex++];
     var positions = new Array(length);
 
-    for (i = 0; i < length; ++i, startingIndex += Matrix2.Cartesian3.packedLength) {
-      positions[i] = Matrix2.Cartesian3.unpack(array, startingIndex);
+    for (i = 0; i < length; ++i, startingIndex += Cartesian2.Cartesian3.packedLength) {
+      positions[i] = Cartesian2.Cartesian3.unpack(array, startingIndex);
     }
 
     length = array[startingIndex++];
@@ -227,8 +227,8 @@ define(['./when-8166c7dd', './Matrix2-92b7fb9d', './Transforms-62a339c3', './Com
       }
     }
 
-    var ellipsoid = Matrix2.Ellipsoid.unpack(array, startingIndex, scratchEllipsoid);
-    startingIndex += Matrix2.Ellipsoid.packedLength;
+    var ellipsoid = Cartesian2.Ellipsoid.unpack(array, startingIndex, scratchEllipsoid);
+    startingIndex += Cartesian2.Ellipsoid.packedLength;
 
     var vertexFormat = VertexFormat.VertexFormat.unpack(
       array,
@@ -250,7 +250,7 @@ define(['./when-8166c7dd', './Matrix2-92b7fb9d', './Transforms-62a339c3', './Com
     result._positions = positions;
     result._minimumHeights = minimumHeights;
     result._maximumHeights = maximumHeights;
-    result._ellipsoid = Matrix2.Ellipsoid.clone(ellipsoid, result._ellipsoid);
+    result._ellipsoid = Cartesian2.Ellipsoid.clone(ellipsoid, result._ellipsoid);
     result._vertexFormat = VertexFormat.VertexFormat.clone(vertexFormat, result._vertexFormat);
     result._granularity = granularity;
 
@@ -295,7 +295,7 @@ define(['./when-8166c7dd', './Matrix2-92b7fb9d', './Transforms-62a339c3', './Com
 
     //>>includeStart('debug', pragmas.debug);
     if (!when.defined(positions)) {
-      throw new RuntimeError.DeveloperError("options.positions is required.");
+      throw new Check.DeveloperError("options.positions is required.");
     }
     //>>includeEnd('debug');
 
@@ -392,12 +392,12 @@ define(['./when-8166c7dd', './Matrix2-92b7fb9d', './Transforms-62a339c3', './Com
     var ds = 1 / (length - numCorners - 1);
     for (i = 0; i < length; ++i) {
       var i3 = i * 3;
-      var topPosition = Matrix2.Cartesian3.fromArray(
+      var topPosition = Cartesian2.Cartesian3.fromArray(
         topPositions,
         i3,
         scratchCartesian3Position1
       );
-      var bottomPosition = Matrix2.Cartesian3.fromArray(
+      var bottomPosition = Cartesian2.Cartesian3.fromArray(
         bottomPositions,
         i3,
         scratchCartesian3Position2
@@ -423,11 +423,11 @@ define(['./when-8166c7dd', './Matrix2-92b7fb9d', './Transforms-62a339c3', './Com
       }
 
       if (vertexFormat.normal || vertexFormat.tangent || vertexFormat.bitangent) {
-        var nextTop = Matrix2.Cartesian3.clone(
-          Matrix2.Cartesian3.ZERO,
+        var nextTop = Cartesian2.Cartesian3.clone(
+          Cartesian2.Cartesian3.ZERO,
           scratchCartesian3Position5
         );
-        var groundPosition = Matrix2.Cartesian3.subtract(
+        var groundPosition = Cartesian2.Cartesian3.subtract(
           topPosition,
           ellipsoid.geodeticSurfaceNormal(
             topPosition,
@@ -436,7 +436,7 @@ define(['./when-8166c7dd', './Matrix2-92b7fb9d', './Transforms-62a339c3', './Com
           scratchCartesian3Position2
         );
         if (i + 1 < length) {
-          nextTop = Matrix2.Cartesian3.fromArray(
+          nextTop = Cartesian2.Cartesian3.fromArray(
             topPositions,
             i3 + 3,
             scratchCartesian3Position5
@@ -444,38 +444,38 @@ define(['./when-8166c7dd', './Matrix2-92b7fb9d', './Transforms-62a339c3', './Com
         }
 
         if (recomputeNormal) {
-          var scalednextPosition = Matrix2.Cartesian3.subtract(
+          var scalednextPosition = Cartesian2.Cartesian3.subtract(
             nextTop,
             topPosition,
             scratchCartesian3Position4
           );
-          var scaledGroundPosition = Matrix2.Cartesian3.subtract(
+          var scaledGroundPosition = Cartesian2.Cartesian3.subtract(
             groundPosition,
             topPosition,
             scratchCartesian3Position1
           );
-          normal = Matrix2.Cartesian3.normalize(
-            Matrix2.Cartesian3.cross(scaledGroundPosition, scalednextPosition, normal),
+          normal = Cartesian2.Cartesian3.normalize(
+            Cartesian2.Cartesian3.cross(scaledGroundPosition, scalednextPosition, normal),
             normal
           );
           recomputeNormal = false;
         }
 
         if (
-          Matrix2.Cartesian3.equalsEpsilon(topPosition, nextTop, ComponentDatatype.CesiumMath.EPSILON10)
+          Cartesian2.Cartesian3.equalsEpsilon(topPosition, nextTop, _Math.CesiumMath.EPSILON10)
         ) {
           recomputeNormal = true;
         } else {
           s += ds;
           if (vertexFormat.tangent) {
-            tangent = Matrix2.Cartesian3.normalize(
-              Matrix2.Cartesian3.subtract(nextTop, topPosition, tangent),
+            tangent = Cartesian2.Cartesian3.normalize(
+              Cartesian2.Cartesian3.subtract(nextTop, topPosition, tangent),
               tangent
             );
           }
           if (vertexFormat.bitangent) {
-            bitangent = Matrix2.Cartesian3.normalize(
-              Matrix2.Cartesian3.cross(normal, tangent, bitangent),
+            bitangent = Cartesian2.Cartesian3.normalize(
+              Cartesian2.Cartesian3.cross(normal, tangent, bitangent),
               bitangent
             );
           }
@@ -577,17 +577,17 @@ define(['./when-8166c7dd', './Matrix2-92b7fb9d', './Transforms-62a339c3', './Com
     for (i = 0; i < numVertices - 2; i += 2) {
       var LL = i;
       var LR = i + 2;
-      var pl = Matrix2.Cartesian3.fromArray(
+      var pl = Cartesian2.Cartesian3.fromArray(
         positions,
         LL * 3,
         scratchCartesian3Position1
       );
-      var pr = Matrix2.Cartesian3.fromArray(
+      var pr = Cartesian2.Cartesian3.fromArray(
         positions,
         LR * 3,
         scratchCartesian3Position2
       );
-      if (Matrix2.Cartesian3.equalsEpsilon(pl, pr, ComponentDatatype.CesiumMath.EPSILON10)) {
+      if (Cartesian2.Cartesian3.equalsEpsilon(pl, pr, _Math.CesiumMath.EPSILON10)) {
         continue;
       }
       var UL = i + 1;
@@ -613,7 +613,7 @@ define(['./when-8166c7dd', './Matrix2-92b7fb9d', './Transforms-62a339c3', './Com
     if (when.defined(offset)) {
       wallGeometry = WallGeometry.unpack(wallGeometry, offset);
     }
-    wallGeometry._ellipsoid = Matrix2.Ellipsoid.clone(wallGeometry._ellipsoid);
+    wallGeometry._ellipsoid = Cartesian2.Ellipsoid.clone(wallGeometry._ellipsoid);
     return WallGeometry.createGeometry(wallGeometry);
   }
 

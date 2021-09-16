@@ -38,10 +38,8 @@ getAbsoluteUri._implementation = function (relative, base, documentObject) {
     base = defaultValue(documentObject.baseURI, documentObject.location.href);
   }
 
+  var baseUri = new Uri(base);
   var relativeUri = new Uri(relative);
-  if (relativeUri.scheme() !== "") {
-    return relativeUri.toString();
-  }
-  return relativeUri.absoluteTo(base).toString();
+  return relativeUri.resolve(baseUri).toString();
 };
 export default getAbsoluteUri;

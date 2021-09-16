@@ -102,10 +102,7 @@ TerrainTileProcessor.prototype.process = function (tiles, maxIterations) {
 TerrainTileProcessor.prototype.mockWebGL = function () {
   spyOn(GlobeSurfaceTile, "_createVertexArrayForMesh").and.callFake(
     function () {
-      var vertexArray = jasmine.createSpyObj("VertexArray", [
-        "destroy",
-        "isDestroyed",
-      ]);
+      var vertexArray = jasmine.createSpyObj("VertexArray", ["destroy"]);
       return vertexArray;
     }
   );

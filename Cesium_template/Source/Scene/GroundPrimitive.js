@@ -10,13 +10,12 @@ import DeveloperError from "../Core/DeveloperError.js";
 import GeometryInstance from "../Core/GeometryInstance.js";
 import OrientedBoundingBox from "../Core/OrientedBoundingBox.js";
 import Rectangle from "../Core/Rectangle.js";
-import TerrainExaggeration from "../Core/TerrainExaggeration.js";
+import when from "../ThirdParty/when.js";
 import ClassificationPrimitive from "./ClassificationPrimitive.js";
 import ClassificationType from "./ClassificationType.js";
 import PerInstanceColorAppearance from "./PerInstanceColorAppearance.js";
 import SceneMode from "./SceneMode.js";
 import ShadowVolumeAppearance from "./ShadowVolumeAppearance.js";
-import when from "../ThirdParty/when.js";
 
 var GroundPrimitiveUniformMap = {
   u_globeMinimumAltitude: function () {
@@ -774,18 +773,8 @@ GroundPrimitive.prototype.update = function (frameState) {
     // Now compute the min/max heights for the primitive
     setMinMaxTerrainHeights(this, rectangle, ellipsoid);
     var exaggeration = frameState.terrainExaggeration;
-    var exaggerationRelativeHeight =
-      frameState.terrainExaggerationRelativeHeight;
-    this._minHeight = TerrainExaggeration.getHeight(
-      this._minTerrainHeight,
-      exaggeration,
-      exaggerationRelativeHeight
-    );
-    this._maxHeight = TerrainExaggeration.getHeight(
-      this._maxTerrainHeight,
-      exaggeration,
-      exaggerationRelativeHeight
-    );
+    this._minHeight = this._minTerrainHeight * exaggeration;
+    this._maxHeight = this._maxTerrainHeight * exaggeration;
 
     var useFragmentCulling = GroundPrimitive._supportsMaterials(
       frameState.context

@@ -18,10 +18,10 @@
  * Columbus View (Pat. Pend.)
  *
  * Portions licensed separately.
- * See https://github.com/CesiumGS/cesium/blob/main/LICENSE.md for full licensing details.
+ * See https://github.com/CesiumGS/cesium/blob/master/LICENSE.md for full licensing details.
  */
 
-define(['./when-4bbc8319', './Transforms-b4151f9c', './Matrix2-32d4a9a0', './RuntimeError-346a3079', './ComponentDatatype-f194c48b', './GeometryAttribute-900e07ee', './GeometryAttributes-7827a6c2', './combine-83860057', './WebGLConstants-1c8239cc'], function (when, Transforms, Matrix2, RuntimeError, ComponentDatatype, GeometryAttribute, GeometryAttributes, combine, WebGLConstants) { 'use strict';
+define(['./when-208fe5b0', './Transforms-f1816abc', './Cartesian2-716c2715', './Check-d18af7c4', './ComponentDatatype-549ec0d3', './GeometryAttribute-0ee94cf1', './GeometryAttributes-b0b294d8', './Math-3ba16bed', './RuntimeError-7f634f5d', './WebGLConstants-76bb35d1'], function (when, Transforms, Cartesian2, Check, ComponentDatatype, GeometryAttribute, GeometryAttributes, _Math, RuntimeError, WebGLConstants) { 'use strict';
 
   /**
    * Describes geometry representing the outline of a plane centered at the origin, with a unit width and length.
@@ -50,8 +50,8 @@ define(['./when-4bbc8319', './Transforms-b4151f9c', './Matrix2-32d4a9a0', './Run
    */
   PlaneOutlineGeometry.pack = function (value, array) {
     //>>includeStart('debug', pragmas.debug);
-    RuntimeError.Check.defined("value", value);
-    RuntimeError.Check.defined("array", array);
+    Check.Check.defined("value", value);
+    Check.Check.defined("array", array);
     //>>includeEnd('debug');
 
     return array;
@@ -67,7 +67,7 @@ define(['./when-4bbc8319', './Transforms-b4151f9c', './Matrix2-32d4a9a0', './Run
    */
   PlaneOutlineGeometry.unpack = function (array, startingIndex, result) {
     //>>includeStart('debug', pragmas.debug);
-    RuntimeError.Check.defined("array", array);
+    Check.Check.defined("array", array);
     //>>includeEnd('debug');
 
     if (!when.defined(result)) {
@@ -77,8 +77,8 @@ define(['./when-4bbc8319', './Transforms-b4151f9c', './Matrix2-32d4a9a0', './Run
     return result;
   };
 
-  var min = new Matrix2.Cartesian3(-0.5, -0.5, 0.0);
-  var max = new Matrix2.Cartesian3(0.5, 0.5, 0.0);
+  var min = new Cartesian2.Cartesian3(-0.5, -0.5, 0.0);
+  var max = new Cartesian2.Cartesian3(0.5, 0.5, 0.0);
 
   /**
    * Computes the geometric representation of an outline of a plane, including its vertices, indices, and a bounding sphere.
@@ -122,7 +122,7 @@ define(['./when-4bbc8319', './Transforms-b4151f9c', './Matrix2-32d4a9a0', './Run
       attributes: attributes,
       indices: indices,
       primitiveType: GeometryAttribute.PrimitiveType.LINES,
-      boundingSphere: new Transforms.BoundingSphere(Matrix2.Cartesian3.ZERO, Math.sqrt(2.0)),
+      boundingSphere: new Transforms.BoundingSphere(Cartesian2.Cartesian3.ZERO, Math.sqrt(2.0)),
     });
   };
 

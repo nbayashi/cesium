@@ -1,5 +1,5 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['./ComponentDatatype-9ed50558', './when-8166c7dd', './IndexDatatype-797210ca', './RuntimeError-4fdc4459', './createTaskProcessorWorker', './WebGLConstants-0664004c'], function (ComponentDatatype, when, IndexDatatype, RuntimeError, createTaskProcessorWorker, WebGLConstants) { 'use strict';
+define(['./ComponentDatatype-d4a0149c', './when-f31b6bd1', './IndexDatatype-e20e62f1', './RuntimeError-c7c236f3', './createTaskProcessorWorker', './Check-285f6bfc', './WebGLConstants-34c08bc0', './Math-8c161f1c'], function (ComponentDatatype, when, IndexDatatype, RuntimeError, createTaskProcessorWorker, Check, WebGLConstants, _Math) { 'use strict';
 
   /* global require */
 
@@ -330,7 +330,7 @@ define(['./ComponentDatatype-9ed50558', './when-8166c7dd', './IndexDatatype-7972
   }
 
   function decode(parameters) {
-    if (when.defined(parameters.bufferView)) {
+    if (when.defined(parameters.primitive)) {
       return decodePrimitive(parameters);
     }
     return decodePointCloud(parameters);

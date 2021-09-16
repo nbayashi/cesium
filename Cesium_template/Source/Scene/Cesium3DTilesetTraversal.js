@@ -324,7 +324,6 @@ function meetsScreenSpaceErrorEarly(tileset, tile, frameState) {
   if (
     !defined(parent) ||
     parent.hasTilesetContent ||
-    parent.hasImplicitContent ||
     parent.refine !== Cesium3DTileRefine.ADD
   ) {
     return false;
@@ -345,7 +344,7 @@ function updateTileVisibility(tileset, tile, frameState) {
   }
 
   var hasChildren = tile.children.length > 0;
-  if ((tile.hasTilesetContent || tile.hasImplicitContent) && hasChildren) {
+  if (tile.hasTilesetContent && hasChildren) {
     // Use the root tile's visibility instead of this tile's visibility.
     // The root tile may be culled by the children bounds optimization in which
     // case this tile should also be culled.
@@ -411,9 +410,7 @@ function updateTileAncestorContentLinks(tile, frameState) {
 }
 
 function hasEmptyContent(tile) {
-  return (
-    tile.hasEmptyContent || tile.hasTilesetContent || tile.hasImplicitContent
-  );
+  return tile.hasEmptyContent || tile.hasTilesetContent;
 }
 
 function hasUnloadedContent(tile) {
@@ -553,7 +550,7 @@ function canTraverse(tileset, tile) {
   if (tile.children.length === 0) {
     return false;
   }
-  if (tile.hasTilesetContent || tile.hasImplicitContent) {
+  if (tile.hasTilesetContent) {
     // Traverse external tileset to visit its root tile
     // Don't traverse if the subtree is expired because it will be destroyed
     return !tile.contentExpired;

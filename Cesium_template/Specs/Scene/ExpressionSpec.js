@@ -22,7 +22,7 @@ describe("Scene/Expression", function () {
     this._properties[name] = value;
   };
 
-  MockFeature.prototype.getPropertyInherited = function (name) {
+  MockFeature.prototype.getProperty = function (name) {
     return this._properties[name];
   };
 
@@ -3416,50 +3416,42 @@ describe("Scene/Expression", function () {
   it("gets shader function", function () {
     var expression = new Expression("true");
     var shaderFunction = expression.getShaderFunction(
-      "getShow()",
+      "getShow",
       {},
       {},
       "bool"
     );
-    var expected = "bool getShow()\n" + "{\n" + "    return true;\n" + "}\n";
+    var expected =
+      "bool getShow() \n" + "{ \n" + "    return true; \n" + "} \n";
     expect(shaderFunction).toEqual(expected);
   });
 
   it("gets shader expression for variable", function () {
     var expression = new Expression("${property}");
-    var variableSubstitutionMap = {
+    var propertyNameMap = {
       property: "a_property",
     };
-    var shaderExpression = expression.getShaderExpression(
-      variableSubstitutionMap,
-      {}
-    );
+    var shaderExpression = expression.getShaderExpression(propertyNameMap, {});
     var expected = "a_property";
     expect(shaderExpression).toEqual(expected);
   });
 
   it("gets shader expression for feature variable with bracket notation", function () {
     var expression = new Expression("${feature['property']}");
-    var variableSubstitutionMap = {
+    var propertyNameMap = {
       property: "a_property",
     };
-    var shaderExpression = expression.getShaderExpression(
-      variableSubstitutionMap,
-      {}
-    );
+    var shaderExpression = expression.getShaderExpression(propertyNameMap, {});
     var expected = "a_property";
     expect(shaderExpression).toEqual(expected);
   });
 
   it("gets shader expression for feature variable with dot notation", function () {
     var expression = new Expression("${feature.property}");
-    var variableSubstitutionMap = {
+    var propertyNameMap = {
       property: "a_property",
     };
-    var shaderExpression = expression.getShaderExpression(
-      variableSubstitutionMap,
-      {}
-    );
+    var shaderExpression = expression.getShaderExpression(propertyNameMap, {});
     var expected = "a_property";
     expect(shaderExpression).toEqual(expected);
   });
@@ -3598,21 +3590,15 @@ describe("Scene/Expression", function () {
   });
 
   it("gets shader expression for array indexing", function () {
-    var variableSubstitutionMap = { property: "property" };
+    var propertyNameMap = { property: "property" };
 
     var expression = new Expression("${property[0]}");
-    var shaderExpression = expression.getShaderExpression(
-      variableSubstitutionMap,
-      {}
-    );
+    var shaderExpression = expression.getShaderExpression(propertyNameMap, {});
     var expected = "property[0]";
     expect(shaderExpression).toEqual(expected);
 
     expression = new Expression("${property[4 / 2]}");
-    shaderExpression = expression.getShaderExpression(
-      variableSubstitutionMap,
-      {}
-    );
+    shaderExpression = expression.getShaderExpression(propertyNameMap, {});
     expected = "property[int((4.0 / 2.0))]";
     expect(shaderExpression).toEqual(expected);
   });
@@ -3673,11 +3659,11 @@ describe("Scene/Expression", function () {
   });
 
   it("gets shader expression for color", function () {
-    var variableSubstitutionMap = { property: "property" };
+    var propertyNameMap = { property: "property" };
     var shaderState = { translucent: false };
     var expression = new Expression("color()");
     var shaderExpression = expression.getShaderExpression(
-      variableSubstitutionMap,
+      propertyNameMap,
       shaderState
     );
     var expected = "vec4(1.0)";
@@ -3687,7 +3673,7 @@ describe("Scene/Expression", function () {
     shaderState = { translucent: false };
     expression = new Expression('color("red")');
     shaderExpression = expression.getShaderExpression(
-      variableSubstitutionMap,
+      propertyNameMap,
       shaderState
     );
     expected = "vec4(vec3(1.0, 0.0, 0.0), 1.0)";
@@ -3697,7 +3683,7 @@ describe("Scene/Expression", function () {
     shaderState = { translucent: false };
     expression = new Expression('color("#FFF")');
     shaderExpression = expression.getShaderExpression(
-      variableSubstitutionMap,
+      propertyNameMap,
       shaderState
     );
     expected = "vec4(vec3(1.0, 1.0, 1.0), 1.0)";
@@ -3707,7 +3693,7 @@ describe("Scene/Expression", function () {
     shaderState = { translucent: false };
     expression = new Expression('color("#FF0000")');
     shaderExpression = expression.getShaderExpression(
-      variableSubstitutionMap,
+      propertyNameMap,
       shaderState
     );
     expected = "vec4(vec3(1.0, 0.0, 0.0), 1.0)";
@@ -3717,7 +3703,7 @@ describe("Scene/Expression", function () {
     shaderState = { translucent: false };
     expression = new Expression('color("rgb(255, 0, 0)")');
     shaderExpression = expression.getShaderExpression(
-      variableSubstitutionMap,
+      propertyNameMap,
       shaderState
     );
     expected = "vec4(vec3(1.0, 0.0, 0.0), 1.0)";
@@ -3727,7 +3713,7 @@ describe("Scene/Expression", function () {
     shaderState = { translucent: false };
     expression = new Expression('color("red", 0.5)');
     shaderExpression = expression.getShaderExpression(
-      variableSubstitutionMap,
+      propertyNameMap,
       shaderState
     );
     expected = "vec4(vec3(1.0, 0.0, 0.0), 0.5)";
@@ -3737,7 +3723,7 @@ describe("Scene/Expression", function () {
     shaderState = { translucent: false };
     expression = new Expression("rgb(255, 0, 0)");
     shaderExpression = expression.getShaderExpression(
-      variableSubstitutionMap,
+      propertyNameMap,
       shaderState
     );
     expected = "vec4(1.0, 0.0, 0.0, 1.0)";
@@ -3747,7 +3733,7 @@ describe("Scene/Expression", function () {
     shaderState = { translucent: false };
     expression = new Expression("rgb(255, ${property}, 0)");
     shaderExpression = expression.getShaderExpression(
-      variableSubstitutionMap,
+      propertyNameMap,
       shaderState
     );
     expected = "vec4(255.0 / 255.0, property / 255.0, 0.0 / 255.0, 1.0)";
@@ -3757,7 +3743,7 @@ describe("Scene/Expression", function () {
     shaderState = { translucent: false };
     expression = new Expression("rgba(255, 0, 0, 0.5)");
     shaderExpression = expression.getShaderExpression(
-      variableSubstitutionMap,
+      propertyNameMap,
       shaderState
     );
     expected = "vec4(1.0, 0.0, 0.0, 0.5)";
@@ -3767,7 +3753,7 @@ describe("Scene/Expression", function () {
     shaderState = { translucent: false };
     expression = new Expression("rgba(255, ${property}, 0, 0.5)");
     shaderExpression = expression.getShaderExpression(
-      variableSubstitutionMap,
+      propertyNameMap,
       shaderState
     );
     expected = "vec4(255.0 / 255.0, property / 255.0, 0.0 / 255.0, 0.5)";
@@ -3777,7 +3763,7 @@ describe("Scene/Expression", function () {
     shaderState = { translucent: false };
     expression = new Expression("hsl(1.0, 0.5, 0.5)");
     shaderExpression = expression.getShaderExpression(
-      variableSubstitutionMap,
+      propertyNameMap,
       shaderState
     );
     expected = "vec4(0.75, 0.25, 0.25, 1.0)";
@@ -3787,7 +3773,7 @@ describe("Scene/Expression", function () {
     shaderState = { translucent: false };
     expression = new Expression("hsla(1.0, 0.5, 0.5, 0.5)");
     shaderExpression = expression.getShaderExpression(
-      variableSubstitutionMap,
+      propertyNameMap,
       shaderState
     );
     expected = "vec4(0.75, 0.25, 0.25, 0.5)";
@@ -3797,7 +3783,7 @@ describe("Scene/Expression", function () {
     shaderState = { translucent: false };
     expression = new Expression("hsl(1.0, ${property}, 0.5)");
     shaderExpression = expression.getShaderExpression(
-      variableSubstitutionMap,
+      propertyNameMap,
       shaderState
     );
     expected = "vec4(czm_HSLToRGB(vec3(1.0, property, 0.5)), 1.0)";
@@ -3807,7 +3793,7 @@ describe("Scene/Expression", function () {
     shaderState = { translucent: false };
     expression = new Expression("hsla(1.0, ${property}, 0.5, 0.5)");
     shaderExpression = expression.getShaderExpression(
-      variableSubstitutionMap,
+      propertyNameMap,
       shaderState
     );
     expected = "vec4(czm_HSLToRGB(vec3(1.0, property, 0.5)), 0.5)";
@@ -3841,38 +3827,26 @@ describe("Scene/Expression", function () {
   });
 
   it("gets shader expression for vector", function () {
-    var variableSubstitutionMap = {
+    var propertyNameMap = {
       property: "property",
     };
 
     var expression = new Expression("vec4(1, 2, 3, 4)");
-    var shaderExpression = expression.getShaderExpression(
-      variableSubstitutionMap,
-      {}
-    );
+    var shaderExpression = expression.getShaderExpression(propertyNameMap, {});
     expect(shaderExpression).toEqual("vec4(1.0, 2.0, 3.0, 4.0)");
 
     expression = new Expression("vec4(1) + vec4(2)");
-    shaderExpression = expression.getShaderExpression(
-      variableSubstitutionMap,
-      {}
-    );
+    shaderExpression = expression.getShaderExpression(propertyNameMap, {});
     expect(shaderExpression).toEqual("(vec4(1.0) + vec4(2.0))");
 
     expression = new Expression("vec4(1, ${property}, vec2(1, 2).x, 0)");
-    shaderExpression = expression.getShaderExpression(
-      variableSubstitutionMap,
-      {}
-    );
+    shaderExpression = expression.getShaderExpression(propertyNameMap, {});
     expect(shaderExpression).toEqual(
       "vec4(1.0, property, vec2(1.0, 2.0)[0], 0.0)"
     );
 
     expression = new Expression("vec4(vec3(2), 1.0)");
-    shaderExpression = expression.getShaderExpression(
-      variableSubstitutionMap,
-      {}
-    );
+    shaderExpression = expression.getShaderExpression(propertyNameMap, {});
     expect(shaderExpression).toEqual("vec4(vec3(2.0), 1.0)");
   });
 
@@ -4125,14 +4099,6 @@ describe("Scene/Expression", function () {
     var shaderExpression = expression.getShaderExpression({}, {});
     var expected = "czm_infinity";
     expect(shaderExpression).toEqual(expected);
-  });
-
-  it("gets variables", function () {
-    var expression = new Expression(
-      '${feature["w"]} + ${feature.x} + ${y} + ${y} + "${z}"'
-    );
-    var variables = expression.getVariables();
-    expect(variables.sort()).toEqual(["w", "x", "y", "z"]);
   });
 
   it("throws when getting shader expression for regex", function () {

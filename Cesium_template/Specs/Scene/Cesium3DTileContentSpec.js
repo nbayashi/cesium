@@ -40,12 +40,6 @@ describe("Scene/Cesium3DTileContent", function () {
       return content.batchTable;
     }).toThrowDeveloperError();
     expect(function () {
-      return content.groupMetadata;
-    }).toThrowDeveloperError();
-    expect(function () {
-      content.groupMetadata = {};
-    }).toThrowDeveloperError();
-    expect(function () {
       return content.hasProperty(0, "height");
     }).toThrowDeveloperError();
     expect(function () {

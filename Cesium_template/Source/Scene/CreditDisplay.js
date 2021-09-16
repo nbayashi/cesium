@@ -522,7 +522,7 @@ function getDefaultCredit() {
       logo.indexOf("data:") !== 0
     ) {
       var logoUrl = new Uri(logo);
-      logo = logoUrl.path();
+      logo = logoUrl.getPath();
     }
 
     defaultCredit = new Credit(

@@ -1,10 +1,10 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['./Matrix2-92b7fb9d', './combine-a5c4cc47', './AttributeCompression-212262a3', './ComponentDatatype-9ed50558', './IndexDatatype-797210ca', './createTaskProcessorWorker', './RuntimeError-4fdc4459', './when-8166c7dd', './WebGLConstants-0664004c'], function (Matrix2, combine, AttributeCompression, ComponentDatatype, IndexDatatype, createTaskProcessorWorker, RuntimeError, when, WebGLConstants) { 'use strict';
+define(['./Cartesian2-44e93af5', './AttributeCompression-e3a6496c', './Math-8c161f1c', './IndexDatatype-e20e62f1', './createTaskProcessorWorker', './Check-285f6bfc', './when-f31b6bd1', './WebGLConstants-34c08bc0'], function (Cartesian2, AttributeCompression, _Math, IndexDatatype, createTaskProcessorWorker, Check, when, WebGLConstants) { 'use strict';
 
   var maxShort = 32767;
 
-  var scratchBVCartographic = new Matrix2.Cartographic();
-  var scratchEncodedPosition = new Matrix2.Cartesian3();
+  var scratchBVCartographic = new Cartesian2.Cartographic();
+  var scratchEncodedPosition = new Cartesian2.Cartesian3();
 
   function decodeVectorPolylinePositions(
     positions,
@@ -28,11 +28,11 @@ define(['./Matrix2-92b7fb9d', './combine-a5c4cc47', './AttributeCompression-2122
       var v = vBuffer[i];
       var h = heightBuffer[i];
 
-      var lon = ComponentDatatype.CesiumMath.lerp(rectangle.west, rectangle.east, u / maxShort);
-      var lat = ComponentDatatype.CesiumMath.lerp(rectangle.south, rectangle.north, v / maxShort);
-      var alt = ComponentDatatype.CesiumMath.lerp(minimumHeight, maximumHeight, h / maxShort);
+      var lon = _Math.CesiumMath.lerp(rectangle.west, rectangle.east, u / maxShort);
+      var lat = _Math.CesiumMath.lerp(rectangle.south, rectangle.north, v / maxShort);
+      var alt = _Math.CesiumMath.lerp(minimumHeight, maximumHeight, h / maxShort);
 
-      var cartographic = Matrix2.Cartographic.fromRadians(
+      var cartographic = Cartesian2.Cartographic.fromRadians(
         lon,
         lat,
         alt,
@@ -42,14 +42,14 @@ define(['./Matrix2-92b7fb9d', './combine-a5c4cc47', './AttributeCompression-2122
         cartographic,
         scratchEncodedPosition
       );
-      Matrix2.Cartesian3.pack(decodedPosition, decoded, i * 3);
+      Cartesian2.Cartesian3.pack(decodedPosition, decoded, i * 3);
     }
     return decoded;
   }
 
-  var scratchRectangle = new Matrix2.Rectangle();
-  var scratchEllipsoid = new Matrix2.Ellipsoid();
-  var scratchCenter = new Matrix2.Cartesian3();
+  var scratchRectangle = new Cartesian2.Rectangle();
+  var scratchEllipsoid = new Cartesian2.Ellipsoid();
+  var scratchCenter = new Cartesian2.Cartesian3();
   var scratchMinMaxHeights = {
     min: undefined,
     max: undefined,
@@ -62,32 +62,20 @@ define(['./Matrix2-92b7fb9d', './combine-a5c4cc47', './AttributeCompression-2122
     scratchMinMaxHeights.min = packedBuffer[offset++];
     scratchMinMaxHeights.max = packedBuffer[offset++];
 
-    Matrix2.Rectangle.unpack(packedBuffer, offset, scratchRectangle);
-    offset += Matrix2.Rectangle.packedLength;
+    Cartesian2.Rectangle.unpack(packedBuffer, offset, scratchRectangle);
+    offset += Cartesian2.Rectangle.packedLength;
 
-    Matrix2.Ellipsoid.unpack(packedBuffer, offset, scratchEllipsoid);
-    offset += Matrix2.Ellipsoid.packedLength;
+    Cartesian2.Ellipsoid.unpack(packedBuffer, offset, scratchEllipsoid);
+    offset += Cartesian2.Ellipsoid.packedLength;
 
-    Matrix2.Cartesian3.unpack(packedBuffer, offset, scratchCenter);
+    Cartesian2.Cartesian3.unpack(packedBuffer, offset, scratchCenter);
   }
 
-  function getPositionOffsets(counts) {
-    var countsLength = counts.length;
-    var positionOffsets = new Uint32Array(countsLength + 1);
-    var offset = 0;
-    for (var i = 0; i < countsLength; ++i) {
-      positionOffsets[i] = offset;
-      offset += counts[i];
-    }
-    positionOffsets[countsLength] = offset;
-    return positionOffsets;
-  }
-
-  var scratchP0 = new Matrix2.Cartesian3();
-  var scratchP1 = new Matrix2.Cartesian3();
-  var scratchPrev = new Matrix2.Cartesian3();
-  var scratchCur = new Matrix2.Cartesian3();
-  var scratchNext = new Matrix2.Cartesian3();
+  var scratchP0 = new Cartesian2.Cartesian3();
+  var scratchP1 = new Cartesian2.Cartesian3();
+  var scratchPrev = new Cartesian2.Cartesian3();
+  var scratchCur = new Cartesian2.Cartesian3();
+  var scratchNext = new Cartesian2.Cartesian3();
 
   function createVectorTilePolylines(parameters, transferableObjects) {
     var encodedPositions = new Uint16Array(parameters.positions);
@@ -135,51 +123,51 @@ define(['./Matrix2-92b7fb9d', './combine-a5c4cc47', './AttributeCompression-2122
       for (var j = 0; j < count; ++j) {
         var previous;
         if (j === 0) {
-          var p0 = Matrix2.Cartesian3.unpack(positions, offset * 3, scratchP0);
-          var p1 = Matrix2.Cartesian3.unpack(positions, (offset + 1) * 3, scratchP1);
+          var p0 = Cartesian2.Cartesian3.unpack(positions, offset * 3, scratchP0);
+          var p1 = Cartesian2.Cartesian3.unpack(positions, (offset + 1) * 3, scratchP1);
 
-          previous = Matrix2.Cartesian3.subtract(p0, p1, scratchPrev);
-          Matrix2.Cartesian3.add(p0, previous, previous);
+          previous = Cartesian2.Cartesian3.subtract(p0, p1, scratchPrev);
+          Cartesian2.Cartesian3.add(p0, previous, previous);
         } else {
-          previous = Matrix2.Cartesian3.unpack(
+          previous = Cartesian2.Cartesian3.unpack(
             positions,
             (offset + j - 1) * 3,
             scratchPrev
           );
         }
 
-        var current = Matrix2.Cartesian3.unpack(positions, (offset + j) * 3, scratchCur);
+        var current = Cartesian2.Cartesian3.unpack(positions, (offset + j) * 3, scratchCur);
 
         var next;
         if (j === count - 1) {
-          var p2 = Matrix2.Cartesian3.unpack(
+          var p2 = Cartesian2.Cartesian3.unpack(
             positions,
             (offset + count - 1) * 3,
             scratchP0
           );
-          var p3 = Matrix2.Cartesian3.unpack(
+          var p3 = Cartesian2.Cartesian3.unpack(
             positions,
             (offset + count - 2) * 3,
             scratchP1
           );
 
-          next = Matrix2.Cartesian3.subtract(p2, p3, scratchNext);
-          Matrix2.Cartesian3.add(p2, next, next);
+          next = Cartesian2.Cartesian3.subtract(p2, p3, scratchNext);
+          Cartesian2.Cartesian3.add(p2, next, next);
         } else {
-          next = Matrix2.Cartesian3.unpack(positions, (offset + j + 1) * 3, scratchNext);
+          next = Cartesian2.Cartesian3.unpack(positions, (offset + j + 1) * 3, scratchNext);
         }
 
-        Matrix2.Cartesian3.subtract(previous, center, previous);
-        Matrix2.Cartesian3.subtract(current, center, current);
-        Matrix2.Cartesian3.subtract(next, center, next);
+        Cartesian2.Cartesian3.subtract(previous, center, previous);
+        Cartesian2.Cartesian3.subtract(current, center, current);
+        Cartesian2.Cartesian3.subtract(next, center, next);
 
         var startK = j === 0 ? 2 : 0;
         var endK = j === count - 1 ? 2 : 4;
 
         for (var k = startK; k < endK; ++k) {
-          Matrix2.Cartesian3.pack(current, curPositions, positionIndex);
-          Matrix2.Cartesian3.pack(previous, prevPositions, positionIndex);
-          Matrix2.Cartesian3.pack(next, nextPositions, positionIndex);
+          Cartesian2.Cartesian3.pack(current, curPositions, positionIndex);
+          Cartesian2.Cartesian3.pack(previous, prevPositions, positionIndex);
+          Cartesian2.Cartesian3.pack(next, nextPositions, positionIndex);
           positionIndex += 3;
 
           var direction = k - 2 < 0 ? -1.0 : 1.0;
@@ -220,7 +208,7 @@ define(['./Matrix2-92b7fb9d', './combine-a5c4cc47', './AttributeCompression-2122
       indices.buffer
     );
 
-    var results = {
+    return {
       indexDatatype:
         indices.BYTES_PER_ELEMENT === 2
           ? IndexDatatype.IndexDatatype.UNSIGNED_SHORT
@@ -232,17 +220,6 @@ define(['./Matrix2-92b7fb9d', './combine-a5c4cc47', './AttributeCompression-2122
       batchIds: vertexBatchIds.buffer,
       indices: indices.buffer,
     };
-
-    if (parameters.keepDecodedPositions) {
-      var positionOffsets = getPositionOffsets(counts);
-      transferableObjects.push(positions.buffer, positionOffsets.buffer);
-      results = combine.combine(results, {
-        decodedPositions: positions.buffer,
-        decodedPositionOffsets: positionOffsets.buffer,
-      });
-    }
-
-    return results;
   }
   var createVectorTilePolylines$1 = createTaskProcessorWorker(createVectorTilePolylines);
 

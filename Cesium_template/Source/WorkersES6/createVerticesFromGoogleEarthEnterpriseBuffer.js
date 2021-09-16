@@ -49,7 +49,6 @@ function createVerticesFromGoogleEarthEnterpriseBuffer(
     parameters.rectangle,
     parameters.nativeRectangle,
     parameters.exaggeration,
-    parameters.exaggerationRelativeHeight,
     parameters.skirtHeight,
     parameters.includeWebMercatorT,
     parameters.negativeAltitudeExponentBias,
@@ -63,7 +62,7 @@ function createVerticesFromGoogleEarthEnterpriseBuffer(
   return {
     vertices: vertices.buffer,
     indices: indices.buffer,
-    numberOfAttributes: statistics.encoding.stride,
+    numberOfAttributes: statistics.encoding.getStride(),
     minimumHeight: statistics.minimumHeight,
     maximumHeight: statistics.maximumHeight,
     boundingSphere3D: statistics.boundingSphere3D,
@@ -92,7 +91,6 @@ function processBuffer(
   rectangle,
   nativeRectangle,
   exaggeration,
-  exaggerationRelativeHeight,
   skirtHeight,
   includeWebMercatorT,
   negativeAltitudeExponentBias,
@@ -138,9 +136,6 @@ function processBuffer(
       (WebMercatorProjection.geodeticLatitudeToMercatorAngle(geographicNorth) -
         southMercatorY);
   }
-
-  var hasExaggeration = exaggeration !== 1.0;
-  var includeGeodeticSurfaceNormals = hasExaggeration;
 
   var dv = new DataView(buffer);
 
@@ -201,9 +196,6 @@ function processBuffer(
   var uvs = new Array(size);
   var heights = new Array(size);
   var webMercatorTs = includeWebMercatorT ? new Array(size) : [];
-  var geodeticSurfaceNormals = includeGeodeticSurfaceNormals
-    ? new Array(size)
-    : [];
   var indices = new Array(indicesSize);
 
   // Points are laid out in rows starting at SW, so storing border points as we
@@ -264,7 +256,7 @@ function processBuffer(
       }
 
       // Height is stored in units of (1/EarthRadius) or (1/6371010.0)
-      height *= 6371010.0;
+      height *= 6371010.0 * exaggeration;
 
       scratchCartographic.height = height;
 
@@ -324,11 +316,6 @@ function processBuffer(
           oneOverMercatorHeight;
       }
 
-      if (includeGeodeticSurfaceNormals) {
-        var normal = ellipsoid.geodeticSurfaceNormal(pos);
-        geodeticSurfaceNormals[pointOffset] = normal;
-      }
-
       Matrix4.multiplyByPoint(toENU, pos, scratchCartesian);
 
       Cartesian3.minimumByComponent(scratchCartesian, minimum, minimum);
@@ -360,9 +347,6 @@ function processBuffer(
   heights.length = pointOffset;
   if (includeWebMercatorT) {
     webMercatorTs.length = pointOffset;
-  }
-  if (includeGeodeticSurfaceNormals) {
-    geodeticSurfaceNormals.length = pointOffset;
   }
 
   var vertexCountWithoutSkirts = pointOffset;
@@ -400,7 +384,6 @@ function processBuffer(
     heights,
     uvs,
     webMercatorTs,
-    geodeticSurfaceNormals,
     indices,
     skirtOptions,
     westBorder,
@@ -413,7 +396,6 @@ function processBuffer(
     heights,
     uvs,
     webMercatorTs,
-    geodeticSurfaceNormals,
     indices,
     skirtOptions,
     southBorder,
@@ -425,7 +407,6 @@ function processBuffer(
     heights,
     uvs,
     webMercatorTs,
-    geodeticSurfaceNormals,
     indices,
     skirtOptions,
     eastBorder,
@@ -438,7 +419,6 @@ function processBuffer(
     heights,
     uvs,
     webMercatorTs,
-    geodeticSurfaceNormals,
     indices,
     skirtOptions,
     northBorder,
@@ -486,18 +466,14 @@ function processBuffer(
 
   var aaBox = new AxisAlignedBoundingBox(minimum, maximum, relativeToCenter);
   var encoding = new TerrainEncoding(
-    relativeToCenter,
     aaBox,
     skirtOptions.hMin,
     maxHeight,
     fromENU,
     false,
-    includeWebMercatorT,
-    includeGeodeticSurfaceNormals,
-    exaggeration,
-    exaggerationRelativeHeight
+    includeWebMercatorT
   );
-  var vertices = new Float32Array(size * encoding.stride);
+  var vertices = new Float32Array(size * encoding.getStride());
 
   var bufferIndex = 0;
   for (var k = 0; k < size; ++k) {
@@ -508,8 +484,7 @@ function processBuffer(
       uvs[k],
       heights[k],
       undefined,
-      webMercatorTs[k],
-      geodeticSurfaceNormals[k]
+      webMercatorTs[k]
     );
   }
 
@@ -567,7 +542,6 @@ function addSkirt(
   heights,
   uvs,
   webMercatorTs,
-  geodeticSurfaceNormals,
   indices,
   skirtOptions,
   borderPoints,
@@ -617,9 +591,6 @@ function addSkirt(
     uvs.push(Cartesian2.clone(uvs[borderIndex])); // Copy UVs from border point
     if (webMercatorTs.length > 0) {
       webMercatorTs.push(webMercatorTs[borderIndex]);
-    }
-    if (geodeticSurfaceNormals.length > 0) {
-      geodeticSurfaceNormals.push(geodeticSurfaceNormals[borderIndex]);
     }
 
     Matrix4.multiplyByPoint(skirtOptions.toENU, pos, scratchCartesian);

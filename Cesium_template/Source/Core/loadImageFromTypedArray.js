@@ -12,10 +12,6 @@ function loadImageFromTypedArray(options) {
   var format = options.format;
   var request = options.request;
   var flipY = defaultValue(options.flipY, false);
-  var skipColorSpaceConversion = defaultValue(
-    options.skipColorSpaceConversion,
-    false
-  );
   //>>includeStart('debug', pragmas.debug);
   Check.typeOf.object("uint8Array", uint8Array);
   Check.typeOf.string("format", format);
@@ -33,7 +29,6 @@ function loadImageFromTypedArray(options) {
           Resource.createImageBitmapFromBlob(blob, {
             flipY: flipY,
             premultiplyAlpha: false,
-            skipColorSpaceConversion: skipColorSpaceConversion,
           })
         );
       }
@@ -46,7 +41,6 @@ function loadImageFromTypedArray(options) {
 
       return resource.fetchImage({
         flipY: flipY,
-        skipColorSpaceConversion: skipColorSpaceConversion,
       });
     })
     .then(function (result) {

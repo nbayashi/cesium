@@ -175,10 +175,9 @@ describe("Scene/BingMapsImageryProvider", function () {
   }
 
   function installFakeMetadataRequest(url, mapStyle, proxy) {
-    var baseUri = new Uri(appendForwardSlash(url));
-    var expectedUri = new Uri(
-      "REST/v1/Imagery/Metadata/" + mapStyle
-    ).absoluteTo(baseUri);
+    var expectedUri = new Uri("REST/v1/Imagery/Metadata/" + mapStyle).resolve(
+      new Uri(appendForwardSlash(url))
+    );
 
     Resource._Implementations.loadAndExecuteScript = function (
       url,
@@ -186,15 +185,15 @@ describe("Scene/BingMapsImageryProvider", function () {
     ) {
       var uri = new Uri(url);
       if (proxy) {
-        uri = new Uri(decodeURIComponent(uri.query()));
+        uri = new Uri(decodeURIComponent(uri.query));
       }
 
-      var query = queryToObject(uri.query());
+      var query = queryToObject(uri.query);
       expect(query.jsonp).toBeDefined();
       expect(query.incl).toEqual("ImageryProviders");
       expect(query.key).toBeDefined();
 
-      uri.query("");
+      uri.query = undefined;
       expect(uri.toString()).toStartWith(expectedUri.toString());
 
       setTimeout(function () {
@@ -217,18 +216,17 @@ describe("Scene/BingMapsImageryProvider", function () {
           crossOrigin,
           deferred,
           true,
-          false,
           true
         );
       } else {
         if (defined(expectedUrl)) {
           var uri = new Uri(url);
           if (proxy) {
-            uri = new Uri(decodeURIComponent(uri.query()));
+            uri = new Uri(decodeURIComponent(uri.query));
           }
 
-          var query = queryToObject(uri.query());
-          uri.query("");
+          var query = queryToObject(uri.query);
+          uri.query = undefined;
           expect(uri.toString()).toEqual(expectedUrl);
           for (var param in expectedParams) {
             if (expectedParams.hasOwnProperty(param)) {
@@ -257,11 +255,11 @@ describe("Scene/BingMapsImageryProvider", function () {
       if (defined(expectedUrl)) {
         var uri = new Uri(url);
         if (proxy) {
-          uri = new Uri(decodeURIComponent(uri.query()));
+          uri = new Uri(decodeURIComponent(uri.query));
         }
 
-        var query = queryToObject(uri.query());
-        uri.query("");
+        var query = queryToObject(uri.query);
+        uri.query = undefined;
         expect(uri.toString()).toEqual(expectedUrl);
         for (var param in expectedParams) {
           if (expectedParams.hasOwnProperty(param)) {

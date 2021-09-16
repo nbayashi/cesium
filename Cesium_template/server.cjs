@@ -48,7 +48,8 @@
     {
       "application/json": ["czml", "json", "geojson", "topojson"],
       "application/wasm": ["wasm"],
-      "image/ktx2": ["ktx2"],
+      "image/crn": ["crn"],
+      "image/ktx": ["ktx"],
       "model/gltf+json": ["gltf"],
       "model/gltf-binary": ["bgltf", "glb"],
       "application/octet-stream": [

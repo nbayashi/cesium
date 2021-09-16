@@ -18,10 +18,10 @@
  * Columbus View (Pat. Pend.)
  *
  * Portions licensed separately.
- * See https://github.com/CesiumGS/cesium/blob/main/LICENSE.md for full licensing details.
+ * See https://github.com/CesiumGS/cesium/blob/master/LICENSE.md for full licensing details.
  */
 
-define(['./ComponentDatatype-f194c48b', './when-4bbc8319', './IndexDatatype-ee69f1fd', './RuntimeError-346a3079', './createTaskProcessorWorker', './WebGLConstants-1c8239cc'], function (ComponentDatatype, when, IndexDatatype, RuntimeError, createTaskProcessorWorker, WebGLConstants) { 'use strict';
+define(['./ComponentDatatype-549ec0d3', './when-208fe5b0', './IndexDatatype-d9b71b2b', './RuntimeError-7f634f5d', './createTaskProcessorWorker', './Check-d18af7c4', './WebGLConstants-76bb35d1', './Math-3ba16bed'], function (ComponentDatatype, when, IndexDatatype, RuntimeError, createTaskProcessorWorker, Check, WebGLConstants, _Math) { 'use strict';
 
   /* global require */
 
@@ -352,7 +352,7 @@ define(['./ComponentDatatype-f194c48b', './when-4bbc8319', './IndexDatatype-ee69
   }
 
   function decode(parameters) {
-    if (when.defined(parameters.bufferView)) {
+    if (when.defined(parameters.primitive)) {
       return decodePrimitive(parameters);
     }
     return decodePointCloud(parameters);

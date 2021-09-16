@@ -942,7 +942,6 @@ Object.defineProperties(CesiumTerrainProvider.prototype, {
    * are passed an instance of {@link TileProviderError}.
    * @memberof CesiumTerrainProvider.prototype
    * @type {Event}
-   * @readonly
    */
   errorEvent: {
     get: function () {
@@ -955,7 +954,6 @@ Object.defineProperties(CesiumTerrainProvider.prototype, {
    * the source of the terrain.  This function should not be called before {@link CesiumTerrainProvider#ready} returns true.
    * @memberof CesiumTerrainProvider.prototype
    * @type {Credit}
-   * @readonly
    */
   credit: {
     get: function () {
@@ -976,7 +974,6 @@ Object.defineProperties(CesiumTerrainProvider.prototype, {
    * not be called before {@link CesiumTerrainProvider#ready} returns true.
    * @memberof CesiumTerrainProvider.prototype
    * @type {GeographicTilingScheme}
-   * @readonly
    */
   tilingScheme: {
     get: function () {
@@ -996,7 +993,6 @@ Object.defineProperties(CesiumTerrainProvider.prototype, {
    * Gets a value indicating whether or not the provider is ready for use.
    * @memberof CesiumTerrainProvider.prototype
    * @type {Boolean}
-   * @readonly
    */
   ready: {
     get: function () {
@@ -1023,7 +1019,6 @@ Object.defineProperties(CesiumTerrainProvider.prototype, {
    * called before {@link CesiumTerrainProvider#ready} returns true.
    * @memberof CesiumTerrainProvider.prototype
    * @type {Boolean}
-   * @readonly
    * @exception {DeveloperError} This property must not be called before {@link CesiumTerrainProvider#ready}
    */
   hasWaterMask: {
@@ -1045,7 +1040,6 @@ Object.defineProperties(CesiumTerrainProvider.prototype, {
    * This function should not be called before {@link CesiumTerrainProvider#ready} returns true.
    * @memberof CesiumTerrainProvider.prototype
    * @type {Boolean}
-   * @readonly
    * @exception {DeveloperError} This property must not be called before {@link CesiumTerrainProvider#ready}
    */
   hasVertexNormals: {
@@ -1068,7 +1062,6 @@ Object.defineProperties(CesiumTerrainProvider.prototype, {
    * This function should not be called before {@link CesiumTerrainProvider#ready} returns true.
    * @memberof CesiumTerrainProvider.prototype
    * @type {Boolean}
-   * @readonly
    * @exception {DeveloperError} This property must not be called before {@link CesiumTerrainProvider#ready}
    */
   hasMetadata: {
@@ -1092,7 +1085,6 @@ Object.defineProperties(CesiumTerrainProvider.prototype, {
    * if the server provides vertex normals.
    * @memberof CesiumTerrainProvider.prototype
    * @type {Boolean}
-   * @readonly
    */
   requestVertexNormals: {
     get: function () {
@@ -1106,7 +1098,6 @@ Object.defineProperties(CesiumTerrainProvider.prototype, {
    * if the server provides a watermask.
    * @memberof CesiumTerrainProvider.prototype
    * @type {Boolean}
-   * @readonly
    */
   requestWaterMask: {
     get: function () {
@@ -1120,7 +1111,6 @@ Object.defineProperties(CesiumTerrainProvider.prototype, {
    * if the server provides a metadata.
    * @memberof CesiumTerrainProvider.prototype
    * @type {Boolean}
-   * @readonly
    */
   requestMetadata: {
     get: function () {
@@ -1138,7 +1128,6 @@ Object.defineProperties(CesiumTerrainProvider.prototype, {
    * is available now will not become unavailable in the future.
    * @memberof CesiumTerrainProvider.prototype
    * @type {TileAvailability}
-   * @readonly
    */
   availability: {
     get: function () {
@@ -1172,7 +1161,7 @@ CesiumTerrainProvider.prototype.getLevelMaximumGeometricError = function (
  * @param {Number} x The X coordinate of the tile for which to request geometry.
  * @param {Number} y The Y coordinate of the tile for which to request geometry.
  * @param {Number} level The level of the tile for which to request geometry.
- * @returns {Boolean|undefined} Undefined if not supported or availability is unknown, otherwise true or false.
+ * @returns {Boolean} Undefined if not supported or availability is unknown, otherwise true or false.
  */
 CesiumTerrainProvider.prototype.getTileDataAvailable = function (x, y, level) {
   if (!defined(this._availability)) {

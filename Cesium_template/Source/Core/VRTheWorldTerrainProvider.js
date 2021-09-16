@@ -158,7 +158,6 @@ Object.defineProperties(VRTheWorldTerrainProvider.prototype, {
    * are passed an instance of {@link TileProviderError}.
    * @memberof VRTheWorldTerrainProvider.prototype
    * @type {Event}
-   * @readonly
    */
   errorEvent: {
     get: function () {
@@ -171,7 +170,6 @@ Object.defineProperties(VRTheWorldTerrainProvider.prototype, {
    * the source of the terrain.  This function should not be called before {@link VRTheWorldTerrainProvider#ready} returns true.
    * @memberof VRTheWorldTerrainProvider.prototype
    * @type {Credit}
-   * @readonly
    */
   credit: {
     get: function () {
@@ -184,7 +182,6 @@ Object.defineProperties(VRTheWorldTerrainProvider.prototype, {
    * not be called before {@link VRTheWorldTerrainProvider#ready} returns true.
    * @memberof VRTheWorldTerrainProvider.prototype
    * @type {GeographicTilingScheme}
-   * @readonly
    */
   tilingScheme: {
     get: function () {
@@ -204,7 +201,6 @@ Object.defineProperties(VRTheWorldTerrainProvider.prototype, {
    * Gets a value indicating whether or not the provider is ready for use.
    * @memberof VRTheWorldTerrainProvider.prototype
    * @type {Boolean}
-   * @readonly
    */
   ready: {
     get: function () {
@@ -231,7 +227,6 @@ Object.defineProperties(VRTheWorldTerrainProvider.prototype, {
    * called before {@link VRTheWorldTerrainProvider#ready} returns true.
    * @memberof VRTheWorldTerrainProvider.prototype
    * @type {Boolean}
-   * @readonly
    */
   hasWaterMask: {
     get: function () {
@@ -244,7 +239,6 @@ Object.defineProperties(VRTheWorldTerrainProvider.prototype, {
    * This function should not be called before {@link VRTheWorldTerrainProvider#ready} returns true.
    * @memberof VRTheWorldTerrainProvider.prototype
    * @type {Boolean}
-   * @readonly
    */
   hasVertexNormals: {
     get: function () {
@@ -258,7 +252,6 @@ Object.defineProperties(VRTheWorldTerrainProvider.prototype, {
    * information is not available.
    * @memberof VRTheWorldTerrainProvider.prototype
    * @type {TileAvailability}
-   * @readonly
    */
   availability: {
     get: function () {
@@ -421,7 +414,7 @@ function isTileInRectangle(tilingScheme, rectangle, x, y, level) {
  * @param {Number} x The X coordinate of the tile for which to request geometry.
  * @param {Number} y The Y coordinate of the tile for which to request geometry.
  * @param {Number} level The level of the tile for which to request geometry.
- * @returns {Boolean|undefined} Undefined if not supported, otherwise true or false.
+ * @returns {Boolean} Undefined if not supported, otherwise true or false.
  */
 VRTheWorldTerrainProvider.prototype.getTileDataAvailable = function (
   x,

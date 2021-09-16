@@ -1,16 +1,15 @@
 import BoundingSphere from "../Core/BoundingSphere.js";
 import Cartesian3 from "../Core/Cartesian3.js";
 import Cartesian4 from "../Core/Cartesian4.js";
-import Cartographic from "../Core/Cartographic.js";
 import defined from "../Core/defined.js";
 import IndexDatatype from "../Core/IndexDatatype.js";
 import IntersectionTests from "../Core/IntersectionTests.js";
+import OrientedBoundingBox from "../Core/OrientedBoundingBox.js";
 import PixelFormat from "../Core/PixelFormat.js";
 import Ray from "../Core/Ray.js";
 import Request from "../Core/Request.js";
 import RequestState from "../Core/RequestState.js";
 import RequestType from "../Core/RequestType.js";
-import TerrainEncoding from "../Core/TerrainEncoding.js";
 import TileProviderError from "../Core/TileProviderError.js";
 import Buffer from "../Renderer/Buffer.js";
 import BufferUsage from "../Renderer/BufferUsage.js";
@@ -48,17 +47,18 @@ function GlobeSurfaceTile() {
 
   this.terrainData = undefined;
   this.vertexArray = undefined;
+  this.orientedBoundingBox = undefined;
+  this.boundingVolumeSourceTile = undefined;
 
   /**
    * A bounding region used to estimate distance to the tile. The horizontal bounds are always tight-fitting,
    * but the `minimumHeight` and `maximumHeight` properties may be derived from the min/max of an ancestor tile
-   * and be quite loose-fitting and thus very poor for estimating distance.
+   * and be quite loose-fitting and thus very poor for estimating distance. The {@link TileBoundingRegion#boundingVolume}
+   * and {@link TileBoundingRegion#boundingSphere} will always be undefined; tiles store these separately.
    * @type {TileBoundingRegion}
    */
   this.tileBoundingRegion = undefined;
   this.occludeePointInScaledSpace = new Cartesian3();
-  this.boundingVolumeSourceTile = undefined;
-  this.boundingVolumeIsFromMesh = false;
 
   this.terrainState = TerrainState.UNLOADED;
   this.mesh = undefined;
@@ -127,27 +127,17 @@ Object.defineProperties(GlobeSurfaceTile.prototype, {
   },
 });
 
-var scratchCartographic = new Cartographic();
-
 function getPosition(encoding, mode, projection, vertices, index, result) {
-  var position = encoding.getExaggeratedPosition(vertices, index, result);
+  encoding.decodePosition(vertices, index, result);
 
   if (defined(mode) && mode !== SceneMode.SCENE3D) {
     var ellipsoid = projection.ellipsoid;
-    var positionCartographic = ellipsoid.cartesianToCartographic(
-      position,
-      scratchCartographic
-    );
-    position = projection.project(positionCartographic, result);
-    position = Cartesian3.fromElements(
-      position.z,
-      position.x,
-      position.y,
-      result
-    );
+    var positionCart = ellipsoid.cartesianToCartographic(result);
+    projection.project(positionCart, result);
+    Cartesian3.fromElements(result.z, result.x, result.y, result);
   }
 
-  return position;
+  return result;
 }
 
 var scratchV0 = new Cartesian3();
@@ -251,7 +241,6 @@ GlobeSurfaceTile.processStateMachine = function (
   frameState,
   terrainProvider,
   imageryLayerCollection,
-  quadtree,
   vertexArraysToDestroy,
   terrainOnly
 ) {
@@ -265,7 +254,6 @@ GlobeSurfaceTile.processStateMachine = function (
       frameState,
       terrainProvider,
       imageryLayerCollection,
-      quadtree,
       vertexArraysToDestroy
     );
   }
@@ -388,120 +376,6 @@ GlobeSurfaceTile.prototype.processImagery = function (
   return isDoneLoading;
 };
 
-function toggleGeodeticSurfaceNormals(
-  surfaceTile,
-  enabled,
-  ellipsoid,
-  frameState
-) {
-  var renderedMesh = surfaceTile.renderedMesh;
-  var vertexBuffer = renderedMesh.vertices;
-  var encoding = renderedMesh.encoding;
-  var vertexCount = vertexBuffer.length / encoding.stride;
-
-  // Calculate the new stride and generate a new buffer
-  // Clone the other encoding, toggle geodetic surface normals, then clone again to get updated stride
-  var newEncoding = TerrainEncoding.clone(encoding);
-  newEncoding.hasGeodeticSurfaceNormals = enabled;
-  newEncoding = TerrainEncoding.clone(newEncoding);
-  var newStride = newEncoding.stride;
-  var newVertexBuffer = new Float32Array(vertexCount * newStride);
-
-  if (enabled) {
-    encoding.addGeodeticSurfaceNormals(
-      vertexBuffer,
-      newVertexBuffer,
-      ellipsoid
-    );
-  } else {
-    encoding.removeGeodeticSurfaceNormals(vertexBuffer, newVertexBuffer);
-  }
-
-  renderedMesh.vertices = newVertexBuffer;
-  renderedMesh.stride = newStride;
-
-  // delete the old vertex array (which deletes the vertex buffer attached to it), and create a new vertex array with the new vertex buffer
-  var isFill = renderedMesh !== surfaceTile.mesh;
-  if (isFill) {
-    GlobeSurfaceTile._freeVertexArray(surfaceTile.fill.vertexArray);
-    surfaceTile.fill.vertexArray = GlobeSurfaceTile._createVertexArrayForMesh(
-      frameState.context,
-      renderedMesh
-    );
-  } else {
-    GlobeSurfaceTile._freeVertexArray(surfaceTile.vertexArray);
-    surfaceTile.vertexArray = GlobeSurfaceTile._createVertexArrayForMesh(
-      frameState.context,
-      renderedMesh
-    );
-  }
-  GlobeSurfaceTile._freeVertexArray(surfaceTile.wireframeVertexArray);
-  surfaceTile.wireframeVertexArray = undefined;
-}
-
-GlobeSurfaceTile.prototype.addGeodeticSurfaceNormals = function (
-  ellipsoid,
-  frameState
-) {
-  toggleGeodeticSurfaceNormals(this, true, ellipsoid, frameState);
-};
-
-GlobeSurfaceTile.prototype.removeGeodeticSurfaceNormals = function (
-  frameState
-) {
-  toggleGeodeticSurfaceNormals(this, false, undefined, frameState);
-};
-
-GlobeSurfaceTile.prototype.updateExaggeration = function (
-  tile,
-  frameState,
-  quadtree
-) {
-  var surfaceTile = this;
-  var mesh = surfaceTile.renderedMesh;
-  if (mesh === undefined) {
-    return;
-  }
-
-  // Check the tile's terrain encoding to see if it has been exaggerated yet
-  var exaggeration = frameState.terrainExaggeration;
-  var exaggerationRelativeHeight = frameState.terrainExaggerationRelativeHeight;
-  var hasExaggerationScale = exaggeration !== 1.0;
-
-  var encoding = mesh.encoding;
-  var encodingExaggerationScaleChanged = encoding.exaggeration !== exaggeration;
-  var encodingRelativeHeightChanged =
-    encoding.exaggerationRelativeHeight !== exaggerationRelativeHeight;
-
-  if (encodingExaggerationScaleChanged || encodingRelativeHeightChanged) {
-    // Turning exaggeration scale on/off requires adding or removing geodetic surface normals
-    // Relative height only translates, so it has no effect on normals
-    if (encodingExaggerationScaleChanged) {
-      if (hasExaggerationScale && !encoding.hasGeodeticSurfaceNormals) {
-        var ellipsoid = tile.tilingScheme.ellipsoid;
-        surfaceTile.addGeodeticSurfaceNormals(ellipsoid, frameState);
-      } else if (!hasExaggerationScale && encoding.hasGeodeticSurfaceNormals) {
-        surfaceTile.removeGeodeticSurfaceNormals(frameState);
-      }
-    }
-
-    encoding.exaggeration = exaggeration;
-    encoding.exaggerationRelativeHeight = exaggerationRelativeHeight;
-
-    // Notify the quadtree that this tile's height has changed
-    if (quadtree !== undefined) {
-      quadtree._tileToUpdateHeights.push(tile);
-      var customData = tile.customData;
-      var customDataLength = customData.length;
-      for (var i = 0; i < customDataLength; i++) {
-        // Restart the level so that a height update is triggered
-        var data = customData[i];
-        data.level = -1;
-      }
-    }
-  }
-};
-
 function prepareNewTile(tile, terrainProvider, imageryLayerCollection) {
   var available = terrainProvider.getTileDataAvailable(
     tile.x,
@@ -542,7 +416,6 @@ function processTerrainStateMachine(
   frameState,
   terrainProvider,
   imageryLayerCollection,
-  quadtree,
   vertexArraysToDestroy
 ) {
   var surfaceTile = tile.data;
@@ -564,8 +437,6 @@ function processTerrainStateMachine(
         frameState,
         terrainProvider,
         imageryLayerCollection,
-        quadtree,
-        vertexArraysToDestroy,
         true
       );
     }
@@ -614,9 +485,6 @@ function processTerrainStateMachine(
       tile.level,
       vertexArraysToDestroy
     );
-
-    // Update the tile's exaggeration in case the globe's exaggeration changed while the tile was being processed
-    surfaceTile.updateExaggeration(tile, frameState, quadtree);
   }
 
   if (
@@ -695,7 +563,7 @@ function requestTileGeometry(surfaceTile, terrainProvider, x, y, level) {
     surfaceTile.request = undefined;
   }
 
-  function failure(error) {
+  function failure() {
     if (surfaceTile.request.state === RequestState.CANCELLED) {
       // Cancelled due to low priority - try again later.
       surfaceTile.terrainData = undefined;
@@ -716,9 +584,7 @@ function requestTileGeometry(surfaceTile, terrainProvider, x, y, level) {
       y +
       " Level: " +
       level +
-      '. Error message: "' +
-      error +
-      '"';
+      ".";
     terrainProvider._requestError = TileProviderError.handleError(
       terrainProvider._requestError,
       terrainProvider,
@@ -739,7 +605,6 @@ function requestTileGeometry(surfaceTile, terrainProvider, x, y, level) {
       type: RequestType.TERRAIN,
     });
     surfaceTile.request = request;
-
     var requestPromise = terrainProvider.requestTileGeometry(
       x,
       y,
@@ -768,7 +633,6 @@ var scratchCreateMeshOptions = {
   y: 0,
   level: 0,
   exaggeration: 1.0,
-  exaggerationRelativeHeight: 0.0,
   throttle: true,
 };
 
@@ -781,8 +645,6 @@ function transform(surfaceTile, frameState, terrainProvider, x, y, level) {
   createMeshOptions.y = y;
   createMeshOptions.level = level;
   createMeshOptions.exaggeration = frameState.terrainExaggeration;
-  createMeshOptions.exaggerationRelativeHeight =
-    frameState.terrainExaggerationRelativeHeight;
   createMeshOptions.throttle = true;
 
   var terrainData = surfaceTile.terrainData;
@@ -799,6 +661,14 @@ function transform(surfaceTile, frameState, terrainProvider, x, y, level) {
     meshPromise,
     function (mesh) {
       surfaceTile.mesh = mesh;
+      surfaceTile.orientedBoundingBox = OrientedBoundingBox.clone(
+        mesh.orientedBoundingBox,
+        surfaceTile.orientedBoundingBox
+      );
+      surfaceTile.occludeePointInScaledSpace = Cartesian3.clone(
+        mesh.occludeePointInScaledSpace,
+        surfaceTile.occludeePointInScaledSpace
+      );
       surfaceTile.terrainState = TerrainState.TRANSFORMED;
     },
     function () {
@@ -845,9 +715,7 @@ GlobeSurfaceTile._freeVertexArray = function (vertexArray) {
   if (defined(vertexArray)) {
     var indexBuffer = vertexArray.indexBuffer;
 
-    if (!vertexArray.isDestroyed()) {
-      vertexArray.destroy();
-    }
+    vertexArray.destroy();
 
     if (
       defined(indexBuffer) &&

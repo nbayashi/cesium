@@ -1113,7 +1113,7 @@ var distanceSquaredToScratch = new Cartesian3();
  *
  * @param {BoundingSphere} sphere The sphere.
  * @param {Cartesian3} cartesian The point
- * @returns {Number} The distance squared from the bounding sphere to the point. Returns 0 if the point is inside the sphere.
+ * @returns {Number} The estimated distance squared from the bounding sphere to the point.
  *
  * @example
  * // Sort bounding spheres from back to front
@@ -1132,13 +1132,7 @@ BoundingSphere.distanceSquaredTo = function (sphere, cartesian) {
     cartesian,
     distanceSquaredToScratch
   );
-
-  var distance = Cartesian3.magnitude(diff) - sphere.radius;
-  if (distance <= 0.0) {
-    return 0.0;
-  }
-
-  return distance * distance;
+  return Cartesian3.magnitudeSquared(diff) - sphere.radius * sphere.radius;
 };
 
 /**

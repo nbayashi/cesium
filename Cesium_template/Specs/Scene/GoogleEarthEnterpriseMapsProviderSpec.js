@@ -247,7 +247,6 @@ describe("Scene/GoogleEarthEnterpriseMapsProvider", function () {
             crossOrigin,
             deferred,
             true,
-            false,
             true
           );
         } else {
@@ -425,7 +424,6 @@ describe("Scene/GoogleEarthEnterpriseMapsProvider", function () {
           crossOrigin,
           deferred,
           true,
-          false,
           true
         );
       } else if (tries === 2) {

@@ -1,10 +1,9 @@
-/* This file is automatically rebuilt by the Cesium build process. */
-import { c as createCommonjsModule } from './_commonjsHelpers-3aae1032.js';
-
-var when = createCommonjsModule(function (module, exports) {
-/** @license MIT License (c) copyright B Cavalier & J Hann */
-
 /**
+  @license
+  when.js - https://github.com/cujojs/when
+
+  MIT License (c) copyright B Cavalier & J Hann
+
  * A lightweight CommonJS Promises/A and when() implementation
  * when is part of the cujo.js family of libraries (http://cujojs.com/)
  *
@@ -14,7 +13,6 @@ var when = createCommonjsModule(function (module, exports) {
  * @version 1.7.1
  */
 
-(function(define) {define(function () {
 	var reduceArray, slice, undef;
 
 	//
@@ -112,7 +110,7 @@ var when = createCommonjsModule(function (module, exports) {
 	 *   - promiseOrValue's value after it is fulfilled
 	 *   - promiseOrValue's reason after it is rejected
 	 * @param {*} promiseOrValue the rejected value of the returned {@link Promise}
-	 * @return {Promise} rejected {@link Promise}
+	 * @returns {Promise} rejected {@link Promise}
 	 */
 	function reject(promiseOrValue) {
 		return when(promiseOrValue, rejected);
@@ -136,7 +134,7 @@ var when = createCommonjsModule(function (module, exports) {
 		 * Shortcut for .then(onFulfilledOrRejected, onFulfilledOrRejected, onProgress)
 		 * @param {function?} [onFulfilledOrRejected]
 		 * @param {function?} [onProgress]
-		 * @return {Promise}
+		 * @returns {Promise}
 		 */
 		always: function(onFulfilledOrRejected, onProgress) {
 			return this.then(onFulfilledOrRejected, onFulfilledOrRejected, onProgress);
@@ -145,7 +143,7 @@ var when = createCommonjsModule(function (module, exports) {
 		/**
 		 * Register a rejection handler.  Shortcut for .then(undefined, onRejected)
 		 * @param {function?} onRejected
-		 * @return {Promise}
+		 * @returns {Promise}
 		 */
 		otherwise: function(onRejected) {
 			return this.then(undef, onRejected);
@@ -154,7 +152,7 @@ var when = createCommonjsModule(function (module, exports) {
 		/**
 		 * Shortcut for .then(function() { return value; })
 		 * @param  {*} value
-		 * @return {Promise} a promise that:
+		 * @returns {Promise} a promise that:
 		 *  - is fulfilled if value is not a promise, or
 		 *  - if value is a promise, will fulfill with its value, or reject
 		 *    with its reason.
@@ -170,7 +168,7 @@ var when = createCommonjsModule(function (module, exports) {
 		 * for the onFulfilled to be called with the array as its argument list
 		 * i.e. onFulfilled.spread(undefined, array).
 		 * @param {function} onFulfilled function to receive spread arguments
-		 * @return {Promise}
+		 * @returns {Promise}
 		 */
 		spread: function(onFulfilled) {
 			return this.then(function(array) {
@@ -187,7 +185,7 @@ var when = createCommonjsModule(function (module, exports) {
 	 * @private
 	 *
 	 * @param {*} value
-	 * @return {Promise} fulfilled promise
+	 * @returns {Promise} fulfilled promise
 	 */
 	function fulfilled(value) {
 		var p = new Promise(function(onFulfilled) {
@@ -208,7 +206,7 @@ var when = createCommonjsModule(function (module, exports) {
 	 * @private
 	 *
 	 * @param {*} reason
-	 * @return {Promise} rejected promise
+	 * @returns {Promise} rejected promise
 	 */
 	function rejected(reason) {
 		var p = new Promise(function(_, onRejected) {
@@ -230,7 +228,7 @@ var when = createCommonjsModule(function (module, exports) {
 	 * then. The resolver has resolve, reject, and progress.  The promise
 	 * only has then.
 	 *
-	 * @return {Deferred}
+	 * @returns {Deferred}
 	 */
 	function defer() {
 		var deferred, promise, handlers, progressHandlers,
@@ -345,7 +343,7 @@ var when = createCommonjsModule(function (module, exports) {
 		 * @param {function?} [onFulfilled] resolution handler
 		 * @param {function?} [onRejected] rejection handler
 		 * @param {function?} [onProgress] progress handler
-		 * @return {Promise} new promise
+		 * @returns {Promise} new promise
 		 */
 		function then(onFulfilled, onRejected, onProgress) {
 			// TODO: Promises/A+ check typeof onFulfilled, onRejected, onProgress
@@ -509,7 +507,7 @@ var when = createCommonjsModule(function (module, exports) {
 
 	/**
 	 * Joins multiple promises into a single returned promise.
-	 * @return {Promise} a promise that will fulfill when *all* the input promises
+	 * @returns {Promise} a promise that will fulfill when *all* the input promises
 	 * have fulfilled, or will reject when *any one* of the input promises rejects.
 	 */
 	function join(/* ...promises */) {
@@ -736,13 +734,4 @@ var when = createCommonjsModule(function (module, exports) {
 		return x;
 	}
 
-	return when;
-});
-})(function (factory) { (module.exports = factory())
-		;
-	}
-	// Boilerplate for AMD, Node, and browser global
-);
-});
-
-export { when as default };
+export default when;

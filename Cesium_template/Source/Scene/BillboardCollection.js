@@ -2,7 +2,6 @@ import AttributeCompression from "../Core/AttributeCompression.js";
 import BoundingSphere from "../Core/BoundingSphere.js";
 import Cartesian2 from "../Core/Cartesian2.js";
 import Cartesian3 from "../Core/Cartesian3.js";
-import Check from "../Core/Check.js";
 import Color from "../Core/Color.js";
 import ComponentDatatype from "../Core/ComponentDatatype.js";
 import defaultValue from "../Core/defaultValue.js";
@@ -472,13 +471,13 @@ function destroyBillboards(billboards) {
  * @see BillboardCollection#removeAll
  */
 BillboardCollection.prototype.add = function (options) {
-  var billboard = new Billboard(options, this);
-  billboard._index = this._billboards.length;
+  var b = new Billboard(options, this);
+  b._index = this._billboards.length;
 
-  this._billboards.push(billboard);
+  this._billboards.push(b);
   this._createVertexArray = true;
 
-  return billboard;
+  return b;
 };
 
 /**
@@ -506,7 +505,7 @@ BillboardCollection.prototype.add = function (options) {
  */
 BillboardCollection.prototype.remove = function (billboard) {
   if (this.contains(billboard)) {
-    this._billboards[billboard._index] = undefined; // Removed later
+    this._billboards[billboard._index] = null; // Removed later
     this._billboardsRemoved = true;
     this._createVertexArray = true;
     billboard._destroy();
@@ -552,7 +551,7 @@ function removeBillboards(billboardCollection) {
     var length = billboards.length;
     for (var i = 0, j = 0; i < length; ++i) {
       var billboard = billboards[i];
-      if (defined(billboard)) {
+      if (billboard) {
         billboard._index = j++;
         newBillboards.push(billboard);
       }
@@ -614,7 +613,9 @@ BillboardCollection.prototype.contains = function (billboard) {
  */
 BillboardCollection.prototype.get = function (index) {
   //>>includeStart('debug', pragmas.debug);
-  Check.typeOf.number("index", index);
+  if (!defined(index)) {
+    throw new DeveloperError("index is required.");
+  }
   //>>includeEnd('debug');
 
   removeBillboards(this);

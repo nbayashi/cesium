@@ -63,10 +63,6 @@ describe("Scene/QuadtreePrimitive", function () {
         ]),
         afterRender: [],
         pixelRatio: 1.0,
-
-        terrainExaggeration: 1.0,
-        terrainExaggerationRelativeHeight: 0.0,
-
         globeTranslucencyState: new GlobeTranslucencyState(),
       };
 
@@ -538,14 +534,9 @@ describe("Scene/QuadtreePrimitive", function () {
           return Intersect.INTERSECTING;
         }
 
-        if (
-          boundingVolume === visibleTile.data.tileBoundingRegion.boundingVolume
-        ) {
+        if (boundingVolume === visibleTile.data.orientedBoundingBox) {
           return Intersect.INTERSECTING;
-        } else if (
-          boundingVolume ===
-          notVisibleTile.data.tileBoundingRegion.boundingVolume
-        ) {
+        } else if (boundingVolume === notVisibleTile.data.orientedBoundingBox) {
           return Intersect.OUTSIDE;
         }
         return Intersect.INTERSECTING;

@@ -54,12 +54,11 @@ Object.defineProperties(CubeMapFace.prototype, {
 
 /**
  * Copies texels from the source to the cubemap's face.
- * @param {Object} options Object with the following properties:
- * @param {Object} options.source The source {@link ImageData}, {@link HTMLImageElement}, {@link HTMLCanvasElement}, {@link HTMLVideoElement},
- *                              or an object with a width, height, and arrayBufferView properties.
- * @param {Number} [options.xOffset=0] An offset in the x direction in the cubemap where copying begins.
- * @param {Number} [options.yOffset=0] An offset in the y direction in the cubemap where copying begins.
- * @param {Boolean} [options.skipColorSpaceConversion=false] If true, any custom gamma or color profiles in the texture will be ignored.
+ *
+ * @param {Object} source The source ImageData, HTMLImageElement, HTMLCanvasElement, HTMLVideoElement, or an object with a width, height, and typed array as shown in the example.
+ * @param {Number} [xOffset=0] An offset in the x direction in the cubemap where copying begins.
+ * @param {Number} [yOffset=0] An offset in the y direction in the cubemap where copying begins.
+ *
  * @exception {DeveloperError} xOffset must be greater than or equal to zero.
  * @exception {DeveloperError} yOffset must be greater than or equal to zero.
  * @exception {DeveloperError} xOffset + source.width must be less than or equal to width.
@@ -74,38 +73,30 @@ Object.defineProperties(CubeMapFace.prototype, {
  *   height : 1
  * });
  * cubeMap.positiveX.copyFrom({
- *   source: {
- *     width : 1,
- *     height : 1,
- *     arrayBufferView : new Uint8Array([255, 0, 0, 255])
- *   }
+ *   width : 1,
+ *   height : 1,
+ *   arrayBufferView : new Uint8Array([255, 0, 0, 255])
  * });
  */
-CubeMapFace.prototype.copyFrom = function (options) {
-  //>>includeStart('debug', pragmas.debug);
-  Check.defined("options", options);
-  //>>includeEnd('debug');
-
-  var xOffset = defaultValue(options.xOffset, 0);
-  var yOffset = defaultValue(options.yOffset, 0);
+CubeMapFace.prototype.copyFrom = function (source, xOffset, yOffset) {
+  xOffset = defaultValue(xOffset, 0);
+  yOffset = defaultValue(yOffset, 0);
 
   //>>includeStart('debug', pragmas.debug);
-  Check.defined("options.source", options.source);
+  Check.defined("source", source);
   Check.typeOf.number.greaterThanOrEquals("xOffset", xOffset, 0);
   Check.typeOf.number.greaterThanOrEquals("yOffset", yOffset, 0);
-  if (xOffset + options.source.width > this._size) {
+  if (xOffset + source.width > this._size) {
     throw new DeveloperError(
-      "xOffset + options.source.width must be less than or equal to width."
+      "xOffset + source.width must be less than or equal to width."
     );
   }
-  if (yOffset + options.source.height > this._size) {
+  if (yOffset + source.height > this._size) {
     throw new DeveloperError(
-      "yOffset + options.source.height must be less than or equal to height."
+      "yOffset + source.height must be less than or equal to height."
     );
   }
   //>>includeEnd('debug');
-
-  var source = options.source;
 
   var gl = this._context._gl;
   var target = this._textureTarget;
@@ -125,10 +116,6 @@ CubeMapFace.prototype.copyFrom = function (options) {
 
   var preMultiplyAlpha = this._preMultiplyAlpha;
   var flipY = this._flipY;
-  var skipColorSpaceConversion = defaultValue(
-    options.skipColorSpaceConversion,
-    false
-  );
 
   var unpackAlignment = 4;
   if (defined(arrayBufferView)) {
@@ -140,15 +127,6 @@ CubeMapFace.prototype.copyFrom = function (options) {
   }
 
   gl.pixelStorei(gl.UNPACK_ALIGNMENT, unpackAlignment);
-
-  if (skipColorSpaceConversion) {
-    gl.pixelStorei(gl.UNPACK_COLORSPACE_CONVERSION_WEBGL, gl.NONE);
-  } else {
-    gl.pixelStorei(
-      gl.UNPACK_COLORSPACE_CONVERSION_WEBGL,
-      gl.BROWSER_DEFAULT_WEBGL
-    );
-  }
 
   var uploaded = false;
   if (!this._initialized) {

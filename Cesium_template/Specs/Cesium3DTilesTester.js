@@ -490,5 +490,4 @@ Cesium3DTilesTester.generateGeometryTileBuffer = function (options) {
 
   return buffer;
 };
-
 export default Cesium3DTilesTester;
