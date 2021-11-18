@@ -1,5 +1,5 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['exports', './when-8166c7dd'], function (exports, when) { 'use strict';
+define(['exports', './when-8166c7dd'], (function (exports, when) { 'use strict';
 
   /**
    * Constructs an exception object that is thrown due to a developer error, e.g., invalid argument,
@@ -384,4 +384,4 @@ define(['exports', './when-8166c7dd'], function (exports, when) { 'use strict';
   exports.DeveloperError = DeveloperError;
   exports.RuntimeError = RuntimeError;
 
-});
+}));

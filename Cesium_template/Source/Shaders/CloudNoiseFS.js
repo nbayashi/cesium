@@ -1,8 +1,11 @@
 //This file is automatically rebuilt by the Cesium build process.
-export default "uniform float u_noiseTextureLength;\n\
+export default "uniform vec3 u_noiseTextureDimensions;\n\
 uniform float u_noiseDetail;\n\
 uniform vec3 u_noiseOffset;\n\
 varying vec2 v_position;\n\
+\n\
+float textureSliceWidth = u_noiseTextureDimensions.x;\n\
+float inverseNoiseTextureRows = u_noiseTextureDimensions.z;\n\
 \n\
 float wrap(float value, float rangeLength) {\n\
     if(value < 0.0) {\n\
@@ -29,7 +32,7 @@ vec3 random3(vec3 p) {\n\
 // The higher the frequency, the smaller the cell size.\n\
 vec3 getWorleyCellPoint(vec3 centerCell, vec3 offset, float freq) {\n\
     vec3 cell = centerCell + offset;\n\
-    cell = wrapVec(cell, u_noiseTextureLength / u_noiseDetail);\n\
+    cell = wrapVec(cell, textureSliceWidth / u_noiseDetail);\n\
     cell += floor(u_noiseOffset / u_noiseDetail);\n\
     vec3 p = offset + random3(cell);\n\
     return p;\n\
@@ -67,7 +70,7 @@ float worleyFBMNoise(vec3 p, float octaves, float scale) {\n\
         if(i >= octaves) {\n\
             break;\n\
         }\n\
-        \n\
+\n\
         noise += worleyNoise(p * scale, freq * scale) * persistence;\n\
         persistence *= 0.5;\n\
         freq *= 2.0;\n\
@@ -75,10 +78,13 @@ float worleyFBMNoise(vec3 p, float octaves, float scale) {\n\
     return noise;\n\
 }\n\
 \n\
-void main() {   \n\
-    float z = floor(v_position.x / u_noiseTextureLength);\n\
-    float x = v_position.x - z * u_noiseTextureLength;\n\
-    vec3 position = vec3(x, v_position.y, z);\n\
+void main() {\n\
+    float x = mod(v_position.x, textureSliceWidth);\n\
+    float y = mod(v_position.y, textureSliceWidth);\n\
+    float sliceRow = floor(v_position.y / textureSliceWidth);\n\
+    float z = floor(v_position.x / textureSliceWidth) + sliceRow * inverseNoiseTextureRows * textureSliceWidth;\n\
+\n\
+    vec3 position = vec3(x, y, z);\n\
     position /= u_noiseDetail;\n\
     float worley0 = clamp(worleyFBMNoise(position, 3.0, 1.0), 0.0, 1.0);\n\
     float worley1 = clamp(worleyFBMNoise(position, 3.0, 2.0), 0.0, 1.0);\n\

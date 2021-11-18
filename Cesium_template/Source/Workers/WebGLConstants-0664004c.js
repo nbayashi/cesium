@@ -1,5 +1,5 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['exports'], function (exports) { 'use strict';
+define(['exports'], (function (exports) { 'use strict';
 
   /**
    * Enum containing WebGL Constant values by name.
@@ -618,4 +618,4 @@ define(['exports'], function (exports) { 'use strict';
 
   exports.WebGLConstants = WebGLConstants$1;
 
-});
+}));

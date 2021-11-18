@@ -67,6 +67,18 @@ function Quantization() {
   this.quantizedVolumeDimensions = undefined;
 
   /**
+   * The step size of the quantization volume, equal to
+   * quantizedVolumeDimensions / quantizedVolumeOffset (component-wise).
+   * Not applicable for oct encoded attributes.
+   * The type should match the attribute type - e.g. if the attribute type
+   * is AttributeType.VEC4 the dimensions should be a Cartesian4.
+   *
+   * @type {Number|Cartesian2|Cartesian3|Cartesian4|Matrix2|Matrix3|Matrix4}
+   * @private
+   */
+  this.quantizedVolumeStepSize = undefined;
+
+  /**
    * The component data type of the quantized attribute, e.g. ComponentDatatype.UNSIGNED_SHORT.
    *
    * <p>
@@ -307,12 +319,14 @@ function Indices() {
  */
 function FeatureIdAttribute() {
   /**
-   * The ID of the feature table that feature IDs index into.
+   * The ID of the feature table that feature IDs index into. If undefined,
+   * feature IDs are used for classification, but no metadata is associated.
    *
-   * @type {String}
+   *
+   * @type {Number}
    * @private
    */
-  this.featureTableId = undefined;
+  this.propertyTableId = undefined;
 
   /**
    * The set index of feature ID attribute containing feature IDs.
@@ -323,22 +337,21 @@ function FeatureIdAttribute() {
   this.setIndex = undefined;
 
   /**
-   * A constant feature ID to use when setIndex is undefined.
+   * The first feature ID to use when setIndex is undefined
    *
    * @type {Number}
    * @default 0
    * @private
    */
-  this.constant = 0;
+  this.offset = 0;
 
   /**
-   * The rate at which feature IDs increment when setIndex is undefined.
+   * Number of times each feature ID is repeated before being incremented.
    *
    * @type {Number}
-   * @default 0
    * @private
    */
-  this.divisor = 0;
+  this.repeat = undefined;
 }
 
 /**
@@ -356,7 +369,7 @@ function FeatureIdTexture() {
    * @type {String}
    * @private
    */
-  this.featureTableId = undefined;
+  this.propertyTableId = undefined;
 
   /**
    * The texture reader containing feature IDs.
@@ -459,9 +472,10 @@ function Primitive() {
   this.featureIdTextures = [];
 
   /**
-   * The feature texture IDs.
+   * The feature texture IDs. These indices correspond to the array of
+   * feature textures.
    *
-   * @type {String[]}
+   * @type {Number[]}
    * @private
    */
   this.featureTextureIds = [];

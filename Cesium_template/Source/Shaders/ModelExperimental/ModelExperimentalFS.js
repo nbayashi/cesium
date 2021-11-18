@@ -12,7 +12,7 @@ czm_modelMaterial defaultModelMaterial()\n\
     material.specular = vec3(0.04); // dielectric (non-metal)\n\
     material.roughness = 0.0;\n\
     material.occlusion = 1.0;\n\
-    material.normal = vec3(0.0, 0.0, 1.0);\n\
+    material.normalEC = vec3(0.0, 0.0, 1.0);\n\
     material.emissive = vec3(0.0);\n\
     material.alpha = 1.0;\n\
     return material;\n\
@@ -32,21 +32,40 @@ vec4 handleAlpha(vec3 color, float alpha)\n\
     #endif\n\
 }\n\
 \n\
+Feature feature;\n\
+\n\
 void main() \n\
 {\n\
     czm_modelMaterial material = defaultModelMaterial();\n\
 \n\
+    ProcessedAttributes attributes;\n\
+    geometryStage(attributes);\n\
+\n\
+    #ifdef HAS_FEATURES\n\
+    featureStage(feature);\n\
+    #endif\n\
+\n\
+\n\
     #ifndef CUSTOM_SHADER_REPLACE_MATERIAL\n\
-    material = materialStage(material);\n\
+    materialStage(material, attributes, feature);\n\
     #endif\n\
 \n\
-    #if defined(CUSTOM_SHADER_MODIFY_MATERIAL) || defined(CUSTOM_SHADER_REPLACE_MATERIAL) \n\
-    material = customShaderStage(material);\n\
+    #ifdef HAS_CUSTOM_FRAGMENT_SHADER\n\
+    customShaderStage(material, attributes);\n\
     #endif\n\
 \n\
-    material = lightingStage(material);\n\
+    lightingStage(material);\n\
+\n\
+    #ifdef HAS_FEATURES\n\
+    cpuStylingStage(material, feature);\n\
+    #endif\n\
+    \n\
+    #ifdef HAS_MODEL_COLOR\n\
+    modelColorStage(material);\n\
+    #endif \n\
 \n\
     vec4 color = handleAlpha(material.diffuse, material.alpha);\n\
+\n\
     gl_FragColor = color;\n\
 }\n\
 ";

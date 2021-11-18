@@ -31,7 +31,7 @@ vec3 computePbrLighting(czm_modelMaterial inputMaterial)\n\
     #ifdef HAS_NORMALS\n\
     color = czm_pbrLighting(\n\
         v_positionEC,\n\
-        inputMaterial.normal,\n\
+        inputMaterial.normalEC,\n\
         czm_lightDirectionEC,\n\
         lightColorHdr,\n\
         pbrParameters\n\
@@ -47,23 +47,20 @@ vec3 computePbrLighting(czm_modelMaterial inputMaterial)\n\
 }\n\
 #endif\n\
 \n\
-\n\
-czm_modelMaterial lightingStage(czm_modelMaterial inputMaterial)\n\
+void lightingStage(inout czm_modelMaterial material)\n\
 {\n\
     // Even though the lighting will only set the diffuse color,\n\
-    // pass all other properties too so further stages have access to them.\n\
-    czm_modelMaterial outputMaterial = inputMaterial;\n\
+    // pass all other properties so further stages have access to them.\n\
     vec3 color = vec3(0.0);\n\
 \n\
     #ifdef LIGHTING_PBR\n\
-    color = computePbrLighting(inputMaterial);\n\
+    color = computePbrLighting(material);\n\
     #else // unlit\n\
-    color = inputMaterial.diffuse;\n\
+    color = material.diffuse;\n\
     #endif\n\
 \n\
     color = LINEARtoSRGB(color);\n\
 \n\
-    outputMaterial.diffuse = color;\n\
-    return outputMaterial;\n\
+    material.diffuse = color;\n\
 }\n\
 ";

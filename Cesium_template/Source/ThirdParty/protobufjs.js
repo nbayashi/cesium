@@ -1,6 +1,21 @@
 /* This file is automatically rebuilt by the Cesium build process. */
 import { c as createCommonjsModule, a as commonjsGlobal } from './_commonjsHelpers-3aae1032.js';
 
+function _mergeNamespaces(n, m) {
+    m.forEach(function (e) {
+        e && typeof e !== 'string' && !Array.isArray(e) && Object.keys(e).forEach(function (k) {
+            if (k !== 'default' && !(k in n)) {
+                var d = Object.getOwnPropertyDescriptor(e, k);
+                Object.defineProperty(n, k, d.get ? d : {
+                    enumerable: true,
+                    get: function () { return e[k]; }
+                });
+            }
+        });
+    });
+    return Object.freeze(n);
+}
+
 var protobuf = createCommonjsModule(function (module) {
 /*!
  * protobuf.js v6.7.0 (c) 2016, Daniel Wirtz
@@ -2647,8 +2662,9 @@ BufferWriter.prototype.string = function write_string_buffer(value) {
 
 });
 
-var protobuf$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.assign(/*#__PURE__*/Object.create(null), protobuf, {
+var protobuf$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/_mergeNamespaces({
+    __proto__: null,
     'default': protobuf
-}));
+}, [protobuf]));
 
 export { protobuf$1 as default };

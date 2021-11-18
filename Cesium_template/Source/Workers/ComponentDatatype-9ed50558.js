@@ -1,5 +1,5 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['exports', './RuntimeError-4fdc4459', './when-8166c7dd', './WebGLConstants-0664004c'], function (exports, RuntimeError, when, WebGLConstants) { 'use strict';
+define(['exports', './RuntimeError-4fdc4459', './when-8166c7dd', './WebGLConstants-0664004c'], (function (exports, RuntimeError, when, WebGLConstants) { 'use strict';
 
 	/* This file is automatically rebuilt by the Cesium build process. */
 	/*
@@ -1665,4 +1665,4 @@ define(['exports', './RuntimeError-4fdc4459', './when-8166c7dd', './WebGLConstan
 	exports.CesiumMath = CesiumMath;
 	exports.ComponentDatatype = ComponentDatatype$1;
 
-});
+}));

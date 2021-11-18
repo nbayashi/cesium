@@ -1,5 +1,18 @@
 //This file is automatically rebuilt by the Cesium build process.
-export default "vec3 SRGBtoLINEAR3(vec3 srgbIn) \n\
+export default "// If the style color is white, it implies the feature has not been styled.\n\
+bool isDefaultStyleColor(vec3 color)\n\
+{\n\
+    return all(greaterThan(color, vec3(1.0 - czm_epsilon3)));\n\
+}\n\
+\n\
+vec3 blend(vec3 sourceColor, vec3 styleColor, float styleColorBlend)\n\
+{\n\
+    vec3 blendColor = mix(sourceColor, styleColor, styleColorBlend);\n\
+    vec3 color = isDefaultStyleColor(styleColor.rgb) ? sourceColor : blendColor;\n\
+    return color;\n\
+}\n\
+\n\
+vec3 SRGBtoLINEAR3(vec3 srgbIn) \n\
 {\n\
     return pow(srgbIn, vec3(2.2));\n\
 }\n\
@@ -16,9 +29,10 @@ vec2 computeTextureTransform(vec2 texCoord, mat3 textureTransform)\n\
 }\n\
 \n\
 #ifdef HAS_NORMALS\n\
-vec3 computeNormal()\n\
+vec3 computeNormal(ProcessedAttributes attributes)\n\
 {\n\
-    vec3 ng = normalize(v_normal);\n\
+    // Geometry normal. This is already normalized \n\
+    vec3 ng = attributes.normalEC;\n\
 \n\
     vec3 normal = ng;\n\
     #ifdef HAS_NORMAL_TEXTURE\n\
@@ -27,17 +41,18 @@ vec3 computeNormal()\n\
         normalTexCoords = computeTextureTransform(normalTexCoords, u_normalTextureTransform);\n\
         #endif\n\
 \n\
-        #ifdef HAS_TANGENTS\n\
-        // read tangents from varying\n\
-        vec3 t = normalize(v_tangent.xyz);\n\
-        vec3 b = normalize(cross(ng, t) * v_tangent.w);\n\
+        // If HAS_BITANGENTS is set, then HAS_TANGENTS is also set\n\
+        #ifdef HAS_BITANGENTS\n\
+        vec3 t = attributes.tangentEC;\n\
+        vec3 b = attributes.bitangentEC;\n\
         mat3 tbn = mat3(t, b, ng);\n\
         vec3 n = texture2D(u_normalTexture, normalTexCoords).rgb;\n\
         normal = normalize(tbn * (2.0 * n - 1.0));\n\
         #elif defined(GL_OES_standard_derivatives)\n\
         // Compute tangents\n\
-        vec3 pos_dx = dFdx(v_positionEC);\n\
-        vec3 pos_dy = dFdy(v_positionEC);\n\
+        vec3 positionEC = attributes.positionEC;\n\
+        vec3 pos_dx = dFdx(positionEC);\n\
+        vec3 pos_dy = dFdy(positionEC);\n\
         vec3 tex_dx = dFdx(vec3(normalTexCoords,0.0));\n\
         vec3 tex_dy = dFdy(vec3(normalTexCoords,0.0));\n\
         vec3 t = (tex_dy.t * pos_dx - tex_dx.t * pos_dy) / (tex_dx.s * tex_dy.t - tex_dy.s * tex_dx.t);\n\
@@ -53,12 +68,11 @@ vec3 computeNormal()\n\
 }\n\
 #endif\n\
 \n\
-czm_modelMaterial materialStage(czm_modelMaterial inputMaterial)\n\
+void materialStage(inout czm_modelMaterial material, ProcessedAttributes attributes, Feature feature)\n\
 {\n\
-    czm_modelMaterial material = inputMaterial;\n\
 \n\
     #ifdef HAS_NORMALS\n\
-    material.normal = computeNormal();\n\
+    material.normalEC = computeNormal(attributes);\n\
     #endif\n\
 \n\
     vec4 baseColorWithAlpha = vec4(1.0);\n\
@@ -80,11 +94,15 @@ czm_modelMaterial materialStage(czm_modelMaterial inputMaterial)\n\
     #endif\n\
 \n\
     #ifdef HAS_COLOR_0\n\
-    baseColorWithAlpha *= v_color_0;\n\
+    baseColorWithAlpha *= attributes.color_0;\n\
     #endif\n\
 \n\
     material.diffuse = baseColorWithAlpha.rgb;\n\
     material.alpha = baseColorWithAlpha.a;\n\
+\n\
+    #ifdef USE_CPU_STYLING\n\
+    material.diffuse = blend(material.diffuse, feature.color.rgb, model_colorBlend);\n\
+    #endif\n\
 \n\
     #ifdef HAS_OCCLUSION_TEXTURE\n\
     vec2 occlusionTexCoords = TEXCOORD_OCCLUSION;\n\
@@ -202,6 +220,5 @@ czm_modelMaterial materialStage(czm_modelMaterial inputMaterial)\n\
     material.specular = parameters.f0;\n\
     material.roughness = parameters.roughness;\n\
     #endif\n\
-\n\
-    return material;\n\
-}";
+}\n\
+";

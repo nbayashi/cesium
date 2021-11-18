@@ -1,6 +1,6 @@
 // This file is automatically rebuilt by the Cesium build process.
-const hello_world_index = 99;
-const VERSION = '1.85';
+const hello_world_index = 104;
+const VERSION = '1.87.1';
 const gallery_demos = [{
   "name": "3D Models",
   "isNew": false,
@@ -49,6 +49,18 @@ const gallery_demos = [{
   "name": "3D Tiles Interior",
   "isNew": false,
   "img": "3D Tiles Interior.jpg"
+}, {
+  "name": "3D Tiles Next CDB Yemen",
+  "isNew": true,
+  "img": "3D Tiles Next CDB Yemen.jpg"
+}, {
+  "name": "3D Tiles Next Photogrammetry Classification",
+  "isNew": true,
+  "img": "3D Tiles Next Photogrammetry Classification.jpg"
+}, {
+  "name": "3D Tiles Next S2 Globe",
+  "isNew": true,
+  "img": "3D Tiles Next S2 Globe.jpg"
 }, {
   "name": "3D Tiles Photogrammetry",
   "isNew": false,
@@ -283,11 +295,11 @@ const gallery_demos = [{
   "img": "Clock.jpg"
 }, {
   "name": "Cloud Parameters",
-  "isNew": true,
+  "isNew": false,
   "img": "Cloud Parameters.jpg"
 }, {
   "name": "Clouds",
-  "isNew": true,
+  "isNew": false,
   "img": "Clouds.jpg"
 }, {
   "name": "Clustering",
@@ -313,6 +325,14 @@ const gallery_demos = [{
   "name": "Custom Post Process",
   "isNew": false,
   "img": "Custom Post Process.jpg"
+}, {
+  "name": "Custom Shaders 3D Tiles",
+  "isNew": true,
+  "img": "Custom Shaders 3D Tiles.jpg"
+}, {
+  "name": "Custom Shaders Models",
+  "isNew": true,
+  "img": "Custom Shaders Models.jpg"
 }, {
   "name": "Cylinders and Cones",
   "isNew": false,
@@ -473,6 +493,10 @@ const gallery_demos = [{
   "name": "Materials",
   "isNew": false,
   "img": "Materials.jpg"
+}, {
+  "name": "Model Experimental 3D Models",
+  "isNew": true,
+  "img": "Model Experimental 3D Models.jpg"
 }, {
   "name": "Montreal Point Cloud",
   "isNew": false,

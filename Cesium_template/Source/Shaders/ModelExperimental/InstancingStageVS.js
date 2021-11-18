@@ -1,5 +1,5 @@
 //This file is automatically rebuilt by the Cesium build process.
-export default "vec3 instancingStage(vec3 position) \n\
+export default "void instancingStage(inout vec3 positionMC) \n\
 {\n\
     mat4 instancingTransform;\n\
 \n\
@@ -29,6 +29,6 @@ export default "vec3 instancingStage(vec3 position) \n\
     ); \n\
     #endif\n\
 \n\
-    return (instancingTransform * vec4(position, 1.0)).xyz;\n\
+    positionMC = (instancingTransform * vec4(positionMC, 1.0)).xyz;\n\
 }\n\
 ";

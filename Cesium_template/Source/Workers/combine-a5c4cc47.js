@@ -1,5 +1,5 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['exports', './when-8166c7dd'], function (exports, when) { 'use strict';
+define(['exports', './when-8166c7dd'], (function (exports, when) { 'use strict';
 
   /**
    * Merges two objects, copying their properties onto a new combined object. When two objects have the same
@@ -80,4 +80,4 @@ define(['exports', './when-8166c7dd'], function (exports, when) { 'use strict';
 
   exports.combine = combine;
 
-});
+}));

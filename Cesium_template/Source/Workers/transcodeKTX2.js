@@ -1,5 +1,5 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['./when-8166c7dd', './RuntimeError-4fdc4459', './WebGLConstants-0664004c', './createTaskProcessorWorker'], function (when, RuntimeError, WebGLConstants, createTaskProcessorWorker) { 'use strict';
+define(['./when-8166c7dd', './RuntimeError-4fdc4459', './WebGLConstants-0664004c', './createTaskProcessorWorker'], (function (when, RuntimeError, WebGLConstants, createTaskProcessorWorker) { 'use strict';
 
   /**
    * The data type of a pixel.
@@ -1189,4 +1189,4 @@ define(['./when-8166c7dd', './RuntimeError-4fdc4459', './WebGLConstants-0664004c
 
   return transcodeKTX2;
 
-});
+}));

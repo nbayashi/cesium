@@ -1,5 +1,5 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['exports', './when-8166c7dd', './RuntimeError-4fdc4459', './ComponentDatatype-9ed50558', './WebGLConstants-0664004c'], function (exports, when, RuntimeError, ComponentDatatype, WebGLConstants) { 'use strict';
+define(['exports', './when-8166c7dd', './RuntimeError-4fdc4459', './ComponentDatatype-9ed50558', './WebGLConstants-0664004c'], (function (exports, when, RuntimeError, ComponentDatatype, WebGLConstants) { 'use strict';
 
   /**
    * Constants for WebGL index datatypes.  These corresponds to the
@@ -173,4 +173,4 @@ define(['exports', './when-8166c7dd', './RuntimeError-4fdc4459', './ComponentDat
 
   exports.IndexDatatype = IndexDatatype$1;
 
-});
+}));

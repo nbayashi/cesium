@@ -1,5 +1,5 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['exports', './when-8166c7dd'], function (exports, when) { 'use strict';
+define(['exports', './when-8166c7dd'], (function (exports, when) { 'use strict';
 
   /**
    * Attributes, which make up a geometry's vertices.  Each property in this object corresponds to a
@@ -89,4 +89,4 @@ define(['exports', './when-8166c7dd'], function (exports, when) { 'use strict';
 
   exports.GeometryAttributes = GeometryAttributes;
 
-});
+}));

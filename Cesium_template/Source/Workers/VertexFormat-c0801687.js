@@ -1,5 +1,5 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['exports', './when-8166c7dd', './RuntimeError-4fdc4459'], function (exports, when, RuntimeError) { 'use strict';
+define(['exports', './when-8166c7dd', './RuntimeError-4fdc4459'], (function (exports, when, RuntimeError) { 'use strict';
 
   /**
    * A vertex format defines what attributes make up a vertex.  A VertexFormat can be provided
@@ -310,4 +310,4 @@ define(['exports', './when-8166c7dd', './RuntimeError-4fdc4459'], function (expo
 
   exports.VertexFormat = VertexFormat;
 
-});
+}));

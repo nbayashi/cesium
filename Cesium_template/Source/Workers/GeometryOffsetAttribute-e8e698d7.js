@@ -1,5 +1,5 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['exports', './RuntimeError-4fdc4459', './when-8166c7dd'], function (exports, RuntimeError, when) { 'use strict';
+define(['exports', './RuntimeError-4fdc4459', './when-8166c7dd'], (function (exports, RuntimeError, when) { 'use strict';
 
   /**
    * Fill an array or a portion of an array with a given value.
@@ -64,4 +64,4 @@ define(['exports', './RuntimeError-4fdc4459', './when-8166c7dd'], function (expo
   exports.GeometryOffsetAttribute = GeometryOffsetAttribute$1;
   exports.arrayFill = arrayFill;
 
-});
+}));

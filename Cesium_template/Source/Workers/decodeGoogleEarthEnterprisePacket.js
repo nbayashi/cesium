@@ -1,5 +1,5 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['./RuntimeError-4fdc4459', './when-8166c7dd', './createTaskProcessorWorker'], function (RuntimeError, when, createTaskProcessorWorker) { 'use strict';
+define(['./RuntimeError-4fdc4459', './when-8166c7dd', './createTaskProcessorWorker'], (function (RuntimeError, when, createTaskProcessorWorker) { 'use strict';
 
   var compressedMagic$1 = 0x7468dead;
   var compressedMagicSwap$1 = 0xadde6874;
@@ -3774,4 +3774,4 @@ define(['./RuntimeError-4fdc4459', './when-8166c7dd', './createTaskProcessorWork
 
   return decodeGoogleEarthEnterprisePacket$1;
 
-});
+}));
