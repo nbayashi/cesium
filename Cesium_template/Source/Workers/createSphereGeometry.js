@@ -1,5 +1,5 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['./when-8166c7dd', './Matrix2-0e286ffc', './RuntimeError-4fdc4459', './EllipsoidGeometry-0439b95e', './VertexFormat-c0801687', './ComponentDatatype-9ed50558', './WebGLConstants-0664004c', './GeometryOffsetAttribute-e8e698d7', './Transforms-de823166', './combine-a5c4cc47', './GeometryAttribute-83cf1273', './GeometryAttributes-50becc99', './IndexDatatype-797210ca'], (function (when, Matrix2, RuntimeError, EllipsoidGeometry, VertexFormat, ComponentDatatype, WebGLConstants, GeometryOffsetAttribute, Transforms, combine, GeometryAttribute, GeometryAttributes, IndexDatatype) { 'use strict';
+define(['./defaultValue-94c3e563', './Matrix2-69c32d33', './RuntimeError-c581ca93', './EllipsoidGeometry-f21a3e38', './VertexFormat-e46f29d6', './ComponentDatatype-b1ea011a', './WebGLConstants-7dccdc96', './GeometryOffsetAttribute-3e8c299c', './Transforms-323408fe', './_commonjsHelpers-3aae1032-f55dc0c4', './combine-761d9c3f', './GeometryAttribute-cb73bb3f', './GeometryAttributes-7df9bef6', './IndexDatatype-c4099fe9'], (function (defaultValue, Matrix2, RuntimeError, EllipsoidGeometry, VertexFormat, ComponentDatatype, WebGLConstants, GeometryOffsetAttribute, Transforms, _commonjsHelpers3aae1032, combine, GeometryAttribute, GeometryAttributes, IndexDatatype) { 'use strict';
 
   /**
    * A description of a sphere centered at the origin.
@@ -19,16 +19,16 @@ define(['./when-8166c7dd', './Matrix2-0e286ffc', './RuntimeError-4fdc4459', './E
    * @see SphereGeometry#createGeometry
    *
    * @example
-   * var sphere = new Cesium.SphereGeometry({
+   * const sphere = new Cesium.SphereGeometry({
    *   radius : 100.0,
    *   vertexFormat : Cesium.VertexFormat.POSITION_ONLY
    * });
-   * var geometry = Cesium.SphereGeometry.createGeometry(sphere);
+   * const geometry = Cesium.SphereGeometry.createGeometry(sphere);
    */
   function SphereGeometry(options) {
-    var radius = when.defaultValue(options.radius, 1.0);
-    var radii = new Matrix2.Cartesian3(radius, radius, radius);
-    var ellipsoidOptions = {
+    const radius = defaultValue.defaultValue(options.radius, 1.0);
+    const radii = new Matrix2.Cartesian3(radius, radius, radius);
+    const ellipsoidOptions = {
       radii: radii,
       stackPartitions: options.stackPartitions,
       slicePartitions: options.slicePartitions,
@@ -62,8 +62,8 @@ define(['./when-8166c7dd', './Matrix2-0e286ffc', './RuntimeError-4fdc4459', './E
     return EllipsoidGeometry.EllipsoidGeometry.pack(value._ellipsoidGeometry, array, startingIndex);
   };
 
-  var scratchEllipsoidGeometry = new EllipsoidGeometry.EllipsoidGeometry();
-  var scratchOptions = {
+  const scratchEllipsoidGeometry = new EllipsoidGeometry.EllipsoidGeometry();
+  const scratchOptions = {
     radius: undefined,
     radii: new Matrix2.Cartesian3(),
     vertexFormat: new VertexFormat.VertexFormat(),
@@ -80,7 +80,7 @@ define(['./when-8166c7dd', './Matrix2-0e286ffc', './RuntimeError-4fdc4459', './E
    * @returns {SphereGeometry} The modified result parameter or a new SphereGeometry instance if one was not provided.
    */
   SphereGeometry.unpack = function (array, startingIndex, result) {
-    var ellipsoidGeometry = EllipsoidGeometry.EllipsoidGeometry.unpack(
+    const ellipsoidGeometry = EllipsoidGeometry.EllipsoidGeometry.unpack(
       array,
       startingIndex,
       scratchEllipsoidGeometry
@@ -92,7 +92,7 @@ define(['./when-8166c7dd', './Matrix2-0e286ffc', './RuntimeError-4fdc4459', './E
     scratchOptions.stackPartitions = ellipsoidGeometry._stackPartitions;
     scratchOptions.slicePartitions = ellipsoidGeometry._slicePartitions;
 
-    if (!when.defined(result)) {
+    if (!defaultValue.defined(result)) {
       scratchOptions.radius = ellipsoidGeometry._radii.x;
       return new SphereGeometry(scratchOptions);
     }
@@ -113,7 +113,7 @@ define(['./when-8166c7dd', './Matrix2-0e286ffc', './RuntimeError-4fdc4459', './E
   };
 
   function createSphereGeometry(sphereGeometry, offset) {
-    if (when.defined(offset)) {
+    if (defaultValue.defined(offset)) {
       sphereGeometry = SphereGeometry.unpack(sphereGeometry, offset);
     }
     return SphereGeometry.createGeometry(sphereGeometry);

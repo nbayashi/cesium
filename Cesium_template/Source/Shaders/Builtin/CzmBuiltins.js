@@ -40,6 +40,7 @@ import czm_depthRangeStruct from './Structs/depthRangeStruct.js'
 import czm_material from './Structs/material.js'
 import czm_materialInput from './Structs/materialInput.js'
 import czm_modelMaterial from './Structs/modelMaterial.js'
+import czm_modelVertexOutput from './Structs/modelVertexOutput.js'
 import czm_pbrParameters from './Structs/pbrParameters.js'
 import czm_ray from './Structs/ray.js'
 import czm_raySegment from './Structs/raySegment.js'
@@ -86,6 +87,7 @@ import czm_isEmpty from './Functions/isEmpty.js'
 import czm_isFull from './Functions/isFull.js'
 import czm_latitudeToWebMercatorFraction from './Functions/latitudeToWebMercatorFraction.js'
 import czm_lineDistance from './Functions/lineDistance.js'
+import czm_linearToSrgb from './Functions/linearToSrgb.js'
 import czm_luminance from './Functions/luminance.js'
 import czm_metersPerPixel from './Functions/metersPerPixel.js'
 import czm_modelToWindowCoordinates from './Functions/modelToWindowCoordinates.js'
@@ -100,15 +102,18 @@ import czm_phong from './Functions/phong.js'
 import czm_planeDistance from './Functions/planeDistance.js'
 import czm_pointAlongRay from './Functions/pointAlongRay.js'
 import czm_rayEllipsoidIntersectionInterval from './Functions/rayEllipsoidIntersectionInterval.js'
+import czm_raySphereIntersectionInterval from './Functions/raySphereIntersectionInterval.js'
 import czm_readDepth from './Functions/readDepth.js'
 import czm_readNonPerspective from './Functions/readNonPerspective.js'
 import czm_reverseLogDepth from './Functions/reverseLogDepth.js'
+import czm_round from './Functions/round.js'
 import czm_sampleOctahedralProjection from './Functions/sampleOctahedralProjection.js'
 import czm_saturation from './Functions/saturation.js'
 import czm_shadowDepthCompare from './Functions/shadowDepthCompare.js'
 import czm_shadowVisibility from './Functions/shadowVisibility.js'
 import czm_signNotZero from './Functions/signNotZero.js'
 import czm_sphericalHarmonics from './Functions/sphericalHarmonics.js'
+import czm_srgbToLinear from './Functions/srgbToLinear.js'
 import czm_tangentToEyeSpaceMatrix from './Functions/tangentToEyeSpaceMatrix.js'
 import czm_transformPlane from './Functions/transformPlane.js'
 import czm_translateRelativeToEye from './Functions/translateRelativeToEye.js'
@@ -116,6 +121,8 @@ import czm_translucentPhong from './Functions/translucentPhong.js'
 import czm_transpose from './Functions/transpose.js'
 import czm_unpackDepth from './Functions/unpackDepth.js'
 import czm_unpackFloat from './Functions/unpackFloat.js'
+import czm_unpackUint from './Functions/unpackUint.js'
+import czm_valueTransform from './Functions/valueTransform.js'
 import czm_vertexLogDepth from './Functions/vertexLogDepth.js'
 import czm_windowToEyeCoordinates from './Functions/windowToEyeCoordinates.js'
 import czm_writeDepthClamp from './Functions/writeDepthClamp.js'
@@ -164,6 +171,7 @@ export default {
     czm_material : czm_material,
     czm_materialInput : czm_materialInput,
     czm_modelMaterial : czm_modelMaterial,
+    czm_modelVertexOutput : czm_modelVertexOutput,
     czm_pbrParameters : czm_pbrParameters,
     czm_ray : czm_ray,
     czm_raySegment : czm_raySegment,
@@ -210,6 +218,7 @@ export default {
     czm_isFull : czm_isFull,
     czm_latitudeToWebMercatorFraction : czm_latitudeToWebMercatorFraction,
     czm_lineDistance : czm_lineDistance,
+    czm_linearToSrgb : czm_linearToSrgb,
     czm_luminance : czm_luminance,
     czm_metersPerPixel : czm_metersPerPixel,
     czm_modelToWindowCoordinates : czm_modelToWindowCoordinates,
@@ -224,15 +233,18 @@ export default {
     czm_planeDistance : czm_planeDistance,
     czm_pointAlongRay : czm_pointAlongRay,
     czm_rayEllipsoidIntersectionInterval : czm_rayEllipsoidIntersectionInterval,
+    czm_raySphereIntersectionInterval : czm_raySphereIntersectionInterval,
     czm_readDepth : czm_readDepth,
     czm_readNonPerspective : czm_readNonPerspective,
     czm_reverseLogDepth : czm_reverseLogDepth,
+    czm_round : czm_round,
     czm_sampleOctahedralProjection : czm_sampleOctahedralProjection,
     czm_saturation : czm_saturation,
     czm_shadowDepthCompare : czm_shadowDepthCompare,
     czm_shadowVisibility : czm_shadowVisibility,
     czm_signNotZero : czm_signNotZero,
     czm_sphericalHarmonics : czm_sphericalHarmonics,
+    czm_srgbToLinear : czm_srgbToLinear,
     czm_tangentToEyeSpaceMatrix : czm_tangentToEyeSpaceMatrix,
     czm_transformPlane : czm_transformPlane,
     czm_translateRelativeToEye : czm_translateRelativeToEye,
@@ -240,6 +252,8 @@ export default {
     czm_transpose : czm_transpose,
     czm_unpackDepth : czm_unpackDepth,
     czm_unpackFloat : czm_unpackFloat,
+    czm_unpackUint : czm_unpackUint,
+    czm_valueTransform : czm_valueTransform,
     czm_vertexLogDepth : czm_vertexLogDepth,
     czm_windowToEyeCoordinates : czm_windowToEyeCoordinates,
     czm_writeDepthClamp : czm_writeDepthClamp,

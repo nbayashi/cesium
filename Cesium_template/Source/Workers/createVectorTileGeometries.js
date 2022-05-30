@@ -1,5 +1,5 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['./Transforms-de823166', './BoxGeometry-201be7ad', './Matrix2-0e286ffc', './Color-019372ad', './CylinderGeometry-74f780f9', './when-8166c7dd', './EllipsoidGeometry-0439b95e', './IndexDatatype-797210ca', './createTaskProcessorWorker', './RuntimeError-4fdc4459', './ComponentDatatype-9ed50558', './WebGLConstants-0664004c', './combine-a5c4cc47', './GeometryOffsetAttribute-e8e698d7', './GeometryAttribute-83cf1273', './GeometryAttributes-50becc99', './VertexFormat-c0801687', './CylinderGeometryLibrary-5924d4e5'], (function (Transforms, BoxGeometry, Matrix2, Color, CylinderGeometry, when, EllipsoidGeometry, IndexDatatype, createTaskProcessorWorker, RuntimeError, ComponentDatatype, WebGLConstants, combine, GeometryOffsetAttribute, GeometryAttribute, GeometryAttributes, VertexFormat, CylinderGeometryLibrary) { 'use strict';
+define(['./Transforms-323408fe', './BoxGeometry-4131a06c', './Matrix2-69c32d33', './Color-d6e135b0', './CylinderGeometry-953c0aaa', './defaultValue-94c3e563', './EllipsoidGeometry-f21a3e38', './IndexDatatype-c4099fe9', './createTaskProcessorWorker', './RuntimeError-c581ca93', './ComponentDatatype-b1ea011a', './WebGLConstants-7dccdc96', './_commonjsHelpers-3aae1032-f55dc0c4', './combine-761d9c3f', './GeometryOffsetAttribute-3e8c299c', './GeometryAttribute-cb73bb3f', './GeometryAttributes-7df9bef6', './VertexFormat-e46f29d6', './CylinderGeometryLibrary-1ace08dc'], (function (Transforms, BoxGeometry, Matrix2, Color, CylinderGeometry, defaultValue, EllipsoidGeometry, IndexDatatype, createTaskProcessorWorker, RuntimeError, ComponentDatatype, WebGLConstants, _commonjsHelpers3aae1032, combine, GeometryOffsetAttribute, GeometryAttribute, GeometryAttributes, VertexFormat, CylinderGeometryLibrary) { 'use strict';
 
   /**
    * Describes a renderable batch of geometry.
@@ -38,32 +38,32 @@ define(['./Transforms-de823166', './BoxGeometry-201be7ad', './Matrix2-0e286ffc',
     this.batchIds = options.batchIds;
   }
 
-  var scratchCartesian = new Matrix2.Cartesian3();
+  const scratchCartesian = new Matrix2.Cartesian3();
 
-  var packedBoxLength = Matrix2.Matrix4.packedLength + Matrix2.Cartesian3.packedLength;
-  var packedCylinderLength = Matrix2.Matrix4.packedLength + 2;
-  var packedEllipsoidLength = Matrix2.Matrix4.packedLength + Matrix2.Cartesian3.packedLength;
-  var packedSphereLength = Matrix2.Cartesian3.packedLength + 1;
+  const packedBoxLength = Matrix2.Matrix4.packedLength + Matrix2.Cartesian3.packedLength;
+  const packedCylinderLength = Matrix2.Matrix4.packedLength + 2;
+  const packedEllipsoidLength = Matrix2.Matrix4.packedLength + Matrix2.Cartesian3.packedLength;
+  const packedSphereLength = Matrix2.Cartesian3.packedLength + 1;
 
-  var scratchModelMatrixAndBV = {
+  const scratchModelMatrixAndBV = {
     modelMatrix: new Matrix2.Matrix4(),
     boundingVolume: new Transforms.BoundingSphere(),
   };
 
   function boxModelMatrixAndBoundingVolume(boxes, index) {
-    var boxIndex = index * packedBoxLength;
+    let boxIndex = index * packedBoxLength;
 
-    var dimensions = Matrix2.Cartesian3.unpack(boxes, boxIndex, scratchCartesian);
+    const dimensions = Matrix2.Cartesian3.unpack(boxes, boxIndex, scratchCartesian);
     boxIndex += Matrix2.Cartesian3.packedLength;
 
-    var boxModelMatrix = Matrix2.Matrix4.unpack(
+    const boxModelMatrix = Matrix2.Matrix4.unpack(
       boxes,
       boxIndex,
       scratchModelMatrixAndBV.modelMatrix
     );
     Matrix2.Matrix4.multiplyByScale(boxModelMatrix, dimensions, boxModelMatrix);
 
-    var boundingVolume = scratchModelMatrixAndBV.boundingVolume;
+    const boundingVolume = scratchModelMatrixAndBV.boundingVolume;
     Matrix2.Cartesian3.clone(Matrix2.Cartesian3.ZERO, boundingVolume.center);
     boundingVolume.radius = Math.sqrt(3.0);
 
@@ -71,25 +71,25 @@ define(['./Transforms-de823166', './BoxGeometry-201be7ad', './Matrix2-0e286ffc',
   }
 
   function cylinderModelMatrixAndBoundingVolume(cylinders, index) {
-    var cylinderIndex = index * packedCylinderLength;
+    let cylinderIndex = index * packedCylinderLength;
 
-    var cylinderRadius = cylinders[cylinderIndex++];
-    var length = cylinders[cylinderIndex++];
-    var scale = Matrix2.Cartesian3.fromElements(
+    const cylinderRadius = cylinders[cylinderIndex++];
+    const length = cylinders[cylinderIndex++];
+    const scale = Matrix2.Cartesian3.fromElements(
       cylinderRadius,
       cylinderRadius,
       length,
       scratchCartesian
     );
 
-    var cylinderModelMatrix = Matrix2.Matrix4.unpack(
+    const cylinderModelMatrix = Matrix2.Matrix4.unpack(
       cylinders,
       cylinderIndex,
       scratchModelMatrixAndBV.modelMatrix
     );
     Matrix2.Matrix4.multiplyByScale(cylinderModelMatrix, scale, cylinderModelMatrix);
 
-    var boundingVolume = scratchModelMatrixAndBV.boundingVolume;
+    const boundingVolume = scratchModelMatrixAndBV.boundingVolume;
     Matrix2.Cartesian3.clone(Matrix2.Cartesian3.ZERO, boundingVolume.center);
     boundingVolume.radius = Math.sqrt(2.0);
 
@@ -97,19 +97,19 @@ define(['./Transforms-de823166', './BoxGeometry-201be7ad', './Matrix2-0e286ffc',
   }
 
   function ellipsoidModelMatrixAndBoundingVolume(ellipsoids, index) {
-    var ellipsoidIndex = index * packedEllipsoidLength;
+    let ellipsoidIndex = index * packedEllipsoidLength;
 
-    var radii = Matrix2.Cartesian3.unpack(ellipsoids, ellipsoidIndex, scratchCartesian);
+    const radii = Matrix2.Cartesian3.unpack(ellipsoids, ellipsoidIndex, scratchCartesian);
     ellipsoidIndex += Matrix2.Cartesian3.packedLength;
 
-    var ellipsoidModelMatrix = Matrix2.Matrix4.unpack(
+    const ellipsoidModelMatrix = Matrix2.Matrix4.unpack(
       ellipsoids,
       ellipsoidIndex,
       scratchModelMatrixAndBV.modelMatrix
     );
     Matrix2.Matrix4.multiplyByScale(ellipsoidModelMatrix, radii, ellipsoidModelMatrix);
 
-    var boundingVolume = scratchModelMatrixAndBV.boundingVolume;
+    const boundingVolume = scratchModelMatrixAndBV.boundingVolume;
     Matrix2.Cartesian3.clone(Matrix2.Cartesian3.ZERO, boundingVolume.center);
     boundingVolume.radius = 1.0;
 
@@ -117,16 +117,16 @@ define(['./Transforms-de823166', './BoxGeometry-201be7ad', './Matrix2-0e286ffc',
   }
 
   function sphereModelMatrixAndBoundingVolume(spheres, index) {
-    var sphereIndex = index * packedSphereLength;
+    let sphereIndex = index * packedSphereLength;
 
-    var sphereRadius = spheres[sphereIndex++];
+    const sphereRadius = spheres[sphereIndex++];
 
-    var sphereTranslation = Matrix2.Cartesian3.unpack(
+    const sphereTranslation = Matrix2.Cartesian3.unpack(
       spheres,
       sphereIndex,
       scratchCartesian
     );
-    var sphereModelMatrix = Matrix2.Matrix4.fromTranslation(
+    const sphereModelMatrix = Matrix2.Matrix4.fromTranslation(
       sphereTranslation,
       scratchModelMatrixAndBV.modelMatrix
     );
@@ -136,14 +136,14 @@ define(['./Transforms-de823166', './BoxGeometry-201be7ad', './Matrix2-0e286ffc',
       sphereModelMatrix
     );
 
-    var boundingVolume = scratchModelMatrixAndBV.boundingVolume;
+    const boundingVolume = scratchModelMatrixAndBV.boundingVolume;
     Matrix2.Cartesian3.clone(Matrix2.Cartesian3.ZERO, boundingVolume.center);
     boundingVolume.radius = 1.0;
 
     return scratchModelMatrixAndBV;
   }
 
-  var scratchPosition = new Matrix2.Cartesian3();
+  const scratchPosition = new Matrix2.Cartesian3();
 
   function createPrimitive(
     options,
@@ -152,46 +152,46 @@ define(['./Transforms-de823166', './BoxGeometry-201be7ad', './Matrix2-0e286ffc',
     geometry,
     getModelMatrixAndBoundingVolume
   ) {
-    if (!when.defined(primitive)) {
+    if (!defaultValue.defined(primitive)) {
       return;
     }
 
-    var numberOfPrimitives = primitiveBatchIds.length;
-    var geometryPositions = geometry.attributes.position.values;
-    var geometryIndices = geometry.indices;
+    const numberOfPrimitives = primitiveBatchIds.length;
+    const geometryPositions = geometry.attributes.position.values;
+    const geometryIndices = geometry.indices;
 
-    var positions = options.positions;
-    var vertexBatchIds = options.vertexBatchIds;
-    var indices = options.indices;
+    const positions = options.positions;
+    const vertexBatchIds = options.vertexBatchIds;
+    const indices = options.indices;
 
-    var batchIds = options.batchIds;
-    var batchTableColors = options.batchTableColors;
-    var batchedIndices = options.batchedIndices;
-    var indexOffsets = options.indexOffsets;
-    var indexCounts = options.indexCounts;
-    var boundingVolumes = options.boundingVolumes;
+    const batchIds = options.batchIds;
+    const batchTableColors = options.batchTableColors;
+    const batchedIndices = options.batchedIndices;
+    const indexOffsets = options.indexOffsets;
+    const indexCounts = options.indexCounts;
+    const boundingVolumes = options.boundingVolumes;
 
-    var modelMatrix = options.modelMatrix;
-    var center = options.center;
+    const modelMatrix = options.modelMatrix;
+    const center = options.center;
 
-    var positionOffset = options.positionOffset;
-    var batchIdIndex = options.batchIdIndex;
-    var indexOffset = options.indexOffset;
-    var batchedIndicesOffset = options.batchedIndicesOffset;
+    let positionOffset = options.positionOffset;
+    let batchIdIndex = options.batchIdIndex;
+    let indexOffset = options.indexOffset;
+    const batchedIndicesOffset = options.batchedIndicesOffset;
 
-    for (var i = 0; i < numberOfPrimitives; ++i) {
-      var primitiveModelMatrixAndBV = getModelMatrixAndBoundingVolume(
+    for (let i = 0; i < numberOfPrimitives; ++i) {
+      const primitiveModelMatrixAndBV = getModelMatrixAndBoundingVolume(
         primitive,
         i
       );
-      var primitiveModelMatrix = primitiveModelMatrixAndBV.modelMatrix;
+      const primitiveModelMatrix = primitiveModelMatrixAndBV.modelMatrix;
       Matrix2.Matrix4.multiply(modelMatrix, primitiveModelMatrix, primitiveModelMatrix);
 
-      var batchId = primitiveBatchIds[i];
+      const batchId = primitiveBatchIds[i];
 
-      var positionsLength = geometryPositions.length;
-      for (var j = 0; j < positionsLength; j += 3) {
-        var position = Matrix2.Cartesian3.unpack(geometryPositions, j, scratchPosition);
+      const positionsLength = geometryPositions.length;
+      for (let j = 0; j < positionsLength; j += 3) {
+        const position = Matrix2.Cartesian3.unpack(geometryPositions, j, scratchPosition);
         Matrix2.Matrix4.multiplyByPoint(primitiveModelMatrix, position, position);
         Matrix2.Cartesian3.subtract(position, center, position);
 
@@ -199,12 +199,12 @@ define(['./Transforms-de823166', './BoxGeometry-201be7ad', './Matrix2-0e286ffc',
         vertexBatchIds[batchIdIndex++] = batchId;
       }
 
-      var indicesLength = geometryIndices.length;
-      for (var k = 0; k < indicesLength; ++k) {
+      const indicesLength = geometryIndices.length;
+      for (let k = 0; k < indicesLength; ++k) {
         indices[indexOffset + k] = geometryIndices[k] + positionOffset;
       }
 
-      var offset = i + batchedIndicesOffset;
+      const offset = i + batchedIndicesOffset;
       batchedIndices[offset] = new Vector3DTileBatch({
         offset: indexOffset,
         count: indicesLength,
@@ -229,13 +229,13 @@ define(['./Transforms-de823166', './BoxGeometry-201be7ad', './Matrix2-0e286ffc',
     options.batchedIndicesOffset += numberOfPrimitives;
   }
 
-  var scratchCenter = new Matrix2.Cartesian3();
-  var scratchMatrix4 = new Matrix2.Matrix4();
+  const scratchCenter = new Matrix2.Cartesian3();
+  const scratchMatrix4 = new Matrix2.Matrix4();
 
   function unpackBuffer(buffer) {
-    var packedBuffer = new Float64Array(buffer);
+    const packedBuffer = new Float64Array(buffer);
 
-    var offset = 0;
+    let offset = 0;
     Matrix2.Cartesian3.unpack(packedBuffer, offset, scratchCenter);
     offset += Matrix2.Cartesian3.packedLength;
 
@@ -243,39 +243,39 @@ define(['./Transforms-de823166', './BoxGeometry-201be7ad', './Matrix2-0e286ffc',
   }
 
   function packedBatchedIndicesLength(batchedIndices) {
-    var length = batchedIndices.length;
-    var count = 0;
-    for (var i = 0; i < length; ++i) {
+    const length = batchedIndices.length;
+    let count = 0;
+    for (let i = 0; i < length; ++i) {
       count += Color.Color.packedLength + 3 + batchedIndices[i].batchIds.length;
     }
     return count;
   }
 
   function packBuffer(indicesBytesPerElement, batchedIndices, boundingVolumes) {
-    var numBVs = boundingVolumes.length;
-    var length =
+    const numBVs = boundingVolumes.length;
+    const length =
       1 +
       1 +
       numBVs * Transforms.BoundingSphere.packedLength +
       1 +
       packedBatchedIndicesLength(batchedIndices);
 
-    var packedBuffer = new Float64Array(length);
+    const packedBuffer = new Float64Array(length);
 
-    var offset = 0;
+    let offset = 0;
     packedBuffer[offset++] = indicesBytesPerElement;
     packedBuffer[offset++] = numBVs;
 
-    for (var i = 0; i < numBVs; ++i) {
+    for (let i = 0; i < numBVs; ++i) {
       Transforms.BoundingSphere.pack(boundingVolumes[i], packedBuffer, offset);
       offset += Transforms.BoundingSphere.packedLength;
     }
 
-    var indicesLength = batchedIndices.length;
+    const indicesLength = batchedIndices.length;
     packedBuffer[offset++] = indicesLength;
 
-    for (var j = 0; j < indicesLength; ++j) {
-      var batchedIndex = batchedIndices[j];
+    for (let j = 0; j < indicesLength; ++j) {
+      const batchedIndex = batchedIndices[j];
 
       Color.Color.pack(batchedIndex.color, packedBuffer, offset);
       offset += Color.Color.packedLength;
@@ -283,11 +283,11 @@ define(['./Transforms-de823166', './BoxGeometry-201be7ad', './Matrix2-0e286ffc',
       packedBuffer[offset++] = batchedIndex.offset;
       packedBuffer[offset++] = batchedIndex.count;
 
-      var batchIds = batchedIndex.batchIds;
-      var batchIdsLength = batchIds.length;
+      const batchIds = batchedIndex.batchIds;
+      const batchIdsLength = batchIds.length;
       packedBuffer[offset++] = batchIdsLength;
 
-      for (var k = 0; k < batchIdsLength; ++k) {
+      for (let k = 0; k < batchIdsLength; ++k) {
         packedBuffer[offset++] = batchIds[k];
       }
     }
@@ -296,76 +296,76 @@ define(['./Transforms-de823166', './BoxGeometry-201be7ad', './Matrix2-0e286ffc',
   }
 
   function createVectorTileGeometries(parameters, transferableObjects) {
-    var boxes = when.defined(parameters.boxes)
+    const boxes = defaultValue.defined(parameters.boxes)
       ? new Float32Array(parameters.boxes)
       : undefined;
-    var boxBatchIds = when.defined(parameters.boxBatchIds)
+    const boxBatchIds = defaultValue.defined(parameters.boxBatchIds)
       ? new Uint16Array(parameters.boxBatchIds)
       : undefined;
-    var cylinders = when.defined(parameters.cylinders)
+    const cylinders = defaultValue.defined(parameters.cylinders)
       ? new Float32Array(parameters.cylinders)
       : undefined;
-    var cylinderBatchIds = when.defined(parameters.cylinderBatchIds)
+    const cylinderBatchIds = defaultValue.defined(parameters.cylinderBatchIds)
       ? new Uint16Array(parameters.cylinderBatchIds)
       : undefined;
-    var ellipsoids = when.defined(parameters.ellipsoids)
+    const ellipsoids = defaultValue.defined(parameters.ellipsoids)
       ? new Float32Array(parameters.ellipsoids)
       : undefined;
-    var ellipsoidBatchIds = when.defined(parameters.ellipsoidBatchIds)
+    const ellipsoidBatchIds = defaultValue.defined(parameters.ellipsoidBatchIds)
       ? new Uint16Array(parameters.ellipsoidBatchIds)
       : undefined;
-    var spheres = when.defined(parameters.spheres)
+    const spheres = defaultValue.defined(parameters.spheres)
       ? new Float32Array(parameters.spheres)
       : undefined;
-    var sphereBatchIds = when.defined(parameters.sphereBatchIds)
+    const sphereBatchIds = defaultValue.defined(parameters.sphereBatchIds)
       ? new Uint16Array(parameters.sphereBatchIds)
       : undefined;
 
-    var numberOfBoxes = when.defined(boxes) ? boxBatchIds.length : 0;
-    var numberOfCylinders = when.defined(cylinders) ? cylinderBatchIds.length : 0;
-    var numberOfEllipsoids = when.defined(ellipsoids) ? ellipsoidBatchIds.length : 0;
-    var numberOfSpheres = when.defined(spheres) ? sphereBatchIds.length : 0;
+    const numberOfBoxes = defaultValue.defined(boxes) ? boxBatchIds.length : 0;
+    const numberOfCylinders = defaultValue.defined(cylinders) ? cylinderBatchIds.length : 0;
+    const numberOfEllipsoids = defaultValue.defined(ellipsoids) ? ellipsoidBatchIds.length : 0;
+    const numberOfSpheres = defaultValue.defined(spheres) ? sphereBatchIds.length : 0;
 
-    var boxGeometry = BoxGeometry.BoxGeometry.getUnitBox();
-    var cylinderGeometry = CylinderGeometry.CylinderGeometry.getUnitCylinder();
-    var ellipsoidGeometry = EllipsoidGeometry.EllipsoidGeometry.getUnitEllipsoid();
+    const boxGeometry = BoxGeometry.BoxGeometry.getUnitBox();
+    const cylinderGeometry = CylinderGeometry.CylinderGeometry.getUnitCylinder();
+    const ellipsoidGeometry = EllipsoidGeometry.EllipsoidGeometry.getUnitEllipsoid();
 
-    var boxPositions = boxGeometry.attributes.position.values;
-    var cylinderPositions = cylinderGeometry.attributes.position.values;
-    var ellipsoidPositions = ellipsoidGeometry.attributes.position.values;
+    const boxPositions = boxGeometry.attributes.position.values;
+    const cylinderPositions = cylinderGeometry.attributes.position.values;
+    const ellipsoidPositions = ellipsoidGeometry.attributes.position.values;
 
-    var numberOfPositions = boxPositions.length * numberOfBoxes;
+    let numberOfPositions = boxPositions.length * numberOfBoxes;
     numberOfPositions += cylinderPositions.length * numberOfCylinders;
     numberOfPositions +=
       ellipsoidPositions.length * (numberOfEllipsoids + numberOfSpheres);
 
-    var boxIndices = boxGeometry.indices;
-    var cylinderIndices = cylinderGeometry.indices;
-    var ellipsoidIndices = ellipsoidGeometry.indices;
+    const boxIndices = boxGeometry.indices;
+    const cylinderIndices = cylinderGeometry.indices;
+    const ellipsoidIndices = ellipsoidGeometry.indices;
 
-    var numberOfIndices = boxIndices.length * numberOfBoxes;
+    let numberOfIndices = boxIndices.length * numberOfBoxes;
     numberOfIndices += cylinderIndices.length * numberOfCylinders;
     numberOfIndices +=
       ellipsoidIndices.length * (numberOfEllipsoids + numberOfSpheres);
 
-    var positions = new Float32Array(numberOfPositions);
-    var vertexBatchIds = new Uint16Array(numberOfPositions / 3);
-    var indices = IndexDatatype.IndexDatatype.createTypedArray(
+    const positions = new Float32Array(numberOfPositions);
+    const vertexBatchIds = new Uint16Array(numberOfPositions / 3);
+    const indices = IndexDatatype.IndexDatatype.createTypedArray(
       numberOfPositions / 3,
       numberOfIndices
     );
 
-    var numberOfGeometries =
+    const numberOfGeometries =
       numberOfBoxes + numberOfCylinders + numberOfEllipsoids + numberOfSpheres;
-    var batchIds = new Uint16Array(numberOfGeometries);
-    var batchedIndices = new Array(numberOfGeometries);
-    var indexOffsets = new Uint32Array(numberOfGeometries);
-    var indexCounts = new Uint32Array(numberOfGeometries);
-    var boundingVolumes = new Array(numberOfGeometries);
+    const batchIds = new Uint16Array(numberOfGeometries);
+    const batchedIndices = new Array(numberOfGeometries);
+    const indexOffsets = new Uint32Array(numberOfGeometries);
+    const indexCounts = new Uint32Array(numberOfGeometries);
+    const boundingVolumes = new Array(numberOfGeometries);
 
     unpackBuffer(parameters.packedBuffer);
 
-    var options = {
+    const options = {
       batchTableColors: new Uint32Array(parameters.batchTableColors),
       positions: positions,
       vertexBatchIds: vertexBatchIds,
@@ -412,7 +412,7 @@ define(['./Transforms-de823166', './BoxGeometry-201be7ad', './Matrix2-0e286ffc',
       sphereModelMatrixAndBoundingVolume
     );
 
-    var packedBuffer = packBuffer(
+    const packedBuffer = packBuffer(
       indices.BYTES_PER_ELEMENT,
       batchedIndices,
       boundingVolumes

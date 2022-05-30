@@ -21,18 +21,18 @@
  * See https://github.com/CesiumGS/cesium/blob/main/LICENSE.md for full licensing details.
  */
 
-define(['./arrayRemoveDuplicates-cf5c3227', './Transforms-86b6fa28', './Matrix2-91d5b6af', './RuntimeError-346a3079', './ComponentDatatype-f194c48b', './CoplanarPolygonGeometryLibrary-bddbb12e', './when-4bbc8319', './GeometryAttribute-e0d0d297', './GeometryAttributes-7827a6c2', './GeometryInstance-a3cff41c', './GeometryPipeline-e3097c85', './IndexDatatype-ee69f1fd', './PolygonGeometryLibrary-110b8a9d', './combine-83860057', './WebGLConstants-1c8239cc', './OrientedBoundingBox-79e3c3fe', './EllipsoidTangentPlane-164dcfc9', './AxisAlignedBoundingBox-4171efdd', './IntersectionTests-26599c5e', './Plane-4f333bc4', './AttributeCompression-1f6679e1', './EncodedCartesian3-882fbcbd', './ArcType-98ec98bf', './EllipsoidRhumbLine-447d6334', './PolygonPipeline-d65e2b8f'], (function (arrayRemoveDuplicates, Transforms, Matrix2, RuntimeError, ComponentDatatype, CoplanarPolygonGeometryLibrary, when, GeometryAttribute, GeometryAttributes, GeometryInstance, GeometryPipeline, IndexDatatype, PolygonGeometryLibrary, combine, WebGLConstants, OrientedBoundingBox, EllipsoidTangentPlane, AxisAlignedBoundingBox, IntersectionTests, Plane, AttributeCompression, EncodedCartesian3, ArcType, EllipsoidRhumbLine, PolygonPipeline) { 'use strict';
+define(['./arrayRemoveDuplicates-1a15bd09', './Transforms-f0a54c7b', './Matrix2-d35cf4b5', './RuntimeError-8952249c', './ComponentDatatype-9e86ac8f', './CoplanarPolygonGeometryLibrary-73c52789', './defaultValue-81eec7ed', './GeometryAttribute-eeb38987', './GeometryAttributes-32b29525', './GeometryInstance-d60d0ef4', './GeometryPipeline-55e02a41', './IndexDatatype-bed3935d', './PolygonGeometryLibrary-6e68e6b6', './_commonjsHelpers-3aae1032-26891ab7', './combine-3c023bda', './WebGLConstants-508b9636', './OrientedBoundingBox-0b41570b', './EllipsoidTangentPlane-2abe082d', './AxisAlignedBoundingBox-7b93960a', './IntersectionTests-a25e058d', './Plane-24f22488', './AttributeCompression-d0b97a83', './EncodedCartesian3-530d5328', './ArcType-fc72c06c', './EllipsoidRhumbLine-d049f903', './PolygonPipeline-a3c0d57c'], (function (arrayRemoveDuplicates, Transforms, Matrix2, RuntimeError, ComponentDatatype, CoplanarPolygonGeometryLibrary, defaultValue, GeometryAttribute, GeometryAttributes, GeometryInstance, GeometryPipeline, IndexDatatype, PolygonGeometryLibrary, _commonjsHelpers3aae1032, combine, WebGLConstants, OrientedBoundingBox, EllipsoidTangentPlane, AxisAlignedBoundingBox, IntersectionTests, Plane, AttributeCompression, EncodedCartesian3, ArcType, EllipsoidRhumbLine, PolygonPipeline) { 'use strict';
 
   function createGeometryFromPositions(positions) {
-    var length = positions.length;
-    var flatPositions = new Float64Array(length * 3);
-    var indices = IndexDatatype.IndexDatatype.createTypedArray(length, length * 2);
+    const length = positions.length;
+    const flatPositions = new Float64Array(length * 3);
+    const indices = IndexDatatype.IndexDatatype.createTypedArray(length, length * 2);
 
-    var positionIndex = 0;
-    var index = 0;
+    let positionIndex = 0;
+    let index = 0;
 
-    for (var i = 0; i < length; i++) {
-      var position = positions[i];
+    for (let i = 0; i < length; i++) {
+      const position = positions[i];
       flatPositions[positionIndex++] = position.x;
       flatPositions[positionIndex++] = position.y;
       flatPositions[positionIndex++] = position.z;
@@ -41,7 +41,7 @@ define(['./arrayRemoveDuplicates-cf5c3227', './Transforms-86b6fa28', './Matrix2-
       indices[index++] = (i + 1) % length;
     }
 
-    var attributes = new GeometryAttributes.GeometryAttributes({
+    const attributes = new GeometryAttributes.GeometryAttributes({
       position: new GeometryAttribute.GeometryAttribute({
         componentDatatype: ComponentDatatype.ComponentDatatype.DOUBLE,
         componentsPerAttribute: 3,
@@ -68,7 +68,7 @@ define(['./arrayRemoveDuplicates-cf5c3227', './Transforms-86b6fa28', './Matrix2-
    * @see CoplanarPolygonOutlineGeometry.createGeometry
    *
    * @example
-   * var polygonOutline = new Cesium.CoplanarPolygonOutlineGeometry({
+   * const polygonOutline = new Cesium.CoplanarPolygonOutlineGeometry({
    *   positions : Cesium.Cartesian3.fromDegreesArrayHeights([
    *      -90.0, 30.0, 0.0,
    *      -90.0, 30.0, 1000.0,
@@ -76,11 +76,11 @@ define(['./arrayRemoveDuplicates-cf5c3227', './Transforms-86b6fa28', './Matrix2-
    *      -80.0, 30.0, 0.0
    *   ])
    * });
-   * var geometry = Cesium.CoplanarPolygonOutlineGeometry.createGeometry(polygonOutline);
+   * const geometry = Cesium.CoplanarPolygonOutlineGeometry.createGeometry(polygonOutline);
    */
   function CoplanarPolygonOutlineGeometry(options) {
-    options = when.defaultValue(options, when.defaultValue.EMPTY_OBJECT);
-    var polygonHierarchy = options.polygonHierarchy;
+    options = defaultValue.defaultValue(options, defaultValue.defaultValue.EMPTY_OBJECT);
+    const polygonHierarchy = options.polygonHierarchy;
     //>>includeStart('debug', pragmas.debug);
     RuntimeError.Check.defined("options.polygonHierarchy", polygonHierarchy);
     //>>includeEnd('debug');
@@ -104,13 +104,13 @@ define(['./arrayRemoveDuplicates-cf5c3227', './Transforms-86b6fa28', './Matrix2-
    * @returns {CoplanarPolygonOutlineGeometry}
    */
   CoplanarPolygonOutlineGeometry.fromPositions = function (options) {
-    options = when.defaultValue(options, when.defaultValue.EMPTY_OBJECT);
+    options = defaultValue.defaultValue(options, defaultValue.defaultValue.EMPTY_OBJECT);
 
     //>>includeStart('debug', pragmas.debug);
     RuntimeError.Check.defined("options.positions", options.positions);
     //>>includeEnd('debug');
 
-    var newOptions = {
+    const newOptions = {
       polygonHierarchy: {
         positions: options.positions,
       },
@@ -133,7 +133,7 @@ define(['./arrayRemoveDuplicates-cf5c3227', './Transforms-86b6fa28', './Matrix2-
     RuntimeError.Check.defined("array", array);
     //>>includeEnd('debug');
 
-    startingIndex = when.defaultValue(startingIndex, 0);
+    startingIndex = defaultValue.defaultValue(startingIndex, 0);
 
     startingIndex = PolygonGeometryLibrary.PolygonGeometryLibrary.packPolygonHierarchy(
       value._polygonHierarchy,
@@ -146,7 +146,7 @@ define(['./arrayRemoveDuplicates-cf5c3227', './Transforms-86b6fa28', './Matrix2-
     return array;
   };
 
-  var scratchOptions = {
+  const scratchOptions = {
     polygonHierarchy: {},
   };
   /**
@@ -166,17 +166,17 @@ define(['./arrayRemoveDuplicates-cf5c3227', './Transforms-86b6fa28', './Matrix2-
     RuntimeError.Check.defined("array", array);
     //>>includeEnd('debug');
 
-    startingIndex = when.defaultValue(startingIndex, 0);
+    startingIndex = defaultValue.defaultValue(startingIndex, 0);
 
-    var polygonHierarchy = PolygonGeometryLibrary.PolygonGeometryLibrary.unpackPolygonHierarchy(
+    const polygonHierarchy = PolygonGeometryLibrary.PolygonGeometryLibrary.unpackPolygonHierarchy(
       array,
       startingIndex
     );
     startingIndex = polygonHierarchy.startingIndex;
     delete polygonHierarchy.startingIndex;
-    var packedLength = array[startingIndex];
+    const packedLength = array[startingIndex];
 
-    if (!when.defined(result)) {
+    if (!defaultValue.defined(result)) {
       result = new CoplanarPolygonOutlineGeometry(scratchOptions);
     }
 
@@ -193,9 +193,9 @@ define(['./arrayRemoveDuplicates-cf5c3227', './Transforms-86b6fa28', './Matrix2-
    * @returns {Geometry|undefined} The computed vertices and indices.
    */
   CoplanarPolygonOutlineGeometry.createGeometry = function (polygonGeometry) {
-    var polygonHierarchy = polygonGeometry._polygonHierarchy;
+    const polygonHierarchy = polygonGeometry._polygonHierarchy;
 
-    var outerPositions = polygonHierarchy.positions;
+    let outerPositions = polygonHierarchy.positions;
     outerPositions = arrayRemoveDuplicates.arrayRemoveDuplicates(
       outerPositions,
       Matrix2.Cartesian3.equalsEpsilon,
@@ -204,12 +204,12 @@ define(['./arrayRemoveDuplicates-cf5c3227', './Transforms-86b6fa28', './Matrix2-
     if (outerPositions.length < 3) {
       return;
     }
-    var isValid = CoplanarPolygonGeometryLibrary.CoplanarPolygonGeometryLibrary.validOutline(outerPositions);
+    const isValid = CoplanarPolygonGeometryLibrary.CoplanarPolygonGeometryLibrary.validOutline(outerPositions);
     if (!isValid) {
       return undefined;
     }
 
-    var polygons = PolygonGeometryLibrary.PolygonGeometryLibrary.polygonOutlinesFromHierarchy(
+    const polygons = PolygonGeometryLibrary.PolygonGeometryLibrary.polygonOutlinesFromHierarchy(
       polygonHierarchy,
       false
     );
@@ -218,17 +218,17 @@ define(['./arrayRemoveDuplicates-cf5c3227', './Transforms-86b6fa28', './Matrix2-
       return undefined;
     }
 
-    var geometries = [];
+    const geometries = [];
 
-    for (var i = 0; i < polygons.length; i++) {
-      var geometryInstance = new GeometryInstance.GeometryInstance({
+    for (let i = 0; i < polygons.length; i++) {
+      const geometryInstance = new GeometryInstance.GeometryInstance({
         geometry: createGeometryFromPositions(polygons[i]),
       });
       geometries.push(geometryInstance);
     }
 
-    var geometry = GeometryPipeline.GeometryPipeline.combineInstances(geometries)[0];
-    var boundingSphere = Transforms.BoundingSphere.fromPoints(polygonHierarchy.positions);
+    const geometry = GeometryPipeline.GeometryPipeline.combineInstances(geometries)[0];
+    const boundingSphere = Transforms.BoundingSphere.fromPoints(polygonHierarchy.positions);
 
     return new GeometryAttribute.Geometry({
       attributes: geometry.attributes,
@@ -239,7 +239,7 @@ define(['./arrayRemoveDuplicates-cf5c3227', './Transforms-86b6fa28', './Matrix2-
   };
 
   function createCoplanarPolygonOutlineGeometry(polygonGeometry, offset) {
-    if (when.defined(offset)) {
+    if (defaultValue.defined(offset)) {
       polygonGeometry = CoplanarPolygonOutlineGeometry.unpack(
         polygonGeometry,
         offset

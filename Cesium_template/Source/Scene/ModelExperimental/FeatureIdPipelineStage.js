@@ -6,35 +6,48 @@ import Buffer from "../../Renderer/Buffer.js";
 import BufferUsage from "../../Renderer/BufferUsage.js";
 import ModelExperimentalUtility from "./ModelExperimentalUtility.js";
 import VertexAttributeSemantic from "../VertexAttributeSemantic.js";
-import FeatureStageCommon from "../../Shaders/ModelExperimental/FeatureStageCommon.js";
-import FeatureStageFS from "../../Shaders/ModelExperimental/FeatureStageFS.js";
-import FeatureStageVS from "../../Shaders/ModelExperimental/FeatureStageVS.js";
+import ModelComponents from "../ModelComponents.js";
+import FeatureIdStageFS from "../../Shaders/ModelExperimental/FeatureIdStageFS.js";
+import FeatureIdStageVS from "../../Shaders/ModelExperimental/FeatureIdStageVS.js";
 
 /**
- * The feature ID pipeline stage is responsible for handling features in the model.
+ * The feature ID pipeline stage is responsible for processing feature IDs
+ * (both attributes and textures), updating the shader in preparation for
+ * custom shaders, picking, and/or styling.
  *
  * @namespace FeatureIdPipelineStage
  * @private
  */
-var FeatureIdPipelineStage = {};
+const FeatureIdPipelineStage = {};
 FeatureIdPipelineStage.name = "FeatureIdPipelineStage"; // Helps with debugging
 
-FeatureIdPipelineStage.STRUCT_ID_FEATURE = "FeatureStruct";
-FeatureIdPipelineStage.STRUCT_NAME_FEATURE = "Feature";
-FeatureIdPipelineStage.FUNCTION_ID_FEATURE_VARYINGS_VS =
-  "updateFeatureStructVS";
-FeatureIdPipelineStage.FUNCTION_ID_FEATURE_VARYINGS_FS =
-  "updateFeatureStructFS";
-FeatureIdPipelineStage.FUNCTION_SIGNATURE_UPDATE_FEATURE =
-  "void updateFeatureStruct(inout Feature feature)";
+FeatureIdPipelineStage.STRUCT_ID_FEATURE_IDS_VS = "FeatureIdsVS";
+FeatureIdPipelineStage.STRUCT_ID_FEATURE_IDS_FS = "FeatureIdsFS";
+FeatureIdPipelineStage.STRUCT_NAME_FEATURE_IDS = "FeatureIds";
+FeatureIdPipelineStage.FUNCTION_ID_INITIALIZE_FEATURE_IDS_VS =
+  "initializeFeatureIdsVS";
+FeatureIdPipelineStage.FUNCTION_ID_INITIALIZE_FEATURE_IDS_FS =
+  "initializeFeatureIdsFS";
+FeatureIdPipelineStage.FUNCTION_ID_INITIALIZE_FEATURE_ID_ALIASES_VS =
+  "initializeFeatureIdAliasesVS";
+FeatureIdPipelineStage.FUNCTION_ID_INITIALIZE_FEATURE_ID_ALIASES_FS =
+  "initializeFeatureIdAliasesFS";
+FeatureIdPipelineStage.FUNCTION_SIGNATURE_INITIALIZE_FEATURE_IDS =
+  "void initializeFeatureIds(out FeatureIds featureIds, ProcessedAttributes attributes)";
+FeatureIdPipelineStage.FUNCTION_SIGNATURE_INITIALIZE_FEATURE_ID_ALIASES =
+  "void initializeFeatureIdAliases(inout FeatureIds featureIds)";
+FeatureIdPipelineStage.FUNCTION_ID_SET_FEATURE_ID_VARYINGS =
+  "setFeatureIdVaryings";
+FeatureIdPipelineStage.FUNCTION_SIGNATURE_SET_FEATURE_ID_VARYINGS =
+  "void setFeatureIdVaryings()";
 
 /**
  * Process a primitive. This modifies the following parts of the render resources:
  * <ul>
- *  <li>sets the defines for the feature ID attribute or texture coordinates to use for feature picking</li>
- *  <li>adds uniforms for the batch texture</li>
- *  <li>sets up varying for the feature coordinates</li>
- *  <li>adds vertex shader code for computing feature coordinates</li>
+ *  <li>Adds the FeatureIds struct and corresponding initialization functions in the vertex and fragment shader</li>
+ *  <li>For each feature ID attribute, the attributes were already uploaded in the geometry stage, so just update the shader code </li>
+ *  <li>For each feature ID implicit range, a new attribute is created and uploaded to the GPU since gl_VertexID is not available in WebGL 1. The shader is updated with an attribute, varying, and initialization code.</li>
+ *  <li>For each feature ID texture, the texture is added to the uniform map, and shader code is added to perform the texture read.</li>
  * </ul>
  *
  * @param {PrimitiveRenderResources} renderResources The render resources for this primitive.
@@ -46,252 +59,408 @@ FeatureIdPipelineStage.process = function (
   primitive,
   frameState
 ) {
-  var shaderBuilder = renderResources.shaderBuilder;
+  const shaderBuilder = renderResources.shaderBuilder;
+  declareStructsAndFunctions(shaderBuilder);
 
-  renderResources.hasFeatureIds = true;
-
-  shaderBuilder.addDefine("HAS_FEATURES", undefined, ShaderDestination.BOTH);
-  updateFeatureStruct(shaderBuilder);
-
-  // Handle feature attribution: through feature ID texture or feature ID vertex attribute.
-  var featureIdTextures = primitive.featureIdTextures;
-  if (featureIdTextures.length > 0) {
-    processFeatureIdTextures(renderResources, frameState, featureIdTextures);
-  } else {
-    processFeatureIdAttributes(renderResources, frameState, primitive);
+  const instances = renderResources.runtimeNode.node.instances;
+  if (defined(instances)) {
+    processInstanceFeatureIds(renderResources, instances, frameState);
   }
+  processPrimitiveFeatureIds(renderResources, primitive, frameState);
 
-  shaderBuilder.addFragmentLines([FeatureStageCommon, FeatureStageFS]);
+  shaderBuilder.addVertexLines([FeatureIdStageVS]);
+  shaderBuilder.addFragmentLines([FeatureIdStageFS]);
 };
 
-/**
- * Generates an object containing information about the Feature ID attribute.
- * @private
- */
-function getFeatureIdAttributeInfo(
-  featureIdAttributeIndex,
-  primitive,
-  instances
-) {
-  var featureIdCount;
-  var featureIdAttribute;
-  var featureIdAttributePrefix;
-  var featureIdInstanceDivisor = 0;
-
-  if (defined(instances)) {
-    featureIdAttribute = instances.featureIdAttributes[featureIdAttributeIndex];
-    featureIdCount = instances.attributes[0].count;
-    featureIdAttributePrefix = "a_instanceFeatureId_";
-    featureIdInstanceDivisor = 1;
-  } else {
-    featureIdAttribute = primitive.featureIdAttributes[featureIdAttributeIndex];
-    var positionAttribute = ModelExperimentalUtility.getAttributeBySemantic(
-      primitive,
-      VertexAttributeSemantic.POSITION
-    );
-    featureIdCount = positionAttribute.count;
-    featureIdAttributePrefix = "a_featureId_";
-  }
-
-  return {
-    count: featureIdCount,
-    attribute: featureIdAttribute,
-    prefix: featureIdAttributePrefix,
-    instanceDivisor: featureIdInstanceDivisor,
-  };
-}
-
-/**
- * Populate the "Feature" struct in the shaders that holds information about the "active" (used for picking/styling) feature.
- * The struct is always added to the shader by the GeometryPipelineStage (required for compilation). The Feature struct looks
- * as follows:
- *
- * struct Feature {
- *   int id;
- *   vec2 st;
- *   vec4 color;
- * }
- *
- * @private
- */
-function updateFeatureStruct(shaderBuilder) {
-  shaderBuilder.addStructField(
-    FeatureIdPipelineStage.STRUCT_ID_FEATURE,
-    "int",
-    "id"
-  );
-
-  shaderBuilder.addStructField(
-    FeatureIdPipelineStage.STRUCT_ID_FEATURE,
-    "vec2",
-    "st"
-  );
-
-  shaderBuilder.addStructField(
-    FeatureIdPipelineStage.STRUCT_ID_FEATURE,
-    "vec4",
-    "color"
-  );
-}
-
-/**
- * Generates functions in the vertex and fragment shaders to update the varyings from the Feature struct and to update the Feature struct from the varyings, respectively.
- * @private
- */
-function generateFeatureFunctions(shaderBuilder) {
-  // Add the function to the vertex shader.
-  shaderBuilder.addFunction(
-    FeatureIdPipelineStage.FUNCTION_ID_FEATURE_VARYINGS_VS,
-    FeatureIdPipelineStage.FUNCTION_SIGNATURE_UPDATE_FEATURE,
+function declareStructsAndFunctions(shaderBuilder) {
+  // Declare the FeatureIds struct. The vertex shader will only use
+  // feature ID attributes, while the fragment shader will also use
+  // feature ID textures.
+  shaderBuilder.addStruct(
+    FeatureIdPipelineStage.STRUCT_ID_FEATURE_IDS_VS,
+    FeatureIdPipelineStage.STRUCT_NAME_FEATURE_IDS,
     ShaderDestination.VERTEX
   );
-  shaderBuilder.addFunctionLines(
-    FeatureIdPipelineStage.FUNCTION_ID_FEATURE_VARYINGS_VS,
-    [
-      "v_activeFeatureId = float(feature.id);",
-      "v_activeFeatureSt = feature.st;",
-      "v_activeFeatureColor = feature.color;",
-    ]
-  );
-
-  // Add the function to the fragment shader.
-  shaderBuilder.addFunction(
-    FeatureIdPipelineStage.FUNCTION_ID_FEATURE_VARYINGS_FS,
-    FeatureIdPipelineStage.FUNCTION_SIGNATURE_UPDATE_FEATURE,
+  shaderBuilder.addStruct(
+    FeatureIdPipelineStage.STRUCT_ID_FEATURE_IDS_FS,
+    FeatureIdPipelineStage.STRUCT_NAME_FEATURE_IDS,
     ShaderDestination.FRAGMENT
   );
-  shaderBuilder.addFunctionLines(
-    FeatureIdPipelineStage.FUNCTION_ID_FEATURE_VARYINGS_FS,
-    [
-      "feature.id = int(v_activeFeatureId);",
-      "feature.st = v_activeFeatureSt;",
-      "feature.color = v_activeFeatureColor;",
-    ]
+
+  // declare the initializeFeatureIds() function. The details may differ
+  // between vertex and fragment shader
+  shaderBuilder.addFunction(
+    FeatureIdPipelineStage.FUNCTION_ID_INITIALIZE_FEATURE_IDS_VS,
+    FeatureIdPipelineStage.FUNCTION_SIGNATURE_INITIALIZE_FEATURE_IDS,
+    ShaderDestination.VERTEX
+  );
+  shaderBuilder.addFunction(
+    FeatureIdPipelineStage.FUNCTION_ID_INITIALIZE_FEATURE_IDS_FS,
+    FeatureIdPipelineStage.FUNCTION_SIGNATURE_INITIALIZE_FEATURE_IDS,
+    ShaderDestination.FRAGMENT
+  );
+
+  // declare the initializeFeatureIdAliases() function. The details may differ
+  // between vertex and fragment shader
+  shaderBuilder.addFunction(
+    FeatureIdPipelineStage.FUNCTION_ID_INITIALIZE_FEATURE_ID_ALIASES_VS,
+    FeatureIdPipelineStage.FUNCTION_SIGNATURE_INITIALIZE_FEATURE_ID_ALIASES,
+    ShaderDestination.VERTEX
+  );
+  shaderBuilder.addFunction(
+    FeatureIdPipelineStage.FUNCTION_ID_INITIALIZE_FEATURE_ID_ALIASES_FS,
+    FeatureIdPipelineStage.FUNCTION_SIGNATURE_INITIALIZE_FEATURE_ID_ALIASES,
+    ShaderDestination.FRAGMENT
+  );
+
+  // declare the setFeatureIdVaryings() function in the vertex shader only
+  shaderBuilder.addFunction(
+    FeatureIdPipelineStage.FUNCTION_ID_SET_FEATURE_ID_VARYINGS,
+    FeatureIdPipelineStage.FUNCTION_SIGNATURE_SET_FEATURE_ID_VARYINGS,
+    ShaderDestination.VERTEX
   );
 }
 
-/**
- * Processes feature ID vertex attributes.
- * @private
- */
-function processFeatureIdAttributes(renderResources, frameState, primitive) {
-  var shaderBuilder = renderResources.shaderBuilder;
-  var model = renderResources.model;
-  var instances = renderResources.runtimeNode.node.instances;
+function processInstanceFeatureIds(renderResources, instances, frameState) {
+  const featureIdsArray = instances.featureIds;
+  const count = instances.attributes[0].count;
 
-  var featureIdAttributeIndex = model.featureIdAttributeIndex;
+  for (let i = 0; i < featureIdsArray.length; i++) {
+    const featureIds = featureIdsArray[i];
+    const variableName = featureIds.positionalLabel;
 
-  var featureIdAttributeInfo = getFeatureIdAttributeInfo(
-    featureIdAttributeIndex,
+    if (featureIds instanceof ModelComponents.FeatureIdAttribute) {
+      processInstanceAttribute(renderResources, featureIds, variableName);
+    } else {
+      const instanceDivisor = 1;
+      processImplicitRange(
+        renderResources,
+        featureIds,
+        variableName,
+        count,
+        instanceDivisor,
+        frameState
+      );
+    }
+
+    const label = featureIds.label;
+    if (defined(label)) {
+      addAlias(renderResources, variableName, label, ShaderDestination.BOTH);
+    }
+  }
+}
+
+function processPrimitiveFeatureIds(renderResources, primitive, frameState) {
+  const featureIdsArray = primitive.featureIds;
+  const positionAttribute = ModelExperimentalUtility.getAttributeBySemantic(
     primitive,
-    instances
+    VertexAttributeSemantic.POSITION
   );
+  const count = positionAttribute.count;
 
-  var featureIdAttribute = featureIdAttributeInfo.attribute;
-  var featureIdAttributePrefix = featureIdAttributeInfo.prefix;
-  var featureIdAttributeSetIndex;
+  for (let i = 0; i < featureIdsArray.length; i++) {
+    const featureIds = featureIdsArray[i];
+    const variableName = featureIds.positionalLabel;
 
-  // Check if the Feature ID attribute references an existing vertex attribute.
-  if (defined(featureIdAttribute.setIndex)) {
-    featureIdAttributeSetIndex = featureIdAttribute.setIndex;
-  } else {
-    // Ensure that the new Feature ID vertex attribute generated does not have any conflicts with
-    // Feature ID vertex attributes already provided in the model. The featureIdVertexAttributeSetIndex
-    // is incremented every time a Feature ID vertex attribute is added.
-    featureIdAttributeSetIndex = renderResources.featureIdVertexAttributeSetIndex++;
-    generateFeatureIdAttribute(
-      featureIdAttributeInfo,
-      featureIdAttributeSetIndex,
-      frameState,
-      renderResources
-    );
+    let aliasDestination = ShaderDestination.BOTH;
+    if (featureIds instanceof ModelComponents.FeatureIdAttribute) {
+      processAttribute(renderResources, featureIds, variableName);
+    } else if (featureIds instanceof ModelComponents.FeatureIdImplicitRange) {
+      processImplicitRange(
+        renderResources,
+        featureIds,
+        variableName,
+        count,
+        undefined,
+        frameState
+      );
+    } else {
+      processTexture(renderResources, featureIds, variableName, i, frameState);
+      aliasDestination = ShaderDestination.FRAGMENT;
+    }
+
+    const label = featureIds.label;
+    if (defined(label)) {
+      addAlias(renderResources, variableName, label, aliasDestination);
+    }
   }
-
-  shaderBuilder.addDefine(
-    "FEATURE_ID_ATTRIBUTE",
-    featureIdAttributePrefix + featureIdAttributeSetIndex,
-    ShaderDestination.VERTEX
-  );
-  shaderBuilder.addVarying("float", "v_activeFeatureId");
-  shaderBuilder.addVarying("vec2", "v_activeFeatureSt");
-  shaderBuilder.addVarying("vec4", "v_activeFeatureColor");
-  generateFeatureFunctions(shaderBuilder);
-  shaderBuilder.addVertexLines([FeatureStageCommon, FeatureStageVS]);
 }
 
-/**
- * Processes feature ID textures.
- * @private
- */
-function processFeatureIdTextures(
+function processInstanceAttribute(
   renderResources,
-  frameState,
-  featureIdTextures
+  featureIdAttribute,
+  variableName
 ) {
-  var shaderBuilder = renderResources.shaderBuilder;
-  var uniformMap = renderResources.uniformMap;
-  var featureIdTextureIndex = renderResources.model.featureIdTextureIndex;
-  var featureIdTexture = featureIdTextures[featureIdTextureIndex];
-
-  var featureIdTextureReader = featureIdTexture.textureReader;
-
-  var featureIdTextureUniformName =
-    "u_featureIdTexture_" + featureIdTextureIndex;
-  shaderBuilder.addDefine(
-    "FEATURE_ID_TEXTURE",
-    featureIdTextureUniformName,
-    ShaderDestination.FRAGMENT
+  // Add a field to the FeatureIds struct.
+  // Example:
+  // struct FeatureIds {
+  //   ...
+  //   int instanceFeatureId_n;
+  //   ...
+  // }
+  const shaderBuilder = renderResources.shaderBuilder;
+  shaderBuilder.addStructField(
+    FeatureIdPipelineStage.STRUCT_ID_FEATURE_IDS_VS,
+    "int",
+    variableName
   );
-  shaderBuilder.addUniform(
-    "sampler2D",
-    featureIdTextureUniformName,
-    ShaderDestination.FRAGMENT
+  shaderBuilder.addStructField(
+    FeatureIdPipelineStage.STRUCT_ID_FEATURE_IDS_FS,
+    "int",
+    variableName
   );
-  uniformMap[featureIdTextureUniformName] = function () {
+
+  // Initialize the field from the corresponding attribute.
+  // Example: featureIds.instanceFeatureId_n = int(czm_round(attributes.instanceFeatureId_0));
+  const setIndex = featureIdAttribute.setIndex;
+  const prefix = variableName.replace(/_\d+$/, "_");
+
+  const attributeName = `a_${prefix}${setIndex}`;
+  const varyingName = `v_${prefix}${setIndex}`;
+  const vertexLine = `featureIds.${variableName} = int(czm_round(${attributeName}));`;
+  const fragmentLine = `featureIds.${variableName} = int(czm_round(${varyingName}));`;
+
+  shaderBuilder.addFunctionLines(
+    FeatureIdPipelineStage.FUNCTION_ID_INITIALIZE_FEATURE_IDS_VS,
+    [vertexLine]
+  );
+  shaderBuilder.addFunctionLines(
+    FeatureIdPipelineStage.FUNCTION_ID_INITIALIZE_FEATURE_IDS_FS,
+    [fragmentLine]
+  );
+
+  // Instanced attributes don't normally need varyings, so add one here
+  shaderBuilder.addVarying("float", varyingName);
+
+  // The varying needs initialization in the vertex shader
+  // Example:
+  // v_instanceFeatureId_n = a_instanceFeatureId_n;
+  shaderBuilder.addFunctionLines(
+    FeatureIdPipelineStage.FUNCTION_ID_SET_FEATURE_ID_VARYINGS,
+    [`${varyingName} = ${attributeName};`]
+  );
+}
+
+function processAttribute(renderResources, featureIdAttribute, variableName) {
+  // Add a field to the FeatureIds struct.
+  // Example:
+  // struct FeatureIds {
+  //   ...
+  //   int featureId_n;
+  //   ...
+  // }
+  const shaderBuilder = renderResources.shaderBuilder;
+  shaderBuilder.addStructField(
+    FeatureIdPipelineStage.STRUCT_ID_FEATURE_IDS_VS,
+    "int",
+    variableName
+  );
+  shaderBuilder.addStructField(
+    FeatureIdPipelineStage.STRUCT_ID_FEATURE_IDS_FS,
+    "int",
+    variableName
+  );
+
+  // Initialize the field from the corresponding attribute.
+  // Example: featureIds.featureId_n = attributes.featureId_0;
+  // Since this uses the ProcessedAttributes struct, the line is the same
+  // for both vertex and fragment shader.
+  const setIndex = featureIdAttribute.setIndex;
+  const prefix = variableName.replace(/_\d+$/, "_");
+
+  const initializationLines = [
+    `featureIds.${variableName} = int(czm_round(attributes.${prefix}${setIndex}));`,
+  ];
+  shaderBuilder.addFunctionLines(
+    FeatureIdPipelineStage.FUNCTION_ID_INITIALIZE_FEATURE_IDS_VS,
+    initializationLines
+  );
+  shaderBuilder.addFunctionLines(
+    FeatureIdPipelineStage.FUNCTION_ID_INITIALIZE_FEATURE_IDS_FS,
+    initializationLines
+  );
+}
+
+function processImplicitRange(
+  renderResources,
+  implicitFeatureIds,
+  variableName,
+  count,
+  instanceDivisor,
+  frameState
+) {
+  // Generate a vertex attribute for the implicit IDs since WebGL 1 does not
+  // support gl_VertexID
+  generateImplicitFeatureIdAttribute(
+    renderResources,
+    implicitFeatureIds,
+    count,
+    instanceDivisor,
+    frameState
+  );
+
+  // Declare the vertex attribute in the shader
+  // Example: attribute float a_implicit_feature_id_n;
+  const shaderBuilder = renderResources.shaderBuilder;
+  const implicitAttributeName = `a_implicit_${variableName}`;
+  shaderBuilder.addAttribute("float", implicitAttributeName);
+
+  // Also declare the corresponding varyings
+  // Example: varying float v_implicit_feature_id_n;
+  const implicitVaryingName = `v_implicit_${variableName}`;
+  shaderBuilder.addVarying("float", implicitVaryingName);
+
+  // Add a field to the FeatureIds struct.
+  // Example:
+  // struct FeatureIds {
+  //   ...
+  //   int featureId_n;
+  //   ...
+  // }
+  shaderBuilder.addStructField(
+    FeatureIdPipelineStage.STRUCT_ID_FEATURE_IDS_VS,
+    "int",
+    variableName
+  );
+  shaderBuilder.addStructField(
+    FeatureIdPipelineStage.STRUCT_ID_FEATURE_IDS_FS,
+    "int",
+    variableName
+  );
+
+  // The varying needs initialization in the vertex shader
+  // Example:
+  // v_implicit_featureId_n = a_implicit_featureId_n;
+  shaderBuilder.addFunctionLines(
+    FeatureIdPipelineStage.FUNCTION_ID_SET_FEATURE_ID_VARYINGS,
+    [`${implicitVaryingName} = ${implicitAttributeName};`]
+  );
+
+  // Initialize the field from the generated attribute/varying.
+  // Example:
+  // featureIds.featureId_n = a_implicit_featureId_n; (VS)
+  // featureIds.featureId_n = v_implicit_featureId_n; (FS)
+  shaderBuilder.addFunctionLines(
+    FeatureIdPipelineStage.FUNCTION_ID_INITIALIZE_FEATURE_IDS_VS,
+    [`featureIds.${variableName} = int(czm_round(${implicitAttributeName}));`]
+  );
+  shaderBuilder.addFunctionLines(
+    FeatureIdPipelineStage.FUNCTION_ID_INITIALIZE_FEATURE_IDS_FS,
+    [`featureIds.${variableName} = int(czm_round(${implicitVaryingName}));`]
+  );
+}
+
+function processTexture(
+  renderResources,
+  featureIdTexture,
+  variableName,
+  index,
+  frameState
+) {
+  // Create the feature ID texture uniform. The index matches the index from
+  // the featureIds array, even if this is not consecutive.
+  const uniformName = `u_featureIdTexture_${index}`;
+  const uniformMap = renderResources.uniformMap;
+  const textureReader = featureIdTexture.textureReader;
+  uniformMap[uniformName] = function () {
     return defaultValue(
-      featureIdTextureReader.texture,
+      textureReader.texture,
       frameState.context.defaultTexture
     );
   };
 
-  shaderBuilder.addDefine(
-    "FEATURE_ID_TEXCOORD",
-    "v_texCoord_" + featureIdTextureReader.texCoord,
+  const channels = textureReader.channels;
+
+  // Add a field to the FeatureIds struct in the fragment shader only
+  // Example:
+  // struct FeatureIds {
+  //   ...
+  //   int featureId_n;
+  //   ...
+  // }
+  const shaderBuilder = renderResources.shaderBuilder;
+  shaderBuilder.addStructField(
+    FeatureIdPipelineStage.STRUCT_ID_FEATURE_IDS_FS,
+    "int",
+    variableName
+  );
+
+  // Declare the uniform in the fragment shader
+  shaderBuilder.addUniform(
+    "sampler2D",
+    uniformName,
     ShaderDestination.FRAGMENT
   );
 
-  shaderBuilder.addDefine(
-    "FEATURE_ID_CHANNEL",
-    featureIdTextureReader.channels,
-    ShaderDestination.FRAGMENT
+  // Read one or more channels from the texture
+  // example: texture2D(u_featureIdTexture_0, v_texCoord_1).rg
+  const texCoord = `v_texCoord_${textureReader.texCoord}`;
+  const textureRead = `texture2D(${uniformName}, ${texCoord}).${channels}`;
+
+  // Finally, assign to the struct field. Example:
+  // featureIds.featureId_0 = unpacked;
+  const initializationLine = `featureIds.${variableName} = czm_unpackUint(${textureRead});`;
+
+  shaderBuilder.addFunctionLines(
+    FeatureIdPipelineStage.FUNCTION_ID_INITIALIZE_FEATURE_IDS_FS,
+    [initializationLine]
   );
 }
 
-/**
- * Generates a Feature ID attribute from offset/repeat and adds it to the render resources.
- * @private
- */
-function generateFeatureIdAttribute(
-  featureIdAttributeInfo,
-  featureIdAttributeSetIndex,
-  frameState,
-  renderResources
+function addAlias(renderResources, variableName, alias, shaderDestination) {
+  // Add a field to the FeatureIds struct.
+  // Example:
+  // struct FeatureIds {
+  //   ...
+  //   int alias;
+  //   ...
+  // }
+  const shaderBuilder = renderResources.shaderBuilder;
+  const updateVS = ShaderDestination.includesVertexShader(shaderDestination);
+  if (updateVS) {
+    shaderBuilder.addStructField(
+      FeatureIdPipelineStage.STRUCT_ID_FEATURE_IDS_VS,
+      "int",
+      alias
+    );
+  }
+  shaderBuilder.addStructField(
+    FeatureIdPipelineStage.STRUCT_ID_FEATURE_IDS_FS,
+    "int",
+    alias
+  );
+
+  // Initialize the field from the original variable
+  // Example: featureIds.alias = featureIds.featureId_n;
+  const initializationLines = [
+    `featureIds.${alias} = featureIds.${variableName};`,
+  ];
+  if (updateVS) {
+    shaderBuilder.addFunctionLines(
+      FeatureIdPipelineStage.FUNCTION_ID_INITIALIZE_FEATURE_ID_ALIASES_VS,
+      initializationLines
+    );
+  }
+  shaderBuilder.addFunctionLines(
+    FeatureIdPipelineStage.FUNCTION_ID_INITIALIZE_FEATURE_ID_ALIASES_FS,
+    initializationLines
+  );
+}
+
+function generateImplicitFeatureIdAttribute(
+  renderResources,
+  implicitFeatureIds,
+  count,
+  instanceDivisor,
+  frameState
 ) {
-  var model = renderResources.model;
-  var shaderBuilder = renderResources.shaderBuilder;
-  var featureIdAttribute = featureIdAttributeInfo.attribute;
-  var featureIdAttributePrefix = featureIdAttributeInfo.prefix;
-
-  // If offset or repeat is used, a new vertex attribute will need to be created.
-  var value;
-  var vertexBuffer;
-
-  if (!defined(featureIdAttribute.repeat)) {
-    value = featureIdAttribute.offset;
-  } else {
-    var typedArray = generateFeatureIdTypedArray(
-      featureIdAttribute,
-      featureIdAttributeInfo.count
+  const model = renderResources.model;
+  let vertexBuffer;
+  let value;
+  if (defined(implicitFeatureIds.repeat)) {
+    const typedArray = generateImplicitFeatureIdTypedArray(
+      implicitFeatureIds,
+      count
     );
     vertexBuffer = Buffer.createVertexBuffer({
       context: frameState.context,
@@ -300,11 +469,13 @@ function generateFeatureIdAttribute(
     });
     vertexBuffer.vertexArrayDestroyable = false;
     model._resources.push(vertexBuffer);
+  } else {
+    value = [implicitFeatureIds.offset];
   }
 
-  var generatedFeatureIdAttribute = {
+  const generatedFeatureIdAttribute = {
     index: renderResources.attributeIndex++,
-    instanceDivisor: featureIdAttributeInfo.instanceDivisor,
+    instanceDivisor: instanceDivisor,
     value: value,
     vertexBuffer: vertexBuffer,
     normalize: false,
@@ -315,24 +486,18 @@ function generateFeatureIdAttribute(
   };
 
   renderResources.attributes.push(generatedFeatureIdAttribute);
-
-  shaderBuilder.addAttribute(
-    "float",
-    featureIdAttributePrefix + featureIdAttributeSetIndex
-  );
 }
 
 /**
- * Generates a typed array based on the offset and repeats of the feature ID attribute.
- *
+ * Generates a typed array for implicit feature IDs
  * @private
  */
-function generateFeatureIdTypedArray(featureIdAttribute, count) {
-  var offset = featureIdAttribute.offset;
-  var repeat = featureIdAttribute.repeat;
+function generateImplicitFeatureIdTypedArray(implicitFeatureIds, count) {
+  const offset = implicitFeatureIds.offset;
+  const repeat = implicitFeatureIds.repeat;
 
-  var typedArray = new Float32Array(count);
-  for (var i = 0; i < count; i++) {
+  const typedArray = new Float32Array(count);
+  for (let i = 0; i < count; i++) {
     typedArray[i] = offset + Math.floor(i / repeat);
   }
 

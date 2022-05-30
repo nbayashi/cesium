@@ -1,6 +1,7 @@
 import {
   defined,
   defaultValue,
+  DeveloperError,
   FeatureDetection,
   PropertyTable,
   MetadataClass,
@@ -22,18 +23,18 @@ MetadataTester.isSupported = function () {
 };
 
 MetadataTester.createProperty = function (options) {
-  var properties = {
+  const properties = {
     propertyId: options.property,
   };
-  var propertyValues = {
+  const propertyValues = {
     propertyId: options.values,
   };
 
-  var table = MetadataTester.createMetadataTable({
+  const table = MetadataTester.createMetadataTable({
     properties: properties,
     propertyValues: propertyValues,
     // offsetType is for legacy EXT_feature_metadata, arrayOffsetType and
-    // stringOffsetType are for EXT_mesh_features
+    // stringOffsetType are for EXT_structural_metadata
     offsetType: options.offsetType,
     arrayOffsetType: options.arrayOffsetType,
     stringOffsetType: options.stringOffsetType,
@@ -47,17 +48,17 @@ MetadataTester.createProperty = function (options) {
 };
 
 function createProperties(options) {
-  var schema = options.schema;
-  var classId = options.classId;
-  var propertyValues = options.propertyValues;
-  var offsetType = options.offsetType;
-  var stringOffsetType = options.stringOffsetType;
-  var arrayOffsetType = options.arrayOffsetType;
-  var bufferViews = defined(options.bufferViews) ? options.bufferViews : {};
+  const schema = options.schema;
+  const classId = options.classId;
+  const propertyValues = options.propertyValues;
+  const offsetType = options.offsetType;
+  const stringOffsetType = options.stringOffsetType;
+  const arrayOffsetType = options.arrayOffsetType;
+  const bufferViews = defined(options.bufferViews) ? options.bufferViews : {};
 
-  var enums = defined(schema.enums) ? schema.enums : {};
-  var enumDefinitions = {};
-  for (var enumId in enums) {
+  const enums = defined(schema.enums) ? schema.enums : {};
+  const enumDefinitions = {};
+  for (const enumId in enums) {
     if (enums.hasOwnProperty(enumId)) {
       enumDefinitions[enumId] = new MetadataEnum({
         id: enumId,
@@ -66,28 +67,30 @@ function createProperties(options) {
     }
   }
 
-  var classDefinition = new MetadataClass({
+  const classDefinition = new MetadataClass({
     id: classId,
     class: schema.classes[classId],
     enums: enumDefinitions,
   });
 
-  var properties = {};
-  var bufferViewIndex = Object.keys(bufferViews).length;
-  var count = 0;
+  const properties = {};
+  let bufferViewIndex = Object.keys(bufferViews).length;
+  let count = 0;
 
-  for (var propertyId in propertyValues) {
+  for (const propertyId in propertyValues) {
     if (propertyValues.hasOwnProperty(propertyId)) {
-      var classProperty = classDefinition.properties[propertyId];
-      var values = propertyValues[propertyId];
+      const classProperty = classDefinition.properties[propertyId];
+      const values = propertyValues[propertyId];
       count = values.length;
 
-      var valuesBuffer = addPadding(createValuesBuffer(values, classProperty));
-      var valuesBufferView = bufferViewIndex++;
+      const valuesBuffer = addPadding(
+        createValuesBuffer(values, classProperty)
+      );
+      const valuesBufferView = bufferViewIndex++;
       bufferViews[valuesBufferView] = valuesBuffer;
 
-      var property = {
-        bufferView: valuesBufferView,
+      const property = {
+        values: valuesBufferView,
       };
 
       properties[propertyId] = property;
@@ -98,34 +101,38 @@ function createProperties(options) {
       }
 
       if (defined(stringOffsetType)) {
-        property.stringOffsetType = offsetType;
+        property.stringOffsetType = stringOffsetType;
       }
 
       if (defined(arrayOffsetType)) {
         property.arrayOffsetType = arrayOffsetType;
       }
 
-      if (
-        classProperty.type === MetadataType.ARRAY &&
-        !defined(classProperty.componentCount)
-      ) {
-        var arrayOffsetBufferType = defaultValue(arrayOffsetType, offsetType);
-        var arrayOffsetBuffer = addPadding(
-          createArrayOffsetBuffer(values, arrayOffsetBufferType)
+      if (classProperty.isVariableLengthArray) {
+        const arrayOffsetBufferType = defaultValue(arrayOffsetType, offsetType);
+        const arrayOffsetBuffer = addPadding(
+          createArrayOffsetBuffer(
+            values,
+            classProperty.type,
+            arrayOffsetBufferType
+          )
         );
-        var arrayOffsetBufferView = bufferViewIndex++;
+        const arrayOffsetBufferView = bufferViewIndex++;
         bufferViews[arrayOffsetBufferView] = arrayOffsetBuffer;
-        property.arrayOffsetBufferView = arrayOffsetBufferView;
+        property.arrayOffsets = arrayOffsetBufferView;
       }
 
-      if (classProperty.componentType === MetadataComponentType.STRING) {
-        var stringOffsetBufferType = defaultValue(stringOffsetType, offsetType);
-        var stringOffsetBuffer = addPadding(
+      if (classProperty.type === MetadataType.STRING) {
+        const stringOffsetBufferType = defaultValue(
+          stringOffsetType,
+          offsetType
+        );
+        const stringOffsetBuffer = addPadding(
           createStringOffsetBuffer(values, stringOffsetBufferType)
         );
-        var stringOffsetBufferView = bufferViewIndex++;
+        const stringOffsetBufferView = bufferViewIndex++;
         bufferViews[stringOffsetBufferView] = stringOffsetBuffer;
-        property.stringOffsetBufferView = stringOffsetBufferView;
+        property.stringOffsets = stringOffsetBufferView;
       }
     }
   }
@@ -140,11 +147,11 @@ function createProperties(options) {
 
 MetadataTester.createMetadataTable = function (options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
-  var disableBigIntSupport = options.disableBigIntSupport;
-  var disableBigInt64ArraySupport = options.disableBigInt64ArraySupport;
-  var disableBigUint64ArraySupport = options.disableBigUint64ArraySupport;
+  const disableBigIntSupport = options.disableBigIntSupport;
+  const disableBigInt64ArraySupport = options.disableBigInt64ArraySupport;
+  const disableBigUint64ArraySupport = options.disableBigUint64ArraySupport;
 
-  var schema = {
+  const schema = {
     enums: options.enums,
     classes: {
       classId: {
@@ -153,17 +160,17 @@ MetadataTester.createMetadataTable = function (options) {
     },
   };
 
-  var propertyResults = createProperties({
+  const propertyResults = createProperties({
     schema: schema,
     classId: "classId",
     propertyValues: options.propertyValues,
     offsetType: options.offsetType,
   });
 
-  var count = propertyResults.count;
-  var properties = propertyResults.properties;
-  var classDefinition = propertyResults.class;
-  var bufferViews = propertyResults.bufferViews;
+  const count = propertyResults.count;
+  const properties = propertyResults.properties;
+  const classDefinition = propertyResults.class;
+  const bufferViews = propertyResults.bufferViews;
 
   if (disableBigIntSupport) {
     spyOn(FeatureDetection, "supportsBigInt").and.returnValue(false);
@@ -187,11 +194,11 @@ MetadataTester.createMetadataTable = function (options) {
 
 MetadataTester.createPropertyTable = function (options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
-  var disableBigIntSupport = options.disableBigIntSupport;
-  var disableBigInt64ArraySupport = options.disableBigInt64ArraySupport;
-  var disableBigUint64ArraySupport = options.disableBigUint64ArraySupport;
+  const disableBigIntSupport = options.disableBigIntSupport;
+  const disableBigInt64ArraySupport = options.disableBigInt64ArraySupport;
+  const disableBigUint64ArraySupport = options.disableBigUint64ArraySupport;
 
-  var schema = {
+  const schema = {
     enums: options.enums,
     classes: {
       classId: {
@@ -200,17 +207,17 @@ MetadataTester.createPropertyTable = function (options) {
     },
   };
 
-  var propertyResults = createProperties({
+  const propertyResults = createProperties({
     schema: schema,
     classId: "classId",
     propertyValues: options.propertyValues,
     offsetType: options.offsetType,
   });
 
-  var count = propertyResults.count;
-  var properties = propertyResults.properties;
-  var classDefinition = propertyResults.class;
-  var bufferViews = propertyResults.bufferViews;
+  const count = propertyResults.count;
+  const properties = propertyResults.properties;
+  const classDefinition = propertyResults.class;
+  const bufferViews = propertyResults.bufferViews;
 
   if (disableBigIntSupport) {
     spyOn(FeatureDetection, "supportsBigInt").and.returnValue(false);
@@ -224,7 +231,7 @@ MetadataTester.createPropertyTable = function (options) {
     spyOn(FeatureDetection, "supportsBigUint64Array").and.returnValue(false);
   }
 
-  var metadataTable = new MetadataTable({
+  const metadataTable = new MetadataTable({
     count: count,
     class: classDefinition,
     bufferViews: bufferViews,
@@ -239,24 +246,24 @@ MetadataTester.createPropertyTable = function (options) {
   });
 };
 
-// for EXT_mesh_features
+// for EXT_structural_metadata
 MetadataTester.createPropertyTables = function (options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
 
-  var propertyTables = [];
-  var bufferViews = {};
+  const propertyTables = [];
+  const bufferViews = {};
 
-  for (var i = 0; i < options.propertyTables.length; i++) {
-    var propertyTable = options.propertyTables[i];
-    var tablePropertyResults = createProperties({
+  for (let i = 0; i < options.propertyTables.length; i++) {
+    const propertyTable = options.propertyTables[i];
+    const tablePropertyResults = createProperties({
       schema: options.schema,
       classId: propertyTable.class,
       propertyValues: propertyTable.properties,
       bufferViews: bufferViews,
     });
 
-    var count = tablePropertyResults.count;
-    var properties = tablePropertyResults.properties;
+    const count = tablePropertyResults.count;
+    const properties = tablePropertyResults.properties;
     propertyTables.push({
       name: propertyTable.name,
       class: propertyTable.class,
@@ -275,21 +282,21 @@ MetadataTester.createPropertyTables = function (options) {
 MetadataTester.createFeatureTables = function (options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
 
-  var featureTables = {};
-  var bufferViews = {};
+  const featureTables = {};
+  const bufferViews = {};
 
-  for (var featureTableId in options.featureTables) {
+  for (const featureTableId in options.featureTables) {
     if (options.featureTables.hasOwnProperty(featureTableId)) {
-      var featureTable = options.featureTables[featureTableId];
-      var propertyResults = createProperties({
+      const featureTable = options.featureTables[featureTableId];
+      const propertyResults = createProperties({
         schema: options.schema,
         classId: featureTable.class,
         propertyValues: featureTable.properties,
         bufferViews: bufferViews,
       });
 
-      var count = propertyResults.count;
-      var properties = propertyResults.properties;
+      const count = propertyResults.count;
+      const properties = propertyResults.properties;
       featureTables[featureTableId] = {
         class: featureTable.class,
         count: count,
@@ -307,32 +314,32 @@ MetadataTester.createFeatureTables = function (options) {
 MetadataTester.createGltf = function (options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
 
-  var propertyTableResults = MetadataTester.createPropertyTables(options);
+  const propertyTableResults = MetadataTester.createPropertyTables(options);
 
-  var bufferByteLength = 0;
-  var bufferViewsMap = propertyTableResults.bufferViews;
-  var bufferViewsLength = Object.keys(bufferViewsMap).length;
+  let bufferByteLength = 0;
+  const bufferViewsMap = propertyTableResults.bufferViews;
+  const bufferViewsLength = Object.keys(bufferViewsMap).length;
 
-  var byteLengths = new Array(bufferViewsLength);
+  const byteLengths = new Array(bufferViewsLength);
 
-  var bufferViewId;
-  var uint8Array;
+  let bufferViewId;
+  let uint8Array;
 
   for (bufferViewId in bufferViewsMap) {
     if (bufferViewsMap.hasOwnProperty(bufferViewId)) {
       uint8Array = bufferViewsMap[bufferViewId];
 
-      var remainder = uint8Array.byteLength % 8;
-      var padding = remainder === 0 ? 0 : 8 - remainder;
-      var byteLength = uint8Array.byteLength + padding;
+      const remainder = uint8Array.byteLength % 8;
+      const padding = remainder === 0 ? 0 : 8 - remainder;
+      const byteLength = uint8Array.byteLength + padding;
       bufferByteLength += byteLength;
       byteLengths[bufferViewId] = byteLength;
     }
   }
 
-  var buffer = new Uint8Array(bufferByteLength);
-  var bufferViews = new Array(bufferViewsLength);
-  var byteOffset = 0;
+  const buffer = new Uint8Array(bufferByteLength);
+  const bufferViews = new Array(bufferViewsLength);
+  let byteOffset = 0;
 
   for (bufferViewId in bufferViewsMap) {
     if (bufferViewsMap.hasOwnProperty(bufferViewId)) {
@@ -349,7 +356,7 @@ MetadataTester.createGltf = function (options) {
     }
   }
 
-  var gltf = {
+  const gltf = {
     buffers: [
       {
         uri: "external.bin",
@@ -359,9 +366,9 @@ MetadataTester.createGltf = function (options) {
     images: options.images,
     textures: options.textures,
     bufferViews: bufferViews,
-    extensionsUsed: ["EXT_mesh_features"],
+    extensionsUsed: ["EXT_structural_metadata"],
     extensions: {
-      EXT_mesh_features: {
+      EXT_structural_metadata: {
         schema: options.schema,
         propertyTables: propertyTableResults.propertyTables,
         propertyTextures: options.propertyTextures,
@@ -376,7 +383,7 @@ MetadataTester.createGltf = function (options) {
 };
 
 function createBuffer(values, componentType) {
-  var typedArray;
+  let typedArray;
   switch (componentType) {
     case MetadataComponentType.INT8:
       typedArray = new Int8Array(values);
@@ -408,24 +415,33 @@ function createBuffer(values, componentType) {
     case MetadataComponentType.FLOAT64:
       typedArray = new Float64Array(values);
       break;
-    case MetadataComponentType.STRING:
-      var encoder = new TextEncoder();
-      typedArray = encoder.encode(values.join(""));
-      break;
-    case MetadataComponentType.BOOLEAN:
-      var length = Math.ceil(values.length / 8);
-      typedArray = new Uint8Array(length); // Initialized as 0's
-      for (var i = 0; i < values.length; ++i) {
-        var byteIndex = i >> 3;
-        var bitIndex = i % 8;
-        if (values[i]) {
-          typedArray[byteIndex] |= 1 << bitIndex;
-        }
-      }
-      break;
+    //>>includeStart('debug', pragmas.debug);
+    default:
+      throw new DeveloperError(
+        `${componentType} is not a valid component type`
+      );
+    //>>includeEnd('debug');
   }
 
   return new Uint8Array(typedArray.buffer);
+}
+
+function createStringBuffer(values) {
+  const encoder = new TextEncoder();
+  return encoder.encode(values.join(""));
+}
+
+function createBooleanBuffer(values) {
+  const length = Math.ceil(values.length / 8);
+  const typedArray = new Uint8Array(length); // Initialized as 0's
+  for (let i = 0; i < values.length; ++i) {
+    const byteIndex = i >> 3;
+    const bitIndex = i % 8;
+    if (values[i]) {
+      typedArray[byteIndex] |= 1 << bitIndex;
+    }
+  }
+  return typedArray;
 }
 
 function flatten(values) {
@@ -433,13 +449,22 @@ function flatten(values) {
 }
 
 function createValuesBuffer(values, classProperty) {
-  var valueType = classProperty.valueType;
-  var enumType = classProperty.enumType;
-  var flattenedValues = flatten(values);
+  const type = classProperty.type;
+  const valueType = classProperty.valueType;
+  const enumType = classProperty.enumType;
+  const flattenedValues = flatten(values);
+
+  if (type === MetadataType.STRING) {
+    return createStringBuffer(flattenedValues);
+  }
+
+  if (type === MetadataType.BOOLEAN) {
+    return createBooleanBuffer(flattenedValues);
+  }
 
   if (defined(enumType)) {
-    var length = flattenedValues.length;
-    for (var i = 0; i < length; ++i) {
+    const length = flattenedValues.length;
+    for (let i = 0; i < length; ++i) {
       flattenedValues[i] = enumType.valuesByName[flattenedValues[i]];
     }
   }
@@ -448,12 +473,12 @@ function createValuesBuffer(values, classProperty) {
 }
 
 function createStringOffsetBuffer(values, offsetType) {
-  var encoder = new TextEncoder();
-  var strings = flatten(values);
-  var length = strings.length;
-  var offsets = new Array(length + 1);
-  var offset = 0;
-  for (var i = 0; i < length; ++i) {
+  const encoder = new TextEncoder();
+  const strings = flatten(values);
+  const length = strings.length;
+  const offsets = new Array(length + 1);
+  let offset = 0;
+  for (let i = 0; i < length; ++i) {
     offsets[i] = offset;
     offset += encoder.encode(strings[i]).length;
   }
@@ -462,13 +487,14 @@ function createStringOffsetBuffer(values, offsetType) {
   return createBuffer(offsets, offsetType);
 }
 
-function createArrayOffsetBuffer(values, offsetType) {
-  var length = values.length;
-  var offsets = new Array(length + 1);
-  var offset = 0;
-  for (var i = 0; i < length; ++i) {
+function createArrayOffsetBuffer(values, type, offsetType) {
+  const componentCount = MetadataType.getComponentCount(type);
+  const length = values.length;
+  const offsets = new Array(length + 1);
+  let offset = 0;
+  for (let i = 0; i < length; ++i) {
     offsets[i] = offset;
-    offset += values[i].length;
+    offset += values[i].length / componentCount;
   }
   offsets[length] = offset;
   offsetType = defaultValue(offsetType, MetadataComponentType.UINT32);
@@ -477,8 +503,8 @@ function createArrayOffsetBuffer(values, offsetType) {
 
 function addPadding(uint8Array) {
   // This tests that MetadataTable uses the Uint8Array's byteOffset properly
-  var paddingBytes = 8;
-  var padded = new Uint8Array(paddingBytes + uint8Array.length);
+  const paddingBytes = 8;
+  const padded = new Uint8Array(paddingBytes + uint8Array.length);
   padded.set(uint8Array, paddingBytes);
   return new Uint8Array(padded.buffer, paddingBytes, uint8Array.length);
 }

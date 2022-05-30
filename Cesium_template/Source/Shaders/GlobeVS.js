@@ -42,8 +42,9 @@ varying float v_distance;\n\
 #endif\n\
 \n\
 #if defined(FOG) || defined(GROUND_ATMOSPHERE)\n\
-varying vec3 v_fogMieColor;\n\
-varying vec3 v_fogRayleighColor;\n\
+varying vec3 v_atmosphereRayleighColor;\n\
+varying vec3 v_atmosphereMieColor;\n\
+varying float v_atmosphereOpacity;\n\
 #endif\n\
 \n\
 // These functions are generated at runtime.\n\
@@ -189,11 +190,12 @@ void main()\n\
 \n\
     gl_Position = getPosition(position, height, textureCoordinates);\n\
 \n\
+    v_positionEC = (u_modifiedModelView * vec4(position, 1.0)).xyz;\n\
+    v_positionMC = position3DWC;  // position in model coordinates\n\
+\n\
     v_textureCoordinates = vec3(textureCoordinates, webMercatorT);\n\
 \n\
 #if defined(ENABLE_VERTEX_LIGHTING) || defined(GENERATE_POSITION_AND_NORMAL) || defined(APPLY_MATERIAL)\n\
-    v_positionEC = (u_modifiedModelView * vec4(position, 1.0)).xyz;\n\
-    v_positionMC = position3DWC;  // position in model coordinates\n\
     vec3 normalMC = czm_octDecode(encodedNormal);\n\
 \n\
 #if defined(EXAGGERATION) && defined(GEODETIC_SURFACE_NORMALS)\n\
@@ -204,15 +206,31 @@ void main()\n\
 \n\
     v_normalMC = normalMC;\n\
     v_normalEC = czm_normal3D * v_normalMC;\n\
-#elif defined(SHOW_REFLECTIVE_OCEAN) || defined(ENABLE_DAYNIGHT_SHADING) || defined(GENERATE_POSITION) || defined(HDR)\n\
-    v_positionEC = (u_modifiedModelView * vec4(position, 1.0)).xyz;\n\
-    v_positionMC = position3DWC;  // position in model coordinates\n\
 #endif\n\
 \n\
-#if defined(FOG) || defined(GROUND_ATMOSPHERE)\n\
-    AtmosphereColor atmosFogColor = computeGroundAtmosphereFromSpace(position3DWC, false, vec3(0.0));\n\
-    v_fogMieColor = atmosFogColor.mie;\n\
-    v_fogRayleighColor = atmosFogColor.rayleigh;\n\
+#if defined(FOG) || (defined(GROUND_ATMOSPHERE) && !defined(PER_FRAGMENT_GROUND_ATMOSPHERE))\n\
+\n\
+    bool dynamicLighting = false;\n\
+\n\
+    #if defined(DYNAMIC_ATMOSPHERE_LIGHTING) && (defined(ENABLE_DAYNIGHT_SHADING) || defined(ENABLE_VERTEX_LIGHTING))\n\
+        dynamicLighting = true;\n\
+    #endif\n\
+\n\
+#if defined(DYNAMIC_ATMOSPHERE_LIGHTING_FROM_SUN)\n\
+    vec3 atmosphereLightDirection = czm_sunDirectionWC;\n\
+#else\n\
+    vec3 atmosphereLightDirection = czm_lightDirectionWC;\n\
+#endif\n\
+\n\
+    vec3 lightDirection = czm_branchFreeTernary(dynamicLighting, atmosphereLightDirection, normalize(position3DWC));\n\
+\n\
+    computeAtmosphereScattering(\n\
+        position3DWC,\n\
+        lightDirection,\n\
+        v_atmosphereRayleighColor,\n\
+        v_atmosphereMieColor,\n\
+        v_atmosphereOpacity\n\
+    );\n\
 #endif\n\
 \n\
 #if defined(FOG) || defined(GROUND_ATMOSPHERE) || defined(UNDERGROUND_COLOR) || defined(TRANSLUCENT)\n\

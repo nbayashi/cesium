@@ -14,7 +14,7 @@ import {
 import ShaderBuilderTester from "../../ShaderBuilderTester.js";
 
 describe("Scene/ModelExperimental/CPUStylingPipelineStage", function () {
-  var defaultRenderResources = {
+  const defaultRenderResources = {
     alphaOptions: new ModelAlphaOptions(),
     model: {
       colorBlendMode: ColorBlendMode.HIGHLIGHT,
@@ -34,8 +34,8 @@ describe("Scene/ModelExperimental/CPUStylingPipelineStage", function () {
   };
 
   it("adds shader functions", function () {
-    var renderResources = clone(defaultRenderResources, true);
-    var shaderBuilder = renderResources.shaderBuilder;
+    const renderResources = clone(defaultRenderResources, true);
+    const shaderBuilder = renderResources.shaderBuilder;
 
     CPUStylingPipelineStage.process(renderResources);
 
@@ -48,18 +48,18 @@ describe("Scene/ModelExperimental/CPUStylingPipelineStage", function () {
   });
 
   it("adds color blend uniform", function () {
-    var renderResources = clone(defaultRenderResources, true);
+    const renderResources = clone(defaultRenderResources, true);
     renderResources.model.colorBlendAmount = 0.75;
     renderResources.model.colorBlendMode = ColorBlendMode.MIX;
-    var colorBlend = ColorBlendMode.getColorBlend(
+    const colorBlend = ColorBlendMode.getColorBlend(
       renderResources.model.colorBlendMode,
       renderResources.model.colorBlendAmount
     );
 
     CPUStylingPipelineStage.process(renderResources);
 
-    var shaderBuilder = renderResources.shaderBuilder;
-    var uniformMap = renderResources.uniformMap;
+    const shaderBuilder = renderResources.shaderBuilder;
+    const uniformMap = renderResources.uniformMap;
 
     ShaderBuilderTester.expectHasFragmentUniforms(shaderBuilder, [
       "uniform bool model_commandTranslucent;",
@@ -67,34 +67,36 @@ describe("Scene/ModelExperimental/CPUStylingPipelineStage", function () {
     ]);
 
     expect(uniformMap.model_colorBlend()).toEqual(colorBlend);
+    expect(uniformMap.model_commandTranslucent()).toBe(false);
   });
 
   it("doesn't add color blend uniform if model color is present", function () {
-    var renderResources = clone(defaultRenderResources, true);
+    const renderResources = clone(defaultRenderResources, true);
     renderResources.model.color = Color.RED;
     renderResources.model.colorBlendAmount = 0.75;
     renderResources.model.colorBlendMode = ColorBlendMode.MIX;
 
     CPUStylingPipelineStage.process(renderResources);
 
-    var shaderBuilder = renderResources.shaderBuilder;
-    var uniformMap = renderResources.uniformMap;
+    const shaderBuilder = renderResources.shaderBuilder;
+    const uniformMap = renderResources.uniformMap;
 
     ShaderBuilderTester.expectHasFragmentUniforms(shaderBuilder, [
       "uniform bool model_commandTranslucent;",
     ]);
 
     expect(uniformMap.model_colorBlend).toBeUndefined();
+    expect(uniformMap.model_commandTranslucent()).toBe(false);
   });
 
   it("adds command translucent uniform", function () {
-    var renderResources = clone(defaultRenderResources, true);
+    const renderResources = clone(defaultRenderResources, true);
     renderResources.alphaOptions.pass = Pass.TRANSLUCENT;
 
     CPUStylingPipelineStage.process(renderResources);
 
-    var shaderBuilder = renderResources.shaderBuilder;
-    var uniformMap = renderResources.uniformMap;
+    const shaderBuilder = renderResources.shaderBuilder;
+    const uniformMap = renderResources.uniformMap;
 
     ShaderBuilderTester.expectHasFragmentUniforms(shaderBuilder, [
       "uniform bool model_commandTranslucent;",
@@ -104,9 +106,27 @@ describe("Scene/ModelExperimental/CPUStylingPipelineStage", function () {
     expect(uniformMap.model_commandTranslucent()).toEqual(true);
   });
 
+  it("model_commandTranslucent accounts for changes from later pipeline stages", function () {
+    const renderResources = clone(defaultRenderResources, true);
+    renderResources.model.color = Color.RED;
+    renderResources.model.colorBlendAmount = 0.75;
+    renderResources.model.colorBlendMode = ColorBlendMode.MIX;
+
+    CPUStylingPipelineStage.process(renderResources);
+
+    const uniformMap = renderResources.uniformMap;
+
+    expect(uniformMap.model_commandTranslucent()).toBe(false);
+
+    // Simulate applying a custom shader with isTranslucent = true;
+    renderResources.alphaOptions.pass = Pass.TRANSLUCENT;
+
+    expect(uniformMap.model_commandTranslucent()).toBe(true);
+  });
+
   it("sets the style commands needed when only opaque commands are needed", function () {
-    var renderResources = clone(defaultRenderResources, true);
-    var batchTexture = {
+    const renderResources = clone(defaultRenderResources, true);
+    const batchTexture = {
       translucentFeaturesLength: 0,
       featuresLength: 10,
     };
@@ -120,8 +140,8 @@ describe("Scene/ModelExperimental/CPUStylingPipelineStage", function () {
   });
 
   it("sets the style commands needed when only translucent commands are needed", function () {
-    var renderResources = clone(defaultRenderResources, true);
-    var batchTexture = {
+    const renderResources = clone(defaultRenderResources, true);
+    const batchTexture = {
       translucentFeaturesLength: 10,
     };
     renderResources.model.featureTables[0].batchTexture = batchTexture;
@@ -135,8 +155,8 @@ describe("Scene/ModelExperimental/CPUStylingPipelineStage", function () {
   });
 
   it("sets the style commands needed when both opaque and translucent commands are needed", function () {
-    var renderResources = clone(defaultRenderResources, true);
-    var batchTexture = {
+    const renderResources = clone(defaultRenderResources, true);
+    const batchTexture = {
       translucentFeaturesLength: 5,
     };
     renderResources.model.featureTables[0].batchTexture = batchTexture;

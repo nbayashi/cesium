@@ -1,11 +1,11 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['./PrimitivePipeline-006f1230', './createTaskProcessorWorker', './Transforms-de823166', './Matrix2-0e286ffc', './RuntimeError-4fdc4459', './when-8166c7dd', './ComponentDatatype-9ed50558', './WebGLConstants-0664004c', './combine-a5c4cc47', './GeometryAttribute-83cf1273', './GeometryAttributes-50becc99', './GeometryPipeline-e071464f', './AttributeCompression-a3d02c34', './EncodedCartesian3-3d8cb924', './IndexDatatype-797210ca', './IntersectionTests-30f5d388', './Plane-456cf3fd', './WebMercatorProjection-37aaa17f'], (function (PrimitivePipeline, createTaskProcessorWorker, Transforms, Matrix2, RuntimeError, when, ComponentDatatype, WebGLConstants, combine, GeometryAttribute, GeometryAttributes, GeometryPipeline, AttributeCompression, EncodedCartesian3, IndexDatatype, IntersectionTests, Plane, WebMercatorProjection) { 'use strict';
+define(['./PrimitivePipeline-247fa72e', './createTaskProcessorWorker', './Transforms-323408fe', './Matrix2-69c32d33', './RuntimeError-c581ca93', './defaultValue-94c3e563', './ComponentDatatype-b1ea011a', './WebGLConstants-7dccdc96', './_commonjsHelpers-3aae1032-f55dc0c4', './combine-761d9c3f', './GeometryAttribute-cb73bb3f', './GeometryAttributes-7df9bef6', './GeometryPipeline-e27e35f8', './AttributeCompression-3cfab808', './EncodedCartesian3-b1f97f8a', './IndexDatatype-c4099fe9', './IntersectionTests-d5d945ac', './Plane-069b6800', './WebMercatorProjection-f88d3d05'], (function (PrimitivePipeline, createTaskProcessorWorker, Transforms, Matrix2, RuntimeError, defaultValue, ComponentDatatype, WebGLConstants, _commonjsHelpers3aae1032, combine, GeometryAttribute, GeometryAttributes, GeometryPipeline, AttributeCompression, EncodedCartesian3, IndexDatatype, IntersectionTests, Plane, WebMercatorProjection) { 'use strict';
 
   function combineGeometry(packedParameters, transferableObjects) {
-    var parameters = PrimitivePipeline.PrimitivePipeline.unpackCombineGeometryParameters(
+    const parameters = PrimitivePipeline.PrimitivePipeline.unpackCombineGeometryParameters(
       packedParameters
     );
-    var results = PrimitivePipeline.PrimitivePipeline.combineGeometry(parameters);
+    const results = PrimitivePipeline.PrimitivePipeline.combineGeometry(parameters);
     return PrimitivePipeline.PrimitivePipeline.packCombineGeometryResults(
       results,
       transferableObjects

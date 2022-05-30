@@ -1,6 +1,6 @@
 /* This file is automatically rebuilt by the Cesium build process. */
 /*
- Copyright (c) 2021 Gildas Lormeau. All rights reserved.
+ Copyright (c) 2022 Gildas Lormeau. All rights reserved.
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -25,6 +25,13 @@
  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/*
+ * This program is based on JZlib 1.0.2 ymnk, JCraft,Inc.
+ * JZlib is based on zlib-1.1.3, so all credit should go authors
+ * Jean-loup Gailly(jloup@gzip.org) and Mark Adler(madler@alumni.caltech.edu)
+ * and contributors of zlib.
  */
 
 // Global
@@ -363,25 +370,22 @@ function StaticTree(static_tree, extra_bits, extra_base, elems, max_length) {
 	that.max_length = max_length;
 }
 
-StaticTree.static_ltree = [12, 8, 140, 8, 76, 8, 204, 8, 44, 8, 172, 8, 108, 8, 236, 8, 28, 8, 156, 8, 92, 8, 220, 8, 60, 8, 188, 8, 124, 8, 252, 8, 2, 8,
-	130, 8, 66, 8, 194, 8, 34, 8, 162, 8, 98, 8, 226, 8, 18, 8, 146, 8, 82, 8, 210, 8, 50, 8, 178, 8, 114, 8, 242, 8, 10, 8, 138, 8, 74, 8, 202, 8, 42,
-	8, 170, 8, 106, 8, 234, 8, 26, 8, 154, 8, 90, 8, 218, 8, 58, 8, 186, 8, 122, 8, 250, 8, 6, 8, 134, 8, 70, 8, 198, 8, 38, 8, 166, 8, 102, 8, 230, 8,
-	22, 8, 150, 8, 86, 8, 214, 8, 54, 8, 182, 8, 118, 8, 246, 8, 14, 8, 142, 8, 78, 8, 206, 8, 46, 8, 174, 8, 110, 8, 238, 8, 30, 8, 158, 8, 94, 8,
-	222, 8, 62, 8, 190, 8, 126, 8, 254, 8, 1, 8, 129, 8, 65, 8, 193, 8, 33, 8, 161, 8, 97, 8, 225, 8, 17, 8, 145, 8, 81, 8, 209, 8, 49, 8, 177, 8, 113,
-	8, 241, 8, 9, 8, 137, 8, 73, 8, 201, 8, 41, 8, 169, 8, 105, 8, 233, 8, 25, 8, 153, 8, 89, 8, 217, 8, 57, 8, 185, 8, 121, 8, 249, 8, 5, 8, 133, 8,
-	69, 8, 197, 8, 37, 8, 165, 8, 101, 8, 229, 8, 21, 8, 149, 8, 85, 8, 213, 8, 53, 8, 181, 8, 117, 8, 245, 8, 13, 8, 141, 8, 77, 8, 205, 8, 45, 8,
-	173, 8, 109, 8, 237, 8, 29, 8, 157, 8, 93, 8, 221, 8, 61, 8, 189, 8, 125, 8, 253, 8, 19, 9, 275, 9, 147, 9, 403, 9, 83, 9, 339, 9, 211, 9, 467, 9,
-	51, 9, 307, 9, 179, 9, 435, 9, 115, 9, 371, 9, 243, 9, 499, 9, 11, 9, 267, 9, 139, 9, 395, 9, 75, 9, 331, 9, 203, 9, 459, 9, 43, 9, 299, 9, 171, 9,
-	427, 9, 107, 9, 363, 9, 235, 9, 491, 9, 27, 9, 283, 9, 155, 9, 411, 9, 91, 9, 347, 9, 219, 9, 475, 9, 59, 9, 315, 9, 187, 9, 443, 9, 123, 9, 379,
-	9, 251, 9, 507, 9, 7, 9, 263, 9, 135, 9, 391, 9, 71, 9, 327, 9, 199, 9, 455, 9, 39, 9, 295, 9, 167, 9, 423, 9, 103, 9, 359, 9, 231, 9, 487, 9, 23,
-	9, 279, 9, 151, 9, 407, 9, 87, 9, 343, 9, 215, 9, 471, 9, 55, 9, 311, 9, 183, 9, 439, 9, 119, 9, 375, 9, 247, 9, 503, 9, 15, 9, 271, 9, 143, 9,
-	399, 9, 79, 9, 335, 9, 207, 9, 463, 9, 47, 9, 303, 9, 175, 9, 431, 9, 111, 9, 367, 9, 239, 9, 495, 9, 31, 9, 287, 9, 159, 9, 415, 9, 95, 9, 351, 9,
-	223, 9, 479, 9, 63, 9, 319, 9, 191, 9, 447, 9, 127, 9, 383, 9, 255, 9, 511, 9, 0, 7, 64, 7, 32, 7, 96, 7, 16, 7, 80, 7, 48, 7, 112, 7, 8, 7, 72, 7,
-	40, 7, 104, 7, 24, 7, 88, 7, 56, 7, 120, 7, 4, 7, 68, 7, 36, 7, 100, 7, 20, 7, 84, 7, 52, 7, 116, 7, 3, 8, 131, 8, 67, 8, 195, 8, 35, 8, 163, 8,
-	99, 8, 227, 8];
+const static_ltree2_first_part = [12, 140, 76, 204, 44, 172, 108, 236, 28, 156, 92, 220, 60, 188, 124, 252, 2, 130, 66, 194, 34, 162, 98, 226, 18, 146, 82,
+	210, 50, 178, 114, 242, 10, 138, 74, 202, 42, 170, 106, 234, 26, 154, 90, 218, 58, 186, 122, 250, 6, 134, 70, 198, 38, 166, 102, 230, 22, 150, 86,
+	214, 54, 182, 118, 246, 14, 142, 78, 206, 46, 174, 110, 238, 30, 158, 94, 222, 62, 190, 126, 254, 1, 129, 65, 193, 33, 161, 97, 225, 17, 145, 81,
+	209, 49, 177, 113, 241, 9, 137, 73, 201, 41, 169, 105, 233, 25, 153, 89, 217, 57, 185, 121, 249, 5, 133, 69, 197, 37, 165, 101, 229, 21, 149, 85,
+	213, 53, 181, 117, 245, 13, 141, 77, 205, 45, 173, 109, 237, 29, 157, 93, 221, 61, 189, 125, 253, 19, 275, 147, 403, 83, 339, 211, 467, 51, 307,
+	179, 435, 115, 371, 243, 499, 11, 267, 139, 395, 75, 331, 203, 459, 43, 299, 171, 427, 107, 363, 235, 491, 27, 283, 155, 411, 91, 347, 219, 475,
+	59, 315, 187, 443, 123, 379, 251, 507, 7, 263, 135, 391, 71, 327, 199, 455, 39, 295, 167, 423, 103, 359, 231, 487, 23, 279, 151, 407, 87, 343, 215,
+	471, 55, 311, 183, 439, 119, 375, 247, 503, 15, 271, 143, 399, 79, 335, 207, 463, 47, 303, 175, 431, 111, 367, 239, 495, 31, 287, 159, 415, 95,
+	351, 223, 479, 63, 319, 191, 447, 127, 383, 255, 511, 0, 64, 32, 96, 16, 80, 48, 112, 8, 72, 40, 104, 24, 88, 56, 120, 4, 68, 36, 100, 20, 84, 52,
+	116, 3, 131, 67, 195, 35, 163, 99, 227];
+const static_ltree2_second_part = extractArray([[144, 8], [112, 9], [24, 7], [8, 8]]);
+StaticTree.static_ltree = flatArray(static_ltree2_first_part.map((value, index) => [value, static_ltree2_second_part[index]]));
 
-StaticTree.static_dtree = [0, 5, 16, 5, 8, 5, 24, 5, 4, 5, 20, 5, 12, 5, 28, 5, 2, 5, 18, 5, 10, 5, 26, 5, 6, 5, 22, 5, 14, 5, 30, 5, 1, 5, 17, 5, 9, 5,
-	25, 5, 5, 5, 21, 5, 13, 5, 29, 5, 3, 5, 19, 5, 11, 5, 27, 5, 7, 5, 23, 5];
+const static_dtree_first_part = [0, 16, 8, 24, 4, 20, 12, 28, 2, 18, 10, 26, 6, 22, 14, 30, 1, 17, 9, 25, 5, 21, 13, 29, 3, 19, 11, 27, 7, 23];
+const static_dtree_second_part = extractArray([[30, 5]]);
+StaticTree.static_dtree = flatArray(static_dtree_first_part.map((value, index) => [value, static_dtree_second_part[index]]));
 
 StaticTree.static_l_desc = new StaticTree(StaticTree.static_ltree, Tree.extra_lbits, LITERALS + 1, L_CODES, MAX_BITS$1);
 
@@ -476,29 +480,35 @@ function Deflate$1() {
 	let pending_buf_size; // size of pending_buf
 	// pending_out; // next pending byte to output to the stream
 	// pending; // nb of bytes in the pending buffer
+
+	// dist_buf; // buffer for distances
+	// lc_buf; // buffer for literals or lengths
+	// To simplify the code, dist_buf and lc_buf have the same number of elements.
+	// To use different lengths, an extra flag array would be necessary.
+
 	let last_flush; // value of flush param for previous deflate call
 
-	let w_size; // LZ77 window size (32K by default)
+	let w_size; // LZ77 win size (32K by default)
 	let w_bits; // log2(w_size) (8..16)
 	let w_mask; // w_size - 1
 
-	let window;
-	// Sliding window. Input bytes are read into the second half of the window,
+	let win;
+	// Sliding win. Input bytes are read into the second half of the win,
 	// and move to the first half later to keep a dictionary of at least wSize
 	// bytes. With this organization, matches are limited to a distance of
 	// wSize-MAX_MATCH bytes, but this ensures that IO is always
 	// performed with a length multiple of the block size. Also, it limits
-	// the window size to 64K, which is quite useful on MSDOS.
-	// To do: use the user input buffer as sliding window.
+	// the win size to 64K, which is quite useful on MSDOS.
+	// To do: use the user input buffer as sliding win.
 
 	let window_size;
-	// Actual size of window: 2*wSize, except when the user input buffer
-	// is directly used as sliding window.
+	// Actual size of win: 2*wSize, except when the user input buffer
+	// is directly used as sliding win.
 
 	let prev;
 	// Link to older string with same hash index. To limit the size of this
 	// array to 64K, this link is maintained only for the last 32K strings.
-	// An index in this array is thus a window index modulo 32K.
+	// An index in this array is thus a win index modulo 32K.
 
 	let head; // Heads of the hash chains or NIL.
 
@@ -514,7 +524,7 @@ function Deflate$1() {
 	let hash_shift;
 
 	// Window position at the beginning of the current output block. Gets
-	// negative when the window is moved backwards.
+	// negative when the win is moved backwards.
 
 	let block_start;
 
@@ -523,7 +533,7 @@ function Deflate$1() {
 	let match_available; // set if previous match exists
 	let strstart; // start of string to insert
 	let match_start; // start of matching string
-	let lookahead; // number of valid bytes ahead in window
+	let lookahead; // number of valid bytes ahead in win
 
 	// Length of the best match at previous step. Matches not greater than this
 	// are discarded. This is used in the lazy match evaluation.
@@ -567,13 +577,11 @@ function Deflate$1() {
 	// Depth of each subtree used as tie breaker for trees of equal frequency
 	that.depth = [];
 
-	let l_buf; // index for literals or lengths */
-
 	// Size of match buffer for literals/lengths. There are 4 reasons for
 	// limiting lit_bufsize to 64K:
 	// - frequencies can be kept in 16 bit counters
 	// - if compression is not successful for the first block, all input
-	// data is still in the window so we can still emit a stored block even
+	// data is still in the win so we can still emit a stored block even
 	// when input comes from standard input. (This can also be done for
 	// all blocks if lit_bufsize is not greater than 32K.)
 	// - if compression is not successful for a file smaller than 64K, we can
@@ -588,13 +596,7 @@ function Deflate$1() {
 	// - I can't count above 4
 	let lit_bufsize;
 
-	let last_lit; // running index in l_buf
-
-	// Buffer for distances. To simplify the code, d_buf and l_buf have
-	// the same number of elements. To use different lengths, an extra flag
-	// array would be necessary.
-
-	let d_buf; // index of pendig_buf
+	let last_lit; // running index in dist_buf and lc_buf
 
 	// that.opt_len; // bit length of current block with optimal trees
 	// that.static_len; // bit length of current block with static trees
@@ -938,10 +940,8 @@ function Deflate$1() {
 		lc // match length-MIN_MATCH or unmatched char (if dist==0)
 	) {
 		let out_length, in_length, dcode;
-		that.pending_buf[d_buf + last_lit * 2] = (dist >>> 8) & 0xff;
-		that.pending_buf[d_buf + last_lit * 2 + 1] = dist & 0xff;
-
-		that.pending_buf[l_buf + last_lit] = lc & 0xff;
+		that.dist_buf[last_lit] = dist;
+		that.lc_buf[last_lit] = lc & 0xff;
 		last_lit++;
 
 		if (dist === 0) {
@@ -977,14 +977,14 @@ function Deflate$1() {
 	function compress_block(ltree, dtree) {
 		let dist; // distance of matched string
 		let lc; // match length or unmatched char (if dist === 0)
-		let lx = 0; // running index in l_buf
+		let lx = 0; // running index in dist_buf and lc_buf
 		let code; // the code to send
 		let extra; // number of extra bits to send
 
 		if (last_lit !== 0) {
 			do {
-				dist = ((that.pending_buf[d_buf + lx * 2] << 8) & 0xff00) | (that.pending_buf[d_buf + lx * 2 + 1] & 0xff);
-				lc = (that.pending_buf[l_buf + lx]) & 0xff;
+				dist = that.dist_buf[lx];
+				lc = that.lc_buf[lx];
 				lx++;
 
 				if (dist === 0) {
@@ -1010,9 +1010,6 @@ function Deflate$1() {
 						send_bits(dist, extra); // send the extra distance bits
 					}
 				} // literal or match pair ?
-
-				// Check that the overlay between pending_buf and d_buf+l_buf is
-				// ok:
 			} while (lx < last_lit);
 		}
 
@@ -1045,7 +1042,7 @@ function Deflate$1() {
 			put_short(~len);
 		}
 
-		that.pending_buf.set(window.subarray(buf, buf + len), that.pending);
+		that.pending_buf.set(win.subarray(buf, buf + len), that.pending);
 		that.pending += len;
 	}
 
@@ -1128,7 +1125,7 @@ function Deflate$1() {
 		strm.flush_pending();
 	}
 
-	// Fill the window when the lookahead becomes insufficient.
+	// Fill the win when the lookahead becomes insufficient.
 	// Updates strstart and lookahead.
 	//
 	// IN assertion: lookahead < MIN_LOOKAHEAD
@@ -1139,7 +1136,7 @@ function Deflate$1() {
 	function fill_window() {
 		let n, m;
 		let p;
-		let more; // Amount of free space at the end of the window.
+		let more; // Amount of free space at the end of the win.
 
 		do {
 			more = (window_size - lookahead - strstart);
@@ -1153,12 +1150,12 @@ function Deflate$1() {
 				// and lookahead == 1 (input done one byte at time)
 				more--;
 
-				// If the window is almost full and there is insufficient
+				// If the win is almost full and there is insufficient
 				// lookahead,
 				// move the upper half to the lower one to make room in the
 				// upper half.
 			} else if (strstart >= w_size + w_size - MIN_LOOKAHEAD) {
-				window.set(window.subarray(w_size, w_size + w_size), 0);
+				win.set(win.subarray(w_size, w_size + w_size), 0);
 
 				match_start -= w_size;
 				strstart -= w_size; // we now have strstart >= MAX_DIST
@@ -1204,13 +1201,13 @@ function Deflate$1() {
 			// Otherwise, window_size == 2*WSIZE so more >= 2.
 			// If there was sliding, more >= WSIZE. So in all cases, more >= 2.
 
-			n = strm.read_buf(window, strstart + lookahead, more);
+			n = strm.read_buf(win, strstart + lookahead, more);
 			lookahead += n;
 
 			// Initialize the hash value now that we have some input:
 			if (lookahead >= MIN_MATCH) {
-				ins_h = window[strstart] & 0xff;
-				ins_h = (((ins_h) << hash_shift) ^ (window[strstart + 1] & 0xff)) & hash_mask;
+				ins_h = win[strstart] & 0xff;
+				ins_h = (((ins_h) << hash_shift) ^ (win[strstart + 1] & 0xff)) & hash_mask;
 			}
 			// If the whole input has less than MIN_MATCH bytes, ins_h is
 			// garbage,
@@ -1226,7 +1223,7 @@ function Deflate$1() {
 	// uncompressible data is probably not useful. This function is used
 	// only for the level=0 compression option.
 	// NOTE: this function should be optimized to avoid extra copying from
-	// window to pending_buf.
+	// win to pending_buf.
 	function deflate_stored(flush) {
 		// Stored blocks are limited to 0xffff bytes, pending_buf is limited
 		// to pending_buf_size, and each stored block has a 5 byte header:
@@ -1241,7 +1238,7 @@ function Deflate$1() {
 		// Copy as much as possible from input to output:
 		// eslint-disable-next-line no-constant-condition
 		while (true) {
-			// Fill the window as much as possible:
+			// Fill the win as much as possible:
 			if (lookahead <= 1) {
 				fill_window();
 				if (lookahead === 0 && flush == Z_NO_FLUSH$1)
@@ -1292,13 +1289,13 @@ function Deflate$1() {
 		let _nice_match = nice_match;
 
 		// Stop when cur_match becomes <= limit. To simplify the code,
-		// we prevent matches with the string of window index 0.
+		// we prevent matches with the string of win index 0.
 
 		const wmask = w_mask;
 
 		const strend = strstart + MAX_MATCH;
-		let scan_end1 = window[scan + best_len - 1];
-		let scan_end = window[scan + best_len];
+		let scan_end1 = win[scan + best_len - 1];
+		let scan_end = win[scan + best_len];
 
 		// The code is optimized for HASH_BITS >= 8 and MAX_MATCH-2 multiple of
 		// 16.
@@ -1320,8 +1317,8 @@ function Deflate$1() {
 
 			// Skip to next match if the match length cannot increase
 			// or if the match length is less than 2:
-			if (window[match + best_len] != scan_end || window[match + best_len - 1] != scan_end1 || window[match] != window[scan]
-				|| window[++match] != window[scan + 1])
+			if (win[match + best_len] != scan_end || win[match + best_len - 1] != scan_end1 || win[match] != win[scan]
+				|| win[++match] != win[scan + 1])
 				continue;
 
 			// The check at best_len-1 can be removed because it will be made
@@ -1336,9 +1333,9 @@ function Deflate$1() {
 			// the 256th check will be made at strstart+258.
 			// eslint-disable-next-line no-empty
 			do {
-			} while (window[++scan] == window[++match] && window[++scan] == window[++match] && window[++scan] == window[++match]
-			&& window[++scan] == window[++match] && window[++scan] == window[++match] && window[++scan] == window[++match]
-			&& window[++scan] == window[++match] && window[++scan] == window[++match] && scan < strend);
+			} while (win[++scan] == win[++match] && win[++scan] == win[++match] && win[++scan] == win[++match]
+			&& win[++scan] == win[++match] && win[++scan] == win[++match] && win[++scan] == win[++match]
+			&& win[++scan] == win[++match] && win[++scan] == win[++match] && scan < strend);
 
 			len = MAX_MATCH - (strend - scan);
 			scan = strend - MAX_MATCH;
@@ -1348,8 +1345,8 @@ function Deflate$1() {
 				best_len = len;
 				if (len >= _nice_match)
 					break;
-				scan_end1 = window[scan + best_len - 1];
-				scan_end = window[scan + best_len];
+				scan_end1 = win[scan + best_len - 1];
+				scan_end = win[scan + best_len];
 			}
 
 		} while ((cur_match = (prev[cur_match & wmask] & 0xffff)) > limit && --chain_length !== 0);
@@ -1384,10 +1381,10 @@ function Deflate$1() {
 					break; // flush the current block
 			}
 
-			// Insert the string window[strstart .. strstart+2] in the
+			// Insert the string win[strstart .. strstart+2] in the
 			// dictionary, and set hash_head to the head of the hash chain:
 			if (lookahead >= MIN_MATCH) {
-				ins_h = (((ins_h) << hash_shift) ^ (window[(strstart) + (MIN_MATCH - 1)] & 0xff)) & hash_mask;
+				ins_h = (((ins_h) << hash_shift) ^ (win[(strstart) + (MIN_MATCH - 1)] & 0xff)) & hash_mask;
 
 				// prev[strstart&w_mask]=hash_head=head[ins_h];
 				hash_head = (head[ins_h] & 0xffff);
@@ -1400,7 +1397,7 @@ function Deflate$1() {
 
 			if (hash_head !== 0 && ((strstart - hash_head) & 0xffff) <= w_size - MIN_LOOKAHEAD) {
 				// To simplify the code, we prevent matches with the string
-				// of window index 0 (in particular we have to avoid a match
+				// of win index 0 (in particular we have to avoid a match
 				// of the string with itself at the start of the input file).
 				if (strategy != Z_HUFFMAN_ONLY) {
 					match_length = longest_match(hash_head);
@@ -1421,7 +1418,7 @@ function Deflate$1() {
 					do {
 						strstart++;
 
-						ins_h = ((ins_h << hash_shift) ^ (window[(strstart) + (MIN_MATCH - 1)] & 0xff)) & hash_mask;
+						ins_h = ((ins_h << hash_shift) ^ (win[(strstart) + (MIN_MATCH - 1)] & 0xff)) & hash_mask;
 						// prev[strstart&w_mask]=hash_head=head[ins_h];
 						hash_head = (head[ins_h] & 0xffff);
 						prev[strstart & w_mask] = head[ins_h];
@@ -1434,9 +1431,9 @@ function Deflate$1() {
 				} else {
 					strstart += match_length;
 					match_length = 0;
-					ins_h = window[strstart] & 0xff;
+					ins_h = win[strstart] & 0xff;
 
-					ins_h = (((ins_h) << hash_shift) ^ (window[strstart + 1] & 0xff)) & hash_mask;
+					ins_h = (((ins_h) << hash_shift) ^ (win[strstart + 1] & 0xff)) & hash_mask;
 					// If lookahead < MIN_MATCH, ins_h is garbage, but it does
 					// not
 					// matter since it will be recomputed at next deflate call.
@@ -1444,7 +1441,7 @@ function Deflate$1() {
 			} else {
 				// No match, output a literal byte
 
-				bflush = _tr_tally(0, window[strstart] & 0xff);
+				bflush = _tr_tally(0, win[strstart] & 0xff);
 				lookahead--;
 				strstart++;
 			}
@@ -1468,7 +1465,7 @@ function Deflate$1() {
 
 	// Same as above, but achieves better compression. We use a lazy
 	// evaluation for matches: a match is finally adopted only if there is
-	// no better match at the next window position.
+	// no better match at the next win position.
 	function deflate_slow(flush) {
 		// short hash_head = 0; // head of hash chain
 		let hash_head = 0; // head of hash chain
@@ -1492,11 +1489,11 @@ function Deflate$1() {
 					break; // flush the current block
 			}
 
-			// Insert the string window[strstart .. strstart+2] in the
+			// Insert the string win[strstart .. strstart+2] in the
 			// dictionary, and set hash_head to the head of the hash chain:
 
 			if (lookahead >= MIN_MATCH) {
-				ins_h = (((ins_h) << hash_shift) ^ (window[(strstart) + (MIN_MATCH - 1)] & 0xff)) & hash_mask;
+				ins_h = (((ins_h) << hash_shift) ^ (win[(strstart) + (MIN_MATCH - 1)] & 0xff)) & hash_mask;
 				// prev[strstart&w_mask]=hash_head=head[ins_h];
 				hash_head = (head[ins_h] & 0xffff);
 				prev[strstart & w_mask] = head[ins_h];
@@ -1510,7 +1507,7 @@ function Deflate$1() {
 
 			if (hash_head !== 0 && prev_length < max_lazy_match && ((strstart - hash_head) & 0xffff) <= w_size - MIN_LOOKAHEAD) {
 				// To simplify the code, we prevent matches with the string
-				// of window index 0 (in particular we have to avoid a match
+				// of win index 0 (in particular we have to avoid a match
 				// of the string with itself at the start of the input file).
 
 				if (strategy != Z_HUFFMAN_ONLY) {
@@ -1544,7 +1541,7 @@ function Deflate$1() {
 				prev_length -= 2;
 				do {
 					if (++strstart <= max_insert) {
-						ins_h = (((ins_h) << hash_shift) ^ (window[(strstart) + (MIN_MATCH - 1)] & 0xff)) & hash_mask;
+						ins_h = (((ins_h) << hash_shift) ^ (win[(strstart) + (MIN_MATCH - 1)] & 0xff)) & hash_mask;
 						// prev[strstart&w_mask]=hash_head=head[ins_h];
 						hash_head = (head[ins_h] & 0xffff);
 						prev[strstart & w_mask] = head[ins_h];
@@ -1566,7 +1563,7 @@ function Deflate$1() {
 				// single literal. If there was a match but the current match
 				// is longer, truncate the previous match to a single literal.
 
-				bflush = _tr_tally(0, window[strstart - 1] & 0xff);
+				bflush = _tr_tally(0, win[strstart - 1] & 0xff);
 
 				if (bflush) {
 					flush_block_only(false);
@@ -1586,7 +1583,7 @@ function Deflate$1() {
 		}
 
 		if (match_available !== 0) {
-			bflush = _tr_tally(0, window[strstart - 1] & 0xff);
+			bflush = _tr_tally(0, win[strstart - 1] & 0xff);
 			match_available = 0;
 		}
 		flush_block_only(flush == Z_FINISH$1);
@@ -1654,19 +1651,17 @@ function Deflate$1() {
 		hash_mask = hash_size - 1;
 		hash_shift = Math.floor((hash_bits + MIN_MATCH - 1) / MIN_MATCH);
 
-		window = new Uint8Array(w_size * 2);
+		win = new Uint8Array(w_size * 2);
 		prev = [];
 		head = [];
 
 		lit_bufsize = 1 << (memLevel + 6); // 16K elements by default
 
-		// We overlay pending_buf and d_buf+l_buf. This works since the average
-		// output size for (length,distance) codes is <= 24 bits.
 		that.pending_buf = new Uint8Array(lit_bufsize * 4);
 		pending_buf_size = lit_bufsize * 4;
 
-		d_buf = Math.floor(lit_bufsize / 2);
-		l_buf = (1 + 2) * lit_bufsize;
+		that.dist_buf = new Uint16Array(lit_bufsize);
+		that.lc_buf = new Uint8Array(lit_bufsize);
 
 		level = _level;
 
@@ -1680,10 +1675,12 @@ function Deflate$1() {
 			return Z_STREAM_ERROR$1;
 		}
 		// Deallocate in reverse order of allocations:
+		that.lc_buf = null;
+		that.dist_buf = null;
 		that.pending_buf = null;
 		head = null;
 		prev = null;
-		window = null;
+		win = null;
 		// free
 		that.dstate = null;
 		return status == BUSY_STATE ? Z_DATA_ERROR$1 : Z_OK$1;
@@ -1728,7 +1725,7 @@ function Deflate$1() {
 			length = w_size - MIN_LOOKAHEAD;
 			index = dictLength - length; // use the tail of the dictionary
 		}
-		window.set(dictionary.subarray(index, index + length), 0);
+		win.set(dictionary.subarray(index, index + length), 0);
 
 		strstart = length;
 		block_start = length;
@@ -1737,11 +1734,11 @@ function Deflate$1() {
 		// s->lookahead stays null, so s->ins_h will be recomputed at the next
 		// call of fill_window.
 
-		ins_h = window[0] & 0xff;
-		ins_h = (((ins_h) << hash_shift) ^ (window[1] & 0xff)) & hash_mask;
+		ins_h = win[0] & 0xff;
+		ins_h = (((ins_h) << hash_shift) ^ (win[1] & 0xff)) & hash_mask;
 
 		for (n = 0; n <= length - MIN_MATCH; n++) {
-			ins_h = (((ins_h) << hash_shift) ^ (window[(n) + (MIN_MATCH - 1)] & 0xff)) & hash_mask;
+			ins_h = (((ins_h) << hash_shift) ^ (win[(n) + (MIN_MATCH - 1)] & 0xff)) & hash_mask;
 			prev[n & w_mask] = head[ins_h];
 			head[ins_h] = n;
 		}
@@ -2059,7 +2056,7 @@ function getMaximumCompressedSize$1(uncompressedSize) {
 }
 
 /*
- Copyright (c) 2021 Gildas Lormeau. All rights reserved.
+ Copyright (c) 2022 Gildas Lormeau. All rights reserved.
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -2084,6 +2081,13 @@ function getMaximumCompressedSize$1(uncompressedSize) {
  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/*
+ * This program is based on JZlib 1.0.2 ymnk, JCraft,Inc.
+ * JZlib is based on zlib-1.1.3, so all credit should go authors
+ * Jean-loup Gailly(jloup@gzip.org) and Mark Adler(madler@alumni.caltech.edu)
+ * and contributors of zlib.
  */
 
 // Global
@@ -2499,7 +2503,7 @@ const LEN = 1; // i: get length/literal/eob next
 const LENEXT = 2; // i: getting length extra (have base)
 const DIST = 3; // i: get distance next
 const DISTEXT = 4;// i: getting distance extra
-const COPY = 5; // o: copying bytes in window, waiting
+const COPY = 5; // o: copying bytes in win, waiting
 // for space
 const LIT = 6; // o: got literal, waiting for output
 // space
@@ -2533,7 +2537,7 @@ function InfCodes() {
 	let dtree; // distance tree
 	let dtree_index = 0; // distance tree
 
-	// Called with number of bytes left to write in window at least 258
+	// Called with number of bytes left to write in win at least 258
 	// (the maximum string length) and number of input bytes available
 	// at least ten. The ten bytes are six bytes for the longest length/
 	// distance pair plus four bytes for overloading the bit buffer.
@@ -2547,8 +2551,8 @@ function InfCodes() {
 		let k; // bits in bit buffer
 		let p; // input data pointer
 		let n; // bytes available there
-		let q; // output window write pointer
-		let m; // bytes to end of window or read pointer
+		let q; // output win write pointer
+		let m; // bytes to end of win or read pointer
 		let ml; // mask for literal/length tree
 		let md; // mask for distance tree
 		let c; // bytes to copy
@@ -2586,7 +2590,7 @@ function InfCodes() {
 				b >>= (tp[tp_index_t_3 + 1]);
 				k -= (tp[tp_index_t_3 + 1]);
 
-				s.window[q++] = /* (byte) */tp[tp_index_t_3 + 2];
+				s.win[q++] = /* (byte) */tp[tp_index_t_3 + 2];
 				m--;
 				continue;
 			}
@@ -2640,15 +2644,15 @@ function InfCodes() {
 								// just copy
 								r = q - d;
 								if (q - r > 0 && 2 > (q - r)) {
-									s.window[q++] = s.window[r++]; // minimum
+									s.win[q++] = s.win[r++]; // minimum
 									// count is
 									// three,
-									s.window[q++] = s.window[r++]; // so unroll
+									s.win[q++] = s.win[r++]; // so unroll
 									// loop a
 									// little
 									c -= 2;
 								} else {
-									s.window.set(s.window.subarray(r, r + 2), q);
+									s.win.set(s.win.subarray(r, r + 2), q);
 									q += 2;
 									r += 2;
 									c -= 2;
@@ -2656,22 +2660,22 @@ function InfCodes() {
 							} else { // else offset after destination
 								r = q - d;
 								do {
-									r += s.end; // force pointer in window
+									r += s.end; // force pointer in win
 								} while (r < 0); // covers invalid distances
 								e = s.end - r;
 								if (c > e) { // if source crosses,
 									c -= e; // wrapped copy
 									if (q - r > 0 && e > (q - r)) {
 										do {
-											s.window[q++] = s.window[r++];
+											s.win[q++] = s.win[r++];
 										} while (--e !== 0);
 									} else {
-										s.window.set(s.window.subarray(r, r + e), q);
+										s.win.set(s.win.subarray(r, r + e), q);
 										q += e;
 										r += e;
 										e = 0;
 									}
-									r = 0; // copy rest from start of window
+									r = 0; // copy rest from start of win
 								}
 
 							}
@@ -2679,10 +2683,10 @@ function InfCodes() {
 							// copy all or what's left
 							if (q - r > 0 && c > (q - r)) {
 								do {
-									s.window[q++] = s.window[r++];
+									s.win[q++] = s.win[r++];
 								} while (--c !== 0);
 							} else {
-								s.window.set(s.window.subarray(r, r + c), q);
+								s.win.set(s.win.subarray(r, r + c), q);
 								q += c;
 								r += c;
 								c = 0;
@@ -2725,7 +2729,7 @@ function InfCodes() {
 						b >>= (tp[tp_index_t_3 + 1]);
 						k -= (tp[tp_index_t_3 + 1]);
 
-						s.window[q++] = /* (byte) */tp[tp_index_t_3 + 2];
+						s.win[q++] = /* (byte) */tp[tp_index_t_3 + 2];
 						m--;
 						break;
 					}
@@ -2803,8 +2807,8 @@ function InfCodes() {
 		let k = 0; // bits in bit buffer
 		let p = 0; // input data pointer
 		let n; // bytes available there
-		let q; // output window write pointer
-		let m; // bytes to end of window or read pointer
+		let q; // output win write pointer
+		let m; // bytes to end of win or read pointer
 		let f; // pointer to copy strings from
 
 		// copy input/output information to locals (UPDATE macro restores)
@@ -3018,9 +3022,9 @@ function InfCodes() {
 
 					mode = COPY;
 				/* falls through */
-				case COPY: // o: copying bytes in window, waiting for space
+				case COPY: // o: copying bytes in win, waiting for space
 					f = q - dist;
-					while (f < 0) { // modulo window size-"while" instead
+					while (f < 0) { // modulo win size-"while" instead
 						f += s.end; // of "if" handles invalid distances
 					}
 					while (len !== 0) {
@@ -3053,7 +3057,7 @@ function InfCodes() {
 							}
 						}
 
-						s.window[q++] = s.window[f++];
+						s.win[q++] = s.win[f++];
 						m--;
 
 						if (f == s.end)
@@ -3091,7 +3095,7 @@ function InfCodes() {
 					}
 					r = Z_OK;
 
-					s.window[q++] = /* (byte) */lit;
+					s.win[q++] = /* (byte) */lit;
 					m--;
 
 					mode = START;
@@ -3176,7 +3180,7 @@ const BTREE = 4; // get bit lengths tree for a dynamic
 const DTREE = 5; // get length, distance trees for a
 // dynamic block
 const CODES = 6; // processing fixed or dynamic block
-const DRY = 7; // output remaining window bytes
+const DRY = 7; // output remaining win bytes
 const DONELOCKS = 8; // finished last block, done
 const BADBLOCKS = 9; // ot a data error--stuck here
 
@@ -3203,10 +3207,10 @@ function InfBlocks(z, w) {
 
 	that.bitk = 0; // bits in bit buffer
 	that.bitb = 0; // bit buffer
-	that.window = new Uint8Array(w); // sliding window
-	that.end = w; // one byte after sliding window
-	that.read = 0; // window read pointer
-	that.write = 0; // window write pointer
+	that.win = new Uint8Array(w); // sliding win
+	that.end = w; // one byte after sliding win
+	that.read = 0; // win read pointer
+	that.write = 0; // win write pointer
 
 	that.reset = function (z, c) {
 		if (c)
@@ -3224,7 +3228,7 @@ function InfBlocks(z, w) {
 
 	that.reset(z, null);
 
-	// copy as much as possible from the sliding window to the output area
+	// copy as much as possible from the sliding win to the output area
 	that.inflate_flush = function (z, r) {
 		let n;
 		let p;
@@ -3234,7 +3238,7 @@ function InfBlocks(z, w) {
 		p = z.next_out_index;
 		q = that.read;
 
-		// compute number of bytes to copy as far as end of window
+		// compute number of bytes to copy as far as end of win
 		n = /* (int) */((q <= that.write ? that.write : that.end) - q);
 		if (n > z.avail_out)
 			n = z.avail_out;
@@ -3245,12 +3249,12 @@ function InfBlocks(z, w) {
 		z.avail_out -= n;
 		z.total_out += n;
 
-		// copy as far as end of window
-		z.next_out.set(that.window.subarray(q, q + n), p);
+		// copy as far as end of win
+		z.next_out.set(that.win.subarray(q, q + n), p);
 		p += n;
 		q += n;
 
-		// see if more to copy at beginning of window
+		// see if more to copy at beginning of win
 		if (q == that.end) {
 			// wrap pointers
 			q = 0;
@@ -3269,7 +3273,7 @@ function InfBlocks(z, w) {
 			z.total_out += n;
 
 			// copy
-			z.next_out.set(that.window.subarray(q, q + n), p);
+			z.next_out.set(that.win.subarray(q, q + n), p);
 			p += n;
 			q += n;
 		}
@@ -3288,8 +3292,8 @@ function InfBlocks(z, w) {
 		let k; // bits in bit buffer
 		let p; // input data pointer
 		let n; // bytes available there
-		let q; // output window write pointer
-		let m; // bytes to end of window or read pointer
+		let q; // output win write pointer
+		let m; // bytes to end of win or read pointer
 
 		let i;
 
@@ -3471,7 +3475,7 @@ function InfBlocks(z, w) {
 						t = n;
 					if (t > m)
 						t = m;
-					that.window.set(z.read_buf(p, t), q);
+					that.win.set(z.read_buf(p, t), q);
 					p += t;
 					n -= t;
 					q += t;
@@ -3788,13 +3792,13 @@ function InfBlocks(z, w) {
 
 	that.free = function (z) {
 		that.reset(z, null);
-		that.window = null;
+		that.win = null;
 		hufts = null;
 		// ZFREE(z, s);
 	};
 
 	that.set_dictionary = function (d, start, n) {
-		that.window.set(d.subarray(start, start + n), 0);
+		that.win.set(d.subarray(start, start + n), 0);
 		that.read = that.write = n;
 	};
 
@@ -3842,7 +3846,7 @@ function Inflate$1() {
 	that.marker = 0;
 
 	// mode independent information
-	that.wbits = 0; // log2(window size) (8..15, defaults to 15)
+	that.wbits = 0; // log2(win size) (8..15, defaults to 15)
 
 	// this.blocks; // current inflate_blocks state
 
@@ -3869,7 +3873,7 @@ function Inflate$1() {
 		z.msg = null;
 		that.blocks = null;
 
-		// set window size
+		// set win size
 		if (w < 8 || w > 15) {
 			that.inflateEnd(z);
 			return Z_STREAM_ERROR;
@@ -3911,7 +3915,7 @@ function Inflate$1() {
 					}
 					if ((istate.method >> 4) + 8 > istate.wbits) {
 						istate.mode = BAD;
-						z.msg = "invalid window size";
+						z.msg = "invalid win size";
 						istate.marker = 5; // can't try inflateSync
 						break;
 					}
@@ -4008,6 +4012,7 @@ function Inflate$1() {
 					istate.mode = DONE;
 				/* falls through */
 				case DONE:
+					z.avail_in = 0;
 					return Z_STREAM_END;
 				case BAD:
 					return Z_DATA_ERROR;
@@ -4212,7 +4217,7 @@ function ZipInflate(options) {
 }
 
 /*
- Copyright (c) 2021 Gildas Lormeau. All rights reserved.
+ Copyright (c) 2022 Gildas Lormeau. All rights reserved.
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -4239,6 +4244,8 @@ function ZipInflate(options) {
  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* global navigator */
+
 const DEFAULT_CONFIGURATION = {
 	chunkSize: 512 * 1024,
 	maxWorkers: (typeof navigator != "undefined" && navigator.hardwareConcurrency) || 2,
@@ -4254,6 +4261,9 @@ function getConfiguration() {
 }
 
 function configure(configuration) {
+	if (configuration.baseURL !== undefined) {
+		config.baseURL = configuration.baseURL;
+	}
 	if (configuration.chunkSize !== undefined) {
 		config.chunkSize = configuration.chunkSize;
 	}
@@ -4295,7 +4305,7 @@ function configure(configuration) {
 }
 
 /*
- Copyright (c) 2021 Gildas Lormeau. All rights reserved.
+ Copyright (c) 2022 Gildas Lormeau. All rights reserved.
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -4327,610 +4337,7 @@ function getMimeType() {
 }
 
 /*
- Copyright (c) 2021 Gildas Lormeau. All rights reserved.
-
- Redistribution and use in source and binary forms, with or without
- modification, are permitted provided that the following conditions are met:
-
- 1. Redistributions of source code must retain the above copyright notice,
- this list of conditions and the following disclaimer.
-
- 2. Redistributions in binary form must reproduce the above copyright 
- notice, this list of conditions and the following disclaimer in 
- the documentation and/or other materials provided with the distribution.
-
- 3. The names of the authors may not be used to endorse or promote products
- derived from this software without specific prior written permission.
-
- THIS SOFTWARE IS PROVIDED ''AS IS'' AND ANY EXPRESSED OR IMPLIED WARRANTIES,
- INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
- FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL JCRAFT,
- INC. OR ANY CONTRIBUTORS TO THIS SOFTWARE BE LIABLE FOR ANY DIRECT, INDIRECT,
- INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
- OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
-
-const MINIMUM_CHUNK_SIZE = 64;
-const ERR_ABORT = "Abort error";
-
-async function processData(codec, reader, writer, offset, inputLength, config, options) {
-	const chunkSize = Math.max(config.chunkSize, MINIMUM_CHUNK_SIZE);
-	return processChunk();
-
-	async function processChunk(chunkOffset = 0, outputLength = 0) {
-		const signal = options.signal;
-		if (chunkOffset < inputLength) {
-			testAborted(signal, codec);
-			const inputData = await reader.readUint8Array(chunkOffset + offset, Math.min(chunkSize, inputLength - chunkOffset));
-			const chunkLength = inputData.length;
-			testAborted(signal, codec);
-			const data = await codec.append(inputData);
-			testAborted(signal, codec);
-			outputLength += await writeData(writer, data);
-			if (options.onprogress) {
-				try {
-					options.onprogress(chunkOffset + chunkLength, inputLength);
-				} catch (error) {
-					// ignored
-				}
-			}
-			return processChunk(chunkOffset + chunkSize, outputLength);
-		} else {
-			const result = await codec.flush();
-			outputLength += await writeData(writer, result.data);
-			return { signature: result.signature, length: outputLength };
-		}
-	}
-}
-
-function testAborted(signal, codec) {
-	if (signal && signal.aborted) {
-		codec.flush();
-		throw new Error(ERR_ABORT);
-	}
-}
-
-async function writeData(writer, data) {
-	if (data.length) {
-		await writer.writeUint8Array(data);
-	}
-	return data.length;
-}
-
-/*
- Copyright (c) 2021 Gildas Lormeau. All rights reserved.
-
- Redistribution and use in source and binary forms, with or without
- modification, are permitted provided that the following conditions are met:
-
- 1. Redistributions of source code must retain the above copyright notice,
- this list of conditions and the following disclaimer.
-
- 2. Redistributions in binary form must reproduce the above copyright 
- notice, this list of conditions and the following disclaimer in 
- the documentation and/or other materials provided with the distribution.
-
- 3. The names of the authors may not be used to endorse or promote products
- derived from this software without specific prior written permission.
-
- THIS SOFTWARE IS PROVIDED ''AS IS'' AND ANY EXPRESSED OR IMPLIED WARRANTIES,
- INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
- FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL JCRAFT,
- INC. OR ANY CONTRIBUTORS TO THIS SOFTWARE BE LIABLE FOR ANY DIRECT, INDIRECT,
- INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
- OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
-
-const ERR_HTTP_STATUS = "HTTP error ";
-const ERR_HTTP_RANGE = "HTTP Range not supported";
-
-const CONTENT_TYPE_TEXT_PLAIN = "text/plain";
-const HTTP_HEADER_CONTENT_LENGTH = "Content-Length";
-const HTTP_HEADER_ACCEPT_RANGES = "Accept-Ranges";
-const HTTP_HEADER_RANGE = "Range";
-const HTTP_METHOD_HEAD = "HEAD";
-const HTTP_METHOD_GET = "GET";
-const HTTP_RANGE_UNIT = "bytes";
-
-class Stream {
-
-	constructor() {
-		this.size = 0;
-	}
-
-	init() {
-		this.initialized = true;
-	}
-}
-
-class Reader extends Stream {
-}
-
-class Writer extends Stream {
-
-	writeUint8Array(array) {
-		this.size += array.length;
-	}
-}
-
-class TextReader extends Reader {
-
-	constructor(text) {
-		super();
-		this.blobReader = new BlobReader(new Blob([text], { type: CONTENT_TYPE_TEXT_PLAIN }));
-	}
-
-	async init() {
-		super.init();
-		this.blobReader.init();
-		this.size = this.blobReader.size;
-	}
-
-	async readUint8Array(offset, length) {
-		return this.blobReader.readUint8Array(offset, length);
-	}
-}
-
-class TextWriter extends Writer {
-
-	constructor(encoding) {
-		super();
-		this.encoding = encoding;
-		this.blob = new Blob([], { type: CONTENT_TYPE_TEXT_PLAIN });
-	}
-
-	async writeUint8Array(array) {
-		super.writeUint8Array(array);
-		this.blob = new Blob([this.blob, array.buffer], { type: CONTENT_TYPE_TEXT_PLAIN });
-	}
-
-	getData() {
-		const reader = new FileReader();
-		return new Promise((resolve, reject) => {
-			reader.onload = event => resolve(event.target.result);
-			reader.onerror = () => reject(reader.error);
-			reader.readAsText(this.blob, this.encoding);
-		});
-	}
-}
-
-class Data64URIReader extends Reader {
-
-	constructor(dataURI) {
-		super();
-		this.dataURI = dataURI;
-		let dataEnd = dataURI.length;
-		while (dataURI.charAt(dataEnd - 1) == "=") {
-			dataEnd--;
-		}
-		this.dataStart = dataURI.indexOf(",") + 1;
-		this.size = Math.floor((dataEnd - this.dataStart) * 0.75);
-	}
-
-	async readUint8Array(offset, length) {
-		const dataArray = new Uint8Array(length);
-		const start = Math.floor(offset / 3) * 4;
-		const bytes = atob(this.dataURI.substring(start + this.dataStart, Math.ceil((offset + length) / 3) * 4 + this.dataStart));
-		const delta = offset - Math.floor(start / 4) * 3;
-		for (let indexByte = delta; indexByte < delta + length; indexByte++) {
-			dataArray[indexByte - delta] = bytes.charCodeAt(indexByte);
-		}
-		return dataArray;
-	}
-}
-
-class Data64URIWriter extends Writer {
-
-	constructor(contentType) {
-		super();
-		this.data = "data:" + (contentType || "") + ";base64,";
-		this.pending = [];
-	}
-
-	async writeUint8Array(array) {
-		super.writeUint8Array(array);
-		let indexArray = 0;
-		let dataString = this.pending;
-		const delta = this.pending.length;
-		this.pending = "";
-		for (indexArray = 0; indexArray < (Math.floor((delta + array.length) / 3) * 3) - delta; indexArray++) {
-			dataString += String.fromCharCode(array[indexArray]);
-		}
-		for (; indexArray < array.length; indexArray++) {
-			this.pending += String.fromCharCode(array[indexArray]);
-		}
-		if (dataString.length > 2) {
-			this.data += btoa(dataString);
-		} else {
-			this.pending = dataString;
-		}
-	}
-
-	getData() {
-		return this.data + btoa(this.pending);
-	}
-}
-
-class BlobReader extends Reader {
-
-	constructor(blob) {
-		super();
-		this.blob = blob;
-		this.size = blob.size;
-	}
-
-	async readUint8Array(offset, length) {
-		const reader = new FileReader();
-		return new Promise((resolve, reject) => {
-			reader.onload = event => resolve(new Uint8Array(event.target.result));
-			reader.onerror = () => reject(reader.error);
-			reader.readAsArrayBuffer(this.blob.slice(offset, offset + length));
-		});
-	}
-}
-
-class BlobWriter extends Writer {
-
-	constructor(contentType) {
-		super();
-		this.contentType = contentType;
-		this.arrayBuffers = [];
-	}
-
-	async writeUint8Array(array) {
-		super.writeUint8Array(array);
-		this.arrayBuffers.push(array.buffer);
-	}
-
-	getData() {
-		if (!this.blob) {
-			this.blob = new Blob(this.arrayBuffers, { type: this.contentType });
-		}
-		return this.blob;
-	}
-}
-
-class FetchReader extends Reader {
-
-	constructor(url, options) {
-		super();
-		this.url = url;
-		this.preventHeadRequest = options.preventHeadRequest;
-		this.useRangeHeader = options.useRangeHeader;
-		this.forceRangeRequests = options.forceRangeRequests;
-		this.options = Object.assign({}, options);
-		delete this.options.preventHeadRequest;
-		delete this.options.useRangeHeader;
-		delete this.options.forceRangeRequests;
-		delete this.options.useXHR;
-	}
-
-	async init() {
-		super.init();
-		if (isHttpFamily(this.url) && !this.preventHeadRequest) {
-			const response = await sendFetchRequest(HTTP_METHOD_HEAD, this.url, this.options);
-			this.size = Number(response.headers.get(HTTP_HEADER_CONTENT_LENGTH));
-			if (!this.forceRangeRequests && this.useRangeHeader && response.headers.get(HTTP_HEADER_ACCEPT_RANGES) != HTTP_RANGE_UNIT) {
-				throw new Error(ERR_HTTP_RANGE);
-			} else if (this.size === undefined) {
-				await getFetchData(this, this.options);
-			}
-		} else {
-			await getFetchData(this, this.options);
-		}
-	}
-
-	async readUint8Array(index, length) {
-		if (this.useRangeHeader) {
-			const response = await sendFetchRequest(HTTP_METHOD_GET, this.url, this.options, Object.assign({}, this.options.headers,
-				{ [HTTP_HEADER_RANGE]: HTTP_RANGE_UNIT + "=" + index + "-" + (index + length - 1) }));
-			if (response.status != 206) {
-				throw new Error(ERR_HTTP_RANGE);
-			}
-			return new Uint8Array(await response.arrayBuffer());
-		} else {
-			if (!this.data) {
-				await getFetchData(this, this.options);
-			}
-			return new Uint8Array(this.data.subarray(index, index + length));
-		}
-	}
-}
-
-async function getFetchData(httpReader, options) {
-	const response = await sendFetchRequest(HTTP_METHOD_GET, httpReader.url, options);
-	httpReader.data = new Uint8Array(await response.arrayBuffer());
-	if (!httpReader.size) {
-		httpReader.size = httpReader.data.length;
-	}
-}
-
-async function sendFetchRequest(method, url, options, headers) {
-	headers = Object.assign({}, options.headers, headers);
-	const response = await fetch(url, Object.assign({}, options, { method, headers }));
-	if (response.status < 400) {
-		return response;
-	} else {
-		throw new Error(ERR_HTTP_STATUS + (response.statusText || response.status));
-	}
-}
-
-class XHRReader extends Reader {
-
-	constructor(url, options) {
-		super();
-		this.url = url;
-		this.preventHeadRequest = options.preventHeadRequest;
-		this.useRangeHeader = options.useRangeHeader;
-		this.forceRangeRequests = options.forceRangeRequests;
-	}
-
-	async init() {
-		super.init();
-		if (isHttpFamily(this.url) && !this.preventHeadRequest) {
-			return new Promise((resolve, reject) => sendXHR(HTTP_METHOD_HEAD, this.url, request => {
-				this.size = Number(request.getResponseHeader(HTTP_HEADER_CONTENT_LENGTH));
-				if (this.useRangeHeader) {
-					if (this.forceRangeRequests || request.getResponseHeader(HTTP_HEADER_ACCEPT_RANGES) == HTTP_RANGE_UNIT) {
-						resolve();
-					} else {
-						reject(new Error(ERR_HTTP_RANGE));
-					}
-				} else if (this.size === undefined) {
-					getXHRData(this, this.url).then(() => resolve()).catch(reject);
-				} else {
-					resolve();
-				}
-			}, reject));
-		} else {
-			await getXHRData(this, this.url);
-		}
-	}
-
-	async readUint8Array(index, length) {
-		if (this.useRangeHeader) {
-			const request = await new Promise((resolve, reject) => sendXHR(HTTP_METHOD_GET, this.url, request => resolve(request), reject,
-				[[HTTP_HEADER_RANGE, HTTP_RANGE_UNIT + "=" + index + "-" + (index + length - 1)]]));
-			if (request.status != 206) {
-				throw new Error(ERR_HTTP_RANGE);
-			}
-			return new Uint8Array(request.response);
-		} else {
-			if (!this.data) {
-				await getXHRData(this, this.url);
-			}
-			return new Uint8Array(this.data.subarray(index, index + length));
-		}
-	}
-}
-
-function getXHRData(httpReader, url) {
-	return new Promise((resolve, reject) => sendXHR(HTTP_METHOD_GET, url, request => {
-		httpReader.data = new Uint8Array(request.response);
-		if (!httpReader.size) {
-			httpReader.size = httpReader.data.length;
-		}
-		resolve();
-	}, reject));
-}
-
-function sendXHR(method, url, onload, onerror, headers = []) {
-	const request = new XMLHttpRequest();
-	request.addEventListener("load", () => {
-		if (request.status < 400) {
-			onload(request);
-		} else {
-			onerror(ERR_HTTP_STATUS + (request.statusText || request.status));
-		}
-	}, false);
-	request.addEventListener("error", onerror, false);
-	request.open(method, url);
-	headers.forEach(header => request.setRequestHeader(header[0], header[1]));
-	request.responseType = "arraybuffer";
-	request.send();
-	return request;
-}
-
-class HttpReader extends Reader {
-
-	constructor(url, options = {}) {
-		super();
-		this.url = url;
-		if (options.useXHR) {
-			this.reader = new XHRReader(url, options);
-		} else {
-			this.reader = new FetchReader(url, options);
-		}
-	}
-
-	set size(value) {
-		// ignored
-	}
-
-	get size() {
-		return this.reader.size;
-	}
-
-	async init() {
-		super.init();
-		await this.reader.init();
-	}
-
-	async readUint8Array(index, length) {
-		return this.reader.readUint8Array(index, length);
-	}
-}
-
-class HttpRangeReader extends HttpReader {
-
-	constructor(url, options = {}) {
-		options.useRangeHeader = true;
-		super(url, options);
-	}
-}
-
-
-class Uint8ArrayReader extends Reader {
-
-	constructor(array) {
-		super();
-		this.array = array;
-		this.size = array.length;
-	}
-
-	async readUint8Array(index, length) {
-		return this.array.slice(index, index + length);
-	}
-}
-
-class Uint8ArrayWriter extends Writer {
-
-	constructor() {
-		super();
-		this.array = new Uint8Array(0);
-	}
-
-	async writeUint8Array(array) {
-		super.writeUint8Array(array);
-		const previousArray = this.array;
-		this.array = new Uint8Array(previousArray.length + array.length);
-		this.array.set(previousArray);
-		this.array.set(array, previousArray.length);
-	}
-
-	getData() {
-		return this.array;
-	}
-}
-
-function isHttpFamily(url) {
-	if (typeof document != "undefined") {
-		const anchor = document.createElement("a");
-		anchor.href = url;
-		return anchor.protocol == "http:" || anchor.protocol == "https:";
-	} else {
-		return /^https?:\/\//i.test(url);
-	}
-}
-
-/*
- Copyright (c) 2021 Gildas Lormeau. All rights reserved.
-
- Redistribution and use in source and binary forms, with or without
- modification, are permitted provided that the following conditions are met:
-
- 1. Redistributions of source code must retain the above copyright notice,
- this list of conditions and the following disclaimer.
-
- 2. Redistributions in binary form must reproduce the above copyright 
- notice, this list of conditions and the following disclaimer in 
- the documentation and/or other materials provided with the distribution.
-
- 3. The names of the authors may not be used to endorse or promote products
- derived from this software without specific prior written permission.
-
- THIS SOFTWARE IS PROVIDED ''AS IS'' AND ANY EXPRESSED OR IMPLIED WARRANTIES,
- INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
- FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL JCRAFT,
- INC. OR ANY CONTRIBUTORS TO THIS SOFTWARE BE LIABLE FOR ANY DIRECT, INDIRECT,
- INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
- OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
-
-const MAX_32_BITS = 0xffffffff;
-const MAX_16_BITS = 0xffff;
-const COMPRESSION_METHOD_DEFLATE = 0x08;
-const COMPRESSION_METHOD_STORE = 0x00;
-const COMPRESSION_METHOD_AES = 0x63;
-
-const LOCAL_FILE_HEADER_SIGNATURE = 0x04034b50;
-const DATA_DESCRIPTOR_RECORD_SIGNATURE = 0x08074b50;
-const CENTRAL_FILE_HEADER_SIGNATURE = 0x02014b50;
-const END_OF_CENTRAL_DIR_SIGNATURE = 0x06054b50;
-const ZIP64_END_OF_CENTRAL_DIR_SIGNATURE = 0x06064b50;
-const ZIP64_END_OF_CENTRAL_DIR_LOCATOR_SIGNATURE = 0x07064b50;
-const END_OF_CENTRAL_DIR_LENGTH = 22;
-const ZIP64_END_OF_CENTRAL_DIR_LOCATOR_LENGTH = 20;
-const ZIP64_END_OF_CENTRAL_DIR_LENGTH = 56;
-const ZIP64_END_OF_CENTRAL_DIR_TOTAL_LENGTH = END_OF_CENTRAL_DIR_LENGTH + ZIP64_END_OF_CENTRAL_DIR_LOCATOR_LENGTH + ZIP64_END_OF_CENTRAL_DIR_LENGTH;
-
-const ZIP64_TOTAL_NUMBER_OF_DISKS = 1;
-
-const EXTRAFIELD_TYPE_ZIP64 = 0x0001;
-const EXTRAFIELD_TYPE_AES = 0x9901;
-const EXTRAFIELD_TYPE_NTFS = 0x000a;
-const EXTRAFIELD_TYPE_NTFS_TAG1 = 0x0001;
-const EXTRAFIELD_TYPE_EXTENDED_TIMESTAMP = 0x5455;
-const EXTRAFIELD_TYPE_UNICODE_PATH = 0x7075;
-const EXTRAFIELD_TYPE_UNICODE_COMMENT = 0x6375;
-
-const BITFLAG_ENCRYPTED = 0x01;
-const BITFLAG_LEVEL = 0x06;
-const BITFLAG_DATA_DESCRIPTOR = 0x0008;
-const BITFLAG_LANG_ENCODING_FLAG = 0x0800;
-const FILE_ATTR_MSDOS_DIR_MASK = 0x10;
-
-const VERSION_DEFLATE = 0x14;
-const VERSION_ZIP64 = 0x2D;
-const VERSION_AES = 0x33;
-
-const DIRECTORY_SIGNATURE = "/";
-
-const MAX_DATE = new Date(2107, 11, 31);
-const MIN_DATE = new Date(1980, 0, 1);
-
-/*
- Copyright (c) 2021 Gildas Lormeau. All rights reserved.
-
- Redistribution and use in source and binary forms, with or without
- modification, are permitted provided that the following conditions are met:
-
- 1. Redistributions of source code must retain the above copyright notice,
- this list of conditions and the following disclaimer.
-
- 2. Redistributions in binary form must reproduce the above copyright 
- notice, this list of conditions and the following disclaimer in 
- the documentation and/or other materials provided with the distribution.
-
- 3. The names of the authors may not be used to endorse or promote products
- derived from this software without specific prior written permission.
-
- THIS SOFTWARE IS PROVIDED ''AS IS'' AND ANY EXPRESSED OR IMPLIED WARRANTIES,
- INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
- FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL JCRAFT,
- INC. OR ANY CONTRIBUTORS TO THIS SOFTWARE BE LIABLE FOR ANY DIRECT, INDIRECT,
- INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
- OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
-
-const CP437 = "\0☺☻♥♦♣♠•◘○◙♂♀♪♫☼►◄↕‼¶§▬↨↑↓→←∟↔▲▼ !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~⌂ÇüéâäàåçêëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒáíóúñÑªº¿⌐¬½¼¡«»░▒▓│┤╡╢╖╕╣║╗╝╜╛┐└┴┬├─┼╞╟╚╔╩╦╠═╬╧╨╤╥╙╘╒╓╫╪┘┌█▄▌▐▀αßΓπΣσµτΦΘΩδ∞φε∩≡±≥≤⌠⌡÷≈°∙·√ⁿ²■ ".split("");
-
-var decodeCP437 = stringValue => {
-	let result = "";
-	for (let indexCharacter = 0; indexCharacter < stringValue.length; indexCharacter++) {
-		result += CP437[stringValue[indexCharacter]];
-	}
-	return result;
-};
-
-/*
- Copyright (c) 2021 Gildas Lormeau. All rights reserved.
+ Copyright (c) 2022 Gildas Lormeau. All rights reserved.
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -4989,7 +4396,64 @@ class Crc32 {
 	}
 }
 
-// Derived from https://github.com/xqdoo00o/jszip/blob/master/lib/sjcl.js
+/*
+ Copyright (c) 2022 Gildas Lormeau. All rights reserved.
+
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+
+ 1. Redistributions of source code must retain the above copyright notice,
+ this list of conditions and the following disclaimer.
+
+ 2. Redistributions in binary form must reproduce the above copyright 
+ notice, this list of conditions and the following disclaimer in 
+ the documentation and/or other materials provided with the distribution.
+
+ 3. The names of the authors may not be used to endorse or promote products
+ derived from this software without specific prior written permission.
+
+ THIS SOFTWARE IS PROVIDED ''AS IS'' AND ANY EXPRESSED OR IMPLIED WARRANTIES,
+ INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+ FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL JCRAFT,
+ INC. OR ANY CONTRIBUTORS TO THIS SOFTWARE BE LIABLE FOR ANY DIRECT, INDIRECT,
+ INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+ OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+function encodeText(value) {
+	if (typeof TextEncoder == "undefined") {
+		value = unescape(encodeURIComponent(value));
+		const result = new Uint8Array(value.length);
+		for (let i = 0; i < result.length; i++) {
+			result[i] = value.charCodeAt(i);
+		}
+		return result;
+	} else {
+		return new TextEncoder().encode(value);
+	}
+}
+
+// Derived from https://github.com/xqdoo00o/jszip/blob/master/lib/sjcl.js and https://github.com/bitwiseshiftleft/sjcl
+
+/*
+ * SJCL is open. You can use, modify and redistribute it under a BSD
+ * license or under the GNU GPL, version 2.0.
+ */
+
+/** @fileOverview Javascript cryptography implementation.
+ *
+ * Crush to remove comments, shorten variable names and
+ * generally reduce transmission size.
+ *
+ * @author Emily Stark
+ * @author Mike Hamburg
+ * @author Dan Boneh
+ */
+
 /*jslint indent: 2, bitwise: false, nomen: false, plusplus: false, white: false, regexp: false */
 
 /** @fileOverview Arrays of bits, encoded as arrays of Numbers.
@@ -5566,6 +5030,37 @@ cipher.aes = class {
 	}
 };
 
+/**
+ * Random values
+ * @namespace
+ */
+const random = {
+	/** 
+	 * Generate random words with pure js, cryptographically not as strong & safe as native implementation.
+	 * @param {TypedArray} typedArray The array to fill.
+	 * @return {TypedArray} The random values.
+	 */
+	getRandomValues(typedArray) {
+		const words = new Uint32Array(typedArray.buffer);
+		const r = (m_w) => {
+			let m_z = 0x3ade68b1;
+			const mask = 0xffffffff;
+			return function () {
+				m_z = (0x9069 * (m_z & 0xFFFF) + (m_z >> 0x10)) & mask;
+				m_w = (0x4650 * (m_w & 0xFFFF) + (m_w >> 0x10)) & mask;
+				const result = ((((m_z << 0x10) + m_w) & mask) / 0x100000000) + .5;
+				return result * (Math.random() > .5 ? 1 : -1);
+			};
+		};
+		for (let i = 0, rcache; i < typedArray.length; i += 4) {
+			let _r = r((rcache || Math.random()) * 0x100000000);
+			rcache = _r() * 0x3ade67b7;
+			words[i / 4] = (_r() * 0x100000000) | 0;
+		}
+		return typedArray;
+	}
+};
+
 /** @fileOverview CTR mode implementation.
  *
  * Special thanks to Roy Nicholson for pointing out a bug in our
@@ -5663,8 +5158,38 @@ mode.ctrGladman = class {
 	}
 };
 
-
-const misc = {};
+const misc = {
+	importKey(password) {
+		return new misc.hmacSha1(codec.bytes.toBits(password));
+	},
+	pbkdf2(prf, salt, count, length) {
+		count = count || 10000;
+		if (length < 0 || count < 0) {
+			throw new Error("invalid params to pbkdf2");
+		}
+		const byteLength = ((length >> 5) + 1) << 2;
+		let u, ui, i, j, k;
+		const arrayBuffer = new ArrayBuffer(byteLength);
+		let out = new DataView(arrayBuffer);
+		let outLength = 0;
+		const b = bitArray;
+		salt = codec.bytes.toBits(salt);
+		for (k = 1; outLength < (byteLength || 1); k++) {
+			u = ui = prf.encrypt(b.concat(salt, [k]));
+			for (i = 1; i < count; i++) {
+				ui = prf.encrypt(ui);
+				for (j = 0; j < ui.length; j++) {
+					u[j] ^= ui[j];
+				}
+			}
+			for (i = 0; outLength < (byteLength || 1) && i < u.length; i++) {
+				out.setInt32(outLength, u[i]);
+				outLength += 4;
+			}
+		}
+		return arrayBuffer.slice(0, length / 8);
+	}
+};
 
 /** @fileOverview HMAC implementation.
  *
@@ -5721,10 +5246,19 @@ misc.hmacSha1 = class {
 
 		return result;
 	}
+
+	encrypt(data) {
+		if (!this._updated) {
+			this.update(data);
+			return this.digest(data);
+		} else {
+			throw new Error("encrypt on already updated hmac called!");
+		}
+	}
 };
 
 /*
- Copyright (c) 2021 Gildas Lormeau. All rights reserved.
+ Copyright (c) 2022 Gildas Lormeau. All rights reserved.
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -5764,6 +5298,8 @@ const SALT_LENGTH = [8, 12, 16];
 const KEY_LENGTH = [16, 24, 32];
 const SIGNATURE_LENGTH = 10;
 const COUNTER_DEFAULT_VALUE = [0, 0, 0, 0];
+const CRYPTO_API_SUPPORTED = typeof crypto != "undefined";
+const SUBTLE_API_SUPPORTED = CRYPTO_API_SUPPORTED && typeof crypto.subtle != "undefined";
 const codecBytes = codec.bytes;
 const Aes = cipher.aes;
 const CtrGladman = mode.ctrGladman;
@@ -5893,21 +5429,45 @@ async function createDecryptionKeys(decrypt, preambleArray, password) {
 }
 
 async function createEncryptionKeys(encrypt, password) {
-	const salt = crypto.getRandomValues(new Uint8Array(SALT_LENGTH[encrypt.strength]));
+	const salt = getRandomValues(new Uint8Array(SALT_LENGTH[encrypt.strength]));
 	await createKeys$1(encrypt, password, salt);
 	return concat(salt, encrypt.keys.passwordVerification);
 }
 
 async function createKeys$1(target, password, salt) {
-	const encodedPassword = (new TextEncoder()).encode(password);
-	const basekey = await crypto.subtle.importKey(RAW_FORMAT, encodedPassword, BASE_KEY_ALGORITHM, false, DERIVED_BITS_USAGE);
-	const derivedBits = await crypto.subtle.deriveBits(Object.assign({ salt }, DERIVED_BITS_ALGORITHM), basekey, 8 * ((KEY_LENGTH[target.strength] * 2) + 2));
+	const encodedPassword = encodeText(password);
+	const basekey = await importKey(RAW_FORMAT, encodedPassword, BASE_KEY_ALGORITHM, false, DERIVED_BITS_USAGE);
+	const derivedBits = await deriveBits(Object.assign({ salt }, DERIVED_BITS_ALGORITHM), basekey, 8 * ((KEY_LENGTH[target.strength] * 2) + 2));
 	const compositeKey = new Uint8Array(derivedBits);
 	target.keys = {
 		key: codecBytes.toBits(subarray(compositeKey, 0, KEY_LENGTH[target.strength])),
 		authentication: codecBytes.toBits(subarray(compositeKey, KEY_LENGTH[target.strength], KEY_LENGTH[target.strength] * 2)),
 		passwordVerification: subarray(compositeKey, KEY_LENGTH[target.strength] * 2)
 	};
+}
+
+function getRandomValues(array) {
+	if (CRYPTO_API_SUPPORTED && typeof crypto.getRandomValues == "function") {
+		return crypto.getRandomValues(array);
+	} else {
+		return random.getRandomValues(array);
+	}
+}
+
+async function importKey(format, password, algorithm, extractable, keyUsages) {
+	if (CRYPTO_API_SUPPORTED && SUBTLE_API_SUPPORTED && typeof crypto.subtle.importKey == "function") {
+		return crypto.subtle.importKey(format, password, algorithm, extractable, keyUsages);
+	} else {
+		return misc.importKey(password);
+	}
+}
+
+async function deriveBits(algorithm, baseKey, length) {
+	if (CRYPTO_API_SUPPORTED && SUBTLE_API_SUPPORTED && typeof crypto.subtle.deriveBits == "function") {
+		return await crypto.subtle.deriveBits(algorithm, baseKey, length);
+	} else {
+		return misc.pbkdf2(baseKey, algorithm.salt, DERIVED_BITS_ALGORITHM.iterations, length);
+	}
 }
 
 function concat(leftArray, rightArray) {
@@ -5934,7 +5494,7 @@ function subarray(array, begin, end) {
 }
 
 /*
- Copyright (c) 2021 Gildas Lormeau. All rights reserved.
+ Copyright (c) 2022 Gildas Lormeau. All rights reserved.
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -6082,7 +5642,7 @@ function getInt32(number) {
 }
 
 /*
- Copyright (c) 2021 Gildas Lormeau. All rights reserved.
+ Copyright (c) 2022 Gildas Lormeau. All rights reserved.
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -6252,7 +5812,7 @@ function createCodec$1(codecConstructor, options, config) {
 }
 
 /*
- Copyright (c) 2021 Gildas Lormeau. All rights reserved.
+ Copyright (c) 2022 Gildas Lormeau. All rights reserved.
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -6323,22 +5883,25 @@ function createWorkerInterface(workerData, config) {
 			} finally {
 				workerData.onTaskFinished();
 			}
+		},
+		abort() {
+			workerData.onTaskFinished();
 		}
 	};
 }
 
 function createWebWorkerInterface(workerData, config) {
 	let messageTask;
-	const moduleType = { type: "module" };
+	const workerOptions = { type: "module" };
 	if (!workerData.interface) {
 		if (!classicWorkersSupported) {
-			workerData.worker = getWorker(moduleType);
+			workerData.worker = getWorker(workerOptions, config.baseURL);
 		} else {
 			try {
-				workerData.worker = getWorker();
+				workerData.worker = getWorker({}, config.baseURL);
 			} catch (error) {
 				classicWorkersSupported = false;
-				workerData.worker = getWorker(moduleType);
+				workerData.worker = getWorker(workerOptions, config.baseURL);
 			}
 		}
 		workerData.worker.addEventListener(MESSAGE_EVENT_TYPE, onMessage, false);
@@ -6348,13 +5911,26 @@ function createWebWorkerInterface(workerData, config) {
 			},
 			flush() {
 				return initAndSendMessage({ type: MESSAGE_FLUSH });
+			},
+			abort() {
+				workerData.onTaskFinished();
 			}
 		};
 	}
 	return workerData.interface;
 
-	function getWorker(options = {}) {
-		return new Worker(new URL(workerData.scripts[0], import.meta.url), options);
+	function getWorker(options, baseURL) {
+		let url, scriptUrl;
+		url = workerData.scripts[0];
+		if (typeof url == "function") {
+			url = url();
+		}
+		try {
+			scriptUrl = new URL(url, baseURL);
+		} catch (error) {
+			scriptUrl = url;
+		}
+		return new Worker(scriptUrl, options);
 	}
 
 	async function initAndSendMessage(message) {
@@ -6414,7 +5990,7 @@ function createWebWorkerInterface(workerData, config) {
 }
 
 /*
- Copyright (c) 2021 Gildas Lormeau. All rights reserved.
+ Copyright (c) 2022 Gildas Lormeau. All rights reserved.
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -6487,8 +6063,743 @@ function clearTerminateTimeout(workerData) {
 	}
 }
 
+function terminateWorkers() {
+	pool.forEach(workerData => {
+		clearTerminateTimeout(workerData);
+		workerData.terminate();
+	});
+}
+
 /*
- Copyright (c) 2021 Gildas Lormeau. All rights reserved.
+ Copyright (c) 2022 Gildas Lormeau. All rights reserved.
+
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+
+ 1. Redistributions of source code must retain the above copyright notice,
+ this list of conditions and the following disclaimer.
+
+ 2. Redistributions in binary form must reproduce the above copyright 
+ notice, this list of conditions and the following disclaimer in 
+ the documentation and/or other materials provided with the distribution.
+
+ 3. The names of the authors may not be used to endorse or promote products
+ derived from this software without specific prior written permission.
+
+ THIS SOFTWARE IS PROVIDED ''AS IS'' AND ANY EXPRESSED OR IMPLIED WARRANTIES,
+ INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+ FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL JCRAFT,
+ INC. OR ANY CONTRIBUTORS TO THIS SOFTWARE BE LIABLE FOR ANY DIRECT, INDIRECT,
+ INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+ OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+const MINIMUM_CHUNK_SIZE = 64;
+const ERR_ABORT = "Abort error";
+
+async function processData(codec, reader, writer, offset, inputLength, config, options) {
+	const chunkSize = Math.max(config.chunkSize, MINIMUM_CHUNK_SIZE);
+	return processChunk();
+
+	async function processChunk(chunkOffset = 0, outputLength = 0) {
+		const signal = options.signal;
+		if (chunkOffset < inputLength) {
+			testAborted(signal, codec);
+			const inputData = await reader.readUint8Array(chunkOffset + offset, Math.min(chunkSize, inputLength - chunkOffset));
+			const chunkLength = inputData.length;
+			testAborted(signal, codec);
+			const data = await codec.append(inputData);
+			testAborted(signal, codec);
+			outputLength += await writeData(writer, data);
+			if (options.onprogress) {
+				try {
+					options.onprogress(chunkOffset + chunkLength, inputLength);
+				} catch (error) {
+					// ignored
+				}
+			}
+			return processChunk(chunkOffset + chunkSize, outputLength);
+		} else {
+			const result = await codec.flush();
+			outputLength += await writeData(writer, result.data);
+			return { signature: result.signature, length: outputLength };
+		}
+	}
+}
+
+function testAborted(signal, codec) {
+	if (signal && signal.aborted) {
+		codec.abort();
+		throw new Error(ERR_ABORT);
+	}
+}
+
+async function writeData(writer, data) {
+	if (data.length) {
+		await writer.writeUint8Array(data);
+	}
+	return data.length;
+}
+
+/*
+ Copyright (c) 2022 Gildas Lormeau. All rights reserved.
+
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+
+ 1. Redistributions of source code must retain the above copyright notice,
+ this list of conditions and the following disclaimer.
+
+ 2. Redistributions in binary form must reproduce the above copyright 
+ notice, this list of conditions and the following disclaimer in 
+ the documentation and/or other materials provided with the distribution.
+
+ 3. The names of the authors may not be used to endorse or promote products
+ derived from this software without specific prior written permission.
+
+ THIS SOFTWARE IS PROVIDED ''AS IS'' AND ANY EXPRESSED OR IMPLIED WARRANTIES,
+ INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+ FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL JCRAFT,
+ INC. OR ANY CONTRIBUTORS TO THIS SOFTWARE BE LIABLE FOR ANY DIRECT, INDIRECT,
+ INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+ OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/* global Blob, FileReader, atob, btoa, XMLHttpRequest, document, fetch */
+
+const ERR_HTTP_STATUS = "HTTP error ";
+const ERR_HTTP_RANGE = "HTTP Range not supported";
+
+const CONTENT_TYPE_TEXT_PLAIN = "text/plain";
+const HTTP_HEADER_CONTENT_LENGTH = "Content-Length";
+const HTTP_HEADER_CONTENT_RANGE = "Content-Range";
+const HTTP_HEADER_ACCEPT_RANGES = "Accept-Ranges";
+const HTTP_HEADER_RANGE = "Range";
+const HTTP_METHOD_HEAD = "HEAD";
+const HTTP_METHOD_GET = "GET";
+const HTTP_RANGE_UNIT = "bytes";
+
+class Stream {
+
+	constructor() {
+		this.size = 0;
+	}
+
+	init() {
+		this.initialized = true;
+	}
+}
+
+class Reader extends Stream {
+}
+
+class Writer extends Stream {
+
+	writeUint8Array(array) {
+		this.size += array.length;
+	}
+}
+
+class TextReader extends Reader {
+
+	constructor(text) {
+		super();
+		this.blobReader = new BlobReader(new Blob([text], { type: CONTENT_TYPE_TEXT_PLAIN }));
+	}
+
+	async init() {
+		super.init();
+		this.blobReader.init();
+		this.size = this.blobReader.size;
+	}
+
+	async readUint8Array(offset, length) {
+		return this.blobReader.readUint8Array(offset, length);
+	}
+}
+
+class TextWriter extends Writer {
+
+	constructor(encoding) {
+		super();
+		this.encoding = encoding;
+		this.blob = new Blob([], { type: CONTENT_TYPE_TEXT_PLAIN });
+	}
+
+	async writeUint8Array(array) {
+		super.writeUint8Array(array);
+		this.blob = new Blob([this.blob, array.buffer], { type: CONTENT_TYPE_TEXT_PLAIN });
+	}
+
+	getData() {
+		if (this.blob.text) {
+			return this.blob.text();
+		} else {
+			const reader = new FileReader();
+			return new Promise((resolve, reject) => {
+				reader.onload = event => resolve(event.target.result);
+				reader.onerror = () => reject(reader.error);
+				reader.readAsText(this.blob, this.encoding);
+			});
+		}
+	}
+}
+
+class Data64URIReader extends Reader {
+
+	constructor(dataURI) {
+		super();
+		this.dataURI = dataURI;
+		let dataEnd = dataURI.length;
+		while (dataURI.charAt(dataEnd - 1) == "=") {
+			dataEnd--;
+		}
+		this.dataStart = dataURI.indexOf(",") + 1;
+		this.size = Math.floor((dataEnd - this.dataStart) * 0.75);
+	}
+
+	async readUint8Array(offset, length) {
+		const dataArray = new Uint8Array(length);
+		const start = Math.floor(offset / 3) * 4;
+		const bytes = atob(this.dataURI.substring(start + this.dataStart, Math.ceil((offset + length) / 3) * 4 + this.dataStart));
+		const delta = offset - Math.floor(start / 4) * 3;
+		for (let indexByte = delta; indexByte < delta + length; indexByte++) {
+			dataArray[indexByte - delta] = bytes.charCodeAt(indexByte);
+		}
+		return dataArray;
+	}
+}
+
+class Data64URIWriter extends Writer {
+
+	constructor(contentType) {
+		super();
+		this.data = "data:" + (contentType || "") + ";base64,";
+		this.pending = [];
+	}
+
+	async writeUint8Array(array) {
+		super.writeUint8Array(array);
+		let indexArray = 0;
+		let dataString = this.pending;
+		const delta = this.pending.length;
+		this.pending = "";
+		for (indexArray = 0; indexArray < (Math.floor((delta + array.length) / 3) * 3) - delta; indexArray++) {
+			dataString += String.fromCharCode(array[indexArray]);
+		}
+		for (; indexArray < array.length; indexArray++) {
+			this.pending += String.fromCharCode(array[indexArray]);
+		}
+		if (dataString.length > 2) {
+			this.data += btoa(dataString);
+		} else {
+			this.pending = dataString;
+		}
+	}
+
+	getData() {
+		return this.data + btoa(this.pending);
+	}
+}
+
+class BlobReader extends Reader {
+
+	constructor(blob) {
+		super();
+		this.blob = blob;
+		this.size = blob.size;
+	}
+
+	async readUint8Array(offset, length) {
+		if (this.blob.arrayBuffer) {
+			return new Uint8Array(await this.blob.slice(offset, offset + length).arrayBuffer());
+		} else {
+			const reader = new FileReader();
+			return new Promise((resolve, reject) => {
+				reader.onload = event => resolve(new Uint8Array(event.target.result));
+				reader.onerror = () => reject(reader.error);
+				reader.readAsArrayBuffer(this.blob.slice(offset, offset + length));
+			});
+		}
+	}
+}
+
+class BlobWriter extends Writer {
+
+	constructor(contentType) {
+		super();
+		this.contentType = contentType;
+		this.arrayBuffersMaxlength = 8;
+		initArrayBuffers(this);
+	}
+
+	async writeUint8Array(array) {
+		super.writeUint8Array(array);
+		if (this.arrayBuffers.length == this.arrayBuffersMaxlength) {
+			flushArrayBuffers(this);
+		}
+		this.arrayBuffers.push(array.buffer);
+	}
+
+	getData() {
+		if (!this.blob) {
+			if (this.arrayBuffers.length) {
+				flushArrayBuffers(this);
+			}
+			this.blob = this.pendingBlob;
+			initArrayBuffers(this);
+		}
+		return this.blob;
+	}
+}
+
+function initArrayBuffers(blobWriter) {
+	blobWriter.pendingBlob = new Blob([], { type: blobWriter.contentType });
+	blobWriter.arrayBuffers = [];
+}
+
+function flushArrayBuffers(blobWriter) {
+	blobWriter.pendingBlob = new Blob([blobWriter.pendingBlob, ...blobWriter.arrayBuffers], { type: blobWriter.contentType });
+	blobWriter.arrayBuffers = [];
+}
+
+class WritableStreamWriter extends Writer {
+	constructor(writableStream) {
+		super();
+		this.writableStream = writableStream;
+		this.writer = writableStream.getWriter();
+	}
+
+	async writeUint8Array(array) {
+		await this.writer.ready;
+		return this.writer.write(array);
+	}
+
+	async getData() {
+		await this.writer.ready;
+		await this.writer.close();
+		return this.writableStream;
+	}
+}
+
+class FetchReader extends Reader {
+
+	constructor(url, options) {
+		super();
+		this.url = url;
+		this.preventHeadRequest = options.preventHeadRequest;
+		this.useRangeHeader = options.useRangeHeader;
+		this.forceRangeRequests = options.forceRangeRequests;
+		this.options = Object.assign({}, options);
+		delete this.options.preventHeadRequest;
+		delete this.options.useRangeHeader;
+		delete this.options.forceRangeRequests;
+		delete this.options.useXHR;
+	}
+
+	async init() {
+		super.init();
+		await initHttpReader(this, sendFetchRequest, getFetchRequestData);
+	}
+
+	async readUint8Array(index, length) {
+		return readUint8ArrayHttpReader(this, index, length, sendFetchRequest, getFetchRequestData);
+	}
+}
+
+class XHRReader extends Reader {
+
+	constructor(url, options) {
+		super();
+		this.url = url;
+		this.preventHeadRequest = options.preventHeadRequest;
+		this.useRangeHeader = options.useRangeHeader;
+		this.forceRangeRequests = options.forceRangeRequests;
+		this.options = options;
+	}
+
+	async init() {
+		super.init();
+		await initHttpReader(this, sendXMLHttpRequest, getXMLHttpRequestData);
+	}
+
+	async readUint8Array(index, length) {
+		return readUint8ArrayHttpReader(this, index, length, sendXMLHttpRequest, getXMLHttpRequestData);
+	}
+}
+
+async function initHttpReader(httpReader, sendRequest, getRequestData) {
+	if (isHttpFamily(httpReader.url) && (httpReader.useRangeHeader || httpReader.forceRangeRequests)) {
+		const response = await sendRequest(HTTP_METHOD_GET, httpReader, getRangeHeaders(httpReader));
+		if (!httpReader.forceRangeRequests && response.headers.get(HTTP_HEADER_ACCEPT_RANGES) != HTTP_RANGE_UNIT) {
+			throw new Error(ERR_HTTP_RANGE);
+		} else {
+			let contentSize;
+			const contentRangeHeader = response.headers.get(HTTP_HEADER_CONTENT_RANGE);
+			if (contentRangeHeader) {
+				const splitHeader = contentRangeHeader.trim().split(/\s*\/\s*/);
+				if (splitHeader.length) {
+					const headerValue = splitHeader[1];
+					if (headerValue && headerValue != "*") {
+						contentSize = Number(headerValue);
+					}
+				}
+			}
+			if (contentSize === undefined) {
+				await getContentLength(httpReader, sendRequest, getRequestData);
+			} else {
+				httpReader.size = contentSize;
+			}
+		}
+	} else {
+		await getContentLength(httpReader, sendRequest, getRequestData);
+	}
+}
+
+async function readUint8ArrayHttpReader(httpReader, index, length, sendRequest, getRequestData) {
+	if (httpReader.useRangeHeader || httpReader.forceRangeRequests) {
+		const response = await sendRequest(HTTP_METHOD_GET, httpReader, getRangeHeaders(httpReader, index, length));
+		if (response.status != 206) {
+			throw new Error(ERR_HTTP_RANGE);
+		}
+		return new Uint8Array(await response.arrayBuffer());
+	} else {
+		if (!httpReader.data) {
+			await getRequestData(httpReader, httpReader.options);
+		}
+		return new Uint8Array(httpReader.data.subarray(index, index + length));
+	}
+}
+
+function getRangeHeaders(httpReader, index = 0, length = 1) {
+	return Object.assign({}, getHeaders(httpReader), { [HTTP_HEADER_RANGE]: HTTP_RANGE_UNIT + "=" + index + "-" + (index + length - 1) });
+}
+
+function getHeaders(httpReader) {
+	let headers = httpReader.options.headers;
+	if (headers) {
+		if (Symbol.iterator in headers) {
+			return Object.fromEntries(headers);
+		} else {
+			return headers;
+		}
+	}
+}
+
+async function getFetchRequestData(httpReader) {
+	await getRequestData(httpReader, sendFetchRequest);
+}
+
+async function getXMLHttpRequestData(httpReader) {
+	await getRequestData(httpReader, sendXMLHttpRequest);
+}
+
+async function getRequestData(httpReader, sendRequest) {
+	const response = await sendRequest(HTTP_METHOD_GET, httpReader, getHeaders(httpReader));
+	httpReader.data = new Uint8Array(await response.arrayBuffer());
+	if (!httpReader.size) {
+		httpReader.size = httpReader.data.length;
+	}
+}
+
+async function getContentLength(httpReader, sendRequest, getRequestData) {
+	if (httpReader.preventHeadRequest) {
+		await getRequestData(httpReader, httpReader.options);
+	} else {
+		const response = await sendRequest(HTTP_METHOD_HEAD, httpReader, getHeaders(httpReader));
+		const contentLength = response.headers.get(HTTP_HEADER_CONTENT_LENGTH);
+		if (contentLength) {
+			httpReader.size = Number(contentLength);
+		} else {
+			await getRequestData(httpReader, httpReader.options);
+		}
+	}
+}
+
+async function sendFetchRequest(method, { options, url }, headers) {
+	const response = await fetch(url, Object.assign({}, options, { method, headers }));
+	if (response.status < 400) {
+		return response;
+	} else {
+		throw new Error(ERR_HTTP_STATUS + (response.statusText || response.status));
+	}
+}
+
+function sendXMLHttpRequest(method, { url }, headers) {
+	return new Promise((resolve, reject) => {
+		const request = new XMLHttpRequest();
+		request.addEventListener("load", () => {
+			if (request.status < 400) {
+				const headers = [];
+				request.getAllResponseHeaders().trim().split(/[\r\n]+/).forEach(header => {
+					const splitHeader = header.trim().split(/\s*:\s*/);
+					splitHeader[0] = splitHeader[0].trim().replace(/^[a-z]|-[a-z]/g, value => value.toUpperCase());
+					headers.push(splitHeader);
+				});
+				resolve({
+					status: request.status,
+					arrayBuffer: () => request.response,
+					headers: new Map(headers)
+				});
+			} else {
+				reject(new Error(ERR_HTTP_STATUS + (request.statusText || request.status)));
+			}
+		}, false);
+		request.addEventListener("error", event => reject(event.detail.error), false);
+		request.open(method, url);
+		if (headers) {
+			for (const entry of Object.entries(headers)) {
+				request.setRequestHeader(entry[0], entry[1]);
+			}
+		}
+		request.responseType = "arraybuffer";
+		request.send();
+	});
+}
+
+class HttpReader extends Reader {
+
+	constructor(url, options = {}) {
+		super();
+		this.url = url;
+		if (options.useXHR) {
+			this.reader = new XHRReader(url, options);
+		} else {
+			this.reader = new FetchReader(url, options);
+		}
+	}
+
+	set size(value) {
+		// ignored
+	}
+
+	get size() {
+		return this.reader.size;
+	}
+
+	async init() {
+		super.init();
+		await this.reader.init();
+	}
+
+	async readUint8Array(index, length) {
+		return this.reader.readUint8Array(index, length);
+	}
+}
+
+class HttpRangeReader extends HttpReader {
+
+	constructor(url, options = {}) {
+		options.useRangeHeader = true;
+		super(url, options);
+	}
+}
+
+
+class Uint8ArrayReader extends Reader {
+
+	constructor(array) {
+		super();
+		this.array = array;
+		this.size = array.length;
+	}
+
+	async readUint8Array(index, length) {
+		return this.array.slice(index, index + length);
+	}
+}
+
+class Uint8ArrayWriter extends Writer {
+
+	constructor() {
+		super();
+		this.array = new Uint8Array(0);
+	}
+
+	async writeUint8Array(array) {
+		super.writeUint8Array(array);
+		const previousArray = this.array;
+		this.array = new Uint8Array(previousArray.length + array.length);
+		this.array.set(previousArray);
+		this.array.set(array, previousArray.length);
+	}
+
+	getData() {
+		return this.array;
+	}
+}
+
+function isHttpFamily(url) {
+	if (typeof document != "undefined") {
+		const anchor = document.createElement("a");
+		anchor.href = url;
+		return anchor.protocol == "http:" || anchor.protocol == "https:";
+	} else {
+		return /^https?:\/\//i.test(url);
+	}
+}
+
+/*
+ Copyright (c) 2022 Gildas Lormeau. All rights reserved.
+
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+
+ 1. Redistributions of source code must retain the above copyright notice,
+ this list of conditions and the following disclaimer.
+
+ 2. Redistributions in binary form must reproduce the above copyright 
+ notice, this list of conditions and the following disclaimer in 
+ the documentation and/or other materials provided with the distribution.
+
+ 3. The names of the authors may not be used to endorse or promote products
+ derived from this software without specific prior written permission.
+
+ THIS SOFTWARE IS PROVIDED ''AS IS'' AND ANY EXPRESSED OR IMPLIED WARRANTIES,
+ INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+ FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL JCRAFT,
+ INC. OR ANY CONTRIBUTORS TO THIS SOFTWARE BE LIABLE FOR ANY DIRECT, INDIRECT,
+ INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+ OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+const MAX_32_BITS = 0xffffffff;
+const MAX_16_BITS = 0xffff;
+const COMPRESSION_METHOD_DEFLATE = 0x08;
+const COMPRESSION_METHOD_STORE = 0x00;
+const COMPRESSION_METHOD_AES = 0x63;
+
+const LOCAL_FILE_HEADER_SIGNATURE = 0x04034b50;
+const DATA_DESCRIPTOR_RECORD_SIGNATURE = 0x08074b50;
+const CENTRAL_FILE_HEADER_SIGNATURE = 0x02014b50;
+const END_OF_CENTRAL_DIR_SIGNATURE = 0x06054b50;
+const ZIP64_END_OF_CENTRAL_DIR_SIGNATURE = 0x06064b50;
+const ZIP64_END_OF_CENTRAL_DIR_LOCATOR_SIGNATURE = 0x07064b50;
+const END_OF_CENTRAL_DIR_LENGTH = 22;
+const ZIP64_END_OF_CENTRAL_DIR_LOCATOR_LENGTH = 20;
+const ZIP64_END_OF_CENTRAL_DIR_LENGTH = 56;
+const ZIP64_END_OF_CENTRAL_DIR_TOTAL_LENGTH = END_OF_CENTRAL_DIR_LENGTH + ZIP64_END_OF_CENTRAL_DIR_LOCATOR_LENGTH + ZIP64_END_OF_CENTRAL_DIR_LENGTH;
+
+const ZIP64_TOTAL_NUMBER_OF_DISKS = 1;
+
+const EXTRAFIELD_TYPE_ZIP64 = 0x0001;
+const EXTRAFIELD_TYPE_AES = 0x9901;
+const EXTRAFIELD_TYPE_NTFS = 0x000a;
+const EXTRAFIELD_TYPE_NTFS_TAG1 = 0x0001;
+const EXTRAFIELD_TYPE_EXTENDED_TIMESTAMP = 0x5455;
+const EXTRAFIELD_TYPE_UNICODE_PATH = 0x7075;
+const EXTRAFIELD_TYPE_UNICODE_COMMENT = 0x6375;
+
+const BITFLAG_ENCRYPTED = 0x01;
+const BITFLAG_LEVEL = 0x06;
+const BITFLAG_DATA_DESCRIPTOR = 0x0008;
+const BITFLAG_LANG_ENCODING_FLAG = 0x0800;
+const FILE_ATTR_MSDOS_DIR_MASK = 0x10;
+
+const VERSION_DEFLATE = 0x14;
+const VERSION_ZIP64 = 0x2D;
+const VERSION_AES = 0x33;
+
+const DIRECTORY_SIGNATURE = "/";
+
+const MAX_DATE = new Date(2107, 11, 31);
+const MIN_DATE = new Date(1980, 0, 1);
+
+/*
+ Copyright (c) 2022 Gildas Lormeau. All rights reserved.
+
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+
+ 1. Redistributions of source code must retain the above copyright notice,
+ this list of conditions and the following disclaimer.
+
+ 2. Redistributions in binary form must reproduce the above copyright 
+ notice, this list of conditions and the following disclaimer in 
+ the documentation and/or other materials provided with the distribution.
+
+ 3. The names of the authors may not be used to endorse or promote products
+ derived from this software without specific prior written permission.
+
+ THIS SOFTWARE IS PROVIDED ''AS IS'' AND ANY EXPRESSED OR IMPLIED WARRANTIES,
+ INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+ FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL JCRAFT,
+ INC. OR ANY CONTRIBUTORS TO THIS SOFTWARE BE LIABLE FOR ANY DIRECT, INDIRECT,
+ INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+ OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+const CP437 = "\0☺☻♥♦♣♠•◘○◙♂♀♪♫☼►◄↕‼¶§▬↨↑↓→←∟↔▲▼ !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~⌂ÇüéâäàåçêëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒáíóúñÑªº¿⌐¬½¼¡«»░▒▓│┤╡╢╖╕╣║╗╝╜╛┐└┴┬├─┼╞╟╚╔╩╦╠═╬╧╨╤╥╙╘╒╓╫╪┘┌█▄▌▐▀αßΓπΣσµτΦΘΩδ∞φε∩≡±≥≤⌠⌡÷≈°∙·√ⁿ²■ ".split("");
+
+var decodeCP437 = stringValue => {
+	let result = "";
+	for (let indexCharacter = 0; indexCharacter < stringValue.length; indexCharacter++) {
+		result += CP437[stringValue[indexCharacter]];
+	}
+	return result;
+};
+
+/*
+ Copyright (c) 2022 Gildas Lormeau. All rights reserved.
+
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+
+ 1. Redistributions of source code must retain the above copyright notice,
+ this list of conditions and the following disclaimer.
+
+ 2. Redistributions in binary form must reproduce the above copyright 
+ notice, this list of conditions and the following disclaimer in 
+ the documentation and/or other materials provided with the distribution.
+
+ 3. The names of the authors may not be used to endorse or promote products
+ derived from this software without specific prior written permission.
+
+ THIS SOFTWARE IS PROVIDED ''AS IS'' AND ANY EXPRESSED OR IMPLIED WARRANTIES,
+ INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+ FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL JCRAFT,
+ INC. OR ANY CONTRIBUTORS TO THIS SOFTWARE BE LIABLE FOR ANY DIRECT, INDIRECT,
+ INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+ OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+async function decodeText(value, encoding) {
+	if (encoding && encoding.trim().toLowerCase() == "cp437") {
+		return decodeCP437(value);
+	} else if (typeof TextDecoder == "undefined") {
+		const fileReader = new FileReader();
+		return new Promise((resolve, reject) => {
+			fileReader.onload = event => resolve(event.target.result);
+			fileReader.onerror = () => reject(fileReader.error);
+			fileReader.readAsText(new Blob([value]));
+		});
+	} else {
+		return new TextDecoder(encoding).decode(value);
+	}
+}
+
+/*
+ Copyright (c) 2022 Gildas Lormeau. All rights reserved.
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -6532,7 +6843,7 @@ class Entry {
 }
 
 /*
- Copyright (c) 2021 Gildas Lormeau. All rights reserved.
+ Copyright (c) 2022 Gildas Lormeau. All rights reserved.
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -6570,6 +6881,7 @@ const ERR_ENCRYPTED = "File contains encrypted entry";
 const ERR_UNSUPPORTED_ENCRYPTION = "Encryption method not supported";
 const ERR_UNSUPPORTED_COMPRESSION = "Compression method not supported";
 const CHARSET_UTF8 = "utf-8";
+const CHARSET_CP437 = "cp437";
 const ZIP64_PROPERTIES = ["uncompressedSize", "compressedSize", "offset"];
 
 class ZipReader {
@@ -6630,13 +6942,15 @@ class ZipReader {
 		let offset = 0;
 		let directoryArray = await readUint8Array(reader, directoryDataOffset, directoryDataLength);
 		let directoryView = getDataView$1(directoryArray);
-		const expectedDirectoryDataOffset = endOfDirectoryInfo.offset - directoryDataLength;
-		if (getUint32(directoryView, offset) != CENTRAL_FILE_HEADER_SIGNATURE && directoryDataOffset != expectedDirectoryDataOffset) {
-			const originalDirectoryDataOffset = directoryDataOffset;
-			directoryDataOffset = expectedDirectoryDataOffset;
-			prependedDataLength = directoryDataOffset - originalDirectoryDataOffset;
-			directoryArray = await readUint8Array(reader, directoryDataOffset, directoryDataLength);
-			directoryView = getDataView$1(directoryArray);
+		if (directoryDataLength) {
+			const expectedDirectoryDataOffset = endOfDirectoryInfo.offset - directoryDataLength;
+			if (getUint32(directoryView, offset) != CENTRAL_FILE_HEADER_SIGNATURE && directoryDataOffset != expectedDirectoryDataOffset) {
+				const originalDirectoryDataOffset = directoryDataOffset;
+				directoryDataOffset = expectedDirectoryDataOffset;
+				prependedDataLength = directoryDataOffset - originalDirectoryDataOffset;
+				directoryArray = await readUint8Array(reader, directoryDataOffset, directoryDataLength);
+				directoryView = getDataView$1(directoryArray);
+			}
 		}
 		if (directoryDataOffset < 0 || directoryDataOffset >= reader.size) {
 			throw new Error(ERR_BAD_FORMAT);
@@ -6671,12 +6985,18 @@ class ZipReader {
 			});
 			const endOffset = commentOffset + fileEntry.commentLength;
 			fileEntry.rawComment = directoryArray.subarray(commentOffset, endOffset);
-			fileEntry.filename = decodeString(fileEntry.rawFilename, fileEntry.filenameUTF8 ? CHARSET_UTF8 : getOptionValue$1(zipReader, options, "filenameEncoding"));
-			fileEntry.comment = decodeString(fileEntry.rawComment, fileEntry.commentUTF8 ? CHARSET_UTF8 : getOptionValue$1(zipReader, options, "commentEncoding"));
+			const filenameEncoding = getOptionValue$1(zipReader, options, "filenameEncoding");
+			const commentEncoding = getOptionValue$1(zipReader, options, "commentEncoding");
+			const [filename, comment] = await Promise.all([
+				decodeText(fileEntry.rawFilename, fileEntry.filenameUTF8 ? CHARSET_UTF8 : filenameEncoding || CHARSET_CP437),
+				decodeText(fileEntry.rawComment, fileEntry.commentUTF8 ? CHARSET_UTF8 : commentEncoding || CHARSET_CP437)
+			]);
+			fileEntry.filename = filename;
+			fileEntry.comment = comment;
 			if (!fileEntry.directory && fileEntry.filename.endsWith(DIRECTORY_SIGNATURE)) {
 				fileEntry.directory = true;
 			}
-			readCommonFooter(fileEntry, fileEntry, directoryView, offset + 6);
+			await readCommonFooter(fileEntry, fileEntry, directoryView, offset + 6);
 			const entry = new Entry(fileEntry);
 			entry.getData = (writer, options) => fileEntry.getData(writer, entry, options);
 			entries.push(entry);
@@ -6741,7 +7061,7 @@ class ZipEntry {
 		readCommonHeader(localDirectory, dataView, 4);
 		dataArray = await readUint8Array(reader, offset, 30 + localDirectory.filenameLength + localDirectory.extraFieldLength);
 		localDirectory.rawExtraField = dataArray.subarray(30 + localDirectory.filenameLength);
-		readCommonFooter(zipEntry, localDirectory, dataView, 4);
+		await readCommonFooter(zipEntry, localDirectory, dataView, 4);
 		fileEntry.lastAccessDate = localDirectory.lastAccessDate;
 		fileEntry.creationDate = localDirectory.creationDate;
 		const encrypted = zipEntry.encrypted && localDirectory.encrypted;
@@ -6794,7 +7114,7 @@ function readCommonHeader(directory, dataView, offset) {
 	});
 }
 
-function readCommonFooter(fileEntry, directory, dataView, offset) {
+async function readCommonFooter(fileEntry, directory, dataView, offset) {
 	const rawExtraField = directory.rawExtraField;
 	const extraField = directory.extraField = new Map();
 	const rawExtraFieldView = getDataView$1(new Uint8Array(rawExtraField));
@@ -6823,12 +7143,12 @@ function readCommonFooter(fileEntry, directory, dataView, offset) {
 	}
 	const extraFieldUnicodePath = extraField.get(EXTRAFIELD_TYPE_UNICODE_PATH);
 	if (extraFieldUnicodePath) {
-		readExtraFieldUnicode(extraFieldUnicodePath, "filename", "rawFilename", directory, fileEntry);
+		await readExtraFieldUnicode(extraFieldUnicodePath, "filename", "rawFilename", directory, fileEntry);
 		directory.extraFieldUnicodePath = extraFieldUnicodePath;
 	}
 	const extraFieldUnicodeComment = extraField.get(EXTRAFIELD_TYPE_UNICODE_COMMENT);
 	if (extraFieldUnicodeComment) {
-		readExtraFieldUnicode(extraFieldUnicodeComment, "comment", "rawComment", directory, fileEntry);
+		await readExtraFieldUnicode(extraFieldUnicodeComment, "comment", "rawComment", directory, fileEntry);
 		directory.extraFieldUnicodeComment = extraFieldUnicodeComment;
 	}
 	const extraFieldAES = extraField.get(EXTRAFIELD_TYPE_AES);
@@ -6872,7 +7192,7 @@ function readExtraFieldZip64(extraFieldZip64, directory) {
 	});
 }
 
-function readExtraFieldUnicode(extraFieldUnicode, propertyName, rawPropertyName, directory, fileEntry) {
+async function readExtraFieldUnicode(extraFieldUnicode, propertyName, rawPropertyName, directory, fileEntry) {
 	const extraFieldView = getDataView$1(extraFieldUnicode.data);
 	extraFieldUnicode.version = getUint8(extraFieldView, 0);
 	extraFieldUnicode.signature = getUint32(extraFieldView, 1);
@@ -6880,7 +7200,7 @@ function readExtraFieldUnicode(extraFieldUnicode, propertyName, rawPropertyName,
 	crc32.append(fileEntry[rawPropertyName]);
 	const dataViewSignature = getDataView$1(new Uint8Array(4));
 	dataViewSignature.setUint32(0, crc32.get(), true);
-	extraFieldUnicode[propertyName] = (new TextDecoder()).decode(extraFieldUnicode.data.subarray(5));
+	extraFieldUnicode[propertyName] = await decodeText(extraFieldUnicode.data.subarray(5));
 	extraFieldUnicode.valid = !fileEntry.bitFlag.languageEncodingFlag && extraFieldUnicode.signature == getUint32(dataViewSignature, 0);
 	if (extraFieldUnicode.valid) {
 		directory[propertyName] = extraFieldUnicode[propertyName];
@@ -6992,14 +7312,6 @@ function getOptionValue$1(zipReader, options, name) {
 	return options[name] === undefined ? zipReader.options[name] : options[name];
 }
 
-function decodeString(value, encoding) {
-	if (!encoding || encoding.trim().toLowerCase() == "cp437") {
-		return decodeCP437(value);
-	} else {
-		return (new TextDecoder(encoding)).decode(value);
-	}
-}
-
 function getDate(timeRaw) {
 	const date = (timeRaw & 0xffff0000) >> 16, time = timeRaw & 0x0000ffff;
 	try {
@@ -7042,7 +7354,7 @@ function readUint8Array(reader, offset, size) {
 }
 
 /*
- Copyright (c) 2021 Gildas Lormeau. All rights reserved.
+ Copyright (c) 2022 Gildas Lormeau. All rights reserved.
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -7134,12 +7446,12 @@ async function addFile(zipWriter, name, reader, options) {
 	if (zipWriter.files.has(name)) {
 		throw new Error(ERR_DUPLICATED_NAME);
 	}
-	const rawFilename = (new TextEncoder()).encode(name);
+	const rawFilename = encodeText(name);
 	if (rawFilename.length > MAX_16_BITS) {
 		throw new Error(ERR_INVALID_ENTRY_NAME);
 	}
 	const comment = options.comment || "";
-	const rawComment = (new TextEncoder()).encode(comment);
+	const rawComment = encodeText(comment);
 	if (rawComment.length > MAX_16_BITS) {
 		throw new Error(ERR_INVALID_ENTRY_COMMENT);
 	}
@@ -7688,12 +8000,20 @@ async function closeFile(zipWriter, comment, options) {
 }
 
 function sliceAsArrayBuffer(blob, start, end) {
-	const fileReader = new FileReader();
-	return new Promise((resolve, reject) => {
-		fileReader.onload = event => resolve(event.target.result);
-		fileReader.onerror = () => reject(fileReader.error);
-		fileReader.readAsArrayBuffer(start || end ? blob.slice(start, end) : blob);
-	});
+	if (blob.arrayBuffer) {
+		if (start || end) {
+			return blob.slice(start, end).arrayBuffer();
+		} else {
+			return blob.arrayBuffer();
+		}
+	} else {
+		const fileReader = new FileReader();
+		return new Promise((resolve, reject) => {
+			fileReader.onload = event => resolve(event.target.result);
+			fileReader.onerror = () => reject(fileReader.error);
+			fileReader.readAsArrayBuffer(start || end ? blob.slice(start, end) : blob);
+		});
+	}
 }
 
 async function writeBlob(writer, blob, start = 0) {
@@ -7749,7 +8069,7 @@ function getDataView(array) {
 }
 
 /*
- Copyright (c) 2021 Gildas Lormeau. All rights reserved.
+ Copyright (c) 2022 Gildas Lormeau. All rights reserved.
 
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -7782,6 +8102,7 @@ var zipNoWorker = /*#__PURE__*/Object.freeze({
 	__proto__: null,
 	configure: configure,
 	getMimeType: getMimeType,
+	terminateWorkers: terminateWorkers,
 	ERR_ABORT: ERR_ABORT,
 	Reader: Reader,
 	Writer: Writer,
@@ -7795,6 +8116,7 @@ var zipNoWorker = /*#__PURE__*/Object.freeze({
 	Uint8ArrayWriter: Uint8ArrayWriter,
 	HttpReader: HttpReader,
 	HttpRangeReader: HttpRangeReader,
+	WritableStreamWriter: WritableStreamWriter,
 	ERR_HTTP_RANGE: ERR_HTTP_RANGE,
 	ZipReader: ZipReader,
 	ERR_BAD_FORMAT: ERR_BAD_FORMAT,

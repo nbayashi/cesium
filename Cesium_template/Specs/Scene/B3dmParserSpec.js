@@ -2,6 +2,7 @@ import {
   B3dmParser,
   Cartesian3,
   HeadingPitchRange,
+  RuntimeError,
 } from "../../Source/Cesium.js";
 import Cesium3DTilesTester from "../Cesium3DTilesTester.js";
 import createScene from "../createScene.js";
@@ -9,18 +10,18 @@ import createScene from "../createScene.js";
 describe(
   "Scene/B3dmParser",
   function () {
-    var scene;
-    var centerLongitude = -1.31968;
-    var centerLatitude = 0.698874;
+    let scene;
+    const centerLongitude = -1.31968;
+    const centerLatitude = 0.698874;
 
-    var deprecated1Url =
+    const deprecated1Url =
       "./Data/Cesium3DTiles/Batched/BatchedDeprecated1/tileset.json";
-    var deprecated2Url =
+    const deprecated2Url =
       "./Data/Cesium3DTiles/Batched/BatchedDeprecated2/tileset.json";
 
     function setCamera(longitude, latitude) {
       // One feature is located at the center, point the camera there
-      var center = Cartesian3.fromRadians(longitude, latitude);
+      const center = Cartesian3.fromRadians(longitude, latitude);
       scene.camera.lookAt(center, new HeadingPitchRange(0.0, -1.57, 15.0));
     }
 
@@ -44,16 +45,20 @@ describe(
     });
 
     it("throws with invalid version", function () {
-      var arrayBuffer = Cesium3DTilesTester.generateBatchedTileBuffer({
+      const arrayBuffer = Cesium3DTilesTester.generateBatchedTileBuffer({
         version: 2,
       });
-      Cesium3DTilesTester.loadTileExpectError(scene, arrayBuffer, "b3dm");
+      expect(function () {
+        B3dmParser.parse(arrayBuffer);
+      }).toThrowError(RuntimeError);
     });
 
     it("throws with empty gltf", function () {
       // Expect to throw DeveloperError in Model due to invalid gltf magic
-      var arrayBuffer = Cesium3DTilesTester.generateBatchedTileBuffer();
-      Cesium3DTilesTester.loadTileExpectError(scene, arrayBuffer, "b3dm");
+      const arrayBuffer = Cesium3DTilesTester.generateBatchedTileBuffer();
+      expect(function () {
+        B3dmParser.parse(arrayBuffer);
+      }).toThrowError(RuntimeError);
     });
 
     it("throws on undefined arrayBuffer", function () {
@@ -67,7 +72,7 @@ describe(
         function (tileset) {
           expect(B3dmParser._deprecationWarning).toHaveBeenCalled();
           Cesium3DTilesTester.expectRenderTileset(scene, tileset);
-          var batchTable = tileset.root.content.batchTable;
+          const batchTable = tileset.root.content.batchTable;
           expect(batchTable._properties).toBeDefined();
         }
       );
@@ -78,7 +83,7 @@ describe(
         function (tileset) {
           expect(B3dmParser._deprecationWarning).toHaveBeenCalled();
           Cesium3DTilesTester.expectRenderTileset(scene, tileset);
-          var batchTable = tileset.root.content.batchTable;
+          const batchTable = tileset.root.content.batchTable;
           expect(batchTable._properties).toBeDefined();
         }
       );

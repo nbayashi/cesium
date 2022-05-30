@@ -1,5 +1,13 @@
 // This file is automatically rebuilt by the Cesium build process.
 const sandcastleJsHintOptions = {
+    "esversion": 11,
+    "predef": [
+        "JSON",
+        "require",
+        "console",
+        "Sandcastle",
+        "Cesium"
+    ],
     "bitwise": false,
     "camelcase": false,
     "curly": true,
@@ -58,13 +66,5 @@ const sandcastleJsHintOptions = {
     "shelljs": false,
     "worker": false,
     "wsh": false,
-    "yui": false,
-    "predef": [
-        "JSON",
-        "require",
-        "console",
-        "Sandcastle",
-        "Cesium"
-    ],
-    "esversion": 10
+    "yui": false
 };

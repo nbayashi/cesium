@@ -64,7 +64,20 @@ export default function NodeRenderResources(modelRenderResources, runtimeNode) {
    */
   this.alphaOptions = clone(modelRenderResources.alphaOptions);
 
-  // other properties
+  /**
+   * An object storing options for creating a {@link RenderState}.
+   * The pipeline stages simply set the options, the render state is created
+   * when the {@link DrawCommand} is constructed. Inherited from the model
+   * render resources.
+   *
+   * @type {Object}
+   * @readonly
+   *
+   * @private
+   */
+  this.renderStateOptions = clone(modelRenderResources.renderStateOptions);
+
+  // Other properties.
   /**
    * A reference to the runtime node
    *
@@ -74,14 +87,7 @@ export default function NodeRenderResources(modelRenderResources, runtimeNode) {
    * @private
    */
   this.runtimeNode = runtimeNode;
-  /**
-   * The computed model matrix for this node.
-   *
-   * @type {Matrix4}
-   *
-   * @private
-   */
-  this.modelMatrix = runtimeNode.modelMatrix;
+
   /**
    * An array of objects describing vertex attributes that will eventually
    * be used to create a {@link VertexArray} for the draw command. Attributes

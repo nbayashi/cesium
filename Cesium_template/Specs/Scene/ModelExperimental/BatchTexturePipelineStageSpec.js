@@ -6,10 +6,10 @@ import ShaderBuilderTester from "../../ShaderBuilderTester.js";
 
 describe("Scene/ModelExperimental/BatchTexturePipelineStage", function () {
   function expectUniformMap(uniformMap, expected) {
-    for (var key in expected) {
+    for (const key in expected) {
       if (expected.hasOwnProperty(key)) {
-        var expectedValue = expected[key];
-        var uniformFunction = uniformMap[key];
+        const expectedValue = expected[key];
+        const uniformFunction = uniformMap[key];
         expect(uniformFunction).toBeDefined();
         expect(uniformFunction()).toEqual(expectedValue);
       }
@@ -17,7 +17,7 @@ describe("Scene/ModelExperimental/BatchTexturePipelineStage", function () {
   }
 
   function verifyBatchTextureUniforms(featureTable, uniformMap) {
-    var expectedUniforms = {
+    const expectedUniforms = {
       model_featuresLength: featureTable.featuresLength,
       model_batchTexture: featureTable.batchTexture.batchTexture,
       model_textureDimensions: featureTable.batchTexture.textureDimensions,
@@ -37,14 +37,14 @@ describe("Scene/ModelExperimental/BatchTexturePipelineStage", function () {
     ]);
 
     ShaderBuilderTester.expectHasVertexUniforms(shaderBuilder, [
-      "uniform float model_featuresLength;",
+      "uniform int model_featuresLength;",
       "uniform sampler2D model_batchTexture;",
       "uniform vec4 model_textureStep;",
       "uniform vec2 model_textureDimensions;",
     ]);
 
     ShaderBuilderTester.expectHasFragmentUniforms(shaderBuilder, [
-      "uniform float model_featuresLength;",
+      "uniform int model_featuresLength;",
       "uniform sampler2D model_batchTexture;",
       "uniform vec4 model_textureStep;",
       "uniform vec2 model_textureDimensions;",
@@ -52,7 +52,7 @@ describe("Scene/ModelExperimental/BatchTexturePipelineStage", function () {
   }
 
   it("sets up batch textures from ModelExperimental", function () {
-    var renderResources = {
+    const renderResources = {
       shaderBuilder: new ShaderBuilder(),
       model: {
         featureTableId: 0,

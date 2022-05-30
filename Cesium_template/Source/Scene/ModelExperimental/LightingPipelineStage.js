@@ -1,3 +1,4 @@
+import defined from "../../Core/defined.js";
 import ShaderDestination from "../../Renderer/ShaderDestination.js";
 import LightingStageFS from "../../Shaders/ModelExperimental/LightingStageFS.js";
 import LightingModel from "./LightingModel.js";
@@ -11,7 +12,7 @@ import LightingModel from "./LightingModel.js";
  *
  * @private
  */
-var LightingPipelineStage = {};
+const LightingPipelineStage = {};
 LightingPipelineStage.name = "LightingPipelineStage"; // Helps with debugging
 
 /**
@@ -26,12 +27,32 @@ LightingPipelineStage.name = "LightingPipelineStage"; // Helps with debugging
  * @private
  */
 LightingPipelineStage.process = function (renderResources, primitive) {
-  var lightingOptions = renderResources.lightingOptions;
-  var shaderBuilder = renderResources.shaderBuilder;
+  const model = renderResources.model;
+  const lightingOptions = renderResources.lightingOptions;
+  const shaderBuilder = renderResources.shaderBuilder;
+
+  if (defined(model.lightColor)) {
+    shaderBuilder.addDefine(
+      "USE_CUSTOM_LIGHT_COLOR",
+      undefined,
+      ShaderDestination.FRAGMENT
+    );
+
+    shaderBuilder.addUniform(
+      "vec3",
+      "model_lightColorHdr",
+      ShaderDestination.FRAGMENT
+    );
+
+    const uniformMap = renderResources.uniformMap;
+    uniformMap.model_lightColorHdr = function () {
+      return model.lightColor;
+    };
+  }
 
   // The lighting model is always set by the material. However, custom shaders
   // can override this.
-  var lightingModel = lightingOptions.lightingModel;
+  const lightingModel = lightingOptions.lightingModel;
 
   if (lightingModel === LightingModel.PBR) {
     shaderBuilder.addDefine(

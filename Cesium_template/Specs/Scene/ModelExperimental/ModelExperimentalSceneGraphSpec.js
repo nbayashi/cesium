@@ -7,6 +7,7 @@ import {
   Matrix4,
   ModelColorPipelineStage,
   ModelExperimentalSceneGraph,
+  ModelExperimentalUtility,
   Pass,
   ResourceCache,
 } from "../../../Source/Cesium.js";
@@ -16,13 +17,15 @@ import loadAndZoomToModelExperimental from "./loadAndZoomToModelExperimental.js"
 describe(
   "Scene/ModelExperimental/ModelExperimentalSceneGraph",
   function () {
-    var parentGltfUrl = "./Data/Cesium3DTiles/GltfContent/glTF/parent.gltf";
-    var vertexColorGltfUrl =
+    const parentGltfUrl = "./Data/Cesium3DTiles/GltfContent/glTF/parent.gltf";
+    const vertexColorGltfUrl =
       "./Data/Models/PBR/VertexColorTest/VertexColorTest.gltf";
-    var buildingsMetadata =
+    const buildingsMetadata =
       "./Data/Models/GltfLoader/BuildingsMetadata/glTF/buildings-metadata.gltf";
+    const simpleSkinGltfUrl =
+      "./Data/Models/GltfLoader/SimpleSkin/glTF/SimpleSkin.gltf";
 
-    var scene;
+    let scene;
 
     beforeAll(function () {
       scene = createScene();
@@ -42,13 +45,13 @@ describe(
         { gltf: vertexColorGltfUrl },
         scene
       ).then(function (model) {
-        var sceneGraph = model._sceneGraph;
-        var modelComponents = sceneGraph._modelComponents;
+        const sceneGraph = model._sceneGraph;
+        const components = sceneGraph._components;
 
         expect(sceneGraph).toBeDefined();
 
-        var runtimeNodes = sceneGraph._runtimeNodes;
-        expect(runtimeNodes.length).toEqual(modelComponents.nodes.length);
+        const runtimeNodes = sceneGraph._runtimeNodes;
+        expect(runtimeNodes.length).toEqual(components.nodes.length);
 
         expect(runtimeNodes[0].runtimePrimitives.length).toEqual(1);
         expect(runtimeNodes[1].runtimePrimitives.length).toEqual(1);
@@ -56,82 +59,102 @@ describe(
     });
 
     it("builds draw commands for all opaque styled features", function () {
-      return loadAndZoomToModelExperimental(
-        {
-          gltf: buildingsMetadata,
+      const style = new Cesium3DTileStyle({
+        color: {
+          conditions: [["${height} > 1", "color('red')"]],
         },
-        scene
-      ).then(function (model) {
-        model.style = new Cesium3DTileStyle({
-          color: {
-            conditions: [["${height} > 1", "color('red')"]],
-          },
-        });
-        var frameState = scene.frameState;
-        var sceneGraph = model._sceneGraph;
-        // Reset the draw commands so we can inspect the draw command generation.
-        model._drawCommandsBuilt = false;
-        sceneGraph._drawCommands = [];
-        frameState.commandList = [];
-        scene.renderForSpecs();
-        expect(sceneGraph._drawCommands.length).toEqual(1);
-        expect(frameState.commandList.length).toEqual(1);
-        expect(sceneGraph._drawCommands[0].pass).toEqual(Pass.OPAQUE);
       });
+      return style.readyPromise
+        .then(function () {
+          return loadAndZoomToModelExperimental(
+            {
+              gltf: buildingsMetadata,
+            },
+            scene
+          );
+        })
+        .then(function (model) {
+          model.style = style;
+          const frameState = scene.frameState;
+          const sceneGraph = model._sceneGraph;
+          // Reset the draw commands so we can inspect the draw command generation.
+          model._drawCommandsBuilt = false;
+          frameState.commandList = [];
+          scene.renderForSpecs();
+
+          const drawCommands = sceneGraph.getDrawCommands();
+
+          expect(drawCommands.length).toEqual(1);
+          expect(drawCommands[0].pass).toEqual(Pass.OPAQUE);
+          expect(frameState.commandList.length).toEqual(1);
+        });
     });
 
     it("builds draw commands for all translucent styled features", function () {
-      return loadAndZoomToModelExperimental(
-        {
-          gltf: buildingsMetadata,
+      const style = new Cesium3DTileStyle({
+        color: {
+          conditions: [["${height} > 1", "color('red', 0.1)"]],
         },
-        scene
-      ).then(function (model) {
-        model.style = new Cesium3DTileStyle({
-          color: {
-            conditions: [["${height} > 1", "color('red', 0.1)"]],
-          },
-        });
-        var frameState = scene.frameState;
-        var sceneGraph = model._sceneGraph;
-        // Reset the draw commands so we can inspect the draw command generation.
-        model._drawCommandsBuilt = false;
-        sceneGraph._drawCommands = [];
-        frameState.commandList = [];
-        scene.renderForSpecs();
-        expect(sceneGraph._drawCommands.length).toEqual(1);
-        expect(frameState.commandList.length).toEqual(1);
-        expect(sceneGraph._drawCommands[0].pass).toEqual(Pass.TRANSLUCENT);
       });
+      return style.readyPromise
+        .then(function () {
+          return loadAndZoomToModelExperimental(
+            {
+              gltf: buildingsMetadata,
+            },
+            scene
+          );
+        })
+        .then(function (model) {
+          model.style = style;
+          const frameState = scene.frameState;
+          const sceneGraph = model._sceneGraph;
+          // Reset the draw commands so we can inspect the draw command generation.
+          model._drawCommandsBuilt = false;
+          frameState.commandList = [];
+          scene.renderForSpecs();
+
+          const drawCommands = sceneGraph.getDrawCommands();
+
+          expect(drawCommands.length).toEqual(1);
+          expect(drawCommands[0].pass).toEqual(Pass.TRANSLUCENT);
+          expect(frameState.commandList.length).toEqual(1);
+        });
     });
 
     it("builds draw commands for both opaque and translucent styled features", function () {
-      return loadAndZoomToModelExperimental(
-        {
-          gltf: buildingsMetadata,
+      const style = new Cesium3DTileStyle({
+        color: {
+          conditions: [
+            ["${height} > 80", "color('red', 0.1)"],
+            ["true", "color('blue')"],
+          ],
         },
-        scene
-      ).then(function (model) {
-        model.style = new Cesium3DTileStyle({
-          color: {
-            conditions: [
-              ["${height} > 80", "color('red', 0.1)"],
-              ["true", "color('blue')"],
-            ],
-          },
-        });
-        var frameState = scene.frameState;
-        var sceneGraph = model._sceneGraph;
-        // Reset the draw commands so we can inspect the draw command generation.
-        model._drawCommandsBuilt = false;
-        sceneGraph._drawCommands = [];
-        frameState.commandList = [];
-        scene.renderForSpecs();
-        expect(sceneGraph._drawCommands.length).toEqual(2);
-        expect(frameState.commandList.length).toEqual(2);
-        expect(sceneGraph._drawCommands[0].pass).toEqual(Pass.OPAQUE);
-        expect(sceneGraph._drawCommands[1].pass).toEqual(Pass.TRANSLUCENT);
       });
+      return style.readyPromise
+        .then(function () {
+          return loadAndZoomToModelExperimental(
+            {
+              gltf: buildingsMetadata,
+            },
+            scene
+          );
+        })
+        .then(function (model) {
+          model.style = style;
+          const frameState = scene.frameState;
+          const sceneGraph = model._sceneGraph;
+          // Reset the draw commands so we can inspect the draw command generation.
+          model._drawCommandsBuilt = false;
+          frameState.commandList = [];
+          scene.renderForSpecs();
+
+          const drawCommands = sceneGraph.getDrawCommands();
+          expect(drawCommands.length).toEqual(2);
+          expect(drawCommands[0].pass).toEqual(Pass.OPAQUE);
+          expect(drawCommands[1].pass).toEqual(Pass.TRANSLUCENT);
+          expect(frameState.commandList.length).toEqual(2);
+        });
     });
 
     it("builds draw commands for each primitive", function () {
@@ -139,52 +162,63 @@ describe(
         ModelExperimentalSceneGraph.prototype,
         "buildDrawCommands"
       ).and.callThrough();
+      spyOn(
+        ModelExperimentalSceneGraph.prototype,
+        "getDrawCommands"
+      ).and.callThrough();
       return loadAndZoomToModelExperimental(
         { gltf: parentGltfUrl },
         scene
       ).then(function (model) {
-        var sceneGraph = model._sceneGraph;
-        var runtimeNodes = sceneGraph._runtimeNodes;
+        const sceneGraph = model._sceneGraph;
+        const runtimeNodes = sceneGraph._runtimeNodes;
 
-        var primitivesCount = 0;
-        for (var i = 0; i < runtimeNodes.length; i++) {
+        let primitivesCount = 0;
+        for (let i = 0; i < runtimeNodes.length; i++) {
           primitivesCount += runtimeNodes[i].runtimePrimitives.length;
         }
 
-        var frameState = scene.frameState;
+        const frameState = scene.frameState;
         frameState.commandList = [];
         scene.renderForSpecs();
         expect(
           ModelExperimentalSceneGraph.prototype.buildDrawCommands
         ).toHaveBeenCalled();
+        expect(
+          ModelExperimentalSceneGraph.prototype.getDrawCommands
+        ).toHaveBeenCalled();
         expect(frameState.commandList.length).toEqual(primitivesCount);
 
         expect(model._drawCommandsBuilt).toEqual(true);
-        expect(sceneGraph._drawCommands.length).toEqual(primitivesCount);
 
         // Reset the draw command list to see if they're re-built.
         model._drawCommandsBuilt = false;
-        sceneGraph._drawCommands = [];
         frameState.commandList = [];
         scene.renderForSpecs();
         expect(
           ModelExperimentalSceneGraph.prototype.buildDrawCommands
+        ).toHaveBeenCalled();
+        expect(
+          ModelExperimentalSceneGraph.prototype.getDrawCommands
         ).toHaveBeenCalled();
         expect(frameState.commandList.length).toEqual(primitivesCount);
       });
     });
 
-    it("traverses scene graph correctly", function () {
+    it("stores runtime nodes correctly", function () {
       return loadAndZoomToModelExperimental(
         { gltf: parentGltfUrl },
         scene
       ).then(function (model) {
-        var sceneGraph = model._sceneGraph;
-        var modelComponents = sceneGraph._modelComponents;
-        var runtimeNodes = sceneGraph._runtimeNodes;
+        const sceneGraph = model._sceneGraph;
+        const components = sceneGraph._components;
+        const runtimeNodes = sceneGraph._runtimeNodes;
 
-        expect(runtimeNodes[1].node).toEqual(modelComponents.nodes[0]);
-        expect(runtimeNodes[0].node).toEqual(modelComponents.nodes[1]);
+        expect(runtimeNodes[0].node).toEqual(components.nodes[0]);
+        expect(runtimeNodes[1].node).toEqual(components.nodes[1]);
+
+        const rootNodes = sceneGraph._rootNodes;
+        expect(rootNodes[0]).toEqual(0);
       });
     });
 
@@ -197,24 +231,55 @@ describe(
         },
         scene
       ).then(function (model) {
-        var sceneGraph = model._sceneGraph;
-        var modelComponents = sceneGraph._modelComponents;
-        var scene = modelComponents.scene;
-        var runtimeNodes = sceneGraph._runtimeNodes;
+        const sceneGraph = model._sceneGraph;
+        const components = sceneGraph._components;
+        const runtimeNodes = sceneGraph._runtimeNodes;
 
-        expect(scene.upAxis).toEqual(Axis.Z);
-        expect(scene.forwardAxis).toEqual(Axis.X);
+        expect(components.upAxis).toEqual(Axis.Z);
+        expect(components.forwardAxis).toEqual(Axis.X);
 
-        expect(runtimeNodes[1].modelMatrix).toEqual(
-          modelComponents.nodes[0].matrix
+        const parentTransform = ModelExperimentalUtility.getNodeTransform(
+          components.nodes[0]
         );
-        expect(runtimeNodes[0].modelMatrix).toEqual(
-          Matrix4.multiplyByTranslation(
-            runtimeNodes[1].modelMatrix,
-            modelComponents.nodes[1].translation,
-            new Matrix4()
-          )
+        const childTransform = ModelExperimentalUtility.getNodeTransform(
+          components.nodes[1]
         );
+        expect(runtimeNodes[0].transform).toEqual(parentTransform);
+        expect(runtimeNodes[0].transformToRoot).toEqual(Matrix4.IDENTITY);
+        expect(runtimeNodes[1].transform).toEqual(childTransform);
+        expect(runtimeNodes[1].transformToRoot).toEqual(parentTransform);
+      });
+    });
+
+    it("creates runtime skin from model", function () {
+      return loadAndZoomToModelExperimental(
+        { gltf: simpleSkinGltfUrl },
+        scene
+      ).then(function (model) {
+        const sceneGraph = model._sceneGraph;
+        const components = sceneGraph._components;
+        const runtimeNodes = sceneGraph._runtimeNodes;
+
+        expect(runtimeNodes[0].node).toEqual(components.nodes[0]);
+        expect(runtimeNodes[1].node).toEqual(components.nodes[1]);
+        expect(runtimeNodes[2].node).toEqual(components.nodes[2]);
+
+        const rootNodes = sceneGraph._rootNodes;
+        expect(rootNodes[0]).toEqual(0);
+        expect(rootNodes[1]).toEqual(1);
+
+        const runtimeSkins = sceneGraph._runtimeSkins;
+        expect(runtimeSkins[0].skin).toEqual(components.skins[0]);
+        expect(runtimeSkins[0].joints).toEqual([
+          runtimeNodes[1],
+          runtimeNodes[2],
+        ]);
+        expect(runtimeSkins[0].jointMatrices.length).toEqual(2);
+
+        const skinnedNodes = sceneGraph._skinnedNodes;
+        expect(skinnedNodes[0]).toEqual(0);
+
+        expect(runtimeNodes[0].computedJointMatrices.length).toEqual(2);
       });
     });
 

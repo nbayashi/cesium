@@ -13,9 +13,10 @@
  *   <li>To avoid cluttering the code, check the flag in as few places as possible. Ideally this would be a single place.</li>
  * </ul>
  *
+ * @namespace
  * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
  */
-var ExperimentalFeatures = {
+const ExperimentalFeatures = {
   /**
    * Toggles the usage of the ModelExperimental class.
    *

@@ -21,7 +21,7 @@
  * See https://github.com/CesiumGS/cesium/blob/main/LICENSE.md for full licensing details.
  */
 
-define(['./Matrix2-91d5b6af', './RuntimeError-346a3079', './when-4bbc8319', './EllipseOutlineGeometry-412c7c3f', './ComponentDatatype-f194c48b', './WebGLConstants-1c8239cc', './GeometryOffsetAttribute-6a692b56', './Transforms-86b6fa28', './combine-83860057', './EllipseGeometryLibrary-c30b4a37', './GeometryAttribute-e0d0d297', './GeometryAttributes-7827a6c2', './IndexDatatype-ee69f1fd'], (function (Matrix2, RuntimeError, when, EllipseOutlineGeometry, ComponentDatatype, WebGLConstants, GeometryOffsetAttribute, Transforms, combine, EllipseGeometryLibrary, GeometryAttribute, GeometryAttributes, IndexDatatype) { 'use strict';
+define(['./Matrix2-d35cf4b5', './RuntimeError-8952249c', './defaultValue-81eec7ed', './EllipseOutlineGeometry-2500c990', './ComponentDatatype-9e86ac8f', './WebGLConstants-508b9636', './GeometryOffsetAttribute-2bff0974', './Transforms-f0a54c7b', './_commonjsHelpers-3aae1032-26891ab7', './combine-3c023bda', './EllipseGeometryLibrary-de9b1bfe', './GeometryAttribute-eeb38987', './GeometryAttributes-32b29525', './IndexDatatype-bed3935d'], (function (Matrix2, RuntimeError, defaultValue, EllipseOutlineGeometry, ComponentDatatype, WebGLConstants, GeometryOffsetAttribute, Transforms, _commonjsHelpers3aae1032, combine, EllipseGeometryLibrary, GeometryAttribute, GeometryAttributes, IndexDatatype) { 'use strict';
 
   /**
    * A description of the outline of a circle on the ellipsoid.
@@ -46,21 +46,21 @@ define(['./Matrix2-91d5b6af', './RuntimeError-346a3079', './when-4bbc8319', './E
    *
    * @example
    * // Create a circle.
-   * var circle = new Cesium.CircleOutlineGeometry({
+   * const circle = new Cesium.CircleOutlineGeometry({
    *   center : Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883),
    *   radius : 100000.0
    * });
-   * var geometry = Cesium.CircleOutlineGeometry.createGeometry(circle);
+   * const geometry = Cesium.CircleOutlineGeometry.createGeometry(circle);
    */
   function CircleOutlineGeometry(options) {
-    options = when.defaultValue(options, when.defaultValue.EMPTY_OBJECT);
-    var radius = options.radius;
+    options = defaultValue.defaultValue(options, defaultValue.defaultValue.EMPTY_OBJECT);
+    const radius = options.radius;
 
     //>>includeStart('debug', pragmas.debug);
     RuntimeError.Check.typeOf.number("radius", radius);
     //>>includeEnd('debug');
 
-    var ellipseGeometryOptions = {
+    const ellipseGeometryOptions = {
       center: options.center,
       semiMajorAxis: radius,
       semiMinorAxis: radius,
@@ -100,12 +100,12 @@ define(['./Matrix2-91d5b6af', './RuntimeError-346a3079', './when-4bbc8319', './E
     );
   };
 
-  var scratchEllipseGeometry = new EllipseOutlineGeometry.EllipseOutlineGeometry({
+  const scratchEllipseGeometry = new EllipseOutlineGeometry.EllipseOutlineGeometry({
     center: new Matrix2.Cartesian3(),
     semiMajorAxis: 1.0,
     semiMinorAxis: 1.0,
   });
-  var scratchOptions = {
+  const scratchOptions = {
     center: new Matrix2.Cartesian3(),
     radius: undefined,
     ellipsoid: Matrix2.Ellipsoid.clone(Matrix2.Ellipsoid.UNIT_SPHERE),
@@ -126,7 +126,7 @@ define(['./Matrix2-91d5b6af', './RuntimeError-346a3079', './when-4bbc8319', './E
    * @returns {CircleOutlineGeometry} The modified result parameter or a new CircleOutlineGeometry instance if one was not provided.
    */
   CircleOutlineGeometry.unpack = function (array, startingIndex, result) {
-    var ellipseGeometry = EllipseOutlineGeometry.EllipseOutlineGeometry.unpack(
+    const ellipseGeometry = EllipseOutlineGeometry.EllipseOutlineGeometry.unpack(
       array,
       startingIndex,
       scratchEllipseGeometry
@@ -144,7 +144,7 @@ define(['./Matrix2-91d5b6af', './RuntimeError-346a3079', './when-4bbc8319', './E
     scratchOptions.granularity = ellipseGeometry._granularity;
     scratchOptions.numberOfVerticalLines = ellipseGeometry._numberOfVerticalLines;
 
-    if (!when.defined(result)) {
+    if (!defaultValue.defined(result)) {
       scratchOptions.radius = ellipseGeometry._semiMajorAxis;
       return new CircleOutlineGeometry(scratchOptions);
     }
@@ -166,7 +166,7 @@ define(['./Matrix2-91d5b6af', './RuntimeError-346a3079', './when-4bbc8319', './E
   };
 
   function createCircleOutlineGeometry(circleGeometry, offset) {
-    if (when.defined(offset)) {
+    if (defaultValue.defined(offset)) {
       circleGeometry = CircleOutlineGeometry.unpack(circleGeometry, offset);
     }
     circleGeometry._ellipseGeometry._center = Matrix2.Cartesian3.clone(

@@ -27,9 +27,9 @@ export default function ModelExperimentalUtility() {}
  */
 ModelExperimentalUtility.getFailedLoadFunction = function (model, type, path) {
   return function (error) {
-    var message = "Failed to load " + type + ": " + path;
+    let message = `Failed to load ${type}: ${path}`;
     if (defined(error)) {
-      message += "\n" + error.message;
+      message += `\n${error.message}`;
     }
     model._readyPromise.reject(new RuntimeError(message));
   };
@@ -70,11 +70,11 @@ ModelExperimentalUtility.getAttributeBySemantic = function (
   semantic,
   setIndex
 ) {
-  var attributes = object.attributes;
-  var attributesLength = attributes.length;
-  for (var i = 0; i < attributesLength; ++i) {
-    var attribute = attributes[i];
-    var matchesSetIndex = defined(setIndex)
+  const attributes = object.attributes;
+  const attributesLength = attributes.length;
+  for (let i = 0; i < attributesLength; ++i) {
+    const attribute = attributes[i];
+    const matchesSetIndex = defined(setIndex)
       ? attribute.setIndex === setIndex
       : true;
     if (attribute.semantic === semantic && matchesSetIndex) {
@@ -83,13 +83,57 @@ ModelExperimentalUtility.getAttributeBySemantic = function (
   }
 };
 
+/**
+ * Similar to getAttributeBySemantic, but search using the name field only,
+ * as custom attributes do not have a semantic.
+ *
+ * @param {ModelComponents.Primitive|ModelComponents.Instances} object The primitive components or instances object
+ * @param {String} name The name of the attribute as it appears in the model file.
+ * @return {ModelComponents.Attribute} The selected attribute, or undefined if not found.
+ *
+ * @private
+ */
+ModelExperimentalUtility.getAttributeByName = function (object, name) {
+  const attributes = object.attributes;
+  const attributesLength = attributes.length;
+  for (let i = 0; i < attributesLength; ++i) {
+    const attribute = attributes[i];
+    if (attribute.name === name) {
+      return attribute;
+    }
+  }
+};
+
+/**
+ * Find a feature ID from an array with label or positionalLabel matching the
+ * given label
+ * @param {Array.<ModelComponents.FeatureIdAttribute|ModelComponents.FeatureIdImplicitRange|ModelComponents.FeatureIdTexture>} featureIds
+ * @param {String} label the label to search for
+ * @return {ModelComponents.FeatureIdAttribute|ModelComponents.FeatureIdImplicitRange|ModelComponents.FeatureIdTexture} The feature ID set if found, otherwise <code>undefined</code>
+ *
+ * @private
+ */
+ModelExperimentalUtility.getFeatureIdsByLabel = function (featureIds, label) {
+  for (let i = 0; i < featureIds.length; i++) {
+    const featureIdSet = featureIds[i];
+    if (
+      featureIdSet.positionalLabel === label ||
+      featureIdSet.label === label
+    ) {
+      return featureIdSet;
+    }
+  }
+
+  return undefined;
+};
+
 ModelExperimentalUtility.hasQuantizedAttributes = function (attributes) {
   if (!defined(attributes)) {
     return false;
   }
 
-  for (var i = 0; i < attributes.length; i++) {
-    var attribute = attributes[i];
+  for (let i = 0; i < attributes.length; i++) {
+    const attribute = attributes[i];
     if (defined(attribute.quantization)) {
       return true;
     }
@@ -103,11 +147,11 @@ ModelExperimentalUtility.hasQuantizedAttributes = function (attributes) {
  * @private
  */
 ModelExperimentalUtility.getAttributeInfo = function (attribute) {
-  var semantic = attribute.semantic;
-  var setIndex = attribute.setIndex;
+  const semantic = attribute.semantic;
+  const setIndex = attribute.setIndex;
 
-  var variableName;
-  var hasSemantic = false;
+  let variableName;
+  let hasSemantic = false;
   if (defined(semantic)) {
     variableName = VertexAttributeSemantic.getVariableName(semantic, setIndex);
     hasSemantic = true;
@@ -119,13 +163,24 @@ ModelExperimentalUtility.getAttributeInfo = function (attribute) {
     variableName = variableName.toLowerCase();
   }
 
-  var attributeType = attribute.type;
-  var glslType = AttributeType.getGlslType(attributeType);
+  const isVertexColor = /^color_\d+$/.test(variableName);
+  const attributeType = attribute.type;
+  let glslType = AttributeType.getGlslType(attributeType);
 
-  var isQuantized = defined(attribute.quantization);
-  var quantizedGlslType;
+  // color_n can be either a vec3 or a vec4. But in GLSL we can always use
+  // attribute vec4 since GLSL promotes vec3 attribute data to vec4 with
+  // the .a channel set to 1.0.
+  if (isVertexColor) {
+    glslType = "vec4";
+  }
+
+  const isQuantized = defined(attribute.quantization);
+  let quantizedGlslType;
   if (isQuantized) {
-    quantizedGlslType = AttributeType.getGlslType(attribute.quantization.type);
+    // The quantized color_n attribute also is promoted to a vec4 in the shader
+    quantizedGlslType = isVertexColor
+      ? "vec4"
+      : AttributeType.getGlslType(attribute.quantization.type);
   }
 
   return {
@@ -138,8 +193,8 @@ ModelExperimentalUtility.getAttributeInfo = function (attribute) {
   };
 };
 
-var cartesianMaxScratch = new Cartesian3();
-var cartesianMinScratch = new Cartesian3();
+const cartesianMaxScratch = new Cartesian3();
+const cartesianMinScratch = new Cartesian3();
 /**
  * Create a bounding sphere from a primitive's POSITION attribute and model
  * matrix.
@@ -155,22 +210,22 @@ ModelExperimentalUtility.createBoundingSphere = function (
   instancingTranslationMax,
   instancingTranslationMin
 ) {
-  var positionGltfAttribute = ModelExperimentalUtility.getAttributeBySemantic(
+  const positionGltfAttribute = ModelExperimentalUtility.getAttributeBySemantic(
     primitive,
     "POSITION"
   );
 
-  var positionMax = positionGltfAttribute.max;
-  var positionMin = positionGltfAttribute.min;
+  const positionMax = positionGltfAttribute.max;
+  const positionMin = positionGltfAttribute.min;
 
-  var boundingSphere;
+  let boundingSphere;
   if (defined(instancingTranslationMax) && defined(instancingTranslationMin)) {
-    var computedMin = Cartesian3.add(
+    const computedMin = Cartesian3.add(
       positionMin,
       instancingTranslationMin,
       cartesianMinScratch
     );
-    var computedMax = Cartesian3.add(
+    const computedMax = Cartesian3.add(
       positionMax,
       instancingTranslationMax,
       cartesianMaxScratch
@@ -186,28 +241,34 @@ ModelExperimentalUtility.createBoundingSphere = function (
 
 /**
  * Model matrices in a model file (e.g. glTF) are typically in a different
- * coordinate system, such as with y-up instead of z-up. This method adjusts
- * the matrix so z is up, x is forward.
+ * coordinate system, such as with y-up instead of z-up in 3D Tiles.
+ * This function returns a matrix that will correct this such that z is up,
+ * and x is forward.
  *
- * @param {Matrix4} modelMatrix The original model matrix. This will be updated in place
  * @param {Axis} upAxis The original up direction
  * @param {Axis} forwardAxis The original forward direction
+ * @param {Matrix4} result The matrix in which to store the result.
+ * @return {Matrix4} The axis correction matrix
  *
  * @private
  */
-ModelExperimentalUtility.correctModelMatrix = function (
-  modelMatrix,
+ModelExperimentalUtility.getAxisCorrectionMatrix = function (
   upAxis,
-  forwardAxis
+  forwardAxis,
+  result
 ) {
+  result = Matrix4.clone(Matrix4.IDENTITY, result);
+
   if (upAxis === Axis.Y) {
-    Matrix4.multiplyTransformation(modelMatrix, Axis.Y_UP_TO_Z_UP, modelMatrix);
+    result = Matrix4.clone(Axis.Y_UP_TO_Z_UP, result);
   } else if (upAxis === Axis.X) {
-    Matrix4.multiplyTransformation(modelMatrix, Axis.X_UP_TO_Z_UP, modelMatrix);
+    result = Matrix4.clone(Axis.X_UP_TO_Z_UP, result);
   }
 
   if (forwardAxis === Axis.Z) {
     // glTF 2.0 has a Z-forward convention that must be adapted here to X-forward.
-    Matrix4.multiplyTransformation(modelMatrix, Axis.Z_UP_TO_X_UP, modelMatrix);
+    result = Matrix4.multiplyTransformation(result, Axis.Z_UP_TO_X_UP, result);
   }
+
+  return result;
 };

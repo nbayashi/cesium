@@ -14,10 +14,13 @@ export default "void filterByPassType(inout vec3 positionMC, vec4 featureColor)\
     }\n\
 }\n\
 \n\
-void cpuStylingStage(inout vec3 positionMC, inout Feature feature)\n\
+void cpuStylingStage(inout vec3 positionMC, inout SelectedFeature feature)\n\
 {\n\
     float show = ceil(feature.color.a);\n\
     positionMC *= show;\n\
 \n\
+    #ifdef HAS_SELECTED_FEATURE_ID_ATTRIBUTE\n\
     filterByPassType(positionMC, feature.color);\n\
-}";
+    #endif\n\
+}\n\
+";

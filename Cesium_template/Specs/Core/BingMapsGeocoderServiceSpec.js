@@ -9,9 +9,9 @@ describe("Core/BingMapsGeocoderService", function () {
   });
 
   it("returns geocoder results", function () {
-    var query = "some query";
-    var key = "not_the_real_key;";
-    var data = {
+    const query = "some query";
+    const key = "not_the_real_key;";
+    const data = {
       resourceSets: [
         {
           resources: [
@@ -28,13 +28,13 @@ describe("Core/BingMapsGeocoderService", function () {
       functionName,
       deferred
     ) {
-      var parsedUrl = new URL(url);
+      const parsedUrl = new URL(url);
       expect(parsedUrl.searchParams.get("query")).toEqual(query);
       expect(parsedUrl.searchParams.get("key")).toEqual(key);
       expect(parsedUrl.searchParams.get("culture")).toBe(null);
       deferred.resolve(data);
     };
-    var service = new BingMapsGeocoderService({ key: key });
+    const service = new BingMapsGeocoderService({ key: key });
     return service.geocode(query).then(function (results) {
       expect(results.length).toEqual(1);
       expect(results[0].displayName).toEqual("a");
@@ -43,9 +43,9 @@ describe("Core/BingMapsGeocoderService", function () {
   });
 
   it("uses supplied culture", function () {
-    var query = "some query";
-    var key = "not_the_real_key;";
-    var data = {
+    const query = "some query";
+    const key = "not_the_real_key;";
+    const data = {
       resourceSets: [
         {
           resources: [
@@ -62,13 +62,13 @@ describe("Core/BingMapsGeocoderService", function () {
       functionName,
       deferred
     ) {
-      var parsedUrl = new URL(url);
+      const parsedUrl = new URL(url);
       expect(parsedUrl.searchParams.get("query")).toEqual(query);
       expect(parsedUrl.searchParams.get("key")).toEqual(key);
       expect(parsedUrl.searchParams.get("culture")).toEqual("ja");
       deferred.resolve(data);
     };
-    var service = new BingMapsGeocoderService({ key: key, culture: "ja" });
+    const service = new BingMapsGeocoderService({ key: key, culture: "ja" });
     return service.geocode(query).then(function (results) {
       expect(results.length).toEqual(1);
       expect(results[0].displayName).toEqual("a");
@@ -76,9 +76,9 @@ describe("Core/BingMapsGeocoderService", function () {
     });
   });
 
-  it("returns no geocoder results if Bing has no results", function (done) {
-    var query = "some query";
-    var data = {
+  it("returns no geocoder results if Bing has no results", function () {
+    const query = "some query";
+    const data = {
       resourceSets: [],
     };
     Resource._Implementations.loadAndExecuteScript = function (
@@ -88,16 +88,15 @@ describe("Core/BingMapsGeocoderService", function () {
     ) {
       deferred.resolve(data);
     };
-    var service = new BingMapsGeocoderService({ key: "" });
-    service.geocode(query).then(function (results) {
+    const service = new BingMapsGeocoderService({ key: "" });
+    return service.geocode(query).then(function (results) {
       expect(results.length).toEqual(0);
-      done();
     });
   });
 
-  it("returns no geocoder results if Bing has results but no resources", function (done) {
-    var query = "some query";
-    var data = {
+  it("returns no geocoder results if Bing has results but no resources", function () {
+    const query = "some query";
+    const data = {
       resourceSets: [
         {
           resources: [],
@@ -111,10 +110,9 @@ describe("Core/BingMapsGeocoderService", function () {
     ) {
       deferred.resolve(data);
     };
-    var service = new BingMapsGeocoderService({ key: "" });
-    service.geocode(query).then(function (results) {
+    const service = new BingMapsGeocoderService({ key: "" });
+    return service.geocode(query).then(function (results) {
       expect(results.length).toEqual(0);
-      done();
     });
   });
 });

@@ -36,14 +36,16 @@
         "use strict";
         //Sandcastle_Begin
 
-        var viewer = new Cesium.Viewer("cesiumContainer");
+        const viewer = new Cesium.Viewer("cesiumContainer", {
+          shouldAnimate: true,
+        });
 
         viewer.clock.currentTime = Cesium.JulianDate.fromIso8601(
           "2021-11-09T20:27:37.016064475348684937Z"
         );
 
         // Models
-        var models = [
+        const models = [
           {
             text: "Cesium Balloon",
             onselect: function () {
@@ -74,7 +76,7 @@
           {
             text: "Unlit Box",
             onselect: function () {
-              selectModel("/Specs/Data/Models/PBR/BoxUnlit/BoxUnlit.gltf", 0);
+              selectModel("../../SampleData/models/BoxUnlit/BoxUnlit.gltf", 0);
             },
           },
           {
@@ -99,28 +101,32 @@
             text: "Instanced Box",
             onselect: function () {
               selectModel(
-                "/Specs/Data/Models/GltfLoader/BoxInstanced/glTF/box-instanced.gltf",
+                "../../SampleData/models/BoxInstanced/BoxInstanced.gltf",
                 15
               );
             },
           },
         ];
 
-        var hpr = new Cesium.HeadingPitchRoll(Cesium.Math.toRadians(180), 0, 0);
-        var fixedFrameTransform = Cesium.Transforms.localFrameToFixedFrameGenerator(
+        const hpr = new Cesium.HeadingPitchRoll(
+          Cesium.Math.toRadians(180),
+          0,
+          0
+        );
+        const fixedFrameTransform = Cesium.Transforms.localFrameToFixedFrameGenerator(
           "north",
           "west"
         );
 
         function selectModel(url, height) {
-          var position = Cesium.Cartesian3.fromDegrees(
+          const position = Cesium.Cartesian3.fromDegrees(
             -123.0744619,
             44.0503706,
             height
           );
 
           viewer.scene.primitives.removeAll();
-          var model = viewer.scene.primitives.add(
+          const model = viewer.scene.primitives.add(
             Cesium.ModelExperimental.fromGltf({
               gltf: url,
               modelMatrix: Cesium.Transforms.headingPitchRollToFixedFrame(
@@ -129,6 +135,8 @@
                 Cesium.Ellipsoid.WGS84,
                 fixedFrameTransform
               ),
+              minimumPixelSize: 128,
+              maximumScale: 20000,
             })
           );
 
@@ -141,6 +149,10 @@
                 model.boundingSphere.radius * 5
               )
             );
+
+            model.activeAnimations.addAll({
+              loop: Cesium.ModelAnimationLoop.REPEAT,
+            });
           });
         }
 

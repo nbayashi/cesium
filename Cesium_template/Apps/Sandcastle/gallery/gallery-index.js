@@ -1,6 +1,6 @@
 // This file is automatically rebuilt by the Cesium build process.
-const hello_world_index = 104;
-const VERSION = '1.87.1';
+const hello_world_index = 107;
+const VERSION = '1.93';
 const gallery_demos = [{
   "name": "3D Models",
   "isNew": false,
@@ -25,6 +25,10 @@ const gallery_demos = [{
   "name": "3D Tiles Clipping Planes",
   "isNew": false,
   "img": "3D Tiles Clipping Planes.jpg"
+}, {
+  "name": "3D Tiles Compare",
+  "isNew": false,
+  "img": "3D Tiles Compare.jpg"
 }, {
   "name": "3D Tiles Feature Picking",
   "isNew": false,
@@ -51,15 +55,15 @@ const gallery_demos = [{
   "img": "3D Tiles Interior.jpg"
 }, {
   "name": "3D Tiles Next CDB Yemen",
-  "isNew": true,
+  "isNew": false,
   "img": "3D Tiles Next CDB Yemen.jpg"
 }, {
   "name": "3D Tiles Next Photogrammetry Classification",
-  "isNew": true,
+  "isNew": false,
   "img": "3D Tiles Next Photogrammetry Classification.jpg"
 }, {
   "name": "3D Tiles Next S2 Globe",
-  "isNew": true,
+  "isNew": false,
   "img": "3D Tiles Next S2 Globe.jpg"
 }, {
   "name": "3D Tiles Photogrammetry",
@@ -105,6 +109,10 @@ const gallery_demos = [{
   "name": "ArcticDEM",
   "isNew": false,
   "img": "ArcticDEM.jpg"
+}, {
+  "name": "Atmosphere",
+  "isNew": true,
+  "img": "Atmosphere.jpg"
 }, {
   "name": "Billboards",
   "isNew": false,
@@ -327,12 +335,16 @@ const gallery_demos = [{
   "img": "Custom Post Process.jpg"
 }, {
   "name": "Custom Shaders 3D Tiles",
-  "isNew": true,
+  "isNew": false,
   "img": "Custom Shaders 3D Tiles.jpg"
 }, {
   "name": "Custom Shaders Models",
-  "isNew": true,
+  "isNew": false,
   "img": "Custom Shaders Models.jpg"
+}, {
+  "name": "Custom Shaders Property Textures",
+  "isNew": false,
+  "img": "Custom Shaders Property Textures.jpg"
 }, {
   "name": "Cylinders and Cones",
   "isNew": false,
@@ -374,6 +386,10 @@ const gallery_demos = [{
   "isNew": false,
   "img": "Fog Post Process.jpg"
 }, {
+  "name": "GPX",
+  "isNew": false,
+  "img": "GPX.jpg"
+}, {
   "name": "GeoJSON and TopoJSON",
   "isNew": false,
   "img": "GeoJSON and TopoJSON.jpg"
@@ -405,10 +421,6 @@ const gallery_demos = [{
   "name": "Google Earth Enterprise",
   "isNew": false,
   "img": "Google Earth Enterprise.jpg"
-}, {
-  "name": "Ground Atmosphere",
-  "isNew": false,
-  "img": "Ground Atmosphere.jpg"
 }, {
   "name": "HTML Overlays",
   "isNew": false,
@@ -486,6 +498,10 @@ const gallery_demos = [{
   "isNew": false,
   "img": "LocalToFixedFrame.jpg"
 }, {
+  "name": "MSAA",
+  "isNew": false,
+  "img": "MSAA.jpg"
+}, {
   "name": "Map Pins",
   "isNew": false,
   "img": "Map Pins.jpg"
@@ -495,7 +511,7 @@ const gallery_demos = [{
   "img": "Materials.jpg"
 }, {
   "name": "Model Experimental 3D Models",
-  "isNew": true,
+  "isNew": false,
   "img": "Model Experimental 3D Models.jpg"
 }, {
   "name": "Montreal Point Cloud",
@@ -629,10 +645,6 @@ const gallery_demos = [{
   "name": "Show or Hide Entities",
   "isNew": false,
   "img": "Show or Hide Entities.jpg"
-}, {
-  "name": "Sky Atmosphere",
-  "isNew": false,
-  "img": "Sky Atmosphere.jpg"
 }, {
   "name": "Spheres and Ellipsoids",
   "isNew": false,

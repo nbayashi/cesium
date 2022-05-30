@@ -21,7 +21,7 @@
  * See https://github.com/CesiumGS/cesium/blob/main/LICENSE.md for full licensing details.
  */
 
-define(['./when-4bbc8319', './Transforms-86b6fa28', './Matrix2-91d5b6af', './RuntimeError-346a3079', './ComponentDatatype-f194c48b', './GeometryAttribute-e0d0d297', './GeometryAttributes-7827a6c2', './combine-83860057', './WebGLConstants-1c8239cc'], (function (when, Transforms, Matrix2, RuntimeError, ComponentDatatype, GeometryAttribute, GeometryAttributes, combine, WebGLConstants) { 'use strict';
+define(['./defaultValue-81eec7ed', './Transforms-f0a54c7b', './Matrix2-d35cf4b5', './RuntimeError-8952249c', './ComponentDatatype-9e86ac8f', './GeometryAttribute-eeb38987', './GeometryAttributes-32b29525', './_commonjsHelpers-3aae1032-26891ab7', './combine-3c023bda', './WebGLConstants-508b9636'], (function (defaultValue, Transforms, Matrix2, RuntimeError, ComponentDatatype, GeometryAttribute, GeometryAttributes, _commonjsHelpers3aae1032, combine, WebGLConstants) { 'use strict';
 
   /**
    * Describes geometry representing the outline of a plane centered at the origin, with a unit width and length.
@@ -70,15 +70,15 @@ define(['./when-4bbc8319', './Transforms-86b6fa28', './Matrix2-91d5b6af', './Run
     RuntimeError.Check.defined("array", array);
     //>>includeEnd('debug');
 
-    if (!when.defined(result)) {
+    if (!defaultValue.defined(result)) {
       return new PlaneOutlineGeometry();
     }
 
     return result;
   };
 
-  var min = new Matrix2.Cartesian3(-0.5, -0.5, 0.0);
-  var max = new Matrix2.Cartesian3(0.5, 0.5, 0.0);
+  const min = new Matrix2.Cartesian3(-0.5, -0.5, 0.0);
+  const max = new Matrix2.Cartesian3(0.5, 0.5, 0.0);
 
   /**
    * Computes the geometric representation of an outline of a plane, including its vertices, indices, and a bounding sphere.
@@ -86,9 +86,9 @@ define(['./when-4bbc8319', './Transforms-86b6fa28', './Matrix2-91d5b6af', './Run
    * @returns {Geometry|undefined} The computed vertices and indices.
    */
   PlaneOutlineGeometry.createGeometry = function () {
-    var attributes = new GeometryAttributes.GeometryAttributes();
-    var indices = new Uint16Array(4 * 2);
-    var positions = new Float64Array(4 * 3);
+    const attributes = new GeometryAttributes.GeometryAttributes();
+    const indices = new Uint16Array(4 * 2);
+    const positions = new Float64Array(4 * 3);
 
     positions[0] = min.x;
     positions[1] = min.y;
@@ -127,7 +127,7 @@ define(['./when-4bbc8319', './Transforms-86b6fa28', './Matrix2-91d5b6af', './Run
   };
 
   function createPlaneOutlineGeometry(planeGeometry, offset) {
-    if (when.defined(offset)) {
+    if (defaultValue.defined(offset)) {
       planeGeometry = PlaneOutlineGeometry.unpack(planeGeometry, offset);
     }
     return PlaneOutlineGeometry.createGeometry(planeGeometry);

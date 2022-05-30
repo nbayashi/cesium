@@ -19,8 +19,8 @@ import TextureWrap from "../../Renderer/TextureWrap.js";
  * @param {Boolean} [options.repeat=true] When defined, the texture sampler will be set to wrap in both directions
  * @param {PixelFormat} [options.pixelFormat=PixelFormat.RGBA] When options.typedArray is defined, this is used to determine the pixel format of the texture
  * @param {PixelDatatype} [options.pixelDatatype=PixelDatatype.UNSIGNED_BYTE] When options.typedArray is defined, this is the data type of pixel values in the typed array.
- * @param {TextureMinificationFilter} [textureMinificationFilter=TextureMinificationFilter.LINEAR] The minification filter of the texture sampler.
- * @param {TextureMagnificationFilter} [textureMagnificationFilter=TextureMagnificationFilter.LINEAR] The magnification filter of the texture sampler.
+ * @param {TextureMinificationFilter} [options.minificationFilter=TextureMinificationFilter.LINEAR] The minification filter of the texture sampler.
+ * @param {TextureMagnificationFilter} [options.magnificationFilter=TextureMagnificationFilter.LINEAR] The magnification filter of the texture sampler.
  * @param {Number} [options.maximumAnisotropy=1.0] The maximum anisotropy of the texture sampler
  *
  * @alias TextureUniform
@@ -31,8 +31,8 @@ import TextureWrap from "../../Renderer/TextureWrap.js";
 export default function TextureUniform(options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
   //>>includeStart('debug', pragmas.debug);
-  var hasTypedArray = defined(options.typedArray);
-  var hasUrl = defined(options.url);
+  const hasTypedArray = defined(options.typedArray);
+  const hasUrl = defined(options.url);
   if (hasTypedArray === hasUrl) {
     throw new DeveloperError(
       "exactly one of options.typedArray, options.url must be defined"
@@ -54,14 +54,14 @@ export default function TextureUniform(options) {
     PixelDatatype.UNSIGNED_BYTE
   );
 
-  var resource = options.url;
+  let resource = options.url;
   if (typeof resource === "string") {
     resource = Resource.createIfNeeded(resource);
   }
   this.resource = resource;
 
-  var repeat = defaultValue(options.repeat, true);
-  var wrap = repeat ? TextureWrap.REPEAT : TextureWrap.CLAMP_TO_EDGE;
+  const repeat = defaultValue(options.repeat, true);
+  const wrap = repeat ? TextureWrap.REPEAT : TextureWrap.CLAMP_TO_EDGE;
   this.sampler = new Sampler({
     wrapS: wrap,
     wrapT: wrap,

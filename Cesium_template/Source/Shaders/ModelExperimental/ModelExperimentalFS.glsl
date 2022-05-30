@@ -31,39 +31,52 @@ vec4 handleAlpha(vec3 color, float alpha)
     #endif
 }
 
-Feature feature;
+SelectedFeature selectedFeature;
 
-void main() 
+void main()
 {
+    #ifdef HAS_MODEL_SPLITTER
+    modelSplitterStage();
+    #endif
+
     czm_modelMaterial material = defaultModelMaterial();
 
     ProcessedAttributes attributes;
     geometryStage(attributes);
 
-    #ifdef HAS_FEATURES
-    featureStage(feature);
+    FeatureIds featureIds;
+    featureIdStage(featureIds, attributes);
+
+    Metadata metadata;
+    metadataStage(metadata, attributes);
+
+    #ifdef HAS_SELECTED_FEATURE_ID
+    selectedFeatureIdStage(selectedFeature, featureIds);
     #endif
 
-
     #ifndef CUSTOM_SHADER_REPLACE_MATERIAL
-    materialStage(material, attributes, feature);
+    materialStage(material, attributes, selectedFeature);
     #endif
 
     #ifdef HAS_CUSTOM_FRAGMENT_SHADER
-    customShaderStage(material, attributes);
+    customShaderStage(material, attributes, featureIds, metadata);
     #endif
 
-    lightingStage(material);
+    lightingStage(material, attributes);
 
-    #ifdef HAS_FEATURES
-    cpuStylingStage(material, feature);
+    #ifdef HAS_SELECTED_FEATURE_ID
+    cpuStylingStage(material, selectedFeature);
     #endif
-    
+
     #ifdef HAS_MODEL_COLOR
     modelColorStage(material);
-    #endif 
+    #endif
 
     vec4 color = handleAlpha(material.diffuse, material.alpha);
+
+    #ifdef HAS_CLIPPING_PLANES
+    modelClippingPlanesStage(color);
+    #endif
 
     gl_FragColor = color;
 }

@@ -5,6 +5,17 @@ import loadKTX2 from "../Core/loadKTX2.js";
 import Resource from "../Core/Resource.js";
 
 /**
+ * @typedef {HTMLImageElement|HTMLCanvasElement|ImageBitmap} ImageryTypes
+ *
+ * The format in which {@link ImageryProvider} methods return an image may
+ * vary by provider, configuration, or server settings.  Most common are
+ * <code>HTMLImageElement</code>, <code>HTMLCanvasElement</code>, or on supported
+ * browsers, <code>ImageBitmap</code>.
+ *
+ * See the documentation for each ImageryProvider class for more information about how they return images.
+ */
+
+/**
  * Provides imagery to be displayed on the surface of an ellipsoid.  This type describes an
  * interface and is not intended to be instantiated directly.
  *
@@ -296,10 +307,8 @@ ImageryProvider.prototype.getTileCredits = function (x, y, level) {
  * @param {Number} y The tile Y coordinate.
  * @param {Number} level The tile level.
  * @param {Request} [request] The request object. Intended for internal use only.
- * @returns {Promise.<HTMLImageElement|HTMLCanvasElement>|undefined} A promise for the image that will resolve when the image is available, or
- *          undefined if there are too many active requests to the server, and the request
- *          should be retried later.  The resolved image may be either an
- *          Image or a Canvas DOM object.
+ * @returns {Promise.<ImageryTypes>|undefined} Returns a promise for the image that will resolve when the image is available, or
+ *          undefined if there are too many active requests to the server, and the request should be retried later.
  *
  * @exception {DeveloperError} <code>requestImage</code> must not be called before the imagery provider is ready.
  */
@@ -336,7 +345,7 @@ ImageryProvider.prototype.pickFeatures = function (
   DeveloperError.throwInstantiationError();
 };
 
-var ktx2Regex = /\.ktx2$/i;
+const ktx2Regex = /\.ktx2$/i;
 
 /**
  * Loads an image from a given URL.  If the server referenced by the URL already has
@@ -345,24 +354,24 @@ var ktx2Regex = /\.ktx2$/i;
  *
  * @param {ImageryProvider} imageryProvider The imagery provider for the URL.
  * @param {Resource|String} url The URL of the image.
- * @returns {Promise.<HTMLImageElement|HTMLCanvasElement>|undefined} A promise for the image that will resolve when the image is available, or
- *          undefined if there are too many active requests to the server, and the request
- *          should be retried later.  The resolved image may be either an
- *          Image or a Canvas DOM object.
+ * @returns {Promise.<ImageryTypes|CompressedTextureBuffer>|undefined} A promise for the image that will resolve when the image is available, or
+ *          undefined if there are too many active requests to the server, and the request should be retried later.
  */
 ImageryProvider.loadImage = function (imageryProvider, url) {
   //>>includeStart('debug', pragmas.debug);
   Check.defined("url", url);
   //>>includeEnd('debug');
 
-  var resource = Resource.createIfNeeded(url);
+  const resource = Resource.createIfNeeded(url);
 
   if (ktx2Regex.test(resource.url)) {
+    // Resolves with `CompressedTextureBuffer`
     return loadKTX2(resource);
   } else if (
     defined(imageryProvider) &&
     defined(imageryProvider.tileDiscardPolicy)
   ) {
+    // Resolves with `HTMLImageElement` or `ImageBitmap`
     return resource.fetchImage({
       preferBlob: true,
       preferImageBitmap: true,

@@ -1,14 +1,14 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['./AttributeCompression-a3d02c34', './Matrix2-0e286ffc', './ComponentDatatype-9ed50558', './createTaskProcessorWorker', './RuntimeError-4fdc4459', './when-8166c7dd', './WebGLConstants-0664004c'], (function (AttributeCompression, Matrix2, ComponentDatatype, createTaskProcessorWorker, RuntimeError, when, WebGLConstants) { 'use strict';
+define(['./AttributeCompression-3cfab808', './Matrix2-69c32d33', './ComponentDatatype-b1ea011a', './createTaskProcessorWorker', './RuntimeError-c581ca93', './defaultValue-94c3e563', './WebGLConstants-7dccdc96'], (function (AttributeCompression, Matrix2, ComponentDatatype, createTaskProcessorWorker, RuntimeError, defaultValue, WebGLConstants) { 'use strict';
 
-  var maxShort = 32767;
+  const maxShort = 32767;
 
-  var scratchBVCartographic = new Matrix2.Cartographic();
-  var scratchEncodedPosition = new Matrix2.Cartesian3();
+  const scratchBVCartographic = new Matrix2.Cartographic();
+  const scratchEncodedPosition = new Matrix2.Cartesian3();
 
-  var scratchRectangle = new Matrix2.Rectangle();
-  var scratchEllipsoid = new Matrix2.Ellipsoid();
-  var scratchMinMaxHeights = {
+  const scratchRectangle = new Matrix2.Rectangle();
+  const scratchEllipsoid = new Matrix2.Ellipsoid();
+  const scratchMinMaxHeights = {
     min: undefined,
     max: undefined,
   };
@@ -16,7 +16,7 @@ define(['./AttributeCompression-a3d02c34', './Matrix2-0e286ffc', './ComponentDat
   function unpackBuffer(packedBuffer) {
     packedBuffer = new Float64Array(packedBuffer);
 
-    var offset = 0;
+    let offset = 0;
     scratchMinMaxHeights.min = packedBuffer[offset++];
     scratchMinMaxHeights.max = packedBuffer[offset++];
 
@@ -27,40 +27,40 @@ define(['./AttributeCompression-a3d02c34', './Matrix2-0e286ffc', './ComponentDat
   }
 
   function createVectorTilePoints(parameters, transferableObjects) {
-    var positions = new Uint16Array(parameters.positions);
+    const positions = new Uint16Array(parameters.positions);
 
     unpackBuffer(parameters.packedBuffer);
-    var rectangle = scratchRectangle;
-    var ellipsoid = scratchEllipsoid;
-    var minimumHeight = scratchMinMaxHeights.min;
-    var maximumHeight = scratchMinMaxHeights.max;
+    const rectangle = scratchRectangle;
+    const ellipsoid = scratchEllipsoid;
+    const minimumHeight = scratchMinMaxHeights.min;
+    const maximumHeight = scratchMinMaxHeights.max;
 
-    var positionsLength = positions.length / 3;
-    var uBuffer = positions.subarray(0, positionsLength);
-    var vBuffer = positions.subarray(positionsLength, 2 * positionsLength);
-    var heightBuffer = positions.subarray(
+    const positionsLength = positions.length / 3;
+    const uBuffer = positions.subarray(0, positionsLength);
+    const vBuffer = positions.subarray(positionsLength, 2 * positionsLength);
+    const heightBuffer = positions.subarray(
       2 * positionsLength,
       3 * positionsLength
     );
     AttributeCompression.AttributeCompression.zigZagDeltaDecode(uBuffer, vBuffer, heightBuffer);
 
-    var decoded = new Float64Array(positions.length);
-    for (var i = 0; i < positionsLength; ++i) {
-      var u = uBuffer[i];
-      var v = vBuffer[i];
-      var h = heightBuffer[i];
+    const decoded = new Float64Array(positions.length);
+    for (let i = 0; i < positionsLength; ++i) {
+      const u = uBuffer[i];
+      const v = vBuffer[i];
+      const h = heightBuffer[i];
 
-      var lon = ComponentDatatype.CesiumMath.lerp(rectangle.west, rectangle.east, u / maxShort);
-      var lat = ComponentDatatype.CesiumMath.lerp(rectangle.south, rectangle.north, v / maxShort);
-      var alt = ComponentDatatype.CesiumMath.lerp(minimumHeight, maximumHeight, h / maxShort);
+      const lon = ComponentDatatype.CesiumMath.lerp(rectangle.west, rectangle.east, u / maxShort);
+      const lat = ComponentDatatype.CesiumMath.lerp(rectangle.south, rectangle.north, v / maxShort);
+      const alt = ComponentDatatype.CesiumMath.lerp(minimumHeight, maximumHeight, h / maxShort);
 
-      var cartographic = Matrix2.Cartographic.fromRadians(
+      const cartographic = Matrix2.Cartographic.fromRadians(
         lon,
         lat,
         alt,
         scratchBVCartographic
       );
-      var decodedPosition = ellipsoid.cartographicToCartesian(
+      const decodedPosition = ellipsoid.cartographicToCartesian(
         cartographic,
         scratchEncodedPosition
       );

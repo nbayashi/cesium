@@ -14,7 +14,7 @@ import defined from "../../Core/defined.js";
  *
  * @private
  */
-var CPUStylingPipelineStage = {};
+const CPUStylingPipelineStage = {};
 CPUStylingPipelineStage.name = "CPUStylingPipelineStage"; // Helps with debugging
 
 /**
@@ -37,8 +37,8 @@ CPUStylingPipelineStage.process = function (
   primitive,
   frameState
 ) {
-  var model = renderResources.model;
-  var shaderBuilder = renderResources.shaderBuilder;
+  const model = renderResources.model;
+  const shaderBuilder = renderResources.shaderBuilder;
 
   shaderBuilder.addVertexLines([CPUStylingStageVS]);
   shaderBuilder.addFragmentLines([CPUStylingStageFS]);
@@ -62,19 +62,19 @@ CPUStylingPipelineStage.process = function (
     };
   }
 
-  var originalCommandTranslucency =
-    renderResources.alphaOptions.pass === Pass.TRANSLUCENT;
   shaderBuilder.addUniform(
     "bool",
     "model_commandTranslucent",
     ShaderDestination.BOTH
   );
   renderResources.uniformMap.model_commandTranslucent = function () {
-    return originalCommandTranslucency;
+    // always check the current value, because custom shaders may
+    // change the value with the isTranslucent flag
+    return renderResources.alphaOptions.pass === Pass.TRANSLUCENT;
   };
 
-  var featureTable = model.featureTables[model.featureTableId];
-  var styleCommandsNeeded = StyleCommandsNeeded.getStyleCommandsNeeded(
+  const featureTable = model.featureTables[model.featureTableId];
+  const styleCommandsNeeded = StyleCommandsNeeded.getStyleCommandsNeeded(
     featureTable.featuresLength,
     featureTable.batchTexture.translucentFeaturesLength
   );

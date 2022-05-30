@@ -21,22 +21,22 @@
  * See https://github.com/CesiumGS/cesium/blob/main/LICENSE.md for full licensing details.
  */
 
-define(['./when-4bbc8319', './PrimitivePipeline-44fdb064', './createTaskProcessorWorker', './Transforms-86b6fa28', './Matrix2-91d5b6af', './RuntimeError-346a3079', './ComponentDatatype-f194c48b', './WebGLConstants-1c8239cc', './combine-83860057', './GeometryAttribute-e0d0d297', './GeometryAttributes-7827a6c2', './GeometryPipeline-e3097c85', './AttributeCompression-1f6679e1', './EncodedCartesian3-882fbcbd', './IndexDatatype-ee69f1fd', './IntersectionTests-26599c5e', './Plane-4f333bc4', './WebMercatorProjection-c196164d'], (function (when, PrimitivePipeline, createTaskProcessorWorker, Transforms, Matrix2, RuntimeError, ComponentDatatype, WebGLConstants, combine, GeometryAttribute, GeometryAttributes, GeometryPipeline, AttributeCompression, EncodedCartesian3, IndexDatatype, IntersectionTests, Plane, WebMercatorProjection) { 'use strict';
+define(['./defaultValue-81eec7ed', './PrimitivePipeline-ed21cfbb', './createTaskProcessorWorker', './Transforms-f0a54c7b', './Matrix2-d35cf4b5', './RuntimeError-8952249c', './ComponentDatatype-9e86ac8f', './WebGLConstants-508b9636', './_commonjsHelpers-3aae1032-26891ab7', './combine-3c023bda', './GeometryAttribute-eeb38987', './GeometryAttributes-32b29525', './GeometryPipeline-55e02a41', './AttributeCompression-d0b97a83', './EncodedCartesian3-530d5328', './IndexDatatype-bed3935d', './IntersectionTests-a25e058d', './Plane-24f22488', './WebMercatorProjection-2d464b74'], (function (defaultValue, PrimitivePipeline, createTaskProcessorWorker, Transforms, Matrix2, RuntimeError, ComponentDatatype, WebGLConstants, _commonjsHelpers3aae1032, combine, GeometryAttribute, GeometryAttributes, GeometryPipeline, AttributeCompression, EncodedCartesian3, IndexDatatype, IntersectionTests, Plane, WebMercatorProjection) { 'use strict';
 
   /* global require */
 
-  var moduleCache = {};
+  const moduleCache = {};
 
   function getModule(moduleName) {
-    var module = moduleCache[moduleName];
-    if (!when.defined(module)) {
+    let module = moduleCache[moduleName];
+    if (!defaultValue.defined(module)) {
       if (typeof exports === "object") {
         // Use CommonJS-style require.
-        moduleCache[module] = module = require("Workers/" + moduleName);
+        moduleCache[module] = module = require(`Workers/${moduleName}`);
       } else {
         // Use AMD-style require.
         // in web workers, require is synchronous
-        require(["Workers/" + moduleName], function (f) {
+        require([`Workers/${moduleName}`], function (f) {
           module = f;
           moduleCache[module] = f;
         });
@@ -46,17 +46,17 @@ define(['./when-4bbc8319', './PrimitivePipeline-44fdb064', './createTaskProcesso
   }
 
   function createGeometry(parameters, transferableObjects) {
-    var subTasks = parameters.subTasks;
-    var length = subTasks.length;
-    var resultsOrPromises = new Array(length);
+    const subTasks = parameters.subTasks;
+    const length = subTasks.length;
+    const resultsOrPromises = new Array(length);
 
-    for (var i = 0; i < length; i++) {
-      var task = subTasks[i];
-      var geometry = task.geometry;
-      var moduleName = task.moduleName;
+    for (let i = 0; i < length; i++) {
+      const task = subTasks[i];
+      const geometry = task.geometry;
+      const moduleName = task.moduleName;
 
-      if (when.defined(moduleName)) {
-        var createFunction = getModule(moduleName);
+      if (defaultValue.defined(moduleName)) {
+        const createFunction = getModule(moduleName);
         resultsOrPromises[i] = createFunction(geometry, task.offset);
       } else {
         //Already created geometry
@@ -64,7 +64,7 @@ define(['./when-4bbc8319', './PrimitivePipeline-44fdb064', './createTaskProcesso
       }
     }
 
-    return when.when.all(resultsOrPromises, function (results) {
+    return Promise.all(resultsOrPromises).then(function (results) {
       return PrimitivePipeline.PrimitivePipeline.packCreateGeometryResults(
         results,
         transferableObjects

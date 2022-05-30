@@ -25,13 +25,13 @@ import ShaderFunction from "./ShaderFunction.js";
  * @constructor
  *
  * @example
- * var shaderBuilder = new ShaderBuilder();
+ * const shaderBuilder = new ShaderBuilder();
  * shaderBuilder.addDefine("SOLID_COLOR", undefined, ShaderDestination.FRAGMENT);
  * shaderBuilder.addUniform("vec3", "u_color", ShaderDestination.FRAGMENT);
  * shaderBuilder.addVarying("vec3", v_color");
  * // These locations can be used when creating the VertexArray
- * var positionLocation = shaderBuilder.addPositionAttribute("vec3", "a_position");
- * var colorLocation = shaderBuilder.addAttribute("vec3", "a_color");
+ * const positionLocation = shaderBuilder.addPositionAttribute("vec3", "a_position");
+ * const colorLocation = shaderBuilder.addAttribute("vec3", "a_color");
  * shaderBuilder.addVertexLines([
  *  "void main()",
  *  "{",
@@ -49,7 +49,7 @@ import ShaderFunction from "./ShaderFunction.js";
  *  "    #endif",
  *  "}"
  * ]);
- * var shaderProgram = shaderBuilder.build(context);
+ * const shaderProgram = shaderBuilder.build(context);
  *
  * @private
  */
@@ -125,9 +125,9 @@ ShaderBuilder.prototype.addDefine = function (identifier, value, destination) {
   destination = defaultValue(destination, ShaderDestination.BOTH);
 
   // The ShaderSource created in build() will add the #define part
-  var line = identifier;
+  let line = identifier;
   if (defined(value)) {
-    line += " " + value.toString();
+    line += ` ${value.toString()}`;
   }
 
   if (ShaderDestination.includesVertexShader(destination)) {
@@ -234,7 +234,7 @@ ShaderBuilder.prototype.addFunction = function (
 /**
  * Add lines to a dynamically-generated function
  * @param {String} functionName The name of the function. This must be created beforehand using {@link ShaderBuilder#addFunction}
- * @param {String} lines An array of lines of GLSL code to add to the function body. Do not include any whitespace at the ends of each line, but do include the semicolon.
+ * @param {String[]} lines An array of lines of GLSL code to add to the function body. Do not include any preceding or ending whitespace, but do include the semicolon for each line.
  *
  * @example
  * // generates the following function in the vertex shader
@@ -269,7 +269,7 @@ ShaderBuilder.prototype.addFunctionLines = function (functionName, lines) {
  * // creates the line "uniform vec3 u_resolution;"
  * shaderBuilder.addUniform("vec3", "u_resolution", ShaderDestination.FRAGMENT);
  * // creates the line "uniform float u_time;" in both shaders
- * shaderBuilder.addDefine("float", "u_time", ShaderDestination.BOTH);
+ * shaderBuilder.addUniform("float", "u_time", ShaderDestination.BOTH);
  */
 ShaderBuilder.prototype.addUniform = function (type, identifier, destination) {
   //>>includeStart('debug', pragmas.debug);
@@ -278,7 +278,7 @@ ShaderBuilder.prototype.addUniform = function (type, identifier, destination) {
   //>>includeEnd('debug');
 
   destination = defaultValue(destination, ShaderDestination.BOTH);
-  var line = "uniform " + type + " " + identifier + ";";
+  const line = `uniform ${type} ${identifier};`;
 
   if (ShaderDestination.includesVertexShader(destination)) {
     this._vertexShaderParts.uniformLines.push(line);
@@ -318,7 +318,7 @@ ShaderBuilder.prototype.setPositionAttribute = function (type, identifier) {
   }
   //>>includeEnd('debug');
 
-  this._positionAttributeLine = "attribute " + type + " " + identifier + ";";
+  this._positionAttributeLine = `attribute ${type} ${identifier};`;
 
   // Some WebGL implementations require attribute 0 to always be active, so
   // this builder assumes the position will always go in location 0
@@ -348,12 +348,15 @@ ShaderBuilder.prototype.addAttribute = function (type, identifier) {
   Check.typeOf.string("identifier", identifier);
   //>>includeEnd('debug');
 
-  var line = "attribute " + type + " " + identifier + ";";
+  const line = `attribute ${type} ${identifier};`;
   this._attributeLines.push(line);
 
-  var location = this._nextAttributeLocation;
+  const location = this._nextAttributeLocation;
   this._attributeLocations[identifier] = location;
-  this._nextAttributeLocation++;
+
+  // Most attributes only require a single attribute location, but matrices
+  // require more.
+  this._nextAttributeLocation += getAttributeLocationCount(type);
   return location;
 };
 
@@ -373,7 +376,7 @@ ShaderBuilder.prototype.addVarying = function (type, identifier) {
   Check.typeOf.string("identifier", identifier);
   //>>includeEnd('debug');
 
-  var line = "varying " + type + " " + identifier + ";";
+  const line = `varying ${type} ${identifier};`;
   this._vertexShaderParts.varyingLines.push(line);
   this._fragmentShaderParts.varyingLines.push(line);
 };
@@ -433,23 +436,23 @@ ShaderBuilder.prototype.addFragmentLines = function (lines) {
  * @return {ShaderProgram} A shader program to use for rendering.
  *
  * @example
- * var shaderProgram = shaderBuilder.buildShaderProgram(context);
+ * const shaderProgram = shaderBuilder.buildShaderProgram(context);
  */
 ShaderBuilder.prototype.buildShaderProgram = function (context) {
   //>>includeStart('debug', pragmas.debug);
   Check.typeOf.object("context", context);
   //>>includeEnd('debug');
 
-  var positionAttribute = defined(this._positionAttributeLine)
+  const positionAttribute = defined(this._positionAttributeLine)
     ? [this._positionAttributeLine]
     : [];
 
-  var structLines = generateStructLines(this);
-  var functionLines = generateFunctionLines(this);
+  const structLines = generateStructLines(this);
+  const functionLines = generateFunctionLines(this);
 
   // Lines are joined here so the ShaderSource
   // generates a single #line 0 directive
-  var vertexLines = positionAttribute
+  const vertexLines = positionAttribute
     .concat(
       this._attributeLines,
       this._vertexShaderParts.uniformLines,
@@ -459,12 +462,12 @@ ShaderBuilder.prototype.buildShaderProgram = function (context) {
       this._vertexShaderParts.shaderLines
     )
     .join("\n");
-  var vertexShaderSource = new ShaderSource({
+  const vertexShaderSource = new ShaderSource({
     defines: this._vertexShaderParts.defineLines,
     sources: [vertexLines],
   });
 
-  var fragmentLines = this._fragmentShaderParts.uniformLines
+  const fragmentLines = this._fragmentShaderParts.uniformLines
     .concat(
       this._fragmentShaderParts.varyingLines,
       structLines.fragmentLines,
@@ -472,7 +475,7 @@ ShaderBuilder.prototype.buildShaderProgram = function (context) {
       this._fragmentShaderParts.shaderLines
     )
     .join("\n");
-  var fragmentShaderSource = new ShaderSource({
+  const fragmentShaderSource = new ShaderSource({
     defines: this._fragmentShaderParts.defineLines,
     sources: [fragmentLines],
   });
@@ -490,14 +493,14 @@ ShaderBuilder.prototype.clone = function () {
 };
 
 function generateStructLines(shaderBuilder) {
-  var vertexLines = [];
-  var fragmentLines = [];
+  const vertexLines = [];
+  const fragmentLines = [];
 
-  var i;
-  var structIds = shaderBuilder._vertexShaderParts.structIds;
-  var structId;
-  var struct;
-  var structLines;
+  let i;
+  let structIds = shaderBuilder._vertexShaderParts.structIds;
+  let structId;
+  let struct;
+  let structLines;
   for (i = 0; i < structIds.length; i++) {
     structId = structIds[i];
     struct = shaderBuilder._structs[structId];
@@ -519,15 +522,28 @@ function generateStructLines(shaderBuilder) {
   };
 }
 
-function generateFunctionLines(shaderBuilder) {
-  var vertexLines = [];
-  var fragmentLines = [];
+function getAttributeLocationCount(glslType) {
+  switch (glslType) {
+    case "mat2":
+      return 2;
+    case "mat3":
+      return 3;
+    case "mat4":
+      return 4;
+    default:
+      return 1;
+  }
+}
 
-  var i;
-  var functionIds = shaderBuilder._vertexShaderParts.functionIds;
-  var functionId;
-  var func;
-  var functionLines;
+function generateFunctionLines(shaderBuilder) {
+  const vertexLines = [];
+  const fragmentLines = [];
+
+  let i;
+  let functionIds = shaderBuilder._vertexShaderParts.functionIds;
+  let functionId;
+  let func;
+  let functionLines;
   for (i = 0; i < functionIds.length; i++) {
     functionId = functionIds[i];
     func = shaderBuilder._functions[functionId];

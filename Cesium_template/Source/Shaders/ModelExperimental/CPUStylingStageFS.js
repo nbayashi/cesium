@@ -14,7 +14,7 @@ export default "void filterByPassType(vec4 featureColor)\n\
     }\n\
 }\n\
 \n\
-void cpuStylingStage(inout czm_modelMaterial material, Feature feature)\n\
+void cpuStylingStage(inout czm_modelMaterial material, SelectedFeature feature)\n\
 {\n\
     vec4 featureColor = feature.color;\n\
 \n\
@@ -25,7 +25,7 @@ void cpuStylingStage(inout czm_modelMaterial material, Feature feature)\n\
 \n\
     // If a feature ID vertex attribute is used, the pass type filter is applied in the vertex shader.\n\
     // So, we only apply in in the fragment shader if the feature ID texture is used.\n\
-    #ifdef FEATURE_ID_TEXTURE\n\
+    #ifdef HAS_SELECTED_FEATURE_ID_TEXTURE\n\
     filterByPassType(featureColor);\n\
     #endif\n\
 \n\

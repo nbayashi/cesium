@@ -3,7 +3,7 @@ import defaultValue from "../Core/defaultValue.js";
 import defined from "../Core/defined.js";
 
 /**
- * A feature table for use with the <code>EXT_mesh_features</code> extension or
+ * A property table for use with the <code>EXT_structural_metadata</code> extension or
  * legacy <code>EXT_feature_metadata</code> glTF extension. It also includes some
  * options to be compatible with the 3D Tiles 1.0 batch table.
  * <p>
@@ -15,13 +15,13 @@ import defined from "../Core/defined.js";
  *   <li>batch table hierarchy properties from options.batchTableHierarchy</li>
  * </ol>
  * <p>
- * See the {@link https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_mesh_features|EXT_mesh_features Extension} as well as the
+ * See the {@link https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_structural_metadata|EXT_structural_metadata Extension} as well as the
  * previous {@link https://github.com/CesiumGS/glTF/tree/3d-tiles-next/extensions/2.0/Vendor/EXT_feature_metadata|EXT_feature_metadata Extension} for glTF.
  * </p>
  *
  * @param {Object} options Object with the following properties:
  * @param {String} [options.name] Human-readable name to describe the table
- * @param {String|Number} [options.id] A unique id to identify the feature table, useful for debugging. For <code>EXT_mesh_features</code>, this is the array index in the feature tables array, for <code>EXT_feature_metadata</code> this is the dictionary key in the feature tables dictionary.
+ * @param {String|Number} [options.id] A unique id to identify the property table, useful for debugging. For <code>EXT_structural_metadata</code>, this is the array index in the property tables array, for <code>EXT_feature_metadata</code> this is the dictionary key in the property tables dictionary.
  * @param {Number} options.count The number of features in the table.
  * @param {MetadataTable} [options.metadataTable] A table of binary properties.
  * @param {JsonMetadataTable} [options.jsonMetadataTable] For compatibility with the old batch table, free-form JSON properties can be passed in.
@@ -254,7 +254,7 @@ PropertyTable.prototype.propertyExistsBySemantic = function (semantic) {
   return false;
 };
 
-var scratchResults = [];
+const scratchResults = [];
 
 /**
  * Returns an array of property IDs. For compatibility with the <code>3DTILES_batch_table_hierarchy</code> extension, this is computed for a specific feature.
@@ -305,7 +305,7 @@ PropertyTable.prototype.getPropertyIds = function (index, results) {
  * @private
  */
 PropertyTable.prototype.getProperty = function (index, propertyId) {
-  var result;
+  let result;
   if (defined(this._metadataTable)) {
     result = this._metadataTable.getProperty(index, propertyId);
     if (defined(result)) {

@@ -4,17 +4,42 @@ import {
   LightingPipelineStage,
   ModelLightingOptions,
   ShaderBuilder,
+  Cartesian3,
 } from "../../../Source/Cesium.js";
 
 describe("Scene/ModelExperimental/LightingPipelineStage", function () {
-  var mockPrimitive = {};
+  const mockPrimitive = {};
+  const mockModel = {};
 
-  var optionsUnlit = new ModelLightingOptions();
+  const optionsUnlit = new ModelLightingOptions();
   optionsUnlit.lightingModel = LightingModel.UNLIT;
 
+  it("supports light color", function () {
+    const mockModelWithLightColor = {
+      lightColor: new Cartesian3(1, 0, 0),
+    };
+    const shaderBuilder = new ShaderBuilder();
+    const renderResources = {
+      model: mockModelWithLightColor,
+      shaderBuilder: shaderBuilder,
+      lightingOptions: optionsUnlit,
+      uniformMap: {},
+    };
+    LightingPipelineStage.process(renderResources, mockPrimitive);
+
+    expect(shaderBuilder._vertexShaderParts.defineLines).toEqual([]);
+    expect(shaderBuilder._fragmentShaderParts.defineLines).toEqual([
+      "USE_CUSTOM_LIGHT_COLOR",
+      "LIGHTING_UNLIT",
+    ]);
+
+    expect(renderResources.uniformMap.model_lightColorHdr).toBeDefined();
+  });
+
   it("supports unlit lighting", function () {
-    var shaderBuilder = new ShaderBuilder();
-    var renderResources = {
+    const shaderBuilder = new ShaderBuilder();
+    const renderResources = {
+      model: mockModel,
       shaderBuilder: shaderBuilder,
       lightingOptions: optionsUnlit,
     };
@@ -27,11 +52,12 @@ describe("Scene/ModelExperimental/LightingPipelineStage", function () {
   });
 
   it("supports PBR lighting", function () {
-    var optionsPbr = new ModelLightingOptions();
+    const optionsPbr = new ModelLightingOptions();
     optionsPbr.lightingModel = LightingModel.PBR;
 
-    var shaderBuilder = new ShaderBuilder();
-    var renderResources = {
+    const shaderBuilder = new ShaderBuilder();
+    const renderResources = {
+      model: mockModel,
       shaderBuilder: shaderBuilder,
       lightingOptions: optionsPbr,
     };
@@ -44,8 +70,9 @@ describe("Scene/ModelExperimental/LightingPipelineStage", function () {
   });
 
   it("adds the lighting shader function to the shader", function () {
-    var shaderBuilder = new ShaderBuilder();
-    var renderResources = {
+    const shaderBuilder = new ShaderBuilder();
+    const renderResources = {
+      model: mockModel,
       shaderBuilder: shaderBuilder,
       lightingOptions: optionsUnlit,
     };

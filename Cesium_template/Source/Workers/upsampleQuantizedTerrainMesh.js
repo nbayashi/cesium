@@ -1,12 +1,12 @@
 /* This file is automatically rebuilt by the Cesium build process. */
-define(['./AttributeCompression-a3d02c34', './Transforms-de823166', './Matrix2-0e286ffc', './when-8166c7dd', './TerrainEncoding-6e967e8e', './IndexDatatype-797210ca', './RuntimeError-4fdc4459', './ComponentDatatype-9ed50558', './OrientedBoundingBox-7045a823', './createTaskProcessorWorker', './combine-a5c4cc47', './WebGLConstants-0664004c', './EllipsoidTangentPlane-892d7b0a', './AxisAlignedBoundingBox-96fb2a8b', './IntersectionTests-30f5d388', './Plane-456cf3fd'], (function (AttributeCompression, Transforms, Matrix2, when, TerrainEncoding, IndexDatatype, RuntimeError, ComponentDatatype, OrientedBoundingBox, createTaskProcessorWorker, combine, WebGLConstants, EllipsoidTangentPlane, AxisAlignedBoundingBox, IntersectionTests, Plane) { 'use strict';
+define(['./AttributeCompression-3cfab808', './Transforms-323408fe', './Matrix2-69c32d33', './defaultValue-94c3e563', './TerrainEncoding-12c7d791', './IndexDatatype-c4099fe9', './RuntimeError-c581ca93', './ComponentDatatype-b1ea011a', './OrientedBoundingBox-a5e39a7d', './createTaskProcessorWorker', './_commonjsHelpers-3aae1032-f55dc0c4', './combine-761d9c3f', './WebGLConstants-7dccdc96', './EllipsoidTangentPlane-1e8d1fc2', './AxisAlignedBoundingBox-df2331b2', './IntersectionTests-d5d945ac', './Plane-069b6800'], (function (AttributeCompression, Transforms, Matrix2, defaultValue, TerrainEncoding, IndexDatatype, RuntimeError, ComponentDatatype, OrientedBoundingBox, createTaskProcessorWorker, _commonjsHelpers3aae1032, combine, WebGLConstants, EllipsoidTangentPlane, AxisAlignedBoundingBox, IntersectionTests, Plane) { 'use strict';
 
   /**
    * Contains functions for operating on 2D triangles.
    *
    * @namespace Intersections2D
    */
-  var Intersections2D = {};
+  const Intersections2D = {};
 
   /**
    * Splits a 2D triangle at given axis-aligned threshold value and returns the resulting
@@ -31,7 +31,7 @@ define(['./AttributeCompression-a3d02c34', './Transforms-de823166', './Matrix2-0
    *                     vertex to the second one.
    *
    * @example
-   * var result = Cesium.Intersections2D.clipTriangleAtAxisAlignedThreshold(0.5, false, 0.2, 0.6, 0.4);
+   * const result = Cesium.Intersections2D.clipTriangleAtAxisAlignedThreshold(0.5, false, 0.2, 0.6, 0.4);
    * // result === [2, 0, -1, 1, 0, 0.25, -1, 1, 2, 0.5]
    */
   Intersections2D.clipTriangleAtAxisAlignedThreshold = function (
@@ -43,32 +43,32 @@ define(['./AttributeCompression-a3d02c34', './Transforms-de823166', './Matrix2-0
     result
   ) {
     //>>includeStart('debug', pragmas.debug);
-    if (!when.defined(threshold)) {
+    if (!defaultValue.defined(threshold)) {
       throw new RuntimeError.DeveloperError("threshold is required.");
     }
-    if (!when.defined(keepAbove)) {
+    if (!defaultValue.defined(keepAbove)) {
       throw new RuntimeError.DeveloperError("keepAbove is required.");
     }
-    if (!when.defined(u0)) {
+    if (!defaultValue.defined(u0)) {
       throw new RuntimeError.DeveloperError("u0 is required.");
     }
-    if (!when.defined(u1)) {
+    if (!defaultValue.defined(u1)) {
       throw new RuntimeError.DeveloperError("u1 is required.");
     }
-    if (!when.defined(u2)) {
+    if (!defaultValue.defined(u2)) {
       throw new RuntimeError.DeveloperError("u2 is required.");
     }
     //>>includeEnd('debug');
 
-    if (!when.defined(result)) {
+    if (!defaultValue.defined(result)) {
       result = [];
     } else {
       result.length = 0;
     }
 
-    var u0Behind;
-    var u1Behind;
-    var u2Behind;
+    let u0Behind;
+    let u1Behind;
+    let u2Behind;
     if (keepAbove) {
       u0Behind = u0 < threshold;
       u1Behind = u1 < threshold;
@@ -79,14 +79,14 @@ define(['./AttributeCompression-a3d02c34', './Transforms-de823166', './Matrix2-0
       u2Behind = u2 > threshold;
     }
 
-    var numBehind = u0Behind + u1Behind + u2Behind;
+    const numBehind = u0Behind + u1Behind + u2Behind;
 
-    var u01Ratio;
-    var u02Ratio;
-    var u12Ratio;
-    var u10Ratio;
-    var u20Ratio;
-    var u21Ratio;
+    let u01Ratio;
+    let u02Ratio;
+    let u12Ratio;
+    let u10Ratio;
+    let u20Ratio;
+    let u21Ratio;
 
     if (numBehind === 1) {
       if (u0Behind) {
@@ -227,7 +227,7 @@ define(['./AttributeCompression-a3d02c34', './Transforms-de823166', './Matrix2-0
    * @returns {Cartesian3} The barycentric coordinates of the position within the triangle.
    *
    * @example
-   * var result = Cesium.Intersections2D.computeBarycentricCoordinates(0.0, 0.0, 0.0, 1.0, -1, -0.5, 1, -0.5);
+   * const result = Cesium.Intersections2D.computeBarycentricCoordinates(0.0, 0.0, 0.0, 1.0, -1, -0.5, 1, -0.5);
    * // result === new Cesium.Cartesian3(1.0 / 3.0, 1.0 / 3.0, 1.0 / 3.0);
    */
   Intersections2D.computeBarycentricCoordinates = function (
@@ -242,44 +242,44 @@ define(['./AttributeCompression-a3d02c34', './Transforms-de823166', './Matrix2-0
     result
   ) {
     //>>includeStart('debug', pragmas.debug);
-    if (!when.defined(x)) {
+    if (!defaultValue.defined(x)) {
       throw new RuntimeError.DeveloperError("x is required.");
     }
-    if (!when.defined(y)) {
+    if (!defaultValue.defined(y)) {
       throw new RuntimeError.DeveloperError("y is required.");
     }
-    if (!when.defined(x1)) {
+    if (!defaultValue.defined(x1)) {
       throw new RuntimeError.DeveloperError("x1 is required.");
     }
-    if (!when.defined(y1)) {
+    if (!defaultValue.defined(y1)) {
       throw new RuntimeError.DeveloperError("y1 is required.");
     }
-    if (!when.defined(x2)) {
+    if (!defaultValue.defined(x2)) {
       throw new RuntimeError.DeveloperError("x2 is required.");
     }
-    if (!when.defined(y2)) {
+    if (!defaultValue.defined(y2)) {
       throw new RuntimeError.DeveloperError("y2 is required.");
     }
-    if (!when.defined(x3)) {
+    if (!defaultValue.defined(x3)) {
       throw new RuntimeError.DeveloperError("x3 is required.");
     }
-    if (!when.defined(y3)) {
+    if (!defaultValue.defined(y3)) {
       throw new RuntimeError.DeveloperError("y3 is required.");
     }
     //>>includeEnd('debug');
 
-    var x1mx3 = x1 - x3;
-    var x3mx2 = x3 - x2;
-    var y2my3 = y2 - y3;
-    var y1my3 = y1 - y3;
-    var inverseDeterminant = 1.0 / (y2my3 * x1mx3 + x3mx2 * y1my3);
-    var ymy3 = y - y3;
-    var xmx3 = x - x3;
-    var l1 = (y2my3 * xmx3 + x3mx2 * ymy3) * inverseDeterminant;
-    var l2 = (-y1my3 * xmx3 + x1mx3 * ymy3) * inverseDeterminant;
-    var l3 = 1.0 - l1 - l2;
+    const x1mx3 = x1 - x3;
+    const x3mx2 = x3 - x2;
+    const y2my3 = y2 - y3;
+    const y1my3 = y1 - y3;
+    const inverseDeterminant = 1.0 / (y2my3 * x1mx3 + x3mx2 * y1my3);
+    const ymy3 = y - y3;
+    const xmx3 = x - x3;
+    const l1 = (y2my3 * xmx3 + x3mx2 * ymy3) * inverseDeterminant;
+    const l2 = (-y1my3 * xmx3 + x1mx3 * ymy3) * inverseDeterminant;
+    const l3 = 1.0 - l1 - l2;
 
-    if (when.defined(result)) {
+    if (defaultValue.defined(result)) {
       result.x = l1;
       result.y = l2;
       result.z = l3;
@@ -304,7 +304,7 @@ define(['./AttributeCompression-a3d02c34', './Transforms-de823166', './Matrix2-0
    * @returns {Cartesian2} The intersection point, undefined if there is no intersection point or lines are coincident.
    *
    * @example
-   * var result = Cesium.Intersections2D.computeLineSegmentLineSegmentIntersection(0.0, 0.0, 0.0, 2.0, -1, 1, 1, 1);
+   * const result = Cesium.Intersections2D.computeLineSegmentLineSegmentIntersection(0.0, 0.0, 0.0, 2.0, -1, 1, 1, 1);
    * // result === new Cesium.Cartesian2(0.0, 1.0);
    */
   Intersections2D.computeLineSegmentLineSegmentIntersection = function (
@@ -329,20 +329,20 @@ define(['./AttributeCompression-a3d02c34', './Transforms-de823166', './Matrix2-0
     RuntimeError.Check.typeOf.number("y11", y11);
     //>>includeEnd('debug');
 
-    var numerator1A = (x11 - x10) * (y00 - y10) - (y11 - y10) * (x00 - x10);
-    var numerator1B = (x01 - x00) * (y00 - y10) - (y01 - y00) * (x00 - x10);
-    var denominator1 = (y11 - y10) * (x01 - x00) - (x11 - x10) * (y01 - y00);
+    const numerator1A = (x11 - x10) * (y00 - y10) - (y11 - y10) * (x00 - x10);
+    const numerator1B = (x01 - x00) * (y00 - y10) - (y01 - y00) * (x00 - x10);
+    const denominator1 = (y11 - y10) * (x01 - x00) - (x11 - x10) * (y01 - y00);
 
     // If denominator = 0, then lines are parallel. If denominator = 0 and both numerators are 0, then coincident
     if (denominator1 === 0) {
       return;
     }
 
-    var ua1 = numerator1A / denominator1;
-    var ub1 = numerator1B / denominator1;
+    const ua1 = numerator1A / denominator1;
+    const ub1 = numerator1B / denominator1;
 
     if (ua1 >= 0 && ua1 <= 1 && ub1 >= 0 && ub1 <= 1) {
-      if (!when.defined(result)) {
+      if (!defaultValue.defined(result)) {
         result = new Matrix2.Cartesian2();
       }
 
@@ -353,76 +353,76 @@ define(['./AttributeCompression-a3d02c34', './Transforms-de823166', './Matrix2-0
     }
   };
 
-  var maxShort = 32767;
-  var halfMaxShort = (maxShort / 2) | 0;
+  const maxShort = 32767;
+  const halfMaxShort = (maxShort / 2) | 0;
 
-  var clipScratch = [];
-  var clipScratch2 = [];
-  var verticesScratch = [];
-  var cartographicScratch = new Matrix2.Cartographic();
-  var cartesian3Scratch = new Matrix2.Cartesian3();
-  var uScratch = [];
-  var vScratch = [];
-  var heightScratch = [];
-  var indicesScratch = [];
-  var normalsScratch = [];
-  var horizonOcclusionPointScratch = new Matrix2.Cartesian3();
-  var boundingSphereScratch = new Transforms.BoundingSphere();
-  var orientedBoundingBoxScratch = new OrientedBoundingBox.OrientedBoundingBox();
-  var decodeTexCoordsScratch = new Matrix2.Cartesian2();
-  var octEncodedNormalScratch = new Matrix2.Cartesian3();
+  const clipScratch = [];
+  const clipScratch2 = [];
+  const verticesScratch = [];
+  const cartographicScratch = new Matrix2.Cartographic();
+  let cartesian3Scratch = new Matrix2.Cartesian3();
+  const uScratch = [];
+  const vScratch = [];
+  const heightScratch = [];
+  const indicesScratch = [];
+  const normalsScratch = [];
+  const horizonOcclusionPointScratch = new Matrix2.Cartesian3();
+  const boundingSphereScratch = new Transforms.BoundingSphere();
+  const orientedBoundingBoxScratch = new OrientedBoundingBox.OrientedBoundingBox();
+  const decodeTexCoordsScratch = new Matrix2.Cartesian2();
+  const octEncodedNormalScratch = new Matrix2.Cartesian3();
 
   function upsampleQuantizedTerrainMesh(parameters, transferableObjects) {
-    var isEastChild = parameters.isEastChild;
-    var isNorthChild = parameters.isNorthChild;
+    const isEastChild = parameters.isEastChild;
+    const isNorthChild = parameters.isNorthChild;
 
-    var minU = isEastChild ? halfMaxShort : 0;
-    var maxU = isEastChild ? maxShort : halfMaxShort;
-    var minV = isNorthChild ? halfMaxShort : 0;
-    var maxV = isNorthChild ? maxShort : halfMaxShort;
+    const minU = isEastChild ? halfMaxShort : 0;
+    const maxU = isEastChild ? maxShort : halfMaxShort;
+    const minV = isNorthChild ? halfMaxShort : 0;
+    const maxV = isNorthChild ? maxShort : halfMaxShort;
 
-    var uBuffer = uScratch;
-    var vBuffer = vScratch;
-    var heightBuffer = heightScratch;
-    var normalBuffer = normalsScratch;
+    const uBuffer = uScratch;
+    const vBuffer = vScratch;
+    const heightBuffer = heightScratch;
+    const normalBuffer = normalsScratch;
 
     uBuffer.length = 0;
     vBuffer.length = 0;
     heightBuffer.length = 0;
     normalBuffer.length = 0;
 
-    var indices = indicesScratch;
+    const indices = indicesScratch;
     indices.length = 0;
 
-    var vertexMap = {};
+    const vertexMap = {};
 
-    var parentVertices = parameters.vertices;
-    var parentIndices = parameters.indices;
+    const parentVertices = parameters.vertices;
+    let parentIndices = parameters.indices;
     parentIndices = parentIndices.subarray(0, parameters.indexCountWithoutSkirts);
 
-    var encoding = TerrainEncoding.TerrainEncoding.clone(parameters.encoding);
-    var hasVertexNormals = encoding.hasVertexNormals;
+    const encoding = TerrainEncoding.TerrainEncoding.clone(parameters.encoding);
+    const hasVertexNormals = encoding.hasVertexNormals;
 
-    var vertexCount = 0;
-    var quantizedVertexCount = parameters.vertexCountWithoutSkirts;
+    let vertexCount = 0;
+    const quantizedVertexCount = parameters.vertexCountWithoutSkirts;
 
-    var parentMinimumHeight = parameters.minimumHeight;
-    var parentMaximumHeight = parameters.maximumHeight;
+    const parentMinimumHeight = parameters.minimumHeight;
+    const parentMaximumHeight = parameters.maximumHeight;
 
-    var parentUBuffer = new Array(quantizedVertexCount);
-    var parentVBuffer = new Array(quantizedVertexCount);
-    var parentHeightBuffer = new Array(quantizedVertexCount);
-    var parentNormalBuffer = hasVertexNormals
+    const parentUBuffer = new Array(quantizedVertexCount);
+    const parentVBuffer = new Array(quantizedVertexCount);
+    const parentHeightBuffer = new Array(quantizedVertexCount);
+    const parentNormalBuffer = hasVertexNormals
       ? new Array(quantizedVertexCount * 2)
       : undefined;
 
-    var threshold = 20;
-    var height;
+    const threshold = 20;
+    let height;
 
-    var i, n;
-    var u, v;
+    let i, n;
+    let u, v;
     for (i = 0, n = 0; i < quantizedVertexCount; ++i, n += 2) {
-      var texCoords = encoding.decodeTextureCoordinates(
+      const texCoords = encoding.decodeTextureCoordinates(
         parentVertices,
         i,
         decodeTexCoordsScratch
@@ -460,7 +460,7 @@ define(['./AttributeCompression-a3d02c34', './Transforms-de823166', './Matrix2-0
       parentVBuffer[i] = v;
 
       if (hasVertexNormals) {
-        var encodedNormal = encoding.getOctEncodedNormal(
+        const encodedNormal = encoding.getOctEncodedNormal(
           parentVertices,
           i,
           octEncodedNormalScratch
@@ -488,27 +488,27 @@ define(['./AttributeCompression-a3d02c34', './Transforms-de823166', './Matrix2-0
       }
     }
 
-    var triangleVertices = [];
+    const triangleVertices = [];
     triangleVertices.push(new Vertex());
     triangleVertices.push(new Vertex());
     triangleVertices.push(new Vertex());
 
-    var clippedTriangleVertices = [];
+    const clippedTriangleVertices = [];
     clippedTriangleVertices.push(new Vertex());
     clippedTriangleVertices.push(new Vertex());
     clippedTriangleVertices.push(new Vertex());
 
-    var clippedIndex;
-    var clipped2;
+    let clippedIndex;
+    let clipped2;
 
     for (i = 0; i < parentIndices.length; i += 3) {
-      var i0 = parentIndices[i];
-      var i1 = parentIndices[i + 1];
-      var i2 = parentIndices[i + 2];
+      const i0 = parentIndices[i];
+      const i1 = parentIndices[i + 1];
+      const i2 = parentIndices[i + 2];
 
-      var u0 = parentUBuffer[i0];
-      var u1 = parentUBuffer[i1];
-      var u2 = parentUBuffer[i2];
+      const u0 = parentUBuffer[i0];
+      const u1 = parentUBuffer[i1];
+      const u2 = parentUBuffer[i2];
 
       triangleVertices[0].initializeIndexed(
         parentUBuffer,
@@ -533,7 +533,7 @@ define(['./AttributeCompression-a3d02c34', './Transforms-de823166', './Matrix2-0
       );
 
       // Clip triangle on the east-west boundary.
-      var clipped = Intersections2D.clipTriangleAtAxisAlignedThreshold(
+      const clipped = Intersections2D.clipTriangleAtAxisAlignedThreshold(
         halfMaxShort,
         isEastChild,
         u0,
@@ -625,27 +625,27 @@ define(['./AttributeCompression-a3d02c34', './Transforms-de823166', './Matrix2-0
       }
     }
 
-    var uOffset = isEastChild ? -maxShort : 0;
-    var vOffset = isNorthChild ? -maxShort : 0;
+    const uOffset = isEastChild ? -maxShort : 0;
+    const vOffset = isNorthChild ? -maxShort : 0;
 
-    var westIndices = [];
-    var southIndices = [];
-    var eastIndices = [];
-    var northIndices = [];
+    const westIndices = [];
+    const southIndices = [];
+    const eastIndices = [];
+    const northIndices = [];
 
-    var minimumHeight = Number.MAX_VALUE;
-    var maximumHeight = -minimumHeight;
+    let minimumHeight = Number.MAX_VALUE;
+    let maximumHeight = -minimumHeight;
 
-    var cartesianVertices = verticesScratch;
+    const cartesianVertices = verticesScratch;
     cartesianVertices.length = 0;
 
-    var ellipsoid = Matrix2.Ellipsoid.clone(parameters.ellipsoid);
-    var rectangle = Matrix2.Rectangle.clone(parameters.childRectangle);
+    const ellipsoid = Matrix2.Ellipsoid.clone(parameters.ellipsoid);
+    const rectangle = Matrix2.Rectangle.clone(parameters.childRectangle);
 
-    var north = rectangle.north;
-    var south = rectangle.south;
-    var east = rectangle.east;
-    var west = rectangle.west;
+    const north = rectangle.north;
+    const south = rectangle.south;
+    let east = rectangle.east;
+    const west = rectangle.west;
 
     if (east < west) {
       east += ComponentDatatype.CesiumMath.TWO_PI;
@@ -703,13 +703,13 @@ define(['./AttributeCompression-a3d02c34', './Transforms-de823166', './Matrix2-0
       cartesianVertices.push(cartesian3Scratch.z);
     }
 
-    var boundingSphere = Transforms.BoundingSphere.fromVertices(
+    const boundingSphere = Transforms.BoundingSphere.fromVertices(
       cartesianVertices,
       Matrix2.Cartesian3.ZERO,
       3,
       boundingSphereScratch
     );
-    var orientedBoundingBox = OrientedBoundingBox.OrientedBoundingBox.fromRectangle(
+    const orientedBoundingBox = OrientedBoundingBox.OrientedBoundingBox.fromRectangle(
       rectangle,
       minimumHeight,
       maximumHeight,
@@ -717,8 +717,8 @@ define(['./AttributeCompression-a3d02c34', './Transforms-de823166', './Matrix2-0
       orientedBoundingBoxScratch
     );
 
-    var occluder = new TerrainEncoding.EllipsoidalOccluder(ellipsoid);
-    var horizonOcclusionPoint = occluder.computeHorizonCullingPointFromVerticesPossiblyUnderEllipsoid(
+    const occluder = new TerrainEncoding.EllipsoidalOccluder(ellipsoid);
+    const horizonOcclusionPoint = occluder.computeHorizonCullingPointFromVerticesPossiblyUnderEllipsoid(
       boundingSphere.center,
       cartesianVertices,
       3,
@@ -727,9 +727,9 @@ define(['./AttributeCompression-a3d02c34', './Transforms-de823166', './Matrix2-0
       horizonOcclusionPointScratch
     );
 
-    var heightRange = maximumHeight - minimumHeight;
+    const heightRange = maximumHeight - minimumHeight;
 
-    var vertices = new Uint16Array(
+    const vertices = new Uint16Array(
       uBuffer.length + vBuffer.length + heightBuffer.length
     );
 
@@ -737,7 +737,7 @@ define(['./AttributeCompression-a3d02c34', './Transforms-de823166', './Matrix2-0
       vertices[i] = uBuffer[i];
     }
 
-    var start = uBuffer.length;
+    let start = uBuffer.length;
 
     for (i = 0; i < vBuffer.length; ++i) {
       vertices[start + i] = vBuffer[i];
@@ -750,14 +750,14 @@ define(['./AttributeCompression-a3d02c34', './Transforms-de823166', './Matrix2-0
         (maxShort * (heightBuffer[i] - minimumHeight)) / heightRange;
     }
 
-    var indicesTypedArray = IndexDatatype.IndexDatatype.createTypedArray(
+    const indicesTypedArray = IndexDatatype.IndexDatatype.createTypedArray(
       uBuffer.length,
       indices
     );
 
-    var encodedNormals;
+    let encodedNormals;
     if (hasVertexNormals) {
-      var normalArray = new Uint8Array(normalBuffer);
+      const normalArray = new Uint8Array(normalBuffer);
       transferableObjects.push(
         vertices.buffer,
         indicesTypedArray.buffer,
@@ -793,7 +793,7 @@ define(['./AttributeCompression-a3d02c34', './Transforms-de823166', './Matrix2-0
   }
 
   Vertex.prototype.clone = function (result) {
-    if (!when.defined(result)) {
+    if (!defaultValue.defined(result)) {
       result = new Vertex();
     }
 
@@ -831,7 +831,7 @@ define(['./AttributeCompression-a3d02c34', './Transforms-de823166', './Matrix2-0
     index,
     vertices
   ) {
-    var nextIndex = index + 1;
+    let nextIndex = index + 1;
 
     if (clipResult[index] !== -1) {
       vertices[clipResult[index]].clone(this);
@@ -861,41 +861,41 @@ define(['./AttributeCompression-a3d02c34', './Transforms-de823166', './Matrix2-0
   };
 
   Vertex.prototype.isIndexed = function () {
-    return when.defined(this.index);
+    return defaultValue.defined(this.index);
   };
 
   Vertex.prototype.getH = function () {
-    if (when.defined(this.index)) {
+    if (defaultValue.defined(this.index)) {
       return this.heightBuffer[this.index];
     }
     return ComponentDatatype.CesiumMath.lerp(this.first.getH(), this.second.getH(), this.ratio);
   };
 
   Vertex.prototype.getU = function () {
-    if (when.defined(this.index)) {
+    if (defaultValue.defined(this.index)) {
       return this.uBuffer[this.index];
     }
     return ComponentDatatype.CesiumMath.lerp(this.first.getU(), this.second.getU(), this.ratio);
   };
 
   Vertex.prototype.getV = function () {
-    if (when.defined(this.index)) {
+    if (defaultValue.defined(this.index)) {
       return this.vBuffer[this.index];
     }
     return ComponentDatatype.CesiumMath.lerp(this.first.getV(), this.second.getV(), this.ratio);
   };
 
-  var encodedScratch = new Matrix2.Cartesian2();
+  let encodedScratch = new Matrix2.Cartesian2();
   // An upsampled triangle may be clipped twice before it is assigned an index
   // In this case, we need a buffer to handle the recursion of getNormalX() and getNormalY().
-  var depth = -1;
-  var cartesianScratch1 = [new Matrix2.Cartesian3(), new Matrix2.Cartesian3()];
-  var cartesianScratch2 = [new Matrix2.Cartesian3(), new Matrix2.Cartesian3()];
+  let depth = -1;
+  const cartesianScratch1 = [new Matrix2.Cartesian3(), new Matrix2.Cartesian3()];
+  const cartesianScratch2 = [new Matrix2.Cartesian3(), new Matrix2.Cartesian3()];
   function lerpOctEncodedNormal(vertex, result) {
     ++depth;
 
-    var first = cartesianScratch1[depth];
-    var second = cartesianScratch2[depth];
+    let first = cartesianScratch1[depth];
+    let second = cartesianScratch2[depth];
 
     first = AttributeCompression.AttributeCompression.octDecode(
       vertex.first.getNormalX(),
@@ -923,7 +923,7 @@ define(['./AttributeCompression-a3d02c34', './Transforms-de823166', './Matrix2-0
   }
 
   Vertex.prototype.getNormalX = function () {
-    if (when.defined(this.index)) {
+    if (defaultValue.defined(this.index)) {
       return this.normalBuffer[this.index * 2];
     }
 
@@ -932,7 +932,7 @@ define(['./AttributeCompression-a3d02c34', './Transforms-de823166', './Matrix2-0
   };
 
   Vertex.prototype.getNormalY = function () {
-    if (when.defined(this.index)) {
+    if (defaultValue.defined(this.index)) {
       return this.normalBuffer[this.index * 2 + 1];
     }
 
@@ -940,7 +940,7 @@ define(['./AttributeCompression-a3d02c34', './Transforms-de823166', './Matrix2-0
     return encodedScratch.y;
   };
 
-  var polygonVertices = [];
+  const polygonVertices = [];
   polygonVertices.push(new Vertex());
   polygonVertices.push(new Vertex());
   polygonVertices.push(new Vertex());
@@ -961,8 +961,8 @@ define(['./AttributeCompression-a3d02c34', './Transforms-de823166', './Matrix2-0
       return;
     }
 
-    var numVertices = 0;
-    var clippedIndex = 0;
+    let numVertices = 0;
+    let clippedIndex = 0;
     while (clippedIndex < clipped.length) {
       clippedIndex = polygonVertices[numVertices++].initializeFromClipResult(
         clipped,
@@ -971,14 +971,14 @@ define(['./AttributeCompression-a3d02c34', './Transforms-de823166', './Matrix2-0
       );
     }
 
-    for (var i = 0; i < numVertices; ++i) {
-      var polygonVertex = polygonVertices[i];
+    for (let i = 0; i < numVertices; ++i) {
+      const polygonVertex = polygonVertices[i];
       if (!polygonVertex.isIndexed()) {
-        var key = polygonVertex.getKey();
-        if (when.defined(vertexMap[key])) {
+        const key = polygonVertex.getKey();
+        if (defaultValue.defined(vertexMap[key])) {
           polygonVertex.newIndex = vertexMap[key];
         } else {
-          var newIndex = uBuffer.length;
+          const newIndex = uBuffer.length;
           uBuffer.push(polygonVertex.getU());
           vBuffer.push(polygonVertex.getV());
           heightBuffer.push(polygonVertex.getH());

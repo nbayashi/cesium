@@ -1,51 +1,52 @@
 import Check from "../Core/Check.js";
+import combine from "../Core/combine.js";
 import defaultValue from "../Core/defaultValue.js";
 import defined from "../Core/defined.js";
 import PropertyTable from "./PropertyTable.js";
 import PropertyTexture from "./PropertyTexture.js";
-import FeatureMetadata from "./FeatureMetadata.js";
+import StructuralMetadata from "./StructuralMetadata.js";
 import MetadataTable from "./MetadataTable.js";
 
 /**
  * Parse the <code>EXT_feature_metadata</code> glTF extension to create a
- * feature metadata object.
+ * structural metadata object.
  *
  * @param {Object} options Object with the following properties:
  * @param {Object} options.extension The extension JSON object.
  * @param {MetadataSchema} options.schema The parsed schema.
  * @param {Object.<String, Uint8Array>} [options.bufferViews] An object mapping bufferView IDs to Uint8Array objects.
  * @param {Object.<String, Texture>} [options.textures] An object mapping texture IDs to {@link Texture} objects.
- * @return {FeatureMetadata} A feature metadata object
+ * @return {StructuralMetadata} A structural metadata object
  * @private
  * @experimental This feature is using part of the 3D Tiles spec that is not final and is subject to change without Cesium's standard deprecation policy.
  */
 export default function parseFeatureMetadataLegacy(options) {
   options = defaultValue(options, defaultValue.EMPTY_OBJECT);
-  var extension = options.extension;
+  const extension = options.extension;
 
   // The calling code is responsible for loading the schema.
   // This keeps metadata parsing synchronous.
-  var schema = options.schema;
+  const schema = options.schema;
 
   //>>includeStart('debug', pragmas.debug);
   Check.typeOf.object("options.extension", extension);
   Check.typeOf.object("options.schema", schema);
   //>>includeEnd('debug');
 
-  var i;
-  var propertyTables = [];
-  var sortedIds;
+  let i;
+  const propertyTables = [];
+  let sortedIds;
   if (defined(extension.featureTables)) {
     // Store textures in an array sorted by the dictionary keys. This
-    // allows compatibility with the newer EXT_mesh_features extension
+    // allows compatibility with the newer EXT_structural_metadata extension
     // which is array-based.
     sortedIds = Object.keys(extension.featureTables).sort();
     for (i = 0; i < sortedIds.length; i++) {
-      var featureTableId = sortedIds[i];
-      var featureTable = extension.featureTables[featureTableId];
-      var classDefinition = schema.classes[featureTable.class];
+      const featureTableId = sortedIds[i];
+      const featureTable = extension.featureTables[featureTableId];
+      const classDefinition = schema.classes[featureTable.class];
 
-      var metadataTable = new MetadataTable({
+      const metadataTable = new MetadataTable({
         count: featureTable.count,
         properties: featureTable.properties,
         class: classDefinition,
@@ -64,19 +65,19 @@ export default function parseFeatureMetadataLegacy(options) {
     }
   }
 
-  var propertyTextures = [];
+  const propertyTextures = [];
   if (defined(extension.featureTextures)) {
     // Store textures in an array sorted by the dictionary keys. This
-    // allows compatibility with the newer EXT_mesh_features extension
+    // allows compatibility with the newer EXT_structural_metadata extension
     // which is array-based.
     sortedIds = Object.keys(extension.featureTextures).sort();
     for (i = 0; i < sortedIds.length; i++) {
-      var featureTextureId = sortedIds[i];
-      var featureTexture = extension.featureTextures[featureTextureId];
+      const featureTextureId = sortedIds[i];
+      const featureTexture = extension.featureTextures[featureTextureId];
       propertyTextures.push(
         new PropertyTexture({
           id: featureTextureId,
-          featureTexture: featureTexture,
+          propertyTexture: transcodeToPropertyTexture(featureTexture),
           class: schema.classes[featureTexture.class],
           textures: options.textures,
         })
@@ -84,7 +85,7 @@ export default function parseFeatureMetadataLegacy(options) {
     }
   }
 
-  return new FeatureMetadata({
+  return new StructuralMetadata({
     schema: schema,
     propertyTables: propertyTables,
     propertyTextures: propertyTextures,
@@ -92,4 +93,45 @@ export default function parseFeatureMetadataLegacy(options) {
     extras: extension.extras,
     extensions: extension.extensions,
   });
+}
+
+function transcodeToPropertyTexture(featureTexture) {
+  const propertyTexture = {
+    class: featureTexture.class,
+    properties: {},
+  };
+
+  const properties = featureTexture.properties;
+  for (const propertyId in properties) {
+    if (properties.hasOwnProperty(propertyId)) {
+      const oldProperty = properties[propertyId];
+      const property = {
+        // EXT_structural_metadata uses numeric channel indices instead of
+        // a string of channel letters like "rgba".
+        channels: reformatChannels(oldProperty.channels),
+        extras: oldProperty.extras,
+        extensions: oldProperty.extensions,
+      };
+
+      // EXT_feature_metadata puts the textureInfo in property.texture.
+      // EXT_structural_metadata flattens this structure; essentially a
+      // textureInfo + channels
+      propertyTexture.properties[propertyId] = combine(
+        oldProperty.texture,
+        property,
+        true
+      );
+    }
+  }
+
+  return propertyTexture;
+}
+
+function reformatChannels(channelsString) {
+  const length = channelsString.length;
+  const result = new Array(length);
+  for (let i = 0; i < length; i++) {
+    result[i] = "rgba".indexOf(channelsString[i]);
+  }
+  return result;
 }

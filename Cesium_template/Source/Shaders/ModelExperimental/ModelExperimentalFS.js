@@ -32,39 +32,52 @@ vec4 handleAlpha(vec3 color, float alpha)\n\
     #endif\n\
 }\n\
 \n\
-Feature feature;\n\
+SelectedFeature selectedFeature;\n\
 \n\
-void main() \n\
+void main()\n\
 {\n\
+    #ifdef HAS_MODEL_SPLITTER\n\
+    modelSplitterStage();\n\
+    #endif\n\
+\n\
     czm_modelMaterial material = defaultModelMaterial();\n\
 \n\
     ProcessedAttributes attributes;\n\
     geometryStage(attributes);\n\
 \n\
-    #ifdef HAS_FEATURES\n\
-    featureStage(feature);\n\
+    FeatureIds featureIds;\n\
+    featureIdStage(featureIds, attributes);\n\
+\n\
+    Metadata metadata;\n\
+    metadataStage(metadata, attributes);\n\
+\n\
+    #ifdef HAS_SELECTED_FEATURE_ID\n\
+    selectedFeatureIdStage(selectedFeature, featureIds);\n\
     #endif\n\
 \n\
-\n\
     #ifndef CUSTOM_SHADER_REPLACE_MATERIAL\n\
-    materialStage(material, attributes, feature);\n\
+    materialStage(material, attributes, selectedFeature);\n\
     #endif\n\
 \n\
     #ifdef HAS_CUSTOM_FRAGMENT_SHADER\n\
-    customShaderStage(material, attributes);\n\
+    customShaderStage(material, attributes, featureIds, metadata);\n\
     #endif\n\
 \n\
-    lightingStage(material);\n\
+    lightingStage(material, attributes);\n\
 \n\
-    #ifdef HAS_FEATURES\n\
-    cpuStylingStage(material, feature);\n\
+    #ifdef HAS_SELECTED_FEATURE_ID\n\
+    cpuStylingStage(material, selectedFeature);\n\
     #endif\n\
-    \n\
+\n\
     #ifdef HAS_MODEL_COLOR\n\
     modelColorStage(material);\n\
-    #endif \n\
+    #endif\n\
 \n\
     vec4 color = handleAlpha(material.diffuse, material.alpha);\n\
+\n\
+    #ifdef HAS_CLIPPING_PLANES\n\
+    modelClippingPlanesStage(color);\n\
+    #endif\n\
 \n\
     gl_FragColor = color;\n\
 }\n\
