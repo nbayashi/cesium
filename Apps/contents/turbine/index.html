@@ -117,7 +117,7 @@
           {
             text: "地形表現あり",
             onselect: function () {
-              viewer.terrainProvider = Cesium.createWorldTerrain();
+              viewer.terrainProvider = Cesium.Terrain.fromWorldTerrain();
             },
           },
         ],
