@@ -1,5 +1,5 @@
-// This file is automatically rebuilt by the Cesium build process.
-const sandcastleJsHintOptions = {
+  // This file is automatically rebuilt by the Cesium build process.
+  const sandcastleJsHintOptions = {
     "esversion": 11,
     "predef": [
         "JSON",
