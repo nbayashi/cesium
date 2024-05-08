@@ -76,7 +76,11 @@
         clockViewModel: new Cesium.ClockViewModel(clock),
         selectionIndicator: true,
         terrainProvider: new Cesium.EllipsoidTerrainProvider(),
-        vrButton: true, //VRボタン有効化
+        vrButton: true, //VRボタン有効化,
+        terrain: Cesium.Terrain.fromWorldTerrain({
+    requestWaterMask: true,
+    requestVertexNormals: true,
+  }),
       });
 
       viewer.scene.globe.enableLighting = true;
