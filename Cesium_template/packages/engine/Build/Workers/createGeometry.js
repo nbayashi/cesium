@@ -1,7 +1,7 @@
 /**
  * @license
  * Cesium - https://github.com/CesiumGS/cesium
- * Version 1.117
+ * Version 1.129
  *
  * Copyright 2011-2022 Cesium Contributors
  *
@@ -25,37 +25,34 @@
 
 import {
   PrimitivePipeline_default
-} from "./chunk-PWF3YJJ5.js";
+} from "./chunk-PS3OKVOQ.js";
 import {
   createTaskProcessorWorker_default
-} from "./chunk-IBXGK4WV.js";
-import "./chunk-WEGCQ5DY.js";
-import "./chunk-PK7TEP3J.js";
-import "./chunk-PS6AEMBR.js";
-import "./chunk-AOFMPKUB.js";
-import "./chunk-G7CJQKKD.js";
-import "./chunk-FOZQIHZK.js";
-import "./chunk-WWP3I7R5.js";
-import "./chunk-RL73GOEF.js";
-import "./chunk-34DGOKCO.js";
-import "./chunk-NI2R52QD.js";
-import "./chunk-I5TDPPC4.js";
-import "./chunk-TMMOULW3.js";
-import "./chunk-C5CE4OG6.js";
-import "./chunk-4PHPQRSH.js";
-import "./chunk-PEABJLCK.js";
-import "./chunk-WFICTTOE.js";
-import {
-  defaultValue_default
-} from "./chunk-UCPPWV64.js";
+} from "./chunk-J2HTPGC7.js";
+import "./chunk-UC7KH56Y.js";
+import "./chunk-YE6MDFDA.js";
+import "./chunk-RX65FA7X.js";
+import "./chunk-G6JUXZUO.js";
+import "./chunk-C5DCX2YQ.js";
+import "./chunk-HGEGZ67N.js";
+import "./chunk-77MDEA47.js";
+import "./chunk-236N6BJN.js";
+import "./chunk-CQMXZF4A.js";
+import "./chunk-QJTIOB2Z.js";
+import "./chunk-5RPUEFSA.js";
+import "./chunk-IKDQX7DY.js";
+import "./chunk-2BJXFXD7.js";
+import "./chunk-QUFN3GEO.js";
+import "./chunk-XYGBWBD5.js";
+import "./chunk-IFIS4CVK.js";
 import {
   DeveloperError_default
-} from "./chunk-U4IMCOF5.js";
+} from "./chunk-NZSBSY5K.js";
 import {
   __glob,
   __require,
   defined_default
-} from "./chunk-BDUJXBVF.js";
+} from "./chunk-HBNWBMAM.js";
 
 // import("./**/*.js") in packages/engine/Source/Workers/createGeometry.js
 var globImport_js = __glob({
@@ -112,7 +109,7 @@ var globImport_js = __glob({
 // packages/engine/Source/Workers/createGeometry.js
 var moduleCache = {};
 async function getModule(moduleName, modulePath) {
-  let module = defaultValue_default(moduleCache[modulePath], moduleCache[moduleName]);
+  let module = moduleCache[modulePath] ?? moduleCache[moduleName];
   if (defined_default(module)) {
     return module;
   }
@@ -148,10 +145,9 @@ async function createGeometry(parameters, transferableObjects) {
       throw new DeveloperError_default("Must only set moduleName or modulePath");
     }
     if (defined_default(moduleName) || defined_default(modulePath)) {
-      resultsOrPromises[i] = getModule(
-        moduleName,
-        modulePath
-      ).then((createFunction) => createFunction(geometry, task.offset));
+      resultsOrPromises[i] = getModule(moduleName, modulePath).then(
+        (createFunction) => createFunction(geometry, task.offset)
+      );
     } else {
       resultsOrPromises[i] = geometry;
     }

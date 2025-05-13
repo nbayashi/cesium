@@ -29,6 +29,13 @@ SelectedFeature selectedFeature;\n\
 \n\
 void main()\n\
 {\n\
+    #ifdef HAS_POINT_CLOUD_SHOW_STYLE\n\
+        if (v_pointCloudShow == 0.0)\n\
+        {\n\
+            discard;\n\
+        }\n\
+    #endif\n\
+\n\
     #ifdef HAS_MODEL_SPLITTER\n\
     modelSplitterStage();\n\
     #endif\n\
@@ -45,6 +52,10 @@ void main()\n\
     MetadataClass metadataClass;\n\
     MetadataStatistics metadataStatistics;\n\
     metadataStage(metadata, metadataClass, metadataStatistics, attributes);\n\
+\n\
+    //========================================================================\n\
+    // When not picking metadata START\n\
+    #ifndef METADATA_PICKING_ENABLED\n\
 \n\
     #ifdef HAS_SELECTED_FEATURE_ID\n\
     selectedFeatureIdStage(selectedFeature, featureIds);\n\
@@ -74,6 +85,20 @@ void main()\n\
 \n\
     vec4 color = handleAlpha(material.diffuse, material.alpha);\n\
 \n\
+    // When not picking metadata END\n\
+    //========================================================================\n\
+    #else \n\
+    //========================================================================\n\
+    // When picking metadata START\n\
+\n\
+    vec4 metadataValues = vec4(0.0, 0.0, 0.0, 0.0);\n\
+    metadataPickingStage(metadata, metadataClass, metadataValues);\n\
+    vec4 color = metadataValues;\n\
+\n\
+    #endif\n\
+    // When picking metadata END\n\
+    //========================================================================\n\
+\n\
     #ifdef HAS_CLIPPING_PLANES\n\
     modelClippingPlanesStage(color);\n\
     #endif\n\
@@ -82,6 +107,10 @@ void main()\n\
     modelClippingPolygonsStage();\n\
     #endif\n\
 \n\
+    //========================================================================\n\
+    // When not picking metadata START\n\
+    #ifndef METADATA_PICKING_ENABLED\n\
+\n\
     #if defined(HAS_SILHOUETTE) && defined(HAS_NORMALS)\n\
     silhouetteStage(color);\n\
     #endif\n\
@@ -89,6 +118,10 @@ void main()\n\
     #ifdef HAS_ATMOSPHERE\n\
     atmosphereStage(color, attributes);\n\
     #endif\n\
+\n\
+    #endif\n\
+    // When not picking metadata END\n\
+    //========================================================================\n\
 \n\
     out_FragColor = color;\n\
 }\n\

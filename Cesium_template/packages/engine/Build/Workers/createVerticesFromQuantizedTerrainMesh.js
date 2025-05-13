@@ -1,7 +1,7 @@
 /**
  * @license
  * Cesium - https://github.com/CesiumGS/cesium
- * Version 1.117
+ * Version 1.129
  *
  * Copyright 2011-2022 Cesium Contributors
  *
@@ -26,45 +26,44 @@
 import {
   EllipsoidalOccluder_default,
   TerrainEncoding_default
-} from "./chunk-MWYZ64MH.js";
+} from "./chunk-PM4Q36WX.js";
 import {
   createTaskProcessorWorker_default
-} from "./chunk-IBXGK4WV.js";
+} from "./chunk-J2HTPGC7.js";
 import {
   WebMercatorProjection_default
-} from "./chunk-WEGCQ5DY.js";
-import "./chunk-PS6AEMBR.js";
+} from "./chunk-UC7KH56Y.js";
+import "./chunk-RX65FA7X.js";
 import {
   AxisAlignedBoundingBox_default
-} from "./chunk-6HCAQOVK.js";
+} from "./chunk-DRMXU674.js";
 import {
   IndexDatatype_default
-} from "./chunk-WWP3I7R5.js";
-import "./chunk-NI2R52QD.js";
+} from "./chunk-77MDEA47.js";
+import "./chunk-QJTIOB2Z.js";
 import {
   Matrix4_default,
   Rectangle_default,
   Transforms_default
-} from "./chunk-I5TDPPC4.js";
-import "./chunk-TMMOULW3.js";
+} from "./chunk-5RPUEFSA.js";
+import "./chunk-IKDQX7DY.js";
 import {
   Cartesian2_default,
   Cartesian3_default,
   Cartographic_default,
   Ellipsoid_default
-} from "./chunk-C5CE4OG6.js";
+} from "./chunk-2BJXFXD7.js";
 import {
   Math_default
-} from "./chunk-4PHPQRSH.js";
-import "./chunk-PEABJLCK.js";
-import "./chunk-WFICTTOE.js";
-import "./chunk-UCPPWV64.js";
+} from "./chunk-QUFN3GEO.js";
+import "./chunk-XYGBWBD5.js";
+import "./chunk-IFIS4CVK.js";
 import {
   DeveloperError_default
-} from "./chunk-U4IMCOF5.js";
+} from "./chunk-NZSBSY5K.js";
 import {
   defined_default
-} from "./chunk-BDUJXBVF.js";
+} from "./chunk-HBNWBMAM.js";
 
 // packages/engine/Source/Core/TerrainProvider.js
 function TerrainProvider() {
@@ -126,7 +125,7 @@ Object.defineProperties(TerrainProvider.prototype, {
    * at points and in rectangles. This property may be undefined if availability
    * information is not available.
    * @memberof TerrainProvider.prototype
-   * @type {TileAvailability}
+   * @type {TileAvailability|undefined}
    * @readonly
    */
   availability: {
@@ -356,9 +355,7 @@ function createVerticesFromQuantizedTerrainMesh(parameters, transferableObjects)
   let southMercatorY;
   let oneOverMercatorHeight;
   if (includeWebMercatorT) {
-    southMercatorY = WebMercatorProjection_default.geodeticLatitudeToMercatorAngle(
-      south
-    );
+    southMercatorY = WebMercatorProjection_default.geodeticLatitudeToMercatorAngle(south);
     oneOverMercatorHeight = 1 / (WebMercatorProjection_default.geodeticLatitudeToMercatorAngle(north) - southMercatorY);
   }
   const uBuffer = quantizedVertices.subarray(0, quantizedVertexCount);
@@ -421,18 +418,30 @@ function createVerticesFromQuantizedTerrainMesh(parameters, transferableObjects)
     Cartesian3_default.minimumByComponent(cartesian3Scratch, minimum, minimum);
     Cartesian3_default.maximumByComponent(cartesian3Scratch, maximum, maximum);
   }
-  const westIndicesSouthToNorth = copyAndSort(parameters.westIndices, function(a, b) {
-    return uvs[a].y - uvs[b].y;
-  });
-  const eastIndicesNorthToSouth = copyAndSort(parameters.eastIndices, function(a, b) {
-    return uvs[b].y - uvs[a].y;
-  });
-  const southIndicesEastToWest = copyAndSort(parameters.southIndices, function(a, b) {
-    return uvs[b].x - uvs[a].x;
-  });
-  const northIndicesWestToEast = copyAndSort(parameters.northIndices, function(a, b) {
-    return uvs[a].x - uvs[b].x;
-  });
+  const westIndicesSouthToNorth = copyAndSort(
+    parameters.westIndices,
+    function(a, b) {
+      return uvs[a].y - uvs[b].y;
+    }
+  );
+  const eastIndicesNorthToSouth = copyAndSort(
+    parameters.eastIndices,
+    function(a, b) {
+      return uvs[b].y - uvs[a].y;
+    }
+  );
+  const southIndicesEastToWest = copyAndSort(
+    parameters.southIndices,
+    function(a, b) {
+      return uvs[b].x - uvs[a].x;
+    }
+  );
+  const northIndicesWestToEast = copyAndSort(
+    parameters.northIndices,
+    function(a, b) {
+      return uvs[a].x - uvs[b].x;
+    }
+  );
   let occludeePointInScaledSpace;
   if (minimumHeight < 0) {
     const occluder = new EllipsoidalOccluder_default(ellipsoid);

@@ -13,12 +13,6 @@ uniform vec2 u_megatextureVoxelSizeUv;\n\
 uniform vec2 u_megatextureSliceSizeUv;\n\
 uniform vec2 u_megatextureTileSizeUv;\n\
 \n\
-uniform ivec3 u_dimensions; // does not include padding\n\
-#if defined(PADDING)\n\
-    uniform ivec3 u_paddingBefore;\n\
-    uniform ivec3 u_paddingAfter;\n\
-#endif\n\
-\n\
 // Integer min, max, clamp: For WebGL1 only\n\
 int intMin(int a, int b) {\n\
     return a <= b ? a : b;\n\
@@ -73,14 +67,8 @@ vec2 index1DTo2DTexcoord(int index, ivec2 dimensions, vec2 uvScale)\n\
 \n\
 Properties getPropertiesFromMegatexture(in SampleData sampleData) {\n\
     int tileIndex = sampleData.megatextureIndex;\n\
-    vec3 voxelCoord = sampleData.tileUv * vec3(u_dimensions);\n\
-    ivec3 voxelDimensions = u_dimensions;\n\
 \n\
-    #if defined(PADDING)\n\
-        voxelDimensions += u_paddingBefore + u_paddingAfter;\n\
-        voxelCoord += vec3(u_paddingBefore);\n\
-    #endif\n\
-\n\
+    vec3 voxelCoord = sampleData.inputCoordinate;\n\
     #if defined(NEAREST_SAMPLING)\n\
         // Round to the center of the nearest voxel\n\
         voxelCoord = floor(voxelCoord) + vec3(0.5);\n\
@@ -92,11 +80,11 @@ Properties getPropertiesFromMegatexture(in SampleData sampleData) {\n\
     // Slice location\n\
     float slice = voxelCoord.z - 0.5;\n\
     int sliceIndex = int(floor(slice));\n\
-    int sliceIndex0 = intClamp(sliceIndex, 0, voxelDimensions.z - 1);\n\
+    int sliceIndex0 = intClamp(sliceIndex, 0, u_inputDimensions.z - 1);\n\
     vec2 sliceUvOffset0 = index1DTo2DTexcoord(sliceIndex0, u_megatextureSliceDimensions, u_megatextureSliceSizeUv);\n\
 \n\
     // Voxel location\n\
-    vec2 voxelUvOffset = clamp(voxelCoord.xy, vec2(0.5), vec2(voxelDimensions.xy) - vec2(0.5)) * u_megatextureVoxelSizeUv;\n\
+    vec2 voxelUvOffset = clamp(voxelCoord.xy, vec2(0.5), vec2(u_inputDimensions.xy) - vec2(0.5)) * u_megatextureVoxelSizeUv;\n\
 \n\
     // Final location in the megatexture\n\
     vec2 uv0 = tileUvOffset + sliceUvOffset0 + voxelUvOffset;\n\
@@ -105,7 +93,7 @@ Properties getPropertiesFromMegatexture(in SampleData sampleData) {\n\
         return getPropertiesFromMegatextureAtUv(uv0);\n\
     #else\n\
         float sliceLerp = fract(slice);\n\
-        int sliceIndex1 = intMin(sliceIndex + 1, voxelDimensions.z - 1);\n\
+        int sliceIndex1 = intMin(sliceIndex + 1, u_inputDimensions.z - 1);\n\
         vec2 sliceUvOffset1 = index1DTo2DTexcoord(sliceIndex1, u_megatextureSliceDimensions, u_megatextureSliceSizeUv);\n\
         vec2 uv1 = tileUvOffset + sliceUvOffset1 + voxelUvOffset;\n\
         Properties properties0 = getPropertiesFromMegatextureAtUv(uv0);\n\

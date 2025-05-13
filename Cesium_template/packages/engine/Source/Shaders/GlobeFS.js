@@ -50,7 +50,7 @@ uniform vec4 u_colorsToAlpha[TEXTURE_UNITS];\n\
 uniform vec4 u_dayTextureTexCoordsRectangle[TEXTURE_UNITS];\n\
 #endif\n\
 \n\
-#ifdef SHOW_REFLECTIVE_OCEAN\n\
+#if defined(HAS_WATER_MASK) && (defined(SHOW_REFLECTIVE_OCEAN) || defined(APPLY_MATERIAL))\n\
 uniform sampler2D u_waterMask;\n\
 uniform vec4 u_waterMaskTranslationAndScale;\n\
 uniform float u_zoomedOutOceanSpecularIntensity;\n\
@@ -208,7 +208,7 @@ vec4 sampleAndBlend(\n\
 \n\
 #ifdef APPLY_COLOR_TO_ALPHA\n\
     vec3 colorDiff = abs(color.rgb - colorToAlpha.rgb);\n\
-    colorDiff.r = max(max(colorDiff.r, colorDiff.g), colorDiff.b);\n\
+    colorDiff.r = czm_maximumComponent(colorDiff);\n\
     alpha = czm_branchFreeTernary(colorDiff.r < colorToAlpha.a, 0.0, alpha);\n\
 #endif\n\
 \n\
@@ -286,7 +286,16 @@ vec3 computeEllipsoidPosition()\n\
     vec2 xy = gl_FragCoord.xy / czm_viewport.zw * 2.0 - vec2(1.0);\n\
     xy *= czm_viewport.zw * mpp * 0.5;\n\
 \n\
-    vec3 direction = normalize(vec3(xy, -czm_currentFrustum.x));\n\
+    vec3 direction;\n\
+    if (czm_orthographicIn3D == 1.0)\n\
+    {\n\
+        direction = vec3(0.0, 0.0, -1.0);\n\
+    }\n\
+    else\n\
+    {\n\
+        direction = normalize(vec3(xy, -czm_currentFrustum.x));\n\
+    }\n\
+\n\
     czm_ray ray = czm_ray(vec3(0.0), direction);\n\
 \n\
     vec3 ellipsoid_center = czm_view[3].xyz;\n\
@@ -363,7 +372,7 @@ void main()\n\
     float fade = 0.0;\n\
 #endif\n\
 \n\
-#ifdef SHOW_REFLECTIVE_OCEAN\n\
+#if defined(HAS_WATER_MASK) && (defined(SHOW_REFLECTIVE_OCEAN) || defined(APPLY_MATERIAL))\n\
     vec2 waterMaskTranslation = u_waterMaskTranslationAndScale.xy;\n\
     vec2 waterMaskScale = u_waterMaskTranslationAndScale.zw;\n\
     vec2 waterMaskTextureCoordinates = v_textureCoordinates.xy * waterMaskScale + waterMaskTranslation;\n\
@@ -371,17 +380,19 @@ void main()\n\
 \n\
     float mask = texture(u_waterMask, waterMaskTextureCoordinates).r;\n\
 \n\
+    #ifdef SHOW_REFLECTIVE_OCEAN\n\
     if (mask > 0.0)\n\
     {\n\
         mat3 enuToEye = czm_eastNorthUpToEyeCoordinates(v_positionMC, normalEC);\n\
 \n\
-        vec2 ellipsoidTextureCoordinates = czm_ellipsoidWgs84TextureCoordinates(normalMC);\n\
-        vec2 ellipsoidFlippedTextureCoordinates = czm_ellipsoidWgs84TextureCoordinates(normalMC.zyx);\n\
+        vec2 ellipsoidTextureCoordinates = czm_ellipsoidTextureCoordinates(normalMC);\n\
+        vec2 ellipsoidFlippedTextureCoordinates = czm_ellipsoidTextureCoordinates(normalMC.zyx);\n\
 \n\
         vec2 textureCoordinates = mix(ellipsoidTextureCoordinates, ellipsoidFlippedTextureCoordinates, czm_morphTime * smoothstep(0.9, 0.95, normalMC.z));\n\
 \n\
         color = computeWaterColor(v_positionEC, textureCoordinates, enuToEye, color, mask, fade);\n\
     }\n\
+    #endif\n\
 #endif\n\
 \n\
 #ifdef APPLY_MATERIAL\n\
@@ -393,6 +404,10 @@ void main()\n\
     materialInput.slope = v_slope;\n\
     materialInput.height = v_height;\n\
     materialInput.aspect = v_aspect;\n\
+    #ifdef HAS_WATER_MASK\n\
+        materialInput.waterMask = mask;\n\
+    #endif\n\
+\n\
     czm_material material = czm_getMaterial(materialInput);\n\
     vec4 materialColor = vec4(material.diffuse, material.alpha);\n\
     color = alphaBlend(materialColor, color);\n\
@@ -423,7 +438,7 @@ void main()\n\
 #ifdef ENABLE_CLIPPING_POLYGONS\n\
     vec2 clippingPosition = v_clippingPosition;\n\
     int regionIndex = v_regionIndex;\n\
-    clipPolygons(u_clippingDistance, CLIPPING_POLYGON_REGIONS_LENGTH, clippingPosition, regionIndex);    \n\
+    clipPolygons(u_clippingDistance, CLIPPING_POLYGON_REGIONS_LENGTH, clippingPosition, regionIndex);\n\
 #endif\n\
 \n\
 #ifdef HIGHLIGHT_FILL_TILE\n\
@@ -490,12 +505,11 @@ void main()\n\
             #endif\n\
 \n\
             #ifndef HDR\n\
-                fogColor.rgb = czm_acesTonemapping(fogColor.rgb);\n\
+                fogColor.rgb = czm_pbrNeutralTonemapping(fogColor.rgb);\n\
                 fogColor.rgb = czm_inverseGamma(fogColor.rgb);\n\
             #endif\n\
 \n\
-            const float modifier = 0.15;\n\
-            finalColor = vec4(czm_fog(v_distance, finalColor.rgb, fogColor.rgb, modifier), finalColor.a);\n\
+            finalColor = vec4(czm_fog(v_distance, finalColor.rgb, fogColor.rgb, czm_fogVisualDensityScalar), finalColor.a);\n\
 \n\
         #else\n\
             // Apply ground atmosphere. This happens when the camera is far away from the earth.\n\

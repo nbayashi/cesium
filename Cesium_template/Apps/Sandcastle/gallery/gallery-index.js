@@ -1,6 +1,6 @@
 // This file is automatically rebuilt by the Cesium build process.
-const hello_world_index = 116;
-const VERSION = '1.117';
+const hello_world_index = 124;
+const VERSION = '1.129';
 const gallery_demos = [{
   "name": "3D Models",
   "isNew": false,
@@ -70,6 +70,10 @@ const gallery_demos = [{
   "isNew": false,
   "img": "3D Tiles Interior.jpg"
 }, {
+  "name": "3D Tiles NGA GPM Visualization",
+  "isNew": false,
+  "img": "3D Tiles NGA GPM Visualization.jpg"
+}, {
   "name": "3D Tiles Photogrammetry",
   "isNew": false,
   "img": "3D Tiles Photogrammetry.jpg"
@@ -102,9 +106,21 @@ const gallery_demos = [{
   "isNew": false,
   "img": "3D Tiles Vertical Exaggeration.jpg"
 }, {
+  "name": "AEC Architectural Design",
+  "isNew": false,
+  "img": "AEC Architectural Design.jpg"
+}, {
   "name": "AEC Clipping",
-  "isNew": true,
+  "isNew": false,
   "img": "AEC Clipping.jpg"
+}, {
+  "name": "AEC Isolate by Category",
+  "isNew": false,
+  "img": "AEC Isolate by Category.jpg"
+}, {
+  "name": "AEC Metadata Styling",
+  "isNew": false,
+  "img": "AEC Metadata Styling.jpg"
 }, {
   "name": "Aerometrex San Francisco",
   "isNew": false,
@@ -262,6 +278,10 @@ const gallery_demos = [{
   "isNew": false,
   "img": "CZML ZIndex.jpg"
 }, {
+  "name": "Callback Position Property",
+  "isNew": false,
+  "img": "Callback Position Property.jpg"
+}, {
   "name": "Callback Property",
   "isNew": false,
   "img": "Callback Property.jpg"
@@ -323,7 +343,7 @@ const gallery_demos = [{
   "img": "Classification Types.jpg"
 }, {
   "name": "Clipping Regions",
-  "isNew": true,
+  "isNew": false,
   "img": "Clipping Regions.jpg"
 }, {
   "name": "Clock",
@@ -402,6 +422,10 @@ const gallery_demos = [{
   "isNew": false,
   "img": "Elevation Band Material.jpg"
 }, {
+  "name": "Entity tracking",
+  "isNew": false,
+  "img": "Entity tracking.jpg"
+}, {
   "name": "Export KML",
   "isNew": false,
   "img": "Export KML.jpg"
@@ -409,6 +433,10 @@ const gallery_demos = [{
   "name": "FXAA",
   "isNew": false,
   "img": "FXAA.jpg"
+}, {
+  "name": "Fog",
+  "isNew": false,
+  "img": "Fog.jpg"
 }, {
   "name": "Fog Post Process",
   "isNew": false,
@@ -441,6 +469,10 @@ const gallery_demos = [{
   "name": "Globe Materials",
   "isNew": false,
   "img": "Globe Materials.jpg"
+}, {
+  "name": "Globe Materials – Water Mask Elevation Map",
+  "isNew": false,
+  "img": "Globe Materials – Water Mask Elevation Map.jpg"
 }, {
   "name": "Globe Translucency",
   "isNew": false,
@@ -526,6 +558,10 @@ const gallery_demos = [{
   "isNew": false,
   "img": "Interpolation.jpg"
 }, {
+  "name": "Japan Buildings",
+  "isNew": false,
+  "img": "Japan Buildings.jpg"
+}, {
   "name": "KML",
   "isNew": false,
   "img": "KML.jpg"
@@ -562,6 +598,10 @@ const gallery_demos = [{
   "isNew": false,
   "img": "Map Pins.jpg"
 }, {
+  "name": "Material with Custom GLSL",
+  "isNew": true,
+  "img": "Material with Custom GLSL.jpg"
+}, {
   "name": "Materials",
   "isNew": false,
   "img": "Materials.jpg"
@@ -569,6 +609,10 @@ const gallery_demos = [{
   "name": "Montreal Point Cloud",
   "isNew": false,
   "img": "Montreal Point Cloud.jpg"
+}, {
+  "name": "Moon",
+  "isNew": false,
+  "img": "Moon.jpg"
 }, {
   "name": "Multi-part CZML",
   "isNew": false,
@@ -702,6 +746,10 @@ const gallery_demos = [{
   "isNew": false,
   "img": "Spheres and Ellipsoids.jpg"
 }, {
+  "name": "SplitDirection",
+  "isNew": false,
+  "img": "SplitDirection.jpg"
+}, {
   "name": "Star Burst",
   "isNew": false,
   "img": "Star Burst.jpg"
@@ -742,6 +790,10 @@ const gallery_demos = [{
   "isNew": false,
   "img": "Voxels.jpg"
 }, {
+  "name": "Voxels in 3D Tiles",
+  "isNew": false,
+  "img": "Voxels in 3D Tiles.jpg"
+}, {
   "name": "Wall",
   "isNew": false,
   "img": "Wall.jpg"
@@ -761,5 +813,17 @@ const gallery_demos = [{
   "name": "Z-Indexing Geometry",
   "isNew": false,
   "img": "Z-Indexing Geometry.jpg"
+}, {
+  "name": "glTF PBR Extensions",
+  "isNew": false,
+  "img": "glTF PBR Extensions.jpg"
+}, {
+  "name": "iModel Mesh Export Service",
+  "isNew": false,
+  "img": "iModel Mesh Export Service.jpg"
+}, {
+  "name": "iTwin Feature Service",
+  "isNew": false,
+  "img": "iTwin Feature Service.jpg"
 }];
 const has_new_gallery_demos = true;

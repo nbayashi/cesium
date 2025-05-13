@@ -76,7 +76,11 @@ function makeAsyncThrowFunction(debug, Type, name) {
           }).catch((e) => {
             let result = e instanceof Type || e.name === name;
             if ((0, import_engine2.defined)(message)) {
-              result = result && util.equals(e.message, message);
+              if (typeof message === "string") {
+                result = result && e.message === message;
+              } else {
+                result = result && message.test(e.message);
+              }
             }
             return {
               pass: result,
@@ -110,7 +114,7 @@ function makeThrowFunction(debug, Type, name) {
   if (debug) {
     return function(util) {
       return {
-        compare: function(actual, expected) {
+        compare: function(actual, message) {
           let result = false;
           let exception;
           if (typeof actual !== "function") {
@@ -124,18 +128,22 @@ function makeThrowFunction(debug, Type, name) {
           if (exception) {
             result = exception instanceof Type || exception.name === name;
           }
-          let message;
+          if ((0, import_engine2.defined)(message)) {
+            if (typeof message === "string") {
+              result = result && exception.message === message;
+            } else {
+              result = result && message.test(exception.message);
+            }
+          }
+          let testMessage;
           if (result) {
-            message = [
-              `Expected function not to throw ${name} , but it threw`,
-              exception.message || exception
-            ].join(" ");
+            testMessage = `Expected function not to throw ${name} , but it threw ${exception.message || exception}`;
           } else {
-            message = `Expected function to throw ${name}.`;
+            testMessage = (0, import_engine2.defined)(message) ? `Expected to throw with ${name}: ${message}, but it was thrown with ${exception}` : `Expected function to throw with ${name}.`;
           }
           return {
             pass: result,
-            message
+            message: testMessage
           };
         }
       };
@@ -348,7 +356,7 @@ function createDefaultMatchers(debug) {
       return {
         compare: function(actual, expected, args) {
           const scene = actual;
-          const result = scene.pick((0, import_engine2.defaultValue)(args, new import_engine2.Cartesian2(0, 0)));
+          const result = scene.pick(args ?? new import_engine2.Cartesian2(0, 0));
           const webglStub2 = !!window.webglStub;
           if (!webglStub2) {
             const callback = expected;
@@ -364,9 +372,7 @@ function createDefaultMatchers(debug) {
       return {
         compare: function(actual, expected, args) {
           const scene = actual;
-          const result = scene.pickVoxel(
-            (0, import_engine2.defaultValue)(args, new import_engine2.Cartesian2(0, 0))
-          );
+          const result = scene.pickVoxel(args ?? new import_engine2.Cartesian2(0, 0));
           const webglStub2 = !!window.webglStub;
           if (!webglStub2) {
             const callback = expected;
@@ -472,8 +478,8 @@ function createDefaultMatchers(debug) {
         compare: function(actual, expected, x, y) {
           const scene = actual;
           const canvas = scene.canvas;
-          x = (0, import_engine2.defaultValue)(x, canvas.clientWidth / 2);
-          y = (0, import_engine2.defaultValue)(y, canvas.clientHeight / 2);
+          x = x ?? canvas.clientWidth / 2;
+          y = y ?? canvas.clientHeight / 2;
           const result = scene.pickPosition(new import_engine2.Cartesian2(x, y));
           const webglStub2 = !!window.webglStub;
           if (!webglStub2) {
@@ -496,7 +502,7 @@ function createDefaultMatchers(debug) {
           if ((0, import_engine2.defined)(options.context)) {
             context = options.context;
             framebuffer = options.framebuffer;
-            epsilon = (0, import_engine2.defaultValue)(options.epsilon, epsilon);
+            epsilon = options.epsilon ?? epsilon;
           } else {
             context = options;
           }
@@ -717,8 +723,8 @@ function contextRenderAndReadPixels(options) {
   let sp = options.shaderProgram;
   const uniformMap = options.uniformMap;
   const modelMatrix = options.modelMatrix;
-  const depth = (0, import_engine2.defaultValue)(options.depth, 0);
-  const clear = (0, import_engine2.defaultValue)(options.clear, true);
+  const depth = options.depth ?? 0;
+  const clear = options.clear ?? true;
   let clearColor;
   if (!(0, import_engine2.defined)(context)) {
     throw new import_engine2.DeveloperError("options.context is required.");
@@ -788,8 +794,8 @@ function contextRenderAndReadPixels(options) {
 function expectContextToRender(actual, expected, expectEqual) {
   const options = actual;
   const context = options.context;
-  const clear = (0, import_engine2.defaultValue)(options.clear, true);
-  const epsilon = (0, import_engine2.defaultValue)(options.epsilon, 0);
+  const clear = options.clear ?? true;
+  const epsilon = options.epsilon ?? 0;
   if (!(0, import_engine2.defined)(expected)) {
     expected = [255, 255, 255, 255];
   }

@@ -1,7 +1,7 @@
 /**
  * @license
  * Cesium - https://github.com/CesiumGS/cesium
- * Version 1.117
+ * Version 1.129
  *
  * Copyright 2011-2022 Cesium Contributors
  *
@@ -26,55 +26,52 @@
 import {
   EllipsoidalOccluder_default,
   TerrainEncoding_default
-} from "./chunk-MWYZ64MH.js";
+} from "./chunk-PM4Q36WX.js";
 import {
   createTaskProcessorWorker_default
-} from "./chunk-IBXGK4WV.js";
+} from "./chunk-J2HTPGC7.js";
 import {
   WebMercatorProjection_default
-} from "./chunk-WEGCQ5DY.js";
+} from "./chunk-UC7KH56Y.js";
 import {
   OrientedBoundingBox_default
-} from "./chunk-XHLDDE65.js";
-import "./chunk-PS6AEMBR.js";
-import "./chunk-CE6GTZ4I.js";
+} from "./chunk-WP3IJYLC.js";
+import "./chunk-RX65FA7X.js";
+import "./chunk-CAKU6ZPR.js";
 import {
   AxisAlignedBoundingBox_default
-} from "./chunk-6HCAQOVK.js";
-import "./chunk-G7CJQKKD.js";
-import "./chunk-FOZQIHZK.js";
+} from "./chunk-DRMXU674.js";
+import "./chunk-C5DCX2YQ.js";
+import "./chunk-HGEGZ67N.js";
 import {
   BoundingSphere_default
-} from "./chunk-NI2R52QD.js";
+} from "./chunk-QJTIOB2Z.js";
 import {
   Matrix4_default,
   Rectangle_default,
   Transforms_default
-} from "./chunk-I5TDPPC4.js";
-import "./chunk-TMMOULW3.js";
+} from "./chunk-5RPUEFSA.js";
+import "./chunk-IKDQX7DY.js";
 import {
   Cartesian2_default,
   Cartesian3_default,
   Ellipsoid_default
-} from "./chunk-C5CE4OG6.js";
+} from "./chunk-2BJXFXD7.js";
 import {
   Math_default
-} from "./chunk-4PHPQRSH.js";
-import "./chunk-PEABJLCK.js";
+} from "./chunk-QUFN3GEO.js";
+import "./chunk-XYGBWBD5.js";
 import {
   RuntimeError_default
-} from "./chunk-WFICTTOE.js";
-import {
-  defaultValue_default
-} from "./chunk-UCPPWV64.js";
+} from "./chunk-IFIS4CVK.js";
 import {
   DeveloperError_default
-} from "./chunk-U4IMCOF5.js";
+} from "./chunk-NZSBSY5K.js";
 import {
   __commonJS,
   __toESM,
   defined_default
-} from "./chunk-BDUJXBVF.js";
+} from "./chunk-HBNWBMAM.js";
 
 // node_modules/lerc/LercDecode.js
 var require_LercDecode = __commonJS({
@@ -1506,10 +1503,12 @@ var require_LercDecode = __commonJS({
             var s = 0;
             switch (t) {
               case 0:
+              //ubyte
               case 1:
                 s = 1;
                 break;
               case 2:
+              //short
               case 3:
                 s = 2;
                 break;
@@ -1530,10 +1529,12 @@ var require_LercDecode = __commonJS({
             var t = dt;
             switch (dt) {
               case 2:
+              //short
               case 4:
                 t = dt - tc;
                 break;
               case 3:
+              //ushort
               case 5:
                 t = dt - 2 * tc;
                 break;
@@ -1930,8 +1931,8 @@ HeightmapTessellator.computeVertices = function(options) {
   const height = options.height;
   const skirtHeight = options.skirtHeight;
   const hasSkirts = skirtHeight > 0;
-  const isGeographic = defaultValue_default(options.isGeographic, true);
-  const ellipsoid = defaultValue_default(options.ellipsoid, Ellipsoid_default.WGS84);
+  const isGeographic = options.isGeographic ?? true;
+  const ellipsoid = options.ellipsoid ?? Ellipsoid_default.default;
   const oneOverGlobeSemimajorAxis = 1 / ellipsoid.maximumRadius;
   const nativeRectangle = Rectangle_default.clone(options.nativeRectangle);
   const rectangle = Rectangle_default.clone(options.rectangle);
@@ -1960,42 +1961,18 @@ HeightmapTessellator.computeVertices = function(options) {
   let relativeToCenter = options.relativeToCenter;
   const hasRelativeToCenter = defined_default(relativeToCenter);
   relativeToCenter = hasRelativeToCenter ? relativeToCenter : Cartesian3_default.ZERO;
-  const includeWebMercatorT = defaultValue_default(options.includeWebMercatorT, false);
-  const exaggeration = defaultValue_default(options.exaggeration, 1);
-  const exaggerationRelativeHeight = defaultValue_default(
-    options.exaggerationRelativeHeight,
-    0
-  );
+  const includeWebMercatorT = options.includeWebMercatorT ?? false;
+  const exaggeration = options.exaggeration ?? 1;
+  const exaggerationRelativeHeight = options.exaggerationRelativeHeight ?? 0;
   const hasExaggeration = exaggeration !== 1;
   const includeGeodeticSurfaceNormals = hasExaggeration;
-  const structure = defaultValue_default(
-    options.structure,
-    HeightmapTessellator.DEFAULT_STRUCTURE
-  );
-  const heightScale = defaultValue_default(
-    structure.heightScale,
-    HeightmapTessellator.DEFAULT_STRUCTURE.heightScale
-  );
-  const heightOffset = defaultValue_default(
-    structure.heightOffset,
-    HeightmapTessellator.DEFAULT_STRUCTURE.heightOffset
-  );
-  const elementsPerHeight = defaultValue_default(
-    structure.elementsPerHeight,
-    HeightmapTessellator.DEFAULT_STRUCTURE.elementsPerHeight
-  );
-  const stride = defaultValue_default(
-    structure.stride,
-    HeightmapTessellator.DEFAULT_STRUCTURE.stride
-  );
-  const elementMultiplier = defaultValue_default(
-    structure.elementMultiplier,
-    HeightmapTessellator.DEFAULT_STRUCTURE.elementMultiplier
-  );
-  const isBigEndian = defaultValue_default(
-    structure.isBigEndian,
-    HeightmapTessellator.DEFAULT_STRUCTURE.isBigEndian
-  );
+  const structure = options.structure ?? HeightmapTessellator.DEFAULT_STRUCTURE;
+  const heightScale = structure.heightScale ?? HeightmapTessellator.DEFAULT_STRUCTURE.heightScale;
+  const heightOffset = structure.heightOffset ?? HeightmapTessellator.DEFAULT_STRUCTURE.heightOffset;
+  const elementsPerHeight = structure.elementsPerHeight ?? HeightmapTessellator.DEFAULT_STRUCTURE.elementsPerHeight;
+  const stride = structure.stride ?? HeightmapTessellator.DEFAULT_STRUCTURE.stride;
+  const elementMultiplier = structure.elementMultiplier ?? HeightmapTessellator.DEFAULT_STRUCTURE.elementMultiplier;
+  const isBigEndian = structure.isBigEndian ?? HeightmapTessellator.DEFAULT_STRUCTURE.isBigEndian;
   let rectangleWidth = Rectangle_default.computeWidth(nativeRectangle);
   let rectangleHeight = Rectangle_default.computeHeight(nativeRectangle);
   const granularityX = rectangleWidth / (width - 1);
@@ -2018,9 +1995,7 @@ HeightmapTessellator.computeVertices = function(options) {
   let southMercatorY;
   let oneOverMercatorHeight;
   if (includeWebMercatorT) {
-    southMercatorY = WebMercatorProjection_default.geodeticLatitudeToMercatorAngle(
-      geographicSouth
-    );
+    southMercatorY = WebMercatorProjection_default.geodeticLatitudeToMercatorAngle(geographicSouth);
     oneOverMercatorHeight = 1 / (WebMercatorProjection_default.geodeticLatitudeToMercatorAngle(geographicNorth) - southMercatorY);
   }
   const minimum = minimumScratch;
@@ -2166,9 +2141,7 @@ HeightmapTessellator.computeVertices = function(options) {
         webMercatorTs[index] = webMercatorT;
       }
       if (includeGeodeticSurfaceNormals) {
-        geodeticSurfaceNormals[index] = ellipsoid.geodeticSurfaceNormal(
-          position
-        );
+        geodeticSurfaceNormals[index] = ellipsoid.geodeticSurfaceNormal(position);
       }
     }
   }

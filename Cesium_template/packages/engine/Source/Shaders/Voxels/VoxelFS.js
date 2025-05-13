@@ -101,21 +101,15 @@ vec2 packFloatToVec2(float value) {\n\
     return vec2(highBits, lowBits);\n\
 }\n\
 \n\
-int getSampleIndex(in vec3 tileUv) {\n\
-    ivec3 voxelDimensions = u_dimensions;\n\
-    vec3 sampleCoordinate = tileUv * vec3(voxelDimensions);\n\
-    // tileUv = 1.0 is a valid coordinate but sampleIndex = voxelDimensions is not.\n\
-    // (tileUv = 1.0 corresponds to the last sample, at index = voxelDimensions - 1).\n\
+int getSampleIndex(in SampleData sampleData) {\n\
+    // tileUv = 1.0 is a valid coordinate but sampleIndex = u_inputDimensions is not.\n\
+    // (tileUv = 1.0 corresponds to the far edge of the last sample, at index = u_inputDimensions - 1).\n\
     // Clamp to [0, voxelDimensions - 0.5) to avoid numerical error before flooring\n\
-    vec3 maxCoordinate = vec3(voxelDimensions) - vec3(0.5);\n\
-    sampleCoordinate = clamp(sampleCoordinate, vec3(0.0), maxCoordinate);\n\
-    ivec3 sampleIndex = ivec3(floor(sampleCoordinate));\n\
-    #if defined(PADDING)\n\
-        voxelDimensions += u_paddingBefore + u_paddingAfter;\n\
-        sampleIndex += u_paddingBefore;\n\
-    #endif\n\
+    vec3 maxCoordinate = vec3(u_inputDimensions) - vec3(0.5);\n\
+    vec3 inputCoordinate = clamp(sampleData.inputCoordinate, vec3(0.0), maxCoordinate);\n\
+    ivec3 sampleIndex = ivec3(floor(inputCoordinate));\n\
     // Convert to a 1D index for lookup in a 1D data array\n\
-    return sampleIndex.x + voxelDimensions.x * (sampleIndex.y + voxelDimensions.y * sampleIndex.z);\n\
+    return sampleIndex.x + u_inputDimensions.x * (sampleIndex.y + u_inputDimensions.y * sampleIndex.z);\n\
 }\n\
 \n\
 void main()\n\
@@ -182,7 +176,7 @@ void main()\n\
         fragmentInput.voxel.travelDistance = step.w;\n\
         fragmentInput.voxel.stepCount = stepCount;\n\
         fragmentInput.voxel.tileIndex = sampleDatas[0].megatextureIndex;\n\
-        fragmentInput.voxel.sampleIndex = getSampleIndex(sampleDatas[0].tileUv);\n\
+        fragmentInput.voxel.sampleIndex = getSampleIndex(sampleDatas[0]);\n\
 \n\
         // Run the custom shader\n\
         czm_modelMaterial materialOutput;\n\
@@ -251,7 +245,7 @@ void main()\n\
             discard;\n\
         }\n\
         vec2 megatextureId = packIntToVec2(sampleDatas[0].megatextureIndex);\n\
-        vec2 sampleIndex = packIntToVec2(getSampleIndex(sampleDatas[0].tileUv));\n\
+        vec2 sampleIndex = packIntToVec2(getSampleIndex(sampleDatas[0]));\n\
         out_FragColor = vec4(megatextureId, sampleIndex);\n\
     #else\n\
         out_FragColor = colorAccum;\n\

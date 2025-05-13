@@ -1,7 +1,7 @@
 /**
  * @license
  * Cesium - https://github.com/CesiumGS/cesium
- * Version 1.117
+ * Version 1.129
  *
  * Copyright 2011-2022 Cesium Contributors
  *
@@ -25,68 +25,66 @@
 
 import {
   CorridorGeometryLibrary_default
-} from "./chunk-7VZNXIKG.js";
+} from "./chunk-OBHLT34A.js";
 import {
   CornerType_default
-} from "./chunk-XWML5Y7N.js";
-import "./chunk-ZWPIM77Q.js";
-import "./chunk-2CSEEWHN.js";
+} from "./chunk-ZTBZMRQT.js";
+import "./chunk-UX5JWAC7.js";
+import "./chunk-UFV3YUIN.js";
 import {
   GeometryOffsetAttribute_default
-} from "./chunk-S4XDCPKD.js";
+} from "./chunk-4TIR5UPL.js";
 import {
   VertexFormat_default
-} from "./chunk-4KIUON73.js";
-import "./chunk-CE6GTZ4I.js";
-import "./chunk-6HCAQOVK.js";
+} from "./chunk-SSLK4U3V.js";
+import "./chunk-CAKU6ZPR.js";
+import "./chunk-DRMXU674.js";
 import {
   PolygonPipeline_default
-} from "./chunk-RR7EOKGZ.js";
+} from "./chunk-GO3RZX2R.js";
 import {
   arrayRemoveDuplicates_default
-} from "./chunk-V7JB576Q.js";
-import "./chunk-CYAJYEKW.js";
-import "./chunk-G7CJQKKD.js";
-import "./chunk-FOZQIHZK.js";
+} from "./chunk-K5JTWJPE.js";
+import "./chunk-E7SMO47Q.js";
+import "./chunk-C5DCX2YQ.js";
+import "./chunk-HGEGZ67N.js";
 import {
   IndexDatatype_default
-} from "./chunk-WWP3I7R5.js";
+} from "./chunk-77MDEA47.js";
 import {
   GeometryAttributes_default
-} from "./chunk-RL73GOEF.js";
+} from "./chunk-236N6BJN.js";
 import {
   GeometryAttribute_default,
   Geometry_default,
   PrimitiveType_default
-} from "./chunk-34DGOKCO.js";
+} from "./chunk-CQMXZF4A.js";
 import {
   BoundingSphere_default
-} from "./chunk-NI2R52QD.js";
+} from "./chunk-QJTIOB2Z.js";
 import {
   Rectangle_default
-} from "./chunk-I5TDPPC4.js";
+} from "./chunk-5RPUEFSA.js";
 import {
   ComponentDatatype_default
-} from "./chunk-TMMOULW3.js";
+} from "./chunk-IKDQX7DY.js";
 import {
   Cartesian3_default,
   Cartographic_default,
-  Ellipsoid_default
-} from "./chunk-C5CE4OG6.js";
+  Ellipsoid_default,
+  Frozen_default
+} from "./chunk-2BJXFXD7.js";
 import {
   Math_default
-} from "./chunk-4PHPQRSH.js";
-import "./chunk-PEABJLCK.js";
-import "./chunk-WFICTTOE.js";
-import {
-  defaultValue_default
-} from "./chunk-UCPPWV64.js";
+} from "./chunk-QUFN3GEO.js";
+import "./chunk-XYGBWBD5.js";
+import "./chunk-IFIS4CVK.js";
 import {
   Check_default
-} from "./chunk-U4IMCOF5.js";
+} from "./chunk-NZSBSY5K.js";
 import {
   defined_default
-} from "./chunk-BDUJXBVF.js";
+} from "./chunk-HBNWBMAM.js";
 
 // packages/engine/Source/Core/CorridorGeometry.js
 var cartesian1 = new Cartesian3_default();
@@ -1005,29 +1003,24 @@ function computeRectangle(positions, ellipsoid, width, cornerType, result) {
   return rectangle;
 }
 function CorridorGeometry(options) {
-  options = defaultValue_default(options, defaultValue_default.EMPTY_OBJECT);
+  options = options ?? Frozen_default.EMPTY_OBJECT;
   const positions = options.positions;
   const width = options.width;
   Check_default.defined("options.positions", positions);
   Check_default.defined("options.width", width);
-  const height = defaultValue_default(options.height, 0);
-  const extrudedHeight = defaultValue_default(options.extrudedHeight, height);
+  const height = options.height ?? 0;
+  const extrudedHeight = options.extrudedHeight ?? height;
   this._positions = positions;
-  this._ellipsoid = Ellipsoid_default.clone(
-    defaultValue_default(options.ellipsoid, Ellipsoid_default.WGS84)
-  );
+  this._ellipsoid = Ellipsoid_default.clone(options.ellipsoid ?? Ellipsoid_default.default);
   this._vertexFormat = VertexFormat_default.clone(
-    defaultValue_default(options.vertexFormat, VertexFormat_default.DEFAULT)
+    options.vertexFormat ?? VertexFormat_default.DEFAULT
   );
   this._width = width;
   this._height = Math.max(height, extrudedHeight);
   this._extrudedHeight = Math.min(height, extrudedHeight);
-  this._cornerType = defaultValue_default(options.cornerType, CornerType_default.ROUNDED);
-  this._granularity = defaultValue_default(
-    options.granularity,
-    Math_default.RADIANS_PER_DEGREE
-  );
-  this._shadowVolume = defaultValue_default(options.shadowVolume, false);
+  this._cornerType = options.cornerType ?? CornerType_default.ROUNDED;
+  this._granularity = options.granularity ?? Math_default.RADIANS_PER_DEGREE;
+  this._shadowVolume = options.shadowVolume ?? false;
   this._workerName = "createCorridorGeometry";
   this._offsetAttribute = options.offsetAttribute;
   this._rectangle = void 0;
@@ -1036,7 +1029,7 @@ function CorridorGeometry(options) {
 CorridorGeometry.pack = function(value, array, startingIndex) {
   Check_default.defined("value", value);
   Check_default.defined("array", array);
-  startingIndex = defaultValue_default(startingIndex, 0);
+  startingIndex = startingIndex ?? 0;
   const positions = value._positions;
   const length = positions.length;
   array[startingIndex++] = length;
@@ -1053,7 +1046,7 @@ CorridorGeometry.pack = function(value, array, startingIndex) {
   array[startingIndex++] = value._cornerType;
   array[startingIndex++] = value._granularity;
   array[startingIndex++] = value._shadowVolume ? 1 : 0;
-  array[startingIndex] = defaultValue_default(value._offsetAttribute, -1);
+  array[startingIndex] = value._offsetAttribute ?? -1;
   return array;
 };
 var scratchEllipsoid = Ellipsoid_default.clone(Ellipsoid_default.UNIT_SPHERE);
@@ -1072,7 +1065,7 @@ var scratchOptions = {
 };
 CorridorGeometry.unpack = function(array, startingIndex, result) {
   Check_default.defined("array", array);
-  startingIndex = defaultValue_default(startingIndex, 0);
+  startingIndex = startingIndex ?? 0;
   const length = array[startingIndex++];
   const positions = new Array(length);
   for (let i = 0; i < length; ++i, startingIndex += Cartesian3_default.packedLength) {
@@ -1117,13 +1110,13 @@ CorridorGeometry.unpack = function(array, startingIndex, result) {
   return result;
 };
 CorridorGeometry.computeRectangle = function(options, result) {
-  options = defaultValue_default(options, defaultValue_default.EMPTY_OBJECT);
+  options = options ?? Frozen_default.EMPTY_OBJECT;
   const positions = options.positions;
   const width = options.width;
   Check_default.defined("options.positions", positions);
   Check_default.defined("options.width", width);
-  const ellipsoid = defaultValue_default(options.ellipsoid, Ellipsoid_default.WGS84);
-  const cornerType = defaultValue_default(options.cornerType, CornerType_default.ROUNDED);
+  const ellipsoid = options.ellipsoid ?? Ellipsoid_default.default;
+  const cornerType = options.cornerType ?? CornerType_default.ROUNDED;
   return computeRectangle(positions, ellipsoid, width, cornerType, result);
 };
 CorridorGeometry.createGeometry = function(corridorGeometry) {
