@@ -1,0 +1,55 @@
+@import url(../../../Cesium_template/Apps/Sandcastle/templates/bucket.css);
+
+html,
+body,
+#cesiumContainer {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#toolbar {
+    position: absolute; /* CesiumViewerの上に重ねる */
+    top: 10px;          /* 上からの位置 */
+    left: 10px;         /* 左からの位置 */
+    background-color: rgba(42, 42, 42, 0.8); /* 半透明の背景 */
+    padding: 10px;      /* 内側の余白 */
+    border-radius: 5px; /* 角を丸める */
+    color: white;       /* 文字色 */
+    z-index: 100;       /* CesiumViewerより手前に表示 */
+    /* 必要に応じて幅を設定 */
+    /* width: 300px; */
+}
+
+/* 既存のCSSに加えて */
+
+#toolbar button {
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+    padding: 5px 10px;
+    margin: 2px;
+    cursor: pointer;
+    border-radius: 3px;
+    width: 100%; /* ボタンの幅を調整 */
+    box-sizing: border-box; /* paddingとborderをwidthに含める */
+  }
+  
+  #toolbar button:hover {
+    background-color: #555;
+  }
+  
+  /* 設置モードボタンのオン/オフ状態のスタイル */
+  #togglePlacementMode.on {
+      background-color: #585656; /* 緑色 */
+      border-color: #585656;
+      color: black;
+  }
+  
+  #togglePlacementMode.off {
+      background-color: #d0d0d0; /* 赤色 */
+      border-color: #d0d0d0;
+      color: black;
+  }
