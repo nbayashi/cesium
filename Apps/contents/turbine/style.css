@@ -53,3 +53,80 @@ body,
       border-color: #d0d0d0;
       color: black;
   }
+
+
+/* ここから追加 */
+#modelListContainer {
+  position: absolute;
+  top: 250px; /* ツールバーの下に配置 */
+  right: 10px;
+  background: rgba(42, 42, 42, 0.8);
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  font-family: sans-serif;
+  z-index: 100;
+  max-height: calc(100% - 260px); /* 画面下部とのマージンを考慮 */
+  overflow-y: auto; /* リストが長くなった場合にスクロール可能にする */
+}
+
+#modelListContainer h3 {
+  margin-top: 0;
+  font-size: 1.1em;
+}
+
+#placedModelList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+#placedModelList li {
+  margin-bottom: 8px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex; /* Flexbox を使用して要素を横並びにする */
+  flex-direction: column; /* 要素を縦方向に並べる */
+}
+
+#placedModelList li:last-child {
+  border-bottom: none;
+}
+
+
+#placedModelList .model-info {
+  margin-bottom: 5px; /* 情報と操作ボタンの間にスペース */
+}
+
+#placedModelList .model-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* ボタン間のスペース */
+}
+
+#placedModelList .model-actions input[type="range"] {
+  width: 100px; /* スライダーの幅を調整 */
+}
+
+#placedModelList button {
+  background-color: #f44336; /* Red */
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.8em;
+  cursor: pointer;
+  border-radius: 3px;
+  flex-shrink: 0; /* ボタンが縮まないようにする */
+}
+
+#placedModelList button.toggle-visibility {
+  background-color: #008CBA; /* Blue for visibility button */
+}
+
+#placedModelList button.toggle-visibility.hidden {
+  background-color: #555555; /* Gray when hidden */
+}
