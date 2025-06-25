@@ -140,7 +140,9 @@
   // 各モデル情報には、id, name, position, heading(radian), isVisible, entity を含む
   const placedModels = new Map();
   const placedModelList = document.getElementById("placedModelList");
-
+  // 折りたたみ機能関連の要素を取得
+  const collapsibleModelList = document.getElementById("collapsibleModelList");
+  const toggleModelListButton = document.getElementById("toggleModelList");
   /**
    * モデルの向きを更新する関数
    * @param {Cesium.Entity} entity - 更新するCesiumエンティティ
@@ -264,6 +266,28 @@
       };
     });
   }
+
+
+  // --- モデルリストの折りたたみ機能 ---
+  if (toggleModelListButton && collapsibleModelList) {
+    toggleModelListButton.addEventListener('click', function () {
+      const isCollapsed = collapsibleModelList.classList.toggle('collapsed'); // collapsedクラスをトグル
+
+      ```
+      if (isCollapsed) {
+        this.textContent = '&#9776;'; // ハンバーガーアイコン
+        this.classList.remove('expand-icon'); // 展開時のスタイルを削除
+      } else {
+        this.textContent = '閉じる'; // 「閉じる」テキスト
+        this.classList.add('expand-icon'); // 展開時のスタイルを追加
+      }
+        ```
+    });
+      
+    // 初期状態は折りたたむ (任意)
+    // toggleModelListButton.click(); // 初期表示を折りたたみにする場合はコメント解除
+  }
+  
 
   /**
    * モデルを設置または削除するイベントハンドラ（左クリック）

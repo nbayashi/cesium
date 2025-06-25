@@ -37,9 +37,7 @@ body,
     box-sizing: border-box; /* paddingとborderをwidthに含める */
   }
   
-  #toolbar button:hover {
-    background-color: #555;
-  }
+
   
   /* 設置モードボタンのオン/オフ状態のスタイル */
   #togglePlacementMode.on {
@@ -54,21 +52,58 @@ body,
       color: black;
   }
 
-
-/* ここから追加 */
-#modelListContainer {
+#collapsibleModelList {
   position: absolute;
   top: 250px; /* ツールバーの下に配置 */
-  right: 10px;
+  left: 10px;
+  z-index: 100;
+}
+
+#toggleModelList {
+  background: rgba(42, 42, 42, 0.8);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 24px; /* ハンバーガーアイコンのサイズ */
+  line-height: 1;
+  text-align: center;
+  display: block; /* 常にブロック要素 */
+  width: 44px; /* アイコンが収まるように幅を固定 */
+  height: 44px; /* アイコンが収まるように高さを固定 */
+  box-sizing: border-box; /* paddingを含めてサイズを計算 */
+}
+
+#toggleModelList.expand-icon {
+  font-size: 16px; /* 展開時のテキストサイズを調整 */
+  padding: 10px 15px; /* 展開時のパディングを調整 */
+  width: auto; /* 展開時は自動幅 */
+  height: auto; /* 展開時は自動高さ */
+}
+
+
+#modelListContainer {
   background: rgba(42, 42, 42, 0.8);
   padding: 10px;
   border-radius: 5px;
   color: white;
   font-family: sans-serif;
-  z-index: 100;
-  max-height: calc(100% - 260px); /* 画面下部とのマージンを考慮 */
+  max-height: calc(100vh - 460px); /* 画面下部とのマージンを考慮 */
   overflow-y: auto; /* リストが長くなった場合にスクロール可能にする */
+  /* 初期状態は表示 */
+  display: block;
 }
+
+
+/* 折りたたまれた状態のスタイル */
+#collapsibleModelList.collapsed #modelListContainer {
+  display: none; /* リスト本体を非表示 */
+}
+
+/* ハンバーガーアイコンが展開状態になったときのスタイル（例：閉じるボタンに変わる場合） */
+/* 現状はテキストが「閉じる」に変わるので、アイコンの表示はCSSで制御しない */
+
 
 #modelListContainer h3 {
   margin-top: 0;
