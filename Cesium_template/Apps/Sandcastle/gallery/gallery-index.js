@@ -1,6 +1,6 @@
 // This file is automatically rebuilt by the Cesium build process.
-const hello_world_index = 124;
-const VERSION = '1.129';
+const hello_world_index = 127;
+const VERSION = '1.132';
 const gallery_demos = [{
   "name": "3D Models",
   "isNew": false,
@@ -57,6 +57,14 @@ const gallery_demos = [{
   "name": "3D Tiles Formats",
   "isNew": false,
   "img": "3D Tiles Formats.jpg"
+}, {
+  "name": "3D Tiles Gaussian Splatting",
+  "isNew": false,
+  "img": "3D Tiles Gaussian Splatting.jpg"
+}, {
+  "name": "3D Tiles Gaussian Splatting Comparison",
+  "isNew": true,
+  "img": "3D Tiles Gaussian Splatting Comparison.jpg"
 }, {
   "name": "3D Tiles Inspector",
   "isNew": false,
@@ -410,6 +418,10 @@ const gallery_demos = [{
   "isNew": false,
   "img": "Distance Display Conditions.jpg"
 }, {
+  "name": "Drape Imagery on 3D Tiles",
+  "isNew": false,
+  "img": "Drape Imagery on 3D Tiles.jpg"
+}, {
   "name": "Drawing on Terrain",
   "isNew": false,
   "img": "Drawing on Terrain.jpg"
@@ -599,7 +611,7 @@ const gallery_demos = [{
   "img": "Map Pins.jpg"
 }, {
   "name": "Material with Custom GLSL",
-  "isNew": true,
+  "isNew": false,
   "img": "Material with Custom GLSL.jpg"
 }, {
   "name": "Materials",
@@ -781,6 +793,10 @@ const gallery_demos = [{
   "name": "Video",
   "isNew": false,
   "img": "Video.jpg"
+}, {
+  "name": "VolumeCloud",
+  "isNew": true,
+  "img": "VolumeCloud.jpg"
 }, {
   "name": "Voxel Picking",
   "isNew": false,

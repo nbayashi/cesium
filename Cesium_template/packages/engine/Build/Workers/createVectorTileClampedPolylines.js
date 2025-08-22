@@ -1,7 +1,7 @@
 /**
  * @license
  * Cesium - https://github.com/CesiumGS/cesium
- * Version 1.129
+ * Version 1.132
  *
  * Copyright 2011-2022 Cesium Contributors
  *
@@ -25,30 +25,30 @@
 
 import {
   createTaskProcessorWorker_default
-} from "./chunk-J2HTPGC7.js";
+} from "./chunk-DPFAUGBE.js";
 import {
   AttributeCompression_default
-} from "./chunk-RX65FA7X.js";
+} from "./chunk-K5VGMGFM.js";
 import {
   IndexDatatype_default
-} from "./chunk-77MDEA47.js";
+} from "./chunk-AZPKFL5X.js";
 import {
   Rectangle_default,
   combine_default
-} from "./chunk-5RPUEFSA.js";
-import "./chunk-IKDQX7DY.js";
+} from "./chunk-WUMTX3FI.js";
+import "./chunk-FQNSMOZT.js";
 import {
   Cartesian3_default,
   Cartographic_default,
   Ellipsoid_default
-} from "./chunk-2BJXFXD7.js";
+} from "./chunk-E6NMEKSS.js";
 import {
   Math_default
-} from "./chunk-QUFN3GEO.js";
-import "./chunk-XYGBWBD5.js";
-import "./chunk-IFIS4CVK.js";
-import "./chunk-NZSBSY5K.js";
-import "./chunk-HBNWBMAM.js";
+} from "./chunk-Y3PM6G2V.js";
+import "./chunk-DXYAD4ED.js";
+import "./chunk-Q2QXUN33.js";
+import "./chunk-SOYVF5RC.js";
+import "./chunk-EV4PBU7O.js";
 
 // packages/engine/Source/Workers/createVectorTileClampedPolylines.js
 var MAX_SHORT = 32767;

@@ -88,25 +88,47 @@ flat in int v_regionIndex;\n\
 uniform float u_minimumBrightness;\n\
 #endif\n\
 \n\
+// Based on colorCorrect\n\
+// The colorCorrect flag can only be true when tileProvider.hue/saturation/brightnessShift \n\
+// are nonzero AND when (applyFog || showGroundAtmosphere) in the tile provider\n\
+// - The tileProvider.hue/saturation/brightnessShift are just passed through\n\
+//   from the Globe hue/saturation/brightness, like atmosphereBrightnessShift\n\
+// - The applyFog depends on enableFog, and some tile distance from the viewer\n\
+// - The showGroundAtmosphere is a flag that is passed through from the Globe,\n\
+//   and is true by default when the ellipsoid is WGS84\n\
 #ifdef COLOR_CORRECT\n\
 uniform vec3 u_hsbShift; // Hue, saturation, brightness\n\
 #endif\n\
 \n\
+// Based on highlightFillTile\n\
+// This is set for terrain tiles when they are \"fill\" tiles, and\n\
+// the terrainProvider.fillHighlightColor was set to a value with\n\
+// nonzero alpha\n\
 #ifdef HIGHLIGHT_FILL_TILE\n\
 uniform vec4 u_fillHighlightColor;\n\
 #endif\n\
 \n\
+// Based on translucent\n\
+// This is set depending on the GlobeTranslucencyState\n\
 #ifdef TRANSLUCENT\n\
 uniform vec4 u_frontFaceAlphaByDistance;\n\
 uniform vec4 u_backFaceAlphaByDistance;\n\
 uniform vec4 u_translucencyRectangle;\n\
 #endif\n\
 \n\
+// Based on showUndergroundColor\n\
+// This is set when GlobeSurfaceTileProvider.isUndergroundVisible \n\
+// returns true, AND the tileProvider.undergroundColor had a value with \n\
+// nonzero alpha, and the tileProvider.undergroundColorAlphaByDistance\n\
+// was in the right range\n\
 #ifdef UNDERGROUND_COLOR\n\
 uniform vec4 u_undergroundColor;\n\
 uniform vec4 u_undergroundColorAlphaByDistance;\n\
 #endif\n\
 \n\
+// Based on enableLighting && hasVertexNormals\n\
+// The enableLighting flag is passed in directly from the Globe.\n\
+// The hasVertexNormals flag is from the tileProvider\n\
 #ifdef ENABLE_VERTEX_LIGHTING\n\
 uniform float u_lambertDiffuseMultiplier;\n\
 uniform float u_vertexShadowDarkness;\n\

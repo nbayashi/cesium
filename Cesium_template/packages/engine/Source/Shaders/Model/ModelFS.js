@@ -1,6 +1,7 @@
 //This file is automatically rebuilt by the Cesium build process.
 export default "\n\
 precision highp float;\n\
+\n\
 czm_modelMaterial defaultModelMaterial()\n\
 {\n\
     czm_modelMaterial material;\n\
@@ -87,7 +88,7 @@ void main()\n\
 \n\
     // When not picking metadata END\n\
     //========================================================================\n\
-    #else \n\
+    #else\n\
     //========================================================================\n\
     // When picking metadata START\n\
 \n\
@@ -125,4 +126,5 @@ void main()\n\
 \n\
     out_FragColor = color;\n\
 }\n\
+\n\
 ";

@@ -28,6 +28,7 @@ void main(void)\n\
     #endif\n\
 \n\
     v_outerPositionWC = positionWC.xyz;\n\
-    gl_Position = czm_modelViewProjection * position;\n\
+    vec4 positionEC = czm_modelView * position;\n\
+    gl_Position = czm_projection * positionEC;\n\
 }\n\
 ";

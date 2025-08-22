@@ -253,9 +253,7 @@ getJasmineRequireObj().base = function(j$, jasmineGlobal) {
   };
 
   j$.isObject_ = function(value) {
-    return (
-      !j$.util.isUndefined(value) && value !== null && j$.isA_('Object', value)
-    );
+    return value !== undefined && value !== null && j$.isA_('Object', value);
   };
 
   j$.isString_ = function(value) {
@@ -676,10 +674,6 @@ getJasmineRequireObj().base = function(j$, jasmineGlobal) {
 getJasmineRequireObj().util = function(j$) {
   const util = {};
 
-  util.isUndefined = function(obj) {
-    return obj === void 0;
-  };
-
   util.clone = function(obj) {
     if (Object.prototype.toString.apply(obj) === '[object Array]') {
       return obj.slice();
@@ -727,16 +721,9 @@ getJasmineRequireObj().util = function(j$) {
     return Object.prototype.hasOwnProperty.call(obj, key);
   };
 
-  util.errorWithStack = function errorWithStack() {
-    // Don't throw and catch. That makes it harder for users to debug their
-    // code with exception breakpoints, and it's unnecessary since all
-    // supported environments populate new Error().stack
-    return new Error();
-  };
-
   function callerFile() {
-    const trace = new j$.StackTrace(util.errorWithStack());
-    return trace.frames[2].file;
+    const trace = new j$.StackTrace(new Error());
+    return trace.frames[1].file;
   }
 
   util.jasmineFile = (function() {
@@ -918,10 +905,12 @@ getJasmineRequireObj().Spec = function(j$) {
      * @property {String} description - The description passed to the {@link it} that created this spec.
      * @property {String} fullName - The full description including all ancestors of this spec.
      * @property {String|null} parentSuiteId - The ID of the suite containing this spec, or null if this spec is not in a describe().
-     * @property {String} filename - The name of the file the spec was defined in.
+     * @property {String} filename - Deprecated. The name of the file the spec was defined in.
      * Note: The value may be incorrect if zone.js is installed or
      * `it`/`fit`/`xit` have been replaced with versions that don't maintain the
-     *  same call stack height as the originals.
+     *  same call stack height as the originals. This property may be removed in
+     *  a future version unless there is enough user interest in keeping it.
+     *  See {@link https://github.com/jasmine/jasmine/issues/2065}.
      * @property {ExpectationResult[]} failedExpectations - The list of expectations that failed during execution of this spec.
      * @property {ExpectationResult[]} passedExpectations - The list of expectations that passed during execution of this spec.
      * @property {ExpectationResult[]} deprecationWarnings - The list of deprecation warnings that occurred during execution this spec.
@@ -2315,7 +2304,7 @@ getJasmineRequireObj().Anything = function(j$) {
   function Anything() {}
 
   Anything.prototype.asymmetricMatch = function(other) {
-    return !j$.util.isUndefined(other) && other !== null;
+    return other !== undefined && other !== null;
   };
 
   Anything.prototype.jasmineToString = function() {
@@ -2803,7 +2792,7 @@ getJasmineRequireObj().CallTracker = function(j$) {
 
     this.track = function(context) {
       if (opts.cloneArgs) {
-        context.args = j$.util.cloneArgs(context.args);
+        context.args = opts.argsCloner(context.args);
       }
       calls.push(context);
     };
@@ -2911,13 +2900,15 @@ getJasmineRequireObj().CallTracker = function(j$) {
     };
 
     /**
-     * Set this spy to do a shallow clone of arguments passed to each invocation.
+     * Set this spy to do a clone of arguments passed to each invocation.
      * @name Spy#calls#saveArgumentsByValue
      * @since 2.5.0
+     * @param {Function} [argsCloner] A function to use to clone the arguments. Defaults to a shallow cloning function.
      * @function
      */
-    this.saveArgumentsByValue = function() {
+    this.saveArgumentsByValue = function(argsCloner = j$.util.cloneArgs) {
       opts.cloneArgs = true;
+      opts.argsCloner = argsCloner;
     };
 
     this.unverifiedCount = function() {
@@ -2974,7 +2965,7 @@ getJasmineRequireObj().clearStack = function(j$) {
 
   function getUnclampedSetTimeout(global) {
     const { setTimeout } = global;
-    if (j$.util.isUndefined(global.MessageChannel)) {
+    if (!global.MessageChannel) {
       return setTimeout;
     }
 
@@ -3034,10 +3025,7 @@ getJasmineRequireObj().clearStack = function(j$) {
       // Unlike browsers, Node doesn't require us to do a periodic setTimeout
       // so we avoid the overhead.
       return nodeQueueMicrotaskImpl(global);
-    } else if (
-      SAFARI_OR_WIN_WEBKIT ||
-      j$.util.isUndefined(global.MessageChannel) /* tests */
-    ) {
+    } else if (SAFARI_OR_WIN_WEBKIT || !global.MessageChannel /* tests */) {
       // queueMicrotask is dramatically faster than MessageChannel in Safari
       // and other WebKit-based browsers, such as the one distributed by Playwright
       // to test Safari-like behavior on Windows.
@@ -3125,6 +3113,10 @@ getJasmineRequireObj().Clock = function() {
      * @function
      */
     this.uninstall = function() {
+      // Ensure auto ticking loop is aborted when clock is uninstalled
+      if (tickMode.mode === 'auto') {
+        tickMode = { mode: 'manual', counter: tickMode.counter + 1 };
+      }
       delayedFunctionScheduler = null;
       mockDate.uninstall();
       replace(global, realTimingFunctions);
@@ -3278,6 +3270,12 @@ callbacks to execute _before_ running the next one.
     //
     // @return {!Promise<undefined>}
     async function newMacrotask() {
+      if (NODE_JS) {
+        // setImmediate is generally faster than setTimeout in Node
+        // https://nodejs.org/en/learn/asynchronous-work/event-loop-timers-and-nexttick#setimmediate-vs-settimeout
+        return new Promise(resolve => void setImmediate(resolve));
+      }
+
       // MessageChannel ensures that setTimeout is not throttled to 4ms.
       // https://developer.mozilla.org/en-US/docs/Web/API/setTimeout#reasons_for_delays_longer_than_specified
       // https://stackblitz.com/edit/stackblitz-starters-qtlpcc
@@ -3444,7 +3442,7 @@ getJasmineRequireObj().DelayedFunctionScheduler = function(j$) {
     this.scheduledLookup_ = [];
     this.scheduledFunctions_ = {};
     this.currentTime_ = 0;
-    this.delayedFnCount_ = 0;
+    this.delayedFnStartCount_ = 1e12; // arbitrarily large number to avoid collisions with native timer IDs;
     this.deletedKeys_ = [];
 
     this.tick = function(millis, tickDate) {
@@ -3476,7 +3474,7 @@ getJasmineRequireObj().DelayedFunctionScheduler = function(j$) {
       }
 
       millis = millis || 0;
-      timeoutKey = timeoutKey || ++this.delayedFnCount_;
+      timeoutKey = timeoutKey || ++this.delayedFnStartCount_;
       runAtMillis = runAtMillis || this.currentTime_ + millis;
 
       const funcToSchedule = {
@@ -3721,7 +3719,7 @@ getJasmineRequireObj().Deprecator = function(j$) {
 
   Deprecator.prototype.stackTrace_ = function() {
     const formatter = new j$.ExceptionFormatter();
-    return formatter.stack(j$.util.errorWithStack()).replace(/^Error\n/m, '');
+    return formatter.stack(new Error()).replace(/^Error\n/m, '');
   };
 
   Deprecator.prototype.report_ = function(runnable, deprecation, options) {
@@ -4031,7 +4029,7 @@ getJasmineRequireObj().Expectation = function(j$) {
     return function() {
       // Capture the call stack here, before we go async, so that it will contain
       // frames that are relevant to the user instead of just parts of Jasmine.
-      const errorForStack = j$.util.errorWithStack();
+      const errorForStack = new Error();
 
       return this.expector
         .compare(name, matcherFactory, arguments)
@@ -4306,135 +4304,38 @@ getJasmineRequireObj().formatErrorMsg = function() {
 };
 
 getJasmineRequireObj().GlobalErrors = function(j$) {
-  function GlobalErrors(global) {
-    global = global || j$.getGlobal();
+  class GlobalErrors {
+    #adapter;
+    #handlers;
+    #overrideHandler;
+    #onRemoveOverrideHandler;
 
-    const handlers = [];
-    let overrideHandler = null,
-      onRemoveOverrideHandler = null;
+    constructor(global) {
+      global = global || j$.getGlobal();
+      const dispatchError = this.#dispatchError.bind(this);
 
-    function onBrowserError(event) {
-      dispatchBrowserError(event.error, event);
-    }
-
-    function dispatchBrowserError(error, event) {
-      if (overrideHandler) {
-        // See discussion of spyOnGlobalErrorsAsync in base.js
-        overrideHandler(error);
-        return;
-      }
-
-      const handler = handlers[handlers.length - 1];
-
-      if (handler) {
-        handler(error, event);
-      } else {
-        throw error;
-      }
-    }
-
-    this.originalHandlers = {};
-    this.jasmineHandlers = {};
-    this.installOne_ = function installOne_(errorType, jasmineMessage) {
-      function taggedOnError(error) {
-        if (j$.isError_(error)) {
-          error.jasmineMessage = jasmineMessage + ': ' + error;
-        } else {
-          let substituteMsg;
-
-          if (error) {
-            substituteMsg = jasmineMessage + ': ' + error;
-          } else {
-            substituteMsg = jasmineMessage + ' with no error or message';
-          }
-
-          if (errorType === 'unhandledRejection') {
-            substituteMsg +=
-              '\n' +
-              '(Tip: to get a useful stack trace, use ' +
-              'Promise.reject(new Error(...)) instead of Promise.reject(' +
-              (error ? '...' : '') +
-              ').)';
-          }
-
-          error = new Error(substituteMsg);
-        }
-
-        const handler = handlers[handlers.length - 1];
-
-        if (overrideHandler) {
-          // See discussion of spyOnGlobalErrorsAsync in base.js
-          overrideHandler(error);
-          return;
-        }
-
-        if (handler) {
-          handler(error);
-        } else {
-          throw error;
-        }
-      }
-
-      this.originalHandlers[errorType] = global.process.listeners(errorType);
-      this.jasmineHandlers[errorType] = taggedOnError;
-
-      global.process.removeAllListeners(errorType);
-      global.process.on(errorType, taggedOnError);
-
-      this.uninstall = function uninstall() {
-        const errorTypes = Object.keys(this.originalHandlers);
-        for (const errorType of errorTypes) {
-          global.process.removeListener(
-            errorType,
-            this.jasmineHandlers[errorType]
-          );
-
-          for (let i = 0; i < this.originalHandlers[errorType].length; i++) {
-            global.process.on(errorType, this.originalHandlers[errorType][i]);
-          }
-          delete this.originalHandlers[errorType];
-          delete this.jasmineHandlers[errorType];
-        }
-      };
-    };
-
-    this.install = function install() {
       if (
         global.process &&
         global.process.listeners &&
         j$.isFunction_(global.process.on)
       ) {
-        this.installOne_('uncaughtException', 'Uncaught exception');
-        this.installOne_('unhandledRejection', 'Unhandled promise rejection');
+        this.#adapter = new NodeAdapter(global, dispatchError);
       } else {
-        global.addEventListener('error', onBrowserError);
-
-        const browserRejectionHandler = function browserRejectionHandler(
-          event
-        ) {
-          if (j$.isError_(event.reason)) {
-            event.reason.jasmineMessage =
-              'Unhandled promise rejection: ' + event.reason;
-            dispatchBrowserError(event.reason, event);
-          } else {
-            dispatchBrowserError(
-              'Unhandled promise rejection: ' + event.reason,
-              event
-            );
-          }
-        };
-
-        global.addEventListener('unhandledrejection', browserRejectionHandler);
-
-        this.uninstall = function uninstall() {
-          global.removeEventListener('error', onBrowserError);
-          global.removeEventListener(
-            'unhandledrejection',
-            browserRejectionHandler
-          );
-        };
+        this.#adapter = new BrowserAdapter(global, dispatchError);
       }
-    };
+
+      this.#handlers = [];
+      this.#overrideHandler = null;
+      this.#onRemoveOverrideHandler = null;
+    }
+
+    install() {
+      this.#adapter.install();
+    }
+
+    uninstall() {
+      this.#adapter.uninstall();
+    }
 
     // The listener at the top of the stack will be called with two arguments:
     // the error and the event. Either of them may be falsy.
@@ -4443,35 +4344,183 @@ getJasmineRequireObj().GlobalErrors = function(j$) {
     // browsers but will be falsy in Node.
     // Listeners that are pushed after spec files have been loaded should be
     // able to just use the error parameter.
-    this.pushListener = function pushListener(listener) {
-      handlers.push(listener);
-    };
+    pushListener(listener) {
+      this.#handlers.push(listener);
+    }
 
-    this.popListener = function popListener(listener) {
+    popListener(listener) {
       if (!listener) {
         throw new Error('popListener expects a listener');
       }
 
-      handlers.pop();
-    };
+      this.#handlers.pop();
+    }
 
-    this.setOverrideListener = function(listener, onRemove) {
-      if (overrideHandler) {
+    setOverrideListener(listener, onRemove) {
+      if (this.#overrideHandler) {
         throw new Error("Can't set more than one override listener at a time");
       }
 
-      overrideHandler = listener;
-      onRemoveOverrideHandler = onRemove;
-    };
+      this.#overrideHandler = listener;
+      this.#onRemoveOverrideHandler = onRemove;
+    }
 
-    this.removeOverrideListener = function() {
-      if (onRemoveOverrideHandler) {
-        onRemoveOverrideHandler();
+    removeOverrideListener() {
+      if (this.#onRemoveOverrideHandler) {
+        this.#onRemoveOverrideHandler();
       }
 
-      overrideHandler = null;
-      onRemoveOverrideHandler = null;
-    };
+      this.#overrideHandler = null;
+      this.#onRemoveOverrideHandler = null;
+    }
+
+    // Either error or event may be undefined
+    #dispatchError(error, event) {
+      if (this.#overrideHandler) {
+        // See discussion of spyOnGlobalErrorsAsync in base.js
+        this.#overrideHandler(error);
+        return;
+      }
+
+      const handler = this.#handlers[this.#handlers.length - 1];
+
+      if (handler) {
+        handler(error, event);
+      } else {
+        throw error;
+      }
+    }
+  }
+
+  class BrowserAdapter {
+    #global;
+    #dispatchError;
+    #onError;
+    #onUnhandledRejection;
+
+    constructor(global, dispatchError) {
+      this.#global = global;
+      this.#dispatchError = dispatchError;
+      this.#onError = event => this.#dispatchError(event.error, event);
+      this.#onUnhandledRejection = this.#unhandledRejectionHandler.bind(this);
+    }
+
+    install() {
+      this.#global.addEventListener('error', this.#onError);
+
+      this.#global.addEventListener(
+        'unhandledrejection',
+        this.#onUnhandledRejection
+      );
+    }
+
+    uninstall() {
+      this.#global.removeEventListener('error', this.#onError);
+      this.#global.removeEventListener(
+        'unhandledrejection',
+        this.#onUnhandledRejection
+      );
+    }
+
+    #unhandledRejectionHandler(event) {
+      if (j$.isError_(event.reason)) {
+        event.reason.jasmineMessage =
+          'Unhandled promise rejection: ' + event.reason;
+        this.#dispatchError(event.reason, event);
+      } else {
+        this.#dispatchError(
+          'Unhandled promise rejection: ' + event.reason,
+          event
+        );
+      }
+    }
+  }
+
+  class NodeAdapter {
+    #global;
+    #dispatchError;
+    #originalHandlers;
+    #jasmineHandlers;
+    #onError;
+    #onUnhandledRejection;
+
+    constructor(global, dispatchError) {
+      this.#global = global;
+      this.#dispatchError = dispatchError;
+
+      this.#jasmineHandlers = {};
+      this.#originalHandlers = {};
+
+      this.#onError = error =>
+        this.#eventHandler(error, 'uncaughtException', 'Uncaught exception');
+      this.#onUnhandledRejection = error =>
+        this.#eventHandler(
+          error,
+          'unhandledRejection',
+          'Unhandled promise rejection'
+        );
+    }
+
+    install() {
+      this.#installHandler('uncaughtException', this.#onError);
+      this.#installHandler('unhandledRejection', this.#onUnhandledRejection);
+    }
+
+    uninstall() {
+      const errorTypes = Object.keys(this.#originalHandlers);
+      for (const errorType of errorTypes) {
+        this.#global.process.removeListener(
+          errorType,
+          this.#jasmineHandlers[errorType]
+        );
+
+        for (let i = 0; i < this.#originalHandlers[errorType].length; i++) {
+          this.#global.process.on(
+            errorType,
+            this.#originalHandlers[errorType][i]
+          );
+        }
+        delete this.#originalHandlers[errorType];
+        delete this.#jasmineHandlers[errorType];
+      }
+    }
+
+    #installHandler(errorType, handler) {
+      this.#originalHandlers[errorType] = this.#global.process.listeners(
+        errorType
+      );
+      this.#jasmineHandlers[errorType] = handler;
+
+      this.#global.process.removeAllListeners(errorType);
+      this.#global.process.on(errorType, handler);
+    }
+
+    #eventHandler(error, errorType, jasmineMessage) {
+      if (j$.isError_(error)) {
+        error.jasmineMessage = jasmineMessage + ': ' + error;
+      } else {
+        let substituteMsg;
+
+        if (error) {
+          substituteMsg = jasmineMessage + ': ' + error;
+        } else {
+          substituteMsg = jasmineMessage + ' with no error or message';
+        }
+
+        if (errorType === 'unhandledRejection') {
+          substituteMsg +=
+            '\n' +
+            '(Tip: to get a useful stack trace, use ' +
+            'Promise.reject(new Error(...)) instead of Promise.reject(' +
+            (error ? '...' : '') +
+            ').)';
+        }
+
+        error = new Error(substituteMsg);
+      }
+
+      this.#dispatchError(error);
+    }
   }
 
   return GlobalErrors;
@@ -4865,13 +4914,14 @@ getJasmineRequireObj().DiffBuilder = function(j$) {
 
         const actualCustom = this.prettyPrinter_.customFormat_(actual);
         const expectedCustom = this.prettyPrinter_.customFormat_(expected);
-        const useCustom = !(
-          j$.util.isUndefined(actualCustom) &&
-          j$.util.isUndefined(expectedCustom)
-        );
+        const useCustom =
+          actualCustom !== undefined || expectedCustom !== undefined;
 
         if (useCustom) {
-          messages.push(wrapPrettyPrinted(actualCustom, expectedCustom, path));
+          const prettyActual = actualCustom || this.prettyPrinter_(actual);
+          const prettyExpected =
+            expectedCustom || this.prettyPrinter_(expected);
+          messages.push(wrapPrettyPrinted(prettyActual, prettyExpected, path));
           return false; // don't recurse further
         }
 
@@ -5124,13 +5174,13 @@ getJasmineRequireObj().MatchersUtil = function(j$) {
       bStack,
       diffBuilder
     );
-    if (!j$.util.isUndefined(asymmetricResult)) {
+    if (asymmetricResult !== undefined) {
       return asymmetricResult;
     }
 
     for (const tester of this.customTesters_) {
       const customTesterResult = tester(a, b);
-      if (!j$.util.isUndefined(customTesterResult)) {
+      if (customTesterResult !== undefined) {
         if (!customTesterResult) {
           diffBuilder.recordMismatch();
         }
@@ -7512,7 +7562,7 @@ getJasmineRequireObj().MockDate = function(j$) {
       if (mockDate instanceof GlobalDate) {
         currentTime = mockDate.getTime();
       } else {
-        if (!j$.util.isUndefined(mockDate)) {
+        if (mockDate !== undefined) {
           throw new Error(
             'The argument to jasmine.clock().mockDate(), if specified, ' +
               'should be a Date instance.'
@@ -7729,7 +7779,7 @@ getJasmineRequireObj().makePrettyPrinter = function(j$) {
 
         if (customFormatResult) {
           this.emitScalar(customFormatResult);
-        } else if (j$.util.isUndefined(value)) {
+        } else if (value === undefined) {
           this.emitScalar('undefined');
         } else if (value === null) {
           this.emitScalar('null');
@@ -7748,7 +7798,11 @@ getJasmineRequireObj().makePrettyPrinter = function(j$) {
         } else if (value instanceof RegExp) {
           this.emitScalar(value.toString());
         } else if (typeof value === 'function') {
-          this.emitScalar('Function');
+          if (value.name) {
+            this.emitScalar(`Function '${value.name}'`);
+          } else {
+            this.emitScalar('Function');
+          }
         } else if (j$.isDomNode(value)) {
           if (value.tagName) {
             this.emitDomElement(value);
@@ -9664,7 +9718,7 @@ getJasmineRequireObj().Spy = function(j$) {
             "Spy '" +
               strategyArgs.name +
               "' received a call with arguments " +
-              j$.basicPrettyPrinter_(Array.prototype.slice.call(args)) +
+              matchersUtil.pp(Array.prototype.slice.call(args)) +
               ' but all configured strategies specify other arguments.'
           );
         } else {
@@ -9824,7 +9878,7 @@ getJasmineRequireObj().SpyRegistry = function(j$) {
     this.spyOn = function(obj, methodName) {
       const getErrorMsg = spyOnMsg;
 
-      if (j$.util.isUndefined(obj) || obj === null) {
+      if (obj === undefined || obj === null) {
         throw new Error(
           getErrorMsg(
             'could not find an object to spy upon for ' + methodName + '()'
@@ -9832,11 +9886,11 @@ getJasmineRequireObj().SpyRegistry = function(j$) {
         );
       }
 
-      if (j$.util.isUndefined(methodName) || methodName === null) {
+      if (methodName === undefined || methodName === null) {
         throw new Error(getErrorMsg('No method name supplied'));
       }
 
-      if (j$.util.isUndefined(obj[methodName])) {
+      if (obj[methodName] === undefined) {
         throw new Error(getErrorMsg(methodName + '() method does not exist'));
       }
 
@@ -9901,7 +9955,7 @@ getJasmineRequireObj().SpyRegistry = function(j$) {
 
       accessType = accessType || 'get';
 
-      if (j$.util.isUndefined(obj)) {
+      if (!obj) {
         throw new Error(
           getErrorMsg(
             'spyOn could not find an object to spy upon for ' +
@@ -9911,7 +9965,7 @@ getJasmineRequireObj().SpyRegistry = function(j$) {
         );
       }
 
-      if (j$.util.isUndefined(propertyName)) {
+      if (propertyName === undefined) {
         throw new Error(getErrorMsg('No property name supplied'));
       }
 
@@ -9976,7 +10030,7 @@ getJasmineRequireObj().SpyRegistry = function(j$) {
     };
 
     this.spyOnAllFunctions = function(obj, includeNonEnumerable) {
-      if (j$.util.isUndefined(obj)) {
+      if (!obj) {
         throw new Error(
           'spyOnAllFunctions could not find an object to spy upon'
         );
@@ -10483,10 +10537,12 @@ getJasmineRequireObj().Suite = function(j$) {
      * @property {String} description - The description text passed to the {@link describe} that made this suite.
      * @property {String} fullName - The full description including all ancestors of this suite.
      * @property {String|null} parentSuiteId - The ID of the suite containing this suite, or null if this is not in another describe().
-     * @property {String} filename - The name of the file the suite was defined in.
+     * @property {String} filename - Deprecated. The name of the file the suite was defined in.
      * Note: The value may be incorrect if zone.js is installed or
      * `describe`/`fdescribe`/`xdescribe` have been replaced with versions that
-     * don't maintain the same call stack height as the originals.
+     * don't maintain the same call stack height as the originals. This property
+     * may be removed in a future version unless there is enough user interest
+     * in keeping it. See {@link https://github.com/jasmine/jasmine/issues/2065}.
      * @property {ExpectationResult[]} failedExpectations - The list of expectations that failed in an {@link afterAll} for this suite.
      * @property {ExpectationResult[]} deprecationWarnings - The list of deprecation warnings that occurred on this suite.
      * @property {String} status - Once the suite has completed, this string represents the pass/fail status of this suite.
@@ -11391,5 +11447,5 @@ getJasmineRequireObj().UserContext = function(j$) {
 };
 
 getJasmineRequireObj().version = function() {
-  return '5.7.0';
+  return '5.9.0';
 };

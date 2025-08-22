@@ -31,7 +31,8 @@ export default "/**\n\
  */\n\
 vec4 czm_modelToWindowCoordinates(vec4 position)\n\
 {\n\
-    vec4 q = czm_modelViewProjection * position;                // clip coordinates\n\
+    vec4 positionEC = czm_modelView * position;\n\
+    vec4 q = czm_projection * positionEC;\n\
     q.xyz /= q.w;                                                // normalized device coordinates\n\
     q.xyz = (czm_viewportTransformation * vec4(q.xyz, 1.0)).xyz; // window coordinates\n\
     return q;\n\

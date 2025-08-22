@@ -1,7 +1,7 @@
 /**
  * @license
  * Cesium - https://github.com/CesiumGS/cesium
- * Version 1.129
+ * Version 1.132
  *
  * Copyright 2011-2022 Cesium Contributors
  *
@@ -25,34 +25,34 @@
 
 import {
   PrimitivePipeline_default
-} from "./chunk-PS3OKVOQ.js";
+} from "./chunk-UPU755HO.js";
 import {
   createTaskProcessorWorker_default
-} from "./chunk-J2HTPGC7.js";
-import "./chunk-UC7KH56Y.js";
-import "./chunk-YE6MDFDA.js";
-import "./chunk-RX65FA7X.js";
-import "./chunk-G6JUXZUO.js";
-import "./chunk-C5DCX2YQ.js";
-import "./chunk-HGEGZ67N.js";
-import "./chunk-77MDEA47.js";
-import "./chunk-236N6BJN.js";
-import "./chunk-CQMXZF4A.js";
-import "./chunk-QJTIOB2Z.js";
-import "./chunk-5RPUEFSA.js";
-import "./chunk-IKDQX7DY.js";
-import "./chunk-2BJXFXD7.js";
-import "./chunk-QUFN3GEO.js";
-import "./chunk-XYGBWBD5.js";
-import "./chunk-IFIS4CVK.js";
+} from "./chunk-DPFAUGBE.js";
+import "./chunk-4NRFVAG2.js";
+import "./chunk-4QWLEG4L.js";
+import "./chunk-K5VGMGFM.js";
+import "./chunk-GVO3YIU2.js";
+import "./chunk-25USKS4R.js";
+import "./chunk-RZJA77TX.js";
+import "./chunk-AZPKFL5X.js";
+import "./chunk-ETCPCGKC.js";
+import "./chunk-DNCRKMCI.js";
+import "./chunk-GO3IRH6U.js";
+import "./chunk-WUMTX3FI.js";
+import "./chunk-FQNSMOZT.js";
+import "./chunk-E6NMEKSS.js";
+import "./chunk-Y3PM6G2V.js";
+import "./chunk-DXYAD4ED.js";
+import "./chunk-Q2QXUN33.js";
 import {
   DeveloperError_default
-} from "./chunk-NZSBSY5K.js";
+} from "./chunk-SOYVF5RC.js";
 import {
   __glob,
   __require,
   defined_default
-} from "./chunk-HBNWBMAM.js";
+} from "./chunk-EV4PBU7O.js";
 
 // import("./**/*.js") in packages/engine/Source/Workers/createGeometry.js
 var globImport_js = __glob({
@@ -101,6 +101,8 @@ var globImport_js = __glob({
   "./decodeDraco.js": () => import("./decodeDraco.js"),
   "./decodeGoogleEarthEnterprisePacket.js": () => import("./decodeGoogleEarthEnterprisePacket.js"),
   "./decodeI3S.js": () => import("./decodeI3S.js"),
+  "./gaussianSplatSorter.js": () => import("./gaussianSplatSorter.js"),
+  "./gaussianSplatTextureGenerator.js": () => import("./gaussianSplatTextureGenerator.js"),
   "./transcodeKTX2.js": () => import("./transcodeKTX2.js"),
   "./transferTypedArrayTest.js": () => import("./transferTypedArrayTest.js"),
   "./upsampleQuantizedTerrainMesh.js": () => import("./upsampleQuantizedTerrainMesh.js")

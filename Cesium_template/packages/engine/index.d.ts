@@ -12741,6 +12741,22 @@ export enum PixelFormat {
      */
     RGBA = WebGLConstants.RGBA,
     /**
+     * A pixel format containing a red channel as an integer.
+     */
+    RED_INTEGER = WebGLConstants.RED_INTEGER,
+    /**
+     * A pixel format containing red and green channels as integers.
+     */
+    RG_INTEGER = WebGLConstants.RG_INTEGER,
+    /**
+     * A pixel format containing red, green, and blue channels as integers.
+     */
+    RGB_INTEGER = WebGLConstants.RGB_INTEGER,
+    /**
+     * A pixel format containing red, green, blue, and alpha channels as integers.
+     */
+    RGBA_INTEGER = WebGLConstants.RGBA_INTEGER,
+    /**
      * A pixel format containing a luminance (intensity) channel.
      */
     LUMINANCE = WebGLConstants.LUMINANCE,
@@ -29332,6 +29348,8 @@ export namespace Cesium3DTileset {
      * @property [clippingPlanes] - The {@link ClippingPlaneCollection} used to selectively disable rendering the tileset.
      * @property [clippingPolygons] - The {@link ClippingPolygonCollection} used to selectively disable rendering the tileset.
      * @property [classificationType] - Determines whether terrain, 3D Tiles or both will be classified by this tileset. See {@link Cesium3DTileset#classificationType} for details about restrictions and limitations.
+     * @property [heightReference] - Sets the {@link HeightReference} for point features in vector tilesets.
+     * @property [scene] - The {@link CesiumWidget#scene} that the tileset will be rendered in, required for tilesets that specify a {@link heightReference} value for clamping 3D Tiles vector data content- like points, lines, and labels- to terrain or 3D tiles.
      * @property [ellipsoid = Ellipsoid.WGS84] - The ellipsoid determining the size and shape of the globe.
      * @property [pointCloudShading] - Options for constructing a {@link PointCloudShading} object to control point attenuation based on geometric error and lighting.
      * @property [lightColor] - The light color when shading models. When <code>undefined</code> the scene's light color is used instead.
@@ -29347,9 +29365,10 @@ export namespace Cesium3DTileset {
      * @property [instanceFeatureIdLabel = "instanceFeatureId_0"] - Label of the instance feature ID set used for picking and styling. If instanceFeatureIdLabel is set to an integer N, it is converted to the string "instanceFeatureId_N" automatically. If both per-primitive and per-instance feature IDs are present, the instance feature IDs take priority.
      * @property [showCreditsOnScreen = false] - Whether to display the credits of this tileset on screen.
      * @property [splitDirection = SplitDirection.NONE] - The {@link SplitDirection} split to apply to this tileset.
-     * @property [enableCollision = false] - When <code>true</code>, enables collisions for camera or CPU picking. While this is <code>true</code> the camera will be prevented from going below the tileset surface if {@link ScreenSpaceCameraController#enableCollisionDetection} is true.
+     * @property [enableCollision = false] - When <code>true</code>, enables collisions for camera or CPU picking. While this is <code>true</code> the camera will be prevented from going below the tileset surface if {@link ScreenSpaceCameraController#enableCollisionDetection} is true. This also affects the behavior of {@link HeightReference.CLAMP_TO_GROUND} when clamping to 3D Tiles surfaces. If <code>enableCollision</code> is <code>false</code>, entities may not be correctly clamped to the tileset geometry.
      * @property [projectTo2D = false] - Whether to accurately project the tileset to 2D. If this is true, the tileset will be projected accurately to 2D, but it will use more memory to do so. If this is false, the tileset will use less memory and will still render in 2D / CV mode, but its projected positions may be inaccurate. This cannot be set after the tileset has been created.
      * @property [enablePick = false] - Whether to allow collision and CPU picking with <code>pick</code> when using WebGL 1. If using WebGL 2 or above, this option will be ignored. If using WebGL 1 and this is true, the <code>pick</code> operation will work correctly, but it will use more memory to do so. If running with WebGL 1 and this is false, the model will use less memory, but <code>pick</code> will always return <code>undefined</code>. This cannot be set after the tileset has loaded.
+     * @property [asynchronouslyLoadImagery = false] - Whether loading imagery that is draped over the tileset should be done asynchronously. If this is <code>true</code>, then tile content will be displayed with its original texture until the imagery texture is loaded. If this is <code>false</code>, then the tile content will not be displayed until the imagery is ready.
      * @property [debugHeatmapTilePropertyName] - The tile variable to colorize as a heatmap. All rendered tiles will be colorized relative to each other's specified variable value.
      * @property [debugFreezeFrame = false] - For debugging only. Determines if only the tiles from last frame should be used for rendering.
      * @property [debugColorizeTiles = false] - For debugging only. When true, assigns a random color to each tile.
@@ -29397,6 +29416,8 @@ export namespace Cesium3DTileset {
         clippingPlanes?: ClippingPlaneCollection;
         clippingPolygons?: ClippingPolygonCollection;
         classificationType?: ClassificationType;
+        heightReference?: HeightReference;
+        scene?: Scene;
         ellipsoid?: Ellipsoid;
         pointCloudShading?: any;
         lightColor?: Cartesian3;
@@ -29415,6 +29436,7 @@ export namespace Cesium3DTileset {
         enableCollision?: boolean;
         projectTo2D?: boolean;
         enablePick?: boolean;
+        asynchronouslyLoadImagery?: boolean;
         debugHeatmapTilePropertyName?: string;
         debugFreezeFrame?: boolean;
         debugColorizeTiles?: boolean;
@@ -29921,6 +29943,20 @@ export class Cesium3DTileset {
      */
     clippingPolygons: ClippingPolygonCollection;
     /**
+     * The collection of <code>ImageryLayer</code> objects providing 2D georeferenced
+     * image data that will be rendered over the tileset.
+     *
+     * The imagery will be draped over glTF, B3DM, PNTS, or GeoJSON tile content.
+     * @example
+     * // Drape Bing Maps Aerial imagery over the tileset
+     * const imageryProvider = await Cesium.createWorldImageryAsync({
+     *   style: Cesium.IonWorldImageryStyle.AERIAL,
+     * });
+     * const imageryLayer = new ImageryLayer(imageryProvider);
+     * tileset.imageryLayers.add(imageryLayer);
+     */
+    readonly imageryLayers: ImageryLayerCollection;
+    /**
      * Gets the tileset's properties dictionary object, which contains metadata about per-feature properties.
      * <p>
      * See the {@link https://github.com/CesiumGS/3d-tiles/tree/main/specification#reference-properties|properties schema reference}
@@ -30106,6 +30142,14 @@ export class Cesium3DTileset {
      * </p>
      */
     readonly classificationType: ClassificationType;
+    /**
+     * Specifies if the height is relative to terrain, 3D Tiles, or both.
+     * <p>
+     * This option is only applied to point features in tilesets containing vector data.
+     * This option requires the Viewer's scene to be passed in through options.scene.
+     * </p>
+     */
+    readonly heightReference: HeightReference | undefined;
     /**
      * Gets an ellipsoid describing the shape of the globe.
      */
@@ -30293,6 +30337,11 @@ export class Cesium3DTileset {
      */
     getHeight(cartographic: Cartographic, scene: Scene): number | undefined;
 }
+
+/**
+ * The {@link CesiumWidget#scene} that the tileset will be rendered in, required for tilesets that specify a {@link heightReference} value for clamping 3D Tiles vector data content- like points, lines, and labels- to terrain or 3D tiles.
+ */
+export const of = "undefined";
 
 /**
  * A ParticleEmitter that emits particles from a circle.
@@ -30782,6 +30831,16 @@ export class ClippingPolygonCollection {
         enabled?: boolean;
         inverse?: boolean;
     });
+    /**
+     * If true, clipping will be enabled.
+     */
+    enabled: boolean;
+    /**
+     * If true, a region will be clipped if it is outside of every polygon in the
+     * collection. Otherwise, a region will only be clipped if it is
+     * inside of any polygon.
+     */
+    inverse: boolean;
     /**
      * An event triggered when a new clipping polygon is added to the collection.  Event handlers
      * are passed the new polygon and the index at which it was added.
@@ -33552,7 +33611,7 @@ export enum HeightReference {
      */
     NONE = 0,
     /**
-     * The position is clamped to the terrain and 3D Tiles.
+     * The position is clamped to the terrain and 3D Tiles. When clamping to 3D Tilesets such as photorealistic 3D Tiles, ensure the tileset has {@link Cesium3DTileset#enableCollision} set to <code>true</code>. Otherwise, the entity may not be correctly clamped to the tileset surface.
      */
     CLAMP_TO_GROUND = 1,
     /**
@@ -34089,47 +34148,68 @@ export namespace ITwinData {
      * If there is not a completed export available for the given iModel id, the returned promise will resolve to <code>undefined</code>.
      * We recommend waiting 10-20 seconds and trying to load the tileset again.
      * If all exports are Invalid this will throw an error.
+     *
+     * See the {@link https://developer.bentley.com/apis/mesh-export/overview/|iTwin Platform Mesh Export API documentation} for more information on request parameters
      * @example
-     * const tileset = await Cesium.ITwinData.createTilesetFromIModelId(iModelId);
+     * const tileset = await Cesium.ITwinData.createTilesetFromIModelId({ iModelId });
      * if (Cesium.defined(tileset)) {
      *   viewer.scene.primitives.add(tileset);
      * }
-     * @param iModelId - The id of the iModel to load
-     * @param [options] - Object containing options to pass to the internally created {@link Cesium3DTileset}.
+     * @param options.iModelId - The id of the iModel to load
+     * @param [options.tilesetOptions] - Object containing options to pass to the internally created {@link Cesium3DTileset}.
+     * @param [options.changesetId] - The id of the changeset to load, if not provided the latest changesets will be used
      * @returns A promise that will resolve to the created 3D tileset or <code>undefined</code> if there is no completed export for the given iModel id
      */
-    function createTilesetFromIModelId(iModelId: string, options?: Cesium3DTileset.ConstructorOptions): Promise<Cesium3DTileset | undefined>;
+    function createTilesetFromIModelId(options: {
+        iModelId: string;
+        tilesetOptions?: Cesium3DTileset.ConstructorOptions;
+        changesetId?: string;
+    }): Promise<Cesium3DTileset | undefined>;
     /**
      * Create a tileset for the specified reality data id. This function only works
      * with 3D Tiles meshes and point clouds.
      *
      * If the <code>type</code> or <code>rootDocument</code> are not provided this function
      * will first request the full metadata for the specified reality data to fill these values.
-     * @param iTwinId - The id of the iTwin to load data from
-     * @param realityDataId - The id of the reality data to load
-     * @param [type] - The type of this reality data
-     * @param [rootDocument] - The path of the root document for this reality data
+     * @param options.iTwinId - The id of the iTwin to load data from
+     * @param options.realityDataId - The id of the reality data to load
+     * @param [options.type] - The type of this reality data
+     * @param [options.rootDocument] - The path of the root document for this reality data
      */
-    function createTilesetForRealityDataId(iTwinId: string, realityDataId: string, type?: ITwinPlatform.RealityDataType, rootDocument?: string): Promise<Cesium3DTileset>;
+    function createTilesetForRealityDataId(options: {
+        iTwinId: string;
+        realityDataId: string;
+        type?: ITwinPlatform.RealityDataType;
+        rootDocument?: string;
+    }): Promise<Cesium3DTileset>;
     /**
      * Create a data source of the correct type for the specified reality data id.
      * This function only works for KML and GeoJSON type data.
      *
      * If the <code>type</code> or <code>rootDocument</code> are not provided this function
      * will first request the full metadata for the specified reality data to fill these values.
-     * @param iTwinId - The id of the iTwin to load data from
-     * @param realityDataId - The id of the reality data to load
-     * @param [type] - The type of this reality data
-     * @param [rootDocument] - The path of the root document for this reality data
+     * @param options.iTwinId - The id of the iTwin to load data from
+     * @param options.realityDataId - The id of the reality data to load
+     * @param [options.type] - The type of this reality data
+     * @param [options.rootDocument] - The path of the root document for this reality data
      */
-    function createDataSourceForRealityDataId(iTwinId: string, realityDataId: string, type?: ITwinPlatform.RealityDataType, rootDocument?: string): Promise<GeoJsonDataSource | KmlDataSource>;
+    function createDataSourceForRealityDataId(options: {
+        iTwinId: string;
+        realityDataId: string;
+        type?: ITwinPlatform.RealityDataType;
+        rootDocument?: string;
+    }): Promise<GeoJsonDataSource | KmlDataSource>;
     /**
      * Load data from the Geospatial Features API as GeoJSON.
-     * @param iTwinId - The id of the iTwin to load data from
-     * @param collectionId - The id of the data collection to load
-     * @param [limit = 10000] - number of items per page, must be between 1 and 10,000 inclusive
+     * @param options.iTwinId - The id of the iTwin to load data from
+     * @param options.collectionId - The id of the data collection to load
+     * @param [options.limit = 10000] - number of items per page, must be between 1 and 10,000 inclusive
      */
-    function loadGeospatialFeatures(iTwinId: string, collectionId: string, limit?: number): Promise<GeoJsonDataSource>;
+    function loadGeospatialFeatures(options: {
+        iTwinId: string;
+        collectionId: string;
+        limit?: number;
+    }): Promise<GeoJsonDataSource>;
 }
 
 /**
@@ -34296,7 +34376,7 @@ export namespace ImageryLayer {
 
 /**
  * An imagery layer that displays tiled image data from a single imagery provider
- * on a {@link Globe}.
+ * on a {@link Globe} or {@link Cesium3DTileset}.
  * @example
  * // Add an OpenStreetMaps layer
  * const imageryLayer = new Cesium.ImageryLayer(new Cesium.OpenStreetMapImageryProvider({
@@ -34312,6 +34392,18 @@ export namespace ImageryLayer {
  * const imageryLayer = Cesium.ImageryLayer.fromProviderAsync(Cesium.IonImageryProvider.fromAssetId(3812));
  * imageryLayer.alpha = 0.5;
  * scene.imageryLayers.add(imageryLayer);
+ * @example
+ * // Drape Bing Maps Aerial imagery over a 3D tileset
+ * const tileset = await Cesium.Cesium3DTileset.fromUrl(
+ *   "http://localhost:8002/tilesets/Seattle/tileset.json"
+ * );
+ * scene.primitives.add(tileset);
+ *
+ * const imageryProvider = await Cesium.createWorldImageryAsync({
+ *   style: Cesium.IonWorldImageryStyle.AERIAL,
+ * });
+ * const imageryLayer = new ImageryLayer(imageryProvider);
+ * tileset.imageryLayers.add(imageryLayer);
  * @param [imageryProvider] - The imagery provider to use.
  * @param [options] - An object describing initialization options
  */
@@ -34402,6 +34494,12 @@ export class ImageryLayer {
      */
     readonly ready: boolean;
     /**
+     * Gets an event that is raised when the imagery provider encounters an asynchronous error.  By subscribing
+     * to the event, you will be notified of the error and can potentially recover from it.  Event listeners
+     * are passed an instance of the thrown error.
+     */
+    readonly errorEvent: Event<ImageryLayer.ErrorEventCallback>;
+    /**
      * Gets an event that is raised when the imagery provider has been successfully created. Event listeners
      * are passed the created instance of {@link ImageryProvider}.
      */
@@ -34474,7 +34572,7 @@ export class ImageryLayer {
      * viewer.imageryLayers.add(imageryLayer);
      *
      * imageryLayer.readyEvent.addEventListener(provider => {
-     *   imageryLayer.provider.errorEvent.addEventListener(error => {
+     *   imageryLayer.imageryProvider.errorEvent.addEventListener(error => {
      *     alert(`Encountered an error while loading imagery tiles! ${error}`);
      *   });
      * });
@@ -34500,7 +34598,7 @@ export class ImageryLayer {
      * viewer.imageryLayers.add(imageryLayer);
      *
      * imageryLayer.readyEvent.addEventListener(provider => {
-     *   imageryLayer.provider.errorEvent.addEventListener(error => {
+     *   imageryLayer.imageryProvider.errorEvent.addEventListener(error => {
      *     alert(`Encountered an error while loading imagery tiles! ${error}`);
      *   });
      * });
@@ -34561,7 +34659,7 @@ export class ImageryLayer {
 }
 
 /**
- * An ordered collection of imagery layers.
+ * An ordered collection of imagery layers for rendering raster imagery on a {@link Globe} or {@link Cesium3DTileset}.
  */
 export class ImageryLayerCollection {
     constructor();
@@ -38416,6 +38514,26 @@ export class ModelNode {
 }
 
 /**
+ * Reads and returns a value with the given type
+ * at the given byte offset from the data view, in little-endian
+ * order
+ * @param dataView - Typed data view into a binary buffer
+ * @param byteOffset - The offset, in bytes, from the start of the view to read the data from
+ * @param numberOfComponents - The number of components to read
+ * @param result - The array in which to read the result
+ */
+export type ComponentsReaderCallback = (dataView: DataView, byteOffset: number, numberOfComponents: number, result: number[]) => void;
+
+/**
+ * Reads and returns a value with the given type
+ * at the given byte offset from the data view, in little-endian
+ * order
+ * @param dataView - Typed data view into a binary buffer
+ * @param byteOffset - The offset, in bytes, from the start of the view to read the data from
+ */
+export type ComponentReaderCallback = (dataView: DataView, byteOffset: number) => number | bigint;
+
+/**
  * A simple struct that serves as a value of a <code>sampler2D</code>-valued
  * uniform. This is used with {@link CustomShader} and {@link TextureManager}
  * @param options - An object with the following properties:
@@ -38507,7 +38625,7 @@ export enum UniformType {
      */
     MAT3 = "mat3",
     /**
-     * A 3x3 matrix of floating point values.
+     * A 4x4 matrix of floating point values.
      */
     MAT4 = "mat4",
     /**
@@ -41111,15 +41229,15 @@ export class Scene {
     /**
      * The {@link SkyBox} used to draw the stars.
      */
-    skyBox: SkyBox;
+    skyBox: SkyBox | undefined;
     /**
      * The sky atmosphere drawn around the globe.
      */
-    skyAtmosphere: SkyAtmosphere;
+    skyAtmosphere: SkyAtmosphere | undefined;
     /**
      * The {@link Sun}.
      */
-    sun: Sun;
+    sun: Sun | undefined;
     /**
      * Uses a bloom filter on the sun when enabled.
      */
@@ -41127,9 +41245,9 @@ export class Scene {
     /**
      * The {@link Moon}
      */
-    moon: Moon;
+    moon: Moon | undefined;
     /**
-     * The background color, which is only visible if there is no sky box, i.e., {@link Scene#skyBox} is undefined.
+     * The background color, which is only visible if there is no sky box, i.e., {@link Scene#skyBox} is <code>undefined</code>.
      */
     backgroundColor: Color;
     /**
@@ -41193,7 +41311,7 @@ export class Scene {
      *     return command.owner === billboards;
      * };
      */
-    debugCommandFilter: (...params: any[]) => any;
+    debugCommandFilter: ((...params: any[]) => any) | undefined;
     /**
      * This property is for debugging only; it is not for production use.
      * <p>
@@ -41441,10 +41559,10 @@ export class Scene {
      */
     readonly postRender: Event;
     /**
-     * Gets the simulation time when the scene was last rendered. Returns undefined if the scene has not yet been
-     * rendered.
+     * Gets the simulation time when the scene was last rendered. Returns <code>undefined</code>
+     * if the scene has not yet been rendered.
      */
-    readonly lastRenderTime: JulianDate;
+    readonly lastRenderTime: JulianDate | undefined;
     /**
      * This property is for debugging only; it is not for production use.
      * <p>
@@ -41456,7 +41574,7 @@ export class Scene {
      * three frustums.
      * </p>
      */
-    readonly debugFrustumStatistics: any;
+    readonly debugFrustumStatistics: any | undefined;
     /**
      * Gets whether or not the scene is optimized for 3D only viewing.
      */
@@ -41542,8 +41660,8 @@ export class Scene {
      */
     requestRender(): void;
     /**
-     * Returns an object with a `primitive` property that contains the first (top) primitive in the scene
-     * at a particular window coordinate or undefined if nothing is at the location. Other properties may
+     * Returns an object with a <code>primitive</code> property that contains the first (top) primitive in the scene
+     * at a particular window coordinate or <code>undefined</code> if nothing is at the location. Other properties may
      * potentially be set depending on the type of primitive and may be used to further identify the picked object.
      * <p>
      * When a feature of a 3D Tiles tileset is picked, <code>pick</code> returns a {@link Cesium3DTileFeature} object.
@@ -41559,12 +41677,12 @@ export class Scene {
      * @param windowPosition - Window coordinates to perform picking on.
      * @param [width = 3] - Width of the pick rectangle.
      * @param [height = 3] - Height of the pick rectangle.
-     * @returns Object containing the picked primitive.
+     * @returns Object containing the picked primitive or <code>undefined</code> if nothing is at the location.
      */
-    pick(windowPosition: Cartesian2, width?: number, height?: number): any;
+    pick(windowPosition: Cartesian2, width?: number, height?: number): any | undefined;
     /**
      * Returns a {@link VoxelCell} for the voxel sample rendered at a particular window coordinate,
-     * or undefined if no voxel is rendered at that position.
+     * or <code>undefined</code> if no voxel is rendered at that position.
      * @example
      * On left click, report the value of the "color" property at that voxel sample.
      * handler.setInputAction(function(movement) {
@@ -41576,30 +41694,30 @@ export class Scene {
      * @param windowPosition - Window coordinates to perform picking on.
      * @param [width = 3] - Width of the pick rectangle.
      * @param [height = 3] - Height of the pick rectangle.
-     * @returns Information about the voxel cell rendered at the picked position.
+     * @returns Information about the voxel cell rendered at the picked position or <code>undefined</code> if no voxel is rendered at that position.
      */
     pickVoxel(windowPosition: Cartesian2, width?: number, height?: number): VoxelCell | undefined;
     /**
      * Pick a metadata value at the given window position.
      * @param windowPosition - Window coordinates to perform picking on.
      * @param schemaId - The ID of the metadata schema to pick values
-     * from. If this is `undefined`, then it will pick the values from the object
+     * from. If this is <code>undefined</code>, then it will pick the values from the object
      * that match the given class- and property name, regardless of the schema ID.
      * @param className - The name of the metadata class to pick
      * values from
      * @param propertyName - The name of the metadata property to pick
      * values from
-     * @returns The metadata value, or `undefined` when
+     * @returns The metadata value, or <code>undefined</code> when
      * no matching metadata was found at the given position
      */
     pickMetadata(windowPosition: Cartesian2, schemaId: string | undefined, className: string, propertyName: string): MetadataValue | undefined;
     /**
      * Pick the schema of the metadata of the object at the given position
      * @param windowPosition - Window coordinates to perform picking on.
-     * @returns The metadata schema, or `undefined` if there is no object with
+     * @returns The metadata schema, or <code>undefined</code> if there is no object with
      * associated metadata at the given position.
      */
-    pickMetadataSchema(windowPosition: Cartesian2): MetadataSchema;
+    pickMetadataSchema(windowPosition: Cartesian2): MetadataSchema | undefined;
     /**
      * Returns the cartesian position reconstructed from the depth buffer and window position.
      * <p>
@@ -41617,7 +41735,7 @@ export class Scene {
      */
     pickPosition(windowPosition: Cartesian2, result?: Cartesian3): Cartesian3;
     /**
-     * Returns a list of objects, each containing a `primitive` property, for all primitives at
+     * Returns a list of objects, each containing a <code>primitive</code> property, for all primitives at
      * a particular window coordinate position. Other properties may also be set depending on the
      * type of primitive and may be used to further identify the picked object. The primitives in
      * the list are ordered by their visual order in the scene (front to back).
@@ -41647,7 +41765,7 @@ export class Scene {
      * @param [width = 0.1] - Width of the intersection volume in meters.
      * @returns The height. This may be <code>undefined</code> if there was no scene geometry to sample height from.
      */
-    sampleHeight(position: Cartographic, objectsToExclude?: object[], width?: number): number;
+    sampleHeight(position: Cartographic, objectsToExclude?: object[], width?: number): number | undefined;
     /**
      * Clamps the given cartesian position to the scene geometry along the geodetic surface normal. Returns the
      * clamped position or <code>undefined</code> if there was no scene geometry to clamp to. May be used to clamp
@@ -41666,13 +41784,13 @@ export class Scene {
      * @param [result] - An optional object to return the clamped position.
      * @returns The modified result parameter or a new Cartesian3 instance if one was not provided. This may be <code>undefined</code> if there was no scene geometry to clamp to.
      */
-    clampToHeight(cartesian: Cartesian3, objectsToExclude?: object[], width?: number, result?: Cartesian3): Cartesian3;
+    clampToHeight(cartesian: Cartesian3, objectsToExclude?: object[], width?: number, result?: Cartesian3): Cartesian3 | undefined;
     /**
      * Initiates an asynchronous {@link Scene#sampleHeight} query for an array of {@link Cartographic} positions
      * using the maximum level of detail for 3D Tilesets in the scene. The height of the input positions is ignored.
      * Returns a promise that is resolved when the query completes. Each point height is modified in place.
      * If a height cannot be determined because no geometry can be sampled at that location, or another error occurs,
-     * the height is set to undefined.
+     * the height is set to <code>undefined</code>.
      * @example
      * const positions = [
      *     new Cesium.Cartographic(-1.31968, 0.69887),
@@ -41686,9 +41804,9 @@ export class Scene {
      * @param positions - The cartographic positions to update with sampled heights.
      * @param [objectsToExclude] - A list of primitives, entities, or 3D Tiles features to not sample height from.
      * @param [width = 0.1] - Width of the intersection volume in meters.
-     * @returns A promise that resolves to the provided list of positions when the query has completed.
+     * @returns A promise that resolves to the provided list of positions when the query has completed. Positions may become <code>undefined</code> if the height cannot be determined.
      */
-    sampleHeightMostDetailed(positions: Cartographic[], objectsToExclude?: object[], width?: number): Promise<Cartographic[]>;
+    sampleHeightMostDetailed(positions: Cartographic[], objectsToExclude?: object[], width?: number): Promise<(Cartographic | undefined)[]>;
     /**
      * Initiates an asynchronous {@link Scene#clampToHeight} query for an array of {@link Cartesian3} positions
      * using the maximum level of detail for 3D Tilesets in the scene. Returns a promise that is resolved when
@@ -41707,9 +41825,9 @@ export class Scene {
      * @param cartesians - The cartesian positions to update with clamped positions.
      * @param [objectsToExclude] - A list of primitives, entities, or 3D Tiles features to not clamp to.
      * @param [width = 0.1] - Width of the intersection volume in meters.
-     * @returns A promise that resolves to the provided list of positions when the query has completed.
+     * @returns A promise that resolves to the provided list of positions when the query has completed. Positions may become <code>undefined</code> if they cannot be clamped.
      */
-    clampToHeightMostDetailed(cartesians: Cartesian3[], objectsToExclude?: object[], width?: number): Promise<Cartesian3[]>;
+    clampToHeightMostDetailed(cartesians: Cartesian3[], objectsToExclude?: object[], width?: number): Promise<(Cartesian3 | undefined)[]>;
     /**
      * Transforms a position in cartesian coordinates to canvas coordinates.  This is commonly used to place an
      * HTML element at the same screen position as an object in the scene.
@@ -41725,7 +41843,7 @@ export class Scene {
      * @param [result] - An optional object to return the input position transformed to canvas coordinates.
      * @returns The modified result parameter or a new Cartesian2 instance if one was not provided.  This may be <code>undefined</code> if the input position is near the center of the ellipsoid.
      */
-    cartesianToCanvasCoordinates(position: Cartesian3, result?: Cartesian2): Cartesian2;
+    cartesianToCanvasCoordinates(position: Cartesian3, result?: Cartesian2): Cartesian2 | undefined;
     /**
      * Instantly completes an active transition.
      */
@@ -42001,6 +42119,8 @@ export class ScreenSpaceCameraController {
     minimumTrackBallHeight: number;
     /**
      * When disabled, the values of <code>maximumZoomDistance</code> and <code>minimumZoomDistance</code> are ignored.
+     * Also used in conjunction with {@link Cesium3DTileset#enableCollision} to prevent the camera from moving through or below a 3D Tileset surface.
+     * This may also affect clamping behavior when using {@link HeightReference.CLAMP_TO_GROUND} on 3D Tiles.
      */
     enableCollisionDetection: boolean;
     /**

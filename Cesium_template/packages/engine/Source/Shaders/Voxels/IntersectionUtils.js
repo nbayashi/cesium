@@ -57,6 +57,7 @@ struct Intersections {\n\
     // INTERSECTION_COUNT is the number of ray-*shape* (volume) intersections,\n\
     // so we need twice as many to track ray-*surface* intersections\n\
     vec4 intersections[INTERSECTION_COUNT * 2];\n\
+    float distanceToDepthBuffer;\n\
 \n\
     #if (INTERSECTION_COUNT > 1)\n\
         // Maintain state for future nextIntersection calls\n\

@@ -16,8 +16,10 @@ export default "// See Intersection.glsl for the definition of intersectScene\n\
     #define ALPHA_ACCUM_MAX 0.98 // Must be > 0.0 and <= 1.0\n\
 #endif\n\
 \n\
+uniform mat4 u_transformPositionUvToView;\n\
 uniform mat3 u_transformDirectionViewToLocal;\n\
 uniform vec3 u_cameraPositionUv;\n\
+uniform vec3 u_cameraDirectionUv;\n\
 uniform float u_stepSize;\n\
 \n\
 #if defined(PICKING)\n\
@@ -112,26 +114,38 @@ int getSampleIndex(in SampleData sampleData) {\n\
     return sampleIndex.x + u_inputDimensions.x * (sampleIndex.y + u_inputDimensions.y * sampleIndex.z);\n\
 }\n\
 \n\
-void main()\n\
-{\n\
-    vec4 fragCoord = gl_FragCoord;\n\
-    vec2 screenCoord = (fragCoord.xy - czm_viewport.xy) / czm_viewport.zw; // [0,1]\n\
-    vec3 eyeDirection = normalize(czm_windowToEyeCoordinates(fragCoord).xyz);\n\
-    vec3 viewDirWorld = normalize(czm_inverseViewRotation * eyeDirection); // normalize again just in case\n\
-    vec3 viewDirUv = normalize(u_transformDirectionViewToLocal * eyeDirection); // normalize again just in case\n\
-    vec3 viewPosUv = u_cameraPositionUv;\n\
+/**\n\
+ * Compute the view ray at the current fragment, in the local UV coordinates of the shape.\n\
+ */\n\
+Ray getViewRayUv() {\n\
+    vec4 eyeCoordinates = czm_windowToEyeCoordinates(gl_FragCoord);\n\
+    vec3 viewDirUv;\n\
+    vec3 viewPosUv;\n\
+    if (czm_orthographicIn3D == 1.0) {\n\
+        eyeCoordinates.z = 0.0;\n\
+        viewPosUv = (u_transformPositionViewToUv * eyeCoordinates).xyz;\n\
+        viewDirUv = normalize(u_cameraDirectionUv);\n\
+    } else {\n\
+        viewPosUv = u_cameraPositionUv;\n\
+        viewDirUv = normalize(u_transformDirectionViewToLocal * eyeCoordinates.xyz);\n\
+    }\n\
     #if defined(SHAPE_ELLIPSOID)\n\
         // viewDirUv has been scaled to a space where the ellipsoid is a sphere.\n\
         // Undo this scaling to get the raw direction.\n\
         vec3 rawDir = viewDirUv * u_ellipsoidRadiiUv;\n\
-        Ray viewRayUv = Ray(viewPosUv, viewDirUv, rawDir);\n\
+        return Ray(viewPosUv, viewDirUv, rawDir);\n\
     #else\n\
-        Ray viewRayUv = Ray(viewPosUv, viewDirUv, viewDirUv);\n\
+        return Ray(viewPosUv, viewDirUv, viewDirUv);\n\
     #endif\n\
+}\n\
+\n\
+void main()\n\
+{\n\
+    Ray viewRayUv = getViewRayUv();\n\
 \n\
     Intersections ix;\n\
+    vec2 screenCoord = (gl_FragCoord.xy - czm_viewport.xy) / czm_viewport.zw; // [0,1]\n\
     RayShapeIntersection shapeIntersection = intersectScene(screenCoord, viewRayUv, ix);\n\
-\n\
     // Exit early if the scene was completely missed.\n\
     if (shapeIntersection.entry.w == NO_HIT) {\n\
         discard;\n\
@@ -139,7 +153,7 @@ void main()\n\
 \n\
     float currentT = shapeIntersection.entry.w;\n\
     float endT = shapeIntersection.exit.w;\n\
-    vec3 positionUv = viewPosUv + currentT * viewDirUv;\n\
+    vec3 positionUv = viewRayUv.pos + currentT * viewRayUv.dir;\n\
     PointJacobianT pointJacobian = convertUvToShapeUvSpaceDerivative(positionUv);\n\
 \n\
     // Traverse the tree from the start position\n\
@@ -151,14 +165,15 @@ void main()\n\
     #if defined(JITTER)\n\
         float noise = hash(screenCoord); // [0,1]\n\
         currentT += noise * step.w;\n\
-        positionUv += noise * step.w * viewDirUv;\n\
+        positionUv += noise * step.w * viewRayUv.dir;\n\
     #endif\n\
 \n\
     FragmentInput fragmentInput;\n\
     #if defined(STATISTICS)\n\
-        setStatistics(fragmentInput.metadata.statistics);\n\
+        setStatistics(fragmentInput.metadataStatistics);\n\
     #endif\n\
 \n\
+    czm_modelMaterial materialOutput;\n\
     vec4 colorAccum = vec4(0.0);\n\
 \n\
     for (int stepCount = 0; stepCount < STEP_COUNT_MAX; ++stepCount) {\n\
@@ -167,19 +182,19 @@ void main()\n\
 \n\
         // Prepare the custom shader inputs\n\
         copyPropertiesToMetadata(properties, fragmentInput.metadata);\n\
-        fragmentInput.voxel.positionUv = positionUv;\n\
-        fragmentInput.voxel.positionShapeUv = pointJacobian.point;\n\
-        fragmentInput.voxel.positionUvLocal = sampleDatas[0].tileUv;\n\
-        fragmentInput.voxel.viewDirUv = viewDirUv;\n\
-        fragmentInput.voxel.viewDirWorld = viewDirWorld;\n\
-        fragmentInput.voxel.surfaceNormal = step.xyz;\n\
+\n\
+        fragmentInput.attributes.positionEC = vec3(u_transformPositionUvToView * vec4(positionUv, 1.0));\n\
+        fragmentInput.attributes.normalEC = normalize(czm_normal * step.xyz);\n\
+\n\
+        fragmentInput.voxel.viewDirUv = viewRayUv.dir;\n\
+\n\
         fragmentInput.voxel.travelDistance = step.w;\n\
         fragmentInput.voxel.stepCount = stepCount;\n\
         fragmentInput.voxel.tileIndex = sampleDatas[0].megatextureIndex;\n\
         fragmentInput.voxel.sampleIndex = getSampleIndex(sampleDatas[0]);\n\
+        fragmentInput.voxel.distanceToDepthBuffer = ix.distanceToDepthBuffer - currentT;\n\
 \n\
         // Run the custom shader\n\
-        czm_modelMaterial materialOutput;\n\
         fragmentMain(fragmentInput, materialOutput);\n\
 \n\
         // Sanitize the custom shader output\n\
@@ -204,8 +219,6 @@ void main()\n\
 \n\
         // Keep raymarching\n\
         currentT += step.w;\n\
-        positionUv = viewPosUv + currentT * viewDirUv;\n\
-\n\
         // Check if there's more intersections.\n\
         if (currentT > endT) {\n\
             #if (INTERSECTION_COUNT == 1)\n\
@@ -218,10 +231,10 @@ void main()\n\
                     // Found another intersection. Resume raymarching there\n\
                     currentT = shapeIntersection.entry.w;\n\
                     endT = shapeIntersection.exit.w;\n\
-                    positionUv = viewPosUv + currentT * viewDirUv;\n\
                 }\n\
             #endif\n\
         }\n\
+        positionUv = viewRayUv.pos + currentT * viewRayUv.dir;\n\
 \n\
         // Traverse the tree from the current ray position.\n\
         // This is similar to traverseOctreeFromBeginning but is faster when the ray is in the same tile as the previous step.\n\

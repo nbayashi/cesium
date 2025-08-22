@@ -57,7 +57,9 @@ export default "/**\n\
  */\n\
 \n\
 // NVIDIA GameWorks Graphics Samples GitHub link: https://github.com/NVIDIAGameWorks/GraphicsSamples\n\
+// Original source (archived): https://archive.org/details/nvidiagame-works-graphics-samples-master\n\
 // Original FXAA 3.11 shader link: https://github.com/NVIDIAGameWorks/GraphicsSamples/blob/master/samples/es3-kepler/FXAA/FXAA3_11.h\n\
+// Shader link in fork: https://github.com/lyntel/GraphicsSamples/blob/3d30817ebeeade64fe6a4fc3aa1fe4265c29b6fd/samples/es3-kepler/FXAA/FXAA3_11.h\n\
 \n\
 // Steps used to integrate into Cesium:\n\
 // * The following defines are set:\n\

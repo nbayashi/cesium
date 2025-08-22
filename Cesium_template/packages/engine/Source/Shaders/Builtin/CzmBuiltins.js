@@ -17,6 +17,7 @@ import czm_passCesium3DTileClassificationIgnoreShow from './Constants/passCesium
 import czm_passClassification from './Constants/passClassification.js'
 import czm_passCompute from './Constants/passCompute.js'
 import czm_passEnvironment from './Constants/passEnvironment.js'
+import czm_passGaussianSplats from './Constants/passGaussianSplats.js'
 import czm_passGlobe from './Constants/passGlobe.js'
 import czm_passOpaque from './Constants/passOpaque.js'
 import czm_passOverlay from './Constants/passOverlay.js'
@@ -155,6 +156,7 @@ export default {
     czm_passClassification : czm_passClassification,
     czm_passCompute : czm_passCompute,
     czm_passEnvironment : czm_passEnvironment,
+    czm_passGaussianSplats : czm_passGaussianSplats,
     czm_passGlobe : czm_passGlobe,
     czm_passOpaque : czm_passOpaque,
     czm_passOverlay : czm_passOverlay,
