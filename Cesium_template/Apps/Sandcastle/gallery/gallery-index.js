@@ -1,6 +1,6 @@
 // This file is automatically rebuilt by the Cesium build process.
-const hello_world_index = 127;
-const VERSION = '1.132';
+const hello_world_index = 129;
+const VERSION = '1.134.0';
 const gallery_demos = [{
   "name": "3D Models",
   "isNew": false,
@@ -63,7 +63,7 @@ const gallery_demos = [{
   "img": "3D Tiles Gaussian Splatting.jpg"
 }, {
   "name": "3D Tiles Gaussian Splatting Comparison",
-  "isNew": true,
+  "isNew": false,
   "img": "3D Tiles Gaussian Splatting Comparison.jpg"
 }, {
   "name": "3D Tiles Inspector",
@@ -490,6 +490,14 @@ const gallery_demos = [{
   "isNew": false,
   "img": "Globe Translucency.jpg"
 }, {
+  "name": "Google 2D Tiles",
+  "isNew": true,
+  "img": "Google 2D Tiles.jpg"
+}, {
+  "name": "Google 2D Tiles with Custom Styles",
+  "isNew": true,
+  "img": "Google 2D Tiles with Custom Styles.jpg"
+}, {
   "name": "Google Earth Enterprise",
   "isNew": false,
   "img": "Google Earth Enterprise.jpg"
@@ -541,6 +549,10 @@ const gallery_demos = [{
   "name": "Imagery Adjustment",
   "isNew": false,
   "img": "Imagery Adjustment.jpg"
+}, {
+  "name": "Imagery Assets available from ion",
+  "isNew": true,
+  "img": "Imagery Assets available from ion.jpg"
 }, {
   "name": "Imagery Color To Alpha",
   "isNew": false,
@@ -609,6 +621,10 @@ const gallery_demos = [{
   "name": "Map Pins",
   "isNew": false,
   "img": "Map Pins.jpg"
+}, {
+  "name": "Mars",
+  "isNew": false,
+  "img": "Mars.jpg"
 }, {
   "name": "Material with Custom GLSL",
   "isNew": false,
@@ -795,7 +811,7 @@ const gallery_demos = [{
   "img": "Video.jpg"
 }, {
   "name": "VolumeCloud",
-  "isNew": true,
+  "isNew": false,
   "img": "VolumeCloud.jpg"
 }, {
   "name": "Voxel Picking",

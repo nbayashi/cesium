@@ -1,7 +1,7 @@
 /**
  * @license
  * Cesium - https://github.com/CesiumGS/cesium
- * Version 1.132
+ * Version 1.134.0
  *
  * Copyright 2011-2022 Cesium Contributors
  *
@@ -26,13 +26,13 @@
 import {
   generate_splat_texture,
   initSync
-} from "./chunk-KTDHOEXR.js";
+} from "./chunk-ZYOHBCCE.js";
 import {
   createTaskProcessorWorker_default
-} from "./chunk-DPFAUGBE.js";
+} from "./chunk-LNTUIO55.js";
 import {
   defined_default
-} from "./chunk-EV4PBU7O.js";
+} from "./chunk-5GHCWGC4.js";
 
 // packages/engine/Source/Workers/gaussianSplatTextureGenerator.js
 async function initWorker(parameters, transferableObjects) {

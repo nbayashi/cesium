@@ -9,12 +9,12 @@ void main() {\n\
     if (v_splitDirection < 0.0 && gl_FragCoord.x > czm_splitPosition) discard;\n\
     if (v_splitDirection > 0.0 && gl_FragCoord.x < czm_splitPosition) discard;\n\
 \n\
-    mediump float A = dot(v_vertPos, v_vertPos);\n\
-    if(A > 1.0) {\n\
+    float A = -dot(v_vertPos, v_vertPos);\n\
+    if (A < -4.) {\n\
         discard;\n\
     }\n\
-    mediump float scale = 4.0;\n\
-    mediump float B = exp(-A * scale) * (v_splatColor.a);\n\
-    out_FragColor = vec4(v_splatColor.rgb * B, B);\n\
+\n\
+    float B = exp(A * 4.) * v_splatColor.a ;\n\
+    out_FragColor = vec4(v_splatColor.rgb * B , B);\n\
 }\n\
 ";

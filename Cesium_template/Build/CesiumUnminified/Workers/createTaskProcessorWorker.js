@@ -1,7 +1,7 @@
 /**
  * @license
  * Cesium - https://github.com/CesiumGS/cesium
- * Version 1.132
+ * Version 1.134.0
  *
  * Copyright 2011-2022 Cesium Contributors
  *
@@ -25,8 +25,8 @@
 
 import {
   createTaskProcessorWorker_default
-} from "./chunk-DPFAUGBE.js";
-import "./chunk-EV4PBU7O.js";
+} from "./chunk-LNTUIO55.js";
+import "./chunk-5GHCWGC4.js";
 export {
   createTaskProcessorWorker_default as default
 };

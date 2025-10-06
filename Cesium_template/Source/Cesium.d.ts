@@ -5804,6 +5804,11 @@ export class Ellipsoid {
      */
     static readonly MOON: Ellipsoid;
     /**
+     * An Ellipsoid instance initialized to a sphere with the mean radii of Mars.
+     * Source: https://epsg.io/104905
+     */
+    static readonly MARS: Ellipsoid;
+    /**
      * The default ellipsoid used when not otherwise specified.
      * @example
      * Cesium.Ellipsoid.default = Cesium.Ellipsoid.MOON;
@@ -8841,7 +8846,7 @@ export class IonResource extends Resource {
      * @param [options] - An object with the following properties:
      * @param [options.accessToken = Ion.defaultAccessToken] - The access token to use.
      * @param [options.server = Ion.defaultServer] - The resource to the Cesium ion API server.
-     * @returns A Promise to am instance representing the Cesium ion Asset.
+     * @returns A Promise to an instance representing the Cesium ion Asset.
      */
     static fromAssetId(assetId: number, options?: {
         accessToken?: string;
@@ -18514,15 +18519,6 @@ export function createWorldTerrainAsync(options?: {
     requestVertexNormals?: boolean;
     requestWaterMask?: boolean;
 }): Promise<CesiumTerrainProvider>;
-
-/**
- * Returns the first parameter if not undefined, otherwise the second parameter.
- * Useful for setting a default value for a parameter.
- * @example
- * param = Cesium.defaultValue(param, 'default');
- * @returns Returns the first parameter if not undefined, otherwise the second parameter.
- */
-export function defaultValue(a: any, b: any): any;
 
 /**
  * @example
@@ -30649,12 +30645,12 @@ export class ClippingPlaneCollection {
      * An event triggered when a new clipping plane is added to the collection.  Event handlers
      * are passed the new plane and the index at which it was added.
      */
-    planeAdded: Event;
+    readonly planeAdded: Event;
     /**
      * An event triggered when a new clipping plane is removed from the collection.  Event handlers
      * are passed the new plane and the index from which it was removed.
      */
-    planeRemoved: Event;
+    readonly planeRemoved: Event;
     /**
      * Returns the number of planes in this collection.  This is commonly used with
      * {@link ClippingPlaneCollection#get} to iterate over all the planes
@@ -30793,6 +30789,33 @@ export class ClippingPolygon {
      */
     computeRectangle(result?: Rectangle): Rectangle;
 }
+
+/**
+ * Returns a deep copy of the given array.
+ *
+ * If the input is undefined, then <code>undefined</code> is returned.
+ *
+ * Otherwise, the result will be a copy of the given array, where
+ * each element is copied with <code>Cartesian3.clone</code>.
+ * @param input - The input array
+ * @returns The copy
+ */
+export function copyArrayCartesian3(input: Cartesian3[] | undefined): Cartesian3[] | undefined;
+
+/**
+ * Returns whether the given arrays are component-wise equal.
+ *
+ * When both arrays are undefined, then <code>true</code> is returned.
+ * When only one array is defined, or they are both defined but have
+ * different lengths, then <code>false</code> is returned.
+ *
+ * Otherwise, returns whether the corresponding elements of the arrays
+ * are equal, as of <code>Cartesian3.equals</code>.
+ * @param a - The first array
+ * @param b - The second array
+ * @returns Whether the arrays are equal
+ */
+export function equalsArrayCartesian3(a: Cartesian3[] | undefined, b: Cartesian3[] | undefined): boolean;
 
 /**
  * Specifies a set of clipping polygons. Clipping polygons selectively disable rendering in a region
@@ -32341,6 +32364,99 @@ export class FrameRateMonitor {
 }
 
 /**
+ * Represents the contents of a glTF or glb using the {@link https://github.com/CesiumGS/glTF/tree/draft-splat-spz/extensions/2.0/Khronos/KHR_gaussian_splatting | KHR_gaussian_splatting} and {@link https://github.com/CesiumGS/glTF/tree/draft-splat-spz/extensions/2.0/Khronos/KHR_gaussian_splatting_compression_spz_2 | KHR_gaussian_splatting_compression_spz_2} extensions.
+ * <p>
+ * Implements the {@link Cesium3DTileContent} interface.
+ * </p>
+ */
+export class GaussianSplat3DTileContent {
+    constructor();
+    /**
+     * Performs checks to ensure that the provided tileset has the Gaussian Splatting extensions.
+     * @param tileset - The tileset to check for the extensions.
+     * @returns Returns <code>true</code> if the necessary extensions are included in the tileset.
+     */
+    static tilesetRequiresGaussianSplattingExt(tileset: Cesium3DTileset): boolean;
+    /**
+     * Gets the number of features in the tile. Currently this is always zero.
+     */
+    readonly featuresLength: number;
+    /**
+     * Equal to the number of Gaussian splats in the tile. Each splat is represented by a median point and a set of attributes, so we can
+     * treat this as the number of points in the tile.
+     */
+    readonly pointsLength: number;
+    /**
+     * Gets the number of triangles in the tile. Currently this is always zero because Gaussian splats are not represented as triangles in the tile content.
+     * <p>
+     */
+    readonly trianglesLength: number;
+    /**
+     * The number of bytes used by the geometry attributes of this content.
+     * <p>
+     */
+    readonly geometryByteLength: number;
+    /**
+     * The number of bytes used by the textures of this content.
+     * <p>
+     */
+    readonly texturesByteLength: number;
+    /**
+     * Gets the amount of memory used by the batch table textures and any binary
+     * metadata properties not accounted for in geometryByteLength or
+     * texturesByteLength
+     * <p>
+     */
+    readonly batchTableByteLength: number;
+    /**
+     * Gets the array of {@link Cesium3DTileContent} objects for contents that contain other contents, such as composite tiles. The inner contents may in turn have inner contents, such as a composite tile that contains a composite tile.
+     */
+    readonly innerContents: any[];
+    /**
+     * Returns true when the tile's content is ready to render; otherwise false
+     */
+    readonly ready: boolean;
+    /**
+     * Returns true when the tile's content is transformed to world coordinates; otherwise false
+     * <p>
+     */
+    readonly transformed: boolean;
+    /**
+     * The tileset that this content belongs to.
+     * <p>
+     */
+    readonly tileset: Cesium3DTileset;
+    /**
+     * The tile that this content belongs to.
+     * <p>
+     */
+    readonly tile: Cesium3DTile;
+    /**
+     * The resource that this content was loaded from.
+     * <p>
+     */
+    readonly url: Resource;
+    /**
+     * Returns whether the feature has this property.
+     * @param batchId - The batchId for the feature.
+     * @param name - The case-sensitive name of the property.
+     * @returns <code>true</code> if the feature has this property; otherwise, <code>false</code>.
+     */
+    hasProperty(batchId: number, name: string): boolean;
+    /**
+     * Returns the {@link Cesium3DTileFeature} object for the feature with the
+     * given <code>batchId</code>.  This object is used to get and modify the
+     * feature's properties.
+     * <p>
+     * Features in a tile are ordered by <code>batchId</code>, an index used to retrieve their metadata from the batch table.
+     * </p>
+     * @param batchId - The batchId for the feature.
+     * @returns The corresponding {@link Cesium3DTileFeature} object.
+     */
+    getFeature(batchId: number): Cesium3DTileFeature;
+}
+
+/**
  * Describes the format in which to request GetFeatureInfo from a Web Map Service (WMS) server.
  * @param type - The type of response to expect from a GetFeatureInfo request.  Valid
  *        values are 'json', 'xml', 'html', or 'text'.
@@ -32752,6 +32868,261 @@ export function loadGltfJson(): void;
  * @returns The extension data removed from gltf.extensions.
  */
 export function removeExtension(gltf: any, extension: string): any;
+
+export namespace Google2DImageryProvider {
+    /**
+     * Initialization options for the Google2DImageryProvider constructor
+     * @property options - Object with the following properties:
+     * @property options.key - The Google api key to send with tile requests.
+     * @property options.session - The Google session token that tracks the current state of your map and viewport.
+     * @property options.url - The Google 2D maps endpoint.
+     * @property options.tileWidth - The width of each tile in pixels.
+     * @property options.tileHeight - The height of each tile in pixels.
+     * @property [options.ellipsoid = Ellipsoid.default] - The ellipsoid.  If not specified, the default ellipsoid is used.
+     * @property [options.minimumLevel = 0] - The minimum level-of-detail supported by the imagery provider.  Take care when specifying
+     *                 this that the number of tiles at the minimum level is small, such as four or less.  A larger number is likely
+     *                 to result in rendering problems.
+     * @property [options.maximumLevel = 22] - The maximum level-of-detail supported by the imagery provider.
+     * @property [options.rectangle = Rectangle.MAX_VALUE] - The rectangle, in radians, covered by the image.
+     */
+    type ConstructorOptions = {
+        options: {
+            key: string;
+            session: string;
+            url: string | Resource | IonResource;
+            tileWidth: string;
+            tileHeight: string;
+            ellipsoid?: Ellipsoid;
+            minimumLevel?: number;
+            maximumLevel?: number;
+            rectangle?: Rectangle;
+        };
+    };
+}
+
+/**
+ * <div class="notice">
+ * This object is normally not instantiated directly, use {@link Google2DImageryProvider.fromIonAssetId} or {@link Google2DImageryProvider.fromUrl}.
+ * </div>
+ *
+ *
+ * Provides 2D image tiles from {@link https://developers.google.com/maps/documentation/tile/2d-tiles-overview|Google 2D Tiles}.
+ *
+ * Google 2D Tiles can only be used with the Google geocoder.
+ * @example
+ * // Google 2D imagery provider
+ * const googleTilesProvider = Cesium.Google2DImageryProvider.fromIonAssetId({
+ *     assetId: 3830184
+ * });
+ * @example
+ * // Use your own Google api key
+ * Cesium.GoogleMaps.defaultApiKey = "your-api-key";
+ *
+ * const googleTilesProvider = Cesium.Google2DImageryProvider.fromUrl({
+ *     mapType: "SATELLITE"
+ * });
+ * @param options - Object describing initialization options
+ */
+export class Google2DImageryProvider {
+    constructor(options: Google2DImageryProvider.ConstructorOptions);
+    /**
+     * Gets the URL of the Google 2D Imagery server.
+     */
+    readonly url: string;
+    /**
+     * Gets the rectangle, in radians, of the imagery provided by the instance.
+     */
+    readonly rectangle: Rectangle;
+    /**
+     * Gets the width of each tile, in pixels.
+     */
+    readonly tileWidth: number;
+    /**
+     * Gets the height of each tile, in pixels.
+     */
+    readonly tileHeight: number;
+    /**
+     * Gets the maximum level-of-detail that can be requested.
+     */
+    readonly maximumLevel: number | undefined;
+    /**
+     * Gets the minimum level-of-detail that can be requested. Generally,
+     * a minimum level should only be used when the rectangle of the imagery is small
+     * enough that the number of tiles at the minimum level is small.  An imagery
+     * provider with more than a few tiles at the minimum level will lead to
+     * rendering problems.
+     */
+    readonly minimumLevel: number;
+    /**
+     * Gets the tiling scheme used by the provider.
+     */
+    readonly tilingScheme: TilingScheme;
+    /**
+     * Gets the tile discard policy.  If not undefined, the discard policy is responsible
+     * for filtering out "missing" tiles via its shouldDiscardImage function.  If this function
+     * returns undefined, no tiles are filtered.
+     */
+    readonly tileDiscardPolicy: TileDiscardPolicy;
+    /**
+     * Gets an event that is raised when the imagery provider encounters an asynchronous error.  By subscribing
+     * to the event, you will be notified of the error and can potentially recover from it.  Event listeners
+     * are passed an instance of {@link TileProviderError}.
+     */
+    readonly errorEvent: Event;
+    /**
+     * Gets the credit to display when this imagery provider is active.  Typically this is used to credit
+     * the source of the imagery.
+     */
+    readonly credit: Credit;
+    /**
+     * Gets the proxy used by this provider.
+     */
+    readonly proxy: Proxy;
+    /**
+     * Gets a value indicating whether or not the images provided by this imagery provider
+     * include an alpha channel.  If this property is false, an alpha channel, if present, will
+     * be ignored.  If this property is true, any images without an alpha channel will be treated
+     * as if their alpha is 1.0 everywhere.  When this property is false, memory usage
+     * and texture upload time are reduced.
+     */
+    readonly hasAlphaChannel: boolean;
+    /**
+     * Creates an {@link ImageryProvider} which provides 2D global tiled imagery from {@link https://developers.google.com/maps/documentation/tile/2d-tiles-overview|Google 2D Tiles}, streamed using the Cesium ion REST API.
+     * @example
+     * // Google 2D imagery provider
+     * const googleTilesProvider = Cesium.Google2DImageryProvider.fromIonAssetId({
+     *     assetId: 3830184
+     * });
+     * @example
+     * // Google 2D roadmap overlay with custom styles
+     * const googleTileProvider = Cesium.Google2DImageryProvider.fromIonAssetId({
+     *     assetId: 3830184,
+     *     overlayLayerType: "layerRoadmap",
+     *     styles: [
+     *         {
+     *             stylers: [{ hue: "#00ffe6" }, { saturation: -20 }],
+     *         },
+     *         {
+     *             featureType: "road",
+     *             elementType: "geometry",
+     *             stylers: [{ lightness: 100 }, { visibility: "simplified" }],
+     *         },
+     *     ],
+     * });
+     * @param options - Object with the following properties:
+     * @param options.assetId - The Cesium ion asset id.
+     * @param [options.mapType = "satellite"] - The map type of the Google map imagery. Valid options are satellite, terrain, and roadmap. If overlayLayerType is set, mapType is ignored and a transparent overlay is returned. If overlayMapType is undefined, then a basemap of mapType is returned. layerRoadmap overlayLayerType is included in terrain and roadmap mapTypes.
+     * @param [options.language = "en_US"] - an IETF language tag that specifies the language used to display information on the tiles
+     * @param [options.region = "US"] - A Common Locale Data Repository region identifier (two uppercase letters) that represents the physical location of the user.
+     * @param [options.overlayLayerType] - Returns a transparent overlay map with the specified layerType. If no value is provided, a basemap of mapType is returned. Use multiple instances of Google2DImageryProvider to add multiple Google Maps overlays to a scene. layerRoadmap is included in terrain and roadmap mapTypes, so adding as overlay to terrain or roadmap has no effect.
+     * @param [options.styles] - An array of JSON style objects that specify the appearance and detail level of map features such as roads, parks, and built-up areas. Styling is used to customize the standard Google base map. The styles parameter is valid only if the mapType is roadmap. For the complete style syntax, see the ({@link https://developers.google.com/maps/documentation/tile/style-reference|Google Style Reference}).
+     * @param [options.ellipsoid = Ellipsoid.default] - The ellipsoid.  If not specified, the default ellipsoid is used.
+     * @param [options.minimumLevel = 0] - The minimum level-of-detail supported by the imagery provider.  Take care when specifying
+     *                 this that the number of tiles at the minimum level is small, such as four or less.  A larger number is likely
+     *                 to result in rendering problems.
+     * @param [options.maximumLevel = 22] - The maximum level-of-detail supported by the imagery provider.
+     * @param [options.rectangle = Rectangle.MAX_VALUE] - The rectangle, in radians, covered by the image.
+     * @param [options.credit] - A credit for the data source, which is displayed on the canvas.
+     * @returns A promise that resolves to the created Google2DImageryProvider.
+     */
+    static fromIonAssetId(options: {
+        assetId: string;
+        mapType?: "satellite" | "terrain" | "roadmap";
+        language?: string;
+        region?: string;
+        overlayLayerType?: "layerRoadmap" | "layerStreetview" | "layerTraffic";
+        styles?: any;
+        ellipsoid?: Ellipsoid;
+        minimumLevel?: number;
+        maximumLevel?: number;
+        rectangle?: Rectangle;
+        credit?: Credit | string;
+    }): Promise<Google2DImageryProvider>;
+    /**
+     * Creates an {@link ImageryProvider} which provides 2D global tiled imagery from {@link https://developers.google.com/maps/documentation/tile/2d-tiles-overview|Google 2D Tiles}.
+     * @example
+     * // Use your own Google api key
+     * Cesium.GoogleMaps.defaultApiKey = "your-api-key";
+     *
+     * const googleTilesProvider = Cesium.Google2DImageryProvider.fromUrl({
+     *     mapType: "satellite"
+     * });
+     * @example
+     * // Google 2D roadmap overlay with custom styles
+     * Cesium.GoogleMaps.defaultApiKey = "your-api-key";
+     *
+     * const googleTileProvider = Cesium.Google2DImageryProvider.fromUrl({
+     *     overlayLayerType: "layerRoadmap",
+     *     styles: [
+     *         {
+     *             stylers: [{ hue: "#00ffe6" }, { saturation: -20 }],
+     *         },
+     *         {
+     *             featureType: "road",
+     *             elementType: "geometry",
+     *             stylers: [{ lightness: 100 }, { visibility: "simplified" }],
+     *         },
+     *     ],
+     * });
+     * @param options - Object with the following properties:
+     * @param [options.key = GoogleMaps.defaultApiKey] - Your API key to access Google 2D Tiles. See {@link https://developers.google.com/maps/documentation/javascript/get-api-key} for instructions on how to create your own key.
+     * @param [options.mapType = "satellite"] - The map type of the Google map imagery. Valid options are satellite, terrain, and roadmap. If overlayLayerType is set, mapType is ignored and a transparent overlay is returned. If overlayMapType is undefined, then a basemap of mapType is returned. layerRoadmap overlayLayerType is included in terrain and roadmap mapTypes.
+     * @param [options.language = "en_US"] - an IETF language tag that specifies the language used to display information on the tiles
+     * @param [options.region = "US"] - A Common Locale Data Repository region identifier (two uppercase letters) that represents the physical location of the user.
+     * @param [options.overlayLayerType] - Returns a transparent overlay map with the specified layerType. If no value is provided, a basemap of mapType is returned. Use multiple instances of Google2DImageryProvider to add multiple Google Maps overlays to a scene. layerRoadmap is included in terrain and roadmap mapTypes, so adding as overlay to terrain or roadmap has no effect.
+     * @param [options.styles] - An array of JSON style objects that specify the appearance and detail level of map features such as roads, parks, and built-up areas. Styling is used to customize the standard Google base map. The styles parameter is valid only if the mapType is roadmap. For the complete style syntax, see the ({@link https://developers.google.com/maps/documentation/tile/style-reference|Google Style Reference}).
+     * @param [options.ellipsoid = Ellipsoid.default] - The ellipsoid.  If not specified, the default ellipsoid is used.
+     * @param [options.minimumLevel = 0] - The minimum level-of-detail supported by the imagery provider.  Take care when specifying
+     *                 this that the number of tiles at the minimum level is small, such as four or less.  A larger number is likely
+     *                 to result in rendering problems.
+     * @param [options.maximumLevel = 22] - The maximum level-of-detail supported by the imagery provider.
+     * @param [options.rectangle = Rectangle.MAX_VALUE] - The rectangle, in radians, covered by the image.
+     * @param [options.credit] - A credit for the data source, which is displayed on the canvas.
+     * @returns A promise that resolves to the created Google2DImageryProvider.
+     */
+    static fromUrl(options: {
+        key?: string;
+        mapType?: "satellite" | "terrain" | "roadmap";
+        language?: string;
+        region?: string;
+        overlayLayerType?: "layerRoadmap" | "layerStreetview" | "layerTraffic";
+        styles?: any;
+        ellipsoid?: Ellipsoid;
+        minimumLevel?: number;
+        maximumLevel?: number;
+        rectangle?: Rectangle;
+        credit?: Credit | string;
+    }): Promise<Google2DImageryProvider>;
+    /**
+     * Gets the credits to be displayed when a given tile is displayed.
+     * @param x - The tile X coordinate.
+     * @param y - The tile Y coordinate.
+     * @param level - The tile level;
+     * @returns The credits to be displayed when the tile is displayed.
+     */
+    getTileCredits(x: number, y: number, level: number): Credit[] | undefined;
+    /**
+     * Requests the image for a given tile.
+     * @param x - The tile X coordinate.
+     * @param y - The tile Y coordinate.
+     * @param level - The tile level.
+     * @param [request] - The request object. Intended for internal use only.
+     * @returns A promise for the image that will resolve when the image is available, or
+     *          undefined if there are too many active requests to the server, and the request should be retried later.
+     */
+    requestImage(x: number, y: number, level: number, request?: Request): Promise<ImageryTypes> | undefined;
+    /**
+     * Picking features is not currently supported by this imagery provider, so this function simply returns
+     * undefined.
+     * @param x - The tile X coordinate.
+     * @param y - The tile Y coordinate.
+     * @param level - The tile level.
+     * @param longitude - The longitude at which to pick features.
+     * @param latitude - The latitude at which to pick features.
+     * @returns Undefined since picking is not supported.
+     */
+    pickFeatures(x: number, y: number, level: number, longitude: number, latitude: number): undefined;
+}
 
 export namespace GoogleEarthEnterpriseImageryProvider {
     /**
@@ -34171,16 +34542,22 @@ export namespace ITwinData {
      *
      * If the <code>type</code> or <code>rootDocument</code> are not provided this function
      * will first request the full metadata for the specified reality data to fill these values.
+     *
+     * The <code>maximumScreenSpaceError</code> of the resulting tileset will default to 4,
+     * unless it is explicitly overridden with the given tileset options.
      * @param options.iTwinId - The id of the iTwin to load data from
      * @param options.realityDataId - The id of the reality data to load
      * @param [options.type] - The type of this reality data
      * @param [options.rootDocument] - The path of the root document for this reality data
+     * @param [options.tilesetOptions] - Object containing
+     * options to pass to the internally created {@link Cesium3DTileset}.
      */
     function createTilesetForRealityDataId(options: {
         iTwinId: string;
         realityDataId: string;
         type?: ITwinPlatform.RealityDataType;
         rootDocument?: string;
+        tilesetOptions?: Cesium3DTileset.ConstructorOptions;
     }): Promise<Cesium3DTileset>;
     /**
      * Create a data source of the correct type for the specified reality data id.
@@ -36220,6 +36597,18 @@ export class Material {
      */
     static fromType(type: string, uniforms?: any): Material;
     /**
+     * Creates a new material using an existing material type and returns a promise that resolves when
+     * all of the material's resources have been loaded.
+     * @example
+     * const material = await Cesium.Material.fromTypeAsync('Image', {
+     *    image: '../Images/Cesium_Logo_overlay.png'
+     * });
+     * @param type - The base material type.
+     * @param [uniforms] - Overrides for the default uniforms.
+     * @returns A promise that resolves to a new material object when all resources are loaded.
+     */
+    static fromTypeAsync(type: string, uniforms?: any): Promise<Material>;
+    /**
      * Gets whether or not this material is translucent.
      * @returns <code>true</code> if this material is translucent, <code>false</code> otherwise.
      */
@@ -36352,6 +36741,24 @@ export class Material {
      */
     static readonly WaterMaskType: string;
 }
+
+/**
+ * The {@link TextureMinificationFilter} to apply to this material's textures.
+ */
+export var minificationFilter: TextureMinificationFilter;
+
+/**
+ * The {@link TextureMagnificationFilter} to apply to this material's textures.
+ */
+export var magnificationFilter: TextureMagnificationFilter;
+
+/**
+ * Loads the images for a cubemap uniform, if it has changed since the last time this was called.
+ * @param material - The material to load the cubemap images for.
+ * @param uniformId - The ID of the uniform that corresponds to the cubemap images.
+ * @returns A promise that resolves when the images are loaded, or a resolved promise if image loading is not necessary.
+ */
+export function loadCubeMapImagesForUniform(material: Material, uniformId: string): any;
 
 /**
  * An appearance for arbitrary geometry (as opposed to {@link EllipsoidSurfaceAppearance}, for example)
@@ -37494,6 +37901,9 @@ export enum LightingModel {
  *  </li>
  *  <li>
  *  {@link https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Vendor/EXT_mesh_gpu_instancing|EXT_mesh_gpu_instancing}
+ *  </li>
+ *  <li>
+ *  {@link https://github.com/KhronosGroup/glTF/pull/2514|EXT_mesh_primitive_restart}
  *  </li>
  *  <li>
  *  {@link https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Vendor/EXT_meshopt_compression|EXT_meshopt_compression}
@@ -39326,6 +39736,29 @@ export type PickedMetadataInfo = {
     propertyName: string;
     classProperty: MetadataClassProperty;
 };
+
+/**
+ * Remove all invalid binary body references from the batch table
+ * JSON of the given parsed content.
+ *
+ * This is a workaround for gracefully handling the invalid PNTS
+ * files that may have been created by the point cloud tiler.
+ * See https://github.com/CesiumGS/cesium/issues/12872
+ *
+ * When the batch table JSON is undefined, nothing will be done.
+ * When the batch table binary is defined, nothing will be done
+ * (assuming that any binary body references are valid - this is
+ * not checked here).
+ *
+ * Otherwise, this will remove all binary body references from the
+ * batch table JSON that are not resolved from draco via the
+ * `parsedContent.draco.batchTableProperties`.
+ *
+ * If any (invalid) binary body reference is found (and removed),
+ * a one-time warning will be printed.
+ * @param parsedContent - The parsed content
+ */
+export function removeInvalidBinaryBodyReferences(parsedContent: any): void;
 
 /**
  * Options for performing point attenuation based on geometric error when rendering
@@ -41176,8 +41609,8 @@ export const TILE_SIZE = 256;
  * @param options - Object with the following properties:
  * @param options.canvas - The HTML canvas element to create the scene for.
  * @param [options.contextOptions] - Context and WebGL creation properties.
- * @param [options.creditContainer] - The HTML element in which the credits will be displayed.
- * @param [options.creditViewport] - The HTML element in which to display the credit popup.  If not specified, the viewport will be a added as a sibling of the canvas.
+ * @param [options.creditContainer] - The HTML element in which the credits will be displayed. If not specified, a credit container will be created and added as a sibling of the canvas.
+ * @param [options.creditViewport] - The HTML element in which to display the credit popup.  If not specified, the viewport will be added as a sibling of the canvas.
  * @param [options.ellipsoid = Ellipsoid.default] - The default ellipsoid. If not specified, the default ellipsoid is used.
  * @param [options.mapProjection = new GeographicProjection(options.ellipsoid)] - The map projection to use in 2D and Columbus View modes.
  * @param [options.orderIndependentTranslucency = true] - If true and the configuration supports it, use order independent translucency.
@@ -44211,8 +44644,9 @@ export namespace WebMapServiceImageryProvider {
 /**
  * Provides tiled imagery hosted by a Web Map Service (WMS) server.
  * @example
+ * // WMS servers operated by the US government https://apps.nationalmap.gov/services/
  * const provider = new Cesium.WebMapServiceImageryProvider({
- *     url : 'https://sampleserver1.arcgisonline.com/ArcGIS/services/Specialty/ESRI_StatesCitiesRivers_USA/MapServer/WMSServer',
+ *     url : 'https://basemap.nationalmap.gov:443/arcgis/services/USGSHydroCached/MapServer/WMSServer',
  *     layers : '0',
  *     proxy: new Cesium.DefaultProxy('/proxy/')
  * });

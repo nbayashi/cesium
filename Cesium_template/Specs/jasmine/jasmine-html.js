@@ -30,6 +30,7 @@ jasmineRequire.html = function(j$) {
   j$.HtmlReporter = jasmineRequire.HtmlReporter(j$);
   j$.QueryString = jasmineRequire.QueryString();
   j$.HtmlSpecFilter = jasmineRequire.HtmlSpecFilter();
+  j$.HtmlExactSpecFilter = jasmineRequire.HtmlExactSpecFilter();
 };
 
 jasmineRequire.HtmlReporter = function(j$) {
@@ -39,11 +40,13 @@ jasmineRequire.HtmlReporter = function(j$) {
     this.specsExecuted = 0;
     this.failureCount = 0;
     this.pendingSpecCount = 0;
+    this.suitesById = [];
   }
 
   ResultsStateBuilder.prototype.suiteStarted = function(result) {
     this.currentParent.addChild(result, 'suite');
     this.currentParent = this.currentParent.last();
+    this.suitesById[result.id] = this.currentParent;
   };
 
   ResultsStateBuilder.prototype.suiteDone = function(result) {
@@ -81,6 +84,13 @@ jasmineRequire.HtmlReporter = function(j$) {
     }
   };
 
+  /**
+   * @class HtmlReporter
+   * @classdesc Displays results and allows re-running individual specs and suites.
+   * @implements {Reporter}
+   * @param options Options object. See lib/jasmine-core/boot1.js for details.
+   * @since 1.2.0
+   */
   function HtmlReporter(options) {
     function config() {
       return (options.env && options.env.configuration()) || {};
@@ -89,15 +99,24 @@ jasmineRequire.HtmlReporter = function(j$) {
     const getContainer = options.getContainer;
     const createElement = options.createElement;
     const createTextNode = options.createTextNode;
+    // TODO: in the next major release, replace navigateWithNewParam and
+    // addToExistingQueryString with direct usage of options.queryString
     const navigateWithNewParam = options.navigateWithNewParam || function() {};
     const addToExistingQueryString =
       options.addToExistingQueryString || defaultQueryString;
-    const filterSpecs = options.filterSpecs;
+    const filterSpecs = options.queryString
+      ? !!options.queryString.getParam('spec')
+      : options.filterSpecs; // For compatibility with pre-5.11 boot files
     let htmlReporterMain;
     let symbols;
     const deprecationWarnings = [];
     const failures = [];
 
+    /**
+     * Initializes the reporter. Should be called before {@link Env#execute}.
+     * @function
+     * @name HtmlReporter#initialize
+     */
     this.initialize = function() {
       clearPrior();
       htmlReporterMain = createDom(
@@ -557,6 +576,11 @@ jasmineRequire.HtmlReporter = function(j$) {
                 'a',
                 { href: specHref(resultNode.result) },
                 specDescription
+              ),
+              createDom(
+                'span',
+                { className: 'jasmine-spec-duration' },
+                '(' + resultNode.result.duration + 'ms)'
               )
             )
           );
@@ -711,21 +735,6 @@ jasmineRequire.HtmlReporter = function(j$) {
       return wrapper;
     }
 
-    function suiteHref(suite) {
-      const els = [];
-
-      while (suite && suite.parent) {
-        els.unshift(suite.result.description);
-        suite = suite.parent;
-      }
-
-      // include window.location.pathname to fix issue with karma-jasmine-html-reporter in angular: see https://github.com/jasmine/jasmine/issues/1906
-      return (
-        (window.location.pathname || '') +
-        addToExistingQueryString('spec', els.join(' '))
-      );
-    }
-
     function addDeprecationWarnings(result, runnableType) {
       if (result && result.deprecationWarnings) {
         for (let i = 0; i < result.deprecationWarnings.length; i++) {
@@ -823,11 +832,33 @@ jasmineRequire.HtmlReporter = function(j$) {
       return '' + count + ' ' + word;
     }
 
+    function suitePath(suite) {
+      const els = [];
+
+      while (suite && suite.parent) {
+        els.unshift(suite.result.description);
+        suite = suite.parent;
+      }
+
+      return els;
+    }
+
+    function suiteHref(suite) {
+      return pathHref(suitePath(suite));
+    }
+
     function specHref(result) {
+      const suite = stateBuilder.suitesById[result.parentSuiteId];
+      const path = suitePath(suite);
+      path.push(result.description);
+      return pathHref(path);
+    }
+
+    function pathHref(path) {
       // include window.location.pathname to fix issue with karma-jasmine-html-reporter in angular: see https://github.com/jasmine/jasmine/issues/1906
       return (
         (window.location.pathname || '') +
-        addToExistingQueryString('spec', result.fullName)
+        addToExistingQueryString('spec', JSON.stringify(path))
       );
     }
 
@@ -876,13 +907,36 @@ jasmineRequire.HtmlReporter = function(j$) {
 };
 
 jasmineRequire.HtmlSpecFilter = function() {
+  /**
+   * @name HtmlSpecFilter
+   * @classdesc Legacy HTML spec filter, for backward compatibility
+   * with boot files that predate {@link HtmlExactSpecFilter}.
+   * @param options Object with a filterString method
+   * @constructor
+   * @deprecated
+   * @since 1.2.0
+   */
+  // Legacy HTML spec filter, preserved for backward compatibility with
+  // boot files that predate HtmlExactSpecFilterV2
   function HtmlSpecFilter(options) {
-    const filterString =
-      options &&
-      options.filterString() &&
-      options.filterString().replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+    let filterString = (options && options.filterString()) || '';
+
+    if (filterString.startsWith('[')) {
+      // Convert an HtmlExactSpecFilterV2 string into something we can use
+      filterString = JSON.parse(filterString).join(' ');
+    }
+
+    filterString = filterString.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+
     const filterPattern = new RegExp(filterString);
 
+    /**
+     * Determines whether the spec with the specified name should be executed.
+     * @name HtmlSpecFilter#matches
+     * @function
+     * @param {string} specName The full name of the spec
+     * @returns {boolean}
+     */
     this.matches = function(specName) {
       return filterPattern.test(specName);
     };
@@ -916,38 +970,57 @@ jasmineRequire.ResultsNode = function() {
 };
 
 jasmineRequire.QueryString = function() {
-  function QueryString(options) {
-    this.navigateWithNewParam = function(key, value) {
-      options.getWindowLocation().search = this.fullStringWithNewParam(
+  /**
+   * Reads and manipulates the query string.
+   * @since 2.0.0
+   */
+  class QueryString {
+    #getWindowLocation;
+
+    /**
+     * @param options Object with a getWindowLocation property, which should be
+     * a function returning the current value of window.location.
+     */
+    constructor(options) {
+      this.#getWindowLocation = options.getWindowLocation;
+    }
+
+    /**
+     * Sets the specified query parameter and navigates to the resulting URL.
+     * @param {string} key
+     * @param {string} value
+     */
+    navigateWithNewParam(key, value) {
+      this.#getWindowLocation().search = this.fullStringWithNewParam(
         key,
         value
       );
-    };
-
-    this.fullStringWithNewParam = function(key, value) {
-      const paramMap = queryStringToParamMap();
-      paramMap[key] = value;
-      return toQueryString(paramMap);
-    };
-
-    this.getParam = function(key) {
-      return queryStringToParamMap()[key];
-    };
-
-    return this;
-
-    function toQueryString(paramMap) {
-      const qStrPairs = [];
-      for (const prop in paramMap) {
-        qStrPairs.push(
-          encodeURIComponent(prop) + '=' + encodeURIComponent(paramMap[prop])
-        );
-      }
-      return '?' + qStrPairs.join('&');
     }
 
-    function queryStringToParamMap() {
-      const paramStr = options.getWindowLocation().search.substring(1);
+    /**
+     * Returns a new URL based on the current location, with the specified
+     * query parameter set.
+     * @param {string} key
+     * @param {string} value
+     * @return {string}
+     */
+    fullStringWithNewParam(key, value) {
+      const paramMap = this.#queryStringToParamMap();
+      paramMap[key] = value;
+      return toQueryString(paramMap);
+    }
+
+    /**
+     * Gets the value of the specified query parameter.
+     * @param {string} key
+     * @return {string}
+     */
+    getParam(key) {
+      return this.#queryStringToParamMap()[key];
+    }
+
+    #queryStringToParamMap() {
+      const paramStr = this.#getWindowLocation().search.substring(1);
       let params = [];
       const paramMap = {};
 
@@ -967,5 +1040,68 @@ jasmineRequire.QueryString = function() {
     }
   }
 
+  function toQueryString(paramMap) {
+    const qStrPairs = [];
+    for (const prop in paramMap) {
+      qStrPairs.push(
+        encodeURIComponent(prop) + '=' + encodeURIComponent(paramMap[prop])
+      );
+    }
+    return '?' + qStrPairs.join('&');
+  }
+
   return QueryString;
+};
+
+jasmineRequire.HtmlExactSpecFilter = function() {
+  /**
+   * Spec filter for use with {@link HtmlReporter}
+   *
+   * See lib/jasmine-core/boot1.js for usage.
+   * @since 5.11.0
+   */
+  class HtmlExactSpecFilter {
+    #getFilterString;
+
+    /**
+     * Create a filter instance.
+     * @param options Object with a queryString property, which should be an
+     * instance of {@link QueryString}.
+     */
+    constructor(options) {
+      this.#getFilterString = function() {
+        return options.queryString.getParam('spec');
+      };
+    }
+
+    /**
+     * Determines whether the specified spec should be executed.
+     * @param {Spec} spec
+     * @returns {boolean}
+     */
+    matches(spec) {
+      const filterString = this.#getFilterString();
+
+      if (!filterString) {
+        return true;
+      }
+
+      const filterPath = JSON.parse(this.#getFilterString());
+      const specPath = spec.getPath();
+
+      if (filterPath.length > specPath.length) {
+        return false;
+      }
+
+      for (let i = 0; i < filterPath.length; i++) {
+        if (specPath[i] !== filterPath[i]) {
+          return false;
+        }
+      }
+
+      return true;
+    }
+  }
+
+  return HtmlExactSpecFilter;
 };

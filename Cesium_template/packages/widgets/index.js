@@ -1,4 +1,4 @@
-globalThis.CESIUM_VERSION = "1.132";
+globalThis.CESIUM_VERSION = "1.134.0";
 export { default as ClockViewModel } from './Source/ClockViewModel.js';
 export { default as Command } from './Source/Command.js';
 export { default as InspectorShared } from './Source/InspectorShared.js';
@@ -35,11 +35,11 @@ export { default as ProjectionPicker } from './Source/ProjectionPicker/Projectio
 export { default as ProjectionPickerViewModel } from './Source/ProjectionPicker/ProjectionPickerViewModel.js';
 export { default as SceneModePicker } from './Source/SceneModePicker/SceneModePicker.js';
 export { default as SceneModePickerViewModel } from './Source/SceneModePicker/SceneModePickerViewModel.js';
-export { default as SelectionIndicator } from './Source/SelectionIndicator/SelectionIndicator.js';
-export { default as SelectionIndicatorViewModel } from './Source/SelectionIndicator/SelectionIndicatorViewModel.js';
 export { default as knockout_3_5_1 } from './Source/ThirdParty/knockout-3.5.1.js';
 export { default as knockout_es5 } from './Source/ThirdParty/knockout-es5.js';
 export { default as knockout } from './Source/ThirdParty/knockout.js';
+export { default as SelectionIndicator } from './Source/SelectionIndicator/SelectionIndicator.js';
+export { default as SelectionIndicatorViewModel } from './Source/SelectionIndicator/SelectionIndicatorViewModel.js';
 export { default as Timeline } from './Source/Timeline/Timeline.js';
 export { default as TimelineHighlightRange } from './Source/Timeline/TimelineHighlightRange.js';
 export { default as TimelineTrack } from './Source/Timeline/TimelineTrack.js';

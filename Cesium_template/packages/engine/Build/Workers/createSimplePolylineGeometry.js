@@ -1,7 +1,7 @@
 /**
  * @license
  * Cesium - https://github.com/CesiumGS/cesium
- * Version 1.132
+ * Version 1.134.0
  *
  * Copyright 2011-2022 Cesium Contributors
  *
@@ -25,51 +25,51 @@
 
 import {
   Color_default
-} from "./chunk-SVGHDIZG.js";
+} from "./chunk-SGGO5WVA.js";
 import {
   ArcType_default
-} from "./chunk-5YCDPN3O.js";
+} from "./chunk-E5XCZVIY.js";
 import {
   PolylinePipeline_default
-} from "./chunk-ESDVZ4QL.js";
-import "./chunk-MBDKO456.js";
-import "./chunk-XUYCCEG6.js";
-import "./chunk-25USKS4R.js";
-import "./chunk-RZJA77TX.js";
+} from "./chunk-LL6HN3W4.js";
+import "./chunk-DJ4ROETJ.js";
+import "./chunk-75B34CC6.js";
+import "./chunk-2T4WAVWX.js";
+import "./chunk-BUBVUXDO.js";
 import {
   IndexDatatype_default
-} from "./chunk-AZPKFL5X.js";
+} from "./chunk-7PLX65MV.js";
 import {
   GeometryAttributes_default
-} from "./chunk-ETCPCGKC.js";
+} from "./chunk-S4NZVXU6.js";
 import {
   GeometryAttribute_default,
   Geometry_default,
   PrimitiveType_default
-} from "./chunk-DNCRKMCI.js";
+} from "./chunk-ARYRHDEB.js";
 import {
   BoundingSphere_default
-} from "./chunk-GO3IRH6U.js";
-import "./chunk-WUMTX3FI.js";
+} from "./chunk-BU4CGMHO.js";
+import "./chunk-TG7N7TPY.js";
 import {
   ComponentDatatype_default
-} from "./chunk-FQNSMOZT.js";
+} from "./chunk-EHFMZFVC.js";
 import {
   Cartesian3_default,
   Ellipsoid_default,
   Frozen_default
-} from "./chunk-E6NMEKSS.js";
+} from "./chunk-CF72FAKC.js";
 import {
   Math_default
-} from "./chunk-Y3PM6G2V.js";
-import "./chunk-DXYAD4ED.js";
-import "./chunk-Q2QXUN33.js";
+} from "./chunk-NP46ZIBY.js";
+import "./chunk-3G5XEUPY.js";
+import "./chunk-PXDMWXO5.js";
 import {
   DeveloperError_default
-} from "./chunk-SOYVF5RC.js";
+} from "./chunk-JJZWDROM.js";
 import {
   defined_default
-} from "./chunk-EV4PBU7O.js";
+} from "./chunk-5GHCWGC4.js";
 
 // packages/engine/Source/Core/SimplePolylineGeometry.js
 function interpolateColors(p0, p1, color0, color1, minDistance, array, offset) {
