@@ -14,6 +14,7 @@ import czm_oneOverTwoPi from './Constants/oneOverTwoPi.js'
 import czm_passCesium3DTile from './Constants/passCesium3DTile.js'
 import czm_passCesium3DTileClassification from './Constants/passCesium3DTileClassification.js'
 import czm_passCesium3DTileClassificationIgnoreShow from './Constants/passCesium3DTileClassificationIgnoreShow.js'
+import czm_passCesium3DTileEdges from './Constants/passCesium3DTileEdges.js'
 import czm_passClassification from './Constants/passClassification.js'
 import czm_passCompute from './Constants/passCompute.js'
 import czm_passEnvironment from './Constants/passEnvironment.js'
@@ -71,6 +72,7 @@ import czm_computeGroundAtmosphereScattering from './Functions/computeGroundAtmo
 import czm_computePosition from './Functions/computePosition.js'
 import czm_computeScattering from './Functions/computeScattering.js'
 import czm_cosineAndSine from './Functions/cosineAndSine.js'
+import czm_decodeRGB8 from './Functions/decodeRGB8.js'
 import czm_decompressTextureCoordinates from './Functions/decompressTextureCoordinates.js'
 import czm_depthClamp from './Functions/depthClamp.js'
 import czm_eastNorthUpToEyeCoordinates from './Functions/eastNorthUpToEyeCoordinates.js'
@@ -129,6 +131,7 @@ import czm_transpose from './Functions/transpose.js'
 import czm_unpackClippingExtents from './Functions/unpackClippingExtents.js'
 import czm_unpackDepth from './Functions/unpackDepth.js'
 import czm_unpackFloat from './Functions/unpackFloat.js'
+import czm_unpackTexture from './Functions/unpackTexture.js'
 import czm_unpackUint from './Functions/unpackUint.js'
 import czm_valueTransform from './Functions/valueTransform.js'
 import czm_vertexLogDepth from './Functions/vertexLogDepth.js'
@@ -153,6 +156,7 @@ export default {
     czm_passCesium3DTile : czm_passCesium3DTile,
     czm_passCesium3DTileClassification : czm_passCesium3DTileClassification,
     czm_passCesium3DTileClassificationIgnoreShow : czm_passCesium3DTileClassificationIgnoreShow,
+    czm_passCesium3DTileEdges : czm_passCesium3DTileEdges,
     czm_passClassification : czm_passClassification,
     czm_passCompute : czm_passCompute,
     czm_passEnvironment : czm_passEnvironment,
@@ -210,6 +214,7 @@ export default {
     czm_computePosition : czm_computePosition,
     czm_computeScattering : czm_computeScattering,
     czm_cosineAndSine : czm_cosineAndSine,
+    czm_decodeRGB8 : czm_decodeRGB8,
     czm_decompressTextureCoordinates : czm_decompressTextureCoordinates,
     czm_depthClamp : czm_depthClamp,
     czm_eastNorthUpToEyeCoordinates : czm_eastNorthUpToEyeCoordinates,
@@ -268,6 +273,7 @@ export default {
     czm_unpackClippingExtents : czm_unpackClippingExtents,
     czm_unpackDepth : czm_unpackDepth,
     czm_unpackFloat : czm_unpackFloat,
+    czm_unpackTexture : czm_unpackTexture,
     czm_unpackUint : czm_unpackUint,
     czm_valueTransform : czm_valueTransform,
     czm_vertexLogDepth : czm_vertexLogDepth,

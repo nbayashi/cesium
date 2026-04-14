@@ -1,3 +1,4 @@
+declare module "@cesium/widgets" {
 import { BoundingSphere,
 Cartesian2,
 Cartesian3,
@@ -72,7 +73,6 @@ TileMapServiceImageryProvider,
 TimeDynamicPointCloud,
 VoxelPrimitive,
 CesiumWidget } from "@cesium/engine";
-declare module "@cesium/widgets" {
 /**
  * Options to control the setting up of a WebGL Context.
  * <p>

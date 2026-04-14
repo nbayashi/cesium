@@ -26,10 +26,31 @@ vec4 handleAlpha(vec3 color, float alpha)\n\
     return vec4(color, alpha);\n\
 }\n\
 \n\
+void lineStyleStage()\n\
+{\n\
+    #if defined(HAS_LINE_PATTERN) && !defined(HAS_EDGE_VISIBILITY)\n\
+    const float maskLength = 16.0;\n\
+    float dashPosition = fract(v_lineCoord / maskLength);\n\
+    float maskIndex = floor(dashPosition * maskLength);\n\
+    float maskTest = floor(u_linePattern / pow(2.0, maskIndex));\n\
+    if (mod(maskTest, 2.0) < 1.0) {\n\
+        discard;\n\
+    }\n\
+    #endif\n\
+}\n\
+\n\
 SelectedFeature selectedFeature;\n\
 \n\
 void main()\n\
 {\n\
+    #if defined(PRIMITIVE_TYPE_POINTS) && defined(HAS_POINT_DIAMETER)\n\
+    // Render points as circles\n\
+    float distanceToCenter = length(gl_PointCoord - vec2(0.5));\n\
+    if (distanceToCenter > 0.5) {\n\
+        discard;\n\
+    }\n\
+    #endif\n\
+\n\
     #ifdef HAS_POINT_CLOUD_SHOW_STYLE\n\
         if (v_pointCloudShow == 0.0)\n\
         {\n\
@@ -52,7 +73,7 @@ void main()\n\
     Metadata metadata;\n\
     MetadataClass metadataClass;\n\
     MetadataStatistics metadataStatistics;\n\
-    metadataStage(metadata, metadataClass, metadataStatistics, attributes);\n\
+    metadataStage(featureIds, metadata, metadataClass, metadataStatistics, attributes);\n\
 \n\
     //========================================================================\n\
     // When not picking metadata START\n\
@@ -100,6 +121,8 @@ void main()\n\
     // When picking metadata END\n\
     //========================================================================\n\
 \n\
+    lineStyleStage();\n\
+\n\
     #ifdef HAS_CLIPPING_PLANES\n\
     modelClippingPlanesStage(color);\n\
     #endif\n\
@@ -118,6 +141,11 @@ void main()\n\
 \n\
     #ifdef HAS_ATMOSPHERE\n\
     atmosphereStage(color, attributes);\n\
+    #endif\n\
+\n\
+    #ifdef HAS_EDGE_VISIBILITY\n\
+    edgeVisibilityStage(color, featureIds);\n\
+    edgeDetectionStage(color, featureIds);\n\
     #endif\n\
 \n\
     #endif\n\

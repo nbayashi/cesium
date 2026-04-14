@@ -136,7 +136,7 @@ RayShapeIntersection nextIntersection(inout Intersections ix) {\n\
         surfaceIntersection = ix.intersections[i];\n\
         int intersectionType = int(length(surfaceIntersection.xyz) - 0.5);\n\
         bool currShapeIsPositive = intersectionType < 2;\n\
-        bool enter = intMod(intersectionType, 2) == 0;\n\
+        bool enter = intersectionType % 2 == 0;\n\
 \n\
         ix.surroundCount += enter ? +1 : -1;\n\
         ix.surroundIsPositive = currShapeIsPositive ? enter : ix.surroundIsPositive;\n\

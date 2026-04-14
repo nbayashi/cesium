@@ -1,7 +1,7 @@
 /**
  * @license
  * Cesium - https://github.com/CesiumGS/cesium
- * Version 1.134.0
+ * Version 1.140.0
  *
  * Copyright 2011-2022 Cesium Contributors
  *
@@ -24,305 +24,52 @@
  */
 
 import {
+  TerrainProvider_default
+} from "./chunk-7O5XJTVE.js";
+import {
   EllipsoidalOccluder_default,
   TerrainEncoding_default
-} from "./chunk-K4IDXMIZ.js";
+} from "./chunk-NKT5K3K3.js";
 import {
   createTaskProcessorWorker_default
-} from "./chunk-LNTUIO55.js";
+} from "./chunk-AMIHNSST.js";
 import {
   WebMercatorProjection_default
-} from "./chunk-BDPSQXLX.js";
-import "./chunk-GKCZ2G36.js";
+} from "./chunk-DVB56LG7.js";
+import "./chunk-72VYSVEW.js";
 import {
   AxisAlignedBoundingBox_default
-} from "./chunk-UY2HVPDL.js";
+} from "./chunk-44EMEGKW.js";
 import {
   IndexDatatype_default
-} from "./chunk-7PLX65MV.js";
-import "./chunk-BU4CGMHO.js";
+} from "./chunk-AF3MU2RL.js";
+import "./chunk-HRHRYFHS.js";
+import "./chunk-YQFTYQMZ.js";
 import {
-  Matrix4_default,
   Rectangle_default,
   Transforms_default
-} from "./chunk-TG7N7TPY.js";
-import "./chunk-EHFMZFVC.js";
+} from "./chunk-YJZGW74L.js";
+import {
+  Matrix4_default
+} from "./chunk-HKUES6UG.js";
+import "./chunk-ILMFADZA.js";
+import "./chunk-PVV64VFW.js";
+import "./chunk-EDXL4W76.js";
 import {
   Cartesian2_default,
-  Cartesian3_default,
   Cartographic_default,
   Ellipsoid_default
-} from "./chunk-CF72FAKC.js";
+} from "./chunk-GOQBUCXH.js";
+import {
+  Cartesian3_default
+} from "./chunk-ZBZRTRJB.js";
 import {
   Math_default
-} from "./chunk-NP46ZIBY.js";
-import "./chunk-3G5XEUPY.js";
-import "./chunk-PXDMWXO5.js";
-import {
-  DeveloperError_default
-} from "./chunk-JJZWDROM.js";
+} from "./chunk-5GXYJQ2K.js";
+import "./chunk-VLDEUTOP.js";
 import {
   defined_default
-} from "./chunk-5GHCWGC4.js";
-
-// packages/engine/Source/Core/TerrainProvider.js
-function TerrainProvider() {
-  DeveloperError_default.throwInstantiationError();
-}
-Object.defineProperties(TerrainProvider.prototype, {
-  /**
-   * Gets an event that is raised when the terrain provider encounters an asynchronous error.  By subscribing
-   * to the event, you will be notified of the error and can potentially recover from it.  Event listeners
-   * are passed an instance of {@link TileProviderError}.
-   * @memberof TerrainProvider.prototype
-   * @type {Event<TerrainProvider.ErrorEvent>}
-   * @readonly
-   */
-  errorEvent: {
-    get: DeveloperError_default.throwInstantiationError
-  },
-  /**
-   * Gets the credit to display when this terrain provider is active.  Typically this is used to credit
-   * the source of the terrain.
-   * @memberof TerrainProvider.prototype
-   * @type {Credit}
-   * @readonly
-   */
-  credit: {
-    get: DeveloperError_default.throwInstantiationError
-  },
-  /**
-   * Gets the tiling scheme used by the provider.
-   * @memberof TerrainProvider.prototype
-   * @type {TilingScheme}
-   * @readonly
-   */
-  tilingScheme: {
-    get: DeveloperError_default.throwInstantiationError
-  },
-  /**
-   * Gets a value indicating whether or not the provider includes a water mask.  The water mask
-   * indicates which areas of the globe are water rather than land, so they can be rendered
-   * as a reflective surface with animated waves.
-   * @memberof TerrainProvider.prototype
-   * @type {boolean}
-   * @readonly
-   */
-  hasWaterMask: {
-    get: DeveloperError_default.throwInstantiationError
-  },
-  /**
-   * Gets a value indicating whether or not the requested tiles include vertex normals.
-   * @memberof TerrainProvider.prototype
-   * @type {boolean}
-   * @readonly
-   */
-  hasVertexNormals: {
-    get: DeveloperError_default.throwInstantiationError
-  },
-  /**
-   * Gets an object that can be used to determine availability of terrain from this provider, such as
-   * at points and in rectangles. This property may be undefined if availability
-   * information is not available.
-   * @memberof TerrainProvider.prototype
-   * @type {TileAvailability|undefined}
-   * @readonly
-   */
-  availability: {
-    get: DeveloperError_default.throwInstantiationError
-  }
-});
-var regularGridIndicesCache = [];
-TerrainProvider.getRegularGridIndices = function(width, height) {
-  if (width * height >= Math_default.FOUR_GIGABYTES) {
-    throw new DeveloperError_default(
-      "The total number of vertices (width * height) must be less than 4,294,967,296."
-    );
-  }
-  let byWidth = regularGridIndicesCache[width];
-  if (!defined_default(byWidth)) {
-    regularGridIndicesCache[width] = byWidth = [];
-  }
-  let indices = byWidth[height];
-  if (!defined_default(indices)) {
-    if (width * height < Math_default.SIXTY_FOUR_KILOBYTES) {
-      indices = byWidth[height] = new Uint16Array(
-        (width - 1) * (height - 1) * 6
-      );
-    } else {
-      indices = byWidth[height] = new Uint32Array(
-        (width - 1) * (height - 1) * 6
-      );
-    }
-    addRegularGridIndices(width, height, indices, 0);
-  }
-  return indices;
-};
-var regularGridAndEdgeIndicesCache = [];
-TerrainProvider.getRegularGridIndicesAndEdgeIndices = function(width, height) {
-  if (width * height >= Math_default.FOUR_GIGABYTES) {
-    throw new DeveloperError_default(
-      "The total number of vertices (width * height) must be less than 4,294,967,296."
-    );
-  }
-  let byWidth = regularGridAndEdgeIndicesCache[width];
-  if (!defined_default(byWidth)) {
-    regularGridAndEdgeIndicesCache[width] = byWidth = [];
-  }
-  let indicesAndEdges = byWidth[height];
-  if (!defined_default(indicesAndEdges)) {
-    const indices = TerrainProvider.getRegularGridIndices(width, height);
-    const edgeIndices = getEdgeIndices(width, height);
-    const westIndicesSouthToNorth = edgeIndices.westIndicesSouthToNorth;
-    const southIndicesEastToWest = edgeIndices.southIndicesEastToWest;
-    const eastIndicesNorthToSouth = edgeIndices.eastIndicesNorthToSouth;
-    const northIndicesWestToEast = edgeIndices.northIndicesWestToEast;
-    indicesAndEdges = byWidth[height] = {
-      indices,
-      westIndicesSouthToNorth,
-      southIndicesEastToWest,
-      eastIndicesNorthToSouth,
-      northIndicesWestToEast
-    };
-  }
-  return indicesAndEdges;
-};
-var regularGridAndSkirtAndEdgeIndicesCache = [];
-TerrainProvider.getRegularGridAndSkirtIndicesAndEdgeIndices = function(width, height) {
-  if (width * height >= Math_default.FOUR_GIGABYTES) {
-    throw new DeveloperError_default(
-      "The total number of vertices (width * height) must be less than 4,294,967,296."
-    );
-  }
-  let byWidth = regularGridAndSkirtAndEdgeIndicesCache[width];
-  if (!defined_default(byWidth)) {
-    regularGridAndSkirtAndEdgeIndicesCache[width] = byWidth = [];
-  }
-  let indicesAndEdges = byWidth[height];
-  if (!defined_default(indicesAndEdges)) {
-    const gridVertexCount = width * height;
-    const gridIndexCount = (width - 1) * (height - 1) * 6;
-    const edgeVertexCount = width * 2 + height * 2;
-    const edgeIndexCount = Math.max(0, edgeVertexCount - 4) * 6;
-    const vertexCount = gridVertexCount + edgeVertexCount;
-    const indexCount = gridIndexCount + edgeIndexCount;
-    const edgeIndices = getEdgeIndices(width, height);
-    const westIndicesSouthToNorth = edgeIndices.westIndicesSouthToNorth;
-    const southIndicesEastToWest = edgeIndices.southIndicesEastToWest;
-    const eastIndicesNorthToSouth = edgeIndices.eastIndicesNorthToSouth;
-    const northIndicesWestToEast = edgeIndices.northIndicesWestToEast;
-    const indices = IndexDatatype_default.createTypedArray(vertexCount, indexCount);
-    addRegularGridIndices(width, height, indices, 0);
-    TerrainProvider.addSkirtIndices(
-      westIndicesSouthToNorth,
-      southIndicesEastToWest,
-      eastIndicesNorthToSouth,
-      northIndicesWestToEast,
-      gridVertexCount,
-      indices,
-      gridIndexCount
-    );
-    indicesAndEdges = byWidth[height] = {
-      indices,
-      westIndicesSouthToNorth,
-      southIndicesEastToWest,
-      eastIndicesNorthToSouth,
-      northIndicesWestToEast,
-      indexCountWithoutSkirts: gridIndexCount
-    };
-  }
-  return indicesAndEdges;
-};
-TerrainProvider.addSkirtIndices = function(westIndicesSouthToNorth, southIndicesEastToWest, eastIndicesNorthToSouth, northIndicesWestToEast, vertexCount, indices, offset) {
-  let vertexIndex = vertexCount;
-  offset = addSkirtIndices(
-    westIndicesSouthToNorth,
-    vertexIndex,
-    indices,
-    offset
-  );
-  vertexIndex += westIndicesSouthToNorth.length;
-  offset = addSkirtIndices(
-    southIndicesEastToWest,
-    vertexIndex,
-    indices,
-    offset
-  );
-  vertexIndex += southIndicesEastToWest.length;
-  offset = addSkirtIndices(
-    eastIndicesNorthToSouth,
-    vertexIndex,
-    indices,
-    offset
-  );
-  vertexIndex += eastIndicesNorthToSouth.length;
-  addSkirtIndices(northIndicesWestToEast, vertexIndex, indices, offset);
-};
-function getEdgeIndices(width, height) {
-  const westIndicesSouthToNorth = new Array(height);
-  const southIndicesEastToWest = new Array(width);
-  const eastIndicesNorthToSouth = new Array(height);
-  const northIndicesWestToEast = new Array(width);
-  let i;
-  for (i = 0; i < width; ++i) {
-    northIndicesWestToEast[i] = i;
-    southIndicesEastToWest[i] = width * height - 1 - i;
-  }
-  for (i = 0; i < height; ++i) {
-    eastIndicesNorthToSouth[i] = (i + 1) * width - 1;
-    westIndicesSouthToNorth[i] = (height - i - 1) * width;
-  }
-  return {
-    westIndicesSouthToNorth,
-    southIndicesEastToWest,
-    eastIndicesNorthToSouth,
-    northIndicesWestToEast
-  };
-}
-function addRegularGridIndices(width, height, indices, offset) {
-  let index = 0;
-  for (let j = 0; j < height - 1; ++j) {
-    for (let i = 0; i < width - 1; ++i) {
-      const upperLeft = index;
-      const lowerLeft = upperLeft + width;
-      const lowerRight = lowerLeft + 1;
-      const upperRight = upperLeft + 1;
-      indices[offset++] = upperLeft;
-      indices[offset++] = lowerLeft;
-      indices[offset++] = upperRight;
-      indices[offset++] = upperRight;
-      indices[offset++] = lowerLeft;
-      indices[offset++] = lowerRight;
-      ++index;
-    }
-    ++index;
-  }
-}
-function addSkirtIndices(edgeIndices, vertexIndex, indices, offset) {
-  let previousIndex = edgeIndices[0];
-  const length = edgeIndices.length;
-  for (let i = 1; i < length; ++i) {
-    const index = edgeIndices[i];
-    indices[offset++] = previousIndex;
-    indices[offset++] = index;
-    indices[offset++] = vertexIndex;
-    indices[offset++] = vertexIndex;
-    indices[offset++] = index;
-    indices[offset++] = vertexIndex + 1;
-    previousIndex = index;
-    ++vertexIndex;
-  }
-  return offset;
-}
-TerrainProvider.heightmapTerrainQuality = 0.25;
-TerrainProvider.getEstimatedLevelZeroGeometricErrorForAHeightmap = function(ellipsoid, tileImageWidth, numberOfTilesAtLevelZero) {
-  return ellipsoid.maximumRadius * 2 * Math.PI * TerrainProvider.heightmapTerrainQuality / (tileImageWidth * numberOfTilesAtLevelZero);
-};
-TerrainProvider.prototype.requestTileGeometry = DeveloperError_default.throwInstantiationError;
-TerrainProvider.prototype.getLevelMaximumGeometricError = DeveloperError_default.throwInstantiationError;
-TerrainProvider.prototype.getTileDataAvailable = DeveloperError_default.throwInstantiationError;
-TerrainProvider.prototype.loadTileDataAvailability = DeveloperError_default.throwInstantiationError;
-var TerrainProvider_default = TerrainProvider;
+} from "./chunk-AJLTU6PF.js";
 
 // packages/engine/Source/Workers/createVerticesFromQuantizedTerrainMesh.js
 var maxShort = 32767;

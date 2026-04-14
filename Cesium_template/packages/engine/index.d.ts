@@ -835,6 +835,13 @@ export class AxisAlignedBoundingBox {
      */
     static intersectPlane(box: AxisAlignedBoundingBox, plane: Plane): Intersect;
     /**
+     * Determines whether two axis aligned bounding boxes intersect.
+     * @param box - first box
+     * @param other - second box
+     * @returns <code>true</code> if the boxes intersect; otherwise, <code>false</code>.
+     */
+    static intersectAxisAlignedBoundingBox(box: AxisAlignedBoundingBox, other: AxisAlignedBoundingBox): boolean;
+    /**
      * Duplicates this AxisAlignedBoundingBox instance.
      * @param [result] - The object onto which to store the result.
      * @returns The modified result parameter or a new AxisAlignedBoundingBox instance if one was not provided.
@@ -849,6 +856,12 @@ export class AxisAlignedBoundingBox {
      *                      intersects the plane.
      */
     intersectPlane(plane: Plane): Intersect;
+    /**
+     * Determines whether some other axis aligned bounding box intersects this box.
+     * @param other - The other axis aligned bounding box.
+     * @returns <code>true</code> if the boxes intersect; otherwise, <code>false</code>.
+     */
+    intersectAxisAlignedBoundingBox(other: AxisAlignedBoundingBox): boolean;
     /**
      * Compares this AxisAlignedBoundingBox against the provided AxisAlignedBoundingBox componentwise and returns
      * <code>true</code> if they are equal, <code>false</code> otherwise.
@@ -1089,7 +1102,7 @@ export class BoundingSphere {
      * @param [result] - The object onto which to store the result.
      * @returns The modified result parameter or a new BoundingSphere instance if one was not provided.
      */
-    static fromVertices(positions?: number[], center?: Cartesian3, stride?: number, result?: BoundingSphere): BoundingSphere;
+    static fromVertices(positions?: number[] | TypedArray, center?: Cartesian3, stride?: number, result?: BoundingSphere): BoundingSphere;
     /**
      * Computes a tight-fitting bounding sphere enclosing a list of EncodedCartesian3s, where the points are
      * stored in parallel flat arrays in X, Y, Z, order.  The bounding sphere is computed by running two
@@ -1509,26 +1522,6 @@ export class Cartesian2 {
      */
     static clone(cartesian: Cartesian2, result?: Cartesian2): Cartesian2;
     /**
-     * Creates a Cartesian2 instance from an existing Cartesian3.  This simply takes the
-     * x and y properties of the Cartesian3 and drops z.
-     * @param cartesian - The Cartesian3 instance to create a Cartesian2 instance from.
-     * @param [result] - The object onto which to store the result.
-     * @returns The modified result parameter or a new Cartesian2 instance if one was not provided.
-     */
-    static fromCartesian3(cartesian: Cartesian3, result?: Cartesian2): Cartesian2;
-    /**
-     * Creates a Cartesian2 instance from an existing Cartesian4.  This simply takes the
-     * x and y properties of the Cartesian4 and drops z and w.
-     * @param cartesian - The Cartesian4 instance to create a Cartesian2 instance from.
-     * @param [result] - The object onto which to store the result.
-     * @returns The modified result parameter or a new Cartesian2 instance if one was not provided.
-     */
-    static fromCartesian4(cartesian: Cartesian4, result?: Cartesian2): Cartesian2;
-    /**
-     * The number of elements used to pack the object into an array.
-     */
-    static packedLength: number;
-    /**
      * Stores the provided instance into the provided array.
      * @param value - The value to pack.
      * @param array - The array to pack into.
@@ -1558,22 +1551,6 @@ export class Cartesian2 {
      * @returns The unpacked array.
      */
     static unpackArray(array: number[], result?: Cartesian2[]): Cartesian2[];
-    /**
-     * Creates a Cartesian2 from two consecutive elements in an array.
-     * @example
-     * // Create a Cartesian2 with (1.0, 2.0)
-     * const v = [1.0, 2.0];
-     * const p = Cesium.Cartesian2.fromArray(v);
-     *
-     * // Create a Cartesian2 with (1.0, 2.0) using an offset into an array
-     * const v2 = [0.0, 0.0, 1.0, 2.0];
-     * const p2 = Cesium.Cartesian2.fromArray(v2, 2);
-     * @param array - The array whose two consecutive elements correspond to the x and y components, respectively.
-     * @param [startingIndex = 0] - The offset into the array of the first element, which corresponds to the x component.
-     * @param [result] - The object onto which to store the result.
-     * @returns The modified result parameter or a new Cartesian2 instance if one was not provided.
-     */
-    static fromArray(array: number[], startingIndex?: number, result?: Cartesian2): Cartesian2;
     /**
      * Computes the value of the maximum component for the supplied Cartesian.
      * @param cartesian - The cartesian to use.
@@ -1770,22 +1747,6 @@ export class Cartesian2 {
      */
     static equalsEpsilon(left?: Cartesian2, right?: Cartesian2, relativeEpsilon?: number, absoluteEpsilon?: number): boolean;
     /**
-     * An immutable Cartesian2 instance initialized to (0.0, 0.0).
-     */
-    static readonly ZERO: Cartesian2;
-    /**
-     * An immutable Cartesian2 instance initialized to (1.0, 1.0).
-     */
-    static readonly ONE: Cartesian2;
-    /**
-     * An immutable Cartesian2 instance initialized to (1.0, 0.0).
-     */
-    static readonly UNIT_X: Cartesian2;
-    /**
-     * An immutable Cartesian2 instance initialized to (0.0, 1.0).
-     */
-    static readonly UNIT_Y: Cartesian2;
-    /**
      * Duplicates this Cartesian2 instance.
      * @param [result] - The object onto which to store the result.
      * @returns The modified result parameter or a new Cartesian2 instance if one was not provided.
@@ -1813,6 +1774,58 @@ export class Cartesian2 {
      * @returns A string representing the provided Cartesian in the format '(x, y)'.
      */
     toString(): string;
+    /**
+     * Creates a Cartesian2 instance from an existing Cartesian3.  This simply takes the
+     * x and y properties of the Cartesian3 and drops z.
+     * @param cartesian - The Cartesian3 instance to create a Cartesian2 instance from.
+     * @param [result] - The object onto which to store the result.
+     * @returns The modified result parameter or a new Cartesian2 instance if one was not provided.
+     */
+    static fromCartesian3(cartesian: Cartesian3, result?: Cartesian2): Cartesian2;
+    /**
+     * Creates a Cartesian2 instance from an existing Cartesian4.  This simply takes the
+     * x and y properties of the Cartesian4 and drops z and w.
+     * @param cartesian - The Cartesian4 instance to create a Cartesian2 instance from.
+     * @param [result] - The object onto which to store the result.
+     * @returns The modified result parameter or a new Cartesian2 instance if one was not provided.
+     */
+    static fromCartesian4(cartesian: Cartesian4, result?: Cartesian2): Cartesian2;
+    /**
+     * The number of elements used to pack the object into an array.
+     */
+    static packedLength: number;
+    /**
+     * Creates a Cartesian2 from two consecutive elements in an array.
+     * @example
+     * // Create a Cartesian2 with (1.0, 2.0)
+     * const v = [1.0, 2.0];
+     * const p = Cesium.Cartesian2.fromArray(v);
+     *
+     * // Create a Cartesian2 with (1.0, 2.0) using an offset into an array
+     * const v2 = [0.0, 0.0, 1.0, 2.0];
+     * const p2 = Cesium.Cartesian2.fromArray(v2, 2);
+     * @param array - The array whose two consecutive elements correspond to the x and y components, respectively.
+     * @param [startingIndex = 0] - The offset into the array of the first element, which corresponds to the x component.
+     * @param [result] - The object onto which to store the result.
+     * @returns The modified result parameter or a new Cartesian2 instance if one was not provided.
+     */
+    static fromArray(array: number[], startingIndex?: number, result?: Cartesian2): Cartesian2;
+    /**
+     * An immutable Cartesian2 instance initialized to (0.0, 0.0).
+     */
+    static readonly ZERO: Cartesian2;
+    /**
+     * An immutable Cartesian2 instance initialized to (1.0, 1.0).
+     */
+    static readonly ONE: Cartesian2;
+    /**
+     * An immutable Cartesian2 instance initialized to (1.0, 0.0).
+     */
+    static readonly UNIT_X: Cartesian2;
+    /**
+     * An immutable Cartesian2 instance initialized to (0.0, 1.0).
+     */
+    static readonly UNIT_Y: Cartesian2;
 }
 
 /**
@@ -1859,18 +1872,6 @@ export class Cartesian3 {
      */
     static clone(cartesian: Cartesian3, result?: Cartesian3): Cartesian3;
     /**
-     * Creates a Cartesian3 instance from an existing Cartesian4.  This simply takes the
-     * x, y, and z properties of the Cartesian4 and drops w.
-     * @param cartesian - The Cartesian4 instance to create a Cartesian3 instance from.
-     * @param [result] - The object onto which to store the result.
-     * @returns The modified result parameter or a new Cartesian3 instance if one was not provided.
-     */
-    static fromCartesian4(cartesian: Cartesian4, result?: Cartesian3): Cartesian3;
-    /**
-     * The number of elements used to pack the object into an array.
-     */
-    static packedLength: number;
-    /**
      * Stores the provided instance into the provided array.
      * @param value - The value to pack.
      * @param array - The array to pack into.
@@ -1901,22 +1902,6 @@ export class Cartesian3 {
      */
     static unpackArray(array: number[], result?: Cartesian3[]): Cartesian3[];
     /**
-     * Creates a Cartesian3 from three consecutive elements in an array.
-     * @example
-     * // Create a Cartesian3 with (1.0, 2.0, 3.0)
-     * const v = [1.0, 2.0, 3.0];
-     * const p = Cesium.Cartesian3.fromArray(v);
-     *
-     * // Create a Cartesian3 with (1.0, 2.0, 3.0) using an offset into an array
-     * const v2 = [0.0, 0.0, 1.0, 2.0, 3.0];
-     * const p2 = Cesium.Cartesian3.fromArray(v2, 2);
-     * @param array - The array whose three consecutive elements correspond to the x, y, and z components, respectively.
-     * @param [startingIndex = 0] - The offset into the array of the first element, which corresponds to the x component.
-     * @param [result] - The object onto which to store the result.
-     * @returns The modified result parameter or a new Cartesian3 instance if one was not provided.
-     */
-    static fromArray(array: number[], startingIndex?: number, result?: Cartesian3): Cartesian3;
-    /**
      * Computes the value of the maximum component for the supplied Cartesian.
      * @param cartesian - The cartesian to use.
      * @returns The value of the maximum component.
@@ -1946,13 +1931,13 @@ export class Cartesian3 {
     static maximumByComponent(first: Cartesian3, second: Cartesian3, result: Cartesian3): Cartesian3;
     /**
      * Constrain a value to lie between two values.
-     * @param cartesian - The value to clamp.
+     * @param value - The value to clamp.
      * @param min - The minimum bound.
      * @param max - The maximum bound.
      * @param result - The object into which to store the result.
      * @returns The clamped value such that min <= value <= max.
      */
-    static clamp(cartesian: Cartesian3, min: Cartesian3, max: Cartesian3, result: Cartesian3): Cartesian3;
+    static clamp(value: Cartesian3, min: Cartesian3, max: Cartesian3, result: Cartesian3): Cartesian3;
     /**
      * Computes the provided Cartesian's squared magnitude.
      * @param cartesian - The Cartesian instance whose squared magnitude is to be computed.
@@ -2193,26 +2178,6 @@ export class Cartesian3 {
      */
     static fromRadiansArrayHeights(coordinates: number[], ellipsoid?: Ellipsoid, result?: Cartesian3[]): Cartesian3[];
     /**
-     * An immutable Cartesian3 instance initialized to (0.0, 0.0, 0.0).
-     */
-    static readonly ZERO: Cartesian3;
-    /**
-     * An immutable Cartesian3 instance initialized to (1.0, 1.0, 1.0).
-     */
-    static readonly ONE: Cartesian3;
-    /**
-     * An immutable Cartesian3 instance initialized to (1.0, 0.0, 0.0).
-     */
-    static readonly UNIT_X: Cartesian3;
-    /**
-     * An immutable Cartesian3 instance initialized to (0.0, 1.0, 0.0).
-     */
-    static readonly UNIT_Y: Cartesian3;
-    /**
-     * An immutable Cartesian3 instance initialized to (0.0, 0.0, 1.0).
-     */
-    static readonly UNIT_Z: Cartesian3;
-    /**
      * Duplicates this Cartesian3 instance.
      * @param [result] - The object onto which to store the result.
      * @returns The modified result parameter or a new Cartesian3 instance if one was not provided.
@@ -2240,6 +2205,54 @@ export class Cartesian3 {
      * @returns A string representing this Cartesian in the format '(x, y, z)'.
      */
     toString(): string;
+    /**
+     * Creates a Cartesian3 instance from an existing Cartesian4.  This simply takes the
+     * x, y, and z properties of the Cartesian4 and drops w.
+     * @param cartesian - The Cartesian4 instance to create a Cartesian3 instance from.
+     * @param [result] - The object onto which to store the result.
+     * @returns The modified result parameter or a new Cartesian3 instance if one was not provided.
+     */
+    static fromCartesian4(cartesian: Cartesian4, result?: Cartesian3): Cartesian3;
+    /**
+     * The number of elements used to pack the object into an array.
+     */
+    static packedLength: number;
+    /**
+     * Creates a Cartesian3 from three consecutive elements in an array.
+     * @example
+     * // Create a Cartesian3 with (1.0, 2.0, 3.0)
+     * const v = [1.0, 2.0, 3.0];
+     * const p = Cesium.Cartesian3.fromArray(v);
+     *
+     * // Create a Cartesian3 with (1.0, 2.0, 3.0) using an offset into an array
+     * const v2 = [0.0, 0.0, 1.0, 2.0, 3.0];
+     * const p2 = Cesium.Cartesian3.fromArray(v2, 2);
+     * @param array - The array whose three consecutive elements correspond to the x, y, and z components, respectively.
+     * @param [startingIndex = 0] - The offset into the array of the first element, which corresponds to the x component.
+     * @param [result] - The object onto which to store the result.
+     * @returns The modified result parameter or a new Cartesian3 instance if one was not provided.
+     */
+    static fromArray(array: number[], startingIndex?: number, result?: Cartesian3): Cartesian3;
+    /**
+     * An immutable Cartesian3 instance initialized to (0.0, 0.0, 0.0).
+     */
+    static readonly ZERO: Cartesian3;
+    /**
+     * An immutable Cartesian3 instance initialized to (1.0, 1.0, 1.0).
+     */
+    static readonly ONE: Cartesian3;
+    /**
+     * An immutable Cartesian3 instance initialized to (1.0, 0.0, 0.0).
+     */
+    static readonly UNIT_X: Cartesian3;
+    /**
+     * An immutable Cartesian3 instance initialized to (0.0, 1.0, 0.0).
+     */
+    static readonly UNIT_Y: Cartesian3;
+    /**
+     * An immutable Cartesian3 instance initialized to (0.0, 0.0, 1.0).
+     */
+    static readonly UNIT_Z: Cartesian3;
 }
 
 /**
@@ -2293,10 +2306,6 @@ export class Cartesian4 {
      */
     static clone(cartesian: Cartesian4, result?: Cartesian4): Cartesian4;
     /**
-     * The number of elements used to pack the object into an array.
-     */
-    static packedLength: number;
-    /**
      * Stores the provided instance into the provided array.
      * @param value - The value to pack.
      * @param array - The array to pack into.
@@ -2326,22 +2335,6 @@ export class Cartesian4 {
      * @returns The unpacked array.
      */
     static unpackArray(array: number[], result?: Cartesian4[]): Cartesian4[];
-    /**
-     * Creates a Cartesian4 from four consecutive elements in an array.
-     * @example
-     * // Create a Cartesian4 with (1.0, 2.0, 3.0, 4.0)
-     * const v = [1.0, 2.0, 3.0, 4.0];
-     * const p = Cesium.Cartesian4.fromArray(v);
-     *
-     * // Create a Cartesian4 with (1.0, 2.0, 3.0, 4.0) using an offset into an array
-     * const v2 = [0.0, 0.0, 1.0, 2.0, 3.0, 4.0];
-     * const p2 = Cesium.Cartesian4.fromArray(v2, 2);
-     * @param array - The array whose four consecutive elements correspond to the x, y, z, and w components, respectively.
-     * @param [startingIndex = 0] - The offset into the array of the first element, which corresponds to the x component.
-     * @param [result] - The object onto which to store the result.
-     * @returns The modified result parameter or a new Cartesian4 instance if one was not provided.
-     */
-    static fromArray(array: number[], startingIndex?: number, result?: Cartesian4): Cartesian4;
     /**
      * Computes the value of the maximum component for the supplied Cartesian.
      * @param cartesian - The cartesian to use.
@@ -2528,30 +2521,6 @@ export class Cartesian4 {
      */
     static equalsEpsilon(left?: Cartesian4, right?: Cartesian4, relativeEpsilon?: number, absoluteEpsilon?: number): boolean;
     /**
-     * An immutable Cartesian4 instance initialized to (0.0, 0.0, 0.0, 0.0).
-     */
-    static readonly ZERO: Cartesian4;
-    /**
-     * An immutable Cartesian4 instance initialized to (1.0, 1.0, 1.0, 1.0).
-     */
-    static readonly ONE: Cartesian4;
-    /**
-     * An immutable Cartesian4 instance initialized to (1.0, 0.0, 0.0, 0.0).
-     */
-    static readonly UNIT_X: Cartesian4;
-    /**
-     * An immutable Cartesian4 instance initialized to (0.0, 1.0, 0.0, 0.0).
-     */
-    static readonly UNIT_Y: Cartesian4;
-    /**
-     * An immutable Cartesian4 instance initialized to (0.0, 0.0, 1.0, 0.0).
-     */
-    static readonly UNIT_Z: Cartesian4;
-    /**
-     * An immutable Cartesian4 instance initialized to (0.0, 0.0, 0.0, 1.0).
-     */
-    static readonly UNIT_W: Cartesian4;
-    /**
      * Duplicates this Cartesian4 instance.
      * @param [result] - The object onto which to store the result.
      * @returns The modified result parameter or a new Cartesian4 instance if one was not provided.
@@ -2586,6 +2555,50 @@ export class Cartesian4 {
      * @returns A Cartesian4 representing the float packed to values in x, y, z, and w.
      */
     static packFloat(value: number, result?: Cartesian4): Cartesian4;
+    /**
+     * The number of elements used to pack the object into an array.
+     */
+    static packedLength: number;
+    /**
+     * Creates a Cartesian4 from four consecutive elements in an array.
+     * @example
+     * // Create a Cartesian4 with (1.0, 2.0, 3.0, 4.0)
+     * const v = [1.0, 2.0, 3.0, 4.0];
+     * const p = Cesium.Cartesian4.fromArray(v);
+     *
+     * // Create a Cartesian4 with (1.0, 2.0, 3.0, 4.0) using an offset into an array
+     * const v2 = [0.0, 0.0, 1.0, 2.0, 3.0, 4.0];
+     * const p2 = Cesium.Cartesian4.fromArray(v2, 2);
+     * @param array - The array whose four consecutive elements correspond to the x, y, z, and w components, respectively.
+     * @param [startingIndex = 0] - The offset into the array of the first element, which corresponds to the x component.
+     * @param [result] - The object onto which to store the result.
+     * @returns The modified result parameter or a new Cartesian4 instance if one was not provided.
+     */
+    static fromArray(array: number[], startingIndex?: number, result?: Cartesian4): Cartesian4;
+    /**
+     * An immutable Cartesian4 instance initialized to (0.0, 0.0, 0.0, 0.0).
+     */
+    static readonly ZERO: Cartesian4;
+    /**
+     * An immutable Cartesian4 instance initialized to (1.0, 1.0, 1.0, 1.0).
+     */
+    static readonly ONE: Cartesian4;
+    /**
+     * An immutable Cartesian4 instance initialized to (1.0, 0.0, 0.0, 0.0).
+     */
+    static readonly UNIT_X: Cartesian4;
+    /**
+     * An immutable Cartesian4 instance initialized to (0.0, 1.0, 0.0, 0.0).
+     */
+    static readonly UNIT_Y: Cartesian4;
+    /**
+     * An immutable Cartesian4 instance initialized to (0.0, 0.0, 1.0, 0.0).
+     */
+    static readonly UNIT_Z: Cartesian4;
+    /**
+     * An immutable Cartesian4 instance initialized to (0.0, 0.0, 0.0, 1.0).
+     */
+    static readonly UNIT_W: Cartesian4;
 }
 
 /**
@@ -2799,6 +2812,234 @@ export class CatmullRomSpline {
      * @returns The modified result parameter or a new instance of the point on the curve at the given time.
      */
     evaluate(time: number, result?: Cartesian3): Cartesian3;
+}
+
+/**
+ * Terrain data for a single tile where the terrain data is represented as a glb (binary glTF).
+ * @param options - Object with the following properties:
+ * @param options.gltf - The parsed glTF JSON.
+ * @param options.minimumHeight - The minimum terrain height within the tile, in meters above the ellipsoid.
+ * @param options.maximumHeight - The maximum terrain height within the tile, in meters above the ellipsoid.
+ * @param options.boundingSphere - A sphere bounding all of the vertices in the mesh.
+ * @param options.orientedBoundingBox - An oriented bounding box containing all of the vertices in the mesh.
+ * @param options.horizonOcclusionPoint - The horizon occlusion point of the mesh. If this point
+ *                      is below the horizon, the entire tile is assumed to be below the horizon as well.
+ *                      The point is expressed in ellipsoid-scaled coordinates.
+ * @param options.skirtHeight - The height of the skirt to add on the edges of the tile.
+ * @param [options.requestVertexNormals = false] - Indicates whether normals should be loaded.
+ * @param [options.requestWaterMask = false] - Indicates whether water mask data should be loaded.
+ * @param [options.credits] - Array of credits for this tile.
+ * @param [options.childTileMask = 15] - A bit mask indicating which of this tile's four children exist.
+ *                 If a child's bit is set, geometry will be requested for that tile as well when it
+ *                 is needed.  If the bit is cleared, the child tile is not requested and geometry is
+ *                 instead upsampled from the parent.  The bit values are as follows:
+ *                 <table>
+ *                  <tr><th>Bit Position</th><th>Bit Value</th><th>Child Tile</th></tr>
+ *                  <tr><td>0</td><td>1</td><td>Southwest</td></tr>
+ *                  <tr><td>1</td><td>2</td><td>Southeast</td></tr>
+ *                  <tr><td>2</td><td>4</td><td>Northwest</td></tr>
+ *                  <tr><td>3</td><td>8</td><td>Northeast</td></tr>
+ *                 </table>
+ * @param [options.waterMask] - The buffer containing the water mask.
+ */
+export class Cesium3DTilesTerrainData {
+    constructor(options: {
+        gltf: {
+            [key: string]: any;
+        };
+        minimumHeight: number;
+        maximumHeight: number;
+        boundingSphere: BoundingSphere;
+        orientedBoundingBox: OrientedBoundingBox;
+        horizonOcclusionPoint: Cartesian3;
+        skirtHeight: number;
+        requestVertexNormals?: boolean;
+        requestWaterMask?: boolean;
+        credits?: Credit[];
+        childTileMask?: number;
+        waterMask?: Uint8Array;
+    });
+    /**
+     * An array of credits for this tile.
+     */
+    credits: Credit[] | undefined;
+    /**
+     * The water mask included in this terrain data, if any. A water mask is a rectangular
+     * Uint8Array or image where a value of 255 indicates water and a value of 0 indicates land.
+     * Values in between 0 and 255 are allowed as well to smoothly blend between land and water.
+     */
+    waterMask: Uint8Array | HTMLImageElement | HTMLCanvasElement | ImageBitmap | undefined;
+    /**
+     * Returns the terrain height at a specified longitude and latitude, or undefined if the mesh is undefined.
+     * @param rectangle - The rectangle covered by this terrain data.
+     * @param longitude - The longitude in radians.
+     * @param latitude - The latitude in radians.
+     * @returns The terrain height at the specified position, or undefined if the mesh is undefined.
+     *          If the position is outside the rectangle, this method will extrapolate the height,
+     *          which is likely to be wildly incorrect for positions far outside the rectangle.
+     */
+    interpolateHeight(rectangle: Rectangle, longitude: number, latitude: number): number | undefined;
+    /**
+     * Determines if a given child tile is available, based on the
+     * {@link TerrainData#childTileMask}. The given child tile coordinates are assumed
+     * to be one of the four children of this tile. If non-child tile coordinates are
+     * given, the availability of the southeast child tile is returned.
+     * @param thisX - The tile X coordinate of this (the parent) tile.
+     * @param thisY - The tile Y coordinate of this (the parent) tile.
+     * @param childX - The tile X coordinate of the child tile to check for availability.
+     * @param childY - The tile Y coordinate of the child tile to check for availability.
+     * @returns True if the child tile is available; otherwise, false.
+     */
+    isChildAvailable(thisX: number, thisY: number, childX: number, childY: number): boolean;
+    /**
+     * Upsamples this terrain data for use by a descendant tile.
+     * @param tilingScheme - The tiling scheme of this terrain data.
+     * @param thisX - The X coordinate of this tile in the tiling scheme.
+     * @param thisY - The Y coordinate of this tile in the tiling scheme.
+     * @param thisLevel - The level of this tile in the tiling scheme.
+     * @param descendantX - The X coordinate within the tiling scheme of the descendant tile for which we are upsampling.
+     * @param descendantY - The Y coordinate within the tiling scheme of the descendant tile for which we are upsampling.
+     * @param descendantLevel - The level within the tiling scheme of the descendant tile for which we are upsampling.
+     * @returns A promise for upsampled terrain data for the descendant tile, or undefined if createMesh has not been called yet or too many asynchronous upsample operations are in progress and the request has been deferred.
+     */
+    upsample(tilingScheme: TilingScheme, thisX: number, thisY: number, thisLevel: number, descendantX: number, descendantY: number, descendantLevel: number): Promise<TerrainData> | undefined;
+    /**
+     * Gets a value indicating whether or not this terrain data was created by upsampling lower resolution
+     * terrain data. If this value is false, the data was obtained from some other source, such
+     * as by downloading it from a remote server. This method should return true for instances
+     * returned from a call to {@link Cesium3DTilesTerrainData#upsample}.
+     * @returns True if this instance was created by upsampling; otherwise, false.
+     */
+    wasCreatedByUpsampling(): boolean;
+}
+
+export namespace Cesium3DTilesTerrainProvider {
+    /**
+     * Initialization options for the Cesium3DTilesTerrainProvider constructor
+     * @property [requestVertexNormals = false] - Flag that indicates if the client should request additional lighting information from the server, in the form of per vertex normals if available.
+     * @property [requestWaterMask = false] - Flag that indicates if the client should request per tile water masks from the server, if available.
+     * @property [ellipsoid = Ellipsoid.default] - The ellipsoid.  If not specified, the WGS84 ellipsoid is used.
+     * @property [credit] - A credit for the data source, which is displayed on the canvas.
+     */
+    type ConstructorOptions = {
+        requestVertexNormals?: boolean;
+        requestWaterMask?: boolean;
+        ellipsoid?: Ellipsoid;
+        credit?: Credit | string;
+    };
+}
+
+/**
+ * <div class="notice">
+ * To construct a Cesium3DTilesTerrainProvider, call {@link Cesium3DTilesTerrainProvider.fromIonAssetId} or {@link Cesium3DTilesTerrainProvider.fromUrl}. Do not call the constructor directly.
+ * </div>
+ *
+ * A {@link TerrainProvider} that accesses terrain data in a 3D Tiles format.
+ * @param [options] - An object describing initialization options
+ */
+export class Cesium3DTilesTerrainProvider {
+    constructor(options?: Cesium3DTilesTerrainProvider.ConstructorOptions);
+    /**
+     * Creates a {@link TerrainProvider} that accesses terrain data in a Cesium 3D Tiles format.
+     * @example
+     * // Create terrain with normals.
+     * try {
+     *   const viewer = new Cesium.Viewer("cesiumContainer", {
+     *     terrainProvider: await Cesium.Cesium3DTilesTerrainProvider.fromUrl(
+     *       Cesium.IonResource.fromAssetId(3956), {
+     *         requestVertexNormals: true
+     *     })
+     *   });
+     * } catch (error) {
+     *   console.log(error);
+     * }
+     * @param url - The URL of the Cesium terrain server.
+     * @param [options] - An object describing initialization options.
+     * @returns A promise that resolves to the terrain provider.
+     */
+    static fromUrl(url: Resource | string | Promise<Resource> | Promise<string>, options?: Cesium3DTilesTerrainProvider.ConstructorOptions): Promise<Cesium3DTilesTerrainProvider>;
+    /**
+     * Creates a {@link TerrainProvider} from a Cesium ion asset ID that accesses terrain data in a Cesium 3D Tiles format
+     * @example
+     * // Create GTOPO30 with vertex normals
+     * try {
+     *   const viewer = new Cesium.Viewer("cesiumContainer", {
+     *     terrainProvider: await Cesium.Cesium3DTilesTerrainProvider.fromIonAssetId(2732686, {
+     *         requestVertexNormals: true
+     *     })
+     *   });
+     * } catch (error) {
+     *   console.log(error);
+     * }
+     * @param assetId - The Cesium ion asset id.
+     * @param [options] - An object describing initialization options.
+     */
+    static fromIonAssetId(assetId: number, options?: CesiumTerrainProvider.ConstructorOptions): Promise<CesiumTerrainProvider>;
+    /**
+     * Requests the geometry for a given tile. This function should not be called before
+     * {@link Cesium3DTilesTerrainProvider#ready} returns true. The result must include terrain data and
+     * may optionally include a water mask and an indication of which child tiles are available.
+     * @param x - The X coordinate of the tile for which to request geometry.
+     * @param y - The Y coordinate of the tile for which to request geometry.
+     * @param level - The level of the tile for which to request geometry.
+     * @param [request] - The request object. Intended for internal use only.
+     * @returns A promise for the requested geometry. If this method
+     *          returns undefined instead of a promise, it is an indication that too many requests are already
+     *          pending and the request will be retried later.
+     */
+    requestTileGeometry(x: number, y: number, level: number, request?: Request): Promise<Cesium3DTilesTerrainData> | undefined;
+    /**
+     * Determines whether data for a tile is available to be loaded.
+     * @param x - The X coordinate of the tile for which to request geometry.
+     * @param y - The Y coordinate of the tile for which to request geometry.
+     * @param level - The level of the tile for which to request geometry.
+     * @returns Undefined if not supported or availability is unknown, otherwise true or false.
+     */
+    getTileDataAvailable(x: number, y: number, level: number): boolean | undefined;
+    /**
+     * Make sure we load availability data for a tile
+     * @param _x - The X coordinate of the tile for which to request geometry.
+     * @param _y - The Y coordinate of the tile for which to request geometry.
+     * @param _level - The level of the tile for which to request geometry.
+     * @returns Undefined if nothing need to be loaded or a Promise that resolves when all required tiles are loaded
+     */
+    loadTileDataAvailability(_x: number, _y: number, _level: number): Promise<void> | undefined;
+    /**
+     * Get the maximum geometric error allowed in a tile at a given level.
+     * @param level - The tile level for which to get the maximum geometric error.
+     * @returns The maximum geometric error.
+     */
+    getLevelMaximumGeometricError(level: number): number;
+    /**
+     * Gets an event that is raised when the terrain provider encounters an asynchronous error. By subscribing
+     * to the event, you will be notified of the error and can potentially recover from it. Event listeners
+     * are passed an instance of {@link TileProviderError}.
+     */
+    errorEvent: Event;
+    /**
+     * Gets the credit to display when this terrain provider is active. Typically this is used to credit
+     * the source of the terrain.
+     */
+    credit: Credit;
+    /**
+     * Gets the tiling scheme used by the provider.
+     */
+    tilingScheme: TilingScheme;
+    /**
+     * Gets a value indicating whether or not the provider includes a water mask. The water mask
+     * indicates which areas of the globe are water rather than land, so they can be rendered
+     * as a reflective surface with animated waves.
+     */
+    hasWaterMask: boolean;
+    /**
+     * Gets a value indicating whether or not the requested tiles include vertex normals.
+     */
+    hasVertexNormals: boolean;
+    /**
+     * Gets an object that can be used to determine availability of terrain from this provider, such as
+     * at points and in rectangles.
+     */
+    availability: TileAvailability | undefined;
 }
 
 export namespace CesiumTerrainProvider {
@@ -3376,6 +3617,8 @@ export enum ClockStep {
     SYSTEM_CLOCK = 2
 }
 
+export function hue2rgb(): void;
+
 /**
  * A color, specified using red, green, blue, and alpha values,
  * which range from <code>0</code> (no intensity) to <code>1.0</code> (full intensity).
@@ -3524,7 +3767,7 @@ export class Color {
      * @param [startingIndex = 0] - The index into the array at which to start packing the elements.
      * @returns The array that was packed into
      */
-    static pack(value: Color, array: number[], startingIndex?: number): number[];
+    static pack(value: Color, array: number[] | TypedArray, startingIndex?: number): number[] | TypedArray;
     /**
      * Retrieves an instance from a packed array.
      * @param array - The packed array.
@@ -3532,7 +3775,7 @@ export class Color {
      * @param [result] - The object into which to store the result.
      * @returns The modified result parameter or a new Color instance if one was not provided.
      */
-    static unpack(array: number[], startingIndex?: number, result?: Color): Color;
+    static unpack(array: number[] | TypedArray, startingIndex?: number, result?: Color): Color;
     /**
      * Converts a 'byte' color component in the range of 0 to 255 into
      * a 'float' color component in the range of 0 to 1.0.
@@ -3602,6 +3845,12 @@ export class Color {
      * @returns The modified result parameter or a new instance if result was undefined.
      */
     toBytes(result?: number[]): number[];
+    /**
+     * Converts RGBA values in bytes to a single numeric unsigned 32-bit RGBA value, using the endianness
+     * of the system.
+     * @returns A single numeric unsigned 32-bit RGBA value.
+     */
+    static bytesToRgba(): number;
     /**
      * Converts this color to a single numeric unsigned 32-bit RGBA value, using the endianness
      * of the system.
@@ -7620,7 +7869,7 @@ export class GoogleEarthEnterpriseTerrainData {
     upsample(tilingScheme: TilingScheme, thisX: number, thisY: number, thisLevel: number, descendantX: number, descendantY: number, descendantLevel: number): Promise<HeightmapTerrainData> | undefined;
     /**
      * Determines if a given child tile is available, based on the
-     * {@link HeightmapTerrainData.childTileMask}.  The given child tile coordinates are assumed
+     * {@link GoogleEarthEnterpriseTerrainData.childTileMask}.  The given child tile coordinates are assumed
      * to be one of the four children of this tile.  If non-child tile coordinates are
      * given, the availability of the southeast child tile is returned.
      * @param thisX - The tile X coordinate of this (the parent) tile.
@@ -7773,7 +8022,11 @@ export class GoogleGeocoderService {
  * Default settings for accessing the Google Maps API.
  * <br/>
  * An API key is only required if you are directly using any Google Maps APIs, such as through {@link createGooglePhotorealistic3DTileset}.
- * Follow instructions for managing API keys for the Google Maps Platform at {@link https://developers.google.com/maps/documentation/embed/get-api-key}
+ * Follow instructions for managing API keys for the Google Maps Platform at {@link https://developers.google.com/maps/documentation/embed/get-api-key}.
+ * <br/>
+ * You can enable multiple Google Maps Platform APIs on a single API key.
+ * However, a separate {@link GoogleMaps.defaultStreetViewStaticApiKey}
+ * is available if you prefer to use a dedicated key for the Street View Static API.
  */
 export namespace GoogleMaps {
     /**
@@ -7784,6 +8037,14 @@ export namespace GoogleMaps {
      * Gets or sets the default Google Map Tiles API endpoint.
      */
     var mapTilesApiEndpoint: string | Resource;
+    /**
+     * Gets or sets the default Google Maps Street View Static API key.
+     */
+    var defaultStreetViewStaticApiKey: undefined | string;
+    /**
+     * Gets or sets the default Google Street View Static API endpoint.
+     */
+    var streetViewStaticApiEndpoint: string | Resource;
 }
 
 /**
@@ -8133,7 +8394,7 @@ export class HeightmapTerrainData {
      * Uint8Array or image where a value of 255 indicates water and a value of 0 indicates land.
      * Values in between 0 and 255 are allowed as well to smoothly blend between land and water.
      */
-    waterMask: Uint8Array | HTMLImageElement | HTMLCanvasElement | undefined;
+    waterMask: Uint8Array | HTMLImageElement | HTMLCanvasElement | ImageBitmap | undefined;
     /**
      * Computes the terrain height at a specified longitude and latitude.
      * @param rectangle - The rectangle covered by this terrain data.
@@ -8554,7 +8815,7 @@ export namespace IntersectionTests {
     /**
      * Computes the intersection of a ray and a triangle as a parametric distance along the input ray. The result is negative when the triangle is behind the ray.
      *
-     * Implements {@link https://cadxfem.org/inf/Fast%20MinimumStorage%20RayTriangle%20Intersection.pdf|
+     * Implements {@link https://cadxfem.org/inf/Fast MinimumStorage RayTriangle Intersection.pdf|
      * Fast Minimum Storage Ray/Triangle Intersection} by Tomas Moller and Ben Trumbore.
      * @param ray - The ray.
      * @param p0 - The first vertex of the triangle.
@@ -8568,7 +8829,7 @@ export namespace IntersectionTests {
     /**
      * Computes the intersection of a ray and a triangle as a Cartesian3 coordinate.
      *
-     * Implements {@link https://cadxfem.org/inf/Fast%20MinimumStorage%20RayTriangle%20Intersection.pdf|
+     * Implements {@link https://cadxfem.org/inf/Fast MinimumStorage RayTriangle Intersection.pdf|
      * Fast Minimum Storage Ray/Triangle Intersection} by Tomas Moller and Ben Trumbore.
      * @param ray - The ray.
      * @param p0 - The first vertex of the triangle.
@@ -8617,6 +8878,13 @@ export namespace IntersectionTests {
      * @returns The interval containing scalar points along the ray or undefined if there are no intersections.
      */
     function rayEllipsoid(ray: Ray, ellipsoid: Ellipsoid): Interval;
+    /**
+     * Computes the intersection points of a ray with an axis-aligned bounding box. (axis-aligned in the same space as the ray)
+     * @param ray - The ray.
+     * @param box - The axis-aligned bounding box.
+     * @param result - The interval containing scalar points along the ray or undefined if there are no intersections.
+     */
+    function rayAxisAlignedBoundingBox(ray: Ray, box: AxisAlignedBoundingBox, result: Interval | undefined): void;
     /**
      * Provides the point along the ray which is nearest to the ellipsoid.
      * @param ray - The ray.
@@ -8821,7 +9089,7 @@ export class IonGeocoderService {
  * A {@link Resource} instance that encapsulates Cesium ion asset access.
  * This object is normally not instantiated directly, use {@link IonResource.fromAssetId}.
  * @param endpoint - The result of the Cesium ion asset endpoint service.
- * @param endpointResource - The resource used to retrieve the endpoint.
+ * @param endpointResource - The original resource used to retrieve the endpoint.
  */
 export class IonResource extends Resource {
     constructor(endpoint: any, endpointResource: Resource);
@@ -16462,7 +16730,7 @@ export class TerrainData {
      * Uint8Array or image where a value of 255 indicates water and a value of 0 indicates land.
      * Values in between 0 and 255 are allowed as well to smoothly blend between land and water.
      */
-    waterMask: Uint8Array | HTMLImageElement | HTMLCanvasElement | undefined;
+    waterMask: Uint8Array | HTMLImageElement | HTMLCanvasElement | ImageBitmap | undefined;
     /**
      * Computes the terrain height at a specified longitude and latitude.
      * @param rectangle - The rectangle covered by this terrain data.
@@ -16508,6 +16776,16 @@ export class TerrainData {
      */
     wasCreatedByUpsampling(): boolean;
 }
+
+/**
+ * Creates an axis-aligned bounding box for a quadtree node at the given tree-space coordinates and level.
+ * This AABB is in the tree's local space (where the root node of the tree is a unit cube in its own local space).
+ * @param x - The x coordinate of the node.
+ * @param y - The y coordinate of the node.
+ * @param level - The level of the node.
+ * @returns The axis-aligned bounding box for the node.
+ */
+export function createAABBForNode(x: number, y: number, level: number): AxisAlignedBoundingBox;
 
 export namespace TerrainProvider {
     /**
@@ -18385,7 +18663,7 @@ export function barycentricCoordinates(point: Cartesian2 | Cartesian3, p0: Carte
  *        of the index before which the itemToFind should be inserted in order to maintain the
  *        sorted order of the array.
  */
-export function binarySearch(array: any[], itemToFind: any, comparator: binarySearchComparator): number;
+export function binarySearch(array: any[] | Int8Array | Uint8Array | Int16Array | Uint16Array | Int32Array | Uint32Array | Float32Array | Float64Array, itemToFind: any, comparator: binarySearchComparator): number;
 
 /**
  * A function used to compare two items while performing a binary search.
@@ -18628,6 +18906,18 @@ export function getImagePixels(image: HTMLImageElement | ImageBitmap, width: num
 export function getTimestamp(): number;
 
 /**
+ * Union of all numeric typed array types.
+ */
+export type TypedArray = Float64Array | Float32Array | Uint32Array | Uint16Array | Uint8Array | Int32Array | Int16Array | Int8Array;
+
+/**
+ * Union of all numeric typed array constructor types.
+ */
+export type TypedArrayConstructor = Float64ArrayConstructor | Float32ArrayConstructor | Uint32ArrayConstructor | Uint16ArrayConstructor | Uint8ArrayConstructor | Int32ArrayConstructor | Int16ArrayConstructor | Int8ArrayConstructor;
+
+export type Destroyable = any;
+
+/**
  * Determines if a given date is a leap year.
  * @example
  * const leapYear = Cesium.isLeapYear(2000); // true
@@ -18649,7 +18939,7 @@ export function isLeapYear(year: number): boolean;
  * @param comparator - The function to use to compare elements in the array.
  * @param [userDefinedObject] - Any item to pass as the third parameter to <code>comparator</code>.
  */
-export function mergeSort(array: any[], comparator: mergeSortComparator, userDefinedObject?: any): void;
+export function mergeSort(array: any[] | Int8Array | Uint8Array | Int16Array | Uint16Array | Int32Array | Uint32Array | Float32Array | Float64Array, comparator: mergeSortComparator, userDefinedObject?: any): void;
 
 /**
  * A function used to compare two items while performing a merge sort.
@@ -18797,6 +19087,15 @@ export function srgbToLinear(value: number): number;
 export function subdivideArray(array: any[], numberOfArrays: number): void;
 
 /**
+ * Computes dimensions for text, based on current canvas state.
+ *
+ * Rounds metrics, excluding width, to whole pixels. This is purely to minimize
+ * rendering differences with migration to in-browser measureText(), and may be
+ * revised in the future. See: github.com/CesiumGS/cesium/pull/13081
+ */
+export function measureText(): void;
+
+/**
  * Writes the given text into a new canvas.  The canvas will be sized to fit the text.
  * If text is blank, returns undefined.
  * @param text - The text to write.
@@ -18851,7 +19150,7 @@ export namespace BillboardGraphics {
      */
     type ConstructorOptions = {
         show?: Property | boolean;
-        image?: Property | string | HTMLCanvasElement;
+        image?: Property | string | HTMLImageElement | HTMLCanvasElement;
         scale?: Property | number;
         pixelOffset?: Property | Cartesian2;
         eyeOffset?: Property | Cartesian3;
@@ -23069,6 +23368,7 @@ export namespace PathGraphics {
      * @property [resolution = 60] - A numeric Property specifying the maximum number of seconds to step when sampling the position.
      * @property [material = Color.WHITE] - A Property specifying the material used to draw the path.
      * @property [distanceDisplayCondition] - A Property specifying at what distance from the camera that this path will be displayed.
+     * @property [relativeTo] - A Property specifying the frame in which to visualize the path. Use another entity's id to visualize the path relative to that entity, or use the string values "FIXED" or "INERTIAL" to visualize the path in those reference frames.
      */
     type ConstructorOptions = {
         show?: Property | boolean;
@@ -23078,6 +23378,7 @@ export namespace PathGraphics {
         resolution?: Property | number;
         material?: MaterialProperty | Color;
         distanceDisplayCondition?: Property | DistanceDisplayCondition;
+        relativeTo?: Property | string;
     };
 }
 
@@ -23120,6 +23421,10 @@ export class PathGraphics {
      */
     distanceDisplayCondition: Property | undefined;
     /**
+     * Gets or sets the frame in which to visualize the path. Use another entity's id to visualize the path relative to that entity, or use the string values "FIXED" or "INERTIAL" to visualize the path in those reference frames.
+     */
+    relativeTo: Property | undefined;
+    /**
      * Duplicates this instance.
      * @param [result] - The object onto which to store the result.
      * @returns The modified result parameter or a new instance if one was not provided.
@@ -23132,6 +23437,32 @@ export class PathGraphics {
      */
     merge(source: PathGraphics): void;
 }
+
+/**
+ * Transforms a path entity's position into the local frame of the reference entity.
+ * If the reference entity has an orientation, uses that orientation to define the local frame.
+ * Otherwise, falls back to a VVLH (Vehicle Velocity Local Horizontal) frame derived from the reference entity's velocity.
+ * @param time - The time at which to evaluate the orientation or VVLH frame.
+ * @param pathEntityPos - The position of the path entity in the FIXED reference frame.
+ * @param refEntityPos - The position of the reference entity in the FIXED reference frame.
+ * @param refEntity - The reference entity whose frame to transform into.
+ * @param result - The object onto which to store the result.
+ * @returns The transformed position in the reference entity's local frame, or undefined if either input position is undefined.
+ */
+export function transformToEntityFrame(time: JulianDate, pathEntityPos: Cartesian3, refEntityPos: Cartesian3, refEntity: Entity, result: Cartesian3): Cartesian3 | undefined;
+
+/**
+ * Compute the vehicle velocity, local horizontal (VVLH) transform for a position property at a given time.
+ * The VVLH axes is defined based on the motion of the provided position point as follows:
+ * - The X axis is directed toward the point's velocity vector, in the direction of motion.
+ * - The Y axis is along the angular momentum vector.
+ * - The Z axis is along the position vector.
+ * @param time - The time at which to compute the VVLH transform.
+ * @param positionProperty - The position to compute the VVLH frame for.
+ * @param result - The object onto which to store the result.
+ * @returns The VVLH transform.
+ */
+export function computeVvlhTransform(time: JulianDate, positionProperty: PositionProperty, result: Matrix4): Matrix4;
 
 /**
  * A {@link Visualizer} which maps {@link Entity#path} to a {@link Polyline}.
@@ -25716,6 +26047,8 @@ export enum TextureMinificationFilter {
     LINEAR_MIPMAP_LINEAR = WebGLConstants.LINEAR_MIPMAP_LINEAR
 }
 
+export function addAttribute(): void;
+
 /**
  * An appearance defines the full GLSL vertex and fragment shaders and the
  * render state used to draw a {@link Primitive}.  All appearances implement
@@ -26153,6 +26486,134 @@ export enum Axis {
     Z = 2
 }
 
+export namespace Azure2DImageryProvider {
+    /**
+     * Initialization options for the Azure2DImageryProvider constructor
+     * @property subscriptionKey - The public subscription key for the imagery.
+     * @property [url = "https://atlas.microsoft.com/"] - The Azure server url.
+     * @property [tilesetId = "microsoft.imagery"] - The Azure tileset ID. Valid options are {@link microsoft.imagery}, {@link microsoft.base.road}, and {@link microsoft.base.labels.road}
+     * @property [ellipsoid = Ellipsoid.default] - The ellipsoid.  If not specified, the default ellipsoid is used.
+     * @property [minimumLevel = 0] - The minimum level-of-detail supported by the imagery provider.  Take care when specifying
+     *                 this that the number of tiles at the minimum level is small, such as four or less.  A larger number is likely
+     *                 to result in rendering problems.
+     * @property [maximumLevel = 22] - The maximum level-of-detail supported by the imagery provider.
+     * @property [rectangle = Rectangle.MAX_VALUE] - The rectangle, in radians, covered by the image.
+     */
+    type ConstructorOptions = {
+        subscriptionKey: string;
+        url?: string;
+        tilesetId?: string;
+        ellipsoid?: Ellipsoid;
+        minimumLevel?: number;
+        maximumLevel?: number;
+        rectangle?: Rectangle;
+    };
+}
+
+/**
+ * Provides 2D image tiles from Azure.
+ * @example
+ * // Azure 2D imagery provider
+ * const azureImageryProvider = new Cesium.Azure2DImageryProvider({
+ *     subscriptionKey: "subscription-key",
+ *     tilesetId: "microsoft.base.road"
+ * });
+ * @param options - Object describing initialization options
+ */
+export class Azure2DImageryProvider {
+    constructor(options: Azure2DImageryProvider.ConstructorOptions);
+    /**
+     * Gets the URL of the Azure 2D Imagery server.
+     */
+    readonly url: string;
+    /**
+     * Gets the rectangle, in radians, of the imagery provided by the instance.
+     */
+    readonly rectangle: Rectangle;
+    /**
+     * Gets the width of each tile, in pixels.
+     */
+    readonly tileWidth: number;
+    /**
+     * Gets the height of each tile, in pixels.
+     */
+    readonly tileHeight: number;
+    /**
+     * Gets the maximum level-of-detail that can be requested.
+     */
+    readonly maximumLevel: number | undefined;
+    /**
+     * Gets the minimum level-of-detail that can be requested. Generally,
+     * a minimum level should only be used when the rectangle of the imagery is small
+     * enough that the number of tiles at the minimum level is small.  An imagery
+     * provider with more than a few tiles at the minimum level will lead to
+     * rendering problems.
+     */
+    readonly minimumLevel: number;
+    /**
+     * Gets the tiling scheme used by the provider.
+     */
+    readonly tilingScheme: TilingScheme;
+    /**
+     * Gets the tile discard policy.  If not undefined, the discard policy is responsible
+     * for filtering out "missing" tiles via its shouldDiscardImage function.  If this function
+     * returns undefined, no tiles are filtered.
+     */
+    readonly tileDiscardPolicy: TileDiscardPolicy;
+    /**
+     * Gets an event that is raised when the imagery provider encounters an asynchronous error..  By subscribing
+     * to the event, you will be notified of the error and can potentially recover from it.  Event listeners
+     * are passed an instance of {@link TileProviderError}.
+     */
+    readonly errorEvent: Event;
+    /**
+     * Gets the credit to display when this imagery provider is active.  Typically this is used to credit
+     * the source of the imagery.
+     */
+    readonly credit: Credit;
+    /**
+     * Gets the proxy used by this provider.
+     */
+    readonly proxy: Proxy;
+    /**
+     * Gets a value indicating whether or not the images provided by this imagery provider
+     * include an alpha channel.  If this property is false, an alpha channel, if present, will
+     * be ignored.  If this property is true, any images without an alpha channel will be treated
+     * as if their alpha is 1.0 everywhere.  When this property is false, memory usage
+     * and texture upload time are reduced.
+     */
+    readonly hasAlphaChannel: boolean;
+    /**
+     * Gets the credits to be displayed when a given tile is displayed.
+     * @param x - The tile X coordinate.
+     * @param y - The tile Y coordinate.
+     * @param level - The tile level;
+     * @returns The credits to be displayed when the tile is displayed.
+     */
+    getTileCredits(x: number, y: number, level: number): Credit[] | undefined;
+    /**
+     * Requests the image for a given tile.
+     * @param x - The tile X coordinate.
+     * @param y - The tile Y coordinate.
+     * @param level - The tile level.
+     * @param [request] - The request object. Intended for internal use only.
+     * @returns A promise for the image that will resolve when the image is available, or
+     *          undefined if there are too many active requests to the server, and the request should be retried later.
+     */
+    requestImage(x: number, y: number, level: number, request?: Request): Promise<ImageryTypes> | undefined;
+    /**
+     * Picking features is not currently supported by this imagery provider, so this function simply returns
+     * undefined.
+     * @param x - The tile X coordinate.
+     * @param y - The tile Y coordinate.
+     * @param level - The tile level.
+     * @param longitude - The longitude at which to pick features.
+     * @param latitude - The latitude at which to pick features.
+     * @returns Undefined since picking is not supported.
+     */
+    pickFeatures(x: number, y: number, level: number, longitude: number, latitude: number): undefined;
+}
+
 export namespace Billboard {
     /**
      * Initialization options for the first param of Billboard constructor
@@ -26177,14 +26638,14 @@ export namespace Billboard {
      * @property [pixelOffsetScaleByDistance] - A {@link NearFarScalar} Specifying near and far pixel offset scaling properties of a Billboard based on the billboard's distance from the camera.
      * @property [imageSubRegion] - A {@link BoundingRectangle} Specifying the sub-region of the image to use for the billboard, rather than the entire image.
      * @property [distanceDisplayCondition] - A {@link DistanceDisplayCondition} Specifying the distance from the camera at which this billboard will be displayed.
-     * @property [disableDepthTestDistance] - A number specifying the distance from the camera at which to disable the depth test to, for example, prevent clipping against terrain.
+     * @property [disableDepthTestDistance] - The distance from the camera, beyond which, depth testing is disabled—to, for example, prevent clipping against terrain.
      * @property [splitDirection] - A {@link SplitDirection} Specifying the split property of the billboard.
      */
     type ConstructorOptions = {
         position: Cartesian3;
         id?: any;
         show?: boolean;
-        image?: string | HTMLCanvasElement;
+        image?: string | HTMLImageElement | HTMLCanvasElement;
         scale?: number;
         pixelOffset?: Cartesian2;
         eyeOffset?: Cartesian3;
@@ -26439,10 +26900,12 @@ export class Billboard {
      */
     distanceDisplayCondition: DistanceDisplayCondition;
     /**
-     * Gets or sets the distance from the camera at which to disable the depth test to, for example, prevent clipping against terrain.
-     * When set to zero, the depth test is always applied. When set to Number.POSITIVE_INFINITY, the depth test is never applied.
+     * Gets or sets the distance from the camera, beyond which, depth testing is disbaled—to,
+     * for example, prevent clipping against terrain. When set to <code>undefined</code> or
+     * <code>0</code>, the depth test is always applied. When set to
+     * <code>Number.POSITIVE_INFINITY</code>, the depth test is never applied.
      */
-    disableDepthTestDistance: number;
+    disableDepthTestDistance: number | undefined;
     /**
      * Gets or sets the user-defined object returned when the billboard is picked.
      */
@@ -26536,6 +26999,11 @@ export class Billboard {
 }
 
 /**
+ * Arbitrary limit on allocated SVG size, in pixels. Raster images use image resolution.
+ */
+export const SVG_MAX_SIZE_PX = 512;
+
+/**
  * A renderable collection of billboards.  Billboards are viewport-aligned
  * images positioned in the 3D scene.
  * <br /><br />
@@ -26566,6 +27034,8 @@ export class Billboard {
  * is used for rendering both opaque and translucent billboards. However, if either all of the billboards are completely opaque or all are completely translucent,
  * setting the technique to BlendOption.OPAQUE or BlendOption.TRANSLUCENT can improve performance by up to 2x.
  * @param [options.show = true] - Determines if the billboards in the collection will be shown.
+ * @param [options.coarseDepthTestDistance] - The distance from the camera, beyond which, billboards are depth-tested against an approximation of the globe ellipsoid rather than against the full globe depth buffer. If unspecified, the default value is determined relative to the value of {@link Ellipsoid.default}.
+ * @param [options.threePointDepthTestDistance] - The distance from the camera, within which, billboards with a {@link Billboard#heightReference} value of {@link HeightReference.CLAMP_TO_GROUND} or {@link HeightReference.CLAMP_TO_TERRAIN} are depth tested against three key points. This ensures that if any key point of the billboard is visible, the whole billboard will be visible. If unspecified, the default value is determined relative to the value of {@link Ellipsoid.default}.
  */
 export class BillboardCollection {
     constructor(options?: {
@@ -26574,6 +27044,8 @@ export class BillboardCollection {
         scene?: Scene;
         blendOption?: BlendOption;
         show?: boolean;
+        coarseDepthTestDistance?: number;
+        threePointDepthTestDistance?: number;
     });
     /**
      * Determines if billboards in this collection will be shown.
@@ -26632,6 +27104,29 @@ export class BillboardCollection {
      * in the collection.
      */
     readonly length: number;
+    /**
+     * The distance from the camera, beyond which, billboards are depth-tested against an approximation of
+     * the globe ellipsoid rather than against the full globe depth buffer. When set to <code>0</code>, the
+     * approximate depth test is always applied. When set to <code>Number.POSITIVE_INFINITY</code>, the
+     * approximate depth test is never applied.
+     * <br/><br/>
+     * This setting only applies when a billboard's {@link Billboard#disableDepthTestDistance} value would
+     * otherwise allow depth testing—i.e., distance from the camera to the billboard is less than a
+     * billboard's {@link Billboard#disableDepthTestDistance} value.
+     */
+    coarseDepthTestDistance: number;
+    /**
+     * The distance from the camera, within which, billboards with a {@link Billboard#heightReference} value
+     * of {@link HeightReference.CLAMP_TO_GROUND} or {@link HeightReference.CLAMP_TO_TERRAIN} are depth tested
+     * against three key points. This ensures that if any key point of the billboard is visible, the whole
+     * billboard will be visible. When set to <code>0</code>, this feature is disabled and portions of a
+     * billboards behind terrain be clipped.
+     * <br/><br/>
+     * This setting only applies when a billboard's {@link Billboard#disableDepthTestDistance} value would
+     * otherwise allow depth testing—i.e., distance from the camera to the billboard is less than a
+     * billboard's {@link Billboard#disableDepthTestDistance} value.
+     */
+    threePointDepthTestDistance: number;
     /**
      * Creates and adds a billboard with the specified initial properties to the collection.
      * The added billboard is returned so it can be modified or removed from the collection later.
@@ -27119,6 +27614,780 @@ export class BoxEmitter {
      * The width, height and depth dimensions of the box in meters.
      */
     dimensions: Cartesian3;
+}
+
+/**
+ * View bound to the underlying buffer data of a {@link BufferPointCollection}.
+ *
+ * <p>BufferPoint instances are {@link https://en.wikipedia.org/wiki/Flyweight_pattern|flyweights}:
+ * a single BufferPoint instance can be temporarily bound to any conceptual
+ * "point" in a BufferPointCollection, allowing very large collections to be
+ * iterated and updated with a minimal memory footprint.</p>
+ *
+ * Represented as one (1) position.
+ */
+export class BufferPoint extends BufferPrimitive {
+    /**
+     * Copies data from source point to result.
+     */
+    static clone(point: BufferPoint, result: BufferPoint): BufferPoint;
+    /**
+     * Count of positions (vertices) in this primitive. Always 1.
+     */
+    readonly vertexCount: number;
+    /**
+     * Gets the position of this point.
+     */
+    getPosition(result?: Cartesian3): Cartesian3;
+    /**
+     * Sets the position of this point.
+     */
+    setPosition(position: Cartesian3): void;
+    /**
+     * Returns a JSON-serializable object representing the point. This encoding
+     * is not memory-efficient, and should generally be used for debugging and
+     * testing.
+     * @returns JSON-serializable object.
+     */
+    toJSON(): any;
+}
+
+/**
+ * @property [options.modelMatrix = Matrix4.IDENTITY] - Transforms geometry from model to world coordinates.
+ */
+export type BufferPointOptions = {
+    show?: boolean;
+    material?: BufferPointMaterial;
+    position?: Cartesian3;
+};
+
+/**
+ * Collection of points held in ArrayBuffer storage for performance and memory optimization.
+ *
+ * <p>Default buffer memory allocation is arbitrary, and collections cannot be resized,
+ * so specific per-buffer capacities should be provided in the collection
+ * constructor when available.</p>
+ * @example
+ * const collection = new BufferPointCollection({primitiveCountMax: 1024});
+ *
+ * const point = new BufferPoint();
+ * const material = new BufferPointMaterial({color: Color.WHITE});
+ *
+ * // Create a new point, temporarily bound to 'point' local variable.
+ * collection.add({
+ *   position: new Cartesian3(0.0, 0.0, 0.0),
+ *   material
+ * }, point);
+ *
+ * // Iterate over all points in collection, temporarily binding 'point'
+ * // local variable to each, and updating point material.
+ * for (let i = 0; i < collection.primitiveCount; i++) {
+ *   collection.get(i, point);
+ *   point.setMaterial(material);
+ * }
+ */
+export class BufferPointCollection extends BufferPrimitiveCollection<BufferPoint> {
+    constructor(options: {
+        primitiveCountMax?: number;
+        show?: boolean;
+        debugShowBoundingVolume?: boolean;
+    });
+    /**
+     * Adds a new point to the collection, with the specified options. A
+     * {@link BufferPoint} instance is linked to the new point, using
+     * the 'result' argument if given, or a new instance if not. For repeated
+     * calls, prefer to reuse a single BufferPoint instance rather than
+     * allocating a new instance on each call.
+     */
+    add(options: BufferPointOptions, result: BufferPoint): BufferPoint;
+}
+
+/**
+ * @property [color = Color.WHITE] - Color of fill.
+ * @property [outlineColor = Color.WHITE] - Color of outline.
+ * @property [outlineWidth = 0.0] - Width of outline, 0-255px.
+ * @property [size = 1.0] - Size of point, 0-255px.
+ */
+export type BufferPointMaterialOptions = {
+    color?: Color;
+    outlineColor?: Color;
+    outlineWidth?: number;
+    size?: number;
+};
+
+/**
+ * Material description for a {@link BufferPoint}.
+ *
+ * <p>BufferPointMaterial objects are {@link Packable|packable}, stored
+ * when calling {@link BufferPoint#setMaterial}. Subsequent changes to the
+ * material will not affect the point until setMaterial() is called again.</p>
+ */
+export class BufferPointMaterial extends BufferPrimitiveMaterial {
+    constructor(options?: BufferPointMaterialOptions);
+    /**
+     * Size of point, 0-255px.
+     */
+    size: number;
+    static pack(material: BufferPointMaterial, view: DataView, byteOffset: number): void;
+    static unpack(view: DataView, byteOffset: number, result: BufferPointMaterial): BufferPointMaterial;
+    /**
+     * Returns a JSON-serializable object representing the material. This encoding
+     * is not memory-efficient, and should generally be used for debugging and
+     * testing.
+     * @returns JSON-serializable object.
+     */
+    toJSON(): any;
+    /**
+     * Color of fill.
+     */
+    color: Color;
+    /**
+     * Color of outline.
+     */
+    outlineColor: Color;
+    /**
+     * Width of outline, 0-255px.
+     */
+    outlineWidth: number;
+}
+
+/**
+ * View bound to the underlying buffer data of a {@link BufferPolygonCollection}.
+ *
+ * <p>BufferPolygon instances are {@link https://en.wikipedia.org/wiki/Flyweight_pattern|flyweights}:
+ * a single BufferPolygon instance can be temporarily bound to any conceptual
+ * "polygon" in a BufferPolygonCollection, allowing very large collections to be
+ * iterated and updated with a minimal memory footprint.</p>
+ *
+ * <p>Represented as one (1) external linear ring of three (3) or more positions.
+ * May optionally define one or more internal linear rings ("holes") within the
+ * polygon. Each hole is represented as a single index into the positions array,
+ * where the vertex at that index is the start of an internal linear ring that
+ * continues along the following vertices until reaching either the vertex
+ * index of the next hole, or the end of the vertex list. Stores a precomputed
+ * triangulation, represented as three vertex indices per triangle.</p>
+ */
+export class BufferPolygon extends BufferPrimitive {
+    /**
+     * Copies data from source polygon to result. If the result polygon is not
+     * new (the last polygon in the collection) then source and result polygons
+     * must have the same vertex counts, hole counts, and triangle counts.
+     */
+    static clone(polygon: BufferPolygon, result: BufferPolygon): BufferPolygon;
+    /**
+     * Count of positions (vertices) in this polygon, including both outer ring and
+     * internal rings (holes), number of VEC3 elements.
+     */
+    readonly vertexCount: number;
+    /**
+     * Returns an array view of this polygon's vertex positions. If 'result'
+     * argument is given, vertex positions are written to that array and returned.
+     * Otherwise, returns an ArrayView on collection memory — changes to this array
+     * will not trigger render updates, which requires `.setPositions()`.
+     * @param [result] - return {TypedArray}
+     */
+    getPositions(result?: TypedArray): void;
+    setPositions(positions: TypedArray): void;
+    /**
+     * Offset in collection position array to first vertex in polygon's outer
+     * linear ring, number of VEC3 elements.
+     */
+    readonly outerVertexOffset: number;
+    /**
+     * Count of positions (vertices) in this polygon's outer linear ring, number
+     * of VEC3 elements.
+     */
+    readonly outerVertexCount: number;
+    /**
+     * Returns an array view of this polygon's outer linear ring vertex positions.
+     * If 'result' argument is given, vertex positions are written to that array
+     * and returned. Otherwise, returns an ArrayView on collection memory —
+     * changes to this array will not trigger render updates, which requires
+     * `.setPositions()`.
+     */
+    getOuterPositions(result?: TypedArray): TypedArray;
+    /**
+     * Count of holes (indices) in this polygon.
+     */
+    readonly holeCount: number;
+    /**
+     * Gets this polygon's hole indices, with each hole represented as a single
+     * offset into this polygon's positions array. Each hole implicitly
+     * continues along an internal linear ring from that vertex offset until
+     * reaching either the end of the positions array, or the next hole offset.
+     *
+     * If 'result' argument is given, hole indices are written to that array and
+     * returned. Otherwise, returns an ArrayView on collection memory — changes
+     * to this array will not trigger render updates, which requires `.setHoles()`.
+     */
+    getHoles(result?: TypedArray): TypedArray;
+    /**
+     * Sets this polygon's hole indices, with holes represented as a single
+     * offset into this polygon's positions array. Each hole implicitly
+     * continues along an internal linear ring from that vertex offset until
+     * reaching either the end of the positions array, or the next hole offset.
+     */
+    setHoles(holes: TypedArray): void;
+    /**
+     * Returns the number of (VEC3) vertices in the specified hole.
+     */
+    getHoleVertexCount(holeIndex: number): number;
+    /**
+     * Returns an array view of the inner linear ring vertex positions for the
+     * specified hole. If 'result' argument is given, vertex positions are written
+     * to that array and returned. Otherwise, returns an ArrayView on collection
+     * memory — changes to this array will not trigger render updates, which
+     * requires `.setPositions()`.
+     * @param [result] - return {TypedArray}
+     */
+    getHolePositions(holeIndex: number, result?: TypedArray): void;
+    /**
+     * Count of triangles in this polygon, number of VEC3 elements.
+     */
+    readonly triangleCount: number;
+    /**
+     * Returns an array view of this polygon's triangle indices, represented as
+     * three vertex indices per triangle.
+     *
+     * If 'result' argument is given, triangle indices are written to that array
+     * and returned. Otherwise, returns an ArrayView on collection memory —
+     * changes to this array will not trigger render updates, which requires
+     * `.setTriangles()`.
+     */
+    getTriangles(result?: TypedArray): TypedArray;
+    /**
+     * Sets this polygon's triangle indices, represented as three vertex indices
+     * per triangle.
+     */
+    setTriangles(indices: TypedArray): void;
+    /**
+     * Returns a JSON-serializable object representing the polygon. This encoding
+     * is not memory-efficient, and should generally be used for debugging and
+     * testing.
+     * @returns JSON-serializable object.
+     */
+    toJSON(): any;
+}
+
+/**
+ * @property [options.modelMatrix = Matrix4.IDENTITY] - Transforms geometry from model to world coordinates.
+ */
+export type BufferPolygonOptions = {
+    show?: boolean;
+    material?: BufferPolygonMaterial;
+    positions?: TypedArray;
+    holes?: TypedArray;
+    triangles?: TypedArray;
+};
+
+/**
+ * Collection of polygons held in ArrayBuffer storage for performance and memory optimization.
+ *
+ * <p>Default buffer memory allocation is arbitrary, and collections cannot be resized,
+ * so specific per-buffer capacities should be provided in the collection
+ * constructor when available.</p>
+ * @example
+ * import earcut from "earcut";
+ *
+ * const collection = new BufferPolygonCollection({
+ *   primitiveCountMax: 1024,
+ *   vertexCountMax: 4096,
+ *   holeCountMax: 1024,
+ *   triangleCountMax: 2048,
+ * });
+ *
+ * const polygon = new BufferPolygon();
+ * const positions = [ ... ];
+ * const holes = [ ... ];
+ * const material = new BufferPolygonMaterial({color: Color.WHITE});
+ *
+ * // Create a new polygon, temporarily bound to 'polygon' local variable.
+ * collection.add({
+ *   positions: new Float64Array(positions),
+ *   holes: new Uint32Array(holes),
+ *   triangles: new Uint32Array(earcut(positions, holes, 3)),
+ *   material
+ * }, polygon);
+ *
+ * // Iterate over all polygons in collection, temporarily binding 'polygon'
+ * // local variable to each, and updating polygon material.
+ * for (let i = 0; i < collection.primitiveCount; i++) {
+ *   collection.get(i, polygon);
+ *   polygon.setMaterial(material);
+ * }
+ * @param [options.allowPicking = true] - When <code>true</code>, primitives are pickable with {@link Scene#pick}. When <code>false</code>, memory and initialization cost are lower.
+ */
+export class BufferPolygonCollection extends BufferPrimitiveCollection<BufferPolygon> {
+    constructor(options: {
+        primitiveCountMax?: number;
+        vertexCountMax?: number;
+        holeCountMax?: number;
+        triangleCountMax?: number;
+        positionDatatype?: ComponentDatatype;
+        show?: boolean;
+        allowPicking?: boolean;
+        debugShowBoundingVolume?: boolean;
+    });
+    /**
+     * Duplicates the contents of this collection into the result collection.
+     * Result collection is not resized, and must contain enough space for all
+     * primitives in the source collection. Existing polygons in the result
+     * collection will be overwritten.
+     *
+     * <p>Useful when allocating more space for a collection that has reached its
+     * capacity, and efficiently transferring polygons to the new collection.</p>
+     * @example
+     * const result = new BufferPolygonCollection({ ... }); // allocate larger 'result' collection
+     * BufferPolygonCollection.clone(collection, result);   // copy polygons from 'collection' into 'result'
+     */
+    static clone(collection: BufferPolygonCollection, result: BufferPolygonCollection): BufferPolygonCollection;
+    /**
+     * Adds a new polygon to the collection, with the specified options. A
+     * {@link BufferPolygon} instance is linked to the new polygon, using
+     * the 'result' argument if given, or a new instance if not. For repeated
+     * calls, prefer to reuse a single BufferPolygon instance rather than
+     * allocating a new instance on each call.
+     */
+    add(options: BufferPolygonOptions, result: BufferPolygon): BufferPolygon;
+    /**
+     * Total byte length of buffers owned by this collection. Includes any unused
+     * space allocated by {@link primitiveCountMax}, even if no polygons have
+     * yet been added in that space.
+     */
+    readonly byteLength: number;
+    /**
+     * Number of holes in collection. Must be <= {@link holeCountMax}.
+     */
+    readonly holeCount: number;
+    /**
+     * Maximum number of holes in collection. Must be >= {@link holeCount}.
+     */
+    readonly holeCountMax: number;
+    /**
+     * Number of triangles in collection. Must be <= {@link triangleCountMax}.
+     */
+    readonly triangleCount: number;
+    /**
+     * Maximum number of triangles in collection. Must be >= {@link triangleCount}.
+     */
+    readonly triangleCountMax: number;
+}
+
+/**
+ * @property [color = Color.WHITE] - Color of fill.
+ * @property [outlineColor = Color.WHITE] - Color of outline.
+ * @property [outlineWidth = 0.0] - Width of outline, 0-255px.
+ */
+export type BufferPolygonMaterialOptions = {
+    color?: Color;
+    outlineColor?: Color;
+    outlineWidth?: number;
+};
+
+/**
+ * Material description for a {@link BufferPolygon}.
+ *
+ * <p>BufferPolygonMaterial objects are {@link Packable|packable}, stored
+ * when calling {@link BufferPolygon#setMaterial}. Subsequent changes to the
+ * material will not affect the polygon until setMaterial() is called again.</p>
+ */
+export class BufferPolygonMaterial extends BufferPrimitiveMaterial {
+    constructor(options?: BufferPolygonMaterialOptions);
+    /**
+     * Color of fill.
+     */
+    color: Color;
+    /**
+     * Color of outline.
+     */
+    outlineColor: Color;
+    /**
+     * Width of outline, 0-255px.
+     */
+    outlineWidth: number;
+    /**
+     * Returns a JSON-serializable object representing the material. This encoding
+     * is not memory-efficient, and should generally be used for debugging and
+     * testing.
+     * @returns JSON-serializable object.
+     */
+    toJSON(): any;
+}
+
+/**
+ * View bound to the underlying buffer data of a {@link BufferPolylineCollection}.
+ *
+ * <p>BufferPolyline instances are {@link https://en.wikipedia.org/wiki/Flyweight_pattern|flyweights}:
+ * a single BufferPolyline instance can be temporarily bound to any conceptual
+ * "polyline" in a BufferPolylineCollection, allowing very large collections to be
+ * iterated and updated with a minimal memory footprint.</p>
+ *
+ * Represented as two (2) or more positions.
+ */
+export class BufferPolyline extends BufferPrimitive {
+    /**
+     * Copies data from source polyline to result. If the result polyline is not
+     * new (the last polyline in the collection) then source and result polylines
+     * must have the same vertex counts.
+     */
+    static clone(polyline: BufferPolyline, result: BufferPolyline): BufferPolyline;
+    /**
+     * Count of positions (vertices) in this polyline, number of VEC3 elements.
+     */
+    readonly vertexCount: number;
+    /**
+     * Returns an array view of this polyline's vertex positions. If 'result'
+     * argument is given, vertex positions are written to that array and returned.
+     * Otherwise, returns an ArrayView on collection memory — changes to this array
+     * will not trigger render updates, which requires `.setPositions()`.
+     * @param [result] - return {TypedArray}
+     */
+    getPositions(result?: TypedArray): void;
+    setPositions(positions: TypedArray): void;
+    /**
+     * Returns a JSON-serializable object representing the polyline. This encoding
+     * is not memory-efficient, and should generally be used for debugging and
+     * testing.
+     * @returns JSON-serializable object.
+     */
+    toJSON(): any;
+}
+
+/**
+ * @property [options.modelMatrix = Matrix4.IDENTITY] - Transforms geometry from model to world coordinates.
+ */
+export type BufferPolylineOptions = {
+    show?: boolean;
+    material?: BufferPolylineMaterial;
+    positions?: TypedArray;
+};
+
+/**
+ * Collection of polylines held in ArrayBuffer storage for performance and memory optimization.
+ *
+ * <p>Default buffer memory allocation is arbitrary, and collections cannot be resized,
+ * so specific per-buffer capacities should be provided in the collection
+ * constructor when available.</p>
+ * @example
+ * const collection = new BufferPolylineCollection({
+ *   primitiveCountMax: 1024,
+ *   vertexCountMax: 4096,
+ * });
+ *
+ * const polyline = new BufferPolyline();
+ * const material = new BufferPolylineMaterial({color: Color.WHITE});
+ *
+ * // Create a new polyline, temporarily bound to 'polyline' local variable.
+ * collection.add({
+ *   positions: new Float64Array([ ... ]),
+ *   material,
+ * }, polyline);
+ *
+ * // Iterate over all polylines in collection, temporarily binding 'polyline'
+ * // local variable to each, and updating polyline material.
+ * for (let i = 0; i < collection.primitiveCount; i++) {
+ *   collection.get(i, polyline);
+ *   polyline.setMaterial(material);
+ * }
+ */
+export class BufferPolylineCollection extends BufferPrimitiveCollection<BufferPolyline> {
+    /**
+     * Adds a new polyline to the collection, with the specified options. A
+     * {@link BufferPolyline} instance is linked to the new polyline, using
+     * the 'result' argument if given, or a new instance if not. For repeated
+     * calls, prefer to reuse a single BufferPolyline instance rather than
+     * allocating a new instance on each call.
+     */
+    add(options: BufferPolylineOptions, result: BufferPolyline): BufferPolyline;
+}
+
+/**
+ * @property [color = Color.WHITE] - Color of fill.
+ * @property [outlineColor = Color.WHITE] - Color of outline.
+ * @property [outlineWidth = 0.0] - Width of outline, 0-255px.
+ * @property [width = 1.0] - Width of line, 0-255px.
+ */
+export type BufferPolylineMaterialOptions = {
+    color?: Color;
+    outlineColor?: Color;
+    outlineWidth?: number;
+    width?: number;
+};
+
+/**
+ * Material description for a {@link BufferPolyline}.
+ *
+ * <p>BufferPolylineMaterial objects are {@link Packable|packable}, stored
+ * when calling {@link BufferPolyline#setMaterial}. Subsequent changes to the
+ * material will not affect the polyline until setMaterial() is called again.</p>
+ */
+export class BufferPolylineMaterial extends BufferPrimitiveMaterial {
+    constructor(options?: BufferPolylineMaterialOptions);
+    /**
+     * Width of polyline, 0–255px.
+     */
+    width: number;
+    static pack(material: BufferPolylineMaterial, view: DataView, byteOffset: number): void;
+    static unpack(view: DataView, byteOffset: number, result: BufferPolylineMaterial): BufferPolylineMaterial;
+    /**
+     * Returns a JSON-serializable object representing the material. This encoding
+     * is not memory-efficient, and should generally be used for debugging and
+     * testing.
+     * @returns JSON-serializable object.
+     */
+    toJSON(): any;
+    /**
+     * Color of fill.
+     */
+    color: Color;
+    /**
+     * Color of outline.
+     */
+    outlineColor: Color;
+    /**
+     * Width of outline, 0-255px.
+     */
+    outlineWidth: number;
+}
+
+/**
+ * View bound to the underlying buffer data of a {@link BufferPrimitiveCollection}. Abstract.
+ *
+ * <p>BufferPrimitive instances are intended to be reused when iterating over large collections,
+ * and temporarily bound to a primitive index while performing read/write operations on that primitive,
+ * before being rebound to the next primitive, using the
+ * {@link https://en.wikipedia.org/wiki/Flyweight_pattern|flyweight pattern}.</p>
+ */
+export class BufferPrimitive {
+    /**
+     * Copies data from source primitive to result. If the result primitive is not
+     * new (the last primitive in the collection) then source and result primitives
+     * must have the same vertex counts.
+     */
+    static clone(primitive: BufferPrimitive, result: BufferPrimitive): BufferPrimitive;
+    /**
+     * Feature ID associated with the primitive; not required to be unique.
+     */
+    featureId: number;
+    /**
+     * Whether primitive is shown.
+     */
+    show: boolean;
+    getMaterial(result: BufferPrimitiveMaterial): BufferPrimitiveMaterial;
+    setMaterial(material: BufferPrimitiveMaterial): void;
+    /**
+     * Returns a JSON-serializable object representing the primitive. This encoding
+     * is not memory-efficient, and should generally be used for debugging and
+     * testing.
+     * @returns JSON-serializable object.
+     */
+    toJSON(): any;
+}
+
+export type BufferPrimitiveOptions = {
+    show?: boolean;
+    material?: BufferPrimitiveMaterial;
+};
+
+/**
+ * Collection of primitives held in ArrayBuffer storage for performance and memory optimization.
+ *
+ * <p>To get the full performance benefit of using a BufferPrimitiveCollection containing "N" primitives,
+ * be careful to avoid allocating "N" instances of any related JavaScript object. {@link BufferPrimitive},
+ * {@link Color}, {@link Cartesian3}, and other objects can all be reused when working with large collections,
+ * using the {@link https://en.wikipedia.org/wiki/Flyweight_pattern|flyweight pattern}.</p>
+ * @param [options.modelMatrix = Matrix4.IDENTITY] - Transforms geometry from model to world coordinates.
+ * @param [options.allowPicking = false] - When <code>true</code>, primitives are pickable with {@link Scene#pick}. When <code>false</code>, memory and initialization cost are lower.
+ */
+export class BufferPrimitiveCollection<T extends BufferPrimitive> {
+    constructor(options: {
+        modelMatrix?: Matrix4;
+        primitiveCountMax?: number;
+        vertexCountMax?: number;
+        show?: boolean;
+        positionDatatype?: ComponentDatatype;
+        allowPicking?: boolean;
+        debugShowBoundingVolume?: boolean;
+    });
+    /**
+     * Default capacity of buffers on new collections. A quantity of elements:
+     * number of vertices in the vertex buffer, primitives in the primitive
+     * buffer, etc. This value is arbitrary, and collections cannot be resized,
+     * so specific per-buffer capacities should be provided in the collection
+     * constructor when available.
+     */
+    readonly DEFAULT_CAPACITY: number;
+    /**
+     * Determines if primitives in this collection will be shown.
+     */
+    show: boolean;
+    /**
+     * Transforms geometry from model to world coordinates.
+     */
+    modelMatrix: Matrix4;
+    /**
+     * Local bounding volume for all primitives in the collection, including both
+     * shown and hidden primitives.
+     */
+    boundingVolume: BoundingSphere;
+    /**
+     * World bounding volume for all primitives in the collection, including both
+     * shown and hidden primitives.
+     */
+    boundingVolumeWC: BoundingSphere;
+    /**
+     * This property is for debugging only; it is not for production use nor is it optimized.
+     * <p>
+     * Draws the bounding sphere for each draw command in the primitive.
+     * </p>
+     */
+    debugShowBoundingVolume: boolean;
+    /**
+     * Returns true if this object was destroyed; otherwise, false.
+     * @returns True if this object was destroyed; otherwise, false.
+     */
+    isDestroyed(): boolean;
+    /**
+     * Destroys collection and its GPU resources.
+     */
+    destroy(): void;
+    /**
+     * Sorts primitives of the collection.
+     *
+     * Because sorting changes the indices (but not the feature IDs) of primitives
+     * in the collection, the function also returns an array mapping from previous
+     * index to new index. When sorting repeatedly, the array can be reused and
+     * passed as the 'result' argument for each call.
+     * @returns Mapping from previous index to new index.
+     */
+    sort(sortFn: (...params: any[]) => any, result: Uint32Array): Uint32Array;
+    /**
+     * Duplicates the contents of this collection into the result collection.
+     * Result collection is not resized, and must contain enough space for all
+     * primitives in the source collection. Existing primitives in the result
+     * collection will be overwritten.
+     *
+     * <p>Useful when allocating more space for a collection that has reached its
+     * capacity, and efficiently transferring features to the new collection.</p>
+     * @example
+     * const result = new BufferPrimitiveCollection({ ... }); // allocate larger 'result' collection
+     * BufferPrimitiveCollection.clone(collection, result);   // copy primitives from 'collection' into 'result'
+     */
+    static clone<T extends BufferPrimitive>(collection: BufferPrimitiveCollection<T>, result: BufferPrimitiveCollection<T>): void;
+    /**
+     * Makes the given {@link BufferPrimitive} a view onto this collection's
+     * primitive at the given index, for use when reading/writing primitive
+     * properties. When iterating over a large collection, prefer to reuse
+     * the same BufferPrimitive instance throughout the loop — rebinding
+     * an existing instance to a different primitive is cheap, and avoids
+     * allocating in-memory objects for every object.
+     * @example
+     * const primitive = new BufferPrimitive();
+     * for (let i = 0; i < collection.primitiveCount; i++) {
+     *   collection.get(i, primitive);
+     *   primitive.setColor(Color.RED);
+     * }
+     * @returns The BufferPrimitive instance passed as the
+     * 'result' argument, now bound to the specified primitive index.
+     */
+    get(index: number, result: BufferPrimitive): BufferPrimitive;
+    /**
+     * Adds a new primitive to the collection, with the specified options. A
+     * {@link BufferPrimitive} instance is linked to the new primitive, using
+     * the 'result' argument if given, or a new instance if not. For repeated
+     * calls, prefer to reuse a single BufferPrimitive instance rather than
+     * allocating a new instance on each call.
+     */
+    add(options: BufferPrimitiveOptions, result: BufferPrimitive): BufferPrimitive;
+    update(frameState: any): void;
+    /**
+     * Number of primitives in collection. Must be <= {@link primitiveCountMax}.
+     */
+    readonly primitiveCount: number;
+    /**
+     * Maximum number of primitives this collection can contain. Must be >=
+     * {@link primitiveCount}.
+     */
+    readonly primitiveCountMax: number;
+    /**
+     * Total byte length of buffers owned by this collection. Includes any unused
+     * space allocated by {@link primitiveCountMax}, even if no primitives have
+     * yet been added in that space.
+     */
+    readonly byteLength: number;
+    /**
+     * Number of vertices in collection. Must be <= {@link vertexCountMax}.
+     */
+    readonly vertexCount: number;
+    /**
+     * Maximum number of vertices this collection can contain. Must be >=
+     * {@link vertexCount}.
+     */
+    readonly vertexCountMax: number;
+    /**
+     * Returns a JSON-serializable array representing the collection. This encoding
+     * is not memory-efficient, and should generally be used for debugging and
+     * testing.
+     * @example
+     * console.table(collection.toJSON());
+     * @returns List of JSON-serializable objects, one for each
+     * primitive in the collection.
+     */
+    toJSON(): object[];
+}
+
+/**
+ * @property [color = Color.WHITE] - Color of fill.
+ * @property [outlineColor = Color.WHITE] - Color of outline.
+ * @property [outlineWidth = 0.0] - Width of outline, 0-255px.
+ */
+export type BufferPrimitiveMaterialOptions = {
+    color?: Color;
+    outlineColor?: Color;
+    outlineWidth?: number;
+};
+
+/**
+ * Material description for a {@link BufferPrimitive}. Abstract.
+ *
+ * <p>BufferPrimitiveMaterial objects are {@link Packable|packable}, stored
+ * when calling {@link BufferPrimitive#setMaterial}. Subsequent changes to the
+ * material will not affect the primitive until setMaterial() is called again.</p>
+ */
+export class BufferPrimitiveMaterial {
+    constructor(options?: BufferPrimitiveMaterialOptions);
+    /**
+     * Color of fill.
+     */
+    color: Color;
+    /**
+     * Color of outline.
+     */
+    outlineColor: Color;
+    /**
+     * Width of outline, 0-255px.
+     */
+    outlineWidth: number;
+    static packedLength: number;
+    /**
+     * Stores the provided material into the provided array.
+     */
+    static pack(material: BufferPrimitiveMaterial, view: DataView, byteOffset: number): void;
+    /**
+     * Retrieves a material from a packed array.
+     * @param view - The packed array.
+     * @param byteOffset - Starting index of the element to be unpacked.
+     * @param result - Material into which results are unpacked.
+     * @returns Modified result material, with results unpacked.
+     */
+    static unpack(view: DataView, byteOffset: number, result: BufferPrimitiveMaterial): BufferPrimitiveMaterial;
+    /**
+     * Returns a JSON-serializable object representing the material. This encoding
+     * is not memory-efficient, and should generally be used for debugging and
+     * testing.
+     * @returns JSON-serializable object.
+     */
+    toJSON(): any;
 }
 
 /**
@@ -30847,12 +32116,14 @@ export function equalsArrayCartesian3(a: Cartesian3[] | undefined, b: Cartesian3
  * @param [options.polygons = []] - An array of {@link ClippingPolygon} objects used to selectively disable rendering on the inside of each polygon.
  * @param [options.enabled = true] - Determines whether the clipping polygons are active.
  * @param [options.inverse = false] - If true, a region will be clipped if it is outside of every polygon in the collection. Otherwise, a region will only be clipped if it is on the inside of any polygon.
+ * @param [options.quality = 1.0] - A scalar that controls the resolution of the signed distance texture used for clipping. Values greater than 1.0 increase quality, values less than 1.0 decrease it. Must be greater than 0.0.
  */
 export class ClippingPolygonCollection {
     constructor(options?: {
         polygons?: ClippingPolygon[];
         enabled?: boolean;
         inverse?: boolean;
+        quality?: number;
     });
     /**
      * If true, clipping will be enabled.
@@ -30864,6 +32135,11 @@ export class ClippingPolygonCollection {
      * inside of any polygon.
      */
     inverse: boolean;
+    /**
+     * A scalar that controls the resolution of the signed distance texture used for clipping.
+     * Values greater than 1.0 increase quality, values less than 1.0 decrease it. Must be greater than 0.0.
+     */
+    quality: number;
     /**
      * An event triggered when a new clipping polygon is added to the collection.  Event handlers
      * are passed the new polygon and the index at which it was added.
@@ -31305,6 +32581,97 @@ export class CreditDisplay {
     static cesiumCredit: Credit;
 }
 
+export namespace CubeMapPanorama {
+    /**
+     * Initialization options for the CubeMapPanorama constructor
+     * @property [options.sources] - The source URL or <code>Image</code> object for each of the six cube map faces.  See the example below.
+     * @property [options.transform] - A 3x3 transformation matrix that defines the panorama’s orientation. If not specified, the default orientation is defined using the True Equator Mean Equinox (TEME) axes.
+     * @property [options.show = true] - Determines if this primitive will be shown.
+     * @property [options.credit] - A credit for the panorama, which is displayed on the canvas.
+     */
+    type ConstructorOptions = {};
+}
+
+/**
+ * A {@link Panorama} that displays imagery in cube map format in a scene.
+ * <p>
+ * This is only supported in 3D.  The cube map panorama is faded out when morphing to 2D or Columbus view.  The size of
+ * the cube map panorama must not exceed {@link Scene#maximumSkyBoxSize}.
+ * </p>
+ * @example
+ * const modelMatrix = Cesium.Matrix4.getMatrix3(
+ *   Cesium.Transforms.localFrameToFixedFrameGenerator("north", "down")(
+ *     Cesium.Cartesian3.fromDegrees(longitude, latitude, height),
+ *     Cesium.Ellipsoid.default
+ *   ),
+ *   new Cesium.Matrix3()
+ * );
+ *
+ *
+ * scene.primitives.add(new Cesium.CubeMapPanorama({
+ *   sources : {
+ *     positiveX : 'cubemap_px.png',
+ *     negativeX : 'cubemap_nx.png',
+ *     positiveY : 'cubemap_py.png',
+ *     negativeY : 'cubemap_ny.png',
+ *     positiveZ : 'cubemap_pz.png',
+ *     negativeZ : 'cubemap_nz.png'
+ *   }
+ *   transform: modelMatrix,
+ * }));
+ * @param options - Object describing initialization options
+ */
+export class CubeMapPanorama {
+    constructor(options: CubeMapPanorama.ConstructorOptions);
+    /**
+     * The sources used to create the cube map faces: an object
+     * with <code>positiveX</code>, <code>negativeX</code>, <code>positiveY</code>,
+     * <code>negativeY</code>, <code>positiveZ</code>, and <code>negativeZ</code> properties.
+     * These can be either URLs or <code>Image</code> objects.
+     */
+    sources: any;
+    /**
+     * Determines if the cube map panorama will be shown.
+     */
+    show: boolean;
+    /**
+     * Gets the transform of the panorama. If undefined, the default orientation uses the True Equator Mean Equinox (TEME) axes.
+     */
+    readonly transform: Matrix3;
+    /**
+     * Gets the credits of the panorama.
+     */
+    readonly credit: Credit;
+    /**
+     * Called when {@link Viewer} or {@link CesiumWidget} render the scene to
+     * get the draw commands needed to render this primitive.
+     * <p>
+     * Do not call this function directly.  This is documented just to
+     * list the exceptions that may be propagated when the scene is rendered:
+     * </p>
+     */
+    update(): void;
+    /**
+     * Returns true if this object was destroyed; otherwise, false.
+     * <br /><br />
+     * If this object was destroyed, it should not be used; calling any function other than
+     * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+     * @returns <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+     */
+    isDestroyed(): boolean;
+    /**
+     * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
+     * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+     * <br /><br />
+     * Once an object is destroyed, it should not be used; calling any function other than
+     * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
+     * assign the return value (<code>undefined</code>) to the object as done in the example.
+     * @example
+     * cubeMapPanorama = cubeMapPanorama && cubeMapPanorama.destroy();
+     */
+    destroy(): void;
+}
+
 /**
  * Determines which triangles, if any, are culled.
  */
@@ -31721,16 +33088,6 @@ export enum DepthFunction {
 }
 
 /**
- * Returns the type that the given class property has in a GLSL shader.
- *
- * It returns the same string as `PropertyTextureProperty.prototype.getGlslType`
- * for a property texture property with the given class property
- * @param classProperty - The class property
- * @returns The GLSL shader type string for the property
- */
-export function getGlslType(classProperty: MetadataClassProperty): string;
-
-/**
  * Returns a shader statement that applies the inverse of the
  * value transform to the given value, based on the given offset
  * and scale.
@@ -31878,7 +33235,7 @@ export namespace DynamicEnvironmentMapManager {
     /**
      * Options for the DynamicEnvironmentMapManager constructor
      * @property [enabled = true] - If true, the environment map and related properties will continue to update.
-     * @property [mipmapLevels = 7] - The number of mipmap levels to generate for specular maps. More mipmap levels will produce a higher resolution specular reflection.
+     * @property [mipmapLevels = 7] - The maximum desired number of mipmap levels to generate for specular maps. More mipmap levels will produce a higher resolution specular reflection. The actual number of mipmaps used will be bounded by the cubemap texture size supported on the client machine. The number of mipmaps must be at least one for the environment map to be generated.
      * @property [maximumSecondsDifference = 3600] - The maximum amount of elapsed seconds before a new environment map is created.
      * @property [maximumPositionEpsilon = 1000] - The maximum difference in position before a new environment map is created, in meters. Small differences in position will not visibly affect results.
      * @property [atmosphereScatteringIntensity = 2.0] - The intensity of the scattered light emitted from the atmosphere. This should be adjusted relative to the value of {@link Scene.light} intensity.
@@ -32127,6 +33484,104 @@ export class EllipsoidSurfaceAppearance {
      * @returns The render state.
      */
     getRenderState(): any;
+}
+
+export namespace EquirectangularPanorama {
+    /**
+     * Initialization options for the EquirectangularPanorama constructor
+     * @property options.transform - A 4x4 transformation matrix that defines the panorama’s position and orientation
+     * (for example, derived from a position and heading-pitch-roll).
+     * @property options.image - A URL to an image resource, or a preloaded image object.
+     * @property [options.radius = 100000.0] - The radius of the panorama in meters.
+     * @property [options.repeatHorizontal = 1.0] - The number of times to repeat the texture horizontally.
+     * @property [options.repeatVertical = 1.0] - The number of times to repeat the texture vertically.
+     * @property [options.credit] - A credit for the panorama, which is displayed on the canvas.
+     */
+    type ConstructorOptions = {};
+}
+
+/**
+ * A {@link Panorama} that displays imagery in equirectangular format in a scene.
+ * @example
+ * const position = Cesium.Cartesian3.fromDegrees(
+ *   -75.1699,  // longitude
+ *   39.9522,   // latitude
+ *   100.0      // height in meters
+ * );
+ *
+ * const heading = Cesium.Math.toRadians(45.0); // rotation about up axis
+ * const pitch = Cesium.Math.toRadians(-30.0);   // pitch (negative looks down)
+ * const roll = Cesium.Math.toRadians(10.0);    // roll about forward axis
+ *
+ * const hpr = new Cesium.HeadingPitchRoll(
+ *   heading,
+ *   pitch,
+ *   roll
+ * );
+ *
+ * const modelMatrix = Cesium.Transforms.headingPitchRollToFixedFrame(
+ *   position,
+ *   hpr,
+ *   Cesium.Ellipsoid.WGS84,
+ *   Cesium.Transforms.eastNorthUpToFixedFrame
+ * );
+ *
+ * scene.primitives.add(new Cesium.EquirectangularPanorama({
+ *   transform: modelMatrix,
+ *   image: 'path/to/image',
+ * }));
+ * @param options - Object describing initialization options
+ */
+export class EquirectangularPanorama {
+    constructor(options: EquirectangularPanorama.ConstructorOptions);
+    /**
+     * Gets the radius of the panorama.
+     */
+    readonly radius: number;
+    /**
+     * Gets the source image of the panorama.
+     */
+    readonly image: string | HTMLImageElement | HTMLCanvasElement | ImageBitmap;
+    /**
+     * Gets the transform of the panorama.
+     */
+    readonly transform: Matrix4;
+    /**
+     * Gets the credits of the panorama.
+     */
+    readonly credit: Credit;
+    /**
+     * Determines if the equirectangular panorama will be shown.
+     */
+    show: boolean;
+    /**
+     * Called when {@link Viewer} or {@link CesiumWidget} render the scene to
+     * get the draw commands needed to render this primitive.
+     * <p>
+     * Do not call this function directly.  This is documented just to
+     * list the exceptions that may be propagated when the scene is rendered:
+     * </p>
+     */
+    update(): void;
+    /**
+     * Destroys the WebGL resources held by this object.  Destroying an object allows for deterministic
+     * release of WebGL resources, instead of relying on the garbage collector to destroy this object.
+     * <br /><br />
+     * Once an object is destroyed, it should not be used; calling any function other than
+     * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.  Therefore,
+     * assign the return value (<code>undefined</code>) to the object as done in the example.
+     * @example
+     * equirectangularPanorama = equirectangularPanorama && equirectangularPanorama.destroy();
+     */
+    destroy(): void;
+    /**
+     * Returns true if this object was destroyed; otherwise, false.
+     * <br /><br />
+     * If this object was destroyed, it should not be used; calling any function other than
+     * <code>isDestroyed</code> will result in a {@link DeveloperError} exception.
+     * @returns <code>true</code> if this object was destroyed; otherwise, <code>false</code>.
+     */
+    isDestroyed(): boolean;
 }
 
 /**
@@ -32457,13 +33912,13 @@ export class GaussianSplat3DTileContent {
 }
 
 /**
- * Describes the format in which to request GetFeatureInfo from a Web Map Service (WMS) server.
+ * Describes the format in which to request GetFeatureInfo from a Web Map Service (WMS) or Web Map Tile Service (WMTS) server.
  * @param type - The type of response to expect from a GetFeatureInfo request.  Valid
  *        values are 'json', 'xml', 'html', or 'text'.
- * @param [format] - The info format to request from the WMS server.  This is usually a
+ * @param [format] - The info format to request from the server.  This is usually a
  *        MIME type such as 'application/json' or text/xml'.  If this parameter is not specified, the provider will request 'json'
  *        using 'application/json', 'xml' using 'text/xml', 'html' using 'text/html', and 'text' using 'text/plain'.
- * @param [callback] - A function to invoke with the GetFeatureInfo response from the WMS server
+ * @param [callback] - A function to invoke with the GetFeatureInfo response from the server
  *        in order to produce an array of picked {@link ImageryLayerFeatureInfo} instances.  If this parameter is not specified,
  *        a default function for the type of response is used.
  */
@@ -32872,31 +34327,28 @@ export function removeExtension(gltf: any, extension: string): any;
 export namespace Google2DImageryProvider {
     /**
      * Initialization options for the Google2DImageryProvider constructor
-     * @property options - Object with the following properties:
-     * @property options.key - The Google api key to send with tile requests.
-     * @property options.session - The Google session token that tracks the current state of your map and viewport.
-     * @property options.url - The Google 2D maps endpoint.
-     * @property options.tileWidth - The width of each tile in pixels.
-     * @property options.tileHeight - The height of each tile in pixels.
-     * @property [options.ellipsoid = Ellipsoid.default] - The ellipsoid.  If not specified, the default ellipsoid is used.
-     * @property [options.minimumLevel = 0] - The minimum level-of-detail supported by the imagery provider.  Take care when specifying
+     * @property key - The Google api key to send with tile requests.
+     * @property session - The Google session token that tracks the current state of your map and viewport.
+     * @property url - The Google 2D maps endpoint.
+     * @property tileWidth - The width of each tile in pixels.
+     * @property tileHeight - The height of each tile in pixels.
+     * @property [ellipsoid = Ellipsoid.default] - The ellipsoid.  If not specified, the default ellipsoid is used.
+     * @property [minimumLevel = 0] - The minimum level-of-detail supported by the imagery provider.  Take care when specifying
      *                 this that the number of tiles at the minimum level is small, such as four or less.  A larger number is likely
      *                 to result in rendering problems.
-     * @property [options.maximumLevel = 22] - The maximum level-of-detail supported by the imagery provider.
-     * @property [options.rectangle = Rectangle.MAX_VALUE] - The rectangle, in radians, covered by the image.
+     * @property [maximumLevel = 22] - The maximum level-of-detail supported by the imagery provider.
+     * @property [rectangle = Rectangle.MAX_VALUE] - The rectangle, in radians, covered by the image.
      */
     type ConstructorOptions = {
-        options: {
-            key: string;
-            session: string;
-            url: string | Resource | IonResource;
-            tileWidth: string;
-            tileHeight: string;
-            ellipsoid?: Ellipsoid;
-            minimumLevel?: number;
-            maximumLevel?: number;
-            rectangle?: Rectangle;
-        };
+        key: string;
+        session: string;
+        url: string | Resource | IonResource;
+        tileWidth: string;
+        tileHeight: string;
+        ellipsoid?: Ellipsoid;
+        minimumLevel?: number;
+        maximumLevel?: number;
+        rectangle?: Rectangle;
     };
 }
 
@@ -32995,7 +34447,7 @@ export class Google2DImageryProvider {
      * });
      * @example
      * // Google 2D roadmap overlay with custom styles
-     * const googleTileProvider = Cesium.Google2DImageryProvider.fromIonAssetId({
+     * const googleTilesProvider = Cesium.Google2DImageryProvider.fromIonAssetId({
      *     assetId: 3830184,
      *     overlayLayerType: "layerRoadmap",
      *     styles: [
@@ -33051,7 +34503,7 @@ export class Google2DImageryProvider {
      * // Google 2D roadmap overlay with custom styles
      * Cesium.GoogleMaps.defaultApiKey = "your-api-key";
      *
-     * const googleTileProvider = Cesium.Google2DImageryProvider.fromUrl({
+     * const googleTilesProvider = Cesium.Google2DImageryProvider.fromUrl({
      *     overlayLayerType: "layerRoadmap",
      *     styles: [
      *         {
@@ -33430,6 +34882,87 @@ export class GoogleEarthEnterpriseMapsProvider {
      * Gets or sets the URL to the Google Earth logo for display in the credit.
      */
     static logoUrl: string;
+}
+
+/**
+ * <div class="notice">
+ * This object is normally not instantiated directly, use {@link GoogleStreetViewCubeMapPanoramaProvider.fromUrl}.
+ * </div>
+ *
+ *
+ * Creates a {@link PanoramaProvider} which provides imagery from {@link https://developers.google.com/maps/documentation/streetview|Google Street View Static API} to be displayed in a panorama.
+ */
+export class GoogleStreetViewCubeMapPanoramaProvider {
+    constructor();
+    /**
+     * Gets the panorama primitive for a requested position and orientation.
+     * @example
+     * const provider = await Cesium.GoogleStreetViewCubeMapPanoramaProvider.fromUrl({
+     *   key: 'your Google Streetview Static api key'
+     * })
+     *
+     * const panoIdObject = provider.getNearestPanoId(position);
+     * const position = Cartographic.fromDegrees(panoIdObject.location.lng, panoIdObject.location.lat, 0);
+     *
+     * const primitive = await provider.loadPanorama({
+     *   cartographic: position,
+     *   panoId: panoIdObject.panoId
+     * });
+     * viewer.scene.primitive.add(primitive);
+     * @param options - Object with the following properties:
+     * @param options.cartographic - The position to place the panorama in the scene.
+     * @param [options.panoId] - The panoramaId identifier for the image in the Google API. If not provided this will be looked up for the provided cartographic location.
+     * @param [options.tileSize] - Optional tile size override (square).
+     * @param [options.signature] - Optional signature for signed URLs. See {@link https://developers.google.com/maps/documentation/streetview/digital-signature} for more information.
+     * @param [options.credit] - A credit for the data source, which is displayed on the canvas.
+     * @returns The panorama primitive textured with imagery.
+     */
+    loadPanorama(options: {
+        cartographic: Cartographic;
+        panoId?: string;
+        tileSize?: number;
+        signature?: string;
+        credit?: Credit | string;
+    }): CubeMapPanorama;
+    /**
+     * Gets the panoIds for the given cartographic location. See {@link https://developers.google.com/maps/documentation/tile/streetview#panoid-search}.
+     * @example
+     * const provider = await Cesium.GoogleStreetViewCubeMapPanoramaProvider.fromUrl({
+     *   key: 'your Google Streetview Static api key'
+     * })
+     * const panoIds = provider.getNearestPanoId(position);
+     * @param position - The position to search for the nearest panoId.
+     * @param [radius = 50] - The radius in meters to search for the nearest panoId.
+     * @returns an object containing a panoId, latitude, and longitude of the closest panorama
+     */
+    getNearestPanoId(position: Cartographic, radius?: number): any;
+    /**
+     * Gets metadata for panoId. See {@link https://developers.google.com/maps/documentation/tile/streetview#metadata_response} for response object.
+     * @example
+     * const panoIdObject = provider.getNearestPanoId(position);
+     * const panoIdMetadata = provider.getPanoIdMetadata(panoIdObject.panoId);
+     * @returns object containing metadata for the panoId.
+     */
+    getPanoIdMetadata(panoId: string): any;
+    /**
+     * Creates a {@link PanoramaProvider} which provides cube face images from the {@link https://developers.google.com/maps/documentation/streetview|Google Street View Static API}.
+     * @example
+     * const provider = await Cesium.GoogleStreetViewCubeMapPanoramaProvider.fromUrl({
+     *   key: 'your Google Streetview Static api key'
+     * })
+     * @param options - Object with the following properties:
+     * @param [options.key = GoogleMaps.defaultStreetViewStaticApiKey] - Your API key to access Google Street View Static API. See {@link https://developers.google.com/maps/documentation/javascript/get-api-key} for instructions on how to create your own key. If undefined, defaults to {@link GoogleMaps.defaultStreetViewStaticApiKey}. If that value is unavailable, falls back to {@link GoogleMaps.defaultApiKey}.
+     * @param [options.url = GoogleMaps.streetViewStaticApiEndpoint] - The URL to access Google Street View Static API. See {@link https://developers.google.com/maps/documentation/streetview/overview} for more information.
+     * @param [options.tileSize = 600] - Default width and height (in pixels) of each square tile.
+     * @param [options.credit] - A credit for the data source, which is displayed on the canvas.
+     * @returns A promise that resolves to the created GoogleStreetViewCubeMapPanoramaProvider.'
+     */
+    static fromUrl(options: {
+        key?: string;
+        url?: string | Resource;
+        tileSize?: number;
+        credit?: Credit | string;
+    }): Promise<GoogleStreetViewCubeMapPanoramaProvider>;
 }
 
 export namespace GridImageryProvider {
@@ -35533,7 +37066,7 @@ export namespace Label {
      * @property [pixelOffsetScaleByDistance] - A {@link NearFarScalar} specifying near and far pixel offset scaling properties of the label based on the label's distance from the camera.
      * @property [scaleByDistance] - A {@link NearFarScalar} specifying near and far scaling properties of the label based on the label's distance from the camera.
      * @property [distanceDisplayCondition] - A {@link DistanceDisplayCondition} specifying at what distance from the camera that this label will be displayed.
-     * @property [disableDepthTestDistance] - A number specifying the distance from the camera at which to disable the depth test to, for example, prevent clipping against terrain.
+     * @property [disableDepthTestDistance] - The distance from the camera, beyond which, depth testing is disabled—to, for example, prevent clipping against terrain.
      */
     type ConstructorOptions = {
         position: Cartesian3;
@@ -35767,10 +37300,11 @@ export class Label {
      */
     distanceDisplayCondition: DistanceDisplayCondition;
     /**
-     * Gets or sets the distance from the camera at which to disable the depth test to, for example, prevent clipping against terrain.
-     * When set to zero, the depth test is always applied. When set to Number.POSITIVE_INFINITY, the depth test is never applied.
+     * Gets or sets the distance from the camera, beyond which, depth testing is disabled—to, for example, prevent clipping against terrain.
+     * When set to <code>undefined</code> or
+     * <code>0</code>, the depth test is always applied. When set to Number.<code>POSITIVE_INFINITY</code>, the depth test is never applied.
      */
-    disableDepthTestDistance: number;
+    disableDepthTestDistance: number | undefined;
     /**
      * Gets or sets the user-defined value returned when the label is picked.
      */
@@ -35858,6 +37392,8 @@ export class Label {
  * is used for rendering both opaque and translucent labels. However, if either all of the labels are completely opaque or all are completely translucent,
  * setting the technique to BlendOption.OPAQUE or BlendOption.TRANSLUCENT can improve performance by up to 2x.
  * @param [options.show = true] - Determines if the labels in the collection will be shown.
+ * @param [options.coarseDepthTestDistance] - The distance from the camera, beyond which, labels are depth-tested against an approximation of the globe ellipsoid rather than against the full globe depth buffer. If unspecified, the default value is determined relative to the value of {@link Ellipsoid.default}.
+ * @param [options.threePointDepthTestDistance] - The distance from the camera, within which, lables with a {@link Label#heightReference} value of {@link HeightReference.CLAMP_TO_GROUND} or {@link HeightReference.CLAMP_TO_TERRAIN} are depth tested against three key points. This ensures that if any key point of the label is visible, the whole label will be visible. If unspecified, the default value is determined relative to the value of {@link Ellipsoid.default}.
  */
 export class LabelCollection {
     constructor(options?: {
@@ -35866,6 +37402,8 @@ export class LabelCollection {
         scene?: Scene;
         blendOption?: BlendOption;
         show?: boolean;
+        coarseDepthTestDistance?: number;
+        threePointDepthTestDistance?: number;
     });
     /**
      * Determines if labels in this collection will be shown.
@@ -35917,6 +37455,29 @@ export class LabelCollection {
      * in the collection.
      */
     readonly length: number;
+    /**
+     * The distance from the camera, beyond which, labels are depth-tested against an approximation of
+     * the globe ellipsoid rather than against the full globe depth buffer. When set to <code>0</code>, the
+     * approximate depth test is always applied. When set to <code>Number.POSITIVE_INFINITY</code>, the
+     * approximate depth test is never applied.
+     * <br/><br/>
+     * This setting only applies when a label's {@link Label#disableDepthTestDistance} value would
+     * otherwise allow depth testing—i.e., distance from the camera to the label is less than the
+     * label's {@link Label#disableDepthTestDistance} value.
+     */
+    coarseDepthTestDistance: number;
+    /**
+     * The distance from the camera, within which, labels with a {@link Label#heightReference} value
+     * of {@link HeightReference.CLAMP_TO_GROUND} or {@link HeightReference.CLAMP_TO_TERRAIN} are depth tested
+     * against three key points. This ensures that if any key point of the label is visible, the whole
+     * label will be visible. When set to <code>0</code>, this feature is disabled and portions of a
+     * label behind terrain be clipped.
+     * <br/><br/>
+     * This setting only applies when a labels's {@link Label#disableDepthTestDistance} value would
+     * otherwise allow depth testing—i.e., distance from the camera to the label is less than the
+     * labels's {@link Label#disableDepthTestDistance} value.
+     */
+    threePointDepthTestDistance: number;
     /**
      * Creates and adds a label with the specified initial properties to the collection.
      * The added label is returned so it can be modified or removed from the collection later.
@@ -36584,6 +38145,14 @@ export class Material {
      */
     translucent: boolean | ((...params: any[]) => any);
     /**
+     * The {@link TextureMinificationFilter} to apply to this material's textures.
+     */
+    minificationFilter: TextureMinificationFilter;
+    /**
+     * The {@link TextureMagnificationFilter} to apply to this material's textures.
+     */
+    magnificationFilter: TextureMagnificationFilter;
+    /**
      * Creates a new material using an existing material type.
      * <br /><br />
      * Shorthand for: new Material({fabric : {type : type}});
@@ -36741,16 +38310,6 @@ export class Material {
      */
     static readonly WaterMaskType: string;
 }
-
-/**
- * The {@link TextureMinificationFilter} to apply to this material's textures.
- */
-export var minificationFilter: TextureMinificationFilter;
-
-/**
- * The {@link TextureMagnificationFilter} to apply to this material's textures.
- */
-export var magnificationFilter: TextureMagnificationFilter;
 
 /**
  * Loads the images for a cubemap uniform, if it has changed since the last time this was called.
@@ -37006,8 +38565,8 @@ export class MetadataClassProperty {
         max?: number | number[] | number[][];
         offset?: number | number[] | number[][];
         scale?: number | number[] | number[][];
-        noData?: boolean | number | string | any[];
-        default?: boolean | number | string | any[];
+        noData?: number | string | any[];
+        default?: number | string | any[];
         required?: boolean;
         name?: string;
         description?: string;
@@ -37069,11 +38628,11 @@ export class MetadataClassProperty {
     /**
      * The no-data sentinel value that represents null values
      */
-    readonly noData: boolean | number | string | any[];
+    readonly noData: number | string | any[];
     /**
      * A default value to use when an entity's property value is not defined.
      */
-    readonly default: boolean | number | string | any[];
+    readonly default: number | string | any[];
     /**
      * Whether the property is required.
      */
@@ -37106,6 +38665,13 @@ export class MetadataClassProperty {
      * An object containing extensions.
      */
     readonly extensions: any;
+    /**
+     * Determines the byte size of a single property element, stored on the GPU.
+     * This differs from the CPU byte size if the element type is a 64-bit type that can be
+     * downcast to a 32-bit type for texture packing (only relevant for textures created from property tables).
+     * @returns The byte size of a single property element on the GPU.
+     */
+    gpuBytesPerElement(): number;
 }
 
 /**
@@ -37137,11 +38703,11 @@ export enum MetadataComponentType {
      */
     UINT32 = "UINT32",
     /**
-     * A 64-bit signed integer. This type requires BigInt support.
+     * A 64-bit signed integer.
      */
     INT64 = "INT64",
     /**
-     * A 64-bit signed integer. This type requires BigInt support
+     * A 64-bit signed integer.
      */
     UINT64 = "UINT64",
     /**
@@ -37571,6 +39137,15 @@ export enum CustomShaderTranslucencyMode {
      */
     TRANSLUCENT = 2
 }
+
+/**
+ * @property colors - The packed per-vertex colors.
+ * @property count - The number of vertices.
+ */
+export type VertexColorInfo = {
+    colors: Float32Array;
+    count: number;
+};
 
 export namespace AnchorPointDirect {
     /**
@@ -39210,6 +40785,45 @@ export class OpenStreetMapImageryProvider extends UrlTemplateImageryProvider {
 }
 
 /**
+ * Displays panorama imagery in a scene. This type describes an interface and is not intended to be instantiated directly.
+ */
+export class Panorama {
+    constructor();
+    /**
+     * Determines if the panorama will be shown.
+     */
+    show: boolean;
+    /**
+     * Gets the transform of the panorama.
+     */
+    readonly transform: Matrix4;
+    /**
+     * Gets the credits of the panorama.
+     */
+    readonly credit: Credit;
+}
+
+/**
+ * Provides imagery to be displayed on the surface of an ellipsoid.  This type describes an
+ * interface and is not intended to be instantiated directly.
+ */
+export class PanoramaProvider {
+    constructor();
+    /**
+     * Returns a panorama provider.
+     * @param options - Input options to create the panorama provider.
+     * @returns The panorama provider for loading panoramas into a scene.
+     */
+    static fromUrl(options: any): PanoramaProvider;
+    /**
+     * Returns a panorama primitive.
+     * @param options - Input options to create the panorama primitive.
+     * @returns The panorama primitive for displaying panoramas in a scene.
+     */
+    loadPanorama(options: any): Panorama;
+}
+
+/**
  * A particle emitted by a {@link ParticleSystem}.
  * @param options - An object with the following properties:
  * @param [options.mass = 1.0] - The mass of the particle in kilograms.
@@ -39681,35 +41295,6 @@ export class PerInstanceColorAppearance {
 }
 
 /**
- * The optional ID of the metadata schema
- */
-export var schemaId: string | undefined;
-
-/**
- * The name of the metadata class
- */
-export var className: string;
-
-/**
- * The name of the metadata property
- */
-export var propertyName: string;
-
-/**
- * The the `MetadataClassProperty` that is described by this
- * structure, as obtained from the `MetadataSchema`
- */
-export var classProperty: MetadataClassProperty;
-
-/**
- * The `PropertyTextureProperty` or `PropertyAttributeProperty` that
- * is described by this structure, as obtained from the property texture
- * or property attribute of the `StructuralMetadata` that matches the
- * class name and property name.
- */
-export var metadataProperty: any;
-
-/**
  * Compute the rectangle that describes the part of the drawing buffer
  * that is relevant for picking.
  * @param drawingBufferHeight - The height of the drawing buffer
@@ -39724,6 +41309,20 @@ export var metadataProperty: any;
 export function computePickingDrawingBufferRectangle(drawingBufferHeight: number, position: Cartesian2, width: number | undefined, height: number | undefined, result: BoundingRectangle): BoundingRectangle;
 
 /**
+ * Setup needed before picking.
+ * @param windowPosition - Window coordinates to perform picking on.
+ * @param drawingBufferRectangle - The output drawing buffer recangle.
+ * @param [width = 3] - Width of the pick rectangle.
+ * @param [height = 3] - Height of the pick rectangle.
+ */
+export function pickBegin(scene: Scene, windowPosition: Cartesian2, drawingBufferRectangle: BoundingRectangle, width?: number, height?: number): void;
+
+/**
+ * Teardown needed after picking.
+ */
+export function pickEnd(scene: Scene): void;
+
+/**
  * Information about metadata that is supposed to be picked
  * @property schemaId - The optional ID of the metadata schema
  * @property className - The name of the metadata class
@@ -39736,6 +41335,21 @@ export type PickedMetadataInfo = {
     propertyName: string;
     classProperty: MetadataClassProperty;
 };
+
+/**
+ * @param pickedResults - the results from the pickCallback
+ * @param limit - If supplied, stop drilling after collecting this many picks.
+ * @returns whether picking should end
+ */
+export function addDrillPickedResults(pickedResults: object[], limit: number, results: object[], pickedPrimitives: object[], pickedAttributes: object[], pickedFeatures: object[]): boolean;
+
+/**
+ * Drill pick by repeatedly calling a given `pickCallback`, each time stripping away the previously picked objects.
+ * @param pickCallback - Pick callback to execute each iteration
+ * @param [limit = Number.MAX_VALUE] - If supplied, stop drilling after collecting this many picks
+ * @returns List of picked results
+ */
+export function drillPick(pickCallback: (...params: any[]) => any, limit?: number): object[];
 
 /**
  * Remove all invalid binary body references from the batch table
@@ -40776,7 +42390,7 @@ export class PostProcessStageCollection {
     readonly length: number;
     /**
      * Specifies the tonemapping algorithm used when rendering with high dynamic range.
-     * {@link https://sandcastle.cesium.com/?src=High%20Dynamic%20Range.html|Sandcastle Demo}
+     * {@link https://sandcastle.cesium.com/?id=high-dynamic-range|Sandcastle Demo}
      * @example
      * viewer.scene.postProcessStages.tonemapper = Cesium.Tonemapper.ACES;
      */
@@ -41878,6 +43492,12 @@ export class Scene {
      */
     light: Light;
     /**
+     * Whether or not to enable edge visibility rendering for 3D tiles.
+     * When enabled, creates a framebuffer with multiple render targets
+     * for advanced edge detection and visibility techniques.
+     */
+    _enableEdgeVisibility: boolean;
+    /**
      * Use this to set the default value for {@link Scene#logarithmicDepthBuffer} in newly constructed Scenes
      * This property relies on fragmentDepth being supported.
      */
@@ -42113,6 +43733,24 @@ export class Scene {
      * @returns Object containing the picked primitive or <code>undefined</code> if nothing is at the location.
      */
     pick(windowPosition: Cartesian2, width?: number, height?: number): any | undefined;
+    /**
+     * Performs the same operation as Scene.pick but asynchonosly without blocking the main render thread.
+     * Requires WebGL2 else using fallback.
+     * @example
+     * // On mouse over, color the feature yellow.
+     * handler.setInputAction(function(movement) {
+     *     const feature = scene.pickAsync(movement.endPosition).then(function(feature) {
+     *        if (feature instanceof Cesium.Cesium3DTileFeature) {
+     *            feature.color = Cesium.Color.YELLOW;
+     *        }
+     *     });
+     * }, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
+     * @param windowPosition - Window coordinates to perform picking on.
+     * @param [width = 3] - Width of the pick rectangle.
+     * @param [height = 3] - Height of the pick rectangle.
+     * @returns Object containing the picked primitive or <code>undefined</code> if nothing is at the location.
+     */
+    pickAsync(windowPosition: Cartesian2, width?: number, height?: number): Promise<object | undefined>;
     /**
      * Returns a {@link VoxelCell} for the voxel sample rendered at a particular window coordinate,
      * or <code>undefined</code> if no voxel is rendered at that position.
@@ -42916,16 +44554,9 @@ export class SkyBox {
         show?: boolean;
     });
     /**
-     * The sources used to create the cube map faces: an object
-     * with <code>positiveX</code>, <code>negativeX</code>, <code>positiveY</code>,
-     * <code>negativeY</code>, <code>positiveZ</code>, and <code>negativeZ</code> properties.
-     * These can be either URLs or <code>Image</code> objects.
+     * Gets or sets the the primitive object.
      */
     sources: any;
-    /**
-     * Determines if the sky box will be shown.
-     */
-    show: boolean;
     /**
      * Called when {@link Viewer} or {@link CesiumWidget} render the scene to
      * get the draw commands needed to render this primitive.
@@ -42962,6 +44593,11 @@ export class SkyBox {
      */
     static createEarthSkyBox(): SkyBox;
 }
+
+/**
+ * Determines if the sky box will be shown.
+ */
+export var show: boolean;
 
 /**
  * A ParticleEmitter that emits particles within a sphere.
@@ -44586,13 +46222,14 @@ export namespace WebMapServiceImageryProvider {
      * @property url - The URL of the WMS service. The URL supports the same keywords as the {@link UrlTemplateImageryProvider}.
      * @property layers - The layers to include, separated by commas.
      * @property [parameters = WebMapServiceImageryProvider.DefaultParameters] - Additional parameters to pass to the WMS server in the GetMap URL.
-     * @property [getFeatureInfoParameters = WebMapServiceImageryProvider.GetFeatureInfoDefaultParameters] - Additional parameters to pass to the WMS server in the GetFeatureInfo URL.
      * @property [enablePickFeatures = true] - If true, {@link WebMapServiceImageryProvider#pickFeatures} will invoke
      *        the GetFeatureInfo operation on the WMS server and return the features included in the response.  If false,
      *        {@link WebMapServiceImageryProvider#pickFeatures} will immediately return undefined (indicating no pickable features)
      *        without communicating with the server.  Set this property to false if you know your WMS server does not support
      *        GetFeatureInfo or if you don't want this provider's features to be pickable. Note that this can be dynamically
      *        overridden by modifying the WebMapServiceImageryProvider#enablePickFeatures property.
+     * @property [getFeatureInfoParameters = WebMapServiceImageryProvider.GetFeatureInfoDefaultParameters] - Additional parameters to pass to the WMS server in the GetFeatureInfo URL.
+     * @property [getFeatureInfoUrl] - The getFeatureInfo URL of the WMS service. If the property is not defined then we use the property value of url.
      * @property [getFeatureInfoFormats = WebMapServiceImageryProvider.DefaultGetFeatureInfoFormats] - The formats
      *        in which to try WMS GetFeatureInfo requests.
      * @property [rectangle = Rectangle.MAX_VALUE] - The rectangle of the layer.
@@ -44615,14 +46252,14 @@ export namespace WebMapServiceImageryProvider {
      *                          an array, each element in the array is a subdomain.
      * @property [clock] - A Clock instance that is used when determining the value for the time dimension. Required when `times` is specified.
      * @property [times] - TimeIntervalCollection with its data property being an object containing time dynamic dimension and their values.
-     * @property [getFeatureInfoUrl] - The getFeatureInfo URL of the WMS service. If the property is not defined then we use the property value of url.
      */
     type ConstructorOptions = {
         url: Resource | string;
         layers: string;
         parameters?: any;
-        getFeatureInfoParameters?: any;
         enablePickFeatures?: boolean;
+        getFeatureInfoParameters?: any;
+        getFeatureInfoUrl?: Resource | string;
         getFeatureInfoFormats?: GetFeatureInfoFormat[];
         rectangle?: Rectangle;
         tilingScheme?: TilingScheme;
@@ -44637,7 +46274,6 @@ export namespace WebMapServiceImageryProvider {
         subdomains?: string | string[];
         clock?: Clock;
         times?: TimeIntervalCollection;
-        getFeatureInfoUrl?: Resource | string;
     };
 }
 
@@ -44796,21 +46432,32 @@ export namespace WebMapTileServiceImageryProvider {
      * @property layer - The layer name for WMTS requests.
      * @property style - The style name for WMTS requests.
      * @property tileMatrixSetID - The identifier of the TileMatrixSet to use for WMTS requests.
-     * @property [tileMatrixLabels] - A list of identifiers in the TileMatrix to use for WMTS requests, one per TileMatrix level.
-     * @property [clock] - A Clock instance that is used when determining the value for the time dimension. Required when `times` is specified.
-     * @property [times] - TimeIntervalCollection with its <code>data</code> property being an object containing time dynamic dimension and their values.
-     * @property [dimensions] - A object containing static dimensions and their values.
+     * @property [enablePickFeatures] - If true, {@link WebMapTileServiceImageryProvider#pickFeatures} will invoke
+     *                          the GetFeatureInfo operation on the WMTS server and return the features included in the response.  If false,
+     *                          {@link WebMapTileServiceImageryProvider#pickFeatures} will immediately return undefined (indicating no pickable features)
+     *                          without communicating with the server.  Set this property to false if you know your WMTS server does not support
+     *                          GetFeatureInfo or if you don't want this provider's features to be pickable.
+     *                          Defaults to true for KVP encoding. For RESTful encoding, defaults to true only when
+     *                          {@link WebMapTileServiceImageryProvider.ConstructorOptions#getFeatureInfoUrl} is specified, and false otherwise.
+     * @property [getFeatureInfoParameters] - Additional parameters to include in GetFeatureInfo requests. Keys are lowercased internally.
+     * @property [getFeatureInfoUrl] - The GetFeatureInfo URL of the WMTS service. If not specified, the value of <code>url</code> is used.
+     * @property [getFeatureInfoFormats = WebMapTileServiceImageryProvider.DefaultGetFeatureInfoFormats] - The formats
+     *                          in which to try WMTS GetFeatureInfo requests.
+     * @property [rectangle = Rectangle.MAX_VALUE] - The rectangle covered by the layer.
+     * @property [tilingScheme] - The tiling scheme corresponding to the organization of the tiles in the TileMatrixSet.
+     * @property [ellipsoid] - The ellipsoid.  If not specified, the WGS84 ellipsoid is used.
      * @property [tileWidth = 256] - The tile width in pixels.
      * @property [tileHeight = 256] - The tile height in pixels.
-     * @property [tilingScheme] - The tiling scheme corresponding to the organization of the tiles in the TileMatrixSet.
-     * @property [rectangle = Rectangle.MAX_VALUE] - The rectangle covered by the layer.
      * @property [minimumLevel = 0] - The minimum level-of-detail supported by the imagery provider.
      * @property [maximumLevel] - The maximum level-of-detail supported by the imagery provider, or undefined if there is no limit.
-     * @property [ellipsoid] - The ellipsoid.  If not specified, the WGS84 ellipsoid is used.
+     * @property [tileMatrixLabels] - A list of identifiers in the TileMatrix to use for WMTS requests, one per TileMatrix level.
      * @property [credit] - A credit for the data source, which is displayed on the canvas.
      * @property [subdomains = 'abc'] - The subdomains to use for the <code>{s}</code> placeholder in the URL template.
      *                          If this parameter is a single string, each character in the string is a subdomain.  If it is
      *                          an array, each element in the array is a subdomain.
+     * @property [clock] - A Clock instance that is used when determining the value for the time dimension. Required when `times` is specified.
+     * @property [times] - TimeIntervalCollection with its <code>data</code> property being an object containing time dynamic dimension and their values.
+     * @property [dimensions] - A object containing static dimensions and their values.
      */
     type ConstructorOptions = {
         url: Resource | string;
@@ -44818,19 +46465,23 @@ export namespace WebMapTileServiceImageryProvider {
         layer: string;
         style: string;
         tileMatrixSetID: string;
+        enablePickFeatures?: boolean;
+        getFeatureInfoParameters?: any;
+        getFeatureInfoUrl?: Resource | string;
+        getFeatureInfoFormats?: GetFeatureInfoFormat[];
+        rectangle?: Rectangle;
+        tilingScheme?: TilingScheme;
+        ellipsoid?: Ellipsoid;
+        tileWidth?: number;
+        tileHeight?: number;
+        minimumLevel?: number;
+        maximumLevel?: number;
         tileMatrixLabels?: any[];
+        credit?: Credit | string;
+        subdomains?: string | string[];
         clock?: Clock;
         times?: TimeIntervalCollection;
         dimensions?: any;
-        tileWidth?: number;
-        tileHeight?: number;
-        tilingScheme?: TilingScheme;
-        rectangle?: Rectangle;
-        minimumLevel?: number;
-        maximumLevel?: number;
-        ellipsoid?: Ellipsoid;
-        credit?: Credit | string;
-        subdomains?: string | string[];
     };
 }
 
@@ -44863,27 +46514,85 @@ export namespace WebMapTileServiceImageryProvider {
  * });
  * viewer.imageryLayers.addImageryProvider(shadedRelief2);
  * @example
- * // Example 3. NASA time dynamic weather data (RESTful)
+ * // Example 3: NASA time dynamic snowpack data (RESTful)
+ * // Define time intervals for the layer based on the capabilities XML
  * const times = Cesium.TimeIntervalCollection.fromIso8601({
- *     iso8601: '2015-07-30/2017-06-16/P1D',
- *     dataCallback: function dataCallback(interval, index) {
- *         return {
- *             Time: Cesium.JulianDate.toIso8601(interval.start)
- *         };
- *     }
+ *     iso8601: '2025-01-01/2025-09-01/P5D', // Use the valid interval(s) from the Dimension section
+ *     dataCallback: function(interval, index) {
+ *       // Return an object with the Time variable used in the URL template
+ *       return {
+ *           Time: Cesium.JulianDate.toIso8601(interval.start, 0)
+ *       };
+ *   }
  * });
+ * // Get the internal clock,  set desired start, stop, and multiplier
+ * const clock = viewer.clock;
+ * clock.startTime = Cesium.JulianDate.fromIso8601('2025-01-01');
+ * clock.currentTime = Cesium.JulianDate.fromIso8601('2025-01-01');
+ * clock.stopTime = Cesium.JulianDate.fromIso8601('2025-09-01');
+ * clock.clockRange = Cesium.ClockRange.LOOP_STOP;
+ * clock.multiplier = 1; // 1 day per second
+ * clock.clockStep = Cesium.ClockStep.SYSTEM_CLOCK_MULTIPLIER;
+ *
+ * viewer.timeline.zoomTo(clock.startTime, clock.stopTime);
+ *
  * const weather = new Cesium.WebMapTileServiceImageryProvider({
- *     url : 'https://gibs.earthdata.nasa.gov/wmts/epsg4326/best/AMSR2_Snow_Water_Equivalent/default/{Time}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.png',
- *     layer : 'AMSR2_Snow_Water_Equivalent',
- *     style : 'default',
- *     tileMatrixSetID : '2km',
- *     maximumLevel : 5,
- *     format : 'image/png',
+ *     url: 'https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/AMSRU2_Snow_Water_Equivalent_5Day/default/{Time}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.png',
+ *     layer: 'AMSRU2_Snow_Water_Equivalent_5Day',
+ *     style: 'default',
+ *     tileMatrixSetID: 'GoogleMapsCompatible_Level6',
+ *     format: 'image/png',
  *     clock: clock,
  *     times: times,
- *     credit : new Cesium.Credit('NASA Global Imagery Browse Services for EOSDIS')
+ *     credit: new Cesium.Credit('NASA Global Imagery Browse Services for EOSDIS')
  * });
  * viewer.imageryLayers.addImageryProvider(weather);
+ * @example
+ * // Example 4. Digital Earth AfricA waterbodies with GetFeatureInfo support (RESTful)
+ * const waterbodies = new Cesium.WebMapTileServiceImageryProvider({
+ *    url: "https://geoserver.digitalearth.africa/geoserver/gwc/service/wmts/rest/{layer}/{style}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}?format={format}",
+ *    layer: "waterbodies:DEAfrica_Waterbodies",
+ *    style: "waterbodies:waterbodies_v0_0_4",
+ *    tileMatrixSetID: "EPSG:3857",
+ *    tileMatrixLabels: [
+ *      "EPSG:3857:0",
+ *      "EPSG:3857:1",
+ *      "EPSG:3857:2",
+ *      "EPSG:3857:3",
+ *      "EPSG:3857:4",
+ *      "EPSG:3857:5",
+ *      "EPSG:3857:6",
+ *      "EPSG:3857:7",
+ *      "EPSG:3857:8",
+ *      "EPSG:3857:9",
+ *      "EPSG:3857:10",
+ *      "EPSG:3857:11",
+ *      "EPSG:3857:12",
+ *      "EPSG:3857:13",
+ *      "EPSG:3857:14",
+ *      "EPSG:3857:15",
+ *      "EPSG:3857:16",
+ *      "EPSG:3857:17",
+ *      "EPSG:3857:18",
+ *      "EPSG:3857:19",
+ *      "EPSG:3857:20",
+ *      "EPSG:3857:21",
+ *      "EPSG:3857:22",
+ *      "EPSG:3857:23",
+ *      "EPSG:3857:24",
+ *      "EPSG:3857:25",
+ *      "EPSG:3857:26",
+ *      "EPSG:3857:27",
+ *      "EPSG:3857:28",
+ *      "EPSG:3857:29",
+ *      "EPSG:3857:30",
+ *    ],
+ *    format: "image/png",
+ *    enablePickFeatures: true,
+ *    getFeatureInfoUrl: "https://geoserver.digitalearth.africa/geoserver/gwc/service/wmts/rest/{layer}/{style}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}/{j}/{i}?format={format}",
+ * });
+ *
+ * viewer.imageryLayers.addImageryProvider(waterbodies);
  * @param options - Object describing initialization options
  */
 export class WebMapTileServiceImageryProvider {
@@ -44950,6 +46659,16 @@ export class WebMapTileServiceImageryProvider {
      */
     readonly hasAlphaChannel: boolean;
     /**
+     * Gets or sets a value indicating whether feature picking is enabled.  If true, {@link WebMapTileServiceImageryProvider#pickFeatures} will
+     * invoke the <code>GetFeatureInfo</code> service on the WMTS server and attempt to interpret the features included in the response.  If false,
+     * {@link WebMapTileServiceImageryProvider#pickFeatures} will immediately return undefined (indicating no pickable
+     * features) without communicating with the server.  Set this property to false if you know your data
+     * source does not support picking features or if you don't want this provider's features to be pickable.
+     * Defaults to true for KVP encoding. For RESTful encoding, defaults to true only when
+     * {@link WebMapTileServiceImageryProvider.ConstructorOptions#getFeatureInfoUrl} is specified, and false otherwise.
+     */
+    enablePickFeatures: boolean;
+    /**
      * Gets or sets a clock that is used to get keep the time used for time dynamic parameters.
      */
     clock: Clock;
@@ -44963,6 +46682,10 @@ export class WebMapTileServiceImageryProvider {
      * Gets or sets an object that contains static dimensions and their values.
      */
     dimensions: any;
+    /**
+     * Gets the getFeatureInfo URL of the WMTS server.
+     */
+    readonly getFeatureInfoUrl: Resource | string;
     /**
      * Gets the credits to be displayed when a given tile is displayed.
      * @param x - The tile X coordinate.
@@ -44982,16 +46705,32 @@ export class WebMapTileServiceImageryProvider {
      */
     requestImage(x: number, y: number, level: number, request?: Request): Promise<ImageryTypes> | undefined;
     /**
-     * Picking features is not currently supported by this imagery provider, so this function simply returns
-     * undefined.
+     * Asynchronously determines what features, if any, are located at a given longitude and latitude within
+     * a tile.
      * @param x - The tile X coordinate.
      * @param y - The tile Y coordinate.
      * @param level - The tile level.
      * @param longitude - The longitude at which to pick features.
      * @param latitude - The latitude at which to pick features.
-     * @returns Undefined since picking is not supported.
+     * @returns A promise for the picked features that will resolve when the asynchronous
+     *                   picking completes.  The resolved value is an array of {@link ImageryLayerFeatureInfo}
+     *                   instances.  The array may be empty if no features are found at the given location.
      */
-    pickFeatures(x: number, y: number, level: number, longitude: number, latitude: number): undefined;
+    pickFeatures(x: number, y: number, level: number, longitude: number, latitude: number): Promise<ImageryLayerFeatureInfo[]> | undefined;
+    /**
+     * The default parameters to include in the WMTS URL to obtain images.  The values are as follows:
+     *    service=WMTS
+     *    version=1.0.0
+     *    request=GetTile
+     */
+    static readonly DefaultParameters: any;
+    /**
+     * The default parameters to include in the WMTS URL to get feature information.  The values are as follows:
+     *     service=WMTS
+     *     version=1.0.0
+     *     request=GetFeatureInfo
+     */
+    static readonly GetFeatureInfoDefaultParameters: any;
 }
 
 /**

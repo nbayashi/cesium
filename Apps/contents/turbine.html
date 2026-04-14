@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+  <!-- Use correct character set. -->
+  <meta charset="utf-8" />
+  <!-- Tell IE to use the latest, best version. -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+  <title>風力発電タテール（仮）</title>
+  <script src="https://nbayashi.github.io/cesium/Cesium_template/Build/Cesium/Cesium.js"></script>
+  <link rel="stylesheet" href="turbine/style.css">
+</head>
+
+<body>
+  <div id="cesiumContainer"></div>
+
+
+
+
+  <div id="toolbar">
+    <table>
+      <tr>
+        <td>
+          <div>地形表現</div>
+          <select id="terrainSelect">
+            <option value="none">なし</option>
+            <option value="world" selected>あり</option>
+          </select>
+        </td>
+        <td>
+          <div>風車モデル</div>
+          <select id="modelSelect">
+            <option value="2MW" selected>風車2MW</option>
+            <option value="5MW">風車5MW</option>
+          </select>
+        </td>
+        <td>
+          <div>Heading</div>
+          <input type="range" min="0.0" max="360.0" step="1" data-bind="value: height, valueUpdate: 'input'">
+          <input type="text" size="5" data-bind="value: height">
+        </td>
+        <td>
+          <input type="checkbox" id="shadowToggle">
+          <label for="shadowToggle"> Shadow</label>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button id="togglePlacementMode" class="off">風車設置モード: OFF</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+
+
+  <div id="collapsibleModelList">
+    <button id="toggleModelList" class="hamburger-icon" title="モデルリストを表示/非表示">
+      &#9776; </button>
+    <div id="modelListContainer">
+      <h3>設置済みモデル</h3>
+      <ul id="placedModelList">
+        </ul>
+    </div>
+  </div>
+  
+  <script src="turbine/App2.js"></script>
+</body>
+
+</html>

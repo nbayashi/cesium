@@ -96,7 +96,7 @@ void main()\n\
     Metadata metadata;\n\
     MetadataClass metadataClass;\n\
     MetadataStatistics metadataStatistics;\n\
-    metadataStage(metadata, metadataClass, metadataStatistics, attributes);\n\
+    metadataStage(featureIds, metadata, metadataClass, metadataStatistics, attributes);\n\
 \n\
     #ifdef HAS_VERTICAL_EXAGGERATION\n\
     verticalExaggerationStage(attributes);\n\
@@ -110,6 +110,10 @@ void main()\n\
     // Compute the final position in each coordinate system needed.\n\
     // This returns the value that will be assigned to gl_Position.\n\
     vec4 positionClip = geometryStage(attributes, modelView, normal);\n\
+\n\
+    #if defined(HAS_LINE_CUMULATIVE_DISTANCE) || defined(HAS_LINE_PATTERN)\n\
+    lineStyleStageVS(attributes);\n\
+    #endif\n\
 \n\
     // This must go after the geometry stage as it needs v_positionWC\n\
     #ifdef HAS_ATMOSPHERE\n\
@@ -143,10 +147,12 @@ void main()\n\
         gl_PointSize = vsOutput.pointSize;\n\
         #elif defined(HAS_POINT_CLOUD_POINT_SIZE_STYLE) || defined(HAS_POINT_CLOUD_ATTENUATION)\n\
         gl_PointSize = pointCloudPointSizeStylingStage(attributes, metadata);\n\
+        #elif defined(HAS_POINT_DIAMETER)\n\
+        gl_PointSize = u_pointDiameter;\n\
         #else\n\
         gl_PointSize = 1.0;\n\
         #endif\n\
-        \n\
+\n\
         gl_PointSize *= show;\n\
     #endif\n\
 \n\
@@ -155,6 +161,10 @@ void main()\n\
     //\n\
     // We will discard points with v_pointCloudShow == 0 in the fragment shader.\n\
     gl_Position = positionClip;\n\
+\n\
+    #ifdef HAS_EDGE_VISIBILITY\n\
+    edgeVisibilityStageVS();\n\
+    #endif\n\
 \n\
     #ifdef HAS_POINT_CLOUD_SHOW_STYLE\n\
     v_pointCloudShow = show;\n\

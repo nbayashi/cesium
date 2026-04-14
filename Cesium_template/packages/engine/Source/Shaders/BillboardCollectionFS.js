@@ -1,5 +1,7 @@
 //This file is automatically rebuilt by the Cesium build process.
 export default "uniform sampler2D u_atlas;\n\
+uniform float u_coarseDepthTestDistance;\n\
+uniform float u_threePointDepthTestDistance;\n\
 \n\
 #ifdef VECTOR_TILE\n\
 uniform vec4 u_highlightColor;\n\
@@ -8,43 +10,20 @@ uniform vec4 u_highlightColor;\n\
 in vec2 v_textureCoordinates;\n\
 in vec4 v_pickColor;\n\
 in vec4 v_color;\n\
-in float v_splitDirection;\n\
+flat in vec2 v_splitDirectionAndEllipsoidDepthEC;\n\
 \n\
 #ifdef SDF\n\
 in vec4 v_outlineColor;\n\
 in float v_outlineWidth;\n\
 #endif\n\
 \n\
-#ifdef FRAGMENT_DEPTH_CHECK\n\
-in vec4 v_textureCoordinateBounds;                  // the min and max x and y values for the texture coordinates\n\
-in vec4 v_originTextureCoordinateAndTranslate;      // texture coordinate at the origin, billboard translate (used for label glyphs)\n\
 in vec4 v_compressed;                               // x: eyeDepth, y: applyTranslate & enableDepthCheck, z: dimensions, w: imageSize\n\
-in mat2 v_rotationMatrix;\n\
-\n\
-const float SHIFT_LEFT12 = 4096.0;\n\
 const float SHIFT_LEFT1 = 2.0;\n\
-\n\
-const float SHIFT_RIGHT12 = 1.0 / 4096.0;\n\
 const float SHIFT_RIGHT1 = 1.0 / 2.0;\n\
 \n\
-float getGlobeDepth(vec2 adjustedST, vec2 depthLookupST, bool applyTranslate, vec2 dimensions, vec2 imageSize)\n\
+float getGlobeDepthAtCoords(vec2 st)\n\
 {\n\
-    vec2 lookupVector = imageSize * (depthLookupST - adjustedST);\n\
-    lookupVector = v_rotationMatrix * lookupVector;\n\
-    vec2 labelOffset = (dimensions - imageSize) * (depthLookupST - vec2(0.0, v_originTextureCoordinateAndTranslate.y)); // aligns label glyph with bounding rectangle.  Will be zero for billboards because dimensions and imageSize will be equal\n\
-\n\
-    vec2 translation = v_originTextureCoordinateAndTranslate.zw;\n\
-\n\
-    if (applyTranslate)\n\
-    {\n\
-        // this is only needed for labels where the horizontal origin is not LEFT\n\
-        // it moves the label back to where the \"origin\" should be since all label glyphs are set to HorizontalOrigin.LEFT\n\
-        translation += (dimensions * v_originTextureCoordinateAndTranslate.xy * vec2(1.0, 0.0));\n\
-    }\n\
-\n\
-    vec2 st = ((lookupVector - translation + labelOffset) + gl_FragCoord.xy) / czm_viewport.zw;\n\
     float logDepthOrDepth = czm_unpackDepth(texture(czm_globeDepthTexture, st));\n\
-\n\
     if (logDepthOrDepth == 0.0)\n\
     {\n\
         return 0.0; // not on the globe\n\
@@ -53,8 +32,6 @@ float getGlobeDepth(vec2 adjustedST, vec2 depthLookupST, bool applyTranslate, ve
     vec4 eyeCoordinate = czm_windowToEyeCoordinates(gl_FragCoord.xy, logDepthOrDepth);\n\
     return eyeCoordinate.z / eyeCoordinate.w;\n\
 }\n\
-#endif\n\
-\n\
 \n\
 #ifdef SDF\n\
 \n\
@@ -86,11 +63,89 @@ vec4 getSDFColor(vec2 position, float outlineWidth, vec4 outlineColor, float smo
 }\n\
 #endif\n\
 \n\
+bool getDepthTestEnabled() {\n\
+    float temp = v_compressed.y;\n\
+    temp = temp * SHIFT_RIGHT1;\n\
+    float temp2 = (temp - floor(temp)) * SHIFT_LEFT1;\n\
+    return temp2 != 0.0;\n\
+}\n\
+\n\
+float getRelativeEyeDepth(float eyeDepth, float distanceToEllipsoid, float epsilon) {\n\
+    float depthDifferential = eyeDepth - distanceToEllipsoid;\n\
+    float depthRatio = abs(depthDifferential / distanceToEllipsoid);\n\
+    if (depthRatio < epsilon) {\n\
+        // The approximations are imprecise, so use an epsilon check for small value differences and assume a value of 0.0\n\
+        return 0.0;\n\
+    }\n\
+\n\
+    return depthDifferential;\n\
+}\n\
+\n\
+// Extra manual depth testing is done to allow more control over how a billboard is occluded\n\
+// by the globe when near and far from the camera.\n\
+void doDepthTest(float eyeDepth, float globeDepth) {\n\
+\n\
+#ifdef VS_THREE_POINT_DEPTH_CHECK\n\
+    // Since discarding vertices is not possible, the vertex shader sets eyeDepth to 0 to indicate the depth test failed. Apply the discard here.\n\
+    if (eyeDepth > -u_threePointDepthTestDistance) {\n\
+        if (eyeDepth == 0.0) {\n\
+            discard;\n\
+        }\n\
+        return;\n\
+    }\n\
+#endif\n\
+    bool useGlobeDepth = eyeDepth > -u_coarseDepthTestDistance;\n\
+    if (useGlobeDepth && globeDepth == 0.0) {\n\
+        // Pixel is not on the globe, so there is no distance to compare against. Pass.\n\
+        return;\n\
+    }\n\
+\n\
+    // If the camera is close, compare against the globe depth texture that includes depth from the 3D tile pass.\n\
+    if (useGlobeDepth && getRelativeEyeDepth(eyeDepth, globeDepth, czm_epsilon1) < 0.0) {\n\
+        discard;\n\
+    }\n\
+}\n\
+\n\
+#ifdef LOG_DEPTH\n\
+void writeDepth(float eyeDepth, float globeDepth, float distanceToEllipsoid) {\n\
+    // If we've made it here, the manual depth test above determined that this fragment should be visible.\n\
+    // But the automatic depth test must still run in order to write the result to the depth buffer, and its results may\n\
+    // disagree with our manual depth test's results. To prefer our manual results when in front of the globe, apply an offset towards the camera.\n\
+\n\
+    float depthArg = v_depthFromNearPlusOne;\n\
+\n\
+    if (globeDepth != 0.0 && getRelativeEyeDepth(eyeDepth, distanceToEllipsoid, czm_epsilon3) > 0.0) {\n\
+        float globeDepthFromNearPlusOne = (-globeDepth - czm_currentFrustum.x) + 1.0;\n\
+        float nudge = max(globeDepthFromNearPlusOne * 5e-6, czm_epsilon7);\n\
+        float globeOnTop = max(1.0, globeDepthFromNearPlusOne - nudge);\n\
+        depthArg = min(depthArg, globeOnTop);\n\
+    }\n\
+\n\
+    czm_writeLogDepth(depthArg);\n\
+}\n\
+#endif\n\
+\n\
 void main()\n\
 {\n\
-    if (v_splitDirection < 0.0 && gl_FragCoord.x > czm_splitPosition) discard;\n\
-    if (v_splitDirection > 0.0 && gl_FragCoord.x < czm_splitPosition) discard;\n\
-    \n\
+    if (v_splitDirectionAndEllipsoidDepthEC.x < 0.0 && gl_FragCoord.x > czm_splitPosition) {\n\
+        discard;\n\
+    }\n\
+    if (v_splitDirectionAndEllipsoidDepthEC.x > 0.0 && gl_FragCoord.x < czm_splitPosition) {\n\
+        discard;\n\
+    }\n\
+\n\
+    if (getDepthTestEnabled()) {\n\
+        vec2 fragSt = gl_FragCoord.xy / czm_viewport.zw;\n\
+        float eyeDepth = v_compressed.x;\n\
+        float globeDepth = getGlobeDepthAtCoords(fragSt);\n\
+        float distanceToEllipsoid = -v_splitDirectionAndEllipsoidDepthEC.y;\n\
+        doDepthTest(eyeDepth, globeDepth);\n\
+\n\
+        #ifdef LOG_DEPTH\n\
+        writeDepth(eyeDepth, globeDepth, distanceToEllipsoid);\n\
+        #endif\n\
+    }\n\
+\n\
     vec4 color = texture(u_atlas, v_textureCoordinates);\n\
 \n\
 #ifdef SDF\n\
@@ -155,56 +210,5 @@ void main()\n\
     color *= u_highlightColor;\n\
 #endif\n\
     out_FragColor = color;\n\
-\n\
-#ifdef LOG_DEPTH\n\
-    czm_writeLogDepth();\n\
-#endif\n\
-\n\
-#ifdef FRAGMENT_DEPTH_CHECK\n\
-    float temp = v_compressed.y;\n\
-\n\
-    temp = temp * SHIFT_RIGHT1;\n\
-\n\
-    float temp2 = (temp - floor(temp)) * SHIFT_LEFT1;\n\
-    bool enableDepthTest = temp2 != 0.0;\n\
-    bool applyTranslate = floor(temp) != 0.0;\n\
-\n\
-    if (enableDepthTest) {\n\
-        temp = v_compressed.z;\n\
-        temp = temp * SHIFT_RIGHT12;\n\
-\n\
-        vec2 dimensions;\n\
-        dimensions.y = (temp - floor(temp)) * SHIFT_LEFT12;\n\
-        dimensions.x = floor(temp);\n\
-\n\
-        temp = v_compressed.w;\n\
-        temp = temp * SHIFT_RIGHT12;\n\
-\n\
-        vec2 imageSize;\n\
-        imageSize.y = (temp - floor(temp)) * SHIFT_LEFT12;\n\
-        imageSize.x = floor(temp);\n\
-\n\
-        vec2 adjustedST = v_textureCoordinates - v_textureCoordinateBounds.xy;\n\
-        adjustedST = adjustedST / vec2(v_textureCoordinateBounds.z - v_textureCoordinateBounds.x, v_textureCoordinateBounds.w - v_textureCoordinateBounds.y);\n\
-\n\
-        float epsilonEyeDepth = v_compressed.x + czm_epsilon1;\n\
-        float globeDepth1 = getGlobeDepth(adjustedST, v_originTextureCoordinateAndTranslate.xy, applyTranslate, dimensions, imageSize);\n\
-\n\
-        // negative values go into the screen\n\
-        if (globeDepth1 != 0.0 && globeDepth1 > epsilonEyeDepth)\n\
-        {\n\
-            float globeDepth2 = getGlobeDepth(adjustedST, vec2(0.0, 1.0), applyTranslate, dimensions, imageSize); // top left corner\n\
-            if (globeDepth2 != 0.0 && globeDepth2 > epsilonEyeDepth)\n\
-            {\n\
-                float globeDepth3 = getGlobeDepth(adjustedST, vec2(1.0, 1.0), applyTranslate, dimensions, imageSize); // top right corner\n\
-                if (globeDepth3 != 0.0 && globeDepth3 > epsilonEyeDepth)\n\
-                {\n\
-                    discard;\n\
-                }\n\
-            }\n\
-        }\n\
-    }\n\
-#endif\n\
-\n\
 }\n\
 ";

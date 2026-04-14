@@ -1,7 +1,7 @@
 /**
  * @license
  * Cesium - https://github.com/CesiumGS/cesium
- * Version 1.134.0
+ * Version 1.140.0
  *
  * Copyright 2011-2022 Cesium Contributors
  *
@@ -25,32 +25,34 @@
 
 import {
   require_draco_decoder_nodejs
-} from "./chunk-4PH27XAL.js";
+} from "./chunk-MKM27KGV.js";
 import {
   Color_default
-} from "./chunk-SGGO5WVA.js";
+} from "./chunk-KLPGTXS3.js";
 import {
   createTaskProcessorWorker_default
-} from "./chunk-LNTUIO55.js";
+} from "./chunk-AMIHNSST.js";
 import {
   WebMercatorProjection_default
-} from "./chunk-BDPSQXLX.js";
+} from "./chunk-DVB56LG7.js";
+import {
+  Cartographic_default,
+  Ellipsoid_default
+} from "./chunk-GOQBUCXH.js";
 import {
   Cartesian3_default,
-  Cartographic_default,
-  Ellipsoid_default,
   Matrix3_default
-} from "./chunk-CF72FAKC.js";
+} from "./chunk-ZBZRTRJB.js";
 import {
   Math_default
-} from "./chunk-NP46ZIBY.js";
+} from "./chunk-5GXYJQ2K.js";
 import {
   Check_default
-} from "./chunk-JJZWDROM.js";
+} from "./chunk-VLDEUTOP.js";
 import {
   __toESM,
   defined_default
-} from "./chunk-5GHCWGC4.js";
+} from "./chunk-AJLTU6PF.js";
 
 // packages/engine/Source/Workers/decodeI3S.js
 var import_draco_decoder_nodejs = __toESM(require_draco_decoder_nodejs(), 1);
@@ -633,8 +635,8 @@ function generateGltfBuffer(vertexCount, indices, positions, normals, uv0s, colo
     componentType: 5126,
     count: meshPositions.length / 3,
     type: "VEC3",
-    max: [minX, minY, minZ],
-    min: [maxX, maxY, maxZ]
+    min: [minX, minY, minZ],
+    max: [maxX, maxY, maxZ]
   });
   if (defined_default(normalsURL)) {
     attributes.NORMAL = accessors.length;

@@ -65,7 +65,7 @@ import DynamicEnvironmentMapManager from "./DynamicEnvironmentMapManager.js";
 import ImageryLayerCollection from "./ImageryLayerCollection.js";
 
 /**
- * @typedef {Object} Cesium3DTileset.ConstructorOptions
+ * @typedef {object} Cesium3DTileset.ConstructorOptions
  *
  * Initialization options for the Cesium3DTileset constructor
  *
@@ -3674,6 +3674,7 @@ Cesium3DTileset.supportedExtensions = {
   "3DTILES_bounding_volume_S2": true,
   "3DTILES_batch_table_hierarchy": true,
   "3DTILES_draco_point_compression": true,
+  CESIUM_mesh_vector: true,
   MAXAR_content_geojson: true,
 };
 
